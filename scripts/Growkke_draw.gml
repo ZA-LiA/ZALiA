@@ -10,7 +10,7 @@ var _i, _x,_y;
 
 
 
-pal_swap_set(p.palette_image, palidx, false);
+pal_swap_set(p.palette_image, palidx);
 
 _y = GROUND_Y - 4 + draw_yoff;
 for(_i=ds_grid_width(dg_segments)-1; _i>=0; _i--)

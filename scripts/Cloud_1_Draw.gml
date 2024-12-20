@@ -14,8 +14,8 @@ switch(ver)
     //if (g.view_lock_rm&$C) _PAGES_Y = 1;
     
     
-    if (palidx_permut) pal_swap_set(p.palette_image, get_pi(palidx,palidx_permut), false);
-    else               pal_swap_set(p.palette_image, palidx, false);
+    if (palidx_permut) pal_swap_set(p.palette_image, get_pi(palidx,palidx_permut));
+    else               pal_swap_set(p.palette_image, palidx);
     
     for(_i=0; _i<_PAGES_Y; _i++) // each vertical map page
     {
@@ -85,8 +85,8 @@ switch(ver)
     // while (_CloudArea_yt + (CloudArea_H+DIST3))
     
     
-    if (palidx_permut) pal_swap_set(p.palette_image, get_pi(palidx,palidx_permut), false);
-    else               pal_swap_set(p.palette_image, palidx, false);
+    if (palidx_permut) pal_swap_set(p.palette_image, get_pi(palidx,palidx_permut));
+    else               pal_swap_set(p.palette_image, palidx);
     
     for(_i=0; _i<_COUNT1; _i++) // each template set, vertical
     {

@@ -32,7 +32,7 @@ set_background_color(p.C_BLK1);
 // ---------------------------------------------------------------------------------------------
 FileSelect_build_surfaces();
 
-pal_swap_set(p.palette_image, PI_GUI_1, false);
+pal_swap_set(p.palette_image, PI_GUI_1);
 switch(state){
 case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      viewXC()-(surface_get_width(surf_MAIN)>>1),surf_MAIN_YT); break;}//case State_MAIN
 //case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      surf_MAIN_XL,surf_MAIN_YT); break;}//case State_MAIN

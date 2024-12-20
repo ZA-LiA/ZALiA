@@ -18,7 +18,7 @@ var _Y2     = viewYT() + Y_LINE2;
 
 
 
-pal_swap_set(p.palette_image, PI_MENU, false);
+pal_swap_set(p.palette_image, PI_MENU);
 
 
 

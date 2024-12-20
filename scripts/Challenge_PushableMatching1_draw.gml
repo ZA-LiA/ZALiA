@@ -10,7 +10,7 @@ var _i, _x,_y, _spr;
 
 if (Door_state)
 {
-    pal_swap_set(p.palette_image, Blocks_PI, false);
+    pal_swap_set(p.palette_image, Blocks_PI);
     var _C1 = Door_state==1  ||  Door_timer >= DRAW_CUE1;
     for(_i=0; _i<Door_Blocks_COUNT; _i++)
     {

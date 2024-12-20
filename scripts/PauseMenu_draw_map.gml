@@ -112,8 +112,8 @@ else if (paper_drawn_clms>2)
     //
     
     
-    pal_swap_set(p.palette_image, get_pi(PI_GUI_1), false); // BLUE room outline
-    //pal_swap_set(p.palette_image, get_pi(PI_GUI_1, 1), false); // RED room outline
+    pal_swap_set(p.palette_image, get_pi(PI_GUI_1)); // BLUE room outline
+    //pal_swap_set(p.palette_image, get_pi(PI_GUI_1, 1)); // RED room outline
     
     for(_i=ds_grid_width(dg_dngn_map)-1; _i>=0; _i--)
     {

@@ -31,7 +31,7 @@ for(_i=ds_list_size(g.dl_pal_swap_depths)-1; _i>=0; _i--)
     // 3: permut: permutation
     if (dg_depth_pi[#_idx,3]) _pi = get_pi(_pi, dg_depth_pi[#_idx,3]);
     
-    pal_swap_set_tiles(palette_image,_pi, _depth,_depth, false);
+    pal_swap_set_tiles(palette_image,_pi, _depth,_depth);
 }
 
 // $0302-0314. $0C bytes, 3 or palettes

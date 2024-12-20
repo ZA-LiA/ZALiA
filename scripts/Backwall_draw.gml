@@ -16,7 +16,7 @@ switch(ver)
     _y=y;
     _count  = viewW()>>3;
     _count += sign(abs(_DIR));
-    pal_swap_set(p.palette_image, palidx, false);
+    pal_swap_set(p.palette_image, palidx);
     for(_i=_count-1; _i>=0; _i--)
     {
         _x=_X+(_i<<3);

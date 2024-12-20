@@ -1,13 +1,14 @@
 /// BurnableMgr_Draw()
 
 
+if (!variable_instance_exists(self, "can_draw")) exit;
 if(!can_draw)  exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     can_draw = false;
 //
 
 var _x,_y, _spr;
 
-pal_swap_set(p.palette_image, FIRE_PI, false);
+pal_swap_set(p.palette_image, FIRE_PI);
 
 for(var _i=ds_grid_width(dg_Burnable)-1; _i>=0; _i--)
 {
