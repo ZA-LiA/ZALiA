@@ -9,7 +9,7 @@ if (argument_count>4
 &&  argument[4]  // if pal index >= .5
 &&  argument[4]<global.palette_image_W )
 {
-    pal_swap_set(p.palette_image, argument[4], false); // Won't run if pal index is out of range
+    pal_swap_set(p.palette_image, argument[4]); // Won't run if pal index is out of range
 }
 
 

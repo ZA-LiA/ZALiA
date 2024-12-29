@@ -16,7 +16,7 @@ if (use_tiles)
     var _x    = 0;
     var _y    = 0;
     
-    pal_swap_set(p.palette_image, palidx, false);
+    pal_swap_set(p.palette_image, palidx);
     for(_i=0; _i<4; _i++)
     {
         _ts_x = ( ( _TSRC>>((_i<<3)+$0) )&$F) <<3;

@@ -25,7 +25,7 @@ if (door_draw_state!=door_draw_state_CLOSE)
     
     if (door_draw_state==door_draw_state_OPEN1) //  half open
     {
-        pal_swap_set(p.palette_image, _PI, false);
+        pal_swap_set(p.palette_image, _PI);
         draw_sprite_part(g.TownDoor1_SPR,0, 0,0, DOOR_W>>1,DOOR_H, _xl+8,_yt);
         pal_swap_reset();
     }

@@ -30,7 +30,7 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
-pal_swap_set(p.palette_image, palidx_base, false);
+pal_swap_set(p.palette_image, palidx_base);
 if (USE_SURF 
 &&  surface_exists(Raft_SURF) )
 {

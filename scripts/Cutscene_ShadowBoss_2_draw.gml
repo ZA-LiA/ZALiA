@@ -21,7 +21,7 @@ else
         draw_sprite_(spr_1x1_WHT,0, Blood_x,  Blood_yt, -1, 1,Blood_h,   Blood_COLOR);
     }
     
-    pal_swap_set(p.palette_image, PI_MOB_RED, false);
+    pal_swap_set(p.palette_image, PI_MOB_RED);
     if (BottleLiquid_level)
     {
         draw_sprite_part(BottleLiquid_SPR,0,  0,$10-(BottleLiquid_level+1),  8,BottleLiquid_level,  Bottle_x-4,Bottle_y+$8-(BottleLiquid_level+1));

@@ -7,7 +7,7 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var _i, _x,_y;
 
 
-pal_swap_set(p.palette_image, palidx, false);
+pal_swap_set(p.palette_image, palidx);
 
 var       _Y =  drawY - hh_ + 8;
 var _Y1 = _Y + (chain_yoff_1>>CHAIN_TIMING);
