@@ -281,40 +281,40 @@ sprDataStr9 = _V+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Hor section
 var _VER = 1; // ver2: btm change state section includes corner tiles
 ar_win_tdata_spl = 0;
 
-ar_win_tdata_spl[$0A, 2] = sprDataStr1; // Bottom
-ar_win_tdata_spl[$0A, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$0A, 0] = sprDataStr3; // Hor section bar
-if (_VER==2) ar_win_tdata_spl[$0A, 0] = sprDataStr1;
+ar_win_tdata_spl[ $0A, 2] = sprDataStr1; // Bottom
+ar_win_tdata_spl[ $0A, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $0A, 0] = sprDataStr3; // Hor section bar
+if (_VER==2) ar_win_tdata_spl[ $0A, 0] = sprDataStr1;
 
-ar_win_tdata_spl[$09, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$09, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $09, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $09, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$08, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$08, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $08, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $08, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$07, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$07, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $07, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $07, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$06, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$06, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $06, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $06, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$05, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$05, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $05, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $05, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$04, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$04, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $04, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $04, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$03, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$03, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $03, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $03, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$02, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$02, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $02, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $02, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$01, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$01, 0] = sprDataStr2; // 
+ar_win_tdata_spl[ $01, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $01, 0] = sprDataStr2; // 
 
-ar_win_tdata_spl[$00, 1] = sprDataStr2; // 
-ar_win_tdata_spl[$00, 0] = sprDataStr1; // Top
+ar_win_tdata_spl[ $00, 1] = sprDataStr2; // 
+ar_win_tdata_spl[ $00, 0] = sprDataStr1; // Top
 
 
 
@@ -323,79 +323,79 @@ ar_win_tdata_spl[$00, 0] = sprDataStr1; // Top
 // itm: item
 ar_win_tdata_itm = 0;
 
-ar_win_tdata_itm[$0A, 2] = sprDataStr1; // Bottom
-ar_win_tdata_itm[$0A, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$0A, 0] = sprDataStr3; // Hor section bar
-if (_VER==2) ar_win_tdata_itm[$0A, 0] = sprDataStr1;
+ar_win_tdata_itm[ $0A, 2] = sprDataStr1; // Bottom
+ar_win_tdata_itm[ $0A, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $0A, 0] = sprDataStr3; // Hor section bar
+if (_VER==2) ar_win_tdata_itm[ $0A, 0] = sprDataStr1;
 
-ar_win_tdata_itm[$09, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$09, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $09, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $09, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$08, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$08, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $08, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $08, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$07, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$07, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $07, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $07, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$06, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$06, 0] = sprDataStr3; // Hor section bar
+ar_win_tdata_itm[ $06, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $06, 0] = sprDataStr3; // Hor section bar
 
-ar_win_tdata_itm[$05, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$05, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $05, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $05, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$04, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$04, 0] = sprDataStr3; // Hor section bar
+ar_win_tdata_itm[ $04, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $04, 0] = sprDataStr3; // Hor section bar
 
-ar_win_tdata_itm[$03, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$03, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $03, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $03, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$02, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$02, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $02, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $02, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$01, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$01, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $01, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $01, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$00, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$00, 0] = sprDataStr1; // Top
+ar_win_tdata_itm[ $00, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $00, 0] = sprDataStr1; // Top
 */
 
 // itm: item
 ar_win_tdata_itm = 0;
 
-ar_win_tdata_itm[$0A, 2] = sprDataStr1; // Bottom
-ar_win_tdata_itm[$0A, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$0A, 0] = sprDataStr3; // Hor section bar
-if (_VER==2) ar_win_tdata_itm[$0A, 0] = sprDataStr1;
+ar_win_tdata_itm[ $0A, 2] = sprDataStr1; // Bottom
+ar_win_tdata_itm[ $0A, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $0A, 0] = sprDataStr3; // Hor section bar
+if (_VER==2) ar_win_tdata_itm[ $0A, 0] = sprDataStr1;
 
-ar_win_tdata_itm[$09, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$09, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $09, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $09, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$08, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$08, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $08, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $08, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$07, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$07, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $07, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $07, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$06, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$06, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $06, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $06, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$05, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$05, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $05, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $05, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$04, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$04, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $04, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $04, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$03, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$03, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $03, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $03, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$02, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$02, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $02, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $02, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$01, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$01, 0] = sprDataStr2; // 
+ar_win_tdata_itm[ $01, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $01, 0] = sprDataStr2; // 
 
-ar_win_tdata_itm[$00, 1] = sprDataStr2; // 
-ar_win_tdata_itm[$00, 0] = sprDataStr1; // Top
+ar_win_tdata_itm[ $00, 1] = sprDataStr2; // 
+ar_win_tdata_itm[ $00, 0] = sprDataStr1; // Top
 
 
 
@@ -405,40 +405,40 @@ ar_win_tdata_itm[$00, 0] = sprDataStr1; // Top
 
 ar_win_tdata_map = 0;
 
-ar_win_tdata_map[$0A, 2] = sprDataStr8; // Bottom
-ar_win_tdata_map[$0A, 1] = sprDataStr7; // 
-ar_win_tdata_map[$0A, 0] = sprDataStr6; // Hor section bar
-if (_VER==2) ar_win_tdata_map[$0A, 0] = sprDataStr9;
+ar_win_tdata_map[ $0A, 2] = sprDataStr8; // Bottom
+ar_win_tdata_map[ $0A, 1] = sprDataStr7; // 
+ar_win_tdata_map[ $0A, 0] = sprDataStr6; // Hor section bar
+if (_VER==2) ar_win_tdata_map[ $0A, 0] = sprDataStr9;
 
-ar_win_tdata_map[$09, 1] = sprDataStr5; // 
-ar_win_tdata_map[$09, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $09, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $09, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$08, 1] = sprDataStr5; // 
-ar_win_tdata_map[$08, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $08, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $08, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$07, 1] = sprDataStr5; // 
-ar_win_tdata_map[$07, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $07, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $07, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$06, 1] = sprDataStr5; // 
-ar_win_tdata_map[$06, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $06, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $06, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$05, 1] = sprDataStr5; // 
-ar_win_tdata_map[$05, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $05, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $05, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$04, 1] = sprDataStr5; // 
-ar_win_tdata_map[$04, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $04, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $04, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$03, 1] = sprDataStr5; // 
-ar_win_tdata_map[$03, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $03, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $03, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$02, 1] = sprDataStr5; // 
-ar_win_tdata_map[$02, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $02, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $02, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$01, 1] = sprDataStr5; // 
-ar_win_tdata_map[$01, 0] = sprDataStr5; // 
+ar_win_tdata_map[ $01, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $01, 0] = sprDataStr5; // 
 
-ar_win_tdata_map[$00, 1] = sprDataStr5; // 
-ar_win_tdata_map[$00, 0] = sprDataStr4; // Top
+ar_win_tdata_map[ $00, 1] = sprDataStr5; // 
+ar_win_tdata_map[ $00, 0] = sprDataStr4; // Top
 
 
 
@@ -649,8 +649,8 @@ switch(POSITIONING_VER){
 case 1:{Dolls_X=$34; Dolls_Y=$81; Dolls_PAD=$0E; break;}
 case 2:{Dolls_X=$34; Dolls_Y=$7F; Dolls_PAD=$0E; break;}
 }
-//SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+'01'+STR_Sprite], spr_Item_LifeDoll_1a);
-SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+'01'+STR_Sprite], spr_Item_LifeDoll_1b);
+//SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+"01"+STR_Sprite], spr_Item_LifeDoll_1a);
+SPR_LIFE_DOLL       = val(g.dm_ITEM[?object_get_name(ItmG0)+"01"+STR_Sprite], spr_Item_LifeDoll_1b);
 SPR_LIFE_DOLL_H_    = sprite_get_height(SPR_LIFE_DOLL)>>1;
 LifeDoll_count = 0;
 

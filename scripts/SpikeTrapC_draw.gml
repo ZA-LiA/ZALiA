@@ -4,7 +4,7 @@
 if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-pal_swap_set(p.palette_image, palidx, false); // NEED THIS AFTER CHAIN LINKS
+pal_swap_set(p.palette_image, palidx); // NEED THIS AFTER CHAIN LINKS
 
 if(1)
 {

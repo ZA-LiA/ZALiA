@@ -75,7 +75,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
         
         
         
-        pal_swap_set(p.palette_image, PI_MENU, false);
+        pal_swap_set(p.palette_image, PI_MENU);
         
         for(_i=0; _i<2; _i++)
         {
@@ -837,7 +837,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
             _XL -= $6;
         var _YT  = $8;
         
-        pal_swap_set(p.palette_image, PI_MENU, false);
+        pal_swap_set(p.palette_image, PI_MENU);
         
         _x = _XL;
         _y = _YT;

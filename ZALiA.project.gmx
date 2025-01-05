@@ -15624,7 +15624,7 @@
     <constant name="dk_RaiseBarrier">"_RaiseBarrier"</constant>
     <constant name="dk_ElevatorMove">"_ElevatorMove"</constant>
     <constant name="dk_ItemDrop">"_ItemDrop"</constant>
-    <constant name="dk_BridgeCrumble">"_BridgeCrumble</constant>
+    <constant name="dk_BridgeCrumble">"_BridgeCrumble"</constant>
     <constant name="dk_BlockBreak">"_BlockBreak"</constant>
     <constant name="dk_WalkWater">"_WalkWater"</constant>
     <constant name="dk_EnemyDeath">"_EnemyDeath"</constant>

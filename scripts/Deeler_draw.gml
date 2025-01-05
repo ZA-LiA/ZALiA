@@ -4,7 +4,7 @@
 if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-pal_swap_set(p.palette_image, palidx, false);
+pal_swap_set(p.palette_image, palidx);
 if (Web_can_draw)
 {
     for(var _i=ds_list_size(dl_Web_y)-1; _i>=0; _i--)
