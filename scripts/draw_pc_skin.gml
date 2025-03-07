@@ -45,7 +45,7 @@ with(g.pc)
             case 1:{
             var _val, _sub_image_index;
             
-            pal_swap_set(p.palette_image, _PALIDX, false);
+            pal_swap_set(p.palette_image, _PALIDX);
             // Shield
             if(!_USE_DISGUISE)
             {
@@ -124,7 +124,7 @@ with(g.pc)
             
             
             
-            pal_swap_set(p.palette_image, _PALIDX, false);
+            pal_swap_set(p.palette_image, _PALIDX);
             _count = ds_list_size(_dl1);
             for(_i=0; _i<_count; _i++)
             {
@@ -179,7 +179,7 @@ with(g.pc)
         _y += Spritesheet_H * sign(!_Y_SCALE);
         
         
-        pal_swap_set(p.palette_image, _PALIDX, false);
+        pal_swap_set(p.palette_image, _PALIDX);
         // Shield
         if(!_USE_DISGUISE)
         {

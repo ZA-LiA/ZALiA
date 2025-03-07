@@ -9,7 +9,7 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //draw_rect(p.dl_COLOR[|p.col_idx_bg], xl,yt,ww,hh);
 
 
-pal_swap_set(p.palette_image, palidx, false);
+pal_swap_set(p.palette_image, palidx);
 for(var _i=0; _i<4; _i++) // draw an 8x8 graphic on each corner of a 16x16 area
 {
     draw_background_part(TILESET, 

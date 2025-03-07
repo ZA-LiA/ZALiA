@@ -4,7 +4,7 @@
 if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-pal_swap_set(p.palette_image, palidx, false);
+pal_swap_set(p.palette_image, palidx);
 
    draw_sprite_(smal_spr,0, drawX+smal_xoff, drawY+smal_yoff, -1, xScale,yScale);
 GO_draw_sprite( body_spr);

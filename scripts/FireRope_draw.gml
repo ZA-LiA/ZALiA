@@ -7,7 +7,7 @@ if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var _i, _x,_y;
 
 // units of 8
-pal_swap_set(p.palette_image, palidx, false);
+pal_swap_set(p.palette_image, palidx);
 for(_i=fireball_count-1; _i>=0; _i--)
 {
     _x = spawn_x + round(lengthdir_x(_i<<3, angle));

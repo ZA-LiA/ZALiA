@@ -3,7 +3,7 @@
 
 if (can_draw_self)
 {
-    pal_swap_set(p.palette_image, palidx, false);
+    pal_swap_set(p.palette_image, palidx);
     
     var _xoff;
     

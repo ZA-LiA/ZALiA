@@ -4,7 +4,7 @@
 if (sub_state==SUB_STATE_ACTV1)
 {
     depth = Block_DEPTH-3;
-    pal_swap_set(p.palette_image, PI_BGR_2, false);
+    pal_swap_set(p.palette_image, PI_BGR_2);
     Cutscene_CreateWaterfall_draw_1a(Blocks1_CLM<<3,Blocks1_ROW<<3, Blocks1_CLMS,Blocks1_ROWS, Blocks1_COUNT);
     //Cutscene_CreateWaterfall_draw_1a(Blocks2_CLM<<3,Blocks2_ROW<<3, Blocks2_CLMS,Blocks2_ROWS, Blocks2_COUNT);
     pal_swap_reset();
@@ -35,7 +35,7 @@ if (_pi_permut)
 {   _pi  = get_pi(_pi,_pi_permut);  }
 
 
-pal_swap_set(p.palette_image, _pi, false);
+pal_swap_set(p.palette_image, _pi);
 var _x,_y;
 var _X = xl;
 var _Y = yt + (g.counter1&$7);
