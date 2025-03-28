@@ -354,7 +354,7 @@ for(_i=_arg; _i<argument_count; _i++)
     {
         _len  = string_length(_datakey);
         _val1 = string_copy(_val, _len+1, string_length(_val)-_len);
-        _val1 = real(_val1);
+        _val1 = real(string_digits(_val1));
         g.dm_spawn[?_SPAWN_DATAKEY+_datakey] = _val1;
         continue;//_i
     }

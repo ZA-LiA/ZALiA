@@ -20,7 +20,7 @@ switch(ver)
     // ---------------------------------------
     // TODO: Pre-process raft graphic
     case 2:{ // Raft
-    pal_swap_set(p.palette_image, palidx_base, false);
+    pal_swap_set(p.palette_image, palidx_base);
     var _i, _x;
     for(_i=0; _i<Tile_COUNT; _i++)
     {

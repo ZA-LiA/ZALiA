@@ -161,12 +161,14 @@ ds_list_clear(g.dl_ceiling_bottom_rc);
 
 with(g.burnable_mgr)
 {
-    ds_grid_resize(dg_RmTile_Burnable,     _CLMS, _ROWS); // unit8
-    ds_grid_clear (dg_RmTile_Burnable,     0);
-    ds_grid_resize(dg_RmTile_Burnable_def, _CLMS, _ROWS); // unit8
-    ds_grid_clear (dg_RmTile_Burnable_def, 0);
-    ds_grid_resize(dg_Burnable,0,ds_grid_height(dg_Burnable));
-    ds_grid_clear (dg_Burnable,0);
+    if (variable_instance_exists(self, "dg_RmTile_Burnable")) {
+        ds_grid_resize(dg_RmTile_Burnable,     _CLMS, _ROWS); // unit8
+        ds_grid_clear (dg_RmTile_Burnable,     0);
+        ds_grid_resize(dg_RmTile_Burnable_def, _CLMS, _ROWS); // unit8
+        ds_grid_clear (dg_RmTile_Burnable_def, 0);
+        ds_grid_resize(dg_Burnable,0,ds_grid_height(dg_Burnable));
+        ds_grid_clear (dg_Burnable,0);
+    }
 }
 
 

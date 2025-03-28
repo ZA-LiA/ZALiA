@@ -218,7 +218,7 @@ if (dl_tile_layer_data!=0)
     {
         if (surface_exists(dg_terrain[#_i,0]))
         {
-            pal_swap_set(p.palette_image, dg_terrain[#_i,1], false);
+            pal_swap_set(p.palette_image, dg_terrain[#_i,1]);
             draw_surface(dg_terrain[#_i,0],0,0);
             pal_swap_reset();
         }

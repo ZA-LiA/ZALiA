@@ -55,7 +55,7 @@ var _text;
 var _XC = drawX + ((CLMS<<3)>>1);
 var _CURS_X = _XC - ($3<<3);
 
-pal_swap_set(p.palette_image, PI_MENU, false);
+pal_swap_set(p.palette_image, PI_MENU);
 _text = TEXT_CONFIRM;
 _x  = _XC - ((string_length(_text)<<3)>>1);
 _y  = drawY + ($1<<3);

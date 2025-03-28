@@ -59,7 +59,7 @@ draw_sprite_(spr_1x1_WHT,0, drawX,drawY, -1, CLMS<<3, cnt_draw_rows<<3, backgrou
 
 
 // -------------------------------------------------------------------------
-pal_swap_set(p.palette_image, PI_DEF, false);
+pal_swap_set(p.palette_image, PI_DEF);
 // -------------------------------------------------------------------------
 
 

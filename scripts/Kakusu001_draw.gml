@@ -37,7 +37,7 @@ if (sub_state==SUB_STATE_CHLG_1A
          _pi  = get_pi(_pi);
     if (USE_SURF)
     {
-        pal_swap_set(p.palette_image, _pi, false);
+        pal_swap_set(p.palette_image, _pi);
         draw_surface(dg_platform[#_idx,SURF_IDX], _x,_y);
         pal_swap_reset();
     }

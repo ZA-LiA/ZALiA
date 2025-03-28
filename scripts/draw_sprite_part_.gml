@@ -7,7 +7,7 @@ if (argument_count<8) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 var _IS_PAL_SWAP = argument_count>8 && argument[8] && argument[8]<global.palette_image_W;
-if (_IS_PAL_SWAP) pal_swap_set(p.palette_image, argument[8], false); // Won't run if _palidx is out of range
+if (_IS_PAL_SWAP) pal_swap_set(p.palette_image, argument[8]); // Won't run if _palidx is out of range
 
 
 switch(argument_count)
