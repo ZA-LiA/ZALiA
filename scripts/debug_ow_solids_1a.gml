@@ -4,8 +4,8 @@ var i, j;
 var _str = "";
 var _val = 0;
 var _w, _h;
-_w = ds_grid_width( g.overworld.dg_solid);
-_h = ds_grid_height(g.overworld.dg_solid);
+_w = ds_grid_width( global.OVERWORLD.dg_solid);
+_h = ds_grid_height(global.OVERWORLD.dg_solid);
 _str = "";
 // _str += "";
 for (i = 0; i < _h; i++)
@@ -24,7 +24,7 @@ for (i = 0; i < _h; i++)
         // _str += "";
         
         
-        _val = g.overworld.dg_solid[# j, i];
+        _val = global.OVERWORLD.dg_solid[# j, i];
         if (_val) _str += " "+hex_str(_val);
         else      _str += " __";
         if (j && j&$F == $F && j+1 != _w) _str += " |"

@@ -47,7 +47,7 @@ switch(ITEM_TYPE)
     f.items |= ITEM_BIT;
     _can_flash=true;
     aud_play_sound(get_audio_theme_track(_MUSIC_THEME1), -1,false,-1, _MUSIC_THEME1);
-    Overworld_tile_change_2a(g.overworld.TileChangeEvent_TYPE_BOOT1);
+    Overworld_tile_change_2a(global.OVERWORLD.TileChangeEvent_TYPE_BOOT1);
     break;}
     
     // ===============================================================================

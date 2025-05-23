@@ -2,19 +2,20 @@
 
 
 // C206
-// if (g.menu_state && g.ldwState < 2) // PauseMenu & LevelUp
-// {
+/*
+if (g.menu_state 
+&&  g.ldwState<2 ) // PauseMenu & LevelUp
+{
     // C212: JSR D250       - set all GO canDrawSelf = false
-    // update_D250();
+    //update_D250();
     
-    // I think this is here and before GOB update to 
-    // make LevelUp a priority. It interups PauseMenu 
-    // before it opens & prevents an NPC from starting 
-    // dialogue
+    // I think this is here and before GOB update to make LevelUp a priority. It interups PauseMenu before it opens & prevents an NPC from starting dialogue
     // C215: JSR 968D       - Activate Level-up menu
-    // if (f.xp >= f.xpNext) g.gui_state = g.GUI_LU;
-    // scr_Menu_2a();
-// }
+    //if (f.xp>=f.xpNext) g.gui_state = g.GUI_LU;
+    //scr_Menu_2a();
+}
+*/
+
 
 
 
@@ -52,14 +53,17 @@ switch(gui_state)
     }
     
     
-    if ( Input.Pause_held          // Start btn $10
-    && !(Input.heldPrev&Input.S) ) // Start btn $10
+    if (Input.Pause_pressed)
+    //if ( Input.Pause_held          // Start btn $10
+    //&& !(Input.heldPrev&Input.S) ) // Start btn $10
     {   // Open Pause Menu
         gui_state = gui_state_PAUSE;
         menu_state = 1;
         PAUSE_MENU.state = PAUSE_MENU.state_SPELL;
     }
-    break;}
+    break;}//case 0
+    
+    
     
     
     
@@ -77,12 +81,14 @@ switch(gui_state)
     }
     
     
-    // C212: JSR D250       - set all GO.canDrawSelf = false
+    // C212: JSR D250       - set all GO.can_draw_self = false
     if (menu_state) set_go_can_draw_self(false);
     
     // 9D91 - Pause Menu
     with(PAUSE_MENU) PauseMenu_update();
-    break;}
+    break;}//case gui_state_PAUSE
+    
+    
     
     
     
@@ -97,7 +103,9 @@ switch(gui_state)
     
     // 9D54 - Level-up Menu
     with(LEVEL_MENU) update_LevelUp();
-    break;}
+    break;}//case gui_state_LEVEL_UP
+    
+    
     
     
     
@@ -106,12 +114,7 @@ switch(gui_state)
     
     // -----------------------------------------------------------------
     // -----------------------------------------------------------------
-    // case 3:{ // CASE  ------------------------------------
-    
-    // break;}
-    
-    
-    
+    //case 3:{break;} //   ------------------------------------
 }//switch(gui_state)
 
 

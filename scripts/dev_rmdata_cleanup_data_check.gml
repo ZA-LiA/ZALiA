@@ -106,7 +106,8 @@ for(_i=0; _i<_AREA_COUNT; _i++) // each area
         _ow_axis2     = val(g.dm_rm[?     _rm_name+STR_ow_axis], -1);
         if (_ow_axis1!=_ow_axis2) {_mismatch=true; sdm(_rm_name+": "+STR_ow_axis+" Data Mismatch.  "+"_ow_axis1="+string(_ow_axis1)+", "+"_ow_axis2="+string(_ow_axis2));}
         //                                                  //
-        _owrc1        = val( _dm_rm_data_COPY[?_rm_name+STR_OWRC], -1);
+        _owrc1        = val(        _dm_rm_data_COPY[?_rm_name+STR_OWRC], -1);
+        //_owrc2        = val(global.OVERWORLD.dm[?_rm_name+STR_OWRC], -1);
         _owrc2        = val(g.dm_rm[?     _rm_name+STR_OWRC], -1);
         //if (_owrc1!=_owrc2) {_mismatch=true; sdm(_rm_name+": "+STR_OWRC+" Data Mismatch.  "+"_owrc1="+string(_owrc1)+", "+"_owrc2="+string(_owrc2));}
         //                                                  //

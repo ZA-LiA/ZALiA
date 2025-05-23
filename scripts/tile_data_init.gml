@@ -25,102 +25,102 @@ var _HIDE1 = TID_HIDE_1&$F;
 var _HIDE2 = TID_HIDE_2&$F;
 
 
-dm_TILE[?STR_Tile_Hidden      +_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden      +_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden      +_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden      +_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden      +_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden      +_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden      +_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden      +_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden      +_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden      +_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_WestA;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_EastA;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_DthMt;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_MazIs;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_PalcA;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_PalcB;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_PalcC;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_PalcD;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_PalcE;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_PalcF;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_PalcG;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_TownA;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 _area = Area_TownB;
-dm_TILE[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
-dm_TILE[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
-dm_TILE[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
-dm_TILE[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN05] = _HIDE1; // crumble bridge/block last frame
+dm_tile[?STR_Tile_Hidden+_area+_TN06] = _HIDE1; // crumble/breakable block 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN07] = _HIDE1; // crumble/breakable block 1b
+dm_tile[?STR_Tile_Hidden+_area+_TN08] = _HIDE1; // crumble bridge 1a
+dm_tile[?STR_Tile_Hidden+_area+_TN09] = _HIDE1; // crumble bridge 1b
 
 
 
@@ -213,7 +213,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 1;
@@ -235,7 +235,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 6;
@@ -256,7 +256,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += $10;
@@ -277,7 +277,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 9;
@@ -299,7 +299,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 7;
@@ -322,7 +322,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 9;
@@ -343,14 +343,14 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 
 
 
-dm_TILE[?_anim_key+STR_Sequence]      = _cues; // cue string
-dm_TILE[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
+dm_tile[?_anim_key+STR_Sequence]      = _cues; // cue string
+dm_tile[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
 ds_list_clear(_dl_rc_off);
 
 
@@ -397,11 +397,11 @@ for(_i=0; _i<_tile_count; _i++) _dl_unique[|_i]=_unique;
 // Copy TID_BREAK2's anim
                  _anim_key2=STR_Anim+hex_str(TID_BREAK2);
 _frame_key2 =    _anim_key2+STR_frame;
-_cues = dm_TILE[?_anim_key2+STR_Sequence];
+_cues = dm_tile[?_anim_key2+STR_Sequence];
 _cues = string_copy(_cues, 1, string_length(_cues)-2); // truncate the end-anim cue
 for(_i=0; _i<string_length(_cues)>>1; _i++)
 {
-    dm_TILE[?_frame_key+hex_str(_i+1)] = dm_TILE[?_frame_key2+hex_str(_i+1)];
+    dm_tile[?_frame_key+hex_str(_i+1)] = dm_tile[?_frame_key2+hex_str(_i+1)];
 }
 
 _cue  = str_hex(string_copy(_cues, string_length(_cues)-1, 2));
@@ -414,7 +414,7 @@ _cue += $40; // Regen delay. About 2 seconds
 ds_map_clear(_dm_data);
 
 _tsrc = TSRC_BREAK4_A;
-var _dm_frame = json_decode(dm_TILE[?_frame_key2+"01"]);
+var _dm_frame = json_decode(dm_tile[?_frame_key2+"01"]);
 for(_i=0; _i<_tile_count; _i++)
 {
     _dm_data[?hex_str(_i)+STR_Depth]     = _dm_frame[?hex_str(_i)+STR_Depth];
@@ -427,7 +427,7 @@ for(_i=0; _i<_tile_count; _i++)
 }
 ds_map_destroy(_dm_frame); _dm_frame=undefined;
 
-dm_TILE[?_frame_key+"01"] = json_encode(_dm_data);
+dm_tile[?_frame_key+"01"] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 
@@ -446,13 +446,13 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 
 
-dm_TILE[?_anim_key+STR_Sequence]      = _cues; // cue string
-dm_TILE[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
+dm_tile[?_anim_key+STR_Sequence]      = _cues; // cue string
+dm_tile[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
 ds_list_clear(_dl_rc_off);
 
 
@@ -515,7 +515,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 1;
@@ -538,7 +538,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 8;
@@ -559,7 +559,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 8;
@@ -582,7 +582,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 1;
@@ -603,14 +603,14 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 
 
 
-dm_TILE[?_anim_key+STR_Sequence]      = _cues; // cue string
-dm_TILE[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
+dm_tile[?_anim_key+STR_Sequence]      = _cues; // cue string
+dm_tile[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
 ds_list_clear(_dl_rc_off);
 
 
@@ -678,7 +678,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?_dk+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 1;
@@ -702,7 +702,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?_dk+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 8;
@@ -725,7 +725,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?_dk+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 8;
@@ -749,7 +749,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?_dk+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += $80; // Regen delay. About 2 seconds
@@ -773,7 +773,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?_dk+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 8; // 8
@@ -796,7 +796,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?_dk+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 5;
@@ -820,7 +820,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?_dk+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 _cue += 1;
@@ -842,14 +842,14 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?_dk+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
-dm_TILE[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
 
 
 
-dm_TILE[?_anim_key+STR_Sequence]      = _cues; // cue string
-dm_TILE[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
+dm_tile[?_anim_key+STR_Sequence]      = _cues; // cue string
+dm_tile[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
 ds_list_clear(_dl_rc_off);
 
 

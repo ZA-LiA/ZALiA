@@ -18,12 +18,12 @@ _rows =  ROWS_MAP_TERRA - _row; // num of 4x4 rows to draw
 
 
 // find 4x4 owrc for terrain draw start
-_grid_x2_base  = ((g.overworld.pcrc_map>>0)&$FF) <<2; // 4x4 owrc. Convert 16x16 to 4x4
+_grid_x2_base  = ((global.OVERWORLD.pcrc_map>>0)&$FF) <<2; // 4x4 owrc. Convert 16x16 to 4x4
 _grid_x2_base +=  2;                       // 4x4 owrc. center of overworld pcrc
 _grid_x2_base -= (CLMS_MAP_TERRA>>1);      // 4x4 owrc. clm-0 of CLMS_MAP_TERRA
 _grid_x2_base += _clm;                     // 4x4 owrc. 1st draw clm of this frame
 
-_grid_y2_base  = ((g.overworld.pcrc_map>>8)&$FF) <<2; // 4x4 owrc. Convert 16x16 to 4x4
+_grid_y2_base  = ((global.OVERWORLD.pcrc_map>>8)&$FF) <<2; // 4x4 owrc. Convert 16x16 to 4x4
 _grid_y2_base +=  2;                       // 4x4 owrc. center of overworld pcrc
 _grid_y2_base -= (ROWS_MAP_TERRA>>1);      // 4x4 owrc. row-0 of ROWS_MAP_TERRA
 _grid_y2_base += _row;                     // 4x4 owrc. 1st draw row of this frame
@@ -57,7 +57,7 @@ for(_i=0; _i<_rows; _i++) // each row (4x4 tiles)
         _grid_y2 = _grid_y2_base + _i;
         
         // (_grid_xy2>>2): _grid_xy2's 16x16 owrc
-        _tile_data = g.overworld.dg_tsrc[#_grid_x2>>2, _grid_y2>>2];
+        _tile_data = global.OVERWORLD.dg_tsrc[#_grid_x2>>2, _grid_y2>>2];
         _tsrc = _tile_data&$FF;
         
         _ts_x  = ((_tsrc>>0) &$F) <<4;  // Tileset's 16x16 tile's left
@@ -68,7 +68,7 @@ for(_i=0; _i<_rows; _i++) // each row (4x4 tiles)
         _x = _x_base + (_j<<2);
         _y = _y_base + (_i<<2);
         draw_background_part(g.dl_tileset[|(_tile_data>>8)&$FF], _ts_x,_ts_y, 4,4, _x,_y);
-        //draw_background_part(g.overworld.TILESET1, _ts_x,_ts_y, 4,4, _x,_y);
+        //draw_background_part(global.OVERWORLD.TILESET1, _ts_x,_ts_y, 4,4, _x,_y);
     }
 }
 

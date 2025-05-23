@@ -30,8 +30,9 @@ PauseMenu_udp();
 
 
 // A256
-if ( Input.Pause_held            // Start button held
-&& !(Input.heldPrev & Input.S) ) // Start button was NOT held prev frame
+if (Input.Pause_pressed)
+//if ( Input.Pause_held            // Start button held
+//&& !(Input.heldPrev & Input.S) ) // Start button was NOT held prev frame
 {
     g.menu_state++; // Start close menu
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

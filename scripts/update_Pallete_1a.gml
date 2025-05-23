@@ -1,12 +1,13 @@
 /// update_Pallete_1a()
 
 
-var _idx;
+var _idx, _num, _count, _dk;
+var _color, _pi;
 
 
 // 8E23: JSR 9235.  Update Link's palette
 // 0: Green, 1: Red(SHIELD active || have RING), 2: Blue(SHIELD active && have RING)
-var _pi = global.PI_PC1;
+_pi = global.PI_PC1;
 
 if (g.game_end_state)
 {
@@ -43,7 +44,7 @@ dg_PI_SEQ[#$0,$0] = _pi;
 
 
 // Update background color
-var _color = global.BackgroundColor_scene;
+_color = global.BackgroundColor_scene;
 
 if (g.all_bg_black_only)
 {
@@ -77,6 +78,35 @@ if (SpellReady_flash_timer) SpellReady_flash_timer--;
 
 
 update_rm_brightness();
+
+
+
+
+//fall_scene_pal_set=g.area_name==Area_MazIs; // testing
+//fs_pal_state += g.tmr_change_room&$1; // OG
+if(!val(global.FallScene_dm[?STR_Counter]))
+{
+    var _TYPE_ = val(global.FallScene_dm[?STR_Current+STR_Type], "1");
+    var _FALL_DIRECTION = val(global.FallScene_dm[?STR_Current+STR_Fall+STR_Direction], $1);
+    var _DIR = sign_(_FALL_DIRECTION&$5); // $5: RIGHT | DOWN
+    
+    _count = val(global.FallScene_dm[?_TYPE_+dk_PI+STR_Count], 3);
+    _dk = dk_PI+STR_Sequence+STR_Index;
+    _idx = val(global.FallScene_dm[?_dk]);
+    _idx += _count;
+    _idx += _DIR;
+    _idx  = _idx mod _count;
+    
+    global.FallScene_dm[?STR_Current+dk_PI] = val(global.FallScene_dm[?_TYPE_+dk_PI+string(_idx+1)], global.PI_GUI2);
+}
+
+/*
+I added this counter to control the timing of 
+the stripe color changes to every 3 frames.
+OG is every 2 frames but for some reason that looks 
+too fast and every 4 frames looks too slow.
+*/
+global.FallScene_dm[?STR_Counter] = (val(global.FallScene_dm[?STR_Counter])+1) mod 3;
 
 
 

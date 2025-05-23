@@ -1,7 +1,7 @@
 /// Overworld_tile_change_2a(change type)
 
 
-with(g.overworld)
+with(global.OVERWORLD)
 {
     var _i, _clm,_row;
     switch(argument0)

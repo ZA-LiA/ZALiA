@@ -21,8 +21,8 @@ var _RM_NAME     = string_copy(_SPAWN_DATA, 1,RmName_LEN);
 var _DUNGEON_NUM = val(g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]);
 var _TOWN_NUM    = val(g.dm_rm[?_RM_NAME+STR_Town+STR_Num]);
 var _TOWN_NAME   = g.dm_town[?STR_Town+STR_Name+hex_str(_TOWN_NUM)];
+//var _OWRC        = val(global.OVERWORLD.dm[?_RM_NAME+STR_OWRC]); // owrc (likely already set in init_data_overworld())
 var _OWRC        = val(g.dm_rm[?_RM_NAME+STR_OWRC]); // owrc (likely already set in init_data_overworld())
-
 var _ITEM_TYPE   = val(g.dm_ITEM[?_OBJ_NAME+STR_Item+STR_Type]);
 var _IS_ITEM     = is_string(_ITEM_TYPE);
 var _ITEM_ID     =    string(_ITEM_TYPE);
@@ -280,6 +280,7 @@ else if (is_ancestor(_OBJECT,Kakusu))
                 _ITEM_ID = STR_Kakusu+hex_str(_count);
     g.dm_spawn[?_ITEM_ID+STR_Rm+STR_Name]       = _RM_NAME;
     g.dm_spawn[?_ITEM_ID+STR_Spawn+STR_Datakey] = _SPAWN_DATAKEY;
+    //g.dm_spawn[?_ITEM_ID+STR_OWRC]              = val(global.OVERWORLD.dm[?_RM_NAME+STR_OWRC]);
     g.dm_spawn[?_ITEM_ID+STR_OWRC]              = val(g.dm_rm[?_RM_NAME+STR_OWRC]);
     g.dm_spawn[?_ITEM_ID+STR_Object]            = _OBJECT;
     g.dm_spawn[?_ITEM_ID+STR_Version]           = _VERSION;

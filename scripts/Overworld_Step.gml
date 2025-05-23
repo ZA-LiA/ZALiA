@@ -143,11 +143,11 @@ if(!dest_dist
             }
             
             
-            if (_owrc==val(dm_data[?MK_OWRC_TWN_NEWK1])) // New Kasuto
+            if (_owrc==val(dm[?MK_OWRC_TWN_NEWK1])) // New Kasuto
             {
-                if(!val(dm_data[?hex_str(_owrc)+STR_Open]))
+                if(!val(dm[?hex_str(_owrc)+STR_Open]))
                 {
-                        dm_data[?hex_str(_owrc)+STR_Open] = 1;
+                        dm[?hex_str(_owrc)+STR_Open] = 1;
                     _tsrc = (TILESET1_TS_IDX<<8)|TSRC_TOWN08; // $72: town w/ grass bg & green roofs
                     Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                     aud_play_sound(get_audio_theme_track(dk_BlockBreak));
@@ -161,10 +161,10 @@ if(!dest_dist
                     }
                 }
             }
-            else if(!is_undefined(dm_data[?STR_Forest+STR_Hammer+hex_str(_owrc)]))
+            else if(!is_undefined(dm[?STR_Forest+STR_Hammer+hex_str(_owrc)]))
             {   // CUCCO spell secret
                 _datakey = STR_Forest+STR_Hammer;
-                _data = dm_data[?_datakey+hex_str(_owrc)];
+                _data = dm[?_datakey+hex_str(_owrc)];
                 // _data example: "_Forest_Hammer_0101"
                 _data = strR(_data, string_length(_datakey)+2);
                 _data = str_hex(_data);
@@ -177,9 +177,9 @@ if(!dest_dist
                     break;}
                     
                     case $0101:{
-                    if(!val(dm_data[?hex_str(_owrc)+STR_Open]))
+                    if(!val(dm[?hex_str(_owrc)+STR_Open]))
                     {
-                            dm_data[?hex_str(_owrc)+STR_Open] = 1;
+                            dm[?hex_str(_owrc)+STR_Open] = 1;
                         _tsrc = (TILESET1_TS_IDX<<8)|TSRC_HOUSE04; // HOUSE04: Single house on grass
                         aud_play_sound(get_audio_theme_track(STR_Secret));
                         Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
@@ -198,7 +198,7 @@ if(!dest_dist
             else if (inRange(_tsrc1, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
             //else if (inRange(_tsrc, TSRC_BOUL02,TSRC_BOUL02+6)) // Boulder
             {
-                _tsrc = val(dm_data[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_Boulder], (TILESET1_TS_IDX<<8)|TSRC_PATH03);
+                _tsrc = val(dm[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_Boulder], (TILESET1_TS_IDX<<8)|TSRC_PATH03);
                 Overworld_tile_change_1a(_rm_clm,_rm_row, _ow_clm,_ow_row, _tsrc);
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                 
@@ -432,7 +432,7 @@ if (_IS_MOVE_FRAME)
         
         var _PCRC_ = hex_str(pcrc);
         
-            _val = val(dm_data[?_PCRC_+STR_Raft]);
+            _val = val(dm[?_PCRC_+STR_Raft]);
         if (_val 
         &&  f.items&ITM_RAFT )
         {
@@ -440,7 +440,7 @@ if (_IS_MOVE_FRAME)
             // Raft tiles are in pairs: (01)01 Set num, 01(01) Member num 1 or 2
             // Member 1 is always N or W of member 2
             var _rc1 = pcrc;
-            var _rc2 = val(dm_data[?STR_Raft+hex_str(_val^$3)+STR_OWRC]);
+            var _rc2 = val(dm[?STR_Raft+hex_str(_val^$3)+STR_OWRC]);
             
             if (_rc2)
             {
@@ -465,13 +465,13 @@ if (_IS_MOVE_FRAME)
                 }
             }
         }
-        else if(!is_undefined(dm_data[?_PCRC_+STR_RmName]))
+        else if(!is_undefined(dm[?_PCRC_+STR_RmName]))
         {
-            if (val(dm_data[?_PCRC_+STR_Open]))
+            if (val(dm[?_PCRC_+STR_Open]))
             {   // ----- CHECK LEAVE OVERWORLD TO RM ------
                 _datakey = _PCRC_+hex_str(pc_dir)+STR_Exit;
                 
-                if(!is_undefined(dm_data[?_datakey]))
+                if(!is_undefined(dm[?_datakey]))
                 {   // Setting exit_grid_xy triggers the room change process.
                     exit_grid_xy = pcrc;
                     //sdm("exit_grid_xy $"+hex_str(exit_grid_xy));
@@ -506,17 +506,17 @@ if (flute_timer)
         _tsrc   = dg_tsrc[#_ow_clm,_ow_row];
         
         
-        if (val(dm_data[?hex_str(_owrc)+STR_River_Devil+STR_State]))
+        if (val(dm[?hex_str(_owrc)+STR_River_Devil+STR_State]))
         {
-                dm_data[?hex_str(_owrc)+STR_River_Devil+STR_State] = 0;
+                dm[?hex_str(_owrc)+STR_River_Devil+STR_State] = 0;
             aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
             
             _rm_clm = (DRAW_CLMS>>1) + _PC_DIR_SIGN_X;
             _rm_row = (DRAW_ROWS>>1) + _PC_DIR_SIGN_Y;
-            _tsrc   = val(dm_data[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_River_Devil], -1);
+            _tsrc   = val(dm[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_River_Devil], -1);
             if (_tsrc==-1)
             {
-                switch(val(dm_data[?hex_str(_owrc)+STR_River_Devil])){
+                switch(val(dm[?hex_str(_owrc)+STR_River_Devil])){
                 default:{_tsrc=(TILESET1_TS_IDX<<8)|TSRC_PATH02; break;}
                 case  1:{_tsrc=(TILESET1_TS_IDX<<8)|TSRC_BRDG1B; break;} // $B3. Vertically aligned bridge
                 //case 2:{_tsrc=(TILESET1_TS_IDX<<8)|(TSRC_TREE01+1); break;} // Orange colored trees tile
@@ -539,12 +539,12 @@ if (flute_timer)
             _ow_row = _pc_row + 2;
             _owrc   = (_ow_row<<8) | _ow_clm;
             
-            if (_owrc==val(dm_data[?MK_OWRC_PAL_THRE1]) 
-            && !val(dm_data[?hex_str(_owrc)+STR_Open]) )
+            if (_owrc==val(dm[?MK_OWRC_PAL_THRE1]) 
+            && !val(dm[?hex_str(_owrc)+STR_Open]) )
             {
                 aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
                 
-                dm_data[?hex_str(_owrc)+STR_Open] = 1;
+                dm[?hex_str(_owrc)+STR_Open] = 1;
                 
                 _rm_clm = (DRAW_CLMS>>1);
                 _rm_row = (DRAW_ROWS>>1) + 2;
@@ -812,8 +812,8 @@ if (_val){
 if (exit_grid_xy)
 {
     g.overworld_paused = false;
-    audio_stop_sound(g.overworld.Pause_SOUND1);
-    audio_stop_sound(g.overworld.Pause_SOUND2);
+    audio_stop_sound(global.OVERWORLD.Pause_SOUND1);
+    audio_stop_sound(global.OVERWORLD.Pause_SOUND2);
 }
 
 

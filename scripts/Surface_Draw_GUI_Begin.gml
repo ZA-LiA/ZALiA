@@ -82,60 +82,31 @@ if (RetroShaders_can_draw)
     {
         var _srf_blur = surface_create(application_surface_w,application_surface_h);
         
-        switch(RetroShaders_Blur_VER)
-        {
-            case 1:{
-            surface_set_target(_srf_blur);
-            draw_clear_alpha(c_black,0);
-            
-            shader_set(shd_Blur01);
-            texture_set_stage(shader_get_sampler_index(shd_Blur01,"u_texture"), surface_get_texture(application_surface));
-            shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_texture_w"), application_surface_w);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_texture_h"), application_surface_h);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_dist_x"), RetroShaders_u_dist_x);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_dist_y"), RetroShaders_u_dist_y);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_texture_scale"), global.RetroShaders_surface_scale);
-            //shader_set_uniform_f(shader_get_uniform(shd_Blur02,"u_scanlines_effect_enabled"), GEE.dg_Scanlines[#GEE.Scanlines_ENABLE,$5]);
-            draw_surface(application_surface, 0,0);
-            shader_reset();
-            
-            surface_reset_target();
-            break;}
-            
-            
-            case 2:{
-            var _TEXTURE = surface_get_texture(application_surface);
-            
-            //surface_resize(_srf_blur, Window_w,Window_h);
-            surface_set_target(_srf_blur);
-            draw_clear_alpha(c_black,0);
-            
-            shader_set(shd_Blur02);
-            //shader_set_uniform_f(shader_get_uniform(shd_Blur02,"u_scanlines_effect_enabled"), GEE.dg_Scanlines[#GEE.Scanlines_ENABLE,$5]);
-            
-            texture_set_stage(shader_get_sampler_index(shd_Blur02,"u_texture"), _TEXTURE);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur02, "u_texel_size"), texture_get_texel_width(_TEXTURE),texture_get_texel_height(_TEXTURE));
-            shader_set_uniform_f(shader_get_uniform(shd_Blur02, "u_pixel_scale"), RetroShaders_u_pixel_scale_x,RetroShaders_u_pixel_scale_y);
-            draw_surface(application_surface, 0,0);
-            /*
-            // Based off: https://github.com/JujuAdams/Pixel-Art-Upscaling/blob/main/objects/oAppSurfaceRenderer/Draw_64.gml
-            texture_set_stage(shader_get_sampler_index(shd_Blur02,"u_texture"), _texture);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur02, "u_texel_size"), _texel_w, _texel_h);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur02, "u_pixel_scale"), Window_w/application_surface_w, Window_h/application_surface_h);
-            draw_surface_stretched(application_surface, 0,0, Window_w,Window_h);
-            */
-            /*
-            shader_set_uniform_f(shader_get_uniform(shd_Blur02,"u_texture_w"), application_surface_w);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur02,"u_texture_h"), application_surface_h);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur02,"u_dist_x"), 1.0/application_surface_w);
-            shader_set_uniform_f(shader_get_uniform(shd_Blur02,"u_dist_y"), 1.0/application_surface_h);
-            draw_surface(application_surface, 0,0);
-            */
-            shader_reset();
-            
-            surface_reset_target();
-            break;}
-        }
+        var _TEXTURE = surface_get_texture(application_surface);
+        
+        //surface_resize(_srf_blur, Window_w,Window_h);
+        surface_set_target(_srf_blur);
+        draw_clear_alpha(c_black,0);
+        
+        shader_set(shd_Blur01);
+        texture_set_stage(shader_get_sampler_index(shd_Blur01,"u_texture"), _TEXTURE);
+        shader_set_uniform_f(shader_get_uniform(shd_Blur01, "u_texel_size"), texture_get_texel_width(_TEXTURE),texture_get_texel_height(_TEXTURE));
+        shader_set_uniform_f(shader_get_uniform(shd_Blur01, "u_pixel_scale"), RetroShaders_u_pixel_scale_x,RetroShaders_u_pixel_scale_y);
+        //shader_set_uniform_f(shader_get_uniform(shd_Blur02,"u_scanlines_effect_enabled"), GEE.dg_Scanlines[#GEE.Scanlines_ENABLE,$5]);
+        /*
+        shader_set(shd_Blur01);
+        texture_set_stage(shader_get_sampler_index(shd_Blur01,"u_texture"), surface_get_texture(application_surface));
+        shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_texture_w"), application_surface_w);
+        shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_texture_h"), application_surface_h);
+        shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_dist_x"), RetroShaders_u_dist_x);
+        shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_dist_y"), RetroShaders_u_dist_y);
+        shader_set_uniform_f(shader_get_uniform(shd_Blur01,"u_texture_scale"), global.RetroShaders_surface_scale);
+        //shader_set_uniform_f(shader_get_uniform(shd_Blur02,"u_scanlines_effect_enabled"), GEE.dg_Scanlines[#GEE.Scanlines_ENABLE,$5]);
+        */
+        draw_surface(application_surface, 0,0);
+        shader_reset();
+        
+        surface_reset_target();
     }
     
     

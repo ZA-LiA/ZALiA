@@ -8,10 +8,10 @@
 
 var _return = 0;
 
-var _DATA1 = g.dm_TILE[?STR_frame+hex_str(argument[0])];
+var _DATA1 = g.dm_tile[?STR_frame+hex_str(argument[0])];
 if (is_undefined(_DATA1)) return _return;
 
-var _DATA2 = g.dm_TILE[?STR_frame+hex_str(argument[1])];
+var _DATA2 = g.dm_tile[?STR_frame+hex_str(argument[1])];
 if (is_undefined(_DATA2)) return _return;
 
 

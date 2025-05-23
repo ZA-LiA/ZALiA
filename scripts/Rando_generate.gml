@@ -757,7 +757,7 @@ if (DungeonLocations_WILL_RANDOMIZE)
         case Area_PalcH:{_datakey=MK_OWRC_PAL_DRAG1; _dungeon_name1=STR_Dragmire_Tower;        break;}
         }
         _dungeon_num1 = val(g.dm_dungeon[?STR_Dungeon+STR_Num+_dungeon_name1]);
-        _owrc1 = val(g.overworld.dm_data[?_datakey], -1);
+        _owrc1 = val(global.OVERWORLD.dm[?_datakey], -1);
         /*
         _datakey = _area1+STR_Entrance+"01";
         _exit_name1 = g.dm_rm[?_datakey];
@@ -777,7 +777,7 @@ if (DungeonLocations_WILL_RANDOMIZE)
         case Area_PalcH:{_datakey=MK_OWRC_PAL_DRAG1; _dungeon_name2=STR_Dragmire_Tower;        break;}
         }
         _dungeon_num2 = val(g.dm_dungeon[?STR_Dungeon+STR_Num+_dungeon_name2]);
-        _owrc2 = val(g.overworld.dm_data[?_datakey], -1);
+        _owrc2 = val(global.OVERWORLD.dm[?_datakey], -1);
         /*
         _datakey = _area2+STR_Entrance+"01";
         _exit_name2 = g.dm_rm[?_datakey];
@@ -814,11 +814,11 @@ if (DungeonLocations_WILL_RANDOMIZE)
             {
                 _val = $1<<_j;
                 _datakey = hex_str(_val)+STR_Exit;
-                _exit_name3 = g.overworld.dm_data[?hex_str(_owrc1)+_datakey];
-                _exit_name4 = g.overworld.dm_data[?hex_str(_owrc2)+_datakey];
+                _exit_name3 = global.OVERWORLD.dm[?hex_str(_owrc1)+_datakey];
+                _exit_name4 = global.OVERWORLD.dm[?hex_str(_owrc2)+_datakey];
                 if(!is_undefined(_exit_name3) 
                 && !is_undefined(_exit_name4) )
-                {//val(overworld.dm_data[?hex_str(overworld.exit_grid_xy)+hex_str(overworld.pc_dir)+STR_Exit], EXIT_NAME_GAME_START); // exiting overworld
+                {//val(overworld.dm[?hex_str(overworld.exit_grid_xy)+hex_str(overworld.pc_dir)+STR_Exit], EXIT_NAME_GAME_START); // exiting overworld
                     if (_val&$C) _datakey = hex_str(_val^$C)+STR_Exit;
                     dm_save_data[?hex_str(_owrc1)+_datakey] = _exit_name4;
                 }
@@ -878,7 +878,7 @@ if (DungeonLocations_WILL_RANDOMIZE)
     }
 }
 ////          owrc + ow move_dir  + "_Exit"
-//dm_data[?_datakey+hex_str(1<<_k)+STR_Exit] = _exit_name; // goto rm exit
+//dm[?_datakey+hex_str(1<<_k)+STR_Exit] = _exit_name; // goto rm exit
 
 
 
@@ -1021,6 +1021,7 @@ if (DungeonBoss_WILL_RANDOMIZE)
         _a_exit_name2b = _exit_name;
         
         
+        //_a_owrc = global.OVERWORLD.dm[?_a_scene_name+STR_OWRC];
         _a_owrc = g.dm_rm[?         _a_scene_name+STR_OWRC];
         _a_owrc = val(dm_save_data[?_a_scene_name+STR_OWRC], _a_owrc);
         _a_map_area_name = val(g.dm_rm[?_a_scene_name+MapAreaName_DATAKEY], MapAreaName_DEF);
@@ -1062,6 +1063,7 @@ if (DungeonBoss_WILL_RANDOMIZE)
         _b_exit_name2b = _exit_name;
         
         
+        //_b_owrc = global.OVERWORLD.dm[?_b_scene_name+STR_OWRC];
         _b_owrc = g.dm_rm[?         _b_scene_name+STR_OWRC];
         _b_owrc = val(dm_save_data[?_b_scene_name+STR_OWRC], _b_owrc);
         _b_map_area_name = val(g.dm_rm[?_b_scene_name+MapAreaName_DATAKEY], MapAreaName_DEF);
@@ -1100,6 +1102,7 @@ if (DungeonBoss_WILL_RANDOMIZE)
         _c_exit_name2b = _exit_name;
         
         
+        //_c_owrc = global.OVERWORLD.dm[?_c_scene_name+STR_OWRC];
         _c_owrc = g.dm_rm[?         _c_scene_name+STR_OWRC];
         _c_owrc = val(dm_save_data[?_c_scene_name+STR_OWRC], _c_owrc);
         _c_map_area_name = val(g.dm_rm[?_c_scene_name+MapAreaName_DATAKEY], MapAreaName_DEF);

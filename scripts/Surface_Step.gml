@@ -184,8 +184,7 @@ if (RetroShaders_CAN_USE)
         RetroShaders_can_draw =  (shd_SaturationBrightness_IS_COMPILED && (GEE.dg_Saturation[#GEE.Saturation_ENABLE,$5] || GEE.dg_Brightness[#GEE.Brightness_ENABLE,$5])) 
                              ||  (shd_ScanLines01_IS_COMPILED          &&  GEE.dg_Scanlines[# GEE.Scanlines_ENABLE, $5]) 
                              ||  (shd_Bloom01_IS_COMPILED              &&  GEE.dg_Bloom[#     GEE.Bloom_ENABLE,     $5]) 
-                             ||  (shd_Blur01_IS_COMPILED               &&  GEE.dg_Blur[#      GEE.Blur_ENABLE,      $5])
-                             ||  (shd_Blur02_IS_COMPILED               &&  GEE.dg_Blur[#      GEE.Blur_ENABLE,      $5]);
+                             ||  (shd_Blur01_IS_COMPILED               &&  GEE.dg_Blur[#      GEE.Blur_ENABLE,      $5]);
     }
     
     if (RetroShaders_can_draw)
@@ -204,8 +203,8 @@ if (RetroShaders_CAN_USE)
         
         RetroShaders_Bloom_can_draw = shd_Bloom01_IS_COMPILED && GEE.dg_Bloom[#GEE.Bloom_ENABLE,$5];
         
-        RetroShaders_Blur_can_draw  = GEE.dg_Blur[#GEE.Blur_ENABLE,$5];
-        RetroShaders_Blur_can_draw &= (RetroShaders_Blur_VER==1 && shd_Blur01_IS_COMPILED) || (RetroShaders_Blur_VER==2 && shd_Blur02_IS_COMPILED);
+        RetroShaders_Blur_can_draw = GEE.dg_Blur[#GEE.Blur_ENABLE,$5];
+        //RetroShaders_Blur_can_draw &= (RetroShaders_Blur_VER==1 && shd_Blur01_IS_COMPILED) || (RetroShaders_Blur_VER==2 && shd_Blur02_IS_COMPILED);
     }
 }
 

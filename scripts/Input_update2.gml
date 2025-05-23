@@ -37,15 +37,19 @@ if (g.room_type=="C"
 &&  g.ChangeRoom_timer<=0 
 && !g.gui_state )
 {
-    if (Pause_held      // Start button is being held
-    && !(heldPrev&S) )  // Start button was NOT held last frame
+    if (Pause_pressed)
+    //if (Pause_held     // Start button is being held
+    //&& !(heldPrev&S) ) // Start button was NOT held last frame
     {
-            g.overworld_paused = !g.overworld_paused;
-        if (g.overworld_paused) aud_play_sound(g.overworld.Pause_SOUND1);
-        else                    aud_play_sound(g.overworld.Pause_SOUND2);
+        g.overworld_paused = !g.overworld_paused;
+        if (g.overworld_paused) aud_play_sound(global.OVERWORLD.Pause_SOUND1);
+        else                    aud_play_sound(global.OVERWORLD.Pause_SOUND2);
     }
 }
-else        g.overworld_paused = false;
+else
+{
+    g.overworld_paused = false;
+}
 
 
 

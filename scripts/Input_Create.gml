@@ -1,11 +1,12 @@
 /// Input_Create()
 
 
-if (DEV) sdm(" Input_Create()");
+show_debug_message("Input_Create()");
 
 
-var _i, _a;
-var _datakey;
+var _i, _count;
+var _sprite1,_sprite2;
+var _dk,_dk0,_dk1, _datakey;
 
 
 Buttons_dm = ds_map_create();
@@ -15,6 +16,7 @@ depth = DEPTH_Input;
 
 
 gamepad_slot = -1; // -1: No gamepad connected
+gamepad_name = undefined;
 
 
 // ------------------------------------------------
@@ -399,7 +401,6 @@ GP_other4   = GP_other4_DEFAULT;
 GP_other5   = GP_other5_DEFAULT;
 GP_other6   = GP_other6_DEFAULT;
 */
-Buttons_dm = ds_map_create();
 Buttons_dm[?string(gp_padr)+STR_Name]       = "DPAD RIGHT";
 Buttons_dm[?string(gp_padl)+STR_Name]       = "DPAD LEFT";
 Buttons_dm[?string(gp_padd)+STR_Name]       = "DPAD DOWN";
@@ -419,16 +420,86 @@ Buttons_dm[?string(gp_shoulderlb)+STR_Name] = "TRIG LEFT";
 Buttons_dm[?string(gp_shoulderrb)+STR_Name] = "TRIG RIGHT";
 
 
-Buttons_dm[?dk_XBOX+"A"+STR_Sprite] = spr_Button_XBoxA01;
-Buttons_dm[?dk_XBOX+"B"+STR_Sprite] = spr_Button_XBoxB01;
-Buttons_dm[?dk_XBOX+"X"+STR_Sprite] = spr_Button_XBoxX01;
-Buttons_dm[?dk_XBOX+"Y"+STR_Sprite] = spr_Button_XBoxY01;
+
+
+
+
+
+
+_dk1="_GP_face";
+_dk0=dk_XBox; _i=1;
+
+_sprite1 = spr_Button_XBoxA01; // GP_face1
+Buttons_dm[?_dk0+"_A"             +STR_Sprite] = _sprite1;
+Buttons_dm[?_dk0+_dk1+string(_i++)+STR_Sprite] = _sprite1;
+Buttons_dm[?sprite_get_name(_sprite1)+"_Controller_Make"] = _dk0;
+
+_sprite1 = spr_Button_XBoxB01; // GP_face2
+Buttons_dm[?_dk0+"_B"             +STR_Sprite] = _sprite1;
+Buttons_dm[?_dk0+_dk1+string(_i++)+STR_Sprite] = _sprite1;
+Buttons_dm[?sprite_get_name(_sprite1)+"_Controller_Make"] = _dk0;
+
+_sprite1 = spr_Button_XBoxX01; // GP_face3
+Buttons_dm[?_dk0+"_X"             +STR_Sprite] = _sprite1;
+Buttons_dm[?_dk0+_dk1+string(_i++)+STR_Sprite] = _sprite1;
+Buttons_dm[?sprite_get_name(_sprite1)+"_Controller_Make"] = _dk0;
+
+_sprite1 = spr_Button_XBoxY01; // GP_face4
+Buttons_dm[?_dk0+"_Y"             +STR_Sprite] = _sprite1;
+Buttons_dm[?_dk0+_dk1+string(_i++)+STR_Sprite] = _sprite1;
+Buttons_dm[?sprite_get_name(_sprite1)+"_Controller_Make"] = _dk0;
+
+
+
+
+_dk0=dk_PlayStation; _i=1;
+
+_sprite1 = spr_Button_PlaystationCircle01;   // GP_face1
+Buttons_dm[?_dk0+"_Circle"        +STR_Sprite] = _sprite1;
+Buttons_dm[?_dk0+_dk1+string(_i++)+STR_Sprite] = _sprite1;
+Buttons_dm[?sprite_get_name(_sprite1)+"_Controller_Make"] = _dk0;
+
+_sprite1 = spr_Button_PlaystationX01;        // GP_face2
+Buttons_dm[?_dk0+"_X"             +STR_Sprite] = _sprite1;
+Buttons_dm[?_dk0+_dk1+string(_i++)+STR_Sprite] = _sprite1;
+Buttons_dm[?sprite_get_name(_sprite1)+"_Controller_Make"] = _dk0;
+
+_sprite1 = spr_Button_PlaystationTriangle01; // GP_face3
+Buttons_dm[?_dk0+"_Triangle"      +STR_Sprite] = _sprite1;
+Buttons_dm[?_dk0+_dk1+string(_i++)+STR_Sprite] = _sprite1;
+Buttons_dm[?sprite_get_name(_sprite1)+"_Controller_Make"] = _dk0;
+
+_sprite1 = spr_Button_PlaystationSquare01;   // GP_face4
+Buttons_dm[?_dk0+"_Square"        +STR_Sprite] = _sprite1;
+Buttons_dm[?_dk0+_dk1+string(_i++)+STR_Sprite] = _sprite1;
+Buttons_dm[?sprite_get_name(_sprite1)+"_Controller_Make"] = _dk0;
+
+
+_count = _i;
+for(_i=1; _i<=_count; _i++)
+{
+    _sprite1 = Buttons_dm[?dk_XBox       +string(_i)+STR_Sprite];
+    _sprite2 = Buttons_dm[?dk_PlayStation+string(_i)+STR_Sprite];
+    if(!is_undefined(_sprite1) 
+    && !is_undefined(_sprite2) )
+    {
+        Buttons_dm[?sprite_get_name(_sprite1)+dk_PlayStation+STR_Sprite] = _sprite2;
+        Buttons_dm[?sprite_get_name(_sprite2)+dk_PlayStation+STR_Sprite] = _sprite2;
+        
+        Buttons_dm[?sprite_get_name(_sprite2)+dk_XBox       +STR_Sprite] = _sprite1;
+        Buttons_dm[?sprite_get_name(_sprite1)+dk_XBox       +STR_Sprite] = _sprite1;
+    }
+}
 /*
 Buttons_dm[?dk_XBOX+string(GP_jump_DEFAULT)  +STR_Sprite] = spr_Button_XBoxA01;
 Buttons_dm[?dk_XBOX+string(GP_other1_DEFAULT)+STR_Sprite] = spr_Button_XBoxB01;
 Buttons_dm[?dk_XBOX+string(GP_attack_DEFAULT)+STR_Sprite] = spr_Button_XBoxX01;
 Buttons_dm[?dk_XBOX+string(GP_other2_DEFAULT)+STR_Sprite] = spr_Button_XBoxY01;
 */
+
+
+
+
 
 
 

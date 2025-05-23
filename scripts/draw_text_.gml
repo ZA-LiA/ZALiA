@@ -1,13 +1,13 @@
 /// draw_text_(XL, YT, text str, *text spr, *palette idx, *color)
 
-
-var _i,_j, _sub_image;
-var _x,_y;
-
                                   _i=0;
 var _XL   =              argument[_i++];
 var _YT   =              argument[_i++];
 var _TEXT = string_upper(argument[_i++]);
+
+var _LEN = string_length(_TEXT);
+if(!_LEN) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 var                                      _TEXT_SPRITE = spr_Font1;
 if (argument_count>_i && argument[_i++]) _TEXT_SPRITE = argument[_i-1];
@@ -24,7 +24,8 @@ if (argument_count>_i)
 }
 
 
-// FONT_LAYOUT = " _/\()*+-.,:'%&!?0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var _i,_j, _sub_image;
+var _x,_y;
 
 var _text_sprite = _TEXT_SPRITE;
 var _xscale = 1;
@@ -38,11 +39,10 @@ var _y_off  = 0;
 
 if (_TEXT_PI>=0) pal_swap_set(global.palette_image, _TEXT_PI);
 
-var           _LEN = string_length(_TEXT);
 for(_i=1; _i<=_LEN; _i++)
 {
     _char      = string_char_at(_TEXT,_i);
-    _sub_image = string_pos(_char,FONT_LAYOUT)-1;
+    _sub_image = string_pos(_char,FONT_LAYOUT)-1; // FONT_LAYOUT = " _/\()*+-.,:'%&!?0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     
     if (g._YxY_)
     {

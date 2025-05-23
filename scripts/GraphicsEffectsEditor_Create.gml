@@ -705,24 +705,12 @@ SOUND_CURSOR2  = get_audio_theme_track(dk_CursorFileSelect);   // snd_Cursor_Mov
 SOUND_CURSOR3  = get_audio_theme_track(dk_CursorRegisterName); // snd_Cursor_Move_3a
 SOUND_BACK     = get_audio_theme_track(STR_Stab);              // snd_Sword_Stab_1a
 SOUND_VOLUME   = 0.65;
-/*
-snd_Choose_Char_1a // SOUND_CONFIRM1
-snd_Item_Drop_1a   // SOUND_CONFIRM2
-snd_Cursor_Move_1a // SOUND_CURSOR1
-snd_Cursor_Move_2a // SOUND_CURSOR2
-snd_Cursor_Move_3a // SOUND_CURSOR3
-snd_Sword_Stab_1a  // SOUND_BACK
-*/
+
 
 
 
 ds_grid_destroy(dg_menu); dg_menu=undefined;
-
-    _exists=variable_instance_exists(id,"_UserPref_dm");
-if (_exists) _exists = !is_undefined(    _UserPref_dm);
-if (_exists) _exists = ds_exists(        _UserPref_dm,ds_type_map);
-if (_exists)           ds_map_destroy(   _UserPref_dm);
-if (_exists)                             _UserPref_dm=undefined;
+ds_map_destroy(_UserPref_dm); _UserPref_dm=undefined;
 
 
 

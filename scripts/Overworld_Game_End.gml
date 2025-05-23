@@ -83,11 +83,11 @@ if (_exists)                                 dl_WaterSparkle_RC=undefined;
 
 
 // DS Map
-    _exists = variable_instance_exists(id,  "dm_data");
-if (_exists) _exists =      !is_undefined(   dm_data);
-if (_exists) _exists =       ds_exists(      dm_data, ds_type_map);
-if (_exists)                 ds_map_destroy( dm_data);
-if (_exists)                                 dm_data=undefined;
+    _exists = variable_instance_exists(id,  "dm");
+if (_exists) _exists =      !is_undefined(   dm);
+if (_exists) _exists =       ds_exists(      dm, ds_type_map);
+if (_exists)                 ds_map_destroy( dm);
+if (_exists)                                 dm=undefined;
 
     _exists = variable_instance_exists(id,  "dm_enc");
 if (_exists) _exists =      !is_undefined(   dm_enc);

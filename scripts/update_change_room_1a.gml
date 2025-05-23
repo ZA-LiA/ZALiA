@@ -21,23 +21,23 @@ if (room==rmB_NextLife)
 }
 else if (_EXITING_RM)                       f.reen = exit_leave.goToExitName; // exiting rm
 else if (_EXITING_OW)
-{   // exiting overworld
-    _datakey = hex_str(overworld.exit_grid_xy)+hex_str(overworld.pc_dir)+STR_Exit;
-    f.reen = val(overworld.dm_data[?_datakey], EXIT_NAME_GAME_START);
+{   // exiting global.OVERWORLD
+    _datakey = hex_str(global.OVERWORLD.exit_grid_xy)+hex_str(global.OVERWORLD.pc_dir)+STR_Exit;
+    f.reen = val(global.OVERWORLD.dm[?_datakey], EXIT_NAME_GAME_START);
     f.reen = val(f.dm_rando[?_datakey], f.reen);
     //sdm(_datakey+" - "+string(val(f.dm_rando[?_datakey]))); // 803004_Exit - _TownA_0210
 }
 else                                        f.reen = EXIT_NAME_GAME_START;
 
 if (is_undefined(f.reen))                   f.reen = EXIT_NAME_GAME_START;
-var _GOING_TO_OW =               area_is_ow(f.reen); // going to overworld
+var _GOING_TO_OW =               area_is_ow(f.reen); // going to global.OVERWORLD
 // Leaving an encounter, going back to OW
-if (_GOING_TO_OW && _EXITING_RM_ENC)        f.reen = Area_OvrwA+hex_str(overworld.pcrc);
+if (_GOING_TO_OW && _EXITING_RM_ENC)        f.reen = Area_OvrwA+hex_str(global.OVERWORLD.pcrc);
 
-with(overworld)
+with(global.OVERWORLD)
 {
     if (_EXITING_OW 
-    &&  is_undefined(dm_data[?hex_str(pcrc)+dk_NO_ENCOUNTER])  // CAN use encounter skip exploit for this exit
+    &&  is_undefined(dm[?hex_str(pcrc)+dk_NO_ENCOUNTER])  // CAN use encounter skip exploit for this exit
     && !is_undefined(enc_reen) )  // Going to an encounter rm
     {   f.reen =     enc_reen;  }
 }
@@ -88,11 +88,12 @@ if (_EXITING_RM)
 if (_GOING_TO_OW 
 &&  _EXITING_RM 
 && !_EXITING_RM_ENC )
-{   // when going from a scene to the overworld
-    with(overworld)
+{   // when going from a scene to the global.OVERWORLD
+    with(global.OVERWORLD)
     {
-        var _DEFAULT = val(dm_data[?MK_OWRC_NPAL1],OWRC_DFL);
+        var _DEFAULT = val(dm[?MK_OWRC_NPAL1],OWRC_DFL);
         _datakey = g.exit_leave.exitName;
+        //pcrc = val(dm[?_datakey+STR_OWRC], _DEFAULT); // goto owrc
         pcrc = val(g.dm_rm[?   _datakey+STR_OWRC], _DEFAULT); // goto owrc
         pcrc = val(f.dm_rando[?_datakey+STR_OWRC], pcrc);
         
@@ -101,10 +102,10 @@ if (_GOING_TO_OW
         pc_ow_x += T_SIZE>>1;
         pc_ow_y += T_SIZE>>1;
         
-        var        _DIR  = val(g.dm_rm[?_datakey+STR_ow_dir], $1);
-        if (       _DIR != $F) // $F means face the same way you last exited the overworld
-        {   pc_dir=_DIR;  }
-        //sdm("exit_leave.exitName: "+_datakey+", overworld.pcrc $"+hex_str(overworld.pcrc)+", overworld.pc_dir $"+hex_str(overworld.pc_dir)+", $"+hex_str(val(dm_rm_data[?_datakey+STR_ow_dir], $FF)));
+        //var _DIR  = val(dm[?_datakey+STR_ow_dir], $1);
+        var _DIR  = val(g.dm_rm[?_datakey+STR_ow_dir], $1);
+        if (_DIR!=$F) pc_dir = _DIR; // $F means face the same way you last exited the global.OVERWORLD
+        //sdm("exit_leave.exitName: "+_datakey+", global.OVERWORLD.pcrc $"+hex_str(global.OVERWORLD.pcrc)+", global.OVERWORLD.pc_dir $"+hex_str(global.OVERWORLD.pc_dir)+", $"+hex_str(val(dm_rm_data[?_datakey+STR_ow_dir], $FF)));
     }
 }
 //sdm("f.reen "+f.reen+", _GOING_TO_OW "+string(_GOING_TO_OW)+", _EXITING_RM "+string(_EXITING_RM)+", _EXITING_RM_ENC "+string(_EXITING_RM_ENC));
@@ -189,8 +190,8 @@ else
         var _ROOM = rmC_Overworld_A;
         var _VIEW_W = g.VIEW_W;
         var _VIEW_H = g.VIEW_H;
-        //var _VIEW_W = g.overworld.rmC_W;
-        //var _VIEW_H = g.overworld.rmC_H;
+        //var _VIEW_W = g.global.OVERWORLD.rmC_W;
+        //var _VIEW_H = g.global.OVERWORLD.rmC_H;
     }
     else
     {
@@ -201,7 +202,7 @@ else
     
     room_goto_(_ROOM, _VIEW_W,_VIEW_H);
     
-    if (DEV) sdm(" update_change_room_1a()    room_goto("+_RM_NAME+")"+",  f.reen: '"+f.reen+"'");
+    show_debug_message("update_change_room_1a()    room_goto("+_RM_NAME+")"+",  f.reen: '"+f.reen+"'");
 }
 
 

@@ -1,7 +1,7 @@
 /// is_safe_encounter_rm()
 
 
-with(g.overworld)
+with(global.OVERWORLD)
 {
     var _TSRC      = dg_tsrc[#(pcrc>>0)&$FF, (pcrc>>8)&$FF];
     var _BIOME     = dm_enc[?hex_str(_TSRC)+STR_Biome];

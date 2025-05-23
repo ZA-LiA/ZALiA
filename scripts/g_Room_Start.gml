@@ -484,9 +484,9 @@ if (room==rmB_NextLife)
         
         if (coming_from==coming_from_FILE)
         {
-            for(_i=ds_grid_width(overworld.TreasureMaps_dg)-1; _i>=0; _i--)
+            for(_i=ds_grid_width(global.OVERWORLD.TreasureMaps_dg)-1; _i>=0; _i--)
             {   // Mark as NOT acquired. Overworld_Room_Start() will check what has been acquired and update this.
-                overworld.TreasureMaps_dg[#_i,$05]=0;
+                global.OVERWORLD.TreasureMaps_dg[#_i,$05]=0;
             }
         }
         
@@ -520,7 +520,7 @@ if (room==rmB_NextLife)
         }
         
         
-        overworld.exit_grid_xy = val(overworld.dm_data[?MK_OWRC_NPAL1],OWRC_DFL);
+        global.OVERWORLD.exit_grid_xy = val(global.OVERWORLD.dm[?MK_OWRC_NPAL1],OWRC_DFL);
     }
 }
 
@@ -535,16 +535,17 @@ if (_ROOM_A)
 {
     if (coming_from != coming_from_RM_C)
     {
+        //_owrc = global.OVERWORLD.dm[?rm_name+STR_OWRC];
         _owrc = dm_rm[?rm_name+STR_OWRC];
         if(!is_undefined(_owrc) 
         &&               _owrc>=0 )
         {
-            overworld.pcrc = _owrc;
+            global.OVERWORLD.pcrc = _owrc;
             
             if (DisplayOWPosOnMap_VER 
             ||  val(dm_rm[?rm_name+STR_show_ow_pos]) )
             {
-                overworld.pcrc_map = overworld.pcrc;
+                global.OVERWORLD.pcrc_map = global.OVERWORLD.pcrc;
             }
         }
     }
@@ -577,51 +578,51 @@ if (_C1 || _C2 || _C3 || _C4)
     spawn_data_set_default();
     
     // --------------------------------------------------------------------
-    with(overworld)
+    with(global.OVERWORLD)
     {
-        // In OG, going to diff area resets overworld to default
+        // In OG, going to diff area resets global.OVERWORLD to default
         ds_grid_copy(dg_tsrc,  dg_tsrc_def);
         ds_grid_copy(dg_solid, dg_solid_def);
         if (f.items&ITM_BOOT) Overworld_tile_change_2a(TileChangeEvent_TYPE_BOOT1);
         
         
         // So that Palace 6 and New Kasuto don't stay 'Open':
-        _datakey  = ds_map_find_first(dm_data);
-        var _LAST = ds_map_find_last( dm_data);
+        _datakey  = ds_map_find_first(dm);
+        var _LAST = ds_map_find_last( dm);
         while (true)
         {
             if (string_pos(STR_Open,   _datakey)   // _datakey does     contain "_Open"
             && !string_pos(STR_Default,_datakey) ) // _datakey does NOT contain "_Default"
             {
-                if(!is_undefined(        dm_data[?_datakey+STR_Default]))
-                {   dm_data[?_datakey] = dm_data[?_datakey+STR_Default];  }
+                if(!is_undefined(        dm[?_datakey+STR_Default]))
+                {   dm[?_datakey] = dm[?_datakey+STR_Default];  }
             }
             
             if (_datakey==_LAST) break;//while (true)
-            _datakey = ds_map_find_next(dm_data,_datakey);
+            _datakey = ds_map_find_next(dm,_datakey);
         }
         
         
         for(_i=1; _i<=$100; _i++)
         {
-            _owrc=val(dm_data[?STR_OWRC+STR_River_Devil+hex_str(_i)]);
-            if(!is_undefined(dm_data[?hex_str(_owrc)+STR_River_Devil+STR_State]))
-            {                dm_data[?hex_str(_owrc)+STR_River_Devil+STR_State] = 1;  }
+            _owrc=val(dm[?STR_OWRC+STR_River_Devil+hex_str(_i)]);
+            if(!is_undefined(dm[?hex_str(_owrc)+STR_River_Devil+STR_State]))
+            {                dm[?hex_str(_owrc)+STR_River_Devil+STR_State] = 1;  }
             else break;//_i
         }
         
         
         if (g.Rando_RauruRiverDevil)
         {
-            _owrc = dm_data[?STR_Rando+STR_River_Devil+STR_OWRC];
+            _owrc = dm[?STR_Rando+STR_River_Devil+STR_OWRC];
             if(!is_undefined(_owrc))
             {
-                    dm_data[?hex_str(_owrc)+STR_River_Devil+STR_State] = 0;
+                    dm[?hex_str(_owrc)+STR_River_Devil+STR_State] = 0;
                 if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
                 {
-                    dm_data[?hex_str(_owrc)+STR_River_Devil+STR_State] = 1;
-                    dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC]);
-                    //dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm_data[?STR_Rando+STR_River_Devil+STR_TSRC], $D8);
+                    dm[?hex_str(_owrc)+STR_River_Devil+STR_State] = 1;
+                    dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm[?STR_Rando+STR_River_Devil+STR_TSRC]);
+                    //dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm[?STR_Rando+STR_River_Devil+STR_TSRC], $D8);
                     dg_solid[#byte(_owrc>>0),byte(_owrc>>8)] = 1;
                 }
             }
@@ -667,9 +668,9 @@ PAUSE_MENU.dungeon_rows = val(dm_rm[?_datakey+STR_Row+STR_Count]);
 
 // --------------------------------------------------------------------
 if (_ROOM_C)
-{   // Reset Boulder Circle every time entering overworld so player 
+{   // Reset Boulder Circle every time entering global.OVERWORLD so player 
     // doesn't have to go all the way to diff area and back.
-    with(overworld)
+    with(global.OVERWORLD)
     {
         for(_i=ds_list_size(dl_BoulderCircle_OWRC)-1; _i>=0; _i--)
         {
@@ -777,12 +778,12 @@ if (_ROOM_A)
 
 if (_ROOM_A)
 {
-    overworld.enc_spawn_timer_add = 0;
+    global.OVERWORLD.enc_spawn_timer_add = 0;
     if (encounter_type 
     && !in_safe_encounter )
     {   // Balancing. Add extra delay to next enc inst spawn
-        // overworld.enc_spawn_timer decrements every $14 frames when g.timer_b reaches -1 in update_game_timers()
-        overworld.enc_spawn_timer_add = 2; // this value is multiplied by $14
+        // global.OVERWORLD.enc_spawn_timer decrements every $14 frames when g.timer_b reaches -1 in update_game_timers()
+        global.OVERWORLD.enc_spawn_timer_add = 2; // this value is multiplied by $14
     }
 }
 
@@ -891,8 +892,8 @@ if (_ROOM_A)
                 if (id!=_exit 
                 &&  side&$3 )
                 {
-                    if ((g.overworld.pc_dir&$A && side&$1) 
-                    ||  (g.overworld.pc_dir&$5 && side&$2) )
+                    if ((g.global.OVERWORLD.pc_dir&$A && side&$1) 
+                    ||  (g.global.OVERWORLD.pc_dir&$5 && side&$2) )
                     {
                         _exit = id;
                         break;//with(Exit)
@@ -925,7 +926,7 @@ if (_ROOM_A)
 
 // -------------------------------------------------------------------------
 if (_ROOM_C)
-{   // 2025/03/23. A falling scene from the overworld will draw cucco if pc was cucco in the last scene
+{   // 2025/03/23. A falling scene from the global.OVERWORLD will draw cucco if pc was cucco in the last scene
     spells_active = 0;
     
     if (mod_PC_CUCCO_1 

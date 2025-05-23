@@ -11584,6 +11584,10 @@
         <sprite>sprites\spr_Button_XBoxB01</sprite>
         <sprite>sprites\spr_Button_XBoxX01</sprite>
         <sprite>sprites\spr_Button_XBoxY01</sprite>
+        <sprite>sprites\spr_Button_PlaystationCircle01</sprite>
+        <sprite>sprites\spr_Button_PlaystationX01</sprite>
+        <sprite>sprites\spr_Button_PlaystationTriangle01</sprite>
+        <sprite>sprites\spr_Button_PlaystationSquare01</sprite>
         <sprite>sprites\spr_Menu_Selector_arrow_1a</sprite>
         <sprite>sprites\spr_arrow_1b</sprite>
         <sprite>sprites\spr_arrow_2a_WRB</sprite>
@@ -11796,6 +11800,7 @@
       <script>scripts\Overworld_Game_End.gml</script>
       <script>scripts\Overworld_init_data.gml</script>
       <script>scripts\Overworld_init_data_1.gml</script>
+      <script>scripts\Overworld_init_data_1a.gml</script>
       <script>scripts\Overworld_init_data_2.gml</script>
       <script>scripts\Overworld_init_data_anarkhya.gml</script>
       <script>scripts\ow_pc_xy.gml</script>
@@ -13946,6 +13951,7 @@
         <script>scripts\PaletteEditor_get_cursor_color.gml</script>
         <script>scripts\PaletteEditor_udp.gml</script>
         <script>scripts\PaletteEditor_Draw.gml</script>
+        <script>scripts\PaletteEditor_Draw_GUI_Begin.gml</script>
         <script>scripts\PaletteEditor_draw_PalView.gml</script>
         <script>scripts\PaletteEditor_draw_PalView1.gml</script>
         <script>scripts\PaletteEditor_draw_cursor.gml</script>
@@ -14028,7 +14034,6 @@
     <shader type="GLSLES">shaders\shd_ScanLines01.shader</shader>
     <shader type="GLSLES">shaders\shd_Bloom01.shader</shader>
     <shader type="GLSLES">shaders\shd_Blur01.shader</shader>
-    <shader type="GLSLES">shaders\shd_Blur02.shader</shader>
     <shader type="GLSLES">shaders\shd_SaturationBrightness.shader</shader>
   </shaders>
   <objects name="objects">
@@ -14618,7 +14623,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1027">
+  <constants number="1028">
     <constant name="DEV">true</constant>
     <constant name="USE_FRAME_DELAY">1</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
@@ -15643,7 +15648,8 @@
     <constant name="dk_MOB">"_MOB"</constant>
     <constant name="dk_PI">"_PI"</constant>
     <constant name="dk_can_draw">"_can_draw"</constant>
-    <constant name="dk_XBOX">"_XBOX"</constant>
+    <constant name="dk_XBox">"_XBox"</constant>
+    <constant name="dk_PlayStation">"_PlayStation"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
   </constants>

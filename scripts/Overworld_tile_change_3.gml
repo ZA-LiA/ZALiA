@@ -10,11 +10,11 @@ var _CHANGE    = argument[_a++];
 
 var                       _SCALE_X =  1;
 if (_TILE_DATA&$80000000) _SCALE_X = -1;
-if(!_SCALE_X) _X += g.overworld.T_SIZE;
+if(!_SCALE_X) _X += global.OVERWORLD.T_SIZE;
 
 var                       _SCALE_Y =  1;
 if (_TILE_DATA&$40000000) _SCALE_Y = -1;
-if(!_SCALE_Y) _Y += g.overworld.T_SIZE;
+if(!_SCALE_Y) _Y += global.OVERWORLD.T_SIZE;
 
 
 var _tsrc  = _TILE_DATA-1; // Tiled app adds 1 so it can't be 0
@@ -31,11 +31,11 @@ switch((_tsrc>>8)&$FF)
 //if!((_tsrc>>8)&$FF) var _TS = ts_Overworld_anark02;
 //else                var _TS = ts_Overworld_anark01;
 //var _IDX = ((_tsrc>>8)&$FF) == 0; // 0: ts_Overworld_anark02, 1: ts_Overworld_anark01
-//var _TS  = g.overworld.dl_anarkhya_ts[|_IDX];
+//var _TS  = global.OVERWORLD.dl_anarkhya_ts[|_IDX];
 _tsrc &= $FF;
 
 
-var _TILE_ID = tile_change_3a(g.overworld.T_SIZE, _TS,_tsrc, _X,_Y, _DEPTH, _CHANGE);
+var _TILE_ID = tile_change_3a(global.OVERWORLD.T_SIZE, _TS,_tsrc, _X,_Y, _DEPTH, _CHANGE);
 if (tile_exists(_TILE_ID)) tile_set_scale(_TILE_ID, _SCALE_X,_SCALE_Y);
 
 

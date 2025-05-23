@@ -1087,8 +1087,8 @@ for(_i=ds_grid_width(g.dg_tile_anim)-1; _i>=0; _i--)
     _anim_num = g.dg_tile_anim[#_i,0]; // 0: anim num/type. TID_BREAK1(breakable block), TID_BREAK2(crumble bridge), ...
     
                        _dk=STR_Anim+hex_str(_anim_num);
-    _seq  = g.dm_TILE[?_dk+STR_Sequence];
-    _loop = g.dm_TILE[?_dk+STR_Anim+STR_Loop];
+    _seq  = g.dm_tile[?_dk+STR_Sequence];
+    _loop = g.dm_tile[?_dk+STR_Anim+STR_Loop];
     
     g.dg_tile_anim[#_i,1] = 0;     // counter. 0 means inactive
     g.dg_tile_anim[#_i,2] = _seq;  // tile id sequence

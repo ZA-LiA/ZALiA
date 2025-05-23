@@ -5,6 +5,7 @@ if (DEV) sdm(" p_init()");
 
 var _i,_j,_k,_m, _a,_b,_c, _idx,_idx1,_idx2, _num, _count,_count1,_count2;
 var _val,_val1,_val2,_val3,_val4;
+var _type,_type_, _current_type_;
 var _clm,_row, _clm0,_row0, _clms,_rows;
 var _str, _len, _pos;
 var _pi,_palette_index, _pal1,_pal2,_pal3,_pal4,_pal5,_pal6,_pal7,_pal8, _palette;
@@ -12,6 +13,7 @@ var _dk,_datakey,_datakey1,_datakey2,_datakey3,_datakey4,_datakey5;
 var _adj = 0;
 var _color,_color1,_color2,_color3, _brightness;
 var _base_color_char, _c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn;
+var _base_color_order = "";
 var _file, _data;
 // ci: Color Index
 var _ci1="";
@@ -31,6 +33,149 @@ dl_various_pals2 = ds_list_create();
 depth = DEPTH_p;
 
 
+
+
+dl_BASE_COLORS = ds_list_create();
+
+// 7 colors means 5040 permutations per palette
+// 6 colors means  720 permutations per palette
+// 5 colors means  120 permutations per palette
+// 4 colors means   24 permutations per palette
+//                          // 
+//                          // 
+C_WHT0  = $FFFFFF; // B-255,G-255,R-255.   full white
+C_WHT0_ = color_str(C_WHT0);
+ds_list_add(dl_BASE_COLORS, C_WHT0);
+_base_color_order += "W";
+//                          // 
+C_RED0  = $0000FF; // B-000,G-000,R-255.   full red
+C_RED0_ = color_str(C_RED0);
+ds_list_add(dl_BASE_COLORS, C_RED0);
+_base_color_order += "R";
+//                          // 
+C_BLU0  = $FF0000; // B-255,G-000,R-000.   full blue
+C_BLU0_ = color_str(C_BLU0);
+ds_list_add(dl_BASE_COLORS, C_BLU0);
+_base_color_order += "B";
+//                          // 
+C_GRN0  = $00FF00; // B-000,G-255,R-000.   full green
+C_GRN0_ = color_str(C_GRN0);
+ds_list_add(dl_BASE_COLORS, C_GRN0);
+_base_color_order += "G";
+//                          // 
+C_YLW0  = $00FFFF; // B-000,G-255,R-255.   full yellow
+C_YLW0_ = color_str(C_YLW0);
+ds_list_add(dl_BASE_COLORS, C_YLW0);
+_base_color_order += "Y";
+//                          // 
+C_MGN0  = $FF00FF; // B-255,G-000,R-255.   full magenta
+C_MGN0_ = color_str(C_MGN0);
+ds_list_add(dl_BASE_COLORS, C_MGN0);
+_base_color_order += "M";
+//                          // 
+C_BLK0  = $000000; // B-000,G-000,R-000.   full black
+C_BLK0_ = color_str(C_BLK0);
+ds_list_add(dl_BASE_COLORS, C_BLK0);
+_base_color_order += "K";
+//                          // 
+C_CYN0  = $FFFF00; // B-255,G-255,R-000.   full cyan
+C_CYN0_ = color_str(C_CYN0);
+ds_list_add(dl_BASE_COLORS, C_CYN0);
+_base_color_order += "C";
+//                          // 
+C_ERR0  = C_YLW0; // Error, Missing data, ..
+//                          // 
+//     C_ALPHA0: The color that color swap will draw transparent(alpha=0)
+global.C_ALPHA0 = $7F7F7F; // B-127,G-127,R-127.   mid grey
+//global.C_ALPHA0_B_ = ((global.C_ALPHA0>>$10)&$FF)/$FF; // for shd_pal_swapper
+//global.C_ALPHA0_G_ = ((global.C_ALPHA0>>$08)&$FF)/$FF; // for shd_pal_swapper
+//global.C_ALPHA0_R_ = ((global.C_ALPHA0>>$00)&$FF)/$FF; // for shd_pal_swapper
+//                          // 
+//                          // 
+//                          // 
+//                          // 
+C_BLK1 = $010101; // Closest to $000000 so that pal swap doesn't consider it the base color $000000
+//C_BLK1 = $000000; // NES black
+//                          // 
+C_WHT1 = $FCFCFC; // $30. White 1. Brightest NES white.
+C_WHT2 = $F1F2F1; // $20. White 2. SLIGHTLY grey. SLIGHTLY less bright than white 1
+//                          // 
+C_GRY1 = $BCBCBC; // Grey 1. $10. Brightest grey
+C_GRY2 = $A7A9A7; // Grey 2. $3D. 2nd Brightest grey
+C_GRY3 = $747474; // Grey 3. $00. Mid grey. 3rd brightest grey. 2nd darkest grey.
+C_GRY4 = $3E3E3E; // Grey 4. $2D. Darkest grey
+//                          // 
+C_BLU1 = $FCE4A8; // $31 Blue. Brightest
+C_BLU2 = $FCBC3C; // $21 Blue. Field Encounter sky
+C_BLU3 = $EC7000; // $11 Blue. Town sky
+C_BLU4 = $A80000; // $02 Blue. Old Kasuto sky
+//                          // 
+C_VLT1 = $FCD4C4; // $32 Violet.      Brightest
+C_VLT2 = $FC945C; // $22 Violet/Blue. Mid-Bright
+C_VLT3 = $EC3820; // $12 Violet/Blue. Mid-Dark
+C_VLT4 = $8C1824; // $01 Violet.      Darkest
+//                          // 
+C_PUR1 = $F1BADC; // $33 Purple. 
+C_PUR2 = $FC88CC; // $23 Purple. 
+C_PUR3 = $F00080; // $13 Purple. Cemetery sky
+C_PUR4 = $9C0044; // $03 Purple. 
+//                          // 
+C_MGN1 = $FCC4FC; // $34 Magenta. 
+C_MGN2 = $FC78F4; // $24 Magenta. 
+C_MGN3 = $AD15B8; // $14 Magenta. ShadowLink bg
+C_MGN4 = $74008C; // $04 Magenta. 
+//                          // 
+C_PNK1 = $DCB6F1; // $35 Pink. Brightest
+C_PNK2 = $B474FC; // $25 Pink. 
+C_PNK3 = $5800E4; // $15 Pink. 
+C_PNK4 = $1000A8; // $05 Pink. Darkest
+//                          // 
+C_RED1 = $B0BCFC; // $36 Red. Brightest
+C_RED2 = $6074FC; // $26 Red. 
+C_RED3 = $0028D8; // $16 Red. orange mob red
+C_RED4 = $0000A4; // $06 Red. Darkest
+//                          // 
+C_ORG1 = $A8D8FC; // $37 orange. Brightest
+C_ORG2 = $3898FC; // $27 orange mob orange
+C_ORG3 = $0C4CC8; // $17 orange. 2nd darkest
+C_ORG4 = $00087C; // $07 orange. 
+//                          // 
+C_YLW1 = $7DDAD4; // $38 Yellow. 
+C_YLW2 = $3CBCF0; // $28 Yellow. Map paper.
+C_YLW3 = $007088; // $18 Yellow. 
+C_YLW4 = $002C40; // $08 Yellow. 
+//                          // 
+C_YGR1 = $A0FCE0; // $39 Yellow/Green. Brightest
+C_YGR2 = $10D080; // $29 Yellow/Green. 
+C_YGR3 = $009400; // $19 Yellow/Green. 
+C_YGR4 = $004400; // $09 Yellow/Green. 
+//                          // 
+C_GRN1 = $96E8AF; // $3A Green. 
+C_GRN2 = $48DC4C; // $2A Green. Link green
+C_GRN3 = $00A800; // $1A Green. 
+C_GRN4 = $005000; // $0A Green. 
+//                          // 
+C_GRB1 = $BCE89E; // $3B Green-Blue.
+C_GRB2 = $70D43A; // $2B Green-Blue.
+C_GRB3 = $2A7B00; // $1B Green-Blue.
+C_GRB4 = $003E00; // $0B Green-Blue.
+//                          // 
+C_CYN1 = $F0FC9C; // $3C Teal. Brightest.
+C_CYN2 = $D8E800; // $2C Teal. 
+C_CYN3 = $888000; // $1C Teal. 
+C_CYN4 = $5C3C18; // $0C Teal. Darkest.
+//                          // 
+//                          // 
+/*
+// Color Tone Highlight, Midtone, Shadow
+C_TONE_HGH = C_WHT0; // Highlight
+C_TONE_MID = C_RED0; // Midtone
+C_TONE_LOW = C_BLU0; // Shadow
+*/
+
+
+
+
 // palette_image_IS_SURFACE ---------------------------------
 // 2024/06/26: Had a lot of trouble getting this working. 
 // Palette swap would fail at random times during the 
@@ -43,10 +188,10 @@ depth = DEPTH_p;
 // You can set it to false for the stable legacy method that 
 // uses a sprite instead of a surface.
 global.palette_image_IS_SURFACE = false;
-global.palette_image = 0;
+global.palette_image = -1;
 
 // WRBGYMKC. W: WHITE, R: RED, B: BLUE, G: GREEN, Y: YELLOW, M: MAGENTA, K: BLACK, C: CYAN
-global.PAL_BASE_COLOR_ORDER = "WRBGYMKC";
+global.PAL_BASE_COLOR_ORDER = _base_color_order; // "WRBGYMKC"
 global.COLORS_PER_PALETTE   = string_length(global.PAL_BASE_COLOR_ORDER);
 global.PAL_CHAR_PER_COLOR   = 6; // full color hex
 global.PAL_CHAR_PER_PAL     = global.COLORS_PER_PALETTE * global.PAL_CHAR_PER_COLOR;
@@ -299,131 +444,6 @@ else
 }
 
 
-
-
-
-
-
-
-// 7 colors means 5040 permutations per palette
-// 6 colors means  720 permutations per palette
-// 5 colors means  120 permutations per palette
-// 4 colors means   24 permutations per palette
-//                          // 
-//                          // 
-C_WHT0  = $FFFFFF; // B-255,G-255,R-255.   full white
-C_WHT0_ = color_str(C_WHT0);
-//                          // 
-C_RED0  = $0000FF; // B-000,G-000,R-255.   full red
-C_RED0_ = color_str(C_RED0);
-//                          // 
-C_BLU0  = $FF0000; // B-255,G-000,R-000.   full blue
-C_BLU0_ = color_str(C_BLU0);
-//                          // 
-C_GRN0  = $00FF00; // B-000,G-255,R-000.   full green
-C_GRN0_ = color_str(C_GRN0);
-//                          // 
-C_YLW0  = $00FFFF; // B-000,G-255,R-255.   full yellow
-C_YLW0_ = color_str(C_YLW0);
-//                          // 
-C_MGN0  = $FF00FF; // B-255,G-000,R-255.   full magenta
-C_MGN0_ = color_str(C_MGN0);
-//                          // 
-C_BLK0  = $000000; // B-000,G-000,R-000.   full black
-C_BLK0_ = color_str(C_BLK0);
-//                          // 
-C_CYN0  = $FFFF00; // B-255,G-255,R-000.   full cyan
-C_CYN0_ = color_str(C_CYN0);
-//                          // 
-C_ERR0  = C_YLW0; // Error, Missing data, ..
-//                          // 
-//     C_ALPHA0: The color that color swap will draw transparent(alpha=0)
-global.C_ALPHA0 = $7F7F7F; // B-127,G-127,R-127.   mid grey
-//global.C_ALPHA0_B_ = ((global.C_ALPHA0>>$10)&$FF)/$FF; // for shd_pal_swapper
-//global.C_ALPHA0_G_ = ((global.C_ALPHA0>>$08)&$FF)/$FF; // for shd_pal_swapper
-//global.C_ALPHA0_R_ = ((global.C_ALPHA0>>$00)&$FF)/$FF; // for shd_pal_swapper
-//                          // 
-//                          // 
-//                          // 
-//                          // 
-C_BLK1 = $010101; // Closest to $000000 so that pal swap doesn't consider it the base color $000000
-//C_BLK1 = $000000; // NES black
-//                          // 
-C_WHT1 = $FCFCFC; // $30. White 1. Brightest NES white.
-C_WHT2 = $F1F2F1; // $20. White 2. SLIGHTLY grey. SLIGHTLY less bright than white 1
-//                          // 
-C_GRY1 = $BCBCBC; // Grey 1. $10. Brightest grey
-C_GRY2 = $A7A9A7; // Grey 2. $3D. 2nd Brightest grey
-C_GRY3 = $747474; // Grey 3. $00. Mid grey. 3rd brightest grey. 2nd darkest grey.
-C_GRY4 = $3E3E3E; // Grey 4. $2D. Darkest grey
-//                          // 
-C_BLU1 = $FCE4A8; // $31 Blue. Brightest
-C_BLU2 = $FCBC3C; // $21 Blue. Field Encounter sky
-C_BLU3 = $EC7000; // $11 Blue. Town sky
-C_BLU4 = $A80000; // $02 Blue. Old Kasuto sky
-//                          // 
-C_VLT1 = $FCD4C4; // $32 Violet.      Brightest
-C_VLT2 = $FC945C; // $22 Violet/Blue. Mid-Bright
-C_VLT3 = $EC3820; // $12 Violet/Blue. Mid-Dark
-C_VLT4 = $8C1824; // $01 Violet.      Darkest
-//                          // 
-C_PUR1 = $F1BADC; // $33 Purple. 
-C_PUR2 = $FC88CC; // $23 Purple. 
-C_PUR3 = $F00080; // $13 Purple. Cemetery sky
-C_PUR4 = $9C0044; // $03 Purple. 
-//                          // 
-C_MGN1 = $FCC4FC; // $34 Magenta. 
-C_MGN2 = $FC78F4; // $24 Magenta. 
-C_MGN3 = $AD15B8; // $14 Magenta. ShadowLink bg
-C_MGN4 = $74008C; // $04 Magenta. 
-//                          // 
-C_PNK1 = $DCB6F1; // $35 Pink. Brightest
-C_PNK2 = $B474FC; // $25 Pink. 
-C_PNK3 = $5800E4; // $15 Pink. 
-C_PNK4 = $1000A8; // $05 Pink. Darkest
-//                          // 
-C_RED1 = $B0BCFC; // $36 Red. Brightest
-C_RED2 = $6074FC; // $26 Red. 
-C_RED3 = $0028D8; // $16 Red. orange mob red
-C_RED4 = $0000A4; // $06 Red. Darkest
-//                          // 
-C_ORG1 = $A8D8FC; // $37 orange. Brightest
-C_ORG2 = $3898FC; // $27 orange mob orange
-C_ORG3 = $0C4CC8; // $17 orange. 2nd darkest
-C_ORG4 = $00087C; // $07 orange. 
-//                          // 
-C_YLW1 = $7DDAD4; // $38 Yellow. 
-C_YLW2 = $3CBCF0; // $28 Yellow. Map paper.
-C_YLW3 = $007088; // $18 Yellow. 
-C_YLW4 = $002C40; // $08 Yellow. 
-//                          // 
-C_YGR1 = $A0FCE0; // $39 Yellow/Green. Brightest
-C_YGR2 = $10D080; // $29 Yellow/Green. 
-C_YGR3 = $009400; // $19 Yellow/Green. 
-C_YGR4 = $004400; // $09 Yellow/Green. 
-//                          // 
-C_GRN1 = $96E8AF; // $3A Green. 
-C_GRN2 = $48DC4C; // $2A Green. Link green
-C_GRN3 = $00A800; // $1A Green. 
-C_GRN4 = $005000; // $0A Green. 
-//                          // 
-C_GRB1 = $BCE89E; // $3B Green-Blue.
-C_GRB2 = $70D43A; // $2B Green-Blue.
-C_GRB3 = $2A7B00; // $1B Green-Blue.
-C_GRB4 = $003E00; // $0B Green-Blue.
-//                          // 
-C_CYN1 = $F0FC9C; // $3C Teal. Brightest.
-C_CYN2 = $D8E800; // $2C Teal. 
-C_CYN3 = $888000; // $1C Teal. 
-C_CYN4 = $5C3C18; // $0C Teal. Darkest.
-//                          // 
-//                          // 
-/*
-// Color Tone Highlight, Midtone, Shadow
-C_TONE_HGH = C_WHT0; // Highlight
-C_TONE_MID = C_RED0; // Midtone
-C_TONE_LOW = C_BLU0; // Shadow
-*/
 
 
 
@@ -1494,49 +1514,104 @@ dg_PI_SEQ[#$08,3] = dg_PI_SEQ[#$08,1];
 
 
 // FALLING SCENE  ----------------------------------
-FallScene_CLM_COUNT    = 3;
-FallScene_ROW_H        = 8;
-
-FallScene_ROW_GROUP_H  = FallScene_ROW_H * FallScene_CLM_COUNT;
-//FallScene_ROW_GROUP_CNT  =      BASE_GAME_RESOLUTION_H div FallScene_ROW_GROUP_H;
-//FallScene_ROW_GROUP_CNT += sign(BASE_GAME_RESOLUTION_H mod FallScene_ROW_GROUP_H);
-
-
-fall_scene_type        = 0; // current type of active fall scene
-fall_scene_1_spr       = 0; // created on first frame of app start.
-fall_scene_2_spr       = 0; // created on first frame of app start.
-fall_scene_1_spr_1     = 0; // created on first frame of app start.
-fall_scene_2_spr_1     = 0; // created on first frame of app start.
-fall_scene_spr         = 0; // spr for active fall scene
-
-fall_scene_counter     = 0;
-
-FallScene_FALL_SPD_DEF = 2; // OG 2
-FallScene_1_FALL_SPD   = FallScene_FALL_SPD_DEF;
-FallScene_2_FALL_SPD   = round(FallScene_1_FALL_SPD + (FallScene_1_FALL_SPD * (viewH()/viewW())));
-fall_scene_fall_spd    = FallScene_1_FALL_SPD; // pixels per frame speed
-
-FallScene_Y_BASE       = $20; // OG $10
-fall_scene_y           = 0;
-
-FallScene_X_BASE       = (viewW_()-viewH_()) + FallScene_Y_BASE;
-FallScene_X_BASE      -= $06<<3;
-fall_scene_x           = 0;
-
-fall_scene_pal_state   = 0; // 0484
-fall_scene_pal_set     = 0; // grid idx of dg_FS_PI
-FallScene_PI_BASE      = global.PI_BGR1;
-
-fall_scene_1_pal = build_pal(C_CYN3,C_CYN4,C_CYN2,C_BLK1,-2,-2,-2,-2);
-fall_scene_2_pal = build_pal(C_RED3,C_RED4,C_RED2,C_BLK1,-2,-2,-2,-2);
-//fall_scene_1_pal = $1C0C2C;
-//fall_scene_2_pal = $160626;
-fall_scene_pal = fall_scene_1_pal; // pal for active fall scene
+var _FALL_SPEED_DEFAULT = 2;
+var _STRIPE_W = 8;
+_current_type_ = "1";
+global.FallScene_IS_SURFACE = true;
+global.FallScene_dm = ds_map_create();
+global.FallScene_dm[?"_Stripe"+STR_Width] = _STRIPE_W;
+global.FallScene_dm[?STR_Current+STR_Type] = string(_current_type_); // Which fall scene will occur. 1: Vertical, 2: Horizontal
+//global.FallScene_dm[?STR_Current+STR_Type] = g.FallScene_BIT_DOWN|g.FallScene_BIT_UP;
+global.FallScene_dm[?STR_Current+STR_Fall+STR_Direction] = $4; // $1: RIGHT, $2: LEFT, $4: DOWN, $8: UP
+global.FallScene_dm[?STR_Counter] = 1;
+global.FallScene_dm[?STR_Fall+STR_Speed+STR_Default] = _FALL_SPEED_DEFAULT; // OG: 2
 
 
-// Colors for FallScene backgrounds
-dg_FallScene_PI = ds_grid_create(0,FallScene_CLM_COUNT);
+// 1: Vertical
+_type=1; _type_=string(_type);
+_num = 0;
+global.FallScene_dm[?_type_+STR_Color+hex_str(++_num)] = C_CYN3;
+global.FallScene_dm[?_type_+STR_Color+hex_str(++_num)] = C_CYN4;
+global.FallScene_dm[?_type_+STR_Color+hex_str(++_num)] = C_CYN2;
+global.FallScene_dm[?_type_+STR_Color+STR_Count] = _num; // How many stripe colors there will be
+global.FallScene_dm[?_type_+STR_Image] = -1;
+global.FallScene_dm[?_type_+STR_Image+STR_Width]   = viewW();
+global.FallScene_dm[?_type_+STR_Image+STR_Height]  =     (viewH() div _STRIPE_W) * _STRIPE_W;
+global.FallScene_dm[?_type_+STR_Image+STR_Height] += sign(viewH() mod _STRIPE_W) * _STRIPE_W;
+global.FallScene_dm[?_type_+STR_Fall+STR_Speed]    = global.FallScene_dm[?STR_Fall+STR_Speed+STR_Default];
+_num = 0;
+global.FallScene_dm[?_type_+dk_PI+hex_str(++_num)+STR_Color+STR_Order] = "RBWGMKYC";
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+"_Parent"]           = global.PI_BGR1;
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+STR_Name]            = "fall scene 1a";
+global.FallScene_dm[?_type_+dk_PI+hex_str(++_num)+STR_Color+STR_Order] = "BWRGKYMC";
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+"_Parent"]           = global.PI_BGR1;
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+STR_Name]            = "fall scene 1b";
+global.FallScene_dm[?_type_+dk_PI+hex_str(++_num)+STR_Color+STR_Order] = global.PAL_BASE_COLOR_ORDER;
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+"_Parent"]           = global.PI_BGR1;
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+STR_Name]            = "fall scene 1c";
+global.FallScene_dm[?_type_+dk_PI+STR_Count] = _num;
 
+// 2: Horizontal
+_type++; _type_=string(_type);
+_num = 0;
+global.FallScene_dm[?_type_+STR_Color+hex_str(++_num)] = C_RED3;
+global.FallScene_dm[?_type_+STR_Color+hex_str(++_num)] = C_RED4;
+global.FallScene_dm[?_type_+STR_Color+hex_str(++_num)] = C_RED2;
+global.FallScene_dm[?_type_+STR_Color+STR_Count] = _num; // How many stripe colors there will be
+global.FallScene_dm[?_type_+STR_Image] = -1;
+global.FallScene_dm[?_type_+STR_Image+STR_Width]   =     (viewW() div _STRIPE_W) * _STRIPE_W;
+global.FallScene_dm[?_type_+STR_Image+STR_Width]  += sign(viewW() mod _STRIPE_W) * _STRIPE_W;
+global.FallScene_dm[?_type_+STR_Image+STR_Height]  = viewH();
+global.FallScene_dm[?_type_+STR_Fall+STR_Speed]    = round(val(global.FallScene_dm[?_current_type_+STR_Fall+STR_Speed],_FALL_SPEED_DEFAULT) + (val(global.FallScene_dm[?_current_type_+STR_Fall+STR_Speed],_FALL_SPEED_DEFAULT) * (viewH()/viewW())));
+_num = 0;
+global.FallScene_dm[?_type_+dk_PI+hex_str(++_num)+STR_Color+STR_Order] = "RBWGMKYC";
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+"_Parent"]           = global.PI_MOB_PUR;
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+STR_Name]            = "fall scene 2a";
+global.FallScene_dm[?_type_+dk_PI+hex_str(++_num)+STR_Color+STR_Order] = "BWRGKYMC";
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+"_Parent"]           = global.PI_MOB_PUR;
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+STR_Name]            = "fall scene 2b";
+global.FallScene_dm[?_type_+dk_PI+hex_str(++_num)+STR_Color+STR_Order] = global.PAL_BASE_COLOR_ORDER;
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+"_Parent"]           = global.PI_MOB_PUR;
+global.FallScene_dm[?_type_+dk_PI+hex_str(  _num)+STR_Name]            = "fall scene 2c";
+global.FallScene_dm[?_type_+dk_PI+STR_Count] = _num;
+
+global.FallScene_dm[?STR_Type+STR_Count] = _type;
+
+
+global.FallScene_dm[?STR_Current+STR_Image]            = global.FallScene_dm[?_current_type_+STR_Image];
+global.FallScene_dm[?STR_Current+STR_Image+STR_Width]  = 0;
+global.FallScene_dm[?STR_Current+STR_Image+STR_Height] = 0;
+global.FallScene_dm[?STR_Current+STR_Fall+STR_Speed]   = global.FallScene_dm[?_current_type_+STR_Fall+STR_Speed];
+global.FallScene_dm[?STR_Base+dk_PI] = global.PI_BGR1; // 
+global.FallScene_dm[?STR_Current+dk_PI] = 0; // 0484
+global.FallScene_dm[?dk_PI+STR_Sequence+STR_Index] = 0;
+
+global.FallScene_dm[?STR_Base   +"_Y"]  = $20; // OG: $10
+global.FallScene_dm[?STR_Current+"_y"]  = 0;
+
+global.FallScene_dm[?STR_Base   +"_X"]  = (viewW_()-viewH_()) + global.FallScene_dm[?STR_Base+"_Y"];
+global.FallScene_dm[?STR_Base   +"_X"] -= $06<<3;
+global.FallScene_dm[?STR_Current+"_x"]  = 0;
+
+
+ds_list_copy(_dl, dl_BASE_COLORS);
+_type = 1;
+while(true)
+{
+    _type_ = string(_type);
+    _count = val(global.FallScene_dm[?_type_+STR_Color+STR_Count]);
+    if(!_count) break;//while(true)
+    
+    for(_i=0; _i<global.COLORS_PER_PALETTE; _i++)
+    {
+        _dl[|_i] = val(global.FallScene_dm[?_type_+STR_Color+hex_str(_i+1)], dl_BASE_COLORS[|_i]);
+    }
+    
+    global.FallScene_dm[?_type_+STR_Palette] = build_pal(_dl[|0],_dl[|1],_dl[|2],_dl[|3], _dl[|4],_dl[|5],_dl[|6],_dl[|7]);
+    _type++;
+}
+
+global.FallScene_dm[?STR_Current+STR_Palette] = global.FallScene_dm[?_current_type_+STR_Palette];
 
 
 

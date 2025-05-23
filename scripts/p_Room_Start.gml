@@ -4,23 +4,24 @@
 if (DEV) sdm(" p_Room_Start()");
 
 
-var _i,_j,_k, _idx, _count,_count1,_count2;
+var _i,_j,_k, _idx, _count,_count1,_count2, _num,_num_;
 var _val, _val1,_val2,_val3;
+var _type,_type_, _name;
+var _color,_color1,_color2, _color_order;
+var _pal,_pal1, _pi, _parent;
 var _str,_str1,_str2,_str3, _pos,_pos1, _pos_offset, _len1,_len2;
 var _dk;
-var _pal,_pal1, _pi;
 var _layer_name, _depth;
-var _color,_color1,_color2;
 var _ci,_ci1,_ci2;
 var _dungeon_num;
 
 
 
 
-fall_scene_counter   = 1;
-fall_scene_pal_state = 0;
-fall_scene_fall_spd  = FallScene_FALL_SPD_DEF;
-fall_scene_y         = fall_scene_get_y_base();
+global.FallScene_dm[?STR_Counter] = 1;
+global.FallScene_dm[?dk_PI+STR_Sequence+STR_Index] = 0;
+global.FallScene_dm[?STR_Current+STR_Fall+STR_Speed] = val(global.FallScene_dm[?STR_Fall+STR_Speed+STR_Default],2);
+global.FallScene_dm[?STR_Current+"_y"] = fall_scene_get_y_base();
 
 
 Flash_Pal_timer        = 0; // 074B. 
@@ -627,21 +628,42 @@ switch(room)
 
 
 
+_type = 1;
+while(true)
+{
+    _type_ = string(_type);
+    _count = val(global.FallScene_dm[?_type_+dk_PI+STR_Count]);
+    if(!_count) break;//while(true)
+    
+    for(_i=0; _i<_count; _i++)
+    {
+        _num_ = hex_str(_i+1);
+        _dk = _type_+dk_PI+_num_;
+        _color_order = val(global.FallScene_dm[?_dk+STR_Color+STR_Order], global.PAL_BASE_COLOR_ORDER);
+        _parent      = val(global.FallScene_dm[?_dk+"_Parent"], global.PI_BGR1);
+        _name        = val(global.FallScene_dm[?_dk+STR_Name], _dk);
+        global.FallScene_dm[?_dk] = add_pi_permut(_parent, _color_order, _name);
+    }
+    
+    _type++;
+}
+
+
 global.spell_unaffordable_pi = add_pi_permut(global.PI_GUI1, "BWRGKYMC", "spell unaffordable");
 global.spell_futile_pi       = add_pi_permut(global.PI_GUI1, "RBWGMKYC", "spell futile");
 
-
+/*
 _idx = -1;
-ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_CLM_COUNT);
-dg_FallScene_PI[#_idx,0] = add_pi_permut(FallScene_PI_BASE, "RBWGMKYC", "fall scene 1a"); // m, s, h
-dg_FallScene_PI[#_idx,1] = add_pi_permut(FallScene_PI_BASE, "BWRGKYMC", "fall scene 1b"); // s, h, m
-dg_FallScene_PI[#_idx,2] =               FallScene_PI_BASE; // h, m, s
+ds_grid_resize(FallScene_dg_PI, (++_idx)+1, FallScene_COLOR_COUNT);
+FallScene_dg_PI[#_idx,0] = add_pi_permut(FallScene_PI_BASE, "RBWGMKYC", "fall scene 1a"); // m, s, h
+FallScene_dg_PI[#_idx,1] = add_pi_permut(FallScene_PI_BASE, "BWRGKYMC", "fall scene 1b"); // s, h, m
+FallScene_dg_PI[#_idx,2] =               FallScene_PI_BASE; // h, m, s
 //                                                      //
-ds_grid_resize(dg_FallScene_PI, (++_idx)+1, FallScene_CLM_COUNT);
-dg_FallScene_PI[#_idx,0] = add_pi_permut(global.PI_MOB_PUR, "RBWGMKYC", "fall scene 2a"); // m, s, h
-dg_FallScene_PI[#_idx,1] = add_pi_permut(global.PI_MOB_PUR, "BWRGKYMC", "fall scene 2b"); // s, h, m
-dg_FallScene_PI[#_idx,2] =               global.PI_MOB_PUR; // h, m, s
-
+ds_grid_resize(FallScene_dg_PI, (++_idx)+1, FallScene_COLOR_COUNT);
+FallScene_dg_PI[#_idx,0] = add_pi_permut(global.PI_MOB_PUR, "RBWGMKYC", "fall scene 2a"); // m, s, h
+FallScene_dg_PI[#_idx,1] = add_pi_permut(global.PI_MOB_PUR, "BWRGKYMC", "fall scene 2b"); // s, h, m
+FallScene_dg_PI[#_idx,2] =               global.PI_MOB_PUR; // h, m, s
+*/
 
 
 

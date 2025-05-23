@@ -105,9 +105,17 @@ switch(state)
         
         if (_EDIT_REQUESTED_BGR)
         {
+            BgrColor_before_edit = global.BackgroundColor_scene;
+            
+            _idx = ds_list_find_index(ColorGrid_dl_colors, BgrColor_before_edit);
+            if (_idx!=-1)
+            {
+                ColorGrid_Cursor_clm = _idx mod ColorGrid_CLMS;
+                ColorGrid_Cursor_row = _idx div ColorGrid_CLMS;
+            }
+            
             gui_state_at_sess_start = g.gui_state;
             g.gui_state = g.gui_state_EDIT_PAL;
-            BgrColor_before_edit = global.BackgroundColor_scene;
             
             timer = DELAY1_DUR; // Delay any input reaction in next state.
             state = state_BGR_COLOR;
@@ -170,7 +178,6 @@ switch(state)
         pal_before_edit_color = p.pal_rm_curr;
         pal_during_edit       = p.pal_rm_curr;
         
-        // TODO: set `ColorGrid_Cursor_clm` && `ColorGrid_Cursor_row` to start in the color grid on the color to be edited
         _idx = ds_list_find_index(ColorGrid_dl_colors, color_old);
         if (_idx!=-1)
         {
@@ -182,6 +189,9 @@ switch(state)
         state = state_EDIT1B;
         break;//case state_EDIT1A
     }
+    
+    
+    
     
     
     
@@ -210,7 +220,6 @@ switch(state)
         {
             var _PI  = val(PalEdit_dm[?STR_Palette+hex_str(PalEdit_Cursor_clm+1)+STR_Palette+STR_Index]);
             var _POS = get_pal_col_pos(_PI,string_char_at(global.PAL_BASE_COLOR_ORDER, PalEdit_Cursor_row+1));
-            
             var _COL1 = string_copy(pal_before_edit_sess, _POS, global.PAL_CHAR_PER_COLOR);
             var _COL2 = string_copy(pal_during_edit,      _POS, global.PAL_CHAR_PER_COLOR);
             if (_COL1!=_COL2)
@@ -227,7 +236,6 @@ switch(state)
         {
             var _PI  = val(PalEdit_dm[?STR_Palette+hex_str(PalEdit_Cursor_clm+1)+STR_Palette+STR_Index]);
             var _POS = get_pal_pos(_PI);
-            
             var _PAL1 = string_copy(pal_before_edit_sess, _POS, global.PAL_CHAR_PER_PAL);
             var _PAL2 = string_copy(pal_during_edit,      _POS, global.PAL_CHAR_PER_PAL);
             if (_PAL1!=_PAL2)
@@ -265,6 +273,8 @@ switch(state)
     
     
     
+    
+    
     // 3: RANDOMIZE COLORS  ---------------------------------------------------------
     // --------------------------------------------------------------------------
     if (_Input_Randomize_PRES) // Input3: xbox 'X'.  Randomize a color
@@ -283,8 +293,8 @@ switch(state)
             _pi = val(PalEdit_dm[?STR_Palette+hex_str(PalEdit_Cursor_clm+1)+STR_Palette+STR_Index]);
             _color_char = string_char_at(global.PAL_BASE_COLOR_ORDER, PalEdit_Cursor_row+1);
             _pos = get_pal_col_pos(_pi,_color_char);
-            pal_during_edit = strReplaceAt(pal_during_edit, _pos, global.PAL_CHAR_PER_COLOR, get_random_color(true,_color_char));
-            pal_during_edit = change_pal(pal_during_edit);
+            _color = get_random_color(true,_color_char);
+            pal_during_edit = change_pal(strReplaceAt(pal_during_edit, _pos, global.PAL_CHAR_PER_COLOR, color_str(_color)));
             break;//case state_EDIT1A
         }
         
@@ -295,8 +305,8 @@ switch(state)
         {
             _pi = val(PalEdit_dm[?STR_Palette+hex_str(PalEdit_Cursor_clm+1)+STR_Palette+STR_Index]);
             _pos = get_pal_pos(_pi);
-            pal_during_edit = strReplaceAt(pal_during_edit, _pos, global.PAL_CHAR_PER_PAL, randomize_palette(1,true));
-            pal_during_edit = change_pal(pal_during_edit);
+            _palette = randomize_palette(1,true);
+            pal_during_edit = change_pal(strReplaceAt(pal_during_edit, _pos, global.PAL_CHAR_PER_PAL, _palette));
             break;//case state_EDIT1A
         }
         
@@ -309,7 +319,8 @@ switch(state)
             {
                 _pi = val(PalEdit_dm[?STR_Palette+hex_str(_i+1)+STR_Palette+STR_Index]);
                 _pos = get_pal_pos(_pi);
-                pal_during_edit = strReplaceAt(pal_during_edit, _pos, global.PAL_CHAR_PER_PAL, randomize_palette(1,true));
+                _palette = randomize_palette(1,true);
+                pal_during_edit = strReplaceAt(pal_during_edit, _pos, global.PAL_CHAR_PER_PAL, _palette);
             }
             
             pal_during_edit = change_pal(pal_during_edit);
@@ -319,6 +330,7 @@ switch(state)
         
         break;//case state_EDIT1A
     }
+    
     
     
     
@@ -392,13 +404,13 @@ switch(state)
     PaletteEditor_update_cursor();
     
     // update palette
-    var _COLOR =PaletteEditor_get_cursor_color(false); //    color grid cursor color
-    if (_COLOR!=PaletteEditor_get_cursor_color(true))  // if color grid cursor color != palette color
+        _color =PaletteEditor_get_cursor_color(false); //    color grid cursor color
+    if (_color!=PaletteEditor_get_cursor_color(true))  // if color grid cursor color != palette color
     {
         var _PI = val(PalEdit_dm[?STR_Palette+hex_str(PalEdit_Cursor_clm+1)+STR_Palette+STR_Index]);
         var _COLOR_CHAR = string_char_at(global.PAL_BASE_COLOR_ORDER, PalEdit_Cursor_row+1);
         var _POS = get_pal_col_pos(_PI,_COLOR_CHAR);
-        pal_during_edit = change_pal(strReplaceAt(pal_during_edit, _POS, global.PAL_CHAR_PER_COLOR, color_str(_COLOR)));
+        pal_during_edit = change_pal(strReplaceAt(pal_during_edit, _POS, global.PAL_CHAR_PER_COLOR, color_str(_color)));
     }
     break;}//case state_EDIT1B
     
@@ -422,9 +434,11 @@ switch(state)
     if (timer) break;//case state_BGR_COLOR
     
     
-    // Complete changes -------------------------------------------------------------
+    // CONFIRM/DONE -----------------------------------------------------------------
     if (Input.Pause_pressed)
     {
+        global.BackgroundColor_scene = PaletteEditor_get_cursor_color(false); // color grid cursor color
+        set_background_color(global.BackgroundColor_scene);
         g.gui_state = gui_state_at_sess_start;
         
         timer = DELAY1_DUR; // Delay any input reaction in next state.
@@ -437,69 +451,48 @@ switch(state)
     ||  _EDIT_REQUESTED_BGR )
     {
         global.BackgroundColor_scene = BgrColor_before_edit;
+        set_background_color(global.BackgroundColor_scene);
         g.gui_state = gui_state_at_sess_start;
         
         timer = DELAY1_DUR; // Delay any input reaction in next state.
         state = state_IDLE;
         break;//case state_BGR_COLOR
     }
-    /*
-        _Input_CANCEL |= _EDIT_REQUESTED_BGR;
-    var _Input_CONFIRM = _Input_COLOR_SELECTED;
-    if (_Input_CANCEL    // Backspace || ESC
-    ||  _Input_CONFIRM ) // Start button || ENTER
-    {
-        if (_Input_CONFIRM)
-        {
-            if (BgrColor_before_edit!=background_colour)
-            {
-                //ds_list_add(dl_hist_room, p.pal_rm_curr);
-            }
-        }
-        else if (_Input_CANCEL)
-        {
-            global.BackgroundColor_scene = BgrColor_before_edit;
-        }
-        
-        //ds_list_clear(dl_hist_sess);
-        global.BackgroundColor_scene = BgrColor_before_edit;
-        g.gui_state = gui_state_at_sess_start;
-        
-        timer = DELAY1_DUR; // Delay any input reaction in next state.
-        state = state_IDLE;
-        break;//case state_BGR_COLOR
-    }
-    */
+    
+    
+    
+    
     
     
     
     
     // TOGGLE OLD/NEW COLORS --------------------------------------------------------
-    if (_Input_ViewOld_HELD) // gp4: xbox 'Y' button
+    if (_Input_ViewOld_HELD)
     {
         global.BackgroundColor_scene = BgrColor_before_edit;
+        set_background_color(global.BackgroundColor_scene);
         break;//case state_BGR_COLOR
     }
-    else if (0&&_Input_Randomize_PRES)
+    else if (_Input_Randomize_PRES)
     {
         var      _RAND = irandom(99);
-             if (_RAND<10) global.BackgroundColor_scene = p.dl_color_h[|irandom(ds_list_size(p.dl_color_h)-1)];
-        else if (_RAND<40) global.BackgroundColor_scene = p.dl_color_m[|irandom(ds_list_size(p.dl_color_m)-1)];
-        else               global.BackgroundColor_scene = p.dl_color_s[|irandom(ds_list_size(p.dl_color_s)-1)];
+             if (_RAND<10) global.BackgroundColor_scene = get_random_color(true,0);
+        else if (_RAND<40) global.BackgroundColor_scene = get_random_color(true,1);
+        else               global.BackgroundColor_scene = get_random_color(true,2);
+        set_background_color(global.BackgroundColor_scene);
+    }
+    else if (_Input_COLOR_SELECTED)
+    {
+        global.BackgroundColor_scene = PaletteEditor_get_cursor_color(false); // color grid cursor color
+        set_background_color(global.BackgroundColor_scene);
+        break;//case state_EDIT1B. **Selecting a palette color to edit gets priority.
     }
     else
     {
-        global.BackgroundColor_scene = BgrColor_during_edit;
+        PaletteEditor_update_cursor();
+        global.BackgroundColor_scene = PaletteEditor_get_cursor_color(false); // color grid cursor color
+        set_background_color(global.BackgroundColor_scene);
     }
-    
-    
-    
-    
-    // update move ColorGrid_Cursor
-    PaletteEditor_update_cursor();
-    
-    // set background color to ColorGrid_Cursor color
-    global.BackgroundColor_scene = PaletteEditor_get_cursor_color(false); // color grid cursor color
     break;}//case state_BGR_COLOR
 }//switch(state)
 

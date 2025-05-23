@@ -3,7 +3,12 @@
 // g: game. General game stuff
 
 
-if (DEV) sdm(" g_Create()");
+if (DEV)
+{
+    var _START_TIME = current_time;
+    sdm("");
+    sdm("g_Create() START");
+}
 
 
 /*
@@ -727,7 +732,7 @@ tile_pal_swap_ver = 1; // tracks which depths have tiles that need pal swapping
 //tile_pal_swap_ver = 2; // pal swaps every depth
 
 
-dm_TILE         = ds_map_create();  // various/general tile data. Mostly populated in init_tile_data()
+dm_tile         = ds_map_create();  // various/general tile data. Mostly populated in init_tile_data()
 dm_hidden_tiles = ds_map_create();  // 
 dl_hidden_tiles = ds_list_create(); // 
 dm_tile_file    = ds_map_create();  // 
@@ -1755,7 +1760,7 @@ BossExplosion_Inst_DURATION = ($1<<4)-1;
 // ----------------------------------------------------------
 // --------------------  OVERWORLD  ------------------------
 
-overworld        = noone; // Overworld object instance
+//overworld        = noone; // Overworld object instance
 overworld_paused = false;
 
 
@@ -3343,6 +3348,15 @@ ds_list_add(dl_rando_seed_SPRITES, val(dm_ITEM[?STR_SWORD   +STR_Sprite], _defau
 
 
 ds_list_destroy(_dl_1); _dl_1=undefined;
+
+
+
+
+if (DEV)
+{
+    sdm("g_Create() END. "+string(current_time-_START_TIME));
+    sdm("");
+}
 
 
 

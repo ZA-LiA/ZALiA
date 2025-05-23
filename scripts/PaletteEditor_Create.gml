@@ -5,11 +5,15 @@ show_debug_message("PaletteEditor_Create()");
 
 var _i,_j, _a, _idx, _val1,_val2,_val3, _count,_count1, _dist;
 var _x,_y, _xl,_yt, _w,_h;
+var _pad,_pad0,_pad1;
 var _sprite, _color;
 var _text, _len,_len1, _pos;
 var _dk,_dk1,_dk2,_dk3;
 var _dl = ds_list_create();
 var _SCALE1 = 6;
+
+
+dk_XL = "_XL";
 
 
 depth = DEPTH_HUD;
@@ -26,8 +30,11 @@ state           = state_IDLE;
 
 
 
-gui_PAD1 = $1<<3; // camera pad
-gui_PAD2 = $A; // editor elements x separator
+gui_PAD1 = $4; // camera pad
+//gui_PAD1 = $8; // camera pad
+gui_PAD2 = $8; // editor elements x separator
+//gui_PAD2 = $A; // editor elements x separator
+gui_PAD3 = $2;
 gui_Background_ALPHA = 0.7;
 
 
@@ -36,9 +43,10 @@ gui_Background_ALPHA = 0.7;
 // -1 Upper left, 0 Center left, 1 Bottom left
 gui_alignment = -1;
 gui_state_at_sess_start = 0;
-gui_XLOFF = gui_PAD1; // camera pad
-gui_YTOFF = gui_PAD1; // camera pad
-gui_YTOFF = gui_YTOFF>>1; // micro adj
+gui_XLOFF = gui_PAD3; // camera pad
+gui_YTOFF = gui_PAD3; // camera pad
+//gui_XLOFF = gui_PAD1; // camera pad
+//gui_YTOFF = gui_PAD1; // camera pad
 gui_xl    = 0;
 gui_yt    = 0;
 
@@ -147,6 +155,7 @@ PalEdit_SCALE = _SCALE1;
 PalEdit_Outline_W = 2;
 PalEdit_X_BASE  = gui_XLOFF;
 PalEdit_X_BASE -= PalEdit_Outline_W;
+PalEdit_X_BASE  = max(0,PalEdit_X_BASE);
 PalEdit_xl = 0;
 PalEdit_yt = 0;
 PalEdit_Outline_surf = 0;
@@ -163,194 +172,206 @@ PalEdit_group_count = 0;
 _xl = 0;
 _yt = 0;
 
-PalEdit_dm[?STR_Palette+"_XL"] = _xl;
+PalEdit_dm[?STR_Palette+dk_XL] = _xl;
 
 
 
 
 // BGR ----------------------------------------------------------
-PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+"_XL"] = _xl;
-
-if (val(global.dm_pi[?"BGR"+STR_Count])>0)
+if (true)
 {
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 1";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR1;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
+    PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+dk_XL] = _xl;
+    
+    if (val(global.dm_pi[?"BGR"+STR_Count])>0)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "BGR 1";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR1;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"BGR"+STR_Count])>1)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "BGR 2";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR2;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"BGR"+STR_Count])>2)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "BGR 3";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR3;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"BGR"+STR_Count])>3)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "BGR 4";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR4;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"BGR"+STR_Count])>4)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "BGR 5";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR5;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+dk_XL]);
 }
-
-if (val(global.dm_pi[?"BGR"+STR_Count])>1)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 2";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR2;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-if (val(global.dm_pi[?"BGR"+STR_Count])>2)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 3";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR3;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-if (val(global.dm_pi[?"BGR"+STR_Count])>3)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 4";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR4;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-if (val(global.dm_pi[?"BGR"+STR_Count])>4)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "BGR 5";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_BGR5;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+"_XL"]);
 
 
 
 
 // PC ----------------------------------------------------------
-_xl += _GROUP_SPACING; // palette group padding
-PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+"_XL"] = _xl;
-
-if (val(global.dm_pi[?"PC"+STR_Count])>0)
+if (false)
 {
+    _xl += _GROUP_SPACING; // palette group padding
+    PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+dk_XL] = _xl;
+    
+    if (val(global.dm_pi[?"PC"+STR_Count])>0)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "PLAYER ARMOR LVL.1";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_PC1;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"PC"+STR_Count])>1)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "PLAYER ARMOR LVL.2";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_PC2;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"PC"+STR_Count])>2)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "PLAYER ARMOR LVL.3";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_PC3;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
     _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "PLAYER ARMOR LVL.1";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_PC1;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
+    PalEdit_dm[?_dk1+STR_Name] = "PLAYER DISGUISE";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_DISGUISE_PC;
+    PalEdit_dm[?_dk1+dk_XL] = _xl;
     _xl += PalEdit_SCALE;
+    
+    PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+dk_XL]);
 }
-
-if (val(global.dm_pi[?"PC"+STR_Count])>1)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "PLAYER ARMOR LVL.2";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_PC2;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-if (val(global.dm_pi[?"PC"+STR_Count])>2)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "PLAYER ARMOR LVL.3";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_PC3;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-_dk1 = STR_Palette+hex_str(++_count1);
-PalEdit_dm[?_dk1+STR_Name] = "PLAYER DISGUISE";
-PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_DISGUISE_PC;
-PalEdit_dm[?_dk1+"_XL"] = _xl;
-_xl += PalEdit_SCALE;
-
-PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+"_XL"]);
 
 
 
 
 // CUCCO ----------------------------------------------------------
-_xl += _GROUP_SPACING; // palette group padding
-PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+"_XL"] = _xl;
-
-if (val(global.dm_pi[?"CUCCO"+STR_Count])>0)
+if (false)
 {
+    _xl += _GROUP_SPACING; // palette group padding
+    PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+dk_XL] = _xl;
+    
+    if (val(global.dm_pi[?"CUCCO"+STR_Count])>0)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "CUCCO ARMOR LVL.1";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_CUCCO1;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"CUCCO"+STR_Count])>1)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "CUCCO ARMOR LVL.2";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_CUCCO2;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"CUCCO"+STR_Count])>2)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "CUCCO ARMOR LVL.3";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_CUCCO3;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
     _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "CUCCO ARMOR LVL.1";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_CUCCO1;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
+    PalEdit_dm[?_dk1+STR_Name] = "CUCCO DISGUISE";
+    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_DISGUISE_CUCCO;
+    PalEdit_dm[?_dk1+dk_XL] = _xl;
     _xl += PalEdit_SCALE;
+    
+    PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+dk_XL]);
 }
-
-if (val(global.dm_pi[?"CUCCO"+STR_Count])>1)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "CUCCO ARMOR LVL.2";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_CUCCO2;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-if (val(global.dm_pi[?"CUCCO"+STR_Count])>2)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "CUCCO ARMOR LVL.3";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_CUCCO3;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-_dk1 = STR_Palette+hex_str(++_count1);
-PalEdit_dm[?_dk1+STR_Name] = "CUCCO DISGUISE";
-PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_DISGUISE_CUCCO;
-PalEdit_dm[?_dk1+"_XL"] = _xl;
-_xl += PalEdit_SCALE;
-
-PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+"_XL"]);
 
 
 
 
 // MOBS ----------------------------------------------------------
-_xl += _GROUP_SPACING; // palette group padding
-PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+"_XL"] = _xl;
-
-if (val(global.dm_pi[?"MOB"+STR_Count])>0)
+if (false)
 {
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "MOB ORANGE";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_ORG;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
+    _xl += _GROUP_SPACING; // palette group padding
+    PalEdit_dm[?STR_Group+hex_str(++PalEdit_group_count)+dk_XL] = _xl;
+    
+    if (val(global.dm_pi[?"MOB"+STR_Count])>0)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "MOB ORANGE";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_ORG;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"MOB"+STR_Count])>1)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "MOB RED";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_RED;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"MOB"+STR_Count])>2)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "MOB BLUE";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_BLU;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    if (val(global.dm_pi[?"MOB"+STR_Count])>3)
+    {
+        _dk1 = STR_Palette+hex_str(++_count1);
+        PalEdit_dm[?_dk1+STR_Name] = "MOB PURPLE";
+        PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_PUR;
+        PalEdit_dm[?_dk1+dk_XL] = _xl;
+        _xl += PalEdit_SCALE;
+    }
+    
+    PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+dk_XL]);
 }
 
-if (val(global.dm_pi[?"MOB"+STR_Count])>1)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "MOB RED";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_RED;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-if (val(global.dm_pi[?"MOB"+STR_Count])>2)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "MOB BLUE";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_BLU;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-if (val(global.dm_pi[?"MOB"+STR_Count])>3)
-{
-    _dk1 = STR_Palette+hex_str(++_count1);
-    PalEdit_dm[?_dk1+STR_Name] = "MOB PURPLE";
-    PalEdit_dm[?_dk1+STR_Palette+STR_Index] = global.PI_MOB_PUR;
-    PalEdit_dm[?_dk1+"_XL"] = _xl;
-    _xl += PalEdit_SCALE;
-}
-
-PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+STR_Width] = _xl - val(PalEdit_dm[?STR_Group+hex_str(PalEdit_group_count)+"_XL"]);
 
 
 
-
-PalEdit_PALS_W = _xl - val(PalEdit_dm[?STR_Palette+"_XL"]);
+PalEdit_PALS_W = _xl - val(PalEdit_dm[?STR_Palette+dk_XL]);
 PalEdit_PALS_H = global.COLORS_PER_PALETTE * PalEdit_SCALE;
 PalEdit_PAL_COUNT = _count1;
 PalEdit_Cursor_clm = 0;
@@ -441,13 +462,6 @@ Info1_DIST1 += $2; // micro adj
 
 Info1Background_COLOR = p.C_BLK1;
 Info1Background_ALPHA = gui_Background_ALPHA;
-Info1Area_X_BASE  = ColorGrid_X_BASE + ColorGrid_W;
-Info1Area_X_BASE += $6; // pad
-Info1Area_Y_BASE  = gui_YTOFF;
-Info1Area_Y_BASE -= $2; // micro adj
-Info1Area_W  = viewW();
-Info1Area_W -= gui_PAD1; // camera pad
-Info1Area_W -= Info1Area_X_BASE;
 //Info1Area_H  = $4<<3;
 Info1Area_h  = 0;
 Info1Area_xl = 0;
@@ -457,44 +471,47 @@ Info1Area_yt = 0;
 _dk1 = "GP-";
 Info1_dg_H = $E;
 Info1_dg = ds_grid_create(0,Info1_dg_H);
-_yt = Info1Area_Y_BASE;
+//_yt = Info1Area_Y_BASE;
 
 _i = -1;
 _j=0; _dk2="B"; _dk3=_dk1+_dk2;
 ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
-Info1_dg[#_i,_j++] = _dk3+", ESC, BACKSPACE: CANCEL CHANGES";
+Info1_dg[#_i,_j++] = _dk3+": CANCEL CHANGES AND EXIT";
+//Info1_dg[#_i,_j++] = _dk3+",ESC,BACKSPACE: CANCEL CHANGES";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
 
 _j=0; //_dk2="B"; _dk3=_dk1+_dk2;
 ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
-Info1_dg[#_i,_j++] = "START, ENTER: CONFIRM CHANGES";
+Info1_dg[#_i,_j++] = "START: CONFIRM CHANGES AND EXIT";
+//Info1_dg[#_i,_j++] = "START,ENTER: CONFIRM CHANGES";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
 
 _j=0; _dk2="A"; _dk3=_dk1+_dk2;
 ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
-Info1_dg[#_i,_j++] = _dk3+": SELECT COLOR";
-//Info1_dg[#_i,_j++] = _dk3+", START, ENTER: SELECT COLOR";
+Info1_dg[#_i,_j++] = _dk3+": PICK NEW COLOR";
+//Info1_dg[#_i,_j++] = _dk3+": EDIT COLOR";
+//Info1_dg[#_i,_j++] = _dk3+": SELECT COLOR";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B); // can draw conditions
 
-_j=0; _dk2="Y"; _dk3=_dk1+_dk2;
-ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
-Info1_dg[#_i,_j++] = _dk3+", "+_dk3+"+LT, "+_dk3+"+RT: VIEW PREVIOUS COLOR(S)";
-Info1_dg[#_i,_j++] = 0; // xl
-Info1_dg[#_i,_j++] = 0; // yt
-Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
-
 _j=0; _dk2="X"; _dk3=_dk1+_dk2;
 ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
-Info1_dg[#_i,_j++] = _dk3+", "+_dk3+"+LT, "+_dk3+"+RT: RANDOMIZE COLOR(S)";
+Info1_dg[#_i,_j++] = _dk3+","+_dk3+"+LT,"+_dk3+"+RT: RANDOMIZE COLOR(S)";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A); // can draw conditions
+
+_j=0; _dk2="Y"; _dk3=_dk1+_dk2;
+ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
+Info1_dg[#_i,_j++] = _dk3+","+_dk3+"+LT,"+_dk3+"+RT: VIEW PREVIOUS COLOR(S)";
+Info1_dg[#_i,_j++] = 0; // xl
+Info1_dg[#_i,_j++] = 0; // yt
+Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
 
 
 Info1_dg_W = ds_grid_width(Info1_dg);
@@ -517,7 +534,7 @@ for(_i=Info1_dg_W-1; _i>=0; _i--)
         _text = _val1 + _dk2 + strR(_text, _pos+_len1+1);
         //_text = strReplaceAt(_text, _pos, _len1+1, "["+_dk2+"]");
         
-        _sprite = Input.Buttons_dm[?dk_XBOX+_dk2+STR_Sprite];
+        _sprite = Input.Buttons_dm[?dk_XBox+"_"+_dk2+STR_Sprite];
         if(!is_undefined(_sprite))
         {
             _w = sprite_get_width( _sprite);
@@ -543,6 +560,30 @@ for(_i=Info1_dg_W-1; _i>=0; _i--)
     
     Info1_dg[#_i,$0] = _text;
 }
+/*
+Buttons_dm[?string(gp_face1)+STR_Name] = "FACE1"; // Xbox A button
+Buttons_dm[?string(gp_face2)+STR_Name] = "FACE2"; // Xbox B button
+Buttons_dm[?string(gp_face3)+STR_Name] = "FACE3"; // Xbox X button
+Buttons_dm[?string(gp_face4)+STR_Name] = "FACE4"; // Xbox Y button
+*/
+
+
+_len1 = 0;
+for(_i=Info1_dg_W-1; _i>=0; _i--) _len1 = max(_len1, string_length(Info1_dg[#_i,0]));
+_val1  = Info1_FONT_W * _len1;
+_val1 += Info1_PAD2<<1; // text pad
+Info1Area_W = _val1;
+
+_val1  = ColorGrid_X_BASE + ColorGrid_W;
+_val1 += $6; // color grid pad
+_val2  = viewW();
+_val2 -= gui_PAD3; // camera pad
+_val2 -= Info1Area_W;
+Info1Area_X_BASE  = max(_val1,_val2);
+
+Info1Area_Y_BASE  = gui_PAD3;
+//Info1Area_Y_BASE  = gui_YTOFF;
+//Info1Area_Y_BASE -= $2; // micro adj
 
 
 

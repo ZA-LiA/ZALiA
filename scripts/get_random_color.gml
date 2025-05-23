@@ -6,6 +6,7 @@ var _USE_GAME_COLORS = argument[0];
 var                   _tone = -1;
 if (argument_count>1) _tone = argument[1];
 if (is_string(_tone)) _tone = string_upper(_tone);
+//else                  _tone = clamp(_tone,-1,2);
 
 if (_tone==-1)
 {

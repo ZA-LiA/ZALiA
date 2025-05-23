@@ -1,6 +1,11 @@
 // RoomData_Create()
 
-if (DEV) sdm(" RoomData_Create()");
+if (DEV)
+{
+    var _START_TIME = current_time;
+    sdm("");
+    sdm("RoomData_Create() START");
+}
 
 
 var _i,_j, _idx, _num, _val, _len, _count;
@@ -1652,6 +1657,15 @@ ds_list_destroy(dl_exit); dl_exit=undefined;
 instance_destroy();
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
+
+
+
+
+if (DEV)
+{
+    sdm("RoomData_Create() END. "+string(current_time-_START_TIME));
+    sdm("");
+}
 
 
 

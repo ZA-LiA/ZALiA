@@ -165,8 +165,8 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '02'+EXL0_); // RGT 0, 
 //
 
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_RAUR1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_RAUR1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RAUR1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RAUR1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -288,8 +288,8 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '18'+EXL0_); // RGT 0, 
 //
 
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_RUTO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_RUTO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RUTO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RUTO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -510,8 +510,8 @@ clm4=$62;
 //
 _exit=data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0);          // LFT 0, to Overworld 
 g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_MIDO1)+'01'+STR_Exit] = _exit; // EXL0, LFT 0
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_MIDO1)+'04'+STR_Exit] = _exit; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_MIDO1)+'01'+STR_Exit] = _exit; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_MIDO1)+'04'+STR_Exit] = _exit; // EXL0, LFT 0
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RGT 0, 
 //
 
@@ -649,8 +649,8 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0D'+EXL0_); // RGT 0, 
 //
 
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_NABO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_NABO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_NABO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_NABO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -773,8 +773,8 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '10'+EXL0_); // RGT 0, 
 //
 
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_DARU1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_DARU1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_DARU1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_DARU1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -1054,8 +1054,8 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '16'+EXL0_);   // RGT 0, 
 //
 
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_OLDK1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-g.overworld.dm_data[?hex_str(g.OWRC_TOWN_OLDK1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_OLDK1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_OLDK1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -1338,6 +1338,7 @@ data_exit(EXL0,etA0,1,  CLM2,row4,  CLMS2,ROWS6,  CLM3,row3,  '13'+EXR0_); // LF
 //
 _exit=data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld. **This is for town rando only.
 g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Right"] = _exit;
+//global.OVERWORLD.dm[?_exit+STR_goto_reen] = Area_OvrwA+hex_str(g.OWRC_TOWN_NEWK1);
 g.dm_rm[?_exit+STR_goto_reen] = Area_OvrwA+hex_str(g.OWRC_TOWN_NEWK1);
 
 

@@ -144,8 +144,9 @@ switch(g.menu_state)
         // 9F3D
         usd_LevelUpMenu();
         
-        if ( Input.Pause_held               // Start held
-        && !(Input.heldPrev & Input.S) )    // Start NOT held prev frame
+        if (Input.Pause_pressed)
+        //if ( Input.Pause_held          // Start held
+        //&& !(Input.heldPrev&Input.S) ) // Start NOT held prev frame
         {
             update_LevelUp_1a(); // option selected by pressing start
             

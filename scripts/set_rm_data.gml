@@ -59,7 +59,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "PARAPA PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(g.overworld.dm_data[?MK_OWRC_PAL_PRPA1],OWRC_DFL);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_PRPA1],OWRC_DFL);
+        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_PRPA1],OWRC_DFL);
         break;}
         case Area_PalcB:{
         dungeon_num =2;
@@ -67,7 +68,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "MIDORO PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(g.overworld.dm_data[?MK_OWRC_PAL_MDRO1],OWRC_DFL);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MDRO1],OWRC_DFL);
+        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MDRO1],OWRC_DFL);
         break;}
         case Area_PalcC:{
         dungeon_num =3;
@@ -75,7 +77,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "ISLAND PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(g.overworld.dm_data[?MK_OWRC_PAL_ISLD1],OWRC_DFL);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_ISLD1],OWRC_DFL);
+        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_ISLD1],OWRC_DFL);
         break;}
         case Area_PalcD:{
         dungeon_num =4;
@@ -83,7 +86,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "MAZE ISLAND PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(g.overworld.dm_data[?MK_OWRC_PAL_MAZE1],OWRC_DFL);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MAZE1],OWRC_DFL);
+        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MAZE1],OWRC_DFL);
         break;}
         case Area_PalcE:{
         dungeon_num =5;
@@ -91,7 +95,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "PALACE ON THE SEA";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(g.overworld.dm_data[?MK_OWRC_PAL_POTS1],OWRC_DFL);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_POTS1],OWRC_DFL);
+        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_POTS1],OWRC_DFL);
         break;}
         case Area_PalcF:{
         dungeon_num =6;
@@ -99,7 +104,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "3-EYE ROCK PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(g.overworld.dm_data[?MK_OWRC_PAL_THRE1],OWRC_DFL);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_THRE1],OWRC_DFL);
+        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_THRE1],OWRC_DFL);
         break;}
         case Area_PalcG:{
         dungeon_num =7;
@@ -107,7 +113,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "GREAT PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(g.overworld.dm_data[?MK_OWRC_PAL_GRET1],OWRC_DFL);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_GRET1],OWRC_DFL);
+        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_GRET1],OWRC_DFL);
         break;}
         case Area_PalcH:{
         dungeon_num =8;
@@ -115,7 +122,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "DRAGMIRE TOWER";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(g.overworld.dm_data[?MK_OWRC_PAL_DRAG1],OWRC_DFL);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_DRAG1],OWRC_DFL);
+        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_DRAG1],OWRC_DFL);
         break;}
     }
 }
@@ -150,7 +158,8 @@ else
                 case STR_Old_Kasuto:{_val3=g.OWRC_TOWN_OLDK1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_KASUTO);     break;}
                 case STR_Bulblin:   {_val3=g.OWRC_TOWN_BULB1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_BULBLIN);    break;}
                 }
-                g.dm_rm[?_RM_NAME+STR_OWRC]=_val3;
+                //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = _val3;
+                g.dm_rm[?_RM_NAME+STR_OWRC] = _val3;
                 
                 town_num  = _val2;
                 town_name = _val1;
@@ -259,6 +268,7 @@ while (_arg<argument_count)
         _len  = string_length(_datakey);
         _val1 = string_copy(_val, _len+1, string_length(_val)-_len);
         _val1 = str_hex(_val1);
+        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = _val1; // OverWorld Row & Clm. This is normally set in init_overworld_data() except for dungeons
         g.dm_rm[?_RM_NAME+STR_OWRC] = _val1; // OverWorld Row & Clm. This is normally set in init_overworld_data() except for dungeons
         continue;//while (_arg<argument_count)
     }

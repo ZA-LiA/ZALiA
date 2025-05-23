@@ -20,7 +20,7 @@ case rmC_Overworld_A:{_RM_NAME=Area_OvrwA+'00'; break;}
 }
 
 
-var _AREA_NAME = g.overworld.dg_AreaNames[#(g.overworld.pcrc>>0)&$FF,(g.overworld.pcrc>>8)&$FF];
+var _AREA_NAME = global.OVERWORLD.dg_AreaNames[#(global.OVERWORLD.pcrc>>0)&$FF,(global.OVERWORLD.pcrc>>8)&$FF];
 
 
 

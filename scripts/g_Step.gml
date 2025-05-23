@@ -93,7 +93,7 @@ if(!update_change_room()) // if not changing rm
     switch(room_type){
     case "A":{g_Step_A1(); break;} // menus, out of bounds fail safe
     case "B":{g_Step_B1(); break;} // Title Screen, File Select, Next Life, Game Over, etc..
-    case "C":{with(overworld) Overworld_Step(); break;} // Overworld
+    case "C":{with(global.OVERWORLD) Overworld_Step(); break;} // Overworld
     }
     
     d_l0__oo__0l_b();
@@ -107,7 +107,7 @@ if(!update_change_room()) // if not changing rm
                       ||  gui_state==gui_state_DIALOGUE3;
     //
     if (_GUI_CONDITION  // g.gui_state is 0 or dialogue
-    && !overworld.flute_timer )
+    && !global.OVERWORLD.flute_timer )
     {   // C169  - Timers
         update_game_timers();
         // C185  - Random numbers

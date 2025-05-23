@@ -17,15 +17,15 @@ if (timer_b<0)
     if (pc.iframes_timer) pc.iframes_timer--;
     
     // 0516
-    if (overworld.enc_spawn_timer) overworld.enc_spawn_timer--;
+    if (global.OVERWORLD.enc_spawn_timer) global.OVERWORLD.enc_spawn_timer--;
     
     
     if (room_type=="C")
     {
-        for(var _i=ds_grid_width(overworld.dg_enc_inst)-1; _i>=0; _i--)
+        for(var _i=ds_grid_width(global.OVERWORLD.dg_enc_inst)-1; _i>=0; _i--)
         {   // enc obj timers
-            if (overworld.dg_enc_inst[#_i, overworld.ENC_INST_TMR_IDX])
-            {   overworld.dg_enc_inst[#_i, overworld.ENC_INST_TMR_IDX]--;  }
+            if (global.OVERWORLD.dg_enc_inst[#_i, global.OVERWORLD.ENC_INST_TMR_IDX])
+            {   global.OVERWORLD.dg_enc_inst[#_i, global.OVERWORLD.ENC_INST_TMR_IDX]--;  }
         }
     }
 }

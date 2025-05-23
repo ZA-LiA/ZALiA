@@ -1,6 +1,11 @@
 /// p_Create()
 
-show_debug_message("p_Create()");
+if (DEV)
+{
+    var _START_TIME = current_time;
+    sdm("");
+    sdm("p_Create() START");
+}
 
 
 //Initilize System and add palettes
@@ -13,6 +18,15 @@ show_debug_message("p_Create()");
 if (global.use_pal_swap) pal_swap_init_system(shd_pal_swapper);
 
 p_init();
+
+
+
+
+if (DEV)
+{
+    sdm("p_Create() END. "+string(current_time-_START_TIME));
+    sdm("");
+}
 
 
 

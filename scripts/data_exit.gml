@@ -134,9 +134,11 @@ if(!is_string(_GOTO_EXIT))
     ||  is_undefined(g.dm_rm[?_EXIT_NAME+STR_goto_reen]) ) // init_data_overworld() didn't make data for some reason, maybe this is a test rm
     {
         var _OWRC = g.OWRC_NO_EXIT_DATA;
-        //var _OWRC = val(g.overworld.dm_data[?MK_OWRC_NPAL1],OWRC_DFL) + $10;
+        //var _OWRC = val(g.overworld.dm[?MK_OWRC_NPAL1],OWRC_DFL) + $10;
         
+        //global.OVERWORLD.dm[?_EXIT_NAME+STR_OWRC]   = _OWRC; // goto owrc
         g.dm_rm[?_EXIT_NAME+STR_OWRC]        = _OWRC; // goto owrc
+        //global.OVERWORLD.dm[?_EXIT_NAME+STR_ow_dir] = $1;    // goto ow facing dir
         g.dm_rm[?_EXIT_NAME+STR_ow_dir]      = $1;    // goto ow facing dir
         g.dm_rm[?_EXIT_NAME+STR_goto_reen]   = Area_OvrwA+hex_str(_OWRC); // goto ow exit
         //g.dm_rm[?_EXIT_NAME+STR_GoTo+STR_Rm] = Area_OvrwA;

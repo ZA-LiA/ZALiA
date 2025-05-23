@@ -79,7 +79,7 @@ switch(g.menu_state)
     }
     else if (g.encounter_type)
     {
-        MapAreaName = g.overworld.dg_AreaNames[#(g.overworld.pcrc>>0)&$FF,(g.overworld.pcrc>>8)&$FF];
+        MapAreaName = global.OVERWORLD.dg_AreaNames[#(global.OVERWORLD.pcrc>>0)&$FF,(global.OVERWORLD.pcrc>>8)&$FF];
     }
     else
     {

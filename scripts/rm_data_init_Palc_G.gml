@@ -2161,8 +2161,8 @@ data_spawn(rm+STR_PRIO,ItmF0,$A,  $24<<3,(row0+$13)<<3); // PBag $A: 1000
 
 
 // $6: Moving '02'_LFT or '04'_DWN
-g.overworld.dm_data[?hex_str(g.OWRC_DNGN_GRET1)+'02'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
-g.overworld.dm_data[?hex_str(g.OWRC_DNGN_GRET1)+'04'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_DNGN_GRET1)+'02'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
+global.OVERWORLD.dm[?hex_str(g.OWRC_DNGN_GRET1)+'04'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
 
 
 

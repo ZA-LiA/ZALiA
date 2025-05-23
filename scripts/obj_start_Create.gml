@@ -1,6 +1,35 @@
 /// obj_start_Create()
 
 
+if (DEV)
+{
+    var _START_TIME = current_time;
+    sdm("");
+    sdm("obj_start_Create() START");
+    /*
+    global.dm_other = ds_map_create();
+    var _DIRECTORY="other";
+    if(!directory_exists(_DIRECTORY))
+    {
+        directory_create(_DIRECTORY);
+        sdm(_DIRECTORY+" created!"+"  -  obj_start_Create()");
+    }
+    else
+    {
+        var _FILE      = file_text_open_read(working_directory+_FILE_NAME);
+        var _FILE_DATA = file_text_read_string(_FILE);
+                         file_text_close(      _FILE);
+        var _dm_FILE   = json_decode(_FILE_DATA);
+        var _OTHER = _dm_FILE[?STR_Other];
+        if(!is_undefined(_OTHER)) global.dm_other = json_decode(_OTHER);
+        ds_map_destroy(_dm_FILE); _dm_FILE=undefined;
+    }
+    */
+}
+
+
+
+
 global.DB0=false; // DB: DeBug. 
 //global.Split_00 = false;
 //global.Split_01 = false;
@@ -62,7 +91,7 @@ g.QUIT_APP_MENU     = instance_create(0,0,QuitAppMenu);
                     instance_create(0,0,f);   // f: File
 //                                      // 
 //                                      // 
-g.overworld       = instance_create(0,0,Overworld);
+global.OVERWORLD  = instance_create(0,0,Overworld);
 //                                      // 
 //                                      // 
                     instance_create(0,0,RoomData);
@@ -158,6 +187,19 @@ sdm("DEPTH_OW_ENEMY "+string_repeat(" ",DEPTH_OW_ENEMY>=0)+string(DEPTH_OW_ENEMY
 sdm("DEPTH_OW_PC "+string_repeat(" ",DEPTH_OW_PC>=0)+string(DEPTH_OW_PC)+", "+string_repeat("-",DEPTH_OW_PC<0)+string_repeat(" ",DEPTH_OW_PC>=0)+"$"+hex_str(abs(DEPTH_OW_PC)));
 sdm("DEPTH_SURFACE "+string_repeat(" ",DEPTH_SURFACE>=0)+string(DEPTH_SURFACE)+", "+string_repeat("-",DEPTH_SURFACE<0)+string_repeat(" ",DEPTH_SURFACE>=0)+"$"+hex_str(abs(DEPTH_SURFACE)));
 */
+
+
+
+
+if (DEV)
+{
+    var _DURATION = current_time - _START_TIME;
+    sdm("obj_start_Create() END. "+string(_DURATION));
+    //var _LOW  = val(global.dm_other[?]);
+    //sdm(_GMFUNCTION_);
+    //script_get_name
+    sdm("");
+}
 
 
 

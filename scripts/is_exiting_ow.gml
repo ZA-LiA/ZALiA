@@ -2,7 +2,7 @@
 
 
 return g.room_type=="C" 
-    && g.overworld.exit_grid_xy;
+    && global.OVERWORLD.exit_grid_xy;
 //
 
 

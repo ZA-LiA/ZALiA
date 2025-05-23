@@ -170,7 +170,7 @@ Skin_image = PCSkin_DEFAULT_SPRITE;
 
 
 // Users can add their own PC spritesheets by putting the image file 
-// in %localappdata%\Z2TAOL_XXX\custom_playercharacter_graphics.
+// in %localappdata%\ZALiA\custom_playercharacter_graphics.
 var _DIRECTORY="custom_playercharacter_graphics";
 if(!directory_exists(_DIRECTORY))
 {

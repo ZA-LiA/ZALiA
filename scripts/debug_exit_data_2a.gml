@@ -68,10 +68,10 @@ for (i = 0; i < $100; i++)
         _rc = _clm + (_row<<8);
         
         _exit_name = hex_str(_rc);
-        _data = g.overworld.dm_data[? _exit_name + STR_AccessData];
+        _data = global.OVERWORLD.dm[? _exit_name + STR_AccessData];
         if(!is_undefined(_data))
         {
-            _rm_name = g.overworld.dm_data[? _exit_name + STR_RmName];
+            _rm_name = global.OVERWORLD.dm[? _exit_name + STR_RmName];
             
             for (k = 0; k < 4; k++)
             {

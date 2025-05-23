@@ -1903,6 +1903,7 @@ clm3=(x0-PC_W_)>>3;
 _exit=EXIT_NAME_GAME_START;
 data_exit(EXM0,etB0,0,  clm3-1,row4,  CLMS2,ROWS2,  clm3,row4,  _exit); // MID 0, 
 // This is just to help things go smoother in case data gets changed later.
+//global.OVERWORLD.dm[?g.GameEnd1B_TO_EXIT_NAME+STR_goto_reen] = exit_name_m0;
 g.dm_rm[?g.GameEnd1B_TO_EXIT_NAME+STR_goto_reen]   = exit_name_m0;
 //g.dm_rm[?g.GameEnd1B_TO_EXIT_NAME+STR_GoTo+STR_Rm] = rm_name;
 

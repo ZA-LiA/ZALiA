@@ -212,7 +212,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
         
         
         _owrc    = (_pc_row<<8) | _pc_clm;
-        _rm_name = dm_data[?hex_str(_owrc)+STR_Special+STR_Encounter];
+        _rm_name = dm[?hex_str(_owrc)+STR_Special+STR_Encounter];
         if(!is_undefined(_rm_name))
         {   // Dark Forest Kakusu
             pcrc         = _owrc;
@@ -266,17 +266,17 @@ for(_i=0; _i<_DG_WIDTH; _i++)
             {   // _dk example: "_FIELD" + "_WestA_" + "02" + "03"
                 _dk = _biome + g.area_name + hex_str(_j+1) + hex_str(_k);
                 
-                if (is_undefined(dm_data[?_dk+STR_Clm]))
+                if (is_undefined(dm[?_dk+STR_Clm]))
                 {
                     if(!_k) _j=_count_j;
                     break;//_k
                 }
                 
                 
-                _ow_clm = val(dm_data[?_dk+STR_Clm]);
-                _ow_row = val(dm_data[?_dk+STR_Row]);
-                _clms   = val(dm_data[?_dk+STR_Clms]);
-                _rows   = val(dm_data[?_dk+STR_Rows]);
+                _ow_clm = val(dm[?_dk+STR_Clm]);
+                _ow_row = val(dm[?_dk+STR_Row]);
+                _clms   = val(dm[?_dk+STR_Clms]);
+                _rows   = val(dm[?_dk+STR_Rows]);
                 
                 /*if(0){if(!_k) sdm("");
                     _str  = " , _dk: "+_dk;
@@ -305,7 +305,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
                     
                     // enc_reen_dk  = hex_str(exit_grid_xy) + hex_str(pc_dir) + STR_Exit + STR_Encounter;
                     enc_reen = _rm_name+"00"; // exit num $00
-                    //dm_data[?enc_reen_dk] = enc_reen; // WARNING.   This would overwrite ow exit data if the enc happened on a trap tile.
+                    //dm[?enc_reen_dk] = enc_reen; // WARNING.   This would overwrite ow exit data if the enc happened on a trap tile.
                     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
             }

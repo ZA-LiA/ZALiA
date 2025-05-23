@@ -16,7 +16,7 @@ var _dl_RANDO_OW_BIOME_A=ds_list_create();
 var _dl_RANDO_OW_BIOME_B=ds_list_create();
 _dk1 = STR_Rando+STR_Biome;
 
-with(g.overworld)
+with(global.OVERWORLD)
 {
     for(_i=ds_list_size(dl_biome_enc)-1; _i>=0; _i--)
     {

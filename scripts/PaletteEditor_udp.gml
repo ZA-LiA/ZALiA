@@ -28,6 +28,17 @@ if (PalView_enabled)
 
 
 
+
+
+
+
+PalEdit_xl = _XL0   + PalEdit_X_BASE;
+PalEdit_yt = gui_yt - PalEdit_Outline_W;
+
+ColorGrid_xl  = _XL0 + ColorGrid_X_BASE;
+ColorGrid_yt  = gui_yt;
+ColorGrid_yt -= ColorGrid_Outline_W;
+
 if (state==state_EDIT1A 
 ||  state==state_EDIT1B 
 ||  state==state_BGR_COLOR )
@@ -35,8 +46,8 @@ if (state==state_EDIT1A
     if (state==state_EDIT1A 
     ||  state==state_EDIT1B )
     {
-        PalEdit_xl = _XL0   + PalEdit_X_BASE;
-        PalEdit_yt = gui_yt - PalEdit_Outline_W;
+        //PalEdit_xl = _XL0   + PalEdit_X_BASE;
+        //PalEdit_yt = gui_yt - PalEdit_Outline_W;
     }
     
     
@@ -45,9 +56,9 @@ if (state==state_EDIT1A
     if (state==state_EDIT1B 
     ||  state==state_BGR_COLOR )
     {
-        ColorGrid_xl  = _XL0 + ColorGrid_X_BASE;
-        ColorGrid_yt  = gui_yt;
-        ColorGrid_yt -= ColorGrid_Outline_W;
+        //ColorGrid_xl  = _XL0 + ColorGrid_X_BASE;
+        //ColorGrid_yt  = gui_yt;
+        //ColorGrid_yt -= ColorGrid_Outline_W;
         
         
         // cursor is only on the color grid in these states
@@ -123,6 +134,9 @@ if (state==state_EDIT1A
 ||  state==state_EDIT1B 
 ||  state==state_BGR_COLOR )
 {
+    //  _IS_PLAYSTATION: is playstation gamepad(controller)
+    var _IS_PLAYSTATION = !is_undefined(Input.gamepad_name) && string_pos("playstation", string_lower(Input.gamepad_name));
+    _IS_PLAYSTATION = true; // testing
     Info1Area_xl = _XL0 + Info1Area_X_BASE;
     Info1Area_yt = _YT0 + Info1Area_Y_BASE;
     _xl = Info1Area_xl + Info1_PAD2;
@@ -138,6 +152,9 @@ if (state==state_EDIT1A
             Info1_dg[#_i,$2]  = _yt; // $2: yt
             Info1_dg[#_i,$2] += $1; // micro adj
             _yt += Info1_DIST1; // yt of next text line
+            
+            if (_IS_PLAYSTATION) Info1_dg[#_i,$5] = val(Input.Buttons_dm[?sprite_get_name(Info1_dg[#_i,$5])+dk_PlayStation+STR_Sprite], Info1_dg[#_i,$5]);
+            else                 Info1_dg[#_i,$5] = val(Input.Buttons_dm[?sprite_get_name(Info1_dg[#_i,$5])+dk_XBox       +STR_Sprite], Info1_dg[#_i,$5]);
         }
     }
     

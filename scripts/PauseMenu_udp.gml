@@ -131,7 +131,7 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
     terrain_draw_area_yb -= 8;     // -8(terrain pad)
     
     
-    var _OWRC = val(f.dm_rando[?g.rm_name+STR_OWRC], g.overworld.pcrc_map);
+    var _OWRC = val(f.dm_rando[?g.rm_name+STR_OWRC], global.OVERWORLD.pcrc_map);
     tsrc_grid_clm_base = ((_OWRC>>0)&$FF) - (TerrainDraw_CLMS>>1);
     tsrc_grid_row_base = ((_OWRC>>8)&$FF) - (TerrainDraw_ROWS>>1);
     
@@ -191,19 +191,19 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
         _grid_row = tsrc_grid_row_base + _row;
         _owrc = (_grid_row<<8) | _grid_clm;
         
-        _tile_data = g.overworld.dg_tsrc[#_grid_clm,_grid_row];
+        _tile_data = global.OVERWORLD.dg_tsrc[#_grid_clm,_grid_row];
         _tsrc1 = _tile_data&$FF;
         
         _tsrc2 = -1;
         _tsrc3 = -1;
         
-        if (_tile_data==g.overworld.TSRC_WATER01   // Water - deep
-        ||  _tile_data==g.overworld.TSRC_WATER02 ) // Water - shallow
+        if (_tile_data==global.OVERWORLD.TSRC_WATER01   // Water - deep
+        ||  _tile_data==global.OVERWORLD.TSRC_WATER02 ) // Water - shallow
         //if (_tsrc1==$00   // Water - deep
         //||  _tsrc1==$04   // Water - shallow
         //||  _tsrc1==$06 ) // Water - shallow
         {
-            if (_tile_data==g.overworld.TSRC_WATER01) _tsrc2 = $82; // Water - deep
+            if (_tile_data==global.OVERWORLD.TSRC_WATER01) _tsrc2 = $82; // Water - deep
             else                                      _tsrc2 = $86; // Water - shallow
             _tsrc2 += _grid_clm&$1;
             _tsrc2 += (!(g.counter0&$40))<<1;
@@ -236,7 +236,7 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
                 ||  _tsrc1==TSRC_TREE04+2 )
                 {
                     _tsrc4 = _tsrc1;
-                    _tsrcA = g.overworld.dg_tsrc[#_grid_clm-1,_grid_row]&$FF; // Left of _owrc
+                    _tsrcA = global.OVERWORLD.dg_tsrc[#_grid_clm-1,_grid_row]&$FF; // Left of _owrc
                     if (_tsrcA==TSRC_TREE01 
                     ||  _tsrcA==TSRC_TREE02 
                     ||  _tsrcA==TSRC_TREE03 
@@ -253,9 +253,9 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
                 }
                 else
                 {
-                    _tsrcA = g.overworld.dg_tsrc[#_grid_clm-1,_grid_row]&$FF; // Left of _owrc
+                    _tsrcA = global.OVERWORLD.dg_tsrc[#_grid_clm-1,_grid_row]&$FF; // Left of _owrc
                     _is_treeA = isVal(_tsrcA,TSRC_TREE01,TSRC_TREE02,TSRC_TREE03,TSRC_TREE04,TSRC_TREE04+1,TSRC_TREE04+2); // Left of _owrc
-                    _tsrcB = g.overworld.dg_tsrc[#_grid_clm,_grid_row+1]&$FF; // Under _owrc
+                    _tsrcB = global.OVERWORLD.dg_tsrc[#_grid_clm,_grid_row+1]&$FF; // Under _owrc
                     _is_treeB = isVal(_tsrcB,TSRC_TREE01,TSRC_TREE02,TSRC_TREE03,TSRC_TREE04,TSRC_TREE04+1,TSRC_TREE04+2); // Under _owrc
                     
                     if (_is_treeA   // Left of _owrc

@@ -77,17 +77,17 @@ if (room==FileSelect)
 
 if(!val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
 {
-    _count=val(dm_data[?STR_Rando+STR_Exit+STR_Count]);
+    _count=val(dm[?STR_Rando+STR_Exit+STR_Count]);
     for(_i=1; _i<=_count; _i++)
     {
-        _owrc=dm_data[?STR_Rando+STR_Exit+hex_str(_i)+STR_OWRC];
+        _owrc=dm[?STR_Rando+STR_Exit+hex_str(_i)+STR_OWRC];
         if(!is_undefined(_owrc))
         {
             _clm=(_owrc>>0)&$FF;
             _row=(_owrc>>8)&$FF;
             dg_tsrc[# _clm,_row]=(TILESET1_TS_IDX<<8)|TSRC_MOUN01;
             dg_solid[#_clm,_row]=$01;
-            dm_data[?hex_str(_owrc)+STR_Open]=0;
+            dm[?hex_str(_owrc)+STR_Open]=0;
         }
     }
 }
@@ -186,7 +186,7 @@ if (f.items&(ITM_MAP1|ITM_MAP2))
                 _owrc += $0008; // horizontal
                 _owrc -= $0400; // vertical
                 
-                
+                //_owrc  = val(dm[?_rm_name+STR_OWRC], _owrc);
                 _owrc  = val(g.dm_rm[?   _rm_name+STR_OWRC], _owrc);
                 _owrc  = val(f.dm_rando[?_rm_name+STR_OWRC], _owrc);
                 _ow_x  = (((_owrc>>0)&$FF) <<4) + 8;
@@ -247,6 +247,7 @@ if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
                     _rm_name = g.dm_spawn[?_spawn_datakey+STR_Rm+STR_Name];
                     if(!is_undefined(_rm_name))
                     {
+                        //_owrc = dm[?_rm_name+STR_OWRC];
                         _owrc = g.dm_rm[?_rm_name+STR_OWRC];
                         _owrc = val(f.dm_rando[?_rm_name+STR_OWRC], _owrc);
                         if(!is_undefined(_owrc))

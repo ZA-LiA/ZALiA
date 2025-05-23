@@ -1,14 +1,14 @@
 /// Overworld_init_data_2()
 
-if (DEV) sdm(" Overworld_init_data_2()");
-
-
+show_debug_message("Overworld_init_data_2()");
 
 
 var _i,_j, _idx, _val1,_val2, _count1,_count2;
+var _clms,_rows;
 var _owrc,_owrc_, _ow_clm,_ow_row, _ow_clm_,_ow_row_;
 var _tsrc;
 var _dk, _str1,_str2;
+var _scene_id;
 var _dl1 = ds_list_create();
 
 var         _dl_AreaNames = ds_list_create();
@@ -66,11 +66,11 @@ OW_H = OW_ROWS<<SHIFT;
 
 ds_grid_resize(dg_tsrc_def, OW_CLMS, OW_ROWS);
 ds_grid_clear( dg_tsrc_def, TSRC_WATER01);
-ds_grid_copy(dg_tsrc,dg_tsrc_def);
+ds_grid_copy(  dg_tsrc,dg_tsrc_def);
 
 ds_grid_resize(dg_solid_def, OW_CLMS, OW_ROWS);
 ds_grid_clear( dg_solid_def, 0);
-ds_grid_copy(dg_solid,dg_solid_def);
+ds_grid_copy(  dg_solid,dg_solid_def);
 
 ds_grid_resize(dg_area, OW_CLMS, OW_ROWS);
 ds_grid_clear( dg_area, -1);
@@ -91,1178 +91,1178 @@ ds_grid_clear(dg_tsrc_def,$0580);
 
 
 
-_ow_clm = $BE;
-_ow_row = $39;
-
-         _dk = '_PATH_'+'_MazIs_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $29;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_VOLCA'+'_MazIs_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $29;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_CEMET'+'_MazIs_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $29;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_SWAMP'+'_MazIs_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $29;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_FORES'+'_MazIs_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $29;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_BEACH'+'_MazIs_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $29;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_DESER'+'_MazIs_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $29;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_FIELD'+'_MazIs_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $29;
-dm_data[?_dk+STR_Rows] = $3F;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$29)-1,(_ow_row+$3F)-1, $0103); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $00;
-_ow_row = $92;
-
-         _dk = '_PATH_'+'_DthMt_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_VOLCA'+'_DthMt_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_CEMET'+'_DthMt_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_SWAMP'+'_DthMt_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_FORES'+'_DthMt_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_BEACH'+'_DthMt_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_DESER'+'_DthMt_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_FIELD'+'_DthMt_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $39;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$49)-1,(_ow_row+$39)-1, $0101); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $7D;
-_ow_row = $B6;
-
-         _dk = '_PATH_'+'_EastA_'+'04'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $83;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_VOLCA'+'_EastA_'+'04'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $83;
-dm_data[?_dk+STR_Rows] = $4A;
+_ow_clm=$BE; _ow_row=$39;
+_clms=$29; _rows=$3F;
+
+    _dk = '_PATH_'+'_MazIs_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_MazIs_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_MazIs_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_MazIs_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_MazIs_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_MazIs_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_MazIs_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_MazIs_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0103); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$00; _ow_row=$92;
+_clms=$49; _rows=$39;
+
+    _dk = '_PATH_'+'_DthMt_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_DthMt_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_DthMt_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_DthMt_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_DthMt_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_DthMt_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_DthMt_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_DthMt_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0101); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$7D; _ow_row=$B6;
+_clms=$83; _rows=$4A;
+
+    _dk = '_PATH_'+'_EastA_'+'04'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'04'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
 
-         _dk = '_CEMET'+'_EastA_'+'04'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $83;
-dm_data[?_dk+STR_Rows] = $4A;
+    _dk = '_CEMET'+'_EastA_'+'04'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
 
-         _dk = '_SWAMP'+'_EastA_'+'04'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $83;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_FORES'+'_EastA_'+'04'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $83;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_BEACH'+'_EastA_'+'04'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $83;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_DESER'+'_EastA_'+'04'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $83;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_FIELD'+'_EastA_'+'04'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $83;
-dm_data[?_dk+STR_Rows] = $4A;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$83)-1,(_ow_row+$4A)-1, $0402); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $49;
-_ow_row = $B6;
-
-         _dk = '_PATH_'+'_EastA_'+'03'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $34;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_VOLCA'+'_EastA_'+'03'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $34;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_CEMET'+'_EastA_'+'03'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $34;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_SWAMP'+'_EastA_'+'03'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $34;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_FORES'+'_EastA_'+'03'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $34;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_BEACH'+'_EastA_'+'03'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $34;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_DESER'+'_EastA_'+'03'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $34;
-dm_data[?_dk+STR_Rows] = $4A;
-
-         _dk = '_FIELD'+'_EastA_'+'03'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $34;
-dm_data[?_dk+STR_Rows] = $4A;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$34)-1,(_ow_row+$4A)-1, $0302); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $00;
-_ow_row = $CB;
-
-         _dk = '_PATH_'+'_EastA_'+'03'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $35;
-
-         _dk = '_VOLCA'+'_EastA_'+'03'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $35;
-
-         _dk = '_CEMET'+'_EastA_'+'03'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $35;
-
-         _dk = '_SWAMP'+'_EastA_'+'03'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $35;
-
-         _dk = '_FORES'+'_EastA_'+'03'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $35;
-
-         _dk = '_BEACH'+'_EastA_'+'03'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $35;
-
-         _dk = '_DESER'+'_EastA_'+'03'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $35;
-
-         _dk = '_FIELD'+'_EastA_'+'03'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $49;
-dm_data[?_dk+STR_Rows] = $35;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$49)-1,(_ow_row+$35)-1, $0302); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $76;
-_ow_row = $8C;
-
-         _dk = '_PATH_'+'_EastA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $8A;
-dm_data[?_dk+STR_Rows] = $2A;
-
-         _dk = '_VOLCA'+'_EastA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $8A;
-dm_data[?_dk+STR_Rows] = $2A;
-
-         _dk = '_CEMET'+'_EastA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $8A;
-dm_data[?_dk+STR_Rows] = $2A;
-
-         _dk = '_SWAMP'+'_EastA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $8A;
-dm_data[?_dk+STR_Rows] = $2A;
-
-         _dk = '_FORES'+'_EastA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $8A;
-dm_data[?_dk+STR_Rows] = $2A;
-
-         _dk = '_BEACH'+'_EastA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $8A;
-dm_data[?_dk+STR_Rows] = $2A;
-
-         _dk = '_DESER'+'_EastA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $8A;
-dm_data[?_dk+STR_Rows] = $2A;
-
-         _dk = '_FIELD'+'_EastA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $8A;
-dm_data[?_dk+STR_Rows] = $2A;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$8A)-1,(_ow_row+$2A)-1, $0202); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $76;
-_ow_row = $86;
-
-         _dk = '_PATH_'+'_EastA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0F;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_VOLCA'+'_EastA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0F;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_CEMET'+'_EastA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0F;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_SWAMP'+'_EastA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0F;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_FORES'+'_EastA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0F;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_BEACH'+'_EastA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0F;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_DESER'+'_EastA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0F;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_FIELD'+'_EastA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0F;
-dm_data[?_dk+STR_Rows] = $06;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$0F)-1,(_ow_row+$06)-1, $0202); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $76;
-_ow_row = $00;
-
-         _dk = '_PATH_'+'_EastA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $48;
-dm_data[?_dk+STR_Rows] = $86;
-
-         _dk = '_VOLCA'+'_EastA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $48;
-dm_data[?_dk+STR_Rows] = $86;
-
-         _dk = '_CEMET'+'_EastA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $48;
-dm_data[?_dk+STR_Rows] = $86;
-
-         _dk = '_SWAMP'+'_EastA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $48;
-dm_data[?_dk+STR_Rows] = $86;
-
-         _dk = '_FORES'+'_EastA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $48;
-dm_data[?_dk+STR_Rows] = $86;
-
-         _dk = '_BEACH'+'_EastA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $48;
-dm_data[?_dk+STR_Rows] = $86;
-
-         _dk = '_DESER'+'_EastA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $48;
-dm_data[?_dk+STR_Rows] = $86;
-
-         _dk = '_FIELD'+'_EastA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $48;
-dm_data[?_dk+STR_Rows] = $86;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$48)-1,(_ow_row+$86)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $85;
-_ow_row = $86;
-
-         _dk = '_PATH_'+'_EastA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $39;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_VOLCA'+'_EastA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $39;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_CEMET'+'_EastA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $39;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_SWAMP'+'_EastA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $39;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_FORES'+'_EastA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $39;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_BEACH'+'_EastA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $39;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_DESER'+'_EastA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $39;
-dm_data[?_dk+STR_Rows] = $06;
-
-         _dk = '_FIELD'+'_EastA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $39;
-dm_data[?_dk+STR_Rows] = $06;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$39)-1,(_ow_row+$06)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $BE;
-_ow_row = $00;
-
-         _dk = '_PATH_'+'_EastA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_VOLCA'+'_EastA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_CEMET'+'_EastA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_SWAMP'+'_EastA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_FORES'+'_EastA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_BEACH'+'_EastA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_DESER'+'_EastA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $39;
-
-         _dk = '_FIELD'+'_EastA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $39;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$42)-1,(_ow_row+$39)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $BE;
-_ow_row = $78;
-
-         _dk = '_PATH_'+'_EastA_'+'01'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $14;
-
-         _dk = '_VOLCA'+'_EastA_'+'01'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $14;
-
-         _dk = '_CEMET'+'_EastA_'+'01'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $14;
-
-         _dk = '_SWAMP'+'_EastA_'+'01'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $14;
-
-         _dk = '_FORES'+'_EastA_'+'01'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $14;
-
-         _dk = '_BEACH'+'_EastA_'+'01'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $14;
-
-         _dk = '_DESER'+'_EastA_'+'01'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $14;
-
-         _dk = '_FIELD'+'_EastA_'+'01'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $42;
-dm_data[?_dk+STR_Rows] = $14;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$42)-1,(_ow_row+$14)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $E7;
-_ow_row = $39;
-
-         _dk = '_PATH_'+'_EastA_'+'01'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $19;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_VOLCA'+'_EastA_'+'01'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $19;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_CEMET'+'_EastA_'+'01'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $19;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_SWAMP'+'_EastA_'+'01'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $19;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_FORES'+'_EastA_'+'01'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $19;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_BEACH'+'_EastA_'+'01'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $19;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_DESER'+'_EastA_'+'01'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $19;
-dm_data[?_dk+STR_Rows] = $3F;
-
-         _dk = '_FIELD'+'_EastA_'+'01'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $19;
-dm_data[?_dk+STR_Rows] = $3F;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$19)-1,(_ow_row+$3F)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $00;
-_ow_row = $64;
-
-         _dk = '_PATH_'+'_WestA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $62;
-dm_data[?_dk+STR_Rows] = $2E;
-
-         _dk = '_VOLCA'+'_WestA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $62;
-dm_data[?_dk+STR_Rows] = $2E;
-
-         _dk = '_CEMET'+'_WestA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $62;
-dm_data[?_dk+STR_Rows] = $2E;
-
-         _dk = '_SWAMP'+'_WestA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $62;
-dm_data[?_dk+STR_Rows] = $2E;
-
-         _dk = '_FORES'+'_WestA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $62;
-dm_data[?_dk+STR_Rows] = $2E;
-
-         _dk = '_BEACH'+'_WestA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $62;
-dm_data[?_dk+STR_Rows] = $2E;
-
-         _dk = '_DESER'+'_WestA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $62;
-dm_data[?_dk+STR_Rows] = $2E;
-
-         _dk = '_FIELD'+'_WestA_'+'02'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $62;
-dm_data[?_dk+STR_Rows] = $2E;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$62)-1,(_ow_row+$2E)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $4F;
-_ow_row = $61;
-
-         _dk = '_PATH_'+'_WestA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $13;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_VOLCA'+'_WestA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $13;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_CEMET'+'_WestA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $13;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_SWAMP'+'_WestA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $13;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_FORES'+'_WestA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $13;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_BEACH'+'_WestA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $13;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_DESER'+'_WestA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $13;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_FIELD'+'_WestA_'+'02'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $13;
-dm_data[?_dk+STR_Rows] = $03;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$13)-1,(_ow_row+$03)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $62;
-_ow_row = $6B;
-
-         _dk = '_PATH_'+'_WestA_'+'02'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $06;
-dm_data[?_dk+STR_Rows] = $27;
-
-         _dk = '_VOLCA'+'_WestA_'+'02'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $06;
-dm_data[?_dk+STR_Rows] = $27;
-
-         _dk = '_CEMET'+'_WestA_'+'02'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $06;
-dm_data[?_dk+STR_Rows] = $27;
-
-         _dk = '_SWAMP'+'_WestA_'+'02'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $06;
-dm_data[?_dk+STR_Rows] = $27;
-
-         _dk = '_FORES'+'_WestA_'+'02'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $06;
-dm_data[?_dk+STR_Rows] = $27;
-
-         _dk = '_BEACH'+'_WestA_'+'02'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $06;
-dm_data[?_dk+STR_Rows] = $27;
-
-         _dk = '_DESER'+'_WestA_'+'02'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $06;
-dm_data[?_dk+STR_Rows] = $27;
-
-         _dk = '_FIELD'+'_WestA_'+'02'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $06;
-dm_data[?_dk+STR_Rows] = $27;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$06)-1,(_ow_row+$27)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $68;
-_ow_row = $6F;
-
-         _dk = '_PATH_'+'_WestA_'+'02'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $23;
-
-         _dk = '_VOLCA'+'_WestA_'+'02'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $23;
-
-         _dk = '_CEMET'+'_WestA_'+'02'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $23;
-
-         _dk = '_SWAMP'+'_WestA_'+'02'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $23;
-
-         _dk = '_FORES'+'_WestA_'+'02'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $23;
-
-         _dk = '_BEACH'+'_WestA_'+'02'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $23;
-
-         _dk = '_DESER'+'_WestA_'+'02'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $23;
-
-         _dk = '_FIELD'+'_WestA_'+'02'+'03';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $23;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$0E)-1,(_ow_row+$23)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $49;
-_ow_row = $92;
-
-         _dk = '_PATH_'+'_WestA_'+'02'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $2D;
-dm_data[?_dk+STR_Rows] = $24;
-
-         _dk = '_VOLCA'+'_WestA_'+'02'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $2D;
-dm_data[?_dk+STR_Rows] = $24;
-
-         _dk = '_CEMET'+'_WestA_'+'02'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $2D;
-dm_data[?_dk+STR_Rows] = $24;
-
-         _dk = '_SWAMP'+'_WestA_'+'02'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $2D;
-dm_data[?_dk+STR_Rows] = $24;
-
-         _dk = '_FORES'+'_WestA_'+'02'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $2D;
-dm_data[?_dk+STR_Rows] = $24;
-
-         _dk = '_BEACH'+'_WestA_'+'02'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $2D;
-dm_data[?_dk+STR_Rows] = $24;
-
-         _dk = '_DESER'+'_WestA_'+'02'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $2D;
-dm_data[?_dk+STR_Rows] = $24;
-
-         _dk = '_FIELD'+'_WestA_'+'02'+'04';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $2D;
-dm_data[?_dk+STR_Rows] = $24;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$2D)-1,(_ow_row+$24)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $62;
-_ow_row = $61;
-
-         _dk = '_PATH_'+'_WestA_'+'02'+'05';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $14;
-dm_data[?_dk+STR_Rows] = $0A;
-
-         _dk = '_VOLCA'+'_WestA_'+'02'+'05';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $14;
-dm_data[?_dk+STR_Rows] = $0A;
-
-         _dk = '_CEMET'+'_WestA_'+'02'+'05';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $14;
-dm_data[?_dk+STR_Rows] = $0A;
-
-         _dk = '_SWAMP'+'_WestA_'+'02'+'05';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $14;
-dm_data[?_dk+STR_Rows] = $0A;
-
-         _dk = '_FORES'+'_WestA_'+'02'+'05';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $14;
-dm_data[?_dk+STR_Rows] = $0A;
-
-         _dk = '_BEACH'+'_WestA_'+'02'+'05';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $14;
-dm_data[?_dk+STR_Rows] = $0A;
-
-         _dk = '_DESER'+'_WestA_'+'02'+'05';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $14;
-dm_data[?_dk+STR_Rows] = $0A;
-
-         _dk = '_FIELD'+'_WestA_'+'02'+'05';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $14;
-dm_data[?_dk+STR_Rows] = $0A;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$14)-1,(_ow_row+$0A)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $00;
-_ow_row = $61;
-
-         _dk = '_PATH_'+'_WestA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $4F;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_VOLCA'+'_WestA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $4F;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_CEMET'+'_WestA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $4F;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_SWAMP'+'_WestA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $4F;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_FORES'+'_WestA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $4F;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_BEACH'+'_WestA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $4F;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_DESER'+'_WestA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $4F;
-dm_data[?_dk+STR_Rows] = $03;
-
-         _dk = '_FIELD'+'_WestA_'+'01'+'00';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $4F;
-dm_data[?_dk+STR_Rows] = $03;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$4F)-1,(_ow_row+$03)-1, $0100); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $00;
-_ow_row = $00;
-
-         _dk = '_PATH_'+'_WestA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $76;
-dm_data[?_dk+STR_Rows] = $61;
-
-         _dk = '_VOLCA'+'_WestA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $76;
-dm_data[?_dk+STR_Rows] = $61;
-
-         _dk = '_CEMET'+'_WestA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $76;
-dm_data[?_dk+STR_Rows] = $61;
-
-         _dk = '_SWAMP'+'_WestA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $76;
-dm_data[?_dk+STR_Rows] = $61;
-
-         _dk = '_FORES'+'_WestA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $76;
-dm_data[?_dk+STR_Rows] = $61;
-
-         _dk = '_BEACH'+'_WestA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $76;
-dm_data[?_dk+STR_Rows] = $61;
-
-         _dk = '_DESER'+'_WestA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $76;
-dm_data[?_dk+STR_Rows] = $61;
-
-         _dk = '_FIELD'+'_WestA_'+'01'+'01';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $76;
-dm_data[?_dk+STR_Rows] = $61;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$76)-1,(_ow_row+$61)-1, $0100); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
-
-
-
-
-_ow_clm = $68;
-_ow_row = $6B;
-
-         _dk = '_PATH_'+'_WestA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $04;
-
-         _dk = '_VOLCA'+'_WestA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $04;
-
-         _dk = '_CEMET'+'_WestA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $04;
-
-         _dk = '_SWAMP'+'_WestA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $04;
-
-         _dk = '_FORES'+'_WestA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $04;
-
-         _dk = '_BEACH'+'_WestA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $04;
-
-         _dk = '_DESER'+'_WestA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $04;
-
-         _dk = '_FIELD'+'_WestA_'+'01'+'02';
-dm_data[?_dk+STR_Clm]  = _ow_clm;
-dm_data[?_dk+STR_Row]  = _ow_row;
-dm_data[?_dk+STR_Clms] = $0E;
-dm_data[?_dk+STR_Rows] = $04;
-
-ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$0E)-1,(_ow_row+$04)-1, $0100); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+    _dk = '_SWAMP'+'_EastA_'+'04'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'04'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'04'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'04'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'04'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0402); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$49; _ow_row=$B6;
+_clms=$34; _rows=$4A;
+
+    _dk = '_PATH_'+'_EastA_'+'03'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'03'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'03'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'03'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'03'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'03'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'03'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'03'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0302); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$00; _ow_row=$CB;
+_clms=$49; _rows=$35;
+
+    _dk = '_PATH_'+'_EastA_'+'03'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'03'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'03'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'03'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'03'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'03'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'03'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'03'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0302); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$76; _ow_row=$8C;
+_clms=$8A; _rows=$2A;
+
+    _dk = '_PATH_'+'_EastA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0202); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$76; _ow_row=$86;
+_clms=$0F; _rows=$06;
+
+    _dk = '_PATH_'+'_EastA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0202); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$76; _ow_row=$00;
+_clms=$48; _rows=$86;
+
+    _dk = '_PATH_'+'_EastA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$85; _ow_row=$86;
+_clms=$39; _rows=$06;
+
+    _dk = '_PATH_'+'_EastA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$BE; _ow_row=$00;
+_clms=$42; _rows=$39;
+
+    _dk = '_PATH_'+'_EastA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$BE; _ow_row=$78;
+_clms=$42; _rows=$14;
+
+    _dk = '_PATH_'+'_EastA_'+'01'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'01'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'01'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'01'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'01'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'01'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'01'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'01'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$E7; _ow_row=$39;
+_clms=$19; _rows=$3F;
+
+    _dk = '_PATH_'+'_EastA_'+'01'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_EastA_'+'01'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_EastA_'+'01'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_EastA_'+'01'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_EastA_'+'01'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_EastA_'+'01'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_EastA_'+'01'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_EastA_'+'01'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0102); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$00; _ow_row=$64;
+_clms=$62; _rows=$2E;
+
+    _dk = '_PATH_'+'_WestA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'02'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$4F; _ow_row=$61;
+_clms=$13; _rows=$03;
+
+    _dk = '_PATH_'+'_WestA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'02'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$62; _ow_row=$6B;
+_clms=$06; _rows=$27;
+
+    _dk = '_PATH_'+'_WestA_'+'02'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'02'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'02'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'02'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'02'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'02'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'02'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'02'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$68; _ow_row=$6F;
+_clms=$0E; _rows=$23;
+
+    _dk = '_PATH_'+'_WestA_'+'02'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'02'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'02'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'02'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'02'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'02'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'02'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'02'+'03';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$49; _ow_row=$92;
+_clms=$2D; _rows=$24;
+
+    _dk = '_PATH_'+'_WestA_'+'02'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'02'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'02'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'02'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'02'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'02'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'02'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'02'+'04';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$62; _ow_row=$61;
+_clms=$14; _rows=$0A;
+
+    _dk = '_PATH_'+'_WestA_'+'02'+'05';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'02'+'05';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'02'+'05';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'02'+'05';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'02'+'05';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'02'+'05';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'02'+'05';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'02'+'05';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0200); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$00; _ow_row=$61;
+_clms=$4F; _rows=$03;
+
+    _dk = '_PATH_'+'_WestA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'01'+'00';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0100); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$00; _ow_row=$00;
+_clms=$76; _rows=$61;
+
+    _dk = '_PATH_'+'_WestA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'01'+'01';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0100); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
+
+
+
+
+_ow_clm=$68; _ow_row=$6B;
+_clms=$0E; _rows=$04;
+
+    _dk = '_PATH_'+'_WestA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_VOLCA'+'_WestA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_CEMET'+'_WestA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_SWAMP'+'_WestA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FORES'+'_WestA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_BEACH'+'_WestA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_DESER'+'_WestA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+    _dk = '_FIELD'+'_WestA_'+'01'+'02';
+dm[?_dk+STR_Clm]  = _ow_clm;
+dm[?_dk+STR_Row]  = _ow_row;
+dm[?_dk+STR_Clms] = _clms;
+dm[?_dk+STR_Rows] = _rows;
+
+ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+_clms)-1,(_ow_row+_rows)-1, $0100); // value is 2 bytes. $(FF)FF: the sub area (Example: West 1: West-North, West 2: West-South). $FF(FF): the index of g.dl_area_name
 
 
 
@@ -1275,4873 +1275,4859 @@ ds_grid_set_region(dg_area, _ow_clm,_ow_row, (_ow_clm+$0E)-1,(_ow_row+$04)-1, $0
 // Raft tiles are in pairs: (01)01 Set num, 01(01) Member num 1 or 2
 // Member 1 is always N or W of member 2
 
-_owrc  = ($74<<8) | $65;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0101;
-dm_data[?STR_Raft+'0101'+STR_OWRC] = _owrc;
+_owrc=$7465; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0101;
+dm[?STR_Raft+'0101'+STR_OWRC] = _owrc;
 
-_owrc  = ($74<<8) | $81;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0102;
-dm_data[?STR_Raft+'0102'+STR_OWRC] = _owrc;
+_owrc=$7481; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0102;
+dm[?STR_Raft+'0102'+STR_OWRC] = _owrc;
 
-_owrc  = ($28<<8) | $48;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0201;
-dm_data[?STR_Raft+'0201'+STR_OWRC] = _owrc;
+_owrc=$2848; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0201;
+dm[?STR_Raft+'0201'+STR_OWRC] = _owrc;
 
-_owrc  = ($12<<8) | $48;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0202;
-dm_data[?STR_Raft+'0202'+STR_OWRC] = _owrc;
+_owrc=$1248; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0202;
+dm[?STR_Raft+'0202'+STR_OWRC] = _owrc;
 
-_owrc  = ($0F<<8) | $4D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0301;
-dm_data[?STR_Raft+'0301'+STR_OWRC] = _owrc;
+_owrc=$0F4D; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0301;
+dm[?STR_Raft+'0301'+STR_OWRC] = _owrc;
 
-_owrc  = ($0F<<8) | $66;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0302;
-dm_data[?STR_Raft+'0302'+STR_OWRC] = _owrc;
+_owrc=$0F66; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0302;
+dm[?STR_Raft+'0302'+STR_OWRC] = _owrc;
 
-_owrc  = ($12<<8) | $72;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0401;
-dm_data[?STR_Raft+'0401'+STR_OWRC] = _owrc;
+_owrc=$1272; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0401;
+dm[?STR_Raft+'0401'+STR_OWRC] = _owrc;
 
-_owrc  = ($2F<<8) | $72;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0402;
-dm_data[?STR_Raft+'0402'+STR_OWRC] = _owrc;
+_owrc=$2F72; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0402;
+dm[?STR_Raft+'0402'+STR_OWRC] = _owrc;
 
-_owrc  = ($32<<8) | $76;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0501;
-dm_data[?STR_Raft+'0501'+STR_OWRC] = _owrc;
+_owrc=$3276; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0501;
+dm[?STR_Raft+'0501'+STR_OWRC] = _owrc;
 
-_owrc  = ($32<<8) | $87;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0502;
-dm_data[?STR_Raft+'0502'+STR_OWRC] = _owrc;
+_owrc=$3287; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0502;
+dm[?STR_Raft+'0502'+STR_OWRC] = _owrc;
 
-_owrc  = ($33<<8) | $99;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0601;
-dm_data[?STR_Raft+'0601'+STR_OWRC] = _owrc;
+_owrc=$3399; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0601;
+dm[?STR_Raft+'0601'+STR_OWRC] = _owrc;
 
-_owrc  = ($18<<8) | $99;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0602;
-dm_data[?STR_Raft+'0602'+STR_OWRC] = _owrc;
+_owrc=$1899; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0602;
+dm[?STR_Raft+'0602'+STR_OWRC] = _owrc;
 
-_owrc  = ($14<<8) | $A0;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0701;
-dm_data[?STR_Raft+'0701'+STR_OWRC] = _owrc;
+_owrc=$14A0; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0701;
+dm[?STR_Raft+'0701'+STR_OWRC] = _owrc;
 
-_owrc  = ($14<<8) | $B8;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Raft] = $0702;
-dm_data[?STR_Raft+'0702'+STR_OWRC] = _owrc;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_owrc  = ($5D<<8) | $56;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_TownA_01'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0120'+STR_OWRC]      = $5D56; // goto owrc
-g.dm_rm[?'_TownA_0120'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_TownA_0120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Rauru02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($5D<<8) | $56;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_02';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_02'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0210'+STR_OWRC]      = $5D56; // goto owrc
-g.dm_rm[?'_TownA_0210'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_TownA_0210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Rauru01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($4B<<8) | $2A;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_TownA_04'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0420'+STR_OWRC]      = $4B2A; // goto owrc
-g.dm_rm[?'_TownA_0420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_TownA_0420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Ruto02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($4B<<8) | $2A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_05';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_05'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0510'+STR_OWRC]      = $4B2A; // goto owrc
-g.dm_rm[?'_TownA_0510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_TownA_0510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Ruto01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($82<<8) | $30;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_06';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_06'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0620'+STR_OWRC]      = $8230; // goto owrc
-g.dm_rm[?'_TownA_0620'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_TownA_0620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Saria02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($80<<8) | $30;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_08';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_08'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0810'+STR_OWRC]      = $8030; // goto owrc
-g.dm_rm[?'_TownA_0810'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_TownA_0810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Saria01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($72<<8) | $64;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_TownA_09'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0920'+STR_OWRC]      = $7264; // goto owrc
-g.dm_rm[?'_TownA_0920'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_TownA_0920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Mido02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($72<<8) | $64;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_0B';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_0B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0B10'+STR_OWRC]      = $7264; // goto owrc
-g.dm_rm[?'_TownA_0B10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_TownA_0B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Mido01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($7C<<8) | $91;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_TownA_0C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0C20'+STR_OWRC]      = $7C91; // goto owrc
-g.dm_rm[?'_TownA_0C20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_TownA_0C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Nabooru02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($7C<<8) | $91;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_0E';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_0E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0E10'+STR_OWRC]      = $7C91; // goto owrc
-g.dm_rm[?'_TownA_0E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_TownA_0E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Nabooru01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($61<<8) | $7D;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_TownA_0F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_0F20'+STR_OWRC]      = $617D; // goto owrc
-g.dm_rm[?'_TownA_0F20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_TownA_0F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Darunia02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($61<<8) | $7D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_11';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_1110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_1110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_1110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_1110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_11'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_1110'+STR_OWRC]      = $617D; // goto owrc
-g.dm_rm[?'_TownA_1110'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_TownA_1110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Darunia01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($95<<8) | $B8;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_12';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_1220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_1220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_1220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_1220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_12'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_1220'+STR_OWRC]      = $95B8; // goto owrc
-g.dm_rm[?'_TownA_1220'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_TownA_1220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_New_Kasuto01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($A3<<8) | $9C;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_TownA_15'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_1520'+STR_OWRC]      = $A39C; // goto owrc
-g.dm_rm[?'_TownA_1520'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_TownA_1520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Old_Kasuto02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($A3<<8) | $9C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownA_17';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownA_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownA_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownA_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownA_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownA_17'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_1710'+STR_OWRC]      = $A39C; // goto owrc
-g.dm_rm[?'_TownA_1710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_TownA_1710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Old_Kasuto01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($7C<<8) | $91;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_TownA_19'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownA_1920'+STR_OWRC]      = $7B93; // goto owrc
-g.dm_rm[?'_TownA_1920'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_TownA_1920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Nabooru03'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($D5<<8) | $C1;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownB_02';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownB_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownB_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownB_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownB_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownB_02'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownB_0210'+STR_OWRC]      = $D5C1; // goto owrc
-g.dm_rm[?'_TownB_0210'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_TownB_0210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Bulblin02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($D5<<8) | $C1;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_TownB_00';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_TownB_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_TownB_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_TownB_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_TownB_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_TownB_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_TownB_0020'+STR_OWRC]      = $D5C1; // goto owrc
-g.dm_rm[?'_TownB_0020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_TownB_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Bulblin01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($3C<<8) | $64;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_PalcA_00';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_PalcA_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_PalcA_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_PalcA_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_PalcA_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_PalcA_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcA_0020'+STR_OWRC]      = $3C64; // goto owrc
-g.dm_rm[?'_PalcA_0020'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_PalcA_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Parapa_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($3C<<8) | $64;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_PalcA_0D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcA_0D10'+STR_OWRC]      = $3C64; // goto owrc
-g.dm_rm[?'_PalcA_0D10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_PalcA_0D10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Parapa_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($67<<8) | $34;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_PalcB_00';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_PalcB_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_PalcB_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_PalcB_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_PalcB_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_PalcB_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcB_0010'+STR_OWRC]      = $6734; // goto owrc
-g.dm_rm[?'_PalcB_0010'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_PalcB_0010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Midoro_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($67<<8) | $34;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_PalcB_14'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcB_1410'+STR_OWRC]      = $6734; // goto owrc
-g.dm_rm[?'_PalcB_1410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_PalcB_1410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Midoro_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($7C<<8) | $B8;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_PalcE_00';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_PalcE_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_PalcE_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_PalcE_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_PalcE_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_PalcE_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcE_0020'+STR_OWRC]      = $7CB8; // goto owrc
-g.dm_rm[?'_PalcE_0020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_PalcE_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_PalcE_0010'+STR_OWRC]      = $7CB8; // goto owrc
-g.dm_rm[?'_PalcE_0010'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_PalcE_0010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Palace_On_The_Sea01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($7C<<8) | $B8;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_PalcE_06'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcE_0610'+STR_OWRC]      = $7CB8; // goto owrc
-g.dm_rm[?'_PalcE_0610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_PalcE_0610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Palace_On_The_Sea02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($89<<8) | $61;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_PalcC_00';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_PalcC_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_PalcC_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_PalcC_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_PalcC_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_PalcC_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcC_0020'+STR_OWRC]      = $8961; // goto owrc
-g.dm_rm[?'_PalcC_0020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_PalcC_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Island_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($89<<8) | $61;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_PalcC_0E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcC_0E10'+STR_OWRC]      = $8961; // goto owrc
-g.dm_rm[?'_PalcC_0E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_PalcC_0E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Island_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($5F<<8) | $D6;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_PalcD_00';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_PalcD_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_PalcD_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_PalcD_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_PalcD_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_PalcD_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcD_0020'+STR_OWRC]      = $5FD6; // goto owrc
-g.dm_rm[?'_PalcD_0020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_PalcD_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Maze_Island_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($5F<<8) | $D6;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_PalcD_0D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcD_0D10'+STR_OWRC]      = $5FD6; // goto owrc
-g.dm_rm[?'_PalcD_0D10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_PalcD_0D10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Maze_Island_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($AB<<8) | $AC;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_PalcF_00';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_PalcF_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_PalcF_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_PalcF_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_PalcF_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_PalcF_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcF_0020'+STR_OWRC]      = $ABAC; // goto owrc
-g.dm_rm[?'_PalcF_0020'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_PalcF_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Three_Eye_Rock_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($AB<<8) | $AC;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_PalcF_16'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcF_1610'+STR_OWRC]      = $ABAC; // goto owrc
-g.dm_rm[?'_PalcF_1610'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_PalcF_1610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Three_Eye_Rock_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($89<<8) | $7E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_PalcG_00';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_PalcG_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_PalcG_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_PalcG_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_PalcG_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_PalcG_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcG_0020'+STR_OWRC]      = $897E; // goto owrc
-g.dm_rm[?'_PalcG_0020'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_PalcG_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Great_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($89<<8) | $7E;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_PalcG_36'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcG_3610'+STR_OWRC]      = $897E; // goto owrc
-g.dm_rm[?'_PalcG_3610'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_PalcG_3610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Great_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($EA<<8) | $D6;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_PalcH_00';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_PalcH_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_PalcH_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_PalcH_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_PalcH_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_PalcH_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcH_0020'+STR_OWRC]      = $EAD6; // goto owrc
-g.dm_rm[?'_PalcH_0020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_PalcH_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Dragmire_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($89<<8) | $7E;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_PalcG_3C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_PalcG_3C10'+STR_OWRC]      = $897E; // goto owrc
-g.dm_rm[?'_PalcG_3C10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_PalcG_3C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_Great_Palace03'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($63<<8) | $C7;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_01';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_01'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0120'+STR_OWRC]      = $63C6; // goto owrc
-g.dm_rm[?'_MazIs_0120'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0110'+STR_OWRC]      = $63C8; // goto owrc
-g.dm_rm[?'_MazIs_0110'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_MazIs_0110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($69<<8) | $CA;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_02';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_02'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0220'+STR_OWRC]      = $69C9; // goto owrc
-g.dm_rm[?'_MazIs_0220'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0210'+STR_OWRC]      = $69CB; // goto owrc
-g.dm_rm[?'_MazIs_0210'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_MazIs_0210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5F<<8) | $C3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '_Fall_04';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_03';
-dm_data[?_owrc_+STR_AccessRm] = '80808080';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0380'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0380'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0380'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0380'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_03'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0380'+STR_OWRC]      = $5FC3; // goto owrc
-g.dm_rm[?'_MazIs_0380'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0380'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0320'+STR_OWRC]      = $5FC3; // goto owrc
-g.dm_rm[?'_MazIs_0320'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($61<<8) | $D3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '_Fall_04';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_04';
-dm_data[?_owrc_+STR_AccessRm] = '80808080';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0480'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0480'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0480'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0480'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_04'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0480'+STR_OWRC]      = $61D3; // goto owrc
-g.dm_rm[?'_MazIs_0480'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0480'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0420'+STR_OWRC]      = $61D3; // goto owrc
-g.dm_rm[?'_MazIs_0420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5F<<8) | $CA;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_05';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_05'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0520'+STR_OWRC]      = $5FC9; // goto owrc
-g.dm_rm[?'_MazIs_0520'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0510'+STR_OWRC]      = $5FCB; // goto owrc
-g.dm_rm[?'_MazIs_0510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_MazIs_0510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($56<<8) | $CD;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_09';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_09'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0920'+STR_OWRC]      = $55CD; // goto owrc
-g.dm_rm[?'_MazIs_0920'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_MazIs_0920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0910'+STR_OWRC]      = $57CD; // goto owrc
-g.dm_rm[?'_MazIs_0910'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_MazIs_0910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($57<<8) | $C8;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_07';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_07'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0720'+STR_OWRC]      = $57C7; // goto owrc
-g.dm_rm[?'_MazIs_0720'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0710'+STR_OWRC]      = $57C9; // goto owrc
-g.dm_rm[?'_MazIs_0710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_MazIs_0710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($53<<8) | $CA;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_08';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_08'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0820'+STR_OWRC]      = $53C9; // goto owrc
-g.dm_rm[?'_MazIs_0820'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0810'+STR_OWRC]      = $53CB; // goto owrc
-g.dm_rm[?'_MazIs_0810'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_MazIs_0810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($4F<<8) | $CC;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_06';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_06'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0620'+STR_OWRC]      = $4FCB; // goto owrc
-g.dm_rm[?'_MazIs_0620'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0610'+STR_OWRC]      = $4FCD; // goto owrc
-g.dm_rm[?'_MazIs_0610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_MazIs_0610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5A<<8) | $D9;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_0A';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_0A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0A10'+STR_OWRC]      = $5AD9; // goto owrc
-g.dm_rm[?'_MazIs_0A10'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_MazIs_0A20'+STR_OWRC]      = $5AD9; // goto owrc
-g.dm_rm[?'_MazIs_0A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($68<<8) | $B1;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_00';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_MazIs_0020'+STR_OWRC]      = $68B0; // goto owrc
-g.dm_rm[?'_MazIs_0020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_MazIs_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($68<<8) | $BF;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_MazIs_00';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_MazIs_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_MazIs_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_MazIs_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_MazIs_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_MazIs_0010'+STR_OWRC]      = $68C0; // goto owrc
-g.dm_rm[?'_MazIs_0010'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_MazIs_0010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($98<<8) | $2A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_01';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_01'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0120'+STR_OWRC]      = $982A; // goto owrc
-g.dm_rm[?'_DthMt_0120'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($95<<8) | $2D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_01';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0110'+STR_OWRC]      = $952D; // goto owrc
-g.dm_rm[?'_DthMt_0110'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_0110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($96<<8) | $32;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_02';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_02'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0220'+STR_OWRC]      = $9632; // goto owrc
-g.dm_rm[?'_DthMt_0220'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($98<<8) | $35;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_02';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0210'+STR_OWRC]      = $9835; // goto owrc
-g.dm_rm[?'_DthMt_0210'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_0210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9A<<8) | $3C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_03';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_03'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0310'+STR_OWRC]      = $9A3C; // goto owrc
-g.dm_rm[?'_DthMt_0310'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($96<<8) | $3C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_03';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0320'+STR_OWRC]      = $963C; // goto owrc
-g.dm_rm[?'_DthMt_0320'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9B<<8) | $2D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_04';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_04'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0420'+STR_OWRC]      = $9B2D; // goto owrc
-g.dm_rm[?'_DthMt_0420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9B<<8) | $31;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_04';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0410'+STR_OWRC]      = $9B31; // goto owrc
-g.dm_rm[?'_DthMt_0410'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9E<<8) | $2D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_05';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_05'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0520'+STR_OWRC]      = $9E2D; // goto owrc
-g.dm_rm[?'_DthMt_0520'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9D<<8) | $2F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_05';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0510'+STR_OWRC]      = $9D2F; // goto owrc
-g.dm_rm[?'_DthMt_0510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_0510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9D<<8) | $38;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_06';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_06'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0620'+STR_OWRC]      = $9D38; // goto owrc
-g.dm_rm[?'_DthMt_0620'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9E<<8) | $3A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_06';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0610'+STR_OWRC]      = $9E3A; // goto owrc
-g.dm_rm[?'_DthMt_0610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_0610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A1<<8) | $2E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_07';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_07'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0720'+STR_OWRC]      = $A12E; // goto owrc
-g.dm_rm[?'_DthMt_0720'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A4<<8) | $2F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_07';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0710'+STR_OWRC]      = $A42F; // goto owrc
-g.dm_rm[?'_DthMt_0710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_0710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9E<<8) | $3E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_08';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_08'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0820'+STR_OWRC]      = $9E3E; // goto owrc
-g.dm_rm[?'_DthMt_0820'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A0<<8) | $3F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_08';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0810'+STR_OWRC]      = $A03F; // goto owrc
-g.dm_rm[?'_DthMt_0810'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A5<<8) | $3E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_09';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_09'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0920'+STR_OWRC]      = $A53E; // goto owrc
-g.dm_rm[?'_DthMt_0920'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A3<<8) | $3F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_09';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0910'+STR_OWRC]      = $A33F; // goto owrc
-g.dm_rm[?'_DthMt_0910'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A9<<8) | $2D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0A';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0A20'+STR_OWRC]      = $A92D; // goto owrc
-g.dm_rm[?'_DthMt_0A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A7<<8) | $31;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0A';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0A10'+STR_OWRC]      = $A731; // goto owrc
-g.dm_rm[?'_DthMt_0A10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_0A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A8<<8) | $39;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0B';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0B20'+STR_OWRC]      = $A839; // goto owrc
-g.dm_rm[?'_DthMt_0B20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A7<<8) | $3C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0B';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0B10'+STR_OWRC]      = $A73C; // goto owrc
-g.dm_rm[?'_DthMt_0B10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_0B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($AA<<8) | $37;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0C';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0C20'+STR_OWRC]      = $AA37; // goto owrc
-g.dm_rm[?'_DthMt_0C20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_0C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($AA<<8) | $3D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0C';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0C10'+STR_OWRC]      = $AA3D; // goto owrc
-g.dm_rm[?'_DthMt_0C10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($AF<<8) | $3A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0D';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0D20'+STR_OWRC]      = $AF3A; // goto owrc
-g.dm_rm[?'_DthMt_0D20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0D20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($AD<<8) | $3C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0D';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0D10'+STR_OWRC]      = $AD3C; // goto owrc
-g.dm_rm[?'_DthMt_0D10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_0D10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($AD<<8) | $40;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0E';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0E20'+STR_OWRC]      = $AD40; // goto owrc
-g.dm_rm[?'_DthMt_0E20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_0E20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($AA<<8) | $42;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0E';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0E10'+STR_OWRC]      = $AA42; // goto owrc
-g.dm_rm[?'_DthMt_0E10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_0E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($AE<<8) | $34;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_0F';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_0F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0F20'+STR_OWRC]      = $AE34; // goto owrc
-g.dm_rm[?'_DthMt_0F20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_0F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($99<<8) | $39;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_16';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_16'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_1620'+STR_OWRC]      = $9939; // goto owrc
-g.dm_rm[?'_DthMt_1620'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_1620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($95<<8) | $38;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_16';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1610'+STR_OWRC]      = $9538; // goto owrc
-g.dm_rm[?'_DthMt_1610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_1610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9D<<8) | $33;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_17';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_17'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_1720'+STR_OWRC]      = $9D33; // goto owrc
-g.dm_rm[?'_DthMt_1720'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_1720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9E<<8) | $35;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_17';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1710'+STR_OWRC]      = $9E35; // goto owrc
-g.dm_rm[?'_DthMt_1710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_1710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A2<<8) | $32;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_18';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_18'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_1820'+STR_OWRC]      = $A232; // goto owrc
-g.dm_rm[?'_DthMt_1820'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_1820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A1<<8) | $34;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_18';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1810'+STR_OWRC]      = $A134; // goto owrc
-g.dm_rm[?'_DthMt_1810'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_1810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A4<<8) | $35;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_19';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_19'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_1920'+STR_OWRC]      = $A435; // goto owrc
-g.dm_rm[?'_DthMt_1920'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_1920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A4<<8) | $38;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_19';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1910'+STR_OWRC]      = $A438; // goto owrc
-g.dm_rm[?'_DthMt_1910'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_1910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($AE<<8) | $32;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '_Fall_04';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_1A';
-dm_data[?_owrc_+STR_AccessRm] = '80808080';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1A80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1A80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1A80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1A80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_1A20'+STR_OWRC]      = $AE32; // goto owrc
-g.dm_rm[?'_DthMt_1A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_1A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($93<<8) | $41;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_1C';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_1C10'+STR_OWRC]      = $9341; // goto owrc
-g.dm_rm[?'_DthMt_1C10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_1C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($89<<8) | $3D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_1C';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1C20'+STR_OWRC]      = $893D; // goto owrc
-g.dm_rm[?'_DthMt_1C20'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_1C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A8<<8) | $28;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_1F';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_1F10'+STR_OWRC]      = $A828; // goto owrc
-g.dm_rm[?'_DthMt_1F10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_1F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A8<<8) | $1E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_1F';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_1F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_1F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_1F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_1F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_1F20'+STR_OWRC]      = $A81E; // goto owrc
-g.dm_rm[?'_DthMt_1F20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_1F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A8<<8) | $1B;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '_Fall_04';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_21';
-dm_data[?_owrc_+STR_AccessRm] = '80808080';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_2180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_2180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_2180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_2180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_21'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_2180'+STR_OWRC]      = $A81B; // goto owrc
-g.dm_rm[?'_DthMt_2180'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_2180'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($BA<<8) | $2E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_2F';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_2F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_2F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_2F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_2F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_2F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_2F10'+STR_OWRC]      = $BA2E; // goto owrc
-g.dm_rm[?'_DthMt_2F10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_2F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($B4<<8) | $48;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_24';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_2420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_2420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_2420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_2420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_24'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_2420'+STR_OWRC]      = $B448; // goto owrc
-g.dm_rm[?'_DthMt_2420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_2420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_DthMt_2410'+STR_OWRC]      = $B448; // goto owrc
-g.dm_rm[?'_DthMt_2410'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_DthMt_2410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A5<<8) | $3A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_00';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_0010'+STR_OWRC]      = $A53A; // goto owrc
-g.dm_rm[?'_DthMt_0010'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_0010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8C<<8) | $31;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_2C';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_2C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_2C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_2C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_2C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_2C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_2C20'+STR_OWRC]      = $8B31; // goto owrc
-g.dm_rm[?'_DthMt_2C20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_2C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8D<<8) | $33;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_2D';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_2D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_2D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_2D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_2D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_2D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_2D10'+STR_OWRC]      = $8D34; // goto owrc
-g.dm_rm[?'_DthMt_2D10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_DthMt_2D10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($C1<<8) | $3E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '_Fall_04';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_31';
-dm_data[?_owrc_+STR_AccessRm] = '80808080';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_3180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_3180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_3180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_3180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_31'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_DthMt_3180'+STR_OWRC]      = $C13E; // goto owrc
-g.dm_rm[?'_DthMt_3180'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_DthMt_3180'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8E<<8) | $31;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_DthMt_2C';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_DthMt_2C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_DthMt_2C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_DthMt_2C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_DthMt_2C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_DthMt_2C10'+STR_OWRC]      = $8F31; // goto owrc
-g.dm_rm[?'_DthMt_2C10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_DthMt_2C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9D<<8) | $9D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_00';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0020'+STR_OWRC]      = $9D9C; // goto owrc
-g.dm_rm[?'_EastA_0020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_0020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_0010'+STR_OWRC]      = $9D9E; // goto owrc
-g.dm_rm[?'_EastA_0010'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_0010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A4<<8) | $9F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_01';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_01'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0120'+STR_OWRC]      = $A49E; // goto owrc
-g.dm_rm[?'_EastA_0120'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_0120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_0110'+STR_OWRC]      = $A4A0; // goto owrc
-g.dm_rm[?'_EastA_0110'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_0110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8C<<8) | $8F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_02';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_02'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0220'+STR_OWRC]      = $8B8F; // goto owrc
-g.dm_rm[?'_EastA_0220'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_0220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_0210'+STR_OWRC]      = $8D8F; // goto owrc
-g.dm_rm[?'_EastA_0210'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($91<<8) | $8B;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_03';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_03'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0320'+STR_OWRC]      = $908B; // goto owrc
-g.dm_rm[?'_EastA_0320'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_0320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_0310'+STR_OWRC]      = $928B; // goto owrc
-g.dm_rm[?'_EastA_0310'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($94<<8) | $8D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_04';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_04'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0420'+STR_OWRC]      = $948C; // goto owrc
-g.dm_rm[?'_EastA_0420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_0420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_0410'+STR_OWRC]      = $948E; // goto owrc
-g.dm_rm[?'_EastA_0410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_0410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A0<<8) | $92;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_05';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_05'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0520'+STR_OWRC]      = $9F92; // goto owrc
-g.dm_rm[?'_EastA_0520'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_0520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_0510'+STR_OWRC]      = $A192; // goto owrc
-g.dm_rm[?'_EastA_0510'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($64<<8) | $83;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_06';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_06'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0620'+STR_OWRC]      = $6383; // goto owrc
-g.dm_rm[?'_EastA_0620'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_0620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_0610'+STR_OWRC]      = $6583; // goto owrc
-g.dm_rm[?'_EastA_0610'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($78<<8) | $B9;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_07';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_07'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0720'+STR_OWRC]      = $78B9; // goto owrc
-g.dm_rm[?'_EastA_0720'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_0720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_0710'+STR_OWRC]      = $78B9; // goto owrc
-g.dm_rm[?'_EastA_0710'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($74<<8) | $92;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_08';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_08'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0820'+STR_OWRC]      = $7492; // goto owrc
-g.dm_rm[?'_EastA_0820'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($70<<8) | $95;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_08';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_0810'+STR_OWRC]      = $7095; // goto owrc
-g.dm_rm[?'_EastA_0810'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_0810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($87<<8) | $93;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_09';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_09'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0920'+STR_OWRC]      = $8793; // goto owrc
-g.dm_rm[?'_EastA_0920'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_0920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8E<<8) | $99;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_0B';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_0B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0B20'+STR_OWRC]      = $8E99; // goto owrc
-g.dm_rm[?'_EastA_0B20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8E<<8) | $AB;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_0D';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_0D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0D20'+STR_OWRC]      = $8EAB; // goto owrc
-g.dm_rm[?'_EastA_0D20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0D20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8E<<8) | $B3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_0E';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_0E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0E10'+STR_OWRC]      = $8EB3; // goto owrc
-g.dm_rm[?'_EastA_0E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_0E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8B<<8) | $7C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_10';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_10'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1020'+STR_OWRC]      = $8B7C; // goto owrc
-g.dm_rm[?'_EastA_1020'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8B<<8) | $7E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_10';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_1010'+STR_OWRC]      = $8B7E; // goto owrc
-g.dm_rm[?'_EastA_1010'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8D<<8) | $80;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_13';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_13'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1320'+STR_OWRC]      = $8D80; // goto owrc
-g.dm_rm[?'_EastA_1320'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8D<<8) | $84;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_14';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_14'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1410'+STR_OWRC]      = $8D84; // goto owrc
-g.dm_rm[?'_EastA_1410'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($66<<8) | $84;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_17';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_17'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1720'+STR_OWRC]      = $6584; // goto owrc
-g.dm_rm[?'_EastA_1720'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_1720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_1710'+STR_OWRC]      = $6784; // goto owrc
-g.dm_rm[?'_EastA_1710'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($96<<8) | $82;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_18';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_18'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1820'+STR_OWRC]      = $9582; // goto owrc
-g.dm_rm[?'_EastA_1820'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_1820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_1810'+STR_OWRC]      = $9782; // goto owrc
-g.dm_rm[?'_EastA_1810'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($93<<8) | $7D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_19';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_19'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1920'+STR_OWRC]      = $927D; // goto owrc
-g.dm_rm[?'_EastA_1920'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_1920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_1910'+STR_OWRC]      = $947D; // goto owrc
-g.dm_rm[?'_EastA_1910'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A3<<8) | $82;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_1A';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_1A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1A20'+STR_OWRC]      = $A381; // goto owrc
-g.dm_rm[?'_EastA_1A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_1A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_1A10'+STR_OWRC]      = $A383; // goto owrc
-g.dm_rm[?'_EastA_1A10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_1A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($81<<8) | $AF;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_21';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2100'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2100'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2100'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2100'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_21'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2120'+STR_OWRC]      = $81AF; // goto owrc
-g.dm_rm[?'_EastA_2120'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_2120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2110'+STR_OWRC]      = $81AF; // goto owrc
-g.dm_rm[?'_EastA_2110'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_2110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2100'+STR_OWRC]      = $81AF; // goto owrc
-g.dm_rm[?'_EastA_2100'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_2100'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($7A<<8) | $84;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_26';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_26'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2620'+STR_OWRC]      = $7A84; // goto owrc
-g.dm_rm[?'_EastA_2620'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_2620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2610'+STR_OWRC]      = $7A84; // goto owrc
-g.dm_rm[?'_EastA_2610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_2610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2600'+STR_OWRC]      = $7A84; // goto owrc
-g.dm_rm[?'_EastA_2600'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_2600'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9B<<8) | $B0;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_2C';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_2C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2C20'+STR_OWRC]      = $9BB0; // goto owrc
-g.dm_rm[?'_EastA_2C20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_2C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2C10'+STR_OWRC]      = $9BB0; // goto owrc
-g.dm_rm[?'_EastA_2C10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_2C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2C00'+STR_OWRC]      = $9BB0; // goto owrc
-g.dm_rm[?'_EastA_2C00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_2C00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($84<<8) | $87;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_2D';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_2D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2D20'+STR_OWRC]      = $8487; // goto owrc
-g.dm_rm[?'_EastA_2D20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_2D20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2D10'+STR_OWRC]      = $8487; // goto owrc
-g.dm_rm[?'_EastA_2D10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_2D10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2D00'+STR_OWRC]      = $8487; // goto owrc
-g.dm_rm[?'_EastA_2D00'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_2D00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A7<<8) | $AA;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_2E';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_2E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2E20'+STR_OWRC]      = $A7AA; // goto owrc
-g.dm_rm[?'_EastA_2E20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_2E20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2E10'+STR_OWRC]      = $A7AA; // goto owrc
-g.dm_rm[?'_EastA_2E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_2E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($91<<8) | $94;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_33';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_3300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_3300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_3300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_3300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_33'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_3320'+STR_OWRC]      = $9194; // goto owrc
-g.dm_rm[?'_EastA_3320'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_3320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3310'+STR_OWRC]      = $9194; // goto owrc
-g.dm_rm[?'_EastA_3310'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_3310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3300'+STR_OWRC]      = $9194; // goto owrc
-g.dm_rm[?'_EastA_3300'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_3300'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($6C<<8) | $AA;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_3A';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_3A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_3A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_3A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_3A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_3A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_3A20'+STR_OWRC]      = $6CAA; // goto owrc
-g.dm_rm[?'_EastA_3A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_3A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3A10'+STR_OWRC]      = $6CAA; // goto owrc
-g.dm_rm[?'_EastA_3A10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_3A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3A00'+STR_OWRC]      = $6CAA; // goto owrc
-g.dm_rm[?'_EastA_3A00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_3A00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($78<<8) | $9C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_3B';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_3B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_3B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_3B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_3B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_3B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_3B20'+STR_OWRC]      = $789C; // goto owrc
-g.dm_rm[?'_EastA_3B20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_3B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3B10'+STR_OWRC]      = $789C; // goto owrc
-g.dm_rm[?'_EastA_3B10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_3B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3B00'+STR_OWRC]      = $789C; // goto owrc
-g.dm_rm[?'_EastA_3B00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_3B00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A3<<8) | $95;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_3E';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_3E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_3E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_3E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_3E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_3E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_3E20'+STR_OWRC]      = $A395; // goto owrc
-g.dm_rm[?'_EastA_3E20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_3E20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3E10'+STR_OWRC]      = $A395; // goto owrc
-g.dm_rm[?'_EastA_3E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_3E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3E00'+STR_OWRC]      = $A395; // goto owrc
-g.dm_rm[?'_EastA_3E00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_3E00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9B<<8) | $7E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_3F';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_3F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_3F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_3F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_3F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_3F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_3F20'+STR_OWRC]      = $9B7E; // goto owrc
-g.dm_rm[?'_EastA_3F20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_3F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3F10'+STR_OWRC]      = $9B7E; // goto owrc
-g.dm_rm[?'_EastA_3F10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_3F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3F00'+STR_OWRC]      = $9B7E; // goto owrc
-g.dm_rm[?'_EastA_3F00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_3F00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5E<<8) | $82;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_11';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_11'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1120'+STR_OWRC]      = $5E82; // goto owrc
-g.dm_rm[?'_EastA_1120'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_1120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($72<<8) | $9F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_12';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_12'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1210'+STR_OWRC]      = $729F; // goto owrc
-g.dm_rm[?'_EastA_1210'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_1210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($94<<8) | $A9;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_15';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_15'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1520'+STR_OWRC]      = $94A9; // goto owrc
-g.dm_rm[?'_EastA_1520'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_1520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_1510'+STR_OWRC]      = $94A9; // goto owrc
-g.dm_rm[?'_EastA_1510'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_1510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($89<<8) | $96;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_16';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_16'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1620'+STR_OWRC]      = $8996; // goto owrc
-g.dm_rm[?'_EastA_1620'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($46<<8) | $A3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_6A';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_6A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_6A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_6A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_6A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_6A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_6A20'+STR_OWRC]      = $46A3; // goto owrc
-g.dm_rm[?'_EastA_6A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_6A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_6A10'+STR_OWRC]      = $46A3; // goto owrc
-g.dm_rm[?'_EastA_6A10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_6A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($69<<8) | $8D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_1C';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_1C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1C10'+STR_OWRC]      = $698D; // goto owrc
-g.dm_rm[?'_EastA_1C10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_1C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9E<<8) | $7C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_1F';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_1F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1F10'+STR_OWRC]      = $9E7C; // goto owrc
-g.dm_rm[?'_EastA_1F10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($1F<<8) | $68;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_20';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_20'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2010'+STR_OWRC]      = $1F68; // goto owrc
-g.dm_rm[?'_EastA_2010'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_2010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2020'+STR_OWRC]      = $1F68; // goto owrc
-g.dm_rm[?'_EastA_2020'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_2020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($63<<8) | $A3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_23';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+STR_Special+STR_Encounter] = '_EastA_23';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_23'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2320'+STR_OWRC]      = $63A3; // goto owrc
-g.dm_rm[?'_EastA_2320'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_2320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2310'+STR_OWRC]      = $63A3; // goto owrc
-g.dm_rm[?'_EastA_2310'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_2310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($87<<8) | $B2;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_68';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_6820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_6820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_6820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_6820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_68'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_6820'+STR_OWRC]      = $86B2; // goto owrc
-g.dm_rm[?'_EastA_6820'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_6820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($37<<8) | $A5;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_29';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_29'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2920'+STR_OWRC]      = $38A5; // goto owrc
-g.dm_rm[?'_EastA_2920'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_2920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($36<<8) | $A5;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_EastA_2A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2A10'+STR_OWRC]      = $38A5; // goto owrc
-g.dm_rm[?'_EastA_2A10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_2A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($3A<<8) | $A4;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_EastA_52'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_5220'+STR_OWRC]      = $3AA4; // goto owrc
-g.dm_rm[?'_EastA_5220'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_5220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($83<<8) | $9C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_24';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_24'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2420'+STR_OWRC]      = $839C; // goto owrc
-g.dm_rm[?'_EastA_2420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_2420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_2410'+STR_OWRC]      = $839C; // goto owrc
-g.dm_rm[?'_EastA_2410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_2410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($0F<<8) | $6C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_2B';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_2B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_2B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_2B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_2B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_2B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_2B20'+STR_OWRC]      = $0F6C; // goto owrc
-g.dm_rm[?'_EastA_2B20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_2B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($0F<<8) | $72;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_41';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_41'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_4110'+STR_OWRC]      = $0F72; // goto owrc
-g.dm_rm[?'_EastA_4110'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_4110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($15<<8) | $98;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_31';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_3110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_3120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_3110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_3120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_31'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_3120'+STR_OWRC]      = $1598; // goto owrc
-g.dm_rm[?'_EastA_3120'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_3120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3110'+STR_OWRC]      = $1598; // goto owrc
-g.dm_rm[?'_EastA_3110'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_3110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($98<<8) | $BB;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_69';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_6920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_6920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_6920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_6920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_69'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_6920'+STR_OWRC]      = $97BB; // goto owrc
-g.dm_rm[?'_EastA_6920'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_6920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9B<<8) | $8F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_36';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_3600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_3600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_3600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_3600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_36'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_3620'+STR_OWRC]      = $9B8F; // goto owrc
-g.dm_rm[?'_EastA_3620'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_3620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3610'+STR_OWRC]      = $9B8F; // goto owrc
-g.dm_rm[?'_EastA_3610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_3610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3600'+STR_OWRC]      = $9B8F; // goto owrc
-g.dm_rm[?'_EastA_3600'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_3600'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($28<<8) | $8E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_37';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_3720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_3720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_3720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_3720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_37'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_3710'+STR_OWRC]      = $288E; // goto owrc
-g.dm_rm[?'_EastA_3710'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_3710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_3720'+STR_OWRC]      = $288E; // goto owrc
-g.dm_rm[?'_EastA_3720'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_3720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($88<<8) | $B2;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_68';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_6810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_6810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_6810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_6810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_6810'+STR_OWRC]      = $89B2; // goto owrc
-g.dm_rm[?'_EastA_6810'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_6810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($99<<8) | $BB;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_69';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_6910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_6910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_6910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_6910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_6910'+STR_OWRC]      = $9ABB; // goto owrc
-g.dm_rm[?'_EastA_6910'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_6910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D5<<8) | $48;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_48';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+dk_NO_ENCOUNTER] = 1; // dk_NO_ENCOUNTER:  Can't use encounter skip exploit for this exit
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_48'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_4820'+STR_OWRC]      = $D547; // goto owrc
-g.dm_rm[?'_EastA_4820'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_4820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($DA<<8) | $4E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_49';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_49'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_4910'+STR_OWRC]      = $DA4E; // goto owrc
-g.dm_rm[?'_EastA_4910'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_4910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D8<<8) | $4C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_49';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_4920'+STR_OWRC]      = $D84C; // goto owrc
-g.dm_rm[?'_EastA_4920'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_4920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D5<<8) | $59;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_4A';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_4A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_4A20'+STR_OWRC]      = $D559; // goto owrc
-g.dm_rm[?'_EastA_4A20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_4A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($E4<<8) | $46;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_4E';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_4E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_4E10'+STR_OWRC]      = $E346; // goto owrc
-g.dm_rm[?'_EastA_4E10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_4E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($E5<<8) | $45;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_4E';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_4E20'+STR_OWRC]      = $E645; // goto owrc
-g.dm_rm[?'_EastA_4E20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_4E20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($E7<<8) | $50;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_4D';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_4D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_4D20'+STR_OWRC]      = $E750; // goto owrc
-g.dm_rm[?'_EastA_4D20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_4D20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_4D10'+STR_OWRC]      = $E750; // goto owrc
-g.dm_rm[?'_EastA_4D10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_4D10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_4D00'+STR_OWRC]      = $E750; // goto owrc
-g.dm_rm[?'_EastA_4D00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_EastA_4D00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($77<<8) | $95;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_5B';
-dm_data[?_owrc_+STR_AccessRm] = '';
-g.dm_rm[?'_EastA_5B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_5B20'+STR_OWRC]      = $7795; // goto owrc
-g.dm_rm[?'_EastA_5B20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_5B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_5B10'+STR_OWRC]      = $7795; // goto owrc
-g.dm_rm[?'_EastA_5B10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_5B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($78<<8) | $8D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_62';
-dm_data[?_owrc_+STR_AccessRm] = '';
-g.dm_rm[?'_EastA_62'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_6220'+STR_OWRC]      = $788D; // goto owrc
-g.dm_rm[?'_EastA_6220'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_6220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_6210'+STR_OWRC]      = $788D; // goto owrc
-g.dm_rm[?'_EastA_6210'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_6210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($85<<8) | $87;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_70';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_7020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_7020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_7020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_7020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_70'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_7020'+STR_OWRC]      = $8587; // goto owrc
-g.dm_rm[?'_EastA_7020'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_7020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_7010'+STR_OWRC]      = $8587; // goto owrc
-g.dm_rm[?'_EastA_7010'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_7010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_Forest_Hammer'+_owrc_] = '_Forest_Hammer_0101'; // info example: '_Forest_Hammer_0101'
-dm_data[?'_OWRC_Forest_Hammer_0101'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($BF<<8) | $C9;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_77';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_7710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_7710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_7710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_7710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_77'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_7710'+STR_OWRC]      = $BFC9; // goto owrc
-g.dm_rm[?'_EastA_7710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_7710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($BF<<8) | $94;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_78';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+dk_NO_ENCOUNTER] = 1; // dk_NO_ENCOUNTER:  Can't use encounter skip exploit for this exit
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_7820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_7820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_7820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_7820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_78'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_7820'+STR_OWRC]      = $BF93; // goto owrc
-g.dm_rm[?'_EastA_7820'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_7820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D0<<8) | $C3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_8E';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_8E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8E10'+STR_OWRC]      = $D0C3; // goto owrc
-g.dm_rm[?'_EastA_8E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_8E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CB<<8) | $C4;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_8F';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_8F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8F20'+STR_OWRC]      = $CBC4; // goto owrc
-g.dm_rm[?'_EastA_8F20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_8F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($BF<<8) | $D0;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_80';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_80'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8020'+STR_OWRC]      = $BFD0; // goto owrc
-g.dm_rm[?'_EastA_8020'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_8020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($C1<<8) | $D3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_81';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_81'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8120'+STR_OWRC]      = $C1D3; // goto owrc
-g.dm_rm[?'_EastA_8120'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_8120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($C0<<8) | $DA;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_84';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_84'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8410'+STR_OWRC]      = $C0DA; // goto owrc
-g.dm_rm[?'_EastA_8410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_8410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($C7<<8) | $D7;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_87';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_87'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8720'+STR_OWRC]      = $C7D7; // goto owrc
-g.dm_rm[?'_EastA_8720'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_8720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CC<<8) | $CA;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_8C';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_8C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8C20'+STR_OWRC]      = $CCCA; // goto owrc
-g.dm_rm[?'_EastA_8C20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_8C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($C4<<8) | $DC;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_85';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_85'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8510'+STR_OWRC]      = $C4DC; // goto owrc
-g.dm_rm[?'_EastA_8510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_8510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($C8<<8) | $DC;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_86';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_86'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8610'+STR_OWRC]      = $C8DC; // goto owrc
-g.dm_rm[?'_EastA_8610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_8610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CB<<8) | $D1;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_88';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_88'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8810'+STR_OWRC]      = $CBD1; // goto owrc
-g.dm_rm[?'_EastA_8810'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_8810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CA<<8) | $CB;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_8B';
-dm_data[?_owrc_+STR_AccessRm] = '21212121';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8B21'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8B21'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8B21'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8B21'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_8B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8B21'+STR_OWRC]      = $CACB; // goto owrc
-g.dm_rm[?'_EastA_8B21'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_8B21'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D0<<8) | $D3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_8D';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_8D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_8D20'+STR_OWRC]      = $D0D3; // goto owrc
-g.dm_rm[?'_EastA_8D20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_8D20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CD<<8) | $D9;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_8D';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_8D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_8D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_8D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_8D10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_8D10'+STR_OWRC]      = $CDD9; // goto owrc
-g.dm_rm[?'_EastA_8D10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_8D10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($DE<<8) | $B3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_64';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_6420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_6420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_6420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_6420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_64'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_6420'+STR_OWRC]      = $DEB3; // goto owrc
-g.dm_rm[?'_EastA_6420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_6420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D6<<8) | $D3;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_90';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_90'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9010'+STR_OWRC]      = $D6D3; // goto owrc
-g.dm_rm[?'_EastA_9010'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_9010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9020'+STR_OWRC]      = $D6D3; // goto owrc
-g.dm_rm[?'_EastA_9020'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_9020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($E0<<8) | $BD;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_A0';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_A020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_A020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_A020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_A020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_A0'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_A020'+STR_OWRC]      = $E0BD; // goto owrc
-g.dm_rm[?'_EastA_A020'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_A020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($C9<<8) | $C1;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_91';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9100'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9100'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9100'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9100'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_91'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9110'+STR_OWRC]      = $C9C1; // goto owrc
-g.dm_rm[?'_EastA_9110'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9120'+STR_OWRC]      = $C9C1; // goto owrc
-g.dm_rm[?'_EastA_9120'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($C8<<8) | $BD;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_92';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9200'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9200'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9200'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9200'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_92'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9210'+STR_OWRC]      = $C8BD; // goto owrc
-g.dm_rm[?'_EastA_9210'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_9210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9220'+STR_OWRC]      = $C8BD; // goto owrc
-g.dm_rm[?'_EastA_9220'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_9220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CD<<8) | $B6;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_93';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_93'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9310'+STR_OWRC]      = $CDB6; // goto owrc
-g.dm_rm[?'_EastA_9310'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9320'+STR_OWRC]      = $CDB6; // goto owrc
-g.dm_rm[?'_EastA_9320'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D3<<8) | $B5;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_94';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9400'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9400'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9400'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9400'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_94'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9410'+STR_OWRC]      = $D3B5; // goto owrc
-g.dm_rm[?'_EastA_9410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9420'+STR_OWRC]      = $D3B5; // goto owrc
-g.dm_rm[?'_EastA_9420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CB<<8) | $BE;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_95';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_95'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9510'+STR_OWRC]      = $CBBE; // goto owrc
-g.dm_rm[?'_EastA_9510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9520'+STR_OWRC]      = $CBBE; // goto owrc
-g.dm_rm[?'_EastA_9520'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CC<<8) | $BC;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_96';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_96'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9610'+STR_OWRC]      = $CCBC; // goto owrc
-g.dm_rm[?'_EastA_9610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9620'+STR_OWRC]      = $CCBC; // goto owrc
-g.dm_rm[?'_EastA_9620'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CA<<8) | $BB;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_97';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9700'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9700'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9700'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9700'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_97'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9710'+STR_OWRC]      = $CABB; // goto owrc
-g.dm_rm[?'_EastA_9710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9720'+STR_OWRC]      = $CABB; // goto owrc
-g.dm_rm[?'_EastA_9720'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CC<<8) | $BA;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_98';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9800'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9800'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9800'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9800'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_98'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9810'+STR_OWRC]      = $CCBA; // goto owrc
-g.dm_rm[?'_EastA_9810'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9820'+STR_OWRC]      = $CCBA; // goto owrc
-g.dm_rm[?'_EastA_9820'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CB<<8) | $B9;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_99';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9900'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9900'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9900'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9900'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_99'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9910'+STR_OWRC]      = $CBB9; // goto owrc
-g.dm_rm[?'_EastA_9910'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9920'+STR_OWRC]      = $CBB9; // goto owrc
-g.dm_rm[?'_EastA_9920'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CD<<8) | $B8;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_9A';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_9A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9A10'+STR_OWRC]      = $CDB8; // goto owrc
-g.dm_rm[?'_EastA_9A10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9A20'+STR_OWRC]      = $CDB8; // goto owrc
-g.dm_rm[?'_EastA_9A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CE<<8) | $B7;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_9B';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_9B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9B10'+STR_OWRC]      = $CEB7; // goto owrc
-g.dm_rm[?'_EastA_9B10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9B20'+STR_OWRC]      = $CEB7; // goto owrc
-g.dm_rm[?'_EastA_9B20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D1<<8) | $B6;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_9C';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_9C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9C10'+STR_OWRC]      = $D1B6; // goto owrc
-g.dm_rm[?'_EastA_9C10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9C20'+STR_OWRC]      = $D1B6; // goto owrc
-g.dm_rm[?'_EastA_9C20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D0<<8) | $B7;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_9D';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9D00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_9D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9D10'+STR_OWRC]      = $D0B7; // goto owrc
-g.dm_rm[?'_EastA_9D10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9D10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9D20'+STR_OWRC]      = $D0B7; // goto owrc
-g.dm_rm[?'_EastA_9D20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9D20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D3<<8) | $B6;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_9E';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_9E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9E10'+STR_OWRC]      = $D3B6; // goto owrc
-g.dm_rm[?'_EastA_9E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9E20'+STR_OWRC]      = $D3B6; // goto owrc
-g.dm_rm[?'_EastA_9E20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9E20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($CA<<8) | $BD;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_9F';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_9F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_9F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_9F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_9F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_9F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_9F10'+STR_OWRC]      = $CABD; // goto owrc
-g.dm_rm[?'_EastA_9F10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_9F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_9F20'+STR_OWRC]      = $CABD; // goto owrc
-g.dm_rm[?'_EastA_9F20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_9F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($EB<<8) | $B7;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '_Fall_04';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_A1';
-dm_data[?_owrc_+STR_AccessRm] = '80808080';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_A180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_A180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_A180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_A180'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-
-
-_owrc  = ($D9<<8) | $C6;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_B2';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_B210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_B210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_B210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_B210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_B2'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_B210'+STR_OWRC]      = $D9C6; // goto owrc
-g.dm_rm[?'_EastA_B210'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_B210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A0<<8) | $8A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_C6';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_C610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_C610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_C610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_C610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_C6'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_C610'+STR_OWRC]      = $A08A; // goto owrc
-g.dm_rm[?'_EastA_C610'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_C610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($DC<<8) | $C8;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_B3';
-dm_data[?_owrc_+STR_AccessRm] = '20101020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_B320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_B310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_B310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_B320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_B3'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_B320'+STR_OWRC]      = $DCC7; // goto owrc
-g.dm_rm[?'_EastA_B320'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_B320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_B310'+STR_OWRC]      = $DBC8; // goto owrc
-g.dm_rm[?'_EastA_B310'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_B310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($E0<<8) | $CB;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_B4';
-dm_data[?_owrc_+STR_AccessRm] = '20101020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_B420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_B410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_B410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_B420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_B4'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_B420'+STR_OWRC]      = $E1CB; // goto owrc
-g.dm_rm[?'_EastA_B420'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_B420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_B410'+STR_OWRC]      = $DFCB; // goto owrc
-g.dm_rm[?'_EastA_B410'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_EastA_B410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D7<<8) | $C6;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_B5';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_B510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_B510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_B510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_B510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_B5'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_B510'+STR_OWRC]      = $D7C7; // goto owrc
-g.dm_rm[?'_EastA_B510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_B510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($E4<<8) | $CD;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_B6';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_B610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_B620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_B610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_B620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_B6'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_B610'+STR_OWRC]      = $E4CE; // goto owrc
-g.dm_rm[?'_EastA_B610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_B610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_EastA_B620'+STR_OWRC]      = $E4CC; // goto owrc
-g.dm_rm[?'_EastA_B620'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_B620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D7<<8) | $C5;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_B5';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_B520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_B520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_B520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_B520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_B520'+STR_OWRC]      = $D7C4; // goto owrc
-g.dm_rm[?'_EastA_B520'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_EastA_B520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($10<<8) | $B9;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_0F';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_0F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_0F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_0F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_0F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_0F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_0F20'+STR_OWRC]      = $10B9; // goto owrc
-g.dm_rm[?'_EastA_0F20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_0F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($D6<<8) | $4B;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_4F';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_4F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_4F10'+STR_OWRC]      = $D64B; // goto owrc
-g.dm_rm[?'_EastA_4F10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_EastA_4F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($E2<<8) | $61;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_42';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_4220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_4220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_4220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_4220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_42'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_4220'+STR_OWRC]      = $E261; // goto owrc
-g.dm_rm[?'_EastA_4220'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_4220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($86<<8) | $7E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_EastA_1B';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_EastA_1B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_EastA_1B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_EastA_1B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_EastA_1B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_EastA_1B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_EastA_1B20'+STR_OWRC]      = $867E; // goto owrc
-g.dm_rm[?'_EastA_1B20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_EastA_1B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5B<<8) | $3F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_00';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0000'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0000'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0000'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0000'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_00'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0000'+STR_OWRC]      = $5B3F; // goto owrc
-g.dm_rm[?'_WestA_0000'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_0000'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-dm_data[?'_OWRC_North_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
-
-
-_owrc  = ($79<<8) | $38;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_01';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0120'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_01'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0120'+STR_OWRC]      = $7838; // goto owrc
-g.dm_rm[?'_WestA_0120'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_0120'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_0110'+STR_OWRC]      = $7A38; // goto owrc
-g.dm_rm[?'_WestA_0110'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_0110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($7E<<8) | $42;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_02';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0220'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_02'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0220'+STR_OWRC]      = $7E41; // goto owrc
-g.dm_rm[?'_WestA_0220'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_0220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_0210'+STR_OWRC]      = $7E43; // goto owrc
-g.dm_rm[?'_WestA_0210'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_0210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($88<<8) | $42;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_04';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_04'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0420'+STR_OWRC]      = $8841; // goto owrc
-g.dm_rm[?'_WestA_0420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_0420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($88<<8) | $49;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_05';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_05'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0510'+STR_OWRC]      = $884A; // goto owrc
-g.dm_rm[?'_WestA_0510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_0510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($62<<8) | $66;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_06';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0610'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0620'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_06'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0620'+STR_OWRC]      = $6166; // goto owrc
-g.dm_rm[?'_WestA_0620'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_0620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_0610'+STR_OWRC]      = $6366; // goto owrc
-g.dm_rm[?'_WestA_0610'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_0610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($55<<8) | $5F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_07';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_07'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0710'+STR_OWRC]      = $555F; // goto owrc
-g.dm_rm[?'_WestA_0710'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_0710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($4D<<8) | $56;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_07';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_0720'+STR_OWRC]      = $4D56; // goto owrc
-g.dm_rm[?'_WestA_0720'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_0720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5B<<8) | $44;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_03';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+dk_NO_ENCOUNTER] = 1; // dk_NO_ENCOUNTER:  Can't use encounter skip exploit for this exit
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_03'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0310'+STR_OWRC]      = $5B45; // goto owrc
-g.dm_rm[?'_WestA_0310'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_0310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($61<<8) | $29;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_09';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_09'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0920'+STR_OWRC]      = $6129; // goto owrc
-g.dm_rm[?'_WestA_0920'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_0920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($65<<8) | $2B;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_0B';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_0B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0B10'+STR_OWRC]      = $652B; // goto owrc
-g.dm_rm[?'_WestA_0B10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_0B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($65<<8) | $4E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_0C';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_0C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0C10'+STR_OWRC]      = $654E; // goto owrc
-g.dm_rm[?'_WestA_0C10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_0C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($6C<<8) | $31;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_0E';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0E20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_0E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0E20'+STR_OWRC]      = $6C31; // goto owrc
-g.dm_rm[?'_WestA_0E20'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_0E20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($65<<8) | $5E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_10';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_10'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1020'+STR_OWRC]      = $655E; // goto owrc
-g.dm_rm[?'_WestA_1020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($87<<8) | $5A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '_Fall_04';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_12';
-dm_data[?_owrc_+STR_AccessRm] = '80808080';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1280'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1280'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1280'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1280'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_12'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1280'+STR_OWRC]      = $875A; // goto owrc
-g.dm_rm[?'_WestA_1280'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1280'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1220'+STR_OWRC]      = $875A; // goto owrc
-g.dm_rm[?'_WestA_1220'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1220'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8D<<8) | $64;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_2A';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_2A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2A10'+STR_OWRC]      = $8D64; // goto owrc
-g.dm_rm[?'_WestA_2A10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($67<<8) | $2F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_14';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1400'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1400'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1400'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1400'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_14'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1420'+STR_OWRC]      = $672F; // goto owrc
-g.dm_rm[?'_WestA_1420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1410'+STR_OWRC]      = $672F; // goto owrc
-g.dm_rm[?'_WestA_1410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_1410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1400'+STR_OWRC]      = $672F; // goto owrc
-g.dm_rm[?'_WestA_1400'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_1400'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($73<<8) | $3C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_15';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_15'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1520'+STR_OWRC]      = $733C; // goto owrc
-g.dm_rm[?'_WestA_1520'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1510'+STR_OWRC]      = $733C; // goto owrc
-g.dm_rm[?'_WestA_1510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_1510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1500'+STR_OWRC]      = $733C; // goto owrc
-g.dm_rm[?'_WestA_1500'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_1500'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($74<<8) | $39;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_16';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_16'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1620'+STR_OWRC]      = $7439; // goto owrc
-g.dm_rm[?'_WestA_1620'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1610'+STR_OWRC]      = $7439; // goto owrc
-g.dm_rm[?'_WestA_1610'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_1610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1600'+STR_OWRC]      = $7439; // goto owrc
-g.dm_rm[?'_WestA_1600'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_1600'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($74<<8) | $3D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_17';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1700'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1700'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1700'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1700'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_17'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1720'+STR_OWRC]      = $743D; // goto owrc
-g.dm_rm[?'_WestA_1720'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1710'+STR_OWRC]      = $743D; // goto owrc
-g.dm_rm[?'_WestA_1710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_1710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1700'+STR_OWRC]      = $743D; // goto owrc
-g.dm_rm[?'_WestA_1700'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_1700'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5B<<8) | $38;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_1A';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1A10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1A20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_1A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1A20'+STR_OWRC]      = $5B37; // goto owrc
-g.dm_rm[?'_WestA_1A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($74<<8) | $3F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_1B';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_1B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1B20'+STR_OWRC]      = $743F; // goto owrc
-g.dm_rm[?'_WestA_1B20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1B10'+STR_OWRC]      = $743F; // goto owrc
-g.dm_rm[?'_WestA_1B10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_1B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1B00'+STR_OWRC]      = $743F; // goto owrc
-g.dm_rm[?'_WestA_1B00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_1B00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($75<<8) | $3B;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_1C';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1C00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_1C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1C20'+STR_OWRC]      = $753B; // goto owrc
-g.dm_rm[?'_WestA_1C20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1C10'+STR_OWRC]      = $753B; // goto owrc
-g.dm_rm[?'_WestA_1C10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_1C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1C00'+STR_OWRC]      = $753B; // goto owrc
-g.dm_rm[?'_WestA_1C00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_1C00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($8D<<8) | $4E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_1F';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_1F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_1F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_1F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_1F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_1F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_1F20'+STR_OWRC]      = $8D4E; // goto owrc
-g.dm_rm[?'_WestA_1F20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_1F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1F10'+STR_OWRC]      = $8D4E; // goto owrc
-g.dm_rm[?'_WestA_1F10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_1F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_1F00'+STR_OWRC]      = $8D4E; // goto owrc
-g.dm_rm[?'_WestA_1F00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_1F00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($7F<<8) | $47;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_20';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2000'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2000'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2000'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2000'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_20'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2020'+STR_OWRC]      = $7F47; // goto owrc
-g.dm_rm[?'_WestA_2020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_2020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2010'+STR_OWRC]      = $7F47; // goto owrc
-g.dm_rm[?'_WestA_2010'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2000'+STR_OWRC]      = $7F47; // goto owrc
-g.dm_rm[?'_WestA_2000'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_2000'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($47<<8) | $45;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_21';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2110'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_21'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2110'+STR_OWRC]      = $4745; // goto owrc
-g.dm_rm[?'_WestA_2110'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_2110'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($67<<8) | $66;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_26';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2600'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_26'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2620'+STR_OWRC]      = $6766; // goto owrc
-g.dm_rm[?'_WestA_2620'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_2620'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2610'+STR_OWRC]      = $6766; // goto owrc
-g.dm_rm[?'_WestA_2610'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_2610'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2600'+STR_OWRC]      = $6766; // goto owrc
-g.dm_rm[?'_WestA_2600'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_2600'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($51<<8) | $4D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_2B';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2B00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_2B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2B20'+STR_OWRC]      = $514D; // goto owrc
-g.dm_rm[?'_WestA_2B20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_2B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2B10'+STR_OWRC]      = $514D; // goto owrc
-g.dm_rm[?'_WestA_2B10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2B00'+STR_OWRC]      = $514D; // goto owrc
-g.dm_rm[?'_WestA_2B00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_2B00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($63<<8) | $38;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_2D';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_2D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2D20'+STR_OWRC]      = $6338; // goto owrc
-g.dm_rm[?'_WestA_2D20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_2D20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($7D<<8) | $3C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_2E';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2E00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_2E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2E20'+STR_OWRC]      = $7D3C; // goto owrc
-g.dm_rm[?'_WestA_2E20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_2E20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2E10'+STR_OWRC]      = $7D3C; // goto owrc
-g.dm_rm[?'_WestA_2E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2E00'+STR_OWRC]      = $7D3C; // goto owrc
-g.dm_rm[?'_WestA_2E00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_2E00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($6E<<8) | $30;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_33';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_3300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_3300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_3300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_3300'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_33'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_3320'+STR_OWRC]      = $6E30; // goto owrc
-g.dm_rm[?'_WestA_3320'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_3320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3310'+STR_OWRC]      = $6E30; // goto owrc
-g.dm_rm[?'_WestA_3310'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_3310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3300'+STR_OWRC]      = $6E30; // goto owrc
-g.dm_rm[?'_WestA_3300'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_3300'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($6D<<8) | $4F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_34';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_3410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_3410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_3410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_3410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_34'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_3420'+STR_OWRC]      = $6D4F; // goto owrc
-g.dm_rm[?'_WestA_3420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_3420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3410'+STR_OWRC]      = $6D4F; // goto owrc
-g.dm_rm[?'_WestA_3410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_3410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($82<<8) | $5E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_38';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_3800'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_3800'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_3800'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_3800'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_38'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_3820'+STR_OWRC]      = $825E; // goto owrc
-g.dm_rm[?'_WestA_3820'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_3820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3810'+STR_OWRC]      = $825E; // goto owrc
-g.dm_rm[?'_WestA_3810'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_3810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3800'+STR_OWRC]      = $825E; // goto owrc
-g.dm_rm[?'_WestA_3800'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_3800'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($6B<<8) | $4D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_3A';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_3A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_3A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_3A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_3A00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_3A'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_3A20'+STR_OWRC]      = $6B4D; // goto owrc
-g.dm_rm[?'_WestA_3A20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_3A20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3A10'+STR_OWRC]      = $6B4D; // goto owrc
-g.dm_rm[?'_WestA_3A10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_3A10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3A00'+STR_OWRC]      = $6B4D; // goto owrc
-g.dm_rm[?'_WestA_3A00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_3A00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($56<<8) | $3F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_29';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_29'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2920'+STR_OWRC]      = $563F; // goto owrc
-g.dm_rm[?'_WestA_2920'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_2920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2910'+STR_OWRC]      = $563F; // goto owrc
-g.dm_rm[?'_WestA_2910'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($7F<<8) | $5A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_24';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2420'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_24'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2420'+STR_OWRC]      = $7F5A; // goto owrc
-g.dm_rm[?'_WestA_2420'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_2420'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2410'+STR_OWRC]      = $7F5A; // goto owrc
-g.dm_rm[?'_WestA_2410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($73<<8) | $3D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_25';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2510'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_25'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2520'+STR_OWRC]      = $733D; // goto owrc
-g.dm_rm[?'_WestA_2520'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_2520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2510'+STR_OWRC]      = $733D; // goto owrc
-g.dm_rm[?'_WestA_2510'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5B<<8) | $3F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_00';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0020'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-
-
-_owrc  = ($6F<<8) | $38;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_08';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_08'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_0810'+STR_OWRC]      = $6F38; // goto owrc
-g.dm_rm[?'_WestA_0810'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_0810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($6B<<8) | $37;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_08';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_0820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_0820'+STR_OWRC]      = $6B37; // goto owrc
-g.dm_rm[?'_WestA_0820'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_0820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($85<<8) | $35;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_37';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_3710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_3720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_3710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_3720'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_37'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_3720'+STR_OWRC]      = $8535; // goto owrc
-g.dm_rm[?'_WestA_3720'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_3720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3710'+STR_OWRC]      = $8535; // goto owrc
-g.dm_rm[?'_WestA_3710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_3710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($3A<<8) | $5E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_3F';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_3F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_3F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_3F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_3F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_3F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_3F20'+STR_OWRC]      = $3A5E; // goto owrc
-g.dm_rm[?'_WestA_3F20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_3F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_3F10'+STR_OWRC]      = $3A5E; // goto owrc
-g.dm_rm[?'_WestA_3F10'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_3F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5D<<8) | $33;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_3E';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_3E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_3E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_3E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_3E10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_3E'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_3E10'+STR_OWRC]      = $5D33; // goto owrc
-g.dm_rm[?'_WestA_3E10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_3E10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($7F<<8) | $57;
-_owrc_ = hex_str(_owrc);
-g.dm_rm[?'_WestA_60'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_6020'+STR_OWRC]      = $7F57; // goto owrc
-g.dm_rm[?'_WestA_6020'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_6020'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($0F<<8) | $47;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_2F';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2F00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_2F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2F20'+STR_OWRC]      = $0F47; // goto owrc
-g.dm_rm[?'_WestA_2F20'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_2F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2F10'+STR_OWRC]      = $0F47; // goto owrc
-g.dm_rm[?'_WestA_2F10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_2F00'+STR_OWRC]      = $0F47; // goto owrc
-g.dm_rm[?'_WestA_2F00'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_2F00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($3D<<8) | $5F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_43';
-dm_data[?_owrc_+STR_AccessRm] = '20101020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_4320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_4310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_4310'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_4320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_43'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_4320'+STR_OWRC]      = $3E5F; // goto owrc
-g.dm_rm[?'_WestA_4320'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_4320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_4310'+STR_OWRC]      = $3C5F; // goto owrc
-g.dm_rm[?'_WestA_4310'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_4310'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($49<<8) | $3C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_2C';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_2C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_2C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_2C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_2C10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_2C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_2C10'+STR_OWRC]      = $493C; // goto owrc
-g.dm_rm[?'_WestA_2C10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_2C10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($2F<<8) | $31;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_44';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_4410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_4410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_4410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_4410'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_44'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_4410'+STR_OWRC]      = $2F31; // goto owrc
-g.dm_rm[?'_WestA_4410'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_4410'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($79<<8) | $19;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_4D';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_4D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_4D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_4D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_4D20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_4D'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_4D20'+STR_OWRC]      = $7919; // goto owrc
-g.dm_rm[?'_WestA_4D20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_4D20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($75<<8) | $1F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_4F';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_4F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_4F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_4F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_4F20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_4F'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_4F20'+STR_OWRC]      = $741F; // goto owrc
-g.dm_rm[?'_WestA_4F20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_4F20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($74<<8) | $28;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_4F';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_4F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_4F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_4F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_4F10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_4F10'+STR_OWRC]      = $7428; // goto owrc
-g.dm_rm[?'_WestA_4F10'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_4F10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($75<<8) | $1C;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_52';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5210'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_52'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_5210'+STR_OWRC]      = $741C; // goto owrc
-g.dm_rm[?'_WestA_5210'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_5210'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($68<<8) | $1D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_55';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5520'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_55'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_5520'+STR_OWRC]      = $681D; // goto owrc
-g.dm_rm[?'_WestA_5520'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_5520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($9E<<8) | $4F;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_45';
-dm_data[?_owrc_+STR_AccessRm] = '00000000';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_4500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_4500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_4500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_4500'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_45'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_4520'+STR_OWRC]      = $9E4F; // goto owrc
-g.dm_rm[?'_WestA_4520'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_4520'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_4510'+STR_OWRC]      = $9E4F; // goto owrc
-g.dm_rm[?'_WestA_4510'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_4510'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_4500'+STR_OWRC]      = $9E4F; // goto owrc
-g.dm_rm[?'_WestA_4500'+STR_ow_dir]    = $0F; // goto ow facing dir
-g.dm_rm[?'_WestA_4500'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($6A<<8) | $3E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_47';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_4710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_4710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_4710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_4710'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_47'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_4720'+STR_OWRC]      = $6A3E; // goto owrc
-g.dm_rm[?'_WestA_4720'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_4720'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_4710'+STR_OWRC]      = $6A3E; // goto owrc
-g.dm_rm[?'_WestA_4710'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_4710'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($40<<8) | $5E;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_58';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_58'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_5810'+STR_OWRC]      = $405E; // goto owrc
-g.dm_rm[?'_WestA_5810'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_5810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($41<<8) | $5D;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_58';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5820'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_5820'+STR_OWRC]      = $415D; // goto owrc
-g.dm_rm[?'_WestA_5820'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_5820'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($43<<8) | $2A;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_FF';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_FF20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_FF20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_FF20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_FF20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_FF'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_FF20'+STR_OWRC]      = $432A; // goto owrc
-g.dm_rm[?'_WestA_FF20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_FF20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($40<<8) | $2B;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_F8';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_F810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_F810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_F810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_F810'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_F8'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_F810'+STR_OWRC]      = $402B; // goto owrc
-g.dm_rm[?'_WestA_F810'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_F810'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($6E<<8) | $64;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_40';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_4010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_4010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_4010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_4010'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_40'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_4010'+STR_OWRC]      = $6E64; // goto owrc
-g.dm_rm[?'_WestA_4010'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_4010'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($61<<8) | $55;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_5B';
-dm_data[?_owrc_+STR_AccessRm] = '10101010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5B10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_5B'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_5B10'+STR_OWRC]      = $6155; // goto owrc
-g.dm_rm[?'_WestA_5B10'+STR_ow_dir]    = $04; // goto ow facing dir
-g.dm_rm[?'_WestA_5B10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($5F<<8) | $53;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_5B';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5B20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_5B20'+STR_OWRC]      = $5F53; // goto owrc
-g.dm_rm[?'_WestA_5B20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_5B20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($69<<8) | $65;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_5C';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5C20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_5C'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_5C20'+STR_OWRC]      = $6965; // goto owrc
-g.dm_rm[?'_WestA_5C20'+STR_ow_dir]    = $08; // goto ow facing dir
-g.dm_rm[?'_WestA_5C20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($A4<<8) | $4B;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $01;
-dm_data[?_owrc_+STR_Open+STR_Default] = $01;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_59';
-dm_data[?_owrc_+STR_AccessRm] = '20102010';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5910'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5920'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_59'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_5920'+STR_OWRC]      = $A44A; // goto owrc
-g.dm_rm[?'_WestA_5920'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_5920'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-g.dm_rm[?'_WestA_5910'+STR_OWRC]      = $A44C; // goto owrc
-g.dm_rm[?'_WestA_5910'+STR_ow_dir]    = $01; // goto ow facing dir
-g.dm_rm[?'_WestA_5910'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc  = ($74<<8) | $16;
-_owrc_ = hex_str(_owrc);
-dm_data[?_owrc_+STR_Open]             = $00;
-dm_data[?_owrc_+STR_Open+STR_Default] = $00;
-dm_data[?_owrc_+STR_CutScene] = '0';
-dm_data[?_owrc_+STR_RmName]   = '_WestA_53';
-dm_data[?_owrc_+STR_AccessRm] = '20202020';
-dm_data[?_owrc_+'08'+STR_Exit] = '_WestA_5320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'04'+STR_Exit] = '_WestA_5320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'02'+STR_Exit] = '_WestA_5320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-dm_data[?_owrc_+'01'+STR_Exit] = '_WestA_5320'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
-g.dm_rm[?'_WestA_53'+STR_OWRC]        = _owrc; // scene owrc
-g.dm_rm[?'_WestA_5320'+STR_OWRC]      = $7315; // goto owrc
-g.dm_rm[?'_WestA_5320'+STR_ow_dir]    = $02; // goto ow facing dir
-g.dm_rm[?'_WestA_5320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+_owrc=$14B8; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_Raft] = $0702;
+dm[?STR_Raft+'0702'+STR_OWRC] = _owrc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_owrc=$5D56; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_01';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5D56; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Rauru02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$5D56; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_02';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $5D56; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Rauru01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$4B2A; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_04';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $4B2A; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Ruto02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$4B2A; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_05';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $4B2A; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Ruto01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$8230; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_06';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8230; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Saria02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$8030; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_08';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8030; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Saria01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$7264; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_09';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7264; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Mido02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$7264; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_0B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7264; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Mido01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$7C91; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_0C';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7C91; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Nabooru02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$7C91; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_0E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7C91; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Nabooru01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$617D; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_0F';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $617D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Darunia02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$617D; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_11';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $617D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Darunia01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$95B8; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_12';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $95B8; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_New_Kasuto01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$A39C; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_15';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A39C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Old_Kasuto02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$A39C; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_17';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A39C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Old_Kasuto01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$7C91; _owrc_=hex_str(_owrc);
+_scene_id = '_TownA_19';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7B93; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Nabooru03'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$D5C1; _owrc_=hex_str(_owrc);
+_scene_id = '_TownB_02';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D5C1; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Bulblin02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$D5C1; _owrc_=hex_str(_owrc);
+_scene_id = '_TownB_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D5C1; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Bulblin01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$3C64; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcA_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $3C64; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Parapa_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$3C64; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcA_0D';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $3C64; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Parapa_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$6734; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcB_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6734; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Midoro_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$6734; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcB_14';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6734; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Midoro_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$7CB8; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcE_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7CB8; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7CB8; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Palace_On_The_Sea01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$7CB8; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcE_06';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7CB8; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Palace_On_The_Sea02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$8961; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcC_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8961; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Island_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$8961; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcC_0E';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8961; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Island_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$5FD6; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcD_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5FD6; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Maze_Island_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$5FD6; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcD_0D';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $5FD6; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Maze_Island_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$ABAC; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcF_00';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $ABAC; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Three_Eye_Rock_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$ABAC; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcF_16';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $ABAC; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Three_Eye_Rock_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$897E; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcG_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $897E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Great_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$897E; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcG_36';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $897E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Great_Palace02'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$EAD6; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcH_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $EAD6; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Dragmire_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$897E; _owrc_=hex_str(_owrc);
+_scene_id = '_PalcG_3C';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $897E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_Great_Palace03'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$63C7; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_01';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $63C6; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $63C8; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$69CA; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_02';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $69C9; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $69CB; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5FC3; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_03';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '_Fall_04';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '80808080';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'80'+STR_OWRC]      = $5FC3; // goto owrc
+g.dm_rm[?_scene_id+'80'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'80'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5FC3; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$61D3; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_04';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '_Fall_04';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '80808080';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'80'+STR_OWRC]      = $61D3; // goto owrc
+g.dm_rm[?_scene_id+'80'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'80'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $61D3; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5FCA; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_05';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5FC9; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $5FCB; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$56CD; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_09';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $55CD; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $57CD; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$57C8; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_07';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $57C7; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $57C9; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$53CA; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_08';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $53C9; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $53CB; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$4FCC; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_06';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $4FCB; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $4FCD; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5AD9; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_0A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $5AD9; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5AD9; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$68B1; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $68B0; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$68BF; _owrc_=hex_str(_owrc);
+_scene_id = '_MazIs_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $68C0; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$982A; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_01';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $982A; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$952D; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_01';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $952D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9632; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_02';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9632; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9835; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_02';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9835; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9A3C; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_03';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9A3C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$963C; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_03';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $963C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9B2D; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_04';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9B2D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9B31; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_04';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9B31; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9E2D; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_05';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9E2D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9D2F; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_05';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9D2F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9D38; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_06';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9D38; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9E3A; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_06';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9E3A; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A12E; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_07';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A12E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A42F; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_07';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A42F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9E3E; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_08';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9E3E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A03F; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_08';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A03F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A53E; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_09';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A53E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A33F; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_09';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A33F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A92D; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A92D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A731; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A731; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A839; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A839; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A73C; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A73C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$AA37; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $AA37; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$AA3D; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $AA3D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$AF3A; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $AF3A; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$AD3C; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $AD3C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$AD40; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $AD40; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$AA42; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $AA42; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$AE34; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_0F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $AE34; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9939; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_16';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9939; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9538; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_16';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9538; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9D33; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_17';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9D33; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9E35; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_17';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9E35; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A232; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_18';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A232; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A134; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_18';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A134; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A435; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_19';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A435; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A438; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_19';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A438; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$AE32; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_1A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '_Fall_04';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '80808080';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $AE32; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9341; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_1C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9341; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$893D; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_1C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $893D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A828; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_1F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A828; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A81E; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_1F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A81E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A81B; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_21';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '_Fall_04';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '80808080';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'80'+STR_OWRC]      = $A81B; // goto owrc
+g.dm_rm[?_scene_id+'80'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'80'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$BA2E; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_2F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $BA2E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$B448; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_24';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $B448; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $B448; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A53A; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A53A; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8C31; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_2C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8B31; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8D33; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_2D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8D34; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$C13E; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_31';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '_Fall_04';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '80808080';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'80'+STR_OWRC]      = $C13E; // goto owrc
+g.dm_rm[?_scene_id+'80'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'80'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8E31; _owrc_=hex_str(_owrc);
+_scene_id = '_DthMt_2C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8F31; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9D9D; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9D9C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9D9E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A49F; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_01';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A49E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A4A0; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8C8F; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_02';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8B8F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8D8F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$918B; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_03';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $908B; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $928B; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$948D; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_04';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $948C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $948E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A092; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_05';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9F92; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A192; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6483; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_06';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6383; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6583; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$78B9; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_07';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $78B9; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $78B9; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7492; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_08';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7492; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7095; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_08';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7095; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8793; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_09';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8793; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8E99; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_0B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8E99; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8EAB; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_0D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8EAB; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8EB3; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_0E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8EB3; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8B7C; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_10';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8B7C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8B7E; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_10';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8B7E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8D80; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_13';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8D80; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8D84; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_14';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8D84; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6684; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_17';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6584; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6784; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9682; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_18';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9582; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9782; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$937D; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_19';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $927D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $947D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A382; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_1A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A381; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A383; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$81AF; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_21';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $81AF; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $81AF; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $81AF; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7A84; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_26';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7A84; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7A84; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $7A84; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9BB0; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_2C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9BB0; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9BB0; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $9BB0; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8487; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_2D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8487; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8487; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $8487; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A7AA; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_2E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A7AA; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A7AA; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9194; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_33';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9194; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9194; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $9194; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6CAA; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_3A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6CAA; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6CAA; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $6CAA; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$789C; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_3B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $789C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $789C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $789C; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A395; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_3E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A395; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A395; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $A395; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9B7E; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_3F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9B7E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9B7E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $9B7E; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5E82; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_11';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5E82; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$729F; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_12';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $729F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$94A9; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_15';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $94A9; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $94A9; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8996; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_16';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8996; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$46A3; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_6A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $46A3; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $46A3; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$698D; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_1C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $698D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9E7C; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_1F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9E7C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$1F68; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_20';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $1F68; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $1F68; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$63A3; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_23';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+STR_Special+STR_Encounter] = _scene_id;
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $63A3; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $63A3; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$87B2; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_68';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $86B2; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$37A5; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_29';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $38A5; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$36A5; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_2A';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $38A5; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$3AA4; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_52';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $3AA4; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$839C; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_24';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $839C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $839C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$0F6C; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_2B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $0F6C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$0F72; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_41';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $0F72; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$1598; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_31';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $1598; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $1598; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$98BB; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_69';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $97BB; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9B8F; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_36';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9B8F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9B8F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $9B8F; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$288E; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_37';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $288E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $288E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$88B2; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_68';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $89B2; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$99BB; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_69';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9ABB; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D548; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_48';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+dk_NO_ENCOUNTER] = 1; // dk_NO_ENCOUNTER:  Can't use encounter skip exploit for this exit
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D547; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$DA4E; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_49';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $DA4E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D84C; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_49';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D84C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D559; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_4A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D559; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$E446; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_4E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $E346; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$E545; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_4E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $E645; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$E750; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_4D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $E750; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $E750; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $E750; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7795; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_5B';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7795; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7795; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$788D; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_62';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $788D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $788D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8587; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_70';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8587; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8587; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_Forest_Hammer'+_owrc_] = '_Forest_Hammer_0101'; // info example: '_Forest_Hammer_0101'
+dm[?'_OWRC_Forest_Hammer_0101'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$BFC9; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_77';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $BFC9; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$BF94; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_78';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+dk_NO_ENCOUNTER] = 1; // dk_NO_ENCOUNTER:  Can't use encounter skip exploit for this exit
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $BF93; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D0C3; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_8E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D0C3; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CBC4; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_8F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CBC4; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$BFD0; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_80';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $BFD0; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$C1D3; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_81';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $C1D3; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$C0DA; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_84';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $C0DA; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$C7D7; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_87';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $C7D7; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CCCA; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_8C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CCCA; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$C4DC; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_85';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $C4DC; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$C8DC; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_86';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $C8DC; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CBD1; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_88';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CBD1; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CACB; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_8B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '21212121';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'21'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'21'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'21'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'21'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'21'+STR_OWRC]      = $CACB; // goto owrc
+g.dm_rm[?_scene_id+'21'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'21'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D0D3; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_8D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D0D3; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CDD9; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_8D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CDD9; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$DEB3; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_64';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $DEB3; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D6D3; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_90';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D6D3; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D6D3; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$E0BD; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_A0';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $E0BD; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$C9C1; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_91';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $C9C1; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $C9C1; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$C8BD; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_92';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $C8BD; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $C8BD; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CDB6; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_93';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CDB6; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CDB6; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D3B5; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_94';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D3B5; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D3B5; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CBBE; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_95';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CBBE; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CBBE; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CCBC; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_96';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CCBC; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CCBC; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CABB; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_97';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CABB; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CABB; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CCBA; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_98';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CCBA; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CCBA; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CBB9; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_99';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CBB9; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CBB9; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CDB8; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_9A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CDB8; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CDB8; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CEB7; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_9B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CEB7; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CEB7; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D1B6; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_9C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D1B6; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D1B6; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D0B7; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_9D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D0B7; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D0B7; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D3B6; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_9E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D3B6; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D3B6; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$CABD; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_9F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $CABD; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $CABD; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$EBB7; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_A1';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '_Fall_04';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '80808080';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+
+
+_owrc=$D9C6; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_B2';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D9C6; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A08A; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_C6';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A08A; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$DCC8; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_B3';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20101020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $DCC7; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $DBC8; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$E0CB; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_B4';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20101020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $E1CB; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $DFCB; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D7C6; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_B5';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D7C7; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$E4CD; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_B6';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $E4CE; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $E4CC; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D7C5; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_B5';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $D7C4; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$10B9; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_0F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $10B9; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$D64B; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_4F';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $D64B; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$E261; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_42';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $E261; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$867E; _owrc_=hex_str(_owrc);
+_scene_id = '_EastA_1B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $867E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5B3F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_00';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $5B3F; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+dm[?'_OWRC_North_Palace01'] = _owrc; // datakey example: '_OWRC_Parapa_Palace01'
+
+
+_owrc=$7938; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_01';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7838; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7A38; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7E42; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_02';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7E41; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7E43; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8842; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_04';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8841; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8849; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_05';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $884A; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6266; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_06';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6166; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6366; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$555F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_07';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $555F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$4D56; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_07';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $4D56; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5B44; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_03';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+dk_NO_ENCOUNTER] = 1; // dk_NO_ENCOUNTER:  Can't use encounter skip exploit for this exit
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $5B45; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6129; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_09';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6129; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$652B; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_0B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $652B; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$654E; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_0C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $654E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6C31; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_0E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6C31; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$655E; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_10';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $655E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$875A; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_12';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '_Fall_04';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '80808080';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'80'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'80'+STR_OWRC]      = $875A; // goto owrc
+g.dm_rm[?_scene_id+'80'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'80'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $875A; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8D64; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_2A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8D64; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$672F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_14';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $672F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $672F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $672F; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$733C; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_15';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $733C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $733C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $733C; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7439; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_16';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7439; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7439; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $7439; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$743D; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_17';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $743D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $743D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $743D; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5B38; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_1A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5B37; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$743F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_1B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $743F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $743F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $743F; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$753B; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_1C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $753B; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $753B; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $753B; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8D4E; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_1F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8D4E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8D4E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $8D4E; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7F47; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_20';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7F47; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7F47; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $7F47; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$4745; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_21';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $4745; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6766; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_26';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6766; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6766; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $6766; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$514D; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_2B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $514D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $514D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $514D; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6338; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_2D';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6338; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7D3C; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_2E';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7D3C; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7D3C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $7D3C; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6E30; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_33';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6E30; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6E30; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $6E30; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6D4F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_34';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6D4F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6D4F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$825E; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_38';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $825E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $825E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $825E; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6B4D; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_3A';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6B4D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6B4D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $6B4D; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$563F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_29';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $563F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $563F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7F5A; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_24';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7F5A; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7F5A; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$733D; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_25';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $733D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $733D; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5B3F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_00';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+
+
+_owrc=$6F38; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_08';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6F38; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6B37; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_08';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6B37; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$8535; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_37';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $8535; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $8535; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$3A5E; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_3F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $3A5E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $3A5E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5D33; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_3E';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $5D33; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7F57; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_60';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7F57; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$0F47; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_2F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $0F47; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $0F47; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $0F47; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$3D5F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_43';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20101020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $3E5F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $3C5F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$493C; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_2C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $493C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$2F31; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_44';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $2F31; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7919; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_4D';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7919; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$751F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_4F';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $741F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7428; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_4F';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $7428; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$751C; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_52';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $741C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$681D; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_55';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $681D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$9E4F; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_45';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '00000000';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'00'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $9E4F; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $9E4F; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'00'+STR_OWRC]      = $9E4F; // goto owrc
+g.dm_rm[?_scene_id+'00'+STR_ow_dir]    = $0F; // goto ow facing dir
+g.dm_rm[?_scene_id+'00'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6A3E; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_47';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6A3E; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6A3E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$405E; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_58';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $405E; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$415D; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_58';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $415D; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$432A; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_FF';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $432A; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$402B; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_F8';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $402B; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6E64; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_40';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6E64; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6155; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_5B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '10101010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6155; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$5F53; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_5B';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5F53; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6965; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_5C';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $6965; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$A44B; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_59';
+dm[?_owrc_+STR_Open]             = $01;
+dm[?_owrc_+STR_Open+STR_Default] = $01;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20102010';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'10'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $A44A; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $A44C; // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $01; // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$7416; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_53';
+dm[?_owrc_+STR_Open]             = $00;
+dm[?_owrc_+STR_Open+STR_Default] = $00;
+dm[?_owrc_+STR_CutScene] = '0';
+dm[?_owrc_+STR_RmName]   = _scene_id;
+dm[?_owrc_+STR_AccessRm] = '20202020';
+dm[?_owrc_+'08'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'04'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'02'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+dm[?_owrc_+'01'+STR_Exit] = _scene_id+'20'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7315; // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02; // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
 
 
 
@@ -6157,80 +6143,80 @@ g.dm_rm[?'_WestA_5320'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
 // _data Example: '_WestA_FF'
 // _data Example: '_WestA_FA,_WestA_F4,_WestA_F3'  (all share same owrc)
 
-_owrc = ($45<<8) | $2A;
+_owrc = $452A;
 g.dm_rm[?'_WestA_FF'+STR_OWRC] = _owrc;
 
-_owrc = ($BF<<8) | $A4;
+_owrc = $BFA4;
 g.dm_rm[?'_EastA_75'+STR_OWRC] = _owrc;
 
-_owrc = ($BF<<8) | $BA;
+_owrc = $BFBA;
 g.dm_rm[?'_EastA_76'+STR_OWRC] = _owrc;
 
-_owrc = ($3E<<8) | $2B;
+_owrc = $3E2B;
 g.dm_rm[?'_WestA_F7'+STR_OWRC] = _owrc;
 
-_owrc = ($3B<<8) | $2B;
+_owrc = $3B2B;
 g.dm_rm[?'_WestA_FE'+STR_OWRC] = _owrc;
 
-_owrc = ($5B<<8) | $3E;
+_owrc = $5B3E;
 g.dm_rm[?'_WestA_18'+STR_OWRC] = _owrc;
 
-_owrc = ($5B<<8) | $3B;
+_owrc = $5B3B;
 g.dm_rm[?'_WestA_19'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_48'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_49'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_3D'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_3E'+STR_OWRC] = _owrc;
 
-_owrc = ($5B<<8) | $42;
+_owrc = $5B42;
 g.dm_rm[?'_WestA_03'+STR_OWRC] = _owrc;
 
-_owrc = ($5B<<8) | $40;
+_owrc = $5B40;
 g.dm_rm[?'_WestA_31'+STR_OWRC] = _owrc;
 
-_owrc = ($5B<<8) | $3F;
+_owrc = $5B3F;
 g.dm_rm[?'_WestA_00'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_32'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_3C'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_42'+STR_OWRC] = _owrc;
 
-_owrc = ($6C<<8) | $31;
+_owrc = $6C31;
 g.dm_rm[?'_WestA_0F'+STR_OWRC] = _owrc;
 
-_owrc = ($63<<8) | $2A;
+_owrc = $632A;
 g.dm_rm[?'_WestA_0A'+STR_OWRC] = _owrc;
 
-_owrc = ($49<<8) | $2A;
+_owrc = $492A;
 g.dm_rm[?'_TownA_03'+STR_OWRC] = _owrc;
 
-_owrc = ($65<<8) | $5E;
+_owrc = $655E;
 g.dm_rm[?'_WestA_11'+STR_OWRC] = _owrc;
 
-_owrc = ($8B<<8) | $5D;
+_owrc = $8B5D;
 g.dm_rm[?'_WestA_13'+STR_OWRC] = _owrc;
 
-_owrc = ($47<<8) | $45;
+_owrc = $4745;
 g.dm_rm[?'_WestA_36'+STR_OWRC] = _owrc;
 
-_owrc = ($73<<8) | $3D;
+_owrc = $733D;
 g.dm_rm[?'_TownA_5F'+STR_OWRC] = _owrc;
 
-_owrc = ($8D<<8) | $31;
+_owrc = $8D31;
 g.dm_rm[?'_DthMt_2C'+STR_OWRC] = _owrc;
 
-_owrc = ($81<<8) | $2F;
+_owrc = $812F;
 g.dm_rm[?'_WestA_4A'+STR_OWRC] = _owrc;
 
-_owrc = ($7E<<8) | $22;
+_owrc = $7E22;
 g.dm_rm[?'_WestA_4C'+STR_OWRC] = _owrc;
 
-_owrc = ($7C<<8) | $20;
+_owrc = $7C20;
 g.dm_rm[?'_WestA_4D'+STR_OWRC] = _owrc;
 
-_owrc = ($75<<8) | $23;
+_owrc = $7523;
 g.dm_rm[?'_WestA_4F'+STR_OWRC] = _owrc;
 
-_owrc = ($AE<<8) | $34;
+_owrc = $AE34;
 g.dm_rm[?'_DthMt_0F'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_10'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_11'+STR_OWRC] = _owrc;
@@ -6239,62 +6225,62 @@ g.dm_rm[?'_DthMt_13'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_14'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_15'+STR_OWRC] = _owrc;
 
-_owrc = ($BA<<8) | $2E;
+_owrc = $BA2E;
 g.dm_rm[?'_DthMt_23'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_22'+STR_OWRC] = _owrc;
 
-_owrc = ($A8<<8) | $1B;
+_owrc = $A81B;
 g.dm_rm[?'_DthMt_21'+STR_OWRC] = _owrc;
 
-_owrc = ($C1<<8) | $3E;
+_owrc = $C13E;
 g.dm_rm[?'_DthMt_31'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_30'+STR_OWRC] = _owrc;
 
-_owrc = ($88<<8) | $48;
+_owrc = $8848;
 g.dm_rm[?'_WestA_05'+STR_OWRC] = _owrc;
 
-_owrc = ($88<<8) | $43;
+_owrc = $8843;
 g.dm_rm[?'_WestA_04'+STR_OWRC] = _owrc;
 
-_owrc = ($BF<<8) | $95;
+_owrc = $BF95;
 g.dm_rm[?'_EastA_74'+STR_OWRC] = _owrc;
 
-_owrc = ($68<<8) | $B8;
+_owrc = $68B8;
 g.dm_rm[?'_MazIs_00'+STR_OWRC] = _owrc;
 
-_owrc = ($7C<<8) | $91;
+_owrc = $7C91;
 g.dm_rm[?'_TownA_78'+STR_OWRC] = _owrc;
 
-_owrc = ($65<<8) | $4E;
+_owrc = $654E;
 g.dm_rm[?'_WestA_0D'+STR_OWRC] = _owrc;
 
-_owrc = ($3A<<8) | $2B;
+_owrc = $3A2B;
 g.dm_rm[?'_WestA_FA'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_F6'+STR_OWRC] = _owrc;
 
-_owrc = ($3C<<8) | $2B;
+_owrc = $3C2B;
 g.dm_rm[?'_WestA_F4'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_F5'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_F3'+STR_OWRC] = _owrc;
 g.dm_rm[?'_WestA_FC'+STR_OWRC] = _owrc;
 
-_owrc = ($6E<<8) | $64;
+_owrc = $6E64;
 g.dm_rm[?'_WestA_41'+STR_OWRC] = _owrc;
 
-_owrc = ($8E<<8) | $99;
+_owrc = $8E99;
 g.dm_rm[?'_EastA_0C'+STR_OWRC] = _owrc;
 
-_owrc = ($87<<8) | $93;
+_owrc = $8793;
 g.dm_rm[?'_EastA_0A'+STR_OWRC] = _owrc;
 
-_owrc = ($A7<<8) | $AA;
+_owrc = $A7AA;
 g.dm_rm[?'_EastA_34'+STR_OWRC] = _owrc;
 
-_owrc = ($36<<8) | $A5;
+_owrc = $36A5;
 g.dm_rm[?'_EastA_50'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_51'+STR_OWRC] = _owrc;
 
-_owrc = ($7C<<8) | $91;
+_owrc = $7C91;
 g.dm_rm[?'_EastA_53'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_54'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_56'+STR_OWRC] = _owrc;
@@ -6308,18 +6294,18 @@ g.dm_rm[?'_EastA_5E'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_5F'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_61'+STR_OWRC] = _owrc;
 
-_owrc = ($15<<8) | $98;
+_owrc = $1598;
 g.dm_rm[?'_EastA_63'+STR_OWRC] = _owrc;
 
-_owrc = ($C0<<8) | $D5;
+_owrc = $C0D5;
 g.dm_rm[?'_EastA_82'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_83'+STR_OWRC] = _owrc;
 
-_owrc = ($CC<<8) | $CF;
+_owrc = $CCCF;
 g.dm_rm[?'_EastA_89'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_8A'+STR_OWRC] = _owrc;
 
-_owrc = ($E8<<8) | $B9;
+_owrc = $E8B9;
 g.dm_rm[?'_EastA_A2'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_A3'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_A4'+STR_OWRC] = _owrc;
@@ -6329,17 +6315,17 @@ g.dm_rm[?'_EastA_A7'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_A8'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_AA'+STR_OWRC] = _owrc;
 
-_owrc = ($D6<<8) | $C2;
+_owrc = $D6C2;
 g.dm_rm[?'_EastA_B0'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_B1'+STR_OWRC] = _owrc;
 
-_owrc = ($89<<8) | $7E;
+_owrc = $897E;
 g.dm_rm[?'_EastA_C0'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_C1'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_C2'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_C3'+STR_OWRC] = _owrc;
 
-_owrc = ($AE<<8) | $34;
+_owrc = $AE34;
 g.dm_rm[?'_DthMt_10'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_11'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_12'+STR_OWRC] = _owrc;
@@ -6347,34 +6333,34 @@ g.dm_rm[?'_DthMt_13'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_14'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_15'+STR_OWRC] = _owrc;
 
-_owrc = ($D5<<8) | $4A;
+_owrc = $D54A;
 g.dm_rm[?'_EastA_4F'+STR_OWRC] = _owrc;
 
-_owrc = ($83<<8) | $9C;
+_owrc = $839C;
 g.dm_rm[?'_TownA_74'+STR_OWRC] = _owrc;
 
-_owrc = ($DE<<8) | $B3;
+_owrc = $DEB3;
 g.dm_rm[?'_EastA_65'+STR_OWRC] = _owrc;
 
-_owrc = ($46<<8) | $A3;
+_owrc = $46A3;
 g.dm_rm[?'_EastA_6B'+STR_OWRC] = _owrc;
 
-_owrc = ($85<<8) | $87;
+_owrc = $8587;
 g.dm_rm[?'_EastA_71'+STR_OWRC] = _owrc;
 
-_owrc = ($EB<<8) | $B7;
+_owrc = $EBB7;
 g.dm_rm[?'_EastA_A1'+STR_OWRC] = _owrc;
 
-_owrc = ($6B<<8) | $32;
+_owrc = $6B32;
 g.dm_rm[?'_WestA_5A'+STR_OWRC] = _owrc;
 
-_owrc = ($7F<<8) | $5A;
+_owrc = $7F5A;
 g.dm_rm[?'_WestA_60'+STR_OWRC] = _owrc;
 
-_owrc = ($67<<8) | $33;
+_owrc = $6733;
 g.dm_rm[?'_PalcB_16'+STR_OWRC] = _owrc;
 
-_owrc = ($75<<8) | $18;
+_owrc = $7518;
 g.dm_rm[?'_WestA_54'+STR_OWRC] = _owrc;
 
 
@@ -6392,7 +6378,7 @@ _count1 = $0100;
 _count2 = $0100;
 ds_grid_resize(dg_tsrc_def, _count1,_count2);
 ds_grid_clear( dg_tsrc_def, TSRC_WATER01);
-ds_grid_copy(dg_tsrc,dg_tsrc_def);
+ds_grid_copy(  dg_tsrc,dg_tsrc_def);
 
 ds_list_clear(_dl1);
 // ROWS $00-$0F
@@ -6675,9 +6661,7 @@ for(_j=0; _j<_count2; _j++) // Each row of tiles
     for(_i=0; _i<_count1; _i++) // Each clm of tiles
     {
         _str2 = string_copy(_str1,(_i<<2)+1,4);
-        _val1 = str_hex(_str2);
-        dg_tsrc_def[#_i,_j] = _val1;
-        //if(!isVal(_val1>>8,4,5)) sdm("$"+hex_str(_val1)+", _j $"+hex_str(_j)+", _i $"+hex_str(_i));
+        dg_tsrc_def[#_i,_j] = str_hex(_str2);
     }
 }
 
@@ -6696,7 +6680,7 @@ _count1 = $0100;
 _count2 = $0100;
 ds_grid_resize(dg_solid_def, _count1,_count2);
 ds_grid_clear( dg_solid_def,0);
-ds_grid_copy(dg_solid,dg_solid_def);
+ds_grid_copy(  dg_solid,dg_solid_def);
 
 ds_list_clear(_dl1);
 // ROWS $00-$0F
@@ -7297,83 +7281,113 @@ for(_j=0; _j<_count2; _j++) // Each row of tiles
 
 
 
-ds_grid_resize(HiddenExitIndicator_dg, $18,ds_grid_height(HiddenExitIndicator_dg));
+ds_grid_resize(HiddenExitIndicator_dg, $21,$05);
 ds_grid_clear (HiddenExitIndicator_dg, 0);
 
-HiddenExitIndicator_dg[#$00,$00] = $5E;
-HiddenExitIndicator_dg[#$00,$01] = $3A;
+HiddenExitIndicator_dg[#$00,$00] = $B9;
+HiddenExitIndicator_dg[#$00,$01] = $10;
 
-HiddenExitIndicator_dg[#$01,$00] = $A3;
-HiddenExitIndicator_dg[#$01,$01] = $46;
+HiddenExitIndicator_dg[#$01,$00] = $68;
+HiddenExitIndicator_dg[#$01,$01] = $1F;
 
-HiddenExitIndicator_dg[#$02,$00] = $3C;
-HiddenExitIndicator_dg[#$02,$01] = $49;
+HiddenExitIndicator_dg[#$02,$00] = $5E;
+HiddenExitIndicator_dg[#$02,$01] = $3A;
 
-HiddenExitIndicator_dg[#$03,$00] = $3F;
-HiddenExitIndicator_dg[#$03,$01] = $56;
+HiddenExitIndicator_dg[#$03,$00] = $5E;
+HiddenExitIndicator_dg[#$03,$01] = $40;
 
-HiddenExitIndicator_dg[#$04,$00] = $C3;
-HiddenExitIndicator_dg[#$04,$01] = $5F;
+HiddenExitIndicator_dg[#$04,$00] = $5D;
+HiddenExitIndicator_dg[#$04,$01] = $41;
 
-HiddenExitIndicator_dg[#$05,$00] = $D3;
-HiddenExitIndicator_dg[#$05,$01] = $61;
+HiddenExitIndicator_dg[#$05,$00] = $A3;
+HiddenExitIndicator_dg[#$05,$01] = $46;
 
-HiddenExitIndicator_dg[#$06,$00] = $8D;
-HiddenExitIndicator_dg[#$06,$01] = $69;
+HiddenExitIndicator_dg[#$06,$00] = $3C;
+HiddenExitIndicator_dg[#$06,$01] = $49;
 
-HiddenExitIndicator_dg[#$07,$00] = $3E;
-HiddenExitIndicator_dg[#$07,$01] = $6A;
+HiddenExitIndicator_dg[#$07,$00] = $3F;
+HiddenExitIndicator_dg[#$07,$01] = $56;
 
-HiddenExitIndicator_dg[#$08,$00] = $AA;
-HiddenExitIndicator_dg[#$08,$01] = $6C;
+HiddenExitIndicator_dg[#$08,$00] = $C3;
+HiddenExitIndicator_dg[#$08,$01] = $5F;
 
-HiddenExitIndicator_dg[#$09,$00] = $4F;
-HiddenExitIndicator_dg[#$09,$01] = $6D;
+HiddenExitIndicator_dg[#$09,$00] = $D3;
+HiddenExitIndicator_dg[#$09,$01] = $61;
 
-HiddenExitIndicator_dg[#$0A,$00] = $30;
-HiddenExitIndicator_dg[#$0A,$01] = $6E;
+HiddenExitIndicator_dg[#$0A,$00] = $8D;
+HiddenExitIndicator_dg[#$0A,$01] = $69;
 
-HiddenExitIndicator_dg[#$0B,$00] = $3D;
-HiddenExitIndicator_dg[#$0B,$01] = $73;
+HiddenExitIndicator_dg[#$0B,$00] = $3E;
+HiddenExitIndicator_dg[#$0B,$01] = $6A;
 
-HiddenExitIndicator_dg[#$0C,$00] = $AF;
-HiddenExitIndicator_dg[#$0C,$01] = $81;
+HiddenExitIndicator_dg[#$0C,$00] = $4D;
+HiddenExitIndicator_dg[#$0C,$01] = $6B;
 
-HiddenExitIndicator_dg[#$0D,$00] = $5E;
-HiddenExitIndicator_dg[#$0D,$01] = $82;
+HiddenExitIndicator_dg[#$0D,$00] = $AA;
+HiddenExitIndicator_dg[#$0D,$01] = $6C;
 
-HiddenExitIndicator_dg[#$0E,$00] = $35;
-HiddenExitIndicator_dg[#$0E,$01] = $85;
+HiddenExitIndicator_dg[#$0E,$00] = $4F;
+HiddenExitIndicator_dg[#$0E,$01] = $6D;
 
-HiddenExitIndicator_dg[#$0F,$00] = $96;
-HiddenExitIndicator_dg[#$0F,$01] = $89;
-
-
+HiddenExitIndicator_dg[#$0F,$00] = $30;
+HiddenExitIndicator_dg[#$0F,$01] = $6E;
 
 
-HiddenExitIndicator_dg[#$10,$00] = $4E;
-HiddenExitIndicator_dg[#$10,$01] = $8D;
 
-HiddenExitIndicator_dg[#$11,$00] = $94;
-HiddenExitIndicator_dg[#$11,$01] = $91;
 
-HiddenExitIndicator_dg[#$12,$00] = $B8;
-HiddenExitIndicator_dg[#$12,$01] = $95;
+HiddenExitIndicator_dg[#$10,$00] = $3D;
+HiddenExitIndicator_dg[#$10,$01] = $73;
 
-HiddenExitIndicator_dg[#$13,$00] = $7E;
-HiddenExitIndicator_dg[#$13,$01] = $9B;
+HiddenExitIndicator_dg[#$11,$00] = $9C;
+HiddenExitIndicator_dg[#$11,$01] = $78;
 
-HiddenExitIndicator_dg[#$14,$00] = $B0;
-HiddenExitIndicator_dg[#$14,$01] = $9B;
+HiddenExitIndicator_dg[#$12,$00] = $AF;
+HiddenExitIndicator_dg[#$12,$01] = $81;
 
-HiddenExitIndicator_dg[#$15,$00] = $4F;
-HiddenExitIndicator_dg[#$15,$01] = $9E;
+HiddenExitIndicator_dg[#$13,$00] = $5E;
+HiddenExitIndicator_dg[#$13,$01] = $82;
 
-HiddenExitIndicator_dg[#$16,$00] = $AA;
-HiddenExitIndicator_dg[#$16,$01] = $A7;
+HiddenExitIndicator_dg[#$14,$00] = $87;
+HiddenExitIndicator_dg[#$14,$01] = $84;
 
-HiddenExitIndicator_dg[#$17,$00] = $48;
-HiddenExitIndicator_dg[#$17,$01] = $B4;
+HiddenExitIndicator_dg[#$15,$00] = $35;
+HiddenExitIndicator_dg[#$15,$01] = $85;
+
+HiddenExitIndicator_dg[#$16,$00] = $96;
+HiddenExitIndicator_dg[#$16,$01] = $89;
+
+HiddenExitIndicator_dg[#$17,$00] = $4E;
+HiddenExitIndicator_dg[#$17,$01] = $8D;
+
+HiddenExitIndicator_dg[#$18,$00] = $94;
+HiddenExitIndicator_dg[#$18,$01] = $91;
+
+HiddenExitIndicator_dg[#$19,$00] = $B8;
+HiddenExitIndicator_dg[#$19,$01] = $95;
+
+HiddenExitIndicator_dg[#$1A,$00] = $7E;
+HiddenExitIndicator_dg[#$1A,$01] = $9B;
+
+HiddenExitIndicator_dg[#$1B,$00] = $8F;
+HiddenExitIndicator_dg[#$1B,$01] = $9B;
+
+HiddenExitIndicator_dg[#$1C,$00] = $B0;
+HiddenExitIndicator_dg[#$1C,$01] = $9B;
+
+HiddenExitIndicator_dg[#$1D,$00] = $4F;
+HiddenExitIndicator_dg[#$1D,$01] = $9E;
+
+HiddenExitIndicator_dg[#$1E,$00] = $95;
+HiddenExitIndicator_dg[#$1E,$01] = $A3;
+
+HiddenExitIndicator_dg[#$1F,$00] = $AA;
+HiddenExitIndicator_dg[#$1F,$01] = $A7;
+
+
+
+
+HiddenExitIndicator_dg[#$20,$00] = $48;
+HiddenExitIndicator_dg[#$20,$01] = $B4;
 
 
 
@@ -7470,29 +7484,29 @@ dg_boulders[#$11,$02] = $0424;
 
 BoulderCircle_center_OWRC = $C13E;
 
-dl_BoulderCircle_OWRC[|$00]         = $BE3E;
-dm_data[?'_OWRC_Boulder_Circle_01'] = $BE3E; // datakey example: _OWRC_Boulder_Circle_03
+dl_BoulderCircle_OWRC[|$00]    = $BE3E;
+dm[?'_OWRC_Boulder_Circle_01'] = $BE3E; // datakey example: _OWRC_Boulder_Circle_03
 
 dl_BoulderCircle_OWRC[|$01]         = $BF40;
-dm_data[?'_OWRC_Boulder_Circle_02'] = $BF40; // datakey example: _OWRC_Boulder_Circle_03
+dm[?'_OWRC_Boulder_Circle_02'] = $BF40; // datakey example: _OWRC_Boulder_Circle_03
 
 dl_BoulderCircle_OWRC[|$02]         = $C141;
-dm_data[?'_OWRC_Boulder_Circle_03'] = $C141; // datakey example: _OWRC_Boulder_Circle_03
+dm[?'_OWRC_Boulder_Circle_03'] = $C141; // datakey example: _OWRC_Boulder_Circle_03
 
 dl_BoulderCircle_OWRC[|$03]         = $C340;
-dm_data[?'_OWRC_Boulder_Circle_04'] = $C340; // datakey example: _OWRC_Boulder_Circle_03
+dm[?'_OWRC_Boulder_Circle_04'] = $C340; // datakey example: _OWRC_Boulder_Circle_03
 
 dl_BoulderCircle_OWRC[|$04]         = $C43E;
-dm_data[?'_OWRC_Boulder_Circle_05'] = $C43E; // datakey example: _OWRC_Boulder_Circle_03
+dm[?'_OWRC_Boulder_Circle_05'] = $C43E; // datakey example: _OWRC_Boulder_Circle_03
 
 dl_BoulderCircle_OWRC[|$05]         = $C33C;
-dm_data[?'_OWRC_Boulder_Circle_06'] = $C33C; // datakey example: _OWRC_Boulder_Circle_03
+dm[?'_OWRC_Boulder_Circle_06'] = $C33C; // datakey example: _OWRC_Boulder_Circle_03
 
 dl_BoulderCircle_OWRC[|$06]         = $C13B;
-dm_data[?'_OWRC_Boulder_Circle_07'] = $C13B; // datakey example: _OWRC_Boulder_Circle_03
+dm[?'_OWRC_Boulder_Circle_07'] = $C13B; // datakey example: _OWRC_Boulder_Circle_03
 
 dl_BoulderCircle_OWRC[|$07]         = $BF3C;
-dm_data[?'_OWRC_Boulder_Circle_08'] = $BF3C; // datakey example: _OWRC_Boulder_Circle_03
+dm[?'_OWRC_Boulder_Circle_08'] = $BF3C; // datakey example: _OWRC_Boulder_Circle_03
 
 
 
@@ -7502,25 +7516,25 @@ dm_data[?'_OWRC_Boulder_Circle_08'] = $BF3C; // datakey example: _OWRC_Boulder_C
 
 
 
-dm_data[?'6057'+STR_TSRC+STR_Under+STR_Boulder] = $04D5;
-dm_data[?'655D'+STR_TSRC+STR_Under+STR_Boulder] = $0420;
-dm_data[?'6D31'+STR_TSRC+STR_Under+STR_Boulder] = $0438;
-dm_data[?'7456'+STR_TSRC+STR_Under+STR_Boulder] = $04D5;
-dm_data[?'8597'+STR_TSRC+STR_Under+STR_Boulder] = $0424;
-dm_data[?'AE32'+STR_TSRC+STR_Under+STR_Boulder] = $04C8;
-dm_data[?'BE3E'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
-dm_data[?'BF40'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
-dm_data[?'C141'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
-dm_data[?'C340'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
-dm_data[?'C43E'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
-dm_data[?'C33C'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
-dm_data[?'C13B'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
-dm_data[?'BF3C'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
-dm_data[?'EBB7'+STR_TSRC+STR_Under+STR_Boulder] = $04C8;
-dm_data[?'0F6A'+STR_TSRC+STR_Under+STR_Boulder] = $0424;
+dm[?'6057'+STR_TSRC+STR_Under+STR_Boulder] = $04D5;
+dm[?'655D'+STR_TSRC+STR_Under+STR_Boulder] = $0420;
+dm[?'6D31'+STR_TSRC+STR_Under+STR_Boulder] = $0438;
+dm[?'7456'+STR_TSRC+STR_Under+STR_Boulder] = $04D5;
+dm[?'8597'+STR_TSRC+STR_Under+STR_Boulder] = $0424;
+dm[?'AE32'+STR_TSRC+STR_Under+STR_Boulder] = $04C8;
+dm[?'BE3E'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
+dm[?'BF40'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
+dm[?'C141'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
+dm[?'C340'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
+dm[?'C43E'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
+dm[?'C33C'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
+dm[?'C13B'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
+dm[?'BF3C'+STR_TSRC+STR_Under+STR_Boulder] = $0584;
+dm[?'EBB7'+STR_TSRC+STR_Under+STR_Boulder] = $04C8;
+dm[?'0F6A'+STR_TSRC+STR_Under+STR_Boulder] = $0424;
 
-dm_data[?'106B'+STR_TSRC+STR_Under+STR_Boulder] = $0424;
-dm_data[?'0E6A'+STR_TSRC+STR_Under+STR_Boulder] = $0424;
+dm[?'106B'+STR_TSRC+STR_Under+STR_Boulder] = $0424;
+dm[?'0E6A'+STR_TSRC+STR_Under+STR_Boulder] = $0424;
 
 
 
@@ -7544,853 +7558,853 @@ for(_i=0; _i<_count1; _i++)
     dg_ChangeTiles_Boots[#_i,3] = $26;
 }
 
-dg_ChangeTiles_Boots[#$00,$00] = $3030;
-dg_ChangeTiles_Boots[#$00,$03] = $1E;
-dg_ChangeTiles_Boots[#$01,$00] = $3031;
-dg_ChangeTiles_Boots[#$01,$03] = $1E;
-dg_ChangeTiles_Boots[#$02,$00] = $3131;
-dg_ChangeTiles_Boots[#$02,$03] = $1E;
-dg_ChangeTiles_Boots[#$03,$00] = $3132;
-dg_ChangeTiles_Boots[#$03,$03] = $1E;
-dg_ChangeTiles_Boots[#$04,$00] = $3232;
-dg_ChangeTiles_Boots[#$04,$03] = $1E;
-dg_ChangeTiles_Boots[#$05,$00] = $385F;
-dg_ChangeTiles_Boots[#$05,$03] = $1E;
-dg_ChangeTiles_Boots[#$06,$00] = $3860;
-dg_ChangeTiles_Boots[#$06,$03] = $1E;
-dg_ChangeTiles_Boots[#$07,$00] = $3861;
-dg_ChangeTiles_Boots[#$07,$03] = $1E;
-dg_ChangeTiles_Boots[#$08,$00] = $38A5;
-dg_ChangeTiles_Boots[#$08,$03] = $1E;
-dg_ChangeTiles_Boots[#$09,$00] = $3961;
-dg_ChangeTiles_Boots[#$09,$03] = $1E;
-dg_ChangeTiles_Boots[#$0A,$00] = $3962;
-dg_ChangeTiles_Boots[#$0A,$03] = $1E;
-dg_ChangeTiles_Boots[#$0B,$00] = $3963;
-dg_ChangeTiles_Boots[#$0B,$03] = $1E;
-dg_ChangeTiles_Boots[#$0C,$00] = $39A5;
-dg_ChangeTiles_Boots[#$0C,$03] = $1E;
-dg_ChangeTiles_Boots[#$0D,$00] = $3F58;
-dg_ChangeTiles_Boots[#$0D,$03] = $1E;
-dg_ChangeTiles_Boots[#$0E,$00] = $404C;
-dg_ChangeTiles_Boots[#$0E,$03] = $1E;
-dg_ChangeTiles_Boots[#$0F,$00] = $404D;
-dg_ChangeTiles_Boots[#$0F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0000,$00] = $3030;
+dg_ChangeTiles_Boots[#$0000,$03] = $21;
+dg_ChangeTiles_Boots[#$0001,$00] = $3031;
+dg_ChangeTiles_Boots[#$0001,$03] = $21;
+dg_ChangeTiles_Boots[#$0002,$00] = $3131;
+dg_ChangeTiles_Boots[#$0002,$03] = $21;
+dg_ChangeTiles_Boots[#$0003,$00] = $3132;
+dg_ChangeTiles_Boots[#$0003,$03] = $21;
+dg_ChangeTiles_Boots[#$0004,$00] = $3232;
+dg_ChangeTiles_Boots[#$0004,$03] = $21;
+dg_ChangeTiles_Boots[#$0005,$00] = $385F;
+dg_ChangeTiles_Boots[#$0005,$03] = $21;
+dg_ChangeTiles_Boots[#$0006,$00] = $3860;
+dg_ChangeTiles_Boots[#$0006,$03] = $21;
+dg_ChangeTiles_Boots[#$0007,$00] = $3861;
+dg_ChangeTiles_Boots[#$0007,$03] = $21;
+dg_ChangeTiles_Boots[#$0008,$00] = $38A5;
+dg_ChangeTiles_Boots[#$0008,$03] = $21;
+dg_ChangeTiles_Boots[#$0009,$00] = $3961;
+dg_ChangeTiles_Boots[#$0009,$03] = $21;
+dg_ChangeTiles_Boots[#$000A,$00] = $3962;
+dg_ChangeTiles_Boots[#$000A,$03] = $21;
+dg_ChangeTiles_Boots[#$000B,$00] = $3963;
+dg_ChangeTiles_Boots[#$000B,$03] = $21;
+dg_ChangeTiles_Boots[#$000C,$00] = $39A5;
+dg_ChangeTiles_Boots[#$000C,$03] = $21;
+dg_ChangeTiles_Boots[#$000D,$00] = $3F58;
+dg_ChangeTiles_Boots[#$000D,$03] = $21;
+dg_ChangeTiles_Boots[#$000E,$00] = $404C;
+dg_ChangeTiles_Boots[#$000E,$03] = $21;
+dg_ChangeTiles_Boots[#$000F,$00] = $404D;
+dg_ChangeTiles_Boots[#$000F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$10,$00] = $404E;
-dg_ChangeTiles_Boots[#$10,$03] = $1E;
-dg_ChangeTiles_Boots[#$11,$00] = $4056;
-dg_ChangeTiles_Boots[#$11,$03] = $1E;
-dg_ChangeTiles_Boots[#$12,$00] = $4057;
-dg_ChangeTiles_Boots[#$12,$03] = $1E;
-dg_ChangeTiles_Boots[#$13,$00] = $414B;
-dg_ChangeTiles_Boots[#$13,$03] = $1E;
-dg_ChangeTiles_Boots[#$14,$00] = $414C;
-dg_ChangeTiles_Boots[#$14,$03] = $1E;
-dg_ChangeTiles_Boots[#$15,$00] = $414E;
-dg_ChangeTiles_Boots[#$15,$03] = $1E;
-dg_ChangeTiles_Boots[#$16,$00] = $414F;
-dg_ChangeTiles_Boots[#$16,$03] = $1E;
-dg_ChangeTiles_Boots[#$17,$00] = $4150;
-dg_ChangeTiles_Boots[#$17,$03] = $1E;
-dg_ChangeTiles_Boots[#$18,$00] = $4154;
-dg_ChangeTiles_Boots[#$18,$03] = $1E;
-dg_ChangeTiles_Boots[#$19,$00] = $4155;
-dg_ChangeTiles_Boots[#$19,$03] = $1E;
-dg_ChangeTiles_Boots[#$1A,$00] = $4156;
-dg_ChangeTiles_Boots[#$1A,$03] = $1E;
-dg_ChangeTiles_Boots[#$1B,$00] = $4249;
-dg_ChangeTiles_Boots[#$1B,$03] = $1E;
-dg_ChangeTiles_Boots[#$1C,$00] = $424A;
-dg_ChangeTiles_Boots[#$1C,$03] = $1E;
-dg_ChangeTiles_Boots[#$1D,$00] = $424B;
-dg_ChangeTiles_Boots[#$1D,$03] = $1E;
-dg_ChangeTiles_Boots[#$1E,$00] = $4251;
-dg_ChangeTiles_Boots[#$1E,$03] = $1E;
-dg_ChangeTiles_Boots[#$1F,$00] = $4252;
-dg_ChangeTiles_Boots[#$1F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0010,$00] = $404E;
+dg_ChangeTiles_Boots[#$0010,$03] = $21;
+dg_ChangeTiles_Boots[#$0011,$00] = $4056;
+dg_ChangeTiles_Boots[#$0011,$03] = $21;
+dg_ChangeTiles_Boots[#$0012,$00] = $4057;
+dg_ChangeTiles_Boots[#$0012,$03] = $21;
+dg_ChangeTiles_Boots[#$0013,$00] = $414B;
+dg_ChangeTiles_Boots[#$0013,$03] = $21;
+dg_ChangeTiles_Boots[#$0014,$00] = $414C;
+dg_ChangeTiles_Boots[#$0014,$03] = $21;
+dg_ChangeTiles_Boots[#$0015,$00] = $414E;
+dg_ChangeTiles_Boots[#$0015,$03] = $21;
+dg_ChangeTiles_Boots[#$0016,$00] = $414F;
+dg_ChangeTiles_Boots[#$0016,$03] = $21;
+dg_ChangeTiles_Boots[#$0017,$00] = $4150;
+dg_ChangeTiles_Boots[#$0017,$03] = $21;
+dg_ChangeTiles_Boots[#$0018,$00] = $4154;
+dg_ChangeTiles_Boots[#$0018,$03] = $21;
+dg_ChangeTiles_Boots[#$0019,$00] = $4155;
+dg_ChangeTiles_Boots[#$0019,$03] = $21;
+dg_ChangeTiles_Boots[#$001A,$00] = $4156;
+dg_ChangeTiles_Boots[#$001A,$03] = $21;
+dg_ChangeTiles_Boots[#$001B,$00] = $4249;
+dg_ChangeTiles_Boots[#$001B,$03] = $21;
+dg_ChangeTiles_Boots[#$001C,$00] = $424A;
+dg_ChangeTiles_Boots[#$001C,$03] = $21;
+dg_ChangeTiles_Boots[#$001D,$00] = $424B;
+dg_ChangeTiles_Boots[#$001D,$03] = $21;
+dg_ChangeTiles_Boots[#$001E,$00] = $4251;
+dg_ChangeTiles_Boots[#$001E,$03] = $21;
+dg_ChangeTiles_Boots[#$001F,$00] = $4252;
+dg_ChangeTiles_Boots[#$001F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$20,$00] = $4253;
-dg_ChangeTiles_Boots[#$20,$03] = $1E;
-dg_ChangeTiles_Boots[#$21,$00] = $4254;
-dg_ChangeTiles_Boots[#$21,$03] = $1E;
-dg_ChangeTiles_Boots[#$22,$00] = $4255;
-dg_ChangeTiles_Boots[#$22,$03] = $1E;
-dg_ChangeTiles_Boots[#$23,$00] = $4FA3;
-dg_ChangeTiles_Boots[#$23,$03] = $1E;
-dg_ChangeTiles_Boots[#$24,$00] = $50A4;
-dg_ChangeTiles_Boots[#$24,$03] = $1E;
-dg_ChangeTiles_Boots[#$25,$00] = $50A5;
-dg_ChangeTiles_Boots[#$25,$03] = $1E;
-dg_ChangeTiles_Boots[#$26,$00] = $51A5;
-dg_ChangeTiles_Boots[#$26,$03] = $1E;
-dg_ChangeTiles_Boots[#$27,$00] = $52A5;
-dg_ChangeTiles_Boots[#$27,$03] = $1E;
-dg_ChangeTiles_Boots[#$28,$00] = $55A5;
-dg_ChangeTiles_Boots[#$28,$03] = $1E;
-dg_ChangeTiles_Boots[#$29,$00] = $56A5;
-dg_ChangeTiles_Boots[#$29,$03] = $1E;
-dg_ChangeTiles_Boots[#$2A,$00] = $5A7E;
-dg_ChangeTiles_Boots[#$2A,$03] = $1E;
-dg_ChangeTiles_Boots[#$2B,$00] = $5A7F;
-dg_ChangeTiles_Boots[#$2B,$03] = $1E;
-dg_ChangeTiles_Boots[#$2C,$00] = $5A80;
-dg_ChangeTiles_Boots[#$2C,$03] = $1E;
-dg_ChangeTiles_Boots[#$2D,$00] = $5A81;
-dg_ChangeTiles_Boots[#$2D,$03] = $1E;
-dg_ChangeTiles_Boots[#$2E,$00] = $5AD5;
-dg_ChangeTiles_Boots[#$2E,$03] = $1E;
-dg_ChangeTiles_Boots[#$2F,$00] = $5AD6;
-dg_ChangeTiles_Boots[#$2F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0020,$00] = $4253;
+dg_ChangeTiles_Boots[#$0020,$03] = $21;
+dg_ChangeTiles_Boots[#$0021,$00] = $4254;
+dg_ChangeTiles_Boots[#$0021,$03] = $21;
+dg_ChangeTiles_Boots[#$0022,$00] = $4255;
+dg_ChangeTiles_Boots[#$0022,$03] = $21;
+dg_ChangeTiles_Boots[#$0023,$00] = $4FA3;
+dg_ChangeTiles_Boots[#$0023,$03] = $21;
+dg_ChangeTiles_Boots[#$0024,$00] = $50A4;
+dg_ChangeTiles_Boots[#$0024,$03] = $21;
+dg_ChangeTiles_Boots[#$0025,$00] = $50A5;
+dg_ChangeTiles_Boots[#$0025,$03] = $21;
+dg_ChangeTiles_Boots[#$0026,$00] = $51A5;
+dg_ChangeTiles_Boots[#$0026,$03] = $21;
+dg_ChangeTiles_Boots[#$0027,$00] = $52A5;
+dg_ChangeTiles_Boots[#$0027,$03] = $21;
+dg_ChangeTiles_Boots[#$0028,$00] = $55A5;
+dg_ChangeTiles_Boots[#$0028,$03] = $21;
+dg_ChangeTiles_Boots[#$0029,$00] = $56A5;
+dg_ChangeTiles_Boots[#$0029,$03] = $21;
+dg_ChangeTiles_Boots[#$002A,$00] = $5A7E;
+dg_ChangeTiles_Boots[#$002A,$03] = $21;
+dg_ChangeTiles_Boots[#$002B,$00] = $5A7F;
+dg_ChangeTiles_Boots[#$002B,$03] = $21;
+dg_ChangeTiles_Boots[#$002C,$00] = $5A80;
+dg_ChangeTiles_Boots[#$002C,$03] = $21;
+dg_ChangeTiles_Boots[#$002D,$00] = $5A81;
+dg_ChangeTiles_Boots[#$002D,$03] = $21;
+dg_ChangeTiles_Boots[#$002E,$00] = $5AD5;
+dg_ChangeTiles_Boots[#$002E,$03] = $21;
+dg_ChangeTiles_Boots[#$002F,$00] = $5AD6;
+dg_ChangeTiles_Boots[#$002F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$30,$00] = $5AD7;
-dg_ChangeTiles_Boots[#$30,$03] = $1E;
-dg_ChangeTiles_Boots[#$31,$00] = $5AD8;
-dg_ChangeTiles_Boots[#$31,$03] = $1E;
-dg_ChangeTiles_Boots[#$32,$00] = $5B7D;
-dg_ChangeTiles_Boots[#$32,$03] = $1E;
-dg_ChangeTiles_Boots[#$33,$00] = $5B7E;
-dg_ChangeTiles_Boots[#$33,$03] = $1E;
-dg_ChangeTiles_Boots[#$34,$00] = $5B7F;
-dg_ChangeTiles_Boots[#$34,$03] = $1E;
-dg_ChangeTiles_Boots[#$35,$00] = $5B81;
-dg_ChangeTiles_Boots[#$35,$03] = $1E;
-dg_ChangeTiles_Boots[#$36,$00] = $5B82;
-dg_ChangeTiles_Boots[#$36,$03] = $1E;
-dg_ChangeTiles_Boots[#$37,$00] = $5BD5;
-dg_ChangeTiles_Boots[#$37,$03] = $1E;
-dg_ChangeTiles_Boots[#$38,$00] = $5C7D;
-dg_ChangeTiles_Boots[#$38,$03] = $1E;
-dg_ChangeTiles_Boots[#$39,$00] = $5C82;
-dg_ChangeTiles_Boots[#$39,$03] = $1E;
-dg_ChangeTiles_Boots[#$3A,$00] = $5C83;
-dg_ChangeTiles_Boots[#$3A,$03] = $1E;
-dg_ChangeTiles_Boots[#$3B,$00] = $5CD4;
-dg_ChangeTiles_Boots[#$3B,$03] = $1E;
-dg_ChangeTiles_Boots[#$3C,$00] = $5CD5;
-dg_ChangeTiles_Boots[#$3C,$03] = $1E;
-dg_ChangeTiles_Boots[#$3D,$00] = $5D82;
-dg_ChangeTiles_Boots[#$3D,$03] = $1E;
-dg_ChangeTiles_Boots[#$3E,$00] = $5D83;
-dg_ChangeTiles_Boots[#$3E,$03] = $1E;
-dg_ChangeTiles_Boots[#$3F,$00] = $5DD4;
-dg_ChangeTiles_Boots[#$3F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0030,$00] = $5AD7;
+dg_ChangeTiles_Boots[#$0030,$03] = $21;
+dg_ChangeTiles_Boots[#$0031,$00] = $5AD8;
+dg_ChangeTiles_Boots[#$0031,$03] = $21;
+dg_ChangeTiles_Boots[#$0032,$00] = $5B7D;
+dg_ChangeTiles_Boots[#$0032,$03] = $21;
+dg_ChangeTiles_Boots[#$0033,$00] = $5B7E;
+dg_ChangeTiles_Boots[#$0033,$03] = $21;
+dg_ChangeTiles_Boots[#$0034,$00] = $5B7F;
+dg_ChangeTiles_Boots[#$0034,$03] = $21;
+dg_ChangeTiles_Boots[#$0035,$00] = $5B81;
+dg_ChangeTiles_Boots[#$0035,$03] = $21;
+dg_ChangeTiles_Boots[#$0036,$00] = $5B82;
+dg_ChangeTiles_Boots[#$0036,$03] = $21;
+dg_ChangeTiles_Boots[#$0037,$00] = $5BD5;
+dg_ChangeTiles_Boots[#$0037,$03] = $21;
+dg_ChangeTiles_Boots[#$0038,$00] = $5C7D;
+dg_ChangeTiles_Boots[#$0038,$03] = $21;
+dg_ChangeTiles_Boots[#$0039,$00] = $5C82;
+dg_ChangeTiles_Boots[#$0039,$03] = $21;
+dg_ChangeTiles_Boots[#$003A,$00] = $5C83;
+dg_ChangeTiles_Boots[#$003A,$03] = $21;
+dg_ChangeTiles_Boots[#$003B,$00] = $5CD4;
+dg_ChangeTiles_Boots[#$003B,$03] = $21;
+dg_ChangeTiles_Boots[#$003C,$00] = $5CD5;
+dg_ChangeTiles_Boots[#$003C,$03] = $21;
+dg_ChangeTiles_Boots[#$003D,$00] = $5D82;
+dg_ChangeTiles_Boots[#$003D,$03] = $21;
+dg_ChangeTiles_Boots[#$003E,$00] = $5D83;
+dg_ChangeTiles_Boots[#$003E,$03] = $21;
+dg_ChangeTiles_Boots[#$003F,$00] = $5DD4;
+dg_ChangeTiles_Boots[#$003F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$40,$00] = $5ED4;
-dg_ChangeTiles_Boots[#$40,$03] = $1E;
-dg_ChangeTiles_Boots[#$41,$00] = $60CE;
-dg_ChangeTiles_Boots[#$41,$03] = $1E;
-dg_ChangeTiles_Boots[#$42,$00] = $60D0;
-dg_ChangeTiles_Boots[#$42,$03] = $1E;
-dg_ChangeTiles_Boots[#$43,$00] = $60D1;
-dg_ChangeTiles_Boots[#$43,$03] = $1E;
-dg_ChangeTiles_Boots[#$44,$00] = $60D2;
-dg_ChangeTiles_Boots[#$44,$03] = $1E;
-dg_ChangeTiles_Boots[#$45,$00] = $60D3;
-dg_ChangeTiles_Boots[#$45,$03] = $1E;
-dg_ChangeTiles_Boots[#$46,$00] = $60D4;
-dg_ChangeTiles_Boots[#$46,$03] = $1E;
-dg_ChangeTiles_Boots[#$47,$00] = $61CE;
-dg_ChangeTiles_Boots[#$47,$03] = $1E;
-dg_ChangeTiles_Boots[#$48,$00] = $62CC;
-dg_ChangeTiles_Boots[#$48,$03] = $1E;
-dg_ChangeTiles_Boots[#$49,$00] = $62CD;
-dg_ChangeTiles_Boots[#$49,$03] = $1E;
-dg_ChangeTiles_Boots[#$4A,$00] = $62CE;
-dg_ChangeTiles_Boots[#$4A,$03] = $1E;
-dg_ChangeTiles_Boots[#$4B,$00] = $63CC;
-dg_ChangeTiles_Boots[#$4B,$03] = $1E;
-dg_ChangeTiles_Boots[#$4C,$00] = $64CC;
-dg_ChangeTiles_Boots[#$4C,$03] = $1E;
-dg_ChangeTiles_Boots[#$4D,$00] = $66C4;
-dg_ChangeTiles_Boots[#$4D,$03] = $1E;
-dg_ChangeTiles_Boots[#$4E,$00] = $66C5;
-dg_ChangeTiles_Boots[#$4E,$03] = $1E;
-dg_ChangeTiles_Boots[#$4F,$00] = $66C6;
-dg_ChangeTiles_Boots[#$4F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0040,$00] = $5ED4;
+dg_ChangeTiles_Boots[#$0040,$03] = $21;
+dg_ChangeTiles_Boots[#$0041,$00] = $60CE;
+dg_ChangeTiles_Boots[#$0041,$03] = $21;
+dg_ChangeTiles_Boots[#$0042,$00] = $60D0;
+dg_ChangeTiles_Boots[#$0042,$03] = $21;
+dg_ChangeTiles_Boots[#$0043,$00] = $60D1;
+dg_ChangeTiles_Boots[#$0043,$03] = $21;
+dg_ChangeTiles_Boots[#$0044,$00] = $60D2;
+dg_ChangeTiles_Boots[#$0044,$03] = $21;
+dg_ChangeTiles_Boots[#$0045,$00] = $60D3;
+dg_ChangeTiles_Boots[#$0045,$03] = $21;
+dg_ChangeTiles_Boots[#$0046,$00] = $60D4;
+dg_ChangeTiles_Boots[#$0046,$03] = $21;
+dg_ChangeTiles_Boots[#$0047,$00] = $61CE;
+dg_ChangeTiles_Boots[#$0047,$03] = $21;
+dg_ChangeTiles_Boots[#$0048,$00] = $62CC;
+dg_ChangeTiles_Boots[#$0048,$03] = $21;
+dg_ChangeTiles_Boots[#$0049,$00] = $62CD;
+dg_ChangeTiles_Boots[#$0049,$03] = $21;
+dg_ChangeTiles_Boots[#$004A,$00] = $62CE;
+dg_ChangeTiles_Boots[#$004A,$03] = $21;
+dg_ChangeTiles_Boots[#$004B,$00] = $63CC;
+dg_ChangeTiles_Boots[#$004B,$03] = $21;
+dg_ChangeTiles_Boots[#$004C,$00] = $64CC;
+dg_ChangeTiles_Boots[#$004C,$03] = $21;
+dg_ChangeTiles_Boots[#$004D,$00] = $66C4;
+dg_ChangeTiles_Boots[#$004D,$03] = $21;
+dg_ChangeTiles_Boots[#$004E,$00] = $66C5;
+dg_ChangeTiles_Boots[#$004E,$03] = $21;
+dg_ChangeTiles_Boots[#$004F,$00] = $66C6;
+dg_ChangeTiles_Boots[#$004F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$50,$00] = $66C7;
-dg_ChangeTiles_Boots[#$50,$03] = $1E;
-dg_ChangeTiles_Boots[#$51,$00] = $66C8;
-dg_ChangeTiles_Boots[#$51,$03] = $1E;
-dg_ChangeTiles_Boots[#$52,$00] = $66CA;
-dg_ChangeTiles_Boots[#$52,$03] = $1E;
-dg_ChangeTiles_Boots[#$53,$00] = $66CB;
-dg_ChangeTiles_Boots[#$53,$03] = $1E;
-dg_ChangeTiles_Boots[#$54,$00] = $66CC;
-dg_ChangeTiles_Boots[#$54,$03] = $1E;
-dg_ChangeTiles_Boots[#$55,$00] = $70A6;
-dg_ChangeTiles_Boots[#$55,$03] = $1E;
-dg_ChangeTiles_Boots[#$56,$00] = $71A2;
-dg_ChangeTiles_Boots[#$56,$03] = $1E;
-dg_ChangeTiles_Boots[#$57,$00] = $71A3;
-dg_ChangeTiles_Boots[#$57,$03] = $1E;
-dg_ChangeTiles_Boots[#$58,$00] = $71A4;
-dg_ChangeTiles_Boots[#$58,$03] = $1E;
-dg_ChangeTiles_Boots[#$59,$00] = $72A0;
-dg_ChangeTiles_Boots[#$59,$03] = $1E;
-dg_ChangeTiles_Boots[#$5A,$00] = $72A1;
-dg_ChangeTiles_Boots[#$5A,$03] = $1E;
-dg_ChangeTiles_Boots[#$5B,$00] = $72A2;
-dg_ChangeTiles_Boots[#$5B,$03] = $1E;
-dg_ChangeTiles_Boots[#$5C,$00] = $73A0;
-dg_ChangeTiles_Boots[#$5C,$03] = $1E;
-dg_ChangeTiles_Boots[#$5D,$00] = $73A1;
-dg_ChangeTiles_Boots[#$5D,$03] = $1E;
-dg_ChangeTiles_Boots[#$5E,$00] = $74A0;
-dg_ChangeTiles_Boots[#$5E,$03] = $1E;
-dg_ChangeTiles_Boots[#$5F,$00] = $74BA;
-dg_ChangeTiles_Boots[#$5F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0050,$00] = $66C7;
+dg_ChangeTiles_Boots[#$0050,$03] = $21;
+dg_ChangeTiles_Boots[#$0051,$00] = $66C8;
+dg_ChangeTiles_Boots[#$0051,$03] = $21;
+dg_ChangeTiles_Boots[#$0052,$00] = $66CA;
+dg_ChangeTiles_Boots[#$0052,$03] = $21;
+dg_ChangeTiles_Boots[#$0053,$00] = $66CB;
+dg_ChangeTiles_Boots[#$0053,$03] = $21;
+dg_ChangeTiles_Boots[#$0054,$00] = $66CC;
+dg_ChangeTiles_Boots[#$0054,$03] = $21;
+dg_ChangeTiles_Boots[#$0055,$00] = $70A6;
+dg_ChangeTiles_Boots[#$0055,$03] = $21;
+dg_ChangeTiles_Boots[#$0056,$00] = $71A2;
+dg_ChangeTiles_Boots[#$0056,$03] = $21;
+dg_ChangeTiles_Boots[#$0057,$00] = $71A3;
+dg_ChangeTiles_Boots[#$0057,$03] = $21;
+dg_ChangeTiles_Boots[#$0058,$00] = $71A4;
+dg_ChangeTiles_Boots[#$0058,$03] = $21;
+dg_ChangeTiles_Boots[#$0059,$00] = $72A0;
+dg_ChangeTiles_Boots[#$0059,$03] = $21;
+dg_ChangeTiles_Boots[#$005A,$00] = $72A1;
+dg_ChangeTiles_Boots[#$005A,$03] = $21;
+dg_ChangeTiles_Boots[#$005B,$00] = $72A2;
+dg_ChangeTiles_Boots[#$005B,$03] = $21;
+dg_ChangeTiles_Boots[#$005C,$00] = $73A0;
+dg_ChangeTiles_Boots[#$005C,$03] = $21;
+dg_ChangeTiles_Boots[#$005D,$00] = $73A1;
+dg_ChangeTiles_Boots[#$005D,$03] = $21;
+dg_ChangeTiles_Boots[#$005E,$00] = $74A0;
+dg_ChangeTiles_Boots[#$005E,$03] = $21;
+dg_ChangeTiles_Boots[#$005F,$00] = $74BA;
+dg_ChangeTiles_Boots[#$005F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$60,$00] = $74BB;
-dg_ChangeTiles_Boots[#$60,$03] = $1E;
-dg_ChangeTiles_Boots[#$61,$00] = $759F;
-dg_ChangeTiles_Boots[#$61,$03] = $1E;
-dg_ChangeTiles_Boots[#$62,$00] = $75A0;
-dg_ChangeTiles_Boots[#$62,$03] = $1E;
-dg_ChangeTiles_Boots[#$63,$00] = $75B4;
-dg_ChangeTiles_Boots[#$63,$03] = $1E;
-dg_ChangeTiles_Boots[#$64,$00] = $75B5;
-dg_ChangeTiles_Boots[#$64,$03] = $1E;
-dg_ChangeTiles_Boots[#$65,$00] = $75B6;
-dg_ChangeTiles_Boots[#$65,$03] = $1E;
-dg_ChangeTiles_Boots[#$66,$00] = $75B7;
-dg_ChangeTiles_Boots[#$66,$03] = $1E;
-dg_ChangeTiles_Boots[#$67,$00] = $75B8;
-dg_ChangeTiles_Boots[#$67,$03] = $1E;
-dg_ChangeTiles_Boots[#$68,$00] = $75B9;
-dg_ChangeTiles_Boots[#$68,$03] = $1E;
-dg_ChangeTiles_Boots[#$69,$00] = $75BA;
-dg_ChangeTiles_Boots[#$69,$03] = $1E;
-dg_ChangeTiles_Boots[#$6A,$00] = $75BB;
-dg_ChangeTiles_Boots[#$6A,$03] = $1E;
-dg_ChangeTiles_Boots[#$6B,$00] = $769F;
-dg_ChangeTiles_Boots[#$6B,$03] = $1E;
-dg_ChangeTiles_Boots[#$6C,$00] = $76A0;
-dg_ChangeTiles_Boots[#$6C,$03] = $1E;
-dg_ChangeTiles_Boots[#$6D,$00] = $76B0;
-dg_ChangeTiles_Boots[#$6D,$03] = $1E;
-dg_ChangeTiles_Boots[#$6E,$00] = $76B1;
-dg_ChangeTiles_Boots[#$6E,$03] = $1E;
-dg_ChangeTiles_Boots[#$6F,$00] = $76B2;
-dg_ChangeTiles_Boots[#$6F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0060,$00] = $74BB;
+dg_ChangeTiles_Boots[#$0060,$03] = $21;
+dg_ChangeTiles_Boots[#$0061,$00] = $759F;
+dg_ChangeTiles_Boots[#$0061,$03] = $21;
+dg_ChangeTiles_Boots[#$0062,$00] = $75A0;
+dg_ChangeTiles_Boots[#$0062,$03] = $21;
+dg_ChangeTiles_Boots[#$0063,$00] = $75B4;
+dg_ChangeTiles_Boots[#$0063,$03] = $21;
+dg_ChangeTiles_Boots[#$0064,$00] = $75B5;
+dg_ChangeTiles_Boots[#$0064,$03] = $21;
+dg_ChangeTiles_Boots[#$0065,$00] = $75B6;
+dg_ChangeTiles_Boots[#$0065,$03] = $21;
+dg_ChangeTiles_Boots[#$0066,$00] = $75B7;
+dg_ChangeTiles_Boots[#$0066,$03] = $21;
+dg_ChangeTiles_Boots[#$0067,$00] = $75B8;
+dg_ChangeTiles_Boots[#$0067,$03] = $21;
+dg_ChangeTiles_Boots[#$0068,$00] = $75B9;
+dg_ChangeTiles_Boots[#$0068,$03] = $21;
+dg_ChangeTiles_Boots[#$0069,$00] = $75BA;
+dg_ChangeTiles_Boots[#$0069,$03] = $21;
+dg_ChangeTiles_Boots[#$006A,$00] = $75BB;
+dg_ChangeTiles_Boots[#$006A,$03] = $21;
+dg_ChangeTiles_Boots[#$006B,$00] = $769F;
+dg_ChangeTiles_Boots[#$006B,$03] = $21;
+dg_ChangeTiles_Boots[#$006C,$00] = $76A0;
+dg_ChangeTiles_Boots[#$006C,$03] = $21;
+dg_ChangeTiles_Boots[#$006D,$00] = $76B0;
+dg_ChangeTiles_Boots[#$006D,$03] = $21;
+dg_ChangeTiles_Boots[#$006E,$00] = $76B1;
+dg_ChangeTiles_Boots[#$006E,$03] = $21;
+dg_ChangeTiles_Boots[#$006F,$00] = $76B2;
+dg_ChangeTiles_Boots[#$006F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$70,$00] = $76B4;
-dg_ChangeTiles_Boots[#$70,$03] = $1E;
-dg_ChangeTiles_Boots[#$71,$00] = $76B7;
-dg_ChangeTiles_Boots[#$71,$03] = $1E;
-dg_ChangeTiles_Boots[#$72,$00] = $76B9;
-dg_ChangeTiles_Boots[#$72,$03] = $1E;
-dg_ChangeTiles_Boots[#$73,$00] = $76BB;
-dg_ChangeTiles_Boots[#$73,$03] = $1E;
-dg_ChangeTiles_Boots[#$74,$00] = $77A0;
-dg_ChangeTiles_Boots[#$74,$03] = $1E;
-dg_ChangeTiles_Boots[#$75,$00] = $77A1;
-dg_ChangeTiles_Boots[#$75,$03] = $1E;
-dg_ChangeTiles_Boots[#$76,$00] = $77AD;
-dg_ChangeTiles_Boots[#$76,$03] = $1E;
-dg_ChangeTiles_Boots[#$77,$00] = $77AF;
-dg_ChangeTiles_Boots[#$77,$03] = $1E;
-dg_ChangeTiles_Boots[#$78,$00] = $77B0;
-dg_ChangeTiles_Boots[#$78,$03] = $1E;
-dg_ChangeTiles_Boots[#$79,$00] = $77B4;
-dg_ChangeTiles_Boots[#$79,$03] = $1E;
-dg_ChangeTiles_Boots[#$7A,$00] = $77B6;
-dg_ChangeTiles_Boots[#$7A,$03] = $1E;
-dg_ChangeTiles_Boots[#$7B,$00] = $77B9;
-dg_ChangeTiles_Boots[#$7B,$03] = $1E;
-dg_ChangeTiles_Boots[#$7C,$00] = $77BB;
-dg_ChangeTiles_Boots[#$7C,$03] = $1E;
-dg_ChangeTiles_Boots[#$7D,$00] = $78A1;
-dg_ChangeTiles_Boots[#$7D,$03] = $1E;
-dg_ChangeTiles_Boots[#$7E,$00] = $78A2;
-dg_ChangeTiles_Boots[#$7E,$03] = $1E;
-dg_ChangeTiles_Boots[#$7F,$00] = $78AC;
-dg_ChangeTiles_Boots[#$7F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0070,$00] = $76B4;
+dg_ChangeTiles_Boots[#$0070,$03] = $21;
+dg_ChangeTiles_Boots[#$0071,$00] = $76B7;
+dg_ChangeTiles_Boots[#$0071,$03] = $21;
+dg_ChangeTiles_Boots[#$0072,$00] = $76B9;
+dg_ChangeTiles_Boots[#$0072,$03] = $21;
+dg_ChangeTiles_Boots[#$0073,$00] = $76BB;
+dg_ChangeTiles_Boots[#$0073,$03] = $21;
+dg_ChangeTiles_Boots[#$0074,$00] = $77A0;
+dg_ChangeTiles_Boots[#$0074,$03] = $21;
+dg_ChangeTiles_Boots[#$0075,$00] = $77A1;
+dg_ChangeTiles_Boots[#$0075,$03] = $21;
+dg_ChangeTiles_Boots[#$0076,$00] = $77AD;
+dg_ChangeTiles_Boots[#$0076,$03] = $21;
+dg_ChangeTiles_Boots[#$0077,$00] = $77AF;
+dg_ChangeTiles_Boots[#$0077,$03] = $21;
+dg_ChangeTiles_Boots[#$0078,$00] = $77B0;
+dg_ChangeTiles_Boots[#$0078,$03] = $21;
+dg_ChangeTiles_Boots[#$0079,$00] = $77B4;
+dg_ChangeTiles_Boots[#$0079,$03] = $21;
+dg_ChangeTiles_Boots[#$007A,$00] = $77B6;
+dg_ChangeTiles_Boots[#$007A,$03] = $21;
+dg_ChangeTiles_Boots[#$007B,$00] = $77B9;
+dg_ChangeTiles_Boots[#$007B,$03] = $21;
+dg_ChangeTiles_Boots[#$007C,$00] = $77BB;
+dg_ChangeTiles_Boots[#$007C,$03] = $21;
+dg_ChangeTiles_Boots[#$007D,$00] = $78A1;
+dg_ChangeTiles_Boots[#$007D,$03] = $21;
+dg_ChangeTiles_Boots[#$007E,$00] = $78A2;
+dg_ChangeTiles_Boots[#$007E,$03] = $21;
+dg_ChangeTiles_Boots[#$007F,$00] = $78AC;
+dg_ChangeTiles_Boots[#$007F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$80,$00] = $78AD;
-dg_ChangeTiles_Boots[#$80,$03] = $1E;
-dg_ChangeTiles_Boots[#$81,$00] = $78AE;
-dg_ChangeTiles_Boots[#$81,$03] = $1E;
-dg_ChangeTiles_Boots[#$82,$00] = $78AF;
-dg_ChangeTiles_Boots[#$82,$03] = $1E;
-dg_ChangeTiles_Boots[#$83,$00] = $78B0;
-dg_ChangeTiles_Boots[#$83,$03] = $1E;
-dg_ChangeTiles_Boots[#$84,$00] = $78B1;
-dg_ChangeTiles_Boots[#$84,$03] = $1E;
-dg_ChangeTiles_Boots[#$85,$00] = $78B2;
-dg_ChangeTiles_Boots[#$85,$03] = $1E;
-dg_ChangeTiles_Boots[#$86,$00] = $78B3;
-dg_ChangeTiles_Boots[#$86,$03] = $1E;
-dg_ChangeTiles_Boots[#$87,$00] = $78B4;
-dg_ChangeTiles_Boots[#$87,$03] = $1E;
-dg_ChangeTiles_Boots[#$88,$00] = $78B5;
-dg_ChangeTiles_Boots[#$88,$03] = $1E;
-dg_ChangeTiles_Boots[#$89,$00] = $78B6;
-dg_ChangeTiles_Boots[#$89,$03] = $1E;
-dg_ChangeTiles_Boots[#$8A,$00] = $78B7;
-dg_ChangeTiles_Boots[#$8A,$03] = $1E;
-dg_ChangeTiles_Boots[#$8B,$00] = $78BB;
-dg_ChangeTiles_Boots[#$8B,$03] = $1E;
-dg_ChangeTiles_Boots[#$8C,$00] = $79A1;
-dg_ChangeTiles_Boots[#$8C,$03] = $1E;
-dg_ChangeTiles_Boots[#$8D,$00] = $79A2;
-dg_ChangeTiles_Boots[#$8D,$03] = $1E;
-dg_ChangeTiles_Boots[#$8E,$00] = $79A3;
-dg_ChangeTiles_Boots[#$8E,$03] = $1E;
-dg_ChangeTiles_Boots[#$8F,$00] = $79AD;
-dg_ChangeTiles_Boots[#$8F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0080,$00] = $78AD;
+dg_ChangeTiles_Boots[#$0080,$03] = $21;
+dg_ChangeTiles_Boots[#$0081,$00] = $78AE;
+dg_ChangeTiles_Boots[#$0081,$03] = $21;
+dg_ChangeTiles_Boots[#$0082,$00] = $78AF;
+dg_ChangeTiles_Boots[#$0082,$03] = $21;
+dg_ChangeTiles_Boots[#$0083,$00] = $78B0;
+dg_ChangeTiles_Boots[#$0083,$03] = $21;
+dg_ChangeTiles_Boots[#$0084,$00] = $78B1;
+dg_ChangeTiles_Boots[#$0084,$03] = $21;
+dg_ChangeTiles_Boots[#$0085,$00] = $78B2;
+dg_ChangeTiles_Boots[#$0085,$03] = $21;
+dg_ChangeTiles_Boots[#$0086,$00] = $78B3;
+dg_ChangeTiles_Boots[#$0086,$03] = $21;
+dg_ChangeTiles_Boots[#$0087,$00] = $78B4;
+dg_ChangeTiles_Boots[#$0087,$03] = $21;
+dg_ChangeTiles_Boots[#$0088,$00] = $78B5;
+dg_ChangeTiles_Boots[#$0088,$03] = $21;
+dg_ChangeTiles_Boots[#$0089,$00] = $78B6;
+dg_ChangeTiles_Boots[#$0089,$03] = $21;
+dg_ChangeTiles_Boots[#$008A,$00] = $78B7;
+dg_ChangeTiles_Boots[#$008A,$03] = $21;
+dg_ChangeTiles_Boots[#$008B,$00] = $78BB;
+dg_ChangeTiles_Boots[#$008B,$03] = $21;
+dg_ChangeTiles_Boots[#$008C,$00] = $79A1;
+dg_ChangeTiles_Boots[#$008C,$03] = $21;
+dg_ChangeTiles_Boots[#$008D,$00] = $79A2;
+dg_ChangeTiles_Boots[#$008D,$03] = $21;
+dg_ChangeTiles_Boots[#$008E,$00] = $79A3;
+dg_ChangeTiles_Boots[#$008E,$03] = $21;
+dg_ChangeTiles_Boots[#$008F,$00] = $79AD;
+dg_ChangeTiles_Boots[#$008F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$90,$00] = $7AA2;
-dg_ChangeTiles_Boots[#$90,$03] = $1E;
-dg_ChangeTiles_Boots[#$91,$00] = $7AA3;
-dg_ChangeTiles_Boots[#$91,$03] = $1E;
-dg_ChangeTiles_Boots[#$92,$00] = $7AA4;
-dg_ChangeTiles_Boots[#$92,$03] = $1E;
-dg_ChangeTiles_Boots[#$93,$00] = $7AA5;
-dg_ChangeTiles_Boots[#$93,$03] = $1E;
-dg_ChangeTiles_Boots[#$94,$00] = $7AAD;
-dg_ChangeTiles_Boots[#$94,$03] = $1E;
-dg_ChangeTiles_Boots[#$95,$00] = $7BA3;
-dg_ChangeTiles_Boots[#$95,$03] = $1E;
-dg_ChangeTiles_Boots[#$96,$00] = $7BA4;
-dg_ChangeTiles_Boots[#$96,$03] = $1E;
-dg_ChangeTiles_Boots[#$97,$00] = $7BA5;
-dg_ChangeTiles_Boots[#$97,$03] = $1E;
-dg_ChangeTiles_Boots[#$98,$00] = $7BA6;
-dg_ChangeTiles_Boots[#$98,$03] = $1E;
-dg_ChangeTiles_Boots[#$99,$00] = $7BA7;
-dg_ChangeTiles_Boots[#$99,$03] = $1E;
-dg_ChangeTiles_Boots[#$9A,$00] = $7BA8;
-dg_ChangeTiles_Boots[#$9A,$03] = $1E;
-dg_ChangeTiles_Boots[#$9B,$00] = $7BAD;
-dg_ChangeTiles_Boots[#$9B,$03] = $1E;
-dg_ChangeTiles_Boots[#$9C,$00] = $7CA5;
-dg_ChangeTiles_Boots[#$9C,$03] = $1E;
-dg_ChangeTiles_Boots[#$9D,$00] = $7CA6;
-dg_ChangeTiles_Boots[#$9D,$03] = $1E;
-dg_ChangeTiles_Boots[#$9E,$00] = $7CA7;
-dg_ChangeTiles_Boots[#$9E,$03] = $1E;
-dg_ChangeTiles_Boots[#$9F,$00] = $7CA8;
-dg_ChangeTiles_Boots[#$9F,$03] = $1E;
+dg_ChangeTiles_Boots[#$0090,$00] = $7AA2;
+dg_ChangeTiles_Boots[#$0090,$03] = $21;
+dg_ChangeTiles_Boots[#$0091,$00] = $7AA3;
+dg_ChangeTiles_Boots[#$0091,$03] = $21;
+dg_ChangeTiles_Boots[#$0092,$00] = $7AA4;
+dg_ChangeTiles_Boots[#$0092,$03] = $21;
+dg_ChangeTiles_Boots[#$0093,$00] = $7AA5;
+dg_ChangeTiles_Boots[#$0093,$03] = $21;
+dg_ChangeTiles_Boots[#$0094,$00] = $7AAD;
+dg_ChangeTiles_Boots[#$0094,$03] = $21;
+dg_ChangeTiles_Boots[#$0095,$00] = $7BA3;
+dg_ChangeTiles_Boots[#$0095,$03] = $21;
+dg_ChangeTiles_Boots[#$0096,$00] = $7BA4;
+dg_ChangeTiles_Boots[#$0096,$03] = $21;
+dg_ChangeTiles_Boots[#$0097,$00] = $7BA5;
+dg_ChangeTiles_Boots[#$0097,$03] = $21;
+dg_ChangeTiles_Boots[#$0098,$00] = $7BA6;
+dg_ChangeTiles_Boots[#$0098,$03] = $21;
+dg_ChangeTiles_Boots[#$0099,$00] = $7BA7;
+dg_ChangeTiles_Boots[#$0099,$03] = $21;
+dg_ChangeTiles_Boots[#$009A,$00] = $7BA8;
+dg_ChangeTiles_Boots[#$009A,$03] = $21;
+dg_ChangeTiles_Boots[#$009B,$00] = $7BAD;
+dg_ChangeTiles_Boots[#$009B,$03] = $21;
+dg_ChangeTiles_Boots[#$009C,$00] = $7CA5;
+dg_ChangeTiles_Boots[#$009C,$03] = $21;
+dg_ChangeTiles_Boots[#$009D,$00] = $7CA6;
+dg_ChangeTiles_Boots[#$009D,$03] = $21;
+dg_ChangeTiles_Boots[#$009E,$00] = $7CA7;
+dg_ChangeTiles_Boots[#$009E,$03] = $21;
+dg_ChangeTiles_Boots[#$009F,$00] = $7CA8;
+dg_ChangeTiles_Boots[#$009F,$03] = $21;
 
-dg_ChangeTiles_Boots[#$A0,$00] = $7CA9;
-dg_ChangeTiles_Boots[#$A0,$03] = $1E;
-dg_ChangeTiles_Boots[#$A1,$00] = $7CAA;
-dg_ChangeTiles_Boots[#$A1,$03] = $1E;
-dg_ChangeTiles_Boots[#$A2,$00] = $7CAB;
-dg_ChangeTiles_Boots[#$A2,$03] = $1E;
-dg_ChangeTiles_Boots[#$A3,$00] = $7CAC;
-dg_ChangeTiles_Boots[#$A3,$03] = $1E;
-dg_ChangeTiles_Boots[#$A4,$00] = $7CAD;
-dg_ChangeTiles_Boots[#$A4,$03] = $1E;
-dg_ChangeTiles_Boots[#$A5,$00] = $7CAE;
-dg_ChangeTiles_Boots[#$A5,$03] = $1E;
-dg_ChangeTiles_Boots[#$A6,$00] = $7CAF;
-dg_ChangeTiles_Boots[#$A6,$03] = $1E;
-dg_ChangeTiles_Boots[#$A7,$00] = $7CB0;
-dg_ChangeTiles_Boots[#$A7,$03] = $1E;
-dg_ChangeTiles_Boots[#$A8,$00] = $7CB1;
-dg_ChangeTiles_Boots[#$A8,$03] = $1E;
-dg_ChangeTiles_Boots[#$A9,$00] = $7CB2;
-dg_ChangeTiles_Boots[#$A9,$03] = $1E;
-dg_ChangeTiles_Boots[#$AA,$00] = $7CB3;
-dg_ChangeTiles_Boots[#$AA,$03] = $1E;
-dg_ChangeTiles_Boots[#$AB,$00] = $7DA1;
-dg_ChangeTiles_Boots[#$AB,$03] = $1E;
-dg_ChangeTiles_Boots[#$AC,$00] = $7DA2;
-dg_ChangeTiles_Boots[#$AC,$03] = $1E;
-dg_ChangeTiles_Boots[#$AD,$00] = $7DA3;
-dg_ChangeTiles_Boots[#$AD,$03] = $1E;
-dg_ChangeTiles_Boots[#$AE,$00] = $7DA4;
-dg_ChangeTiles_Boots[#$AE,$03] = $1E;
-dg_ChangeTiles_Boots[#$AF,$00] = $7DA5;
-dg_ChangeTiles_Boots[#$AF,$03] = $1E;
+dg_ChangeTiles_Boots[#$00A0,$00] = $7CA9;
+dg_ChangeTiles_Boots[#$00A0,$03] = $21;
+dg_ChangeTiles_Boots[#$00A1,$00] = $7CAA;
+dg_ChangeTiles_Boots[#$00A1,$03] = $21;
+dg_ChangeTiles_Boots[#$00A2,$00] = $7CAB;
+dg_ChangeTiles_Boots[#$00A2,$03] = $21;
+dg_ChangeTiles_Boots[#$00A3,$00] = $7CAC;
+dg_ChangeTiles_Boots[#$00A3,$03] = $21;
+dg_ChangeTiles_Boots[#$00A4,$00] = $7CAD;
+dg_ChangeTiles_Boots[#$00A4,$03] = $21;
+dg_ChangeTiles_Boots[#$00A5,$00] = $7CAE;
+dg_ChangeTiles_Boots[#$00A5,$03] = $21;
+dg_ChangeTiles_Boots[#$00A6,$00] = $7CAF;
+dg_ChangeTiles_Boots[#$00A6,$03] = $21;
+dg_ChangeTiles_Boots[#$00A7,$00] = $7CB0;
+dg_ChangeTiles_Boots[#$00A7,$03] = $21;
+dg_ChangeTiles_Boots[#$00A8,$00] = $7CB1;
+dg_ChangeTiles_Boots[#$00A8,$03] = $21;
+dg_ChangeTiles_Boots[#$00A9,$00] = $7CB2;
+dg_ChangeTiles_Boots[#$00A9,$03] = $21;
+dg_ChangeTiles_Boots[#$00AA,$00] = $7CB3;
+dg_ChangeTiles_Boots[#$00AA,$03] = $21;
+dg_ChangeTiles_Boots[#$00AB,$00] = $7DA1;
+dg_ChangeTiles_Boots[#$00AB,$03] = $21;
+dg_ChangeTiles_Boots[#$00AC,$00] = $7DA2;
+dg_ChangeTiles_Boots[#$00AC,$03] = $21;
+dg_ChangeTiles_Boots[#$00AD,$00] = $7DA3;
+dg_ChangeTiles_Boots[#$00AD,$03] = $21;
+dg_ChangeTiles_Boots[#$00AE,$00] = $7DA4;
+dg_ChangeTiles_Boots[#$00AE,$03] = $21;
+dg_ChangeTiles_Boots[#$00AF,$00] = $7DA5;
+dg_ChangeTiles_Boots[#$00AF,$03] = $21;
 
-dg_ChangeTiles_Boots[#$B0,$00] = $7DA6;
-dg_ChangeTiles_Boots[#$B0,$03] = $1E;
-dg_ChangeTiles_Boots[#$B1,$00] = $7DA7;
-dg_ChangeTiles_Boots[#$B1,$03] = $1E;
-dg_ChangeTiles_Boots[#$B2,$00] = $7DA8;
-dg_ChangeTiles_Boots[#$B2,$03] = $1E;
-dg_ChangeTiles_Boots[#$B3,$00] = $7DA9;
-dg_ChangeTiles_Boots[#$B3,$03] = $1E;
-dg_ChangeTiles_Boots[#$B4,$00] = $7DAA;
-dg_ChangeTiles_Boots[#$B4,$03] = $1E;
-dg_ChangeTiles_Boots[#$B5,$00] = $7DAB;
-dg_ChangeTiles_Boots[#$B5,$03] = $1E;
-dg_ChangeTiles_Boots[#$B6,$00] = $7DAC;
-dg_ChangeTiles_Boots[#$B6,$03] = $1E;
-dg_ChangeTiles_Boots[#$B7,$00] = $7DAD;
-dg_ChangeTiles_Boots[#$B7,$03] = $1E;
-dg_ChangeTiles_Boots[#$B8,$00] = $7DAE;
-dg_ChangeTiles_Boots[#$B8,$03] = $1E;
-dg_ChangeTiles_Boots[#$B9,$00] = $7E9F;
-dg_ChangeTiles_Boots[#$B9,$03] = $1E;
-dg_ChangeTiles_Boots[#$BA,$00] = $7EA0;
-dg_ChangeTiles_Boots[#$BA,$03] = $1E;
-dg_ChangeTiles_Boots[#$BB,$00] = $7EA1;
-dg_ChangeTiles_Boots[#$BB,$03] = $1E;
-dg_ChangeTiles_Boots[#$BC,$00] = $7EA2;
-dg_ChangeTiles_Boots[#$BC,$03] = $1E;
-dg_ChangeTiles_Boots[#$BD,$00] = $7EA3;
-dg_ChangeTiles_Boots[#$BD,$03] = $1E;
-dg_ChangeTiles_Boots[#$BE,$00] = $7EA4;
-dg_ChangeTiles_Boots[#$BE,$03] = $1E;
-dg_ChangeTiles_Boots[#$BF,$00] = $7EA5;
-dg_ChangeTiles_Boots[#$BF,$03] = $1E;
+dg_ChangeTiles_Boots[#$00B0,$00] = $7DA6;
+dg_ChangeTiles_Boots[#$00B0,$03] = $21;
+dg_ChangeTiles_Boots[#$00B1,$00] = $7DA7;
+dg_ChangeTiles_Boots[#$00B1,$03] = $21;
+dg_ChangeTiles_Boots[#$00B2,$00] = $7DA8;
+dg_ChangeTiles_Boots[#$00B2,$03] = $21;
+dg_ChangeTiles_Boots[#$00B3,$00] = $7DA9;
+dg_ChangeTiles_Boots[#$00B3,$03] = $21;
+dg_ChangeTiles_Boots[#$00B4,$00] = $7DAA;
+dg_ChangeTiles_Boots[#$00B4,$03] = $21;
+dg_ChangeTiles_Boots[#$00B5,$00] = $7DAB;
+dg_ChangeTiles_Boots[#$00B5,$03] = $21;
+dg_ChangeTiles_Boots[#$00B6,$00] = $7DAC;
+dg_ChangeTiles_Boots[#$00B6,$03] = $21;
+dg_ChangeTiles_Boots[#$00B7,$00] = $7DAD;
+dg_ChangeTiles_Boots[#$00B7,$03] = $21;
+dg_ChangeTiles_Boots[#$00B8,$00] = $7DAE;
+dg_ChangeTiles_Boots[#$00B8,$03] = $21;
+dg_ChangeTiles_Boots[#$00B9,$00] = $7E9F;
+dg_ChangeTiles_Boots[#$00B9,$03] = $21;
+dg_ChangeTiles_Boots[#$00BA,$00] = $7EA0;
+dg_ChangeTiles_Boots[#$00BA,$03] = $21;
+dg_ChangeTiles_Boots[#$00BB,$00] = $7EA1;
+dg_ChangeTiles_Boots[#$00BB,$03] = $21;
+dg_ChangeTiles_Boots[#$00BC,$00] = $7EA2;
+dg_ChangeTiles_Boots[#$00BC,$03] = $21;
+dg_ChangeTiles_Boots[#$00BD,$00] = $7EA3;
+dg_ChangeTiles_Boots[#$00BD,$03] = $21;
+dg_ChangeTiles_Boots[#$00BE,$00] = $7EA4;
+dg_ChangeTiles_Boots[#$00BE,$03] = $21;
+dg_ChangeTiles_Boots[#$00BF,$00] = $7EA5;
+dg_ChangeTiles_Boots[#$00BF,$03] = $21;
 
-dg_ChangeTiles_Boots[#$C0,$00] = $7EA6;
-dg_ChangeTiles_Boots[#$C0,$03] = $1E;
-dg_ChangeTiles_Boots[#$C1,$00] = $7EA7;
-dg_ChangeTiles_Boots[#$C1,$03] = $1E;
-dg_ChangeTiles_Boots[#$C2,$00] = $7EA8;
-dg_ChangeTiles_Boots[#$C2,$03] = $1E;
-dg_ChangeTiles_Boots[#$C3,$00] = $7EA9;
-dg_ChangeTiles_Boots[#$C3,$03] = $1E;
-dg_ChangeTiles_Boots[#$C4,$00] = $7EAA;
-dg_ChangeTiles_Boots[#$C4,$03] = $1E;
-dg_ChangeTiles_Boots[#$C5,$00] = $7EAB;
-dg_ChangeTiles_Boots[#$C5,$03] = $1E;
-dg_ChangeTiles_Boots[#$C6,$00] = $7F9E;
-dg_ChangeTiles_Boots[#$C6,$03] = $1E;
-dg_ChangeTiles_Boots[#$C7,$00] = $7F9F;
-dg_ChangeTiles_Boots[#$C7,$03] = $1E;
-dg_ChangeTiles_Boots[#$C8,$00] = $7FA0;
-dg_ChangeTiles_Boots[#$C8,$03] = $1E;
-dg_ChangeTiles_Boots[#$C9,$00] = $7FA1;
-dg_ChangeTiles_Boots[#$C9,$03] = $1E;
-dg_ChangeTiles_Boots[#$CA,$00] = $7FA2;
-dg_ChangeTiles_Boots[#$CA,$03] = $1E;
-dg_ChangeTiles_Boots[#$CB,$00] = $7FA3;
-dg_ChangeTiles_Boots[#$CB,$03] = $1E;
-dg_ChangeTiles_Boots[#$CC,$00] = $7FA4;
-dg_ChangeTiles_Boots[#$CC,$03] = $1E;
-dg_ChangeTiles_Boots[#$CD,$00] = $7FA5;
-dg_ChangeTiles_Boots[#$CD,$03] = $1E;
-dg_ChangeTiles_Boots[#$CE,$00] = $7FA6;
-dg_ChangeTiles_Boots[#$CE,$03] = $1E;
-dg_ChangeTiles_Boots[#$CF,$00] = $7FA7;
-dg_ChangeTiles_Boots[#$CF,$03] = $1E;
+dg_ChangeTiles_Boots[#$00C0,$00] = $7EA6;
+dg_ChangeTiles_Boots[#$00C0,$03] = $21;
+dg_ChangeTiles_Boots[#$00C1,$00] = $7EA7;
+dg_ChangeTiles_Boots[#$00C1,$03] = $21;
+dg_ChangeTiles_Boots[#$00C2,$00] = $7EA8;
+dg_ChangeTiles_Boots[#$00C2,$03] = $21;
+dg_ChangeTiles_Boots[#$00C3,$00] = $7EA9;
+dg_ChangeTiles_Boots[#$00C3,$03] = $21;
+dg_ChangeTiles_Boots[#$00C4,$00] = $7EAA;
+dg_ChangeTiles_Boots[#$00C4,$03] = $21;
+dg_ChangeTiles_Boots[#$00C5,$00] = $7EAB;
+dg_ChangeTiles_Boots[#$00C5,$03] = $21;
+dg_ChangeTiles_Boots[#$00C6,$00] = $7F9E;
+dg_ChangeTiles_Boots[#$00C6,$03] = $21;
+dg_ChangeTiles_Boots[#$00C7,$00] = $7F9F;
+dg_ChangeTiles_Boots[#$00C7,$03] = $21;
+dg_ChangeTiles_Boots[#$00C8,$00] = $7FA0;
+dg_ChangeTiles_Boots[#$00C8,$03] = $21;
+dg_ChangeTiles_Boots[#$00C9,$00] = $7FA1;
+dg_ChangeTiles_Boots[#$00C9,$03] = $21;
+dg_ChangeTiles_Boots[#$00CA,$00] = $7FA2;
+dg_ChangeTiles_Boots[#$00CA,$03] = $21;
+dg_ChangeTiles_Boots[#$00CB,$00] = $7FA3;
+dg_ChangeTiles_Boots[#$00CB,$03] = $21;
+dg_ChangeTiles_Boots[#$00CC,$00] = $7FA4;
+dg_ChangeTiles_Boots[#$00CC,$03] = $21;
+dg_ChangeTiles_Boots[#$00CD,$00] = $7FA5;
+dg_ChangeTiles_Boots[#$00CD,$03] = $21;
+dg_ChangeTiles_Boots[#$00CE,$00] = $7FA6;
+dg_ChangeTiles_Boots[#$00CE,$03] = $21;
+dg_ChangeTiles_Boots[#$00CF,$00] = $7FA7;
+dg_ChangeTiles_Boots[#$00CF,$03] = $21;
 
-dg_ChangeTiles_Boots[#$D0,$00] = $7FA8;
-dg_ChangeTiles_Boots[#$D0,$03] = $1E;
-dg_ChangeTiles_Boots[#$D1,$00] = $7FA9;
-dg_ChangeTiles_Boots[#$D1,$03] = $1E;
-dg_ChangeTiles_Boots[#$D2,$00] = $809C;
-dg_ChangeTiles_Boots[#$D2,$03] = $1E;
-dg_ChangeTiles_Boots[#$D3,$00] = $809D;
-dg_ChangeTiles_Boots[#$D3,$03] = $1E;
-dg_ChangeTiles_Boots[#$D4,$00] = $809E;
-dg_ChangeTiles_Boots[#$D4,$03] = $1E;
-dg_ChangeTiles_Boots[#$D5,$00] = $809F;
-dg_ChangeTiles_Boots[#$D5,$03] = $1E;
-dg_ChangeTiles_Boots[#$D6,$00] = $80A0;
-dg_ChangeTiles_Boots[#$D6,$03] = $1E;
-dg_ChangeTiles_Boots[#$D7,$00] = $80A1;
-dg_ChangeTiles_Boots[#$D7,$03] = $1E;
-dg_ChangeTiles_Boots[#$D8,$00] = $80A2;
-dg_ChangeTiles_Boots[#$D8,$03] = $1E;
-dg_ChangeTiles_Boots[#$D9,$00] = $80A3;
-dg_ChangeTiles_Boots[#$D9,$03] = $1E;
-dg_ChangeTiles_Boots[#$DA,$00] = $80A4;
-dg_ChangeTiles_Boots[#$DA,$03] = $1E;
-dg_ChangeTiles_Boots[#$DB,$00] = $80A5;
-dg_ChangeTiles_Boots[#$DB,$03] = $1E;
-dg_ChangeTiles_Boots[#$DC,$00] = $80A6;
-dg_ChangeTiles_Boots[#$DC,$03] = $1E;
-dg_ChangeTiles_Boots[#$DD,$00] = $80A7;
-dg_ChangeTiles_Boots[#$DD,$03] = $1E;
-dg_ChangeTiles_Boots[#$DE,$00] = $80A8;
-dg_ChangeTiles_Boots[#$DE,$03] = $1E;
-dg_ChangeTiles_Boots[#$DF,$00] = $80B5;
-dg_ChangeTiles_Boots[#$DF,$03] = $1E;
+dg_ChangeTiles_Boots[#$00D0,$00] = $7FA8;
+dg_ChangeTiles_Boots[#$00D0,$03] = $21;
+dg_ChangeTiles_Boots[#$00D1,$00] = $7FA9;
+dg_ChangeTiles_Boots[#$00D1,$03] = $21;
+dg_ChangeTiles_Boots[#$00D2,$00] = $809C;
+dg_ChangeTiles_Boots[#$00D2,$03] = $21;
+dg_ChangeTiles_Boots[#$00D3,$00] = $809D;
+dg_ChangeTiles_Boots[#$00D3,$03] = $21;
+dg_ChangeTiles_Boots[#$00D4,$00] = $809E;
+dg_ChangeTiles_Boots[#$00D4,$03] = $21;
+dg_ChangeTiles_Boots[#$00D5,$00] = $809F;
+dg_ChangeTiles_Boots[#$00D5,$03] = $21;
+dg_ChangeTiles_Boots[#$00D6,$00] = $80A0;
+dg_ChangeTiles_Boots[#$00D6,$03] = $21;
+dg_ChangeTiles_Boots[#$00D7,$00] = $80A1;
+dg_ChangeTiles_Boots[#$00D7,$03] = $21;
+dg_ChangeTiles_Boots[#$00D8,$00] = $80A2;
+dg_ChangeTiles_Boots[#$00D8,$03] = $21;
+dg_ChangeTiles_Boots[#$00D9,$00] = $80A3;
+dg_ChangeTiles_Boots[#$00D9,$03] = $21;
+dg_ChangeTiles_Boots[#$00DA,$00] = $80A4;
+dg_ChangeTiles_Boots[#$00DA,$03] = $21;
+dg_ChangeTiles_Boots[#$00DB,$00] = $80A5;
+dg_ChangeTiles_Boots[#$00DB,$03] = $21;
+dg_ChangeTiles_Boots[#$00DC,$00] = $80A6;
+dg_ChangeTiles_Boots[#$00DC,$03] = $21;
+dg_ChangeTiles_Boots[#$00DD,$00] = $80A7;
+dg_ChangeTiles_Boots[#$00DD,$03] = $21;
+dg_ChangeTiles_Boots[#$00DE,$00] = $80A8;
+dg_ChangeTiles_Boots[#$00DE,$03] = $21;
+dg_ChangeTiles_Boots[#$00DF,$00] = $80B5;
+dg_ChangeTiles_Boots[#$00DF,$03] = $21;
 
-dg_ChangeTiles_Boots[#$E0,$00] = $819A;
-dg_ChangeTiles_Boots[#$E0,$03] = $1E;
-dg_ChangeTiles_Boots[#$E1,$00] = $819B;
-dg_ChangeTiles_Boots[#$E1,$03] = $1E;
-dg_ChangeTiles_Boots[#$E2,$00] = $819C;
-dg_ChangeTiles_Boots[#$E2,$03] = $1E;
-dg_ChangeTiles_Boots[#$E3,$00] = $819D;
-dg_ChangeTiles_Boots[#$E3,$03] = $1E;
-dg_ChangeTiles_Boots[#$E4,$00] = $819E;
-dg_ChangeTiles_Boots[#$E4,$03] = $1E;
-dg_ChangeTiles_Boots[#$E5,$00] = $819F;
-dg_ChangeTiles_Boots[#$E5,$03] = $1E;
-dg_ChangeTiles_Boots[#$E6,$00] = $81A0;
-dg_ChangeTiles_Boots[#$E6,$03] = $1E;
-dg_ChangeTiles_Boots[#$E7,$00] = $81A1;
-dg_ChangeTiles_Boots[#$E7,$03] = $1E;
-dg_ChangeTiles_Boots[#$E8,$00] = $81A2;
-dg_ChangeTiles_Boots[#$E8,$03] = $1E;
-dg_ChangeTiles_Boots[#$E9,$00] = $81A3;
-dg_ChangeTiles_Boots[#$E9,$03] = $1E;
-dg_ChangeTiles_Boots[#$EA,$00] = $81A4;
-dg_ChangeTiles_Boots[#$EA,$03] = $1E;
-dg_ChangeTiles_Boots[#$EB,$00] = $81A5;
-dg_ChangeTiles_Boots[#$EB,$03] = $1E;
-dg_ChangeTiles_Boots[#$EC,$00] = $81A6;
-dg_ChangeTiles_Boots[#$EC,$03] = $1E;
-dg_ChangeTiles_Boots[#$ED,$00] = $81A7;
-dg_ChangeTiles_Boots[#$ED,$03] = $1E;
-dg_ChangeTiles_Boots[#$EE,$00] = $81A8;
-dg_ChangeTiles_Boots[#$EE,$03] = $1E;
-dg_ChangeTiles_Boots[#$EF,$00] = $81B6;
-dg_ChangeTiles_Boots[#$EF,$03] = $1E;
+dg_ChangeTiles_Boots[#$00E0,$00] = $819A;
+dg_ChangeTiles_Boots[#$00E0,$03] = $21;
+dg_ChangeTiles_Boots[#$00E1,$00] = $819B;
+dg_ChangeTiles_Boots[#$00E1,$03] = $21;
+dg_ChangeTiles_Boots[#$00E2,$00] = $819C;
+dg_ChangeTiles_Boots[#$00E2,$03] = $21;
+dg_ChangeTiles_Boots[#$00E3,$00] = $819D;
+dg_ChangeTiles_Boots[#$00E3,$03] = $21;
+dg_ChangeTiles_Boots[#$00E4,$00] = $819E;
+dg_ChangeTiles_Boots[#$00E4,$03] = $21;
+dg_ChangeTiles_Boots[#$00E5,$00] = $819F;
+dg_ChangeTiles_Boots[#$00E5,$03] = $21;
+dg_ChangeTiles_Boots[#$00E6,$00] = $81A0;
+dg_ChangeTiles_Boots[#$00E6,$03] = $21;
+dg_ChangeTiles_Boots[#$00E7,$00] = $81A1;
+dg_ChangeTiles_Boots[#$00E7,$03] = $21;
+dg_ChangeTiles_Boots[#$00E8,$00] = $81A2;
+dg_ChangeTiles_Boots[#$00E8,$03] = $21;
+dg_ChangeTiles_Boots[#$00E9,$00] = $81A3;
+dg_ChangeTiles_Boots[#$00E9,$03] = $21;
+dg_ChangeTiles_Boots[#$00EA,$00] = $81A4;
+dg_ChangeTiles_Boots[#$00EA,$03] = $21;
+dg_ChangeTiles_Boots[#$00EB,$00] = $81A5;
+dg_ChangeTiles_Boots[#$00EB,$03] = $21;
+dg_ChangeTiles_Boots[#$00EC,$00] = $81A6;
+dg_ChangeTiles_Boots[#$00EC,$03] = $21;
+dg_ChangeTiles_Boots[#$00ED,$00] = $81A7;
+dg_ChangeTiles_Boots[#$00ED,$03] = $21;
+dg_ChangeTiles_Boots[#$00EE,$00] = $81A8;
+dg_ChangeTiles_Boots[#$00EE,$03] = $21;
+dg_ChangeTiles_Boots[#$00EF,$00] = $81B6;
+dg_ChangeTiles_Boots[#$00EF,$03] = $21;
 
-dg_ChangeTiles_Boots[#$F0,$00] = $8299;
-dg_ChangeTiles_Boots[#$F0,$03] = $1E;
-dg_ChangeTiles_Boots[#$F1,$00] = $829A;
-dg_ChangeTiles_Boots[#$F1,$03] = $1E;
-dg_ChangeTiles_Boots[#$F2,$00] = $829B;
-dg_ChangeTiles_Boots[#$F2,$03] = $1E;
-dg_ChangeTiles_Boots[#$F3,$00] = $829C;
-dg_ChangeTiles_Boots[#$F3,$03] = $1E;
-dg_ChangeTiles_Boots[#$F4,$00] = $829D;
-dg_ChangeTiles_Boots[#$F4,$03] = $1E;
-dg_ChangeTiles_Boots[#$F5,$00] = $829E;
-dg_ChangeTiles_Boots[#$F5,$03] = $1E;
-dg_ChangeTiles_Boots[#$F6,$00] = $829F;
-dg_ChangeTiles_Boots[#$F6,$03] = $1E;
-dg_ChangeTiles_Boots[#$F7,$00] = $82A0;
-dg_ChangeTiles_Boots[#$F7,$03] = $1E;
-dg_ChangeTiles_Boots[#$F8,$00] = $82A1;
-dg_ChangeTiles_Boots[#$F8,$03] = $1E;
-dg_ChangeTiles_Boots[#$F9,$00] = $82A2;
-dg_ChangeTiles_Boots[#$F9,$03] = $1E;
-dg_ChangeTiles_Boots[#$FA,$00] = $82A3;
-dg_ChangeTiles_Boots[#$FA,$03] = $1E;
-dg_ChangeTiles_Boots[#$FB,$00] = $82A4;
-dg_ChangeTiles_Boots[#$FB,$03] = $1E;
-dg_ChangeTiles_Boots[#$FC,$00] = $82A5;
-dg_ChangeTiles_Boots[#$FC,$03] = $1E;
-dg_ChangeTiles_Boots[#$FD,$00] = $82A6;
-dg_ChangeTiles_Boots[#$FD,$03] = $1E;
-dg_ChangeTiles_Boots[#$FE,$00] = $82A7;
-dg_ChangeTiles_Boots[#$FE,$03] = $1E;
-dg_ChangeTiles_Boots[#$FF,$00] = $82B6;
-dg_ChangeTiles_Boots[#$FF,$03] = $1E;
+dg_ChangeTiles_Boots[#$00F0,$00] = $8299;
+dg_ChangeTiles_Boots[#$00F0,$03] = $21;
+dg_ChangeTiles_Boots[#$00F1,$00] = $829A;
+dg_ChangeTiles_Boots[#$00F1,$03] = $21;
+dg_ChangeTiles_Boots[#$00F2,$00] = $829B;
+dg_ChangeTiles_Boots[#$00F2,$03] = $21;
+dg_ChangeTiles_Boots[#$00F3,$00] = $829C;
+dg_ChangeTiles_Boots[#$00F3,$03] = $21;
+dg_ChangeTiles_Boots[#$00F4,$00] = $829D;
+dg_ChangeTiles_Boots[#$00F4,$03] = $21;
+dg_ChangeTiles_Boots[#$00F5,$00] = $829E;
+dg_ChangeTiles_Boots[#$00F5,$03] = $21;
+dg_ChangeTiles_Boots[#$00F6,$00] = $829F;
+dg_ChangeTiles_Boots[#$00F6,$03] = $21;
+dg_ChangeTiles_Boots[#$00F7,$00] = $82A0;
+dg_ChangeTiles_Boots[#$00F7,$03] = $21;
+dg_ChangeTiles_Boots[#$00F8,$00] = $82A1;
+dg_ChangeTiles_Boots[#$00F8,$03] = $21;
+dg_ChangeTiles_Boots[#$00F9,$00] = $82A2;
+dg_ChangeTiles_Boots[#$00F9,$03] = $21;
+dg_ChangeTiles_Boots[#$00FA,$00] = $82A3;
+dg_ChangeTiles_Boots[#$00FA,$03] = $21;
+dg_ChangeTiles_Boots[#$00FB,$00] = $82A4;
+dg_ChangeTiles_Boots[#$00FB,$03] = $21;
+dg_ChangeTiles_Boots[#$00FC,$00] = $82A5;
+dg_ChangeTiles_Boots[#$00FC,$03] = $21;
+dg_ChangeTiles_Boots[#$00FD,$00] = $82A6;
+dg_ChangeTiles_Boots[#$00FD,$03] = $21;
+dg_ChangeTiles_Boots[#$00FE,$00] = $82A7;
+dg_ChangeTiles_Boots[#$00FE,$03] = $21;
+dg_ChangeTiles_Boots[#$00FF,$00] = $82B6;
+dg_ChangeTiles_Boots[#$00FF,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0100,$00] = $8398;
-dg_ChangeTiles_Boots[#$0100,$03] = $1E;
+dg_ChangeTiles_Boots[#$0100,$03] = $21;
 dg_ChangeTiles_Boots[#$0101,$00] = $8399;
-dg_ChangeTiles_Boots[#$0101,$03] = $1E;
+dg_ChangeTiles_Boots[#$0101,$03] = $21;
 dg_ChangeTiles_Boots[#$0102,$00] = $839A;
-dg_ChangeTiles_Boots[#$0102,$03] = $1E;
+dg_ChangeTiles_Boots[#$0102,$03] = $21;
 dg_ChangeTiles_Boots[#$0103,$00] = $839B;
-dg_ChangeTiles_Boots[#$0103,$03] = $1E;
+dg_ChangeTiles_Boots[#$0103,$03] = $21;
 dg_ChangeTiles_Boots[#$0104,$00] = $839D;
-dg_ChangeTiles_Boots[#$0104,$03] = $1E;
+dg_ChangeTiles_Boots[#$0104,$03] = $21;
 dg_ChangeTiles_Boots[#$0105,$00] = $839E;
-dg_ChangeTiles_Boots[#$0105,$03] = $1E;
+dg_ChangeTiles_Boots[#$0105,$03] = $21;
 dg_ChangeTiles_Boots[#$0106,$00] = $839F;
-dg_ChangeTiles_Boots[#$0106,$03] = $1E;
+dg_ChangeTiles_Boots[#$0106,$03] = $21;
 dg_ChangeTiles_Boots[#$0107,$00] = $83A0;
-dg_ChangeTiles_Boots[#$0107,$03] = $1E;
+dg_ChangeTiles_Boots[#$0107,$03] = $21;
 dg_ChangeTiles_Boots[#$0108,$00] = $83A1;
-dg_ChangeTiles_Boots[#$0108,$03] = $1E;
+dg_ChangeTiles_Boots[#$0108,$03] = $21;
 dg_ChangeTiles_Boots[#$0109,$00] = $83A2;
-dg_ChangeTiles_Boots[#$0109,$03] = $1E;
+dg_ChangeTiles_Boots[#$0109,$03] = $21;
 dg_ChangeTiles_Boots[#$010A,$00] = $83A3;
-dg_ChangeTiles_Boots[#$010A,$03] = $1E;
+dg_ChangeTiles_Boots[#$010A,$03] = $21;
 dg_ChangeTiles_Boots[#$010B,$00] = $83A4;
-dg_ChangeTiles_Boots[#$010B,$03] = $1E;
+dg_ChangeTiles_Boots[#$010B,$03] = $21;
 dg_ChangeTiles_Boots[#$010C,$00] = $83A5;
-dg_ChangeTiles_Boots[#$010C,$03] = $1E;
+dg_ChangeTiles_Boots[#$010C,$03] = $21;
 dg_ChangeTiles_Boots[#$010D,$00] = $83A6;
-dg_ChangeTiles_Boots[#$010D,$03] = $1E;
+dg_ChangeTiles_Boots[#$010D,$03] = $21;
 dg_ChangeTiles_Boots[#$010E,$00] = $83B5;
-dg_ChangeTiles_Boots[#$010E,$03] = $1E;
+dg_ChangeTiles_Boots[#$010E,$03] = $21;
 dg_ChangeTiles_Boots[#$010F,$00] = $83B6;
-dg_ChangeTiles_Boots[#$010F,$03] = $1E;
+dg_ChangeTiles_Boots[#$010F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0110,$00] = $8498;
-dg_ChangeTiles_Boots[#$0110,$03] = $1E;
+dg_ChangeTiles_Boots[#$0110,$03] = $21;
 dg_ChangeTiles_Boots[#$0111,$00] = $8499;
-dg_ChangeTiles_Boots[#$0111,$03] = $1E;
+dg_ChangeTiles_Boots[#$0111,$03] = $21;
 dg_ChangeTiles_Boots[#$0112,$00] = $849A;
-dg_ChangeTiles_Boots[#$0112,$03] = $1E;
+dg_ChangeTiles_Boots[#$0112,$03] = $21;
 dg_ChangeTiles_Boots[#$0113,$00] = $849B;
-dg_ChangeTiles_Boots[#$0113,$03] = $1E;
+dg_ChangeTiles_Boots[#$0113,$03] = $21;
 dg_ChangeTiles_Boots[#$0114,$00] = $849C;
-dg_ChangeTiles_Boots[#$0114,$03] = $1E;
+dg_ChangeTiles_Boots[#$0114,$03] = $21;
 dg_ChangeTiles_Boots[#$0115,$00] = $849D;
-dg_ChangeTiles_Boots[#$0115,$03] = $1E;
+dg_ChangeTiles_Boots[#$0115,$03] = $21;
 dg_ChangeTiles_Boots[#$0116,$00] = $849E;
-dg_ChangeTiles_Boots[#$0116,$03] = $1E;
+dg_ChangeTiles_Boots[#$0116,$03] = $21;
 dg_ChangeTiles_Boots[#$0117,$00] = $849F;
-dg_ChangeTiles_Boots[#$0117,$03] = $1E;
+dg_ChangeTiles_Boots[#$0117,$03] = $21;
 dg_ChangeTiles_Boots[#$0118,$00] = $84A0;
-dg_ChangeTiles_Boots[#$0118,$03] = $1E;
+dg_ChangeTiles_Boots[#$0118,$03] = $21;
 dg_ChangeTiles_Boots[#$0119,$00] = $84A1;
-dg_ChangeTiles_Boots[#$0119,$03] = $1E;
+dg_ChangeTiles_Boots[#$0119,$03] = $21;
 dg_ChangeTiles_Boots[#$011A,$00] = $84A2;
-dg_ChangeTiles_Boots[#$011A,$03] = $1E;
+dg_ChangeTiles_Boots[#$011A,$03] = $21;
 dg_ChangeTiles_Boots[#$011B,$00] = $84A3;
-dg_ChangeTiles_Boots[#$011B,$03] = $1E;
+dg_ChangeTiles_Boots[#$011B,$03] = $21;
 dg_ChangeTiles_Boots[#$011C,$00] = $84A4;
-dg_ChangeTiles_Boots[#$011C,$03] = $1E;
+dg_ChangeTiles_Boots[#$011C,$03] = $21;
 dg_ChangeTiles_Boots[#$011D,$00] = $84A5;
-dg_ChangeTiles_Boots[#$011D,$03] = $1E;
+dg_ChangeTiles_Boots[#$011D,$03] = $21;
 dg_ChangeTiles_Boots[#$011E,$00] = $84B4;
-dg_ChangeTiles_Boots[#$011E,$03] = $1E;
+dg_ChangeTiles_Boots[#$011E,$03] = $21;
 dg_ChangeTiles_Boots[#$011F,$00] = $84B5;
-dg_ChangeTiles_Boots[#$011F,$03] = $1E;
+dg_ChangeTiles_Boots[#$011F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0120,$00] = $84B6;
-dg_ChangeTiles_Boots[#$0120,$03] = $1E;
+dg_ChangeTiles_Boots[#$0120,$03] = $21;
 dg_ChangeTiles_Boots[#$0121,$00] = $8599;
-dg_ChangeTiles_Boots[#$0121,$03] = $1E;
+dg_ChangeTiles_Boots[#$0121,$03] = $21;
 dg_ChangeTiles_Boots[#$0122,$00] = $859A;
-dg_ChangeTiles_Boots[#$0122,$03] = $1E;
+dg_ChangeTiles_Boots[#$0122,$03] = $21;
 dg_ChangeTiles_Boots[#$0123,$00] = $859B;
-dg_ChangeTiles_Boots[#$0123,$03] = $1E;
+dg_ChangeTiles_Boots[#$0123,$03] = $21;
 dg_ChangeTiles_Boots[#$0124,$00] = $859C;
-dg_ChangeTiles_Boots[#$0124,$03] = $1E;
+dg_ChangeTiles_Boots[#$0124,$03] = $21;
 dg_ChangeTiles_Boots[#$0125,$00] = $859D;
-dg_ChangeTiles_Boots[#$0125,$03] = $1E;
+dg_ChangeTiles_Boots[#$0125,$03] = $21;
 dg_ChangeTiles_Boots[#$0126,$00] = $859E;
-dg_ChangeTiles_Boots[#$0126,$03] = $1E;
+dg_ChangeTiles_Boots[#$0126,$03] = $21;
 dg_ChangeTiles_Boots[#$0127,$00] = $859F;
-dg_ChangeTiles_Boots[#$0127,$03] = $1E;
+dg_ChangeTiles_Boots[#$0127,$03] = $21;
 dg_ChangeTiles_Boots[#$0128,$00] = $85A0;
-dg_ChangeTiles_Boots[#$0128,$03] = $1E;
+dg_ChangeTiles_Boots[#$0128,$03] = $21;
 dg_ChangeTiles_Boots[#$0129,$00] = $85A1;
-dg_ChangeTiles_Boots[#$0129,$03] = $1E;
+dg_ChangeTiles_Boots[#$0129,$03] = $21;
 dg_ChangeTiles_Boots[#$012A,$00] = $85A2;
-dg_ChangeTiles_Boots[#$012A,$03] = $1E;
+dg_ChangeTiles_Boots[#$012A,$03] = $21;
 dg_ChangeTiles_Boots[#$012B,$00] = $85A3;
-dg_ChangeTiles_Boots[#$012B,$03] = $1E;
+dg_ChangeTiles_Boots[#$012B,$03] = $21;
 dg_ChangeTiles_Boots[#$012C,$00] = $85A4;
-dg_ChangeTiles_Boots[#$012C,$03] = $1E;
+dg_ChangeTiles_Boots[#$012C,$03] = $21;
 dg_ChangeTiles_Boots[#$012D,$00] = $85B4;
-dg_ChangeTiles_Boots[#$012D,$03] = $1E;
+dg_ChangeTiles_Boots[#$012D,$03] = $21;
 dg_ChangeTiles_Boots[#$012E,$00] = $869A;
-dg_ChangeTiles_Boots[#$012E,$03] = $1E;
+dg_ChangeTiles_Boots[#$012E,$03] = $21;
 dg_ChangeTiles_Boots[#$012F,$00] = $869B;
-dg_ChangeTiles_Boots[#$012F,$03] = $1E;
+dg_ChangeTiles_Boots[#$012F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0130,$00] = $869C;
-dg_ChangeTiles_Boots[#$0130,$03] = $1E;
+dg_ChangeTiles_Boots[#$0130,$03] = $21;
 dg_ChangeTiles_Boots[#$0131,$00] = $869D;
-dg_ChangeTiles_Boots[#$0131,$03] = $1E;
+dg_ChangeTiles_Boots[#$0131,$03] = $21;
 dg_ChangeTiles_Boots[#$0132,$00] = $869E;
-dg_ChangeTiles_Boots[#$0132,$03] = $1E;
+dg_ChangeTiles_Boots[#$0132,$03] = $21;
 dg_ChangeTiles_Boots[#$0133,$00] = $869F;
-dg_ChangeTiles_Boots[#$0133,$03] = $1E;
+dg_ChangeTiles_Boots[#$0133,$03] = $21;
 dg_ChangeTiles_Boots[#$0134,$00] = $86A0;
-dg_ChangeTiles_Boots[#$0134,$03] = $1E;
+dg_ChangeTiles_Boots[#$0134,$03] = $21;
 dg_ChangeTiles_Boots[#$0135,$00] = $86A1;
-dg_ChangeTiles_Boots[#$0135,$03] = $1E;
+dg_ChangeTiles_Boots[#$0135,$03] = $21;
 dg_ChangeTiles_Boots[#$0136,$00] = $86A2;
-dg_ChangeTiles_Boots[#$0136,$03] = $1E;
+dg_ChangeTiles_Boots[#$0136,$03] = $21;
 dg_ChangeTiles_Boots[#$0137,$00] = $86A3;
-dg_ChangeTiles_Boots[#$0137,$03] = $1E;
+dg_ChangeTiles_Boots[#$0137,$03] = $21;
 dg_ChangeTiles_Boots[#$0138,$00] = $86A4;
-dg_ChangeTiles_Boots[#$0138,$03] = $1E;
+dg_ChangeTiles_Boots[#$0138,$03] = $21;
 dg_ChangeTiles_Boots[#$0139,$00] = $86B3;
-dg_ChangeTiles_Boots[#$0139,$03] = $1E;
+dg_ChangeTiles_Boots[#$0139,$03] = $21;
 dg_ChangeTiles_Boots[#$013A,$00] = $879B;
-dg_ChangeTiles_Boots[#$013A,$03] = $1E;
+dg_ChangeTiles_Boots[#$013A,$03] = $21;
 dg_ChangeTiles_Boots[#$013B,$00] = $879C;
-dg_ChangeTiles_Boots[#$013B,$03] = $1E;
+dg_ChangeTiles_Boots[#$013B,$03] = $21;
 dg_ChangeTiles_Boots[#$013C,$00] = $879D;
-dg_ChangeTiles_Boots[#$013C,$03] = $1E;
+dg_ChangeTiles_Boots[#$013C,$03] = $21;
 dg_ChangeTiles_Boots[#$013D,$00] = $879E;
-dg_ChangeTiles_Boots[#$013D,$03] = $1E;
+dg_ChangeTiles_Boots[#$013D,$03] = $21;
 dg_ChangeTiles_Boots[#$013E,$00] = $879F;
-dg_ChangeTiles_Boots[#$013E,$03] = $1E;
+dg_ChangeTiles_Boots[#$013E,$03] = $21;
 dg_ChangeTiles_Boots[#$013F,$00] = $87A0;
-dg_ChangeTiles_Boots[#$013F,$03] = $1E;
+dg_ChangeTiles_Boots[#$013F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0140,$00] = $87A1;
-dg_ChangeTiles_Boots[#$0140,$03] = $1E;
+dg_ChangeTiles_Boots[#$0140,$03] = $21;
 dg_ChangeTiles_Boots[#$0141,$00] = $87A2;
-dg_ChangeTiles_Boots[#$0141,$03] = $1E;
+dg_ChangeTiles_Boots[#$0141,$03] = $21;
 dg_ChangeTiles_Boots[#$0142,$00] = $87A3;
-dg_ChangeTiles_Boots[#$0142,$03] = $1E;
+dg_ChangeTiles_Boots[#$0142,$03] = $21;
 dg_ChangeTiles_Boots[#$0143,$00] = $889C;
-dg_ChangeTiles_Boots[#$0143,$03] = $1E;
+dg_ChangeTiles_Boots[#$0143,$03] = $21;
 dg_ChangeTiles_Boots[#$0144,$00] = $889D;
-dg_ChangeTiles_Boots[#$0144,$03] = $1E;
+dg_ChangeTiles_Boots[#$0144,$03] = $21;
 dg_ChangeTiles_Boots[#$0145,$00] = $889E;
-dg_ChangeTiles_Boots[#$0145,$03] = $1E;
+dg_ChangeTiles_Boots[#$0145,$03] = $21;
 dg_ChangeTiles_Boots[#$0146,$00] = $889F;
-dg_ChangeTiles_Boots[#$0146,$03] = $1E;
+dg_ChangeTiles_Boots[#$0146,$03] = $21;
 dg_ChangeTiles_Boots[#$0147,$00] = $88A0;
-dg_ChangeTiles_Boots[#$0147,$03] = $1E;
+dg_ChangeTiles_Boots[#$0147,$03] = $21;
 dg_ChangeTiles_Boots[#$0148,$00] = $88A1;
-dg_ChangeTiles_Boots[#$0148,$03] = $1E;
+dg_ChangeTiles_Boots[#$0148,$03] = $21;
 dg_ChangeTiles_Boots[#$0149,$00] = $88A2;
-dg_ChangeTiles_Boots[#$0149,$03] = $1E;
+dg_ChangeTiles_Boots[#$0149,$03] = $21;
 dg_ChangeTiles_Boots[#$014A,$00] = $8994;
-dg_ChangeTiles_Boots[#$014A,$03] = $1E;
+dg_ChangeTiles_Boots[#$014A,$03] = $21;
 dg_ChangeTiles_Boots[#$014B,$00] = $8995;
-dg_ChangeTiles_Boots[#$014B,$03] = $1E;
+dg_ChangeTiles_Boots[#$014B,$03] = $21;
 dg_ChangeTiles_Boots[#$014C,$00] = $8996;
-dg_ChangeTiles_Boots[#$014C,$03] = $1E;
+dg_ChangeTiles_Boots[#$014C,$03] = $21;
 dg_ChangeTiles_Boots[#$014D,$00] = $899D;
-dg_ChangeTiles_Boots[#$014D,$03] = $1E;
+dg_ChangeTiles_Boots[#$014D,$03] = $21;
 dg_ChangeTiles_Boots[#$014E,$00] = $899E;
-dg_ChangeTiles_Boots[#$014E,$03] = $1E;
+dg_ChangeTiles_Boots[#$014E,$03] = $21;
 dg_ChangeTiles_Boots[#$014F,$00] = $899F;
-dg_ChangeTiles_Boots[#$014F,$03] = $1E;
+dg_ChangeTiles_Boots[#$014F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0150,$00] = $89A0;
-dg_ChangeTiles_Boots[#$0150,$03] = $1E;
+dg_ChangeTiles_Boots[#$0150,$03] = $21;
 dg_ChangeTiles_Boots[#$0151,$00] = $89A1;
-dg_ChangeTiles_Boots[#$0151,$03] = $1E;
+dg_ChangeTiles_Boots[#$0151,$03] = $21;
 dg_ChangeTiles_Boots[#$0152,$00] = $8A92;
-dg_ChangeTiles_Boots[#$0152,$03] = $1E;
+dg_ChangeTiles_Boots[#$0152,$03] = $21;
 dg_ChangeTiles_Boots[#$0153,$00] = $8A93;
-dg_ChangeTiles_Boots[#$0153,$03] = $1E;
+dg_ChangeTiles_Boots[#$0153,$03] = $21;
 dg_ChangeTiles_Boots[#$0154,$00] = $8A94;
-dg_ChangeTiles_Boots[#$0154,$03] = $1E;
+dg_ChangeTiles_Boots[#$0154,$03] = $21;
 dg_ChangeTiles_Boots[#$0155,$00] = $8A9F;
-dg_ChangeTiles_Boots[#$0155,$03] = $1E;
+dg_ChangeTiles_Boots[#$0155,$03] = $21;
 dg_ChangeTiles_Boots[#$0156,$00] = $8AA0;
-dg_ChangeTiles_Boots[#$0156,$03] = $1E;
+dg_ChangeTiles_Boots[#$0156,$03] = $21;
 dg_ChangeTiles_Boots[#$0157,$00] = $8B93;
-dg_ChangeTiles_Boots[#$0157,$03] = $1E;
+dg_ChangeTiles_Boots[#$0157,$03] = $21;
 dg_ChangeTiles_Boots[#$0158,$00] = $8B94;
-dg_ChangeTiles_Boots[#$0158,$03] = $1E;
+dg_ChangeTiles_Boots[#$0158,$03] = $21;
 dg_ChangeTiles_Boots[#$0159,$00] = $8B95;
-dg_ChangeTiles_Boots[#$0159,$03] = $1E;
+dg_ChangeTiles_Boots[#$0159,$03] = $21;
 dg_ChangeTiles_Boots[#$015A,$00] = $8C94;
-dg_ChangeTiles_Boots[#$015A,$03] = $1E;
+dg_ChangeTiles_Boots[#$015A,$03] = $21;
 dg_ChangeTiles_Boots[#$015B,$00] = $8D94;
-dg_ChangeTiles_Boots[#$015B,$03] = $1E;
+dg_ChangeTiles_Boots[#$015B,$03] = $21;
 dg_ChangeTiles_Boots[#$015C,$00] = $8E94;
-dg_ChangeTiles_Boots[#$015C,$03] = $1E;
+dg_ChangeTiles_Boots[#$015C,$03] = $21;
 dg_ChangeTiles_Boots[#$015D,$00] = $8E95;
-dg_ChangeTiles_Boots[#$015D,$03] = $1E;
+dg_ChangeTiles_Boots[#$015D,$03] = $21;
 dg_ChangeTiles_Boots[#$015E,$00] = $8F95;
-dg_ChangeTiles_Boots[#$015E,$03] = $1E;
+dg_ChangeTiles_Boots[#$015E,$03] = $21;
 dg_ChangeTiles_Boots[#$015F,$00] = $93A9;
-dg_ChangeTiles_Boots[#$015F,$03] = $1E;
+dg_ChangeTiles_Boots[#$015F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0160,$00] = $93AA;
-dg_ChangeTiles_Boots[#$0160,$03] = $1E;
+dg_ChangeTiles_Boots[#$0160,$03] = $21;
 dg_ChangeTiles_Boots[#$0161,$00] = $93AB;
-dg_ChangeTiles_Boots[#$0161,$03] = $1E;
+dg_ChangeTiles_Boots[#$0161,$03] = $21;
 dg_ChangeTiles_Boots[#$0162,$00] = $94AB;
-dg_ChangeTiles_Boots[#$0162,$03] = $1E;
+dg_ChangeTiles_Boots[#$0162,$03] = $21;
 dg_ChangeTiles_Boots[#$0163,$00] = $95A8;
-dg_ChangeTiles_Boots[#$0163,$03] = $1E;
+dg_ChangeTiles_Boots[#$0163,$03] = $21;
 dg_ChangeTiles_Boots[#$0164,$00] = $95AB;
-dg_ChangeTiles_Boots[#$0164,$03] = $1E;
+dg_ChangeTiles_Boots[#$0164,$03] = $21;
 dg_ChangeTiles_Boots[#$0165,$00] = $95AC;
-dg_ChangeTiles_Boots[#$0165,$03] = $1E;
+dg_ChangeTiles_Boots[#$0165,$03] = $21;
 dg_ChangeTiles_Boots[#$0166,$00] = $95AD;
-dg_ChangeTiles_Boots[#$0166,$03] = $1E;
+dg_ChangeTiles_Boots[#$0166,$03] = $21;
 dg_ChangeTiles_Boots[#$0167,$00] = $9652;
-dg_ChangeTiles_Boots[#$0167,$03] = $1E;
+dg_ChangeTiles_Boots[#$0167,$03] = $21;
 dg_ChangeTiles_Boots[#$0168,$00] = $96A7;
-dg_ChangeTiles_Boots[#$0168,$03] = $1E;
+dg_ChangeTiles_Boots[#$0168,$03] = $21;
 dg_ChangeTiles_Boots[#$0169,$00] = $96A8;
-dg_ChangeTiles_Boots[#$0169,$03] = $1E;
+dg_ChangeTiles_Boots[#$0169,$03] = $21;
 dg_ChangeTiles_Boots[#$016A,$00] = $96A9;
-dg_ChangeTiles_Boots[#$016A,$03] = $1E;
+dg_ChangeTiles_Boots[#$016A,$03] = $21;
 dg_ChangeTiles_Boots[#$016B,$00] = $96AA;
-dg_ChangeTiles_Boots[#$016B,$03] = $1E;
+dg_ChangeTiles_Boots[#$016B,$03] = $21;
 dg_ChangeTiles_Boots[#$016C,$00] = $96AC;
-dg_ChangeTiles_Boots[#$016C,$03] = $1E;
+dg_ChangeTiles_Boots[#$016C,$03] = $21;
 dg_ChangeTiles_Boots[#$016D,$00] = $9751;
-dg_ChangeTiles_Boots[#$016D,$03] = $1E;
+dg_ChangeTiles_Boots[#$016D,$03] = $21;
 dg_ChangeTiles_Boots[#$016E,$00] = $97A8;
-dg_ChangeTiles_Boots[#$016E,$03] = $1E;
+dg_ChangeTiles_Boots[#$016E,$03] = $21;
 dg_ChangeTiles_Boots[#$016F,$00] = $97AA;
-dg_ChangeTiles_Boots[#$016F,$03] = $1E;
+dg_ChangeTiles_Boots[#$016F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0170,$00] = $97AB;
-dg_ChangeTiles_Boots[#$0170,$03] = $1E;
+dg_ChangeTiles_Boots[#$0170,$03] = $21;
 dg_ChangeTiles_Boots[#$0171,$00] = $97AC;
-dg_ChangeTiles_Boots[#$0171,$03] = $1E;
+dg_ChangeTiles_Boots[#$0171,$03] = $21;
 dg_ChangeTiles_Boots[#$0172,$00] = $97AD;
-dg_ChangeTiles_Boots[#$0172,$03] = $1E;
+dg_ChangeTiles_Boots[#$0172,$03] = $21;
 dg_ChangeTiles_Boots[#$0173,$00] = $9851;
-dg_ChangeTiles_Boots[#$0173,$03] = $1E;
+dg_ChangeTiles_Boots[#$0173,$03] = $21;
 dg_ChangeTiles_Boots[#$0174,$00] = $98AB;
-dg_ChangeTiles_Boots[#$0174,$03] = $1E;
+dg_ChangeTiles_Boots[#$0174,$03] = $21;
 dg_ChangeTiles_Boots[#$0175,$00] = $9951;
-dg_ChangeTiles_Boots[#$0175,$03] = $1E;
+dg_ChangeTiles_Boots[#$0175,$03] = $21;
 dg_ChangeTiles_Boots[#$0176,$00] = $9A50;
-dg_ChangeTiles_Boots[#$0176,$03] = $1E;
+dg_ChangeTiles_Boots[#$0176,$03] = $21;
 dg_ChangeTiles_Boots[#$0177,$00] = $9A51;
-dg_ChangeTiles_Boots[#$0177,$03] = $1E;
+dg_ChangeTiles_Boots[#$0177,$03] = $21;
 dg_ChangeTiles_Boots[#$0178,$00] = $9B50;
-dg_ChangeTiles_Boots[#$0178,$03] = $1E;
+dg_ChangeTiles_Boots[#$0178,$03] = $21;
 dg_ChangeTiles_Boots[#$0179,$00] = $A34D;
-dg_ChangeTiles_Boots[#$0179,$03] = $1E;
+dg_ChangeTiles_Boots[#$0179,$03] = $21;
 dg_ChangeTiles_Boots[#$017A,$00] = $A34E;
-dg_ChangeTiles_Boots[#$017A,$03] = $1E;
+dg_ChangeTiles_Boots[#$017A,$03] = $21;
 dg_ChangeTiles_Boots[#$017B,$00] = $A34F;
-dg_ChangeTiles_Boots[#$017B,$03] = $1E;
+dg_ChangeTiles_Boots[#$017B,$03] = $21;
 dg_ChangeTiles_Boots[#$017C,$00] = $A449;
-dg_ChangeTiles_Boots[#$017C,$03] = $1E;
+dg_ChangeTiles_Boots[#$017C,$03] = $21;
 dg_ChangeTiles_Boots[#$017D,$00] = $A44A;
-dg_ChangeTiles_Boots[#$017D,$03] = $1E;
+dg_ChangeTiles_Boots[#$017D,$03] = $21;
 dg_ChangeTiles_Boots[#$017E,$00] = $A44C;
-dg_ChangeTiles_Boots[#$017E,$03] = $1E;
+dg_ChangeTiles_Boots[#$017E,$03] = $21;
 dg_ChangeTiles_Boots[#$017F,$00] = $A44D;
-dg_ChangeTiles_Boots[#$017F,$03] = $1E;
+dg_ChangeTiles_Boots[#$017F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0180,$00] = $A44E;
-dg_ChangeTiles_Boots[#$0180,$03] = $1E;
+dg_ChangeTiles_Boots[#$0180,$03] = $21;
 dg_ChangeTiles_Boots[#$0181,$00] = $A548;
-dg_ChangeTiles_Boots[#$0181,$03] = $1E;
+dg_ChangeTiles_Boots[#$0181,$03] = $21;
 dg_ChangeTiles_Boots[#$0182,$00] = $A549;
-dg_ChangeTiles_Boots[#$0182,$03] = $1E;
+dg_ChangeTiles_Boots[#$0182,$03] = $21;
 dg_ChangeTiles_Boots[#$0183,$00] = $A648;
-dg_ChangeTiles_Boots[#$0183,$03] = $1E;
+dg_ChangeTiles_Boots[#$0183,$03] = $21;
 dg_ChangeTiles_Boots[#$0184,$00] = $A748;
-dg_ChangeTiles_Boots[#$0184,$03] = $1E;
+dg_ChangeTiles_Boots[#$0184,$03] = $21;
 dg_ChangeTiles_Boots[#$0185,$00] = $A847;
-dg_ChangeTiles_Boots[#$0185,$03] = $1E;
+dg_ChangeTiles_Boots[#$0185,$03] = $21;
 dg_ChangeTiles_Boots[#$0186,$00] = $A887;
-dg_ChangeTiles_Boots[#$0186,$03] = $1E;
+dg_ChangeTiles_Boots[#$0186,$03] = $21;
 dg_ChangeTiles_Boots[#$0187,$00] = $A888;
-dg_ChangeTiles_Boots[#$0187,$03] = $1E;
+dg_ChangeTiles_Boots[#$0187,$03] = $21;
 dg_ChangeTiles_Boots[#$0188,$00] = $A889;
-dg_ChangeTiles_Boots[#$0188,$03] = $1E;
+dg_ChangeTiles_Boots[#$0188,$03] = $21;
 dg_ChangeTiles_Boots[#$0189,$00] = $A946;
-dg_ChangeTiles_Boots[#$0189,$03] = $1E;
+dg_ChangeTiles_Boots[#$0189,$03] = $21;
 dg_ChangeTiles_Boots[#$018A,$00] = $A983;
-dg_ChangeTiles_Boots[#$018A,$03] = $1E;
+dg_ChangeTiles_Boots[#$018A,$03] = $21;
 dg_ChangeTiles_Boots[#$018B,$00] = $A984;
-dg_ChangeTiles_Boots[#$018B,$03] = $1E;
+dg_ChangeTiles_Boots[#$018B,$03] = $21;
 dg_ChangeTiles_Boots[#$018C,$00] = $A985;
-dg_ChangeTiles_Boots[#$018C,$03] = $1E;
+dg_ChangeTiles_Boots[#$018C,$03] = $21;
 dg_ChangeTiles_Boots[#$018D,$00] = $A986;
-dg_ChangeTiles_Boots[#$018D,$03] = $1E;
+dg_ChangeTiles_Boots[#$018D,$03] = $21;
 dg_ChangeTiles_Boots[#$018E,$00] = $A987;
-dg_ChangeTiles_Boots[#$018E,$03] = $1E;
+dg_ChangeTiles_Boots[#$018E,$03] = $21;
 dg_ChangeTiles_Boots[#$018F,$00] = $AA45;
-dg_ChangeTiles_Boots[#$018F,$03] = $1E;
+dg_ChangeTiles_Boots[#$018F,$03] = $21;
 
 dg_ChangeTiles_Boots[#$0190,$00] = $AB44;
-dg_ChangeTiles_Boots[#$0190,$03] = $1E;
+dg_ChangeTiles_Boots[#$0190,$03] = $21;
 dg_ChangeTiles_Boots[#$0191,$00] = $AC43;
-dg_ChangeTiles_Boots[#$0191,$03] = $1E;
+dg_ChangeTiles_Boots[#$0191,$03] = $21;
 dg_ChangeTiles_Boots[#$0192,$00] = $AC44;
-dg_ChangeTiles_Boots[#$0192,$03] = $1E;
+dg_ChangeTiles_Boots[#$0192,$03] = $21;
 dg_ChangeTiles_Boots[#$0193,$00] = $AF43;
-dg_ChangeTiles_Boots[#$0193,$03] = $1E;
+dg_ChangeTiles_Boots[#$0193,$03] = $21;
 dg_ChangeTiles_Boots[#$0194,$00] = $B042;
-dg_ChangeTiles_Boots[#$0194,$03] = $1E;
+dg_ChangeTiles_Boots[#$0194,$03] = $21;
 dg_ChangeTiles_Boots[#$0195,$00] = $B043;
-dg_ChangeTiles_Boots[#$0195,$03] = $1E;
+dg_ChangeTiles_Boots[#$0195,$03] = $21;
 dg_ChangeTiles_Boots[#$0196,$00] = $B143;
-dg_ChangeTiles_Boots[#$0196,$03] = $1E;
+dg_ChangeTiles_Boots[#$0196,$03] = $21;
 dg_ChangeTiles_Boots[#$0197,$00] = $B244;
-dg_ChangeTiles_Boots[#$0197,$03] = $1E;
+dg_ChangeTiles_Boots[#$0197,$03] = $21;
 dg_ChangeTiles_Boots[#$0198,$00] = $B345;
-dg_ChangeTiles_Boots[#$0198,$03] = $1E;
+dg_ChangeTiles_Boots[#$0198,$03] = $21;
 dg_ChangeTiles_Boots[#$0199,$00] = $B446;
-dg_ChangeTiles_Boots[#$0199,$03] = $1E;
+dg_ChangeTiles_Boots[#$0199,$03] = $21;
 dg_ChangeTiles_Boots[#$019A,$00] = $B447;
-dg_ChangeTiles_Boots[#$019A,$03] = $1E;
+dg_ChangeTiles_Boots[#$019A,$03] = $21;
 
 
 
@@ -8399,32 +8413,37 @@ dg_ChangeTiles_Boots[#$019A,$03] = $1E;
 
 
 
-dm_data[?'8A8D'+STR_River_Devil+STR_State] = 1;
-dm_data[?STR_OWRC+STR_River_Devil+'01'] = $8A8D;
-dm_data[?'8A8D'+STR_River_Devil] = $01;
-dm_data[?'8A8D'+STR_TSRC+STR_Under+STR_River_Devil] = $04B3;
+_owrc=$8A8D; _owrc_=hex_str(_owrc);
+dm[?_owrc_+STR_River_Devil+STR_State] = 1;
+dm[?STR_OWRC+STR_River_Devil+'01'] = _owrc;
+dm[?_owrc_+STR_River_Devil] = $01;
+dm[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = $04B3;
 
-dm_data[?STR_Rando+STR_River_Devil+STR_OWRC] = $6057;
-dm_data[?STR_Rando+STR_River_Devil+STR_TSRC] = $05F8;
-dm_data[?'6057'+STR_TSRC+STR_Under+STR_River_Devil] = (TILESET1_TS_IDX<<8) | TSRC_PATH02;
-
-
-
-
+_owrc=$6057; _owrc_=hex_str(_owrc);
+dm[?STR_Rando+STR_River_Devil+STR_OWRC] = _owrc;
+dm[?STR_Rando+STR_River_Devil+STR_TSRC] = $05F8;
+dm[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = (TILESET1_TS_IDX<<8) | TSRC_PATH02;
 
 
 
 
-dm_data[?STR_Rando+STR_Exit+STR_Count] = $03;
 
-dm_data[?STR_Rando+STR_Exit+'01'+STR_OWRC] = $6155;
-dm_data[?'6155'+STR_Rando+STR_Exit+STR_Num] = $01;
 
-dm_data[?STR_Rando+STR_Exit+'02'+STR_OWRC] = $5F53;
-dm_data[?'5F53'+STR_Rando+STR_Exit+STR_Num] = $02;
 
-dm_data[?STR_Rando+STR_Exit+'03'+STR_OWRC] = $6965;
-dm_data[?'6965'+STR_Rando+STR_Exit+STR_Num] = $03;
+
+dm[?STR_Rando+STR_Exit+STR_Count] = $03;
+
+_owrc=$6155; _owrc_=hex_str(_owrc);
+dm[?STR_Rando+STR_Exit+'01'+STR_OWRC] = _owrc;
+dm[?_owrc_+STR_Rando+STR_Exit+STR_Num] = $01;
+
+_owrc=$5F53; _owrc_=hex_str(_owrc);
+dm[?STR_Rando+STR_Exit+'02'+STR_OWRC] = _owrc;
+dm[?_owrc_+STR_Rando+STR_Exit+STR_Num] = $02;
+
+_owrc=$6965; _owrc_=hex_str(_owrc);
+dm[?STR_Rando+STR_Exit+'03'+STR_OWRC] = _owrc;
+dm[?_owrc_+STR_Rando+STR_Exit+STR_Num] = $03;
 
 
 

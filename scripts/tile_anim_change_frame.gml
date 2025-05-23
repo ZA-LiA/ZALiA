@@ -10,7 +10,7 @@ var _i, _idx, _x,_y;
 var _depth, _rc_off, _tsrc, _solid, _unique, _hide;
 var _clm,_row;
 
-var _dm_frame = json_decode(g.dm_TILE[?_datakey]);
+var _dm_frame = json_decode(g.dm_tile[?_datakey]);
 
 
 for(_i=0; _i<g.rm_tile_count; _i++)

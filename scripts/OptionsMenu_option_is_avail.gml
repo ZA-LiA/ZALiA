@@ -70,7 +70,7 @@ switch(argument0)
         case Rando_ENEMY_RANDO:     {return val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]) || val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawner]) || val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_ENIGMA]); break;}
         //case Rando_RANDO_ENEMY:     {return val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]); break;}
         case Rando_DUNGEON_TILESETS:{return true; break;}
-        case Rando_OW_BIOMES:       {return ds_map_size(g.overworld.dm_Rando_TSRC)>0; break;}
+        case Rando_OW_BIOMES:       {return ds_map_size(global.OVERWORLD.dm_Rando_TSRC)>0; break;}
         case Rando_SCENES:          {return true; break;}
         case Rando_PALETTE:         {return true; break;}
         case Rando_BACK:            {return true; break;}

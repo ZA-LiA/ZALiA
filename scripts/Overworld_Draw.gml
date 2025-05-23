@@ -406,10 +406,10 @@ if (_C1
                     if (g.can_draw_Exit_hb)
                     {
                         _dk = hex_str(_owrc);
-                        if(!is_undefined(dm_data[?_dk+STR_RmName])) // if this owrc is an exit
+                        if(!is_undefined(dm[?_dk+STR_RmName])) // if this owrc is an exit
                         {
-                            if (dm_data[?_dk+STR_Open]) _tsrc = $A0; // $A0. Green
-                            else                        _tsrc = $B4; // $B4. Red
+                            if (dm[?_dk+STR_Open]) _tsrc = $A0; // $A0. Green
+                            else                   _tsrc = $B4; // $B4. Red
                             _ts_x = ((_tsrc>>0)&$F) <<SHIFT;
                             _ts_y = ((_tsrc>>4)&$F) <<SHIFT;
                             draw_background_part(TILESET_TILEMARKER, _ts_x,_ts_y, T_SIZE,T_SIZE, _x,_y);

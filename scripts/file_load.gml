@@ -134,8 +134,8 @@ if(!is_undefined(_FOUND_HINTS)) g.dm_RandoHintsRecorder = json_decode(_FOUND_HIN
 _val = f.dm_rando[?STR_Overworld+STR_TSRC+STR_Randomized];
 if(!is_undefined(_val))
 {
-    ds_map_clear(g.overworld.dm_Rando_TSRC);
-    g.overworld.dm_Rando_TSRC = json_decode(_val);
+    ds_map_clear(global.OVERWORLD.dm_Rando_TSRC);
+    global.OVERWORLD.dm_Rando_TSRC = json_decode(_val);
 }
 
 

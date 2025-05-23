@@ -70,17 +70,6 @@ for (_i=0; _i<_Main_COUNT; _i++)
     
     
     _text = dg_Main[#_i,$A];
-    /*
-    switch(_i){
-    default:{             _text=-1; break;}
-    case Main_ENABLE:{    _text=dg_Main[#Main_ENABLE,$A]; break;};
-    case Main_BRIGHTNESS:{_text=dg_Brightness[#Brightness_ENABLE,$A]; break;};
-    case Main_SATURATION:{_text=dg_Saturation[#Saturation_ENABLE,$A]; break;};
-    case Main_SCANLINES:{ _text=dg_Scanlines[#Scanlines_ENABLE,$A]; break;};
-    case Main_BLOOM:{     _text=dg_Bloom[#Bloom_ENABLE,$A]; break;};
-    case Main_BLUR:{      _text=dg_Blur[#Blur_ENABLE,$A]; break;};
-    }
-    */
     if (is_string(_text) 
     &&  (menu_state==menu_focus_Main || !menu_state || menu_state!=dg_Main[#_i,$9]) )
     {
@@ -91,18 +80,6 @@ for (_i=0; _i<_Main_COUNT; _i++)
         &&  dg_Main[#_i,$5] ) // if this option is enabled
         {    _pi = PI_MENU1;  }
         else _pi = PI_DARK1;
-        /*
-        _pi = PI_DARK1;
-        if (dg_Main[#Main_ENABLE,$5]  // dg_Main[#$0,$5]: if filters are enabled
-        &&  dg_Main[#_i,$4] ) // 4: option available
-        {
-            if (string_length(string_digits(_text))  // if the data is numbers as opposed to "YES/NO,ON/OFF"
-            ||  dg_Main[#_i,$5] ) // if this option is enabled
-            {
-                _pi = PI_MENU1; // 4: option available
-            }
-        }
-        */
         draw_text_(_x,_y, _text, _font_sprite, _pi);
     }
     

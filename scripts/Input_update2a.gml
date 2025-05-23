@@ -11,7 +11,7 @@ var _B_KEY = 0;
 var _A_KEY = 0;
 
 if (1) // Temporary until controller support is implemented. Certain players need the keyboard inputs so they can bind controller buttons through 3rd party controller support app.
-//if (gamepad_slot == -1) // -1: Gamepad NOT connected
+//if (gamepad_slot==-1) // -1: Gamepad NOT connected
 {
     _R_KEY = keyboard_check(ord("D")) || keyboard_check(vk_right);
     _L_KEY = keyboard_check(ord("A")) || keyboard_check(vk_left);

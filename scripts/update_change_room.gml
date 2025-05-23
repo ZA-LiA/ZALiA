@@ -39,8 +39,8 @@ if (ChangeRoom_timer<=0)
         {
             if (_EXITING_OW)
             {
-                if(!is_undefined(overworld.enc_reen)  // Entering encounter
-                || !is_undefined(overworld.dm_data[?hex_str(overworld.pcrc)+STR_Special+STR_Encounter]) ) // PC is on Dark Forest Kakusu tile
+                if(!is_undefined(global.OVERWORLD.enc_reen)  // Entering encounter
+                || !is_undefined(global.OVERWORLD.dm[?hex_str(global.OVERWORLD.pcrc)+STR_Special+STR_Encounter]) ) // PC is on Dark Forest Kakusu tile
                 {
                     Audio.encounter_sound_inst = aud_play_sound(get_audio_theme_track(STR_Encounter+STR_Enter));
                 }
@@ -99,52 +99,56 @@ if (ChangeRoom_timer<=0)
             FallScene_timer  = ChangeRoom_timer+1;
             
             
-            with(p)
-            {
-                    fall_scene_type = get_fall_scene_type();
-                if (fall_scene_type & (g.FallScene_BIT_RIGHT|g.FallScene_BIT_LEFT))
-                {   // Red vertical stripes. Fast travel fall scene
-                    fall_scene_spr = fall_scene_2_spr; // vertical stripes
-                    fall_scene_pal = fall_scene_2_pal;
-                    fall_scene_y   = viewYC();
-                    
-                    if (fall_scene_type & g.FallScene_BIT_RIGHT)
-                    {
-                        fall_scene_x = viewXL() + FallScene_X_BASE;
-                        fall_scene_fall_spd =  FallScene_2_FALL_SPD;
-                    }
-                    else
-                    {
-                        fall_scene_x = viewXR() - FallScene_X_BASE;
-                        fall_scene_fall_spd = -FallScene_2_FALL_SPD;
-                    }
-                }
-                else if (fall_scene_type & (g.FallScene_BIT_DOWN|g.FallScene_BIT_UP))
-                {   // Blue horizontal stripes. Normal fall scene
-                    fall_scene_spr = fall_scene_1_spr; // horizontal stripes
-                    fall_scene_pal = fall_scene_1_pal;
-                    fall_scene_x   = viewXC();
-                    
-                    if (fall_scene_type & g.FallScene_BIT_DOWN)
-                    {
-                        fall_scene_y = viewYT() + FallScene_Y_BASE;;
-                        fall_scene_fall_spd =  FallScene_1_FALL_SPD;
-                    }
-                    else
-                    {
-                        fall_scene_y = viewYB() - FallScene_Y_BASE;;
-                        fall_scene_fall_spd = -FallScene_1_FALL_SPD
-                    }
-                }
-                
-                fall_scene_counter = 1;
-                
-                // Change palette colors for fall scene
-                change_pal(strReplaceAt(pal_rm_new, get_pal_pos(FallScene_PI_BASE), string_length(fall_scene_pal), fall_scene_pal));
-                
-                // This is to prevent a couple frames of a bright bgr color drawing clear before transitioning to the bgr color of the next scene
-                global.BackgroundColor_scene = C_BLK1;
+            var _dk0,_dk1, _palette, _pi;
+            var _FALL_DIRECTION = get_fall_scene_type(); // $1: RIGHT, $2: LEFT, $4: DOWN, $8: UP
+            var _TYPE_   = val(global.FallScene_dm[?STR_Current+STR_Type],"1"); // The type/id of this fall scene. "1": Classic blue vertical fall, "2": Fast travel red horizontal fall
+            var _Image_W = val(global.FallScene_dm[?_TYPE_+STR_Image+STR_Width]);
+            var _Image_H = val(global.FallScene_dm[?_TYPE_+STR_Image+STR_Height]);
+            var _DIR     = sign_(_FALL_DIRECTION&($1|$4)); // $1: RIGHT, $4: DOWN
+            
+            
+            global.FallScene_dm[?STR_Current+STR_Fall+STR_Direction] = _FALL_DIRECTION;
+            global.FallScene_dm[?STR_Current+STR_Fall+STR_Speed]     = val(global.FallScene_dm[?_TYPE_+STR_Fall+STR_Speed]) * _DIR;
+            
+            
+            global.FallScene_dm[?STR_Current+"_x"] = viewXC();
+            global.FallScene_dm[?STR_Current+"_y"] = viewYC();
+            
+            if (_FALL_DIRECTION&($1|$2)) // Horizontal fall with red vertical stripes. $1: RIGHT, $2: LEFT
+            {   // Red vertical stripes. Fast travel fall scene
+                if (_DIR) global.FallScene_dm[?STR_Current+"_x"]  = viewXL(); // falling RIGHT
+                else      global.FallScene_dm[?STR_Current+"_x"]  = viewXR(); // falling LEFT
+                          global.FallScene_dm[?STR_Current+"_x"] += val(global.FallScene_dm[?STR_Base+"_X"]) * _DIR;
             }
+            else if (_FALL_DIRECTION&($4|$8)) // Vertical fall with blue horizontal stripes. $4: DOWN, $8: UP
+            {   // Blue horizontal stripes. Normal fall scene
+                if (_DIR) global.FallScene_dm[?STR_Current+"_y"]  = viewYT(); // falling DOWN
+                else      global.FallScene_dm[?STR_Current+"_y"]  = viewYB(); // falling UP
+                          global.FallScene_dm[?STR_Current+"_y"] += val(global.FallScene_dm[?STR_Base+"_Y"]) * _DIR;
+            }
+            
+            
+            _dk0 = STR_Current+STR_Image; // image that will be used for this fall scene
+            _dk1 = _TYPE_+STR_Image;      // image that this `_TYPE_` of fall scene uses
+            if(!surface_exists(val(global.FallScene_dm[?_dk0],-1))) global.FallScene_dm[?_dk0] = surface_create(_Image_W,_Image_H);
+            if (surface_exists(val(global.FallScene_dm[?_dk1],-1))) surface_copy(global.FallScene_dm[?_dk0], 0,0, global.FallScene_dm[?_dk1]);
+            global.FallScene_dm[?STR_Current+STR_Image+STR_Width]  = surface_get_width( global.FallScene_dm[?_dk0]);
+            global.FallScene_dm[?STR_Current+STR_Image+STR_Height] = surface_get_height(global.FallScene_dm[?_dk0]);
+            
+            
+            _palette = val(global.FallScene_dm[?_TYPE_+STR_Palette], p.PAL_GUI2);
+            global.FallScene_dm[?STR_Current+STR_Palette] = _palette;
+            global.FallScene_dm[?STR_Counter] = 1;
+            
+            
+            // Change palette colors for the fall scene
+            _pi = val(global.FallScene_dm[?STR_Base+dk_PI], global.PI_BGR1);
+            change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(_pi), string_length(_palette), _palette));
+            
+            
+            // This is to prevent a couple frames of a bright bgr color drawing clear before transitioning to the bgr color of the next scene
+            global.BackgroundColor_scene = p.C_BLK1;
+            
             
             // delete all room tiles so falling scene has a clear screen to draw on
             tile_delete_all();
@@ -163,7 +167,7 @@ if (ChangeRoom_timer<=0)
     else
     {   // --------------------------------------------------------------------------------------------------
         // --------------------  FINISHED CHANGING ROOMS  ------------------------------------------------------------------------------------
-        if (DEV) sdm("update_change_room(). FINISHED CHANGING ROOMS");
+        show_debug_message("update_change_room(). FINISHED CHANGING ROOMS");
         FallScene_timer  = FallScene_INACTIVE;
         ChangeRoom_timer = 0;
         if (room_type=="A") counter1 = $26; // simulating OG

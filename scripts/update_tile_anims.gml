@@ -17,7 +17,7 @@ for(_i=0; _i<_COUNT; _i++)
     
     // ------------------------------------------------------------------
     _datakey1  = STR_Anim+hex_str(g.dg_tile_anim[#_i,0]); // 0: anim name
-    _cues = g.dm_TILE[?_datakey1+STR_Sequence];
+    _cues = g.dm_tile[?_datakey1+STR_Sequence];
     
     _anim_frame = g.dg_tile_anim[#_i,3]; // 3: Anim frame num
     _anim_dir   = g.dg_tile_anim[#_i,7]; // 7: 1(normal), -1(reverse)

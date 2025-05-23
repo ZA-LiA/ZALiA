@@ -1,27 +1,28 @@
 /// Overworld_init_data()
 
-if (DEV) sdm(" Overworld_init_data()");
+show_debug_message("Overworld_init_data()");
 
 
-if (OVERWORLD_INIT_METHOD==1)
-{   // Code automation will not happen in Overworld_init_data_1() if OVERWORLD_INIT_METHOD==1
+switch(OVERWORLD_INIT_METHOD)
+{   // ----------------------------------------------------------------------------------
+    case 1:{ // Code automation will not happen in Overworld_init_data_1() if OVERWORLD_INIT_METHOD==1
     Overworld_init_data_1();
-}
-else
-{   // New initialization method -----------------------------------------------
+    break;}//case 1
+    
+    
+    // ----------------------------------------------------------------------------------
+    case 2:{
     if (false)
-    {   // This will print the code for Overworld_init_data_2().
-        // Run it whenever a change is made to the overworld.
+    {   // This will print the code for Overworld_init_data_2(). Run it whenever a change is made to the overworld.
         Overworld_init_data_1();
     }
     else
-    {
-        Overworld_init_data_2(); // Paste the code printed from Overworld_init_data_1() in Overworld_init_data_2()
+    {   // Paste the code printed from Overworld_init_data_1() in Overworld_init_data_2()
+        Overworld_init_data_2();
         if (g.anarkhyaOverworld_MAIN) Overworld_init_data_anarkhya();
     }
-    
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-}
+    break;}//case 2
+}//switch(OVERWORLD_INIT_METHOD)
 
 
 

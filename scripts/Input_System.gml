@@ -14,14 +14,14 @@ if(!is_undefined(_TYPE)
         if (gamepad_slot == -1)
         {   gamepad_slot = _SLOT;  }
         
-        var _GP_NAME = gamepad_get_description(_SLOT);
-        sdm( "gamepad discovered"+", slot: "+string(_SLOT)+", gamepad name: "+_GP_NAME);
+        gamepad_name = gamepad_get_description(_SLOT);
+        show_debug_message("gamepad discovered"+", slot: "+string(_SLOT)+", gamepad name: "+gamepad_name);
         
         gamepad_set_axis_deadzone(   _SLOT, 0.5); // Set the "deadzone" for the axis
         gamepad_set_button_threshold(_SLOT, 0.1); // Set the "threshold" for the triggers
         
         
-        var _num = dm_UserInputConfig[?_GP_NAME+"_gamepad_num"];
+        var _num = dm_UserInputConfig[?gamepad_name+"_gamepad_num"];
         if(!is_undefined(_num))
         {
             var _DATAKEY = "gamepad"+hex_str(_num)+"_gp_";
@@ -44,9 +44,9 @@ if(!is_undefined(_TYPE)
             GP_other5 = val(dm_UserInputConfig[?_DATAKEY+"other5"], GP_other5_DEFAULT);
             GP_other6 = val(dm_UserInputConfig[?_DATAKEY+"other6"], GP_other6_DEFAULT);
             //                                                                      //
-            //sdm("_gamepad_num "+hex_str(_num)+", "+_DATAKEY);
-            //sdm("GP_magic "+string(GP_magic)+", GP_magic_DEFAULT "+string(GP_magic_DEFAULT)+", gp_shoulderlb "+string(gp_shoulderlb));
-            //sdm("GP_magic==GP_magic_DEFAULT: "+string(GP_magic==GP_magic_DEFAULT)+", GP_magic==gp_shoulderlb: "+string(GP_magic==gp_shoulderlb));
+            //show_debug_message("_gamepad_num "+hex_str(_num)+", "+_DATAKEY);
+            //show_debug_message("GP_magic "+string(GP_magic)+", GP_magic_DEFAULT "+string(GP_magic_DEFAULT)+", gp_shoulderlb "+string(gp_shoulderlb));
+            //show_debug_message("GP_magic==GP_magic_DEFAULT: "+string(GP_magic==GP_magic_DEFAULT)+", GP_magic==gp_shoulderlb: "+string(GP_magic==gp_shoulderlb));
         }
         else
         {
@@ -62,8 +62,8 @@ if(!is_undefined(_TYPE)
         // =========================================================================
         // ------------------------------------------------------------------
         case "gamepad lost":{
-        var _GP_NAME = gamepad_get_description(_SLOT);
-        sdm( "gamepad lost"+", slot: "+string(_SLOT)+", gamepad name: "+_GP_NAME);
+        var gamepad_name = gamepad_get_description(_SLOT);
+        show_debug_message("gamepad lost"+", slot: "+string(_SLOT)+", gamepad name: "+gamepad_name);
         
         if (gamepad_slot == _SLOT)
         {   gamepad_slot =  -1;  }

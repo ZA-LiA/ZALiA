@@ -661,8 +661,9 @@ switch(g.menu_state)
         if (bitCount(cursor_option&$3)!=$1) cursor_option = Input.L; // Option YES to start minigame
         
         
-        if ( Input.Pause_held          // Start held
-        && !(Input.heldPrev&Input.S) ) // Start NOT held prev frame
+        if (Input.Pause_pressed)
+        //if ( Input.Pause_held          // Start held
+        //&& !(Input.heldPrev&Input.S) ) // Start NOT held prev frame
         {
             //g._0766 = 0;
             aud_play_sound(get_audio_theme_track(dk_CursorFileSelect));
