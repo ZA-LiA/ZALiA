@@ -928,7 +928,7 @@ for(_i=0; _i<MainOption_COUNT; _i++)
 {
     _len = string_length(MainOptions_dg[#_i,0]);
     if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = MainOptions_dg[#_i,0];
+    _font = MainOptions_dg[#_i,1];
     _w = sprite_get_width(_font) * _len;
     if (_w>_option_text_width_max) _option_text_width_max = _w;
 }
@@ -937,7 +937,7 @@ for(_i=0; _i<InputConfigOption_COUNT; _i++)
 {
     _len = string_length(dg_InputConfigOptions[#_i,0]);
     if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = dg_InputConfigOptions[#_i,0];
+    _font = dg_InputConfigOptions[#_i,1];
     _w = sprite_get_width(_font) * _len;
     if (_w>_option_text_width_max) _option_text_width_max = _w;
 }
@@ -946,7 +946,7 @@ for(_i=0; _i<DevTools_COUNT; _i++)
 {
     _len = string_length(dg_DevTools[#_i,0]);
     if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = dg_DevTools[#_i,0];
+    _font = dg_DevTools[#_i,1];
     _w = sprite_get_width(_font) * _len;
     if (_w>_option_text_width_max) _option_text_width_max = _w;
 }
