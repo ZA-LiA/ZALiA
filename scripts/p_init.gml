@@ -1846,13 +1846,16 @@ if (0) // *** Turning this off because rando seems to be picking them too often
 
 
 
-// Record palettes in each scene's Tiled file into dm_scene_palette 
-// so it's quicker to get palette data.
+// This will load palette data from `PaletteData01.txt` or initialize it if it doesn't exist
 p_init_palette_data();
-//dev_automate_palette_data2(); // automates code for p_init_palette_data2()
 
-
-//dev_list_tile_liquid_layers();
+// automates code for p_init_palette_data()
+/* *** As of 2025/05/24, palette data is saved in 
+`PaletteData01.txt` instead of fully layed out in a script.
+Therefor `dev_automate_palette_data2()` isn't needed unless 
+I decide to go back to the old format.
+*/
+//dev_automate_palette_data2();
 
 
 
@@ -1870,6 +1873,15 @@ shader_reset();
 
 
 ds_list_destroy(_dl); _dl=undefined;
+
+
+
+
+
+
+
+
+//dev_list_tile_liquid_layers();
 
 
 

@@ -5,7 +5,7 @@ show_debug_message("Overworld_init_data_1()");
 
 /*
 !!!!!!!! MAKE SURE YOU MOVE(not copy) THE NEW FILE THIS CREATES (see `file_text_open_write` below) 
-IN THE %localappdata% FOLDER TO Included Files "other" FOLDER !!!!!!!!!!!!!!!!!
+IN THE %localappdata% FOLDER TO Included Files "ow_tile_data" FOLDER !!!!!!!!!!!!!!!!!
 */
 
 
