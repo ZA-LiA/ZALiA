@@ -37,35 +37,40 @@ var _exists=false;
 
 
 // DS List
+/*
     _exists = variable_instance_exists(id,  "dl_biome_enc");
 if (_exists) _exists =      !is_undefined(   dl_biome_enc);
 if (_exists) _exists =       ds_exists(      dl_biome_enc, ds_type_list);
 if (_exists){                ds_list_destroy(dl_biome_enc); dl_biome_enc=undefined;}
-
+*/
+/*
     _exists = variable_instance_exists(id,  "dl_biome_enc_spawn_trigger");
 if (_exists) _exists =      !is_undefined(   dl_biome_enc_spawn_trigger);
 if (_exists) _exists =       ds_exists(      dl_biome_enc_spawn_trigger, ds_type_list);
 if (_exists)                 ds_list_destroy(dl_biome_enc_spawn_trigger);
 if (_exists)                                 dl_biome_enc_spawn_trigger=undefined;
-
+*/
+/*
     _exists = variable_instance_exists(id,  "dl_biome_battle");
 if (_exists) _exists =      !is_undefined(   dl_biome_battle);
 if (_exists) _exists =       ds_exists(      dl_biome_battle, ds_type_list);
 if (_exists)                 ds_list_destroy(dl_biome_battle);
 if (_exists)                                 dl_biome_battle=undefined;
-
+*/
+/*
     _exists = variable_instance_exists(id,  "dl_enc_spawn_cooldown_dur");
 if (_exists) _exists =      !is_undefined(   dl_enc_spawn_cooldown_dur);
 if (_exists) _exists =       ds_exists(      dl_enc_spawn_cooldown_dur, ds_type_list);
 if (_exists)                 ds_list_destroy(dl_enc_spawn_cooldown_dur);
 if (_exists)                                 dl_enc_spawn_cooldown_dur=undefined;
-
+*/
+/*
     _exists = variable_instance_exists(id,  "dl_enc_inst_life_dur");
 if (_exists) _exists =      !is_undefined(   dl_enc_inst_life_dur);
 if (_exists) _exists =       ds_exists(      dl_enc_inst_life_dur, ds_type_list);
 if (_exists)                 ds_list_destroy(dl_enc_inst_life_dur);
 if (_exists)                                 dl_enc_inst_life_dur=undefined;
-
+*/
     _exists = variable_instance_exists(id,  "dl_BoulderCircle_OWRC");
 if (_exists) _exists =      !is_undefined(   dl_BoulderCircle_OWRC);
 if (_exists) _exists =       ds_exists(      dl_BoulderCircle_OWRC, ds_type_list);
@@ -106,6 +111,12 @@ if (_exists) _exists =      !is_undefined(   dm_Rando_TSRC);
 if (_exists) _exists =       ds_exists(      dm_Rando_TSRC,ds_type_map);
 if (_exists)                 ds_map_destroy( dm_Rando_TSRC);
 if (_exists)                                 dm_Rando_TSRC=undefined;
+
+    _exists=variable_instance_exists(id,"Biome_dm");
+if (_exists) _exists = !is_undefined(    Biome_dm);
+if (_exists) _exists = ds_exists(        Biome_dm,ds_type_map);
+if (_exists)           ds_map_destroy(   Biome_dm);
+if (_exists)                             Biome_dm=undefined;
 /*
     _exists=variable_instance_exists(id,"dm_rando_biome");
 if (_exists) _exists = !is_undefined(    dm_rando_biome);

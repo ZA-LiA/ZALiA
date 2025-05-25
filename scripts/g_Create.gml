@@ -1973,36 +1973,36 @@ EXIT_BIT_TELEPORT  = $0001;
 //EXIT_BIT_TELEPORT  = $0100;
 
 
-FallScene_BIT_RIGHT = $010000; // FALL RIGHT
-FallScene_BIT_LEFT  = $020000; // FALL LEFT
-FallScene_BIT_DOWN  = $040000; // FALL DOWNWARD
-FallScene_BIT_UP    = $080000; // FALL UPWARD
-FallScene_BITS      = FallScene_BIT_RIGHT | FallScene_BIT_LEFT | FallScene_BIT_DOWN | FallScene_BIT_UP;
+FallScene_BIT_RIGHT  = $010000; // FALL RIGHT
+FallScene_BIT_LEFT   = $020000; // FALL LEFT
+FallScene_BIT_DOWN   = $040000; // FALL DOWNWARD
+FallScene_BIT_UP     = $080000; // FALL UPWARD
+FallScene_BITS       = FallScene_BIT_RIGHT | FallScene_BIT_LEFT | FallScene_BIT_DOWN | FallScene_BIT_UP;
+FallScene_BITS_SHIFT = $10;
 
 
-var _SHIFT = $10;
 _datakey = STR_Fall+"_";
 dm_cut_scene = ds_map_create();
 
 _id   = FallScene_BIT_RIGHT;
-_name = _datakey+hex_str(_id>>_SHIFT);
+_name = _datakey+hex_str(_id>>FallScene_BITS_SHIFT);
 dm_cut_scene[?_name+STR_ID] = _id;
-dm_cut_scene[?   hex_str(_id>>_SHIFT)+STR_Name]=_name;
+dm_cut_scene[?   hex_str(_id>>FallScene_BITS_SHIFT)+STR_Name] = _name;
 
 _id   = FallScene_BIT_LEFT;
-_name = _datakey+hex_str(_id>>_SHIFT);
+_name = _datakey+hex_str(_id>>FallScene_BITS_SHIFT);
 dm_cut_scene[?_name+STR_ID] = _id;
-dm_cut_scene[?   hex_str(_id>>_SHIFT)+STR_Name]=_name;
+dm_cut_scene[?   hex_str(_id>>FallScene_BITS_SHIFT)+STR_Name] = _name;
 
 _id   = FallScene_BIT_DOWN;
-_name = _datakey+hex_str(_id>>_SHIFT);
+_name = _datakey+hex_str(_id>>FallScene_BITS_SHIFT);
 dm_cut_scene[?_name+STR_ID] = _id;
-dm_cut_scene[?   hex_str(_id>>_SHIFT)+STR_Name]=_name;
+dm_cut_scene[?   hex_str(_id>>FallScene_BITS_SHIFT)+STR_Name] = _name;
 
 _id   = FallScene_BIT_UP;
-_name = _datakey+hex_str(_id>>_SHIFT);
+_name = _datakey+hex_str(_id>>FallScene_BITS_SHIFT);
 dm_cut_scene[?_name+STR_ID] = _id;
-dm_cut_scene[?   hex_str(_id>>_SHIFT)+STR_Name]=_name;
+dm_cut_scene[?   hex_str(_id>>FallScene_BITS_SHIFT)+STR_Name] = _name;
 
 
 

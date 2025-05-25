@@ -892,8 +892,8 @@ if (_ROOM_A)
                 if (id!=_exit 
                 &&  side&$3 )
                 {
-                    if ((g.global.OVERWORLD.pc_dir&$A && side&$1) 
-                    ||  (g.global.OVERWORLD.pc_dir&$5 && side&$2) )
+                    if ((global.OVERWORLD.pc_dir&$A && side&$1) 
+                    ||  (global.OVERWORLD.pc_dir&$5 && side&$2) )
                     {
                         _exit = id;
                         break;//with(Exit)

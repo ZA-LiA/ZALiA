@@ -1586,6 +1586,8 @@ global.FallScene_dm[?STR_Base+dk_PI] = global.PI_BGR1; //
 global.FallScene_dm[?STR_Current+dk_PI] = 0; // 0484
 global.FallScene_dm[?dk_PI+STR_Sequence+STR_Index] = 0;
 
+global.FallScene_dm[?STR_PC+dk_can_draw] = false;
+global.FallScene_dm[?STR_PC+dk_PI] = global.PI_PC1;
 global.FallScene_dm[?STR_Base   +"_Y"]  = $20; // OG: $10
 global.FallScene_dm[?STR_Current+"_y"]  = 0;
 
@@ -1593,25 +1595,21 @@ global.FallScene_dm[?STR_Base   +"_X"]  = (viewW_()-viewH_()) + global.FallScene
 global.FallScene_dm[?STR_Base   +"_X"] -= $06<<3;
 global.FallScene_dm[?STR_Current+"_x"]  = 0;
 
+global.FallScene_dm[?STR_Current+STR_ScaleX] = 1;
+
 
 ds_list_copy(_dl, dl_BASE_COLORS);
-_type = 1;
-while(true)
+for(_i=val(global.FallScene_dm[?STR_Type+STR_Count])-1; _i>=0; _i--)
 {
-    _type_ = string(_type);
-    _count = val(global.FallScene_dm[?_type_+STR_Color+STR_Count]);
-    if(!_count) break;//while(true)
-    
-    for(_i=0; _i<global.COLORS_PER_PALETTE; _i++)
+    _type_ = string(_i+1);
+    for(_j=0; _j<global.COLORS_PER_PALETTE; _j++)
     {
-        _dl[|_i] = val(global.FallScene_dm[?_type_+STR_Color+hex_str(_i+1)], dl_BASE_COLORS[|_i]);
+        _dl[|_j] = val(global.FallScene_dm[?_type_+STR_Color+hex_str(_j+1)], dl_BASE_COLORS[|_j]);
     }
-    
     global.FallScene_dm[?_type_+STR_Palette] = build_pal(_dl[|0],_dl[|1],_dl[|2],_dl[|3], _dl[|4],_dl[|5],_dl[|6],_dl[|7]);
-    _type++;
 }
 
-global.FallScene_dm[?STR_Current+STR_Palette] = global.FallScene_dm[?_current_type_+STR_Palette];
+//global.FallScene_dm[?STR_Current+STR_Palette] = global.FallScene_dm[?_current_type_+STR_Palette];
 
 
 

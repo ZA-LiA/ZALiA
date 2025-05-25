@@ -7,15 +7,15 @@ var _val;
 ds_grid_resize(dg_enemy_damage, $09,$10);
 //                                  // 
 // enemy attack level = $00  (NO DMG)
-dg_enemy_damage[#$00,$00] =   0;
-dg_enemy_damage[#$01,$00] =   0;
-dg_enemy_damage[#$02,$00] =   0;
-dg_enemy_damage[#$03,$00] =   0;
-dg_enemy_damage[#$04,$00] =   0;
-dg_enemy_damage[#$05,$00] =   0;
-dg_enemy_damage[#$06,$00] =   0;
-dg_enemy_damage[#$07,$00] =   0;
-dg_enemy_damage[#$08,$00] =   0;
+dg_enemy_damage[#$00,$00] = $00;
+dg_enemy_damage[#$01,$00] = $00;
+dg_enemy_damage[#$02,$00] = $00;
+dg_enemy_damage[#$03,$00] = $00;
+dg_enemy_damage[#$04,$00] = $00;
+dg_enemy_damage[#$05,$00] = $00;
+dg_enemy_damage[#$06,$00] = $00;
+dg_enemy_damage[#$07,$00] = $00;
+dg_enemy_damage[#$08,$00] = $00;
 //                                  // 
 // enemy attack level = $01           
 dg_enemy_damage[#$00,$01] = $10; // f.level_lif = 1

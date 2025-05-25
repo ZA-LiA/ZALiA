@@ -92,16 +92,28 @@ if (RandoTSRC_active)
 }
 
 
-var _BIOME     = dm_enc[?hex_str(_tsrc)+STR_Biome];
-var _BIOME_IDX = dm_enc[?hex_str(_tsrc)+STR_Biome+STR_Idx];
+
+
+var _BIOME = Biome_dm[?STR_TSRC+hex_str(_tsrc)+STR_Biome];
+//var _BIOME_IDX = val(Biome_dm[?val(_BIOME,"")+STR_Biome+STR_Num]) - 1;
+//var _BIOME     = dm_enc[?hex_str(_tsrc)+STR_Biome];
+//var _BIOME_IDX = dm_enc[?hex_str(_tsrc)+STR_Biome+STR_Idx];
 
 
 if (is_undefined(_BIOME) 
-||  is_undefined(_BIOME_IDX) 
-||  ds_list_find_index(dl_biome_enc_spawn_trigger,_BIOME)==-1) // if the biome doesn't spawn enc objs
+|| !val(dm_enc[? _BIOME+"_Can"+STR_Spawn+dk_EncounterInstance]) )
+//||  ds_list_find_index(dl_biome_enc_spawn_trigger,_BIOME)==-1) // if the biome doesn't spawn enc objs
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
+
+var _BIOME_NUM = Biome_dm[?_BIOME+STR_Biome+STR_Num];
+if (is_undefined(_BIOME_NUM))
+{
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
 
 
 
@@ -121,11 +133,9 @@ if (pc_step_counter) // OG
 
 
 
-var _obj_id_idx1 = 0;
-var _obj_id_idx2 = 3;
-var _rand_idx    = 1;
-var _COUNT1 = ds_grid_height(dg_enc_obj_id_spawn_data_1);
-
+var _obj_id_idx1 = $0;
+var _obj_id_idx2 = $3;
+var _rand_idx    = $1;
 
 // $824D-8264:  $00,60,B0,D0,  00,60,D0,F0,  00,60,C0,E0,  00,50,BB,F0,  00,57,D7,F8,  00,57,D7,FF
 //   $00, 60, B0, D0,   // FIELD
@@ -136,16 +146,30 @@ var _COUNT1 = ds_grid_height(dg_enc_obj_id_spawn_data_1);
 //   $00, 57, D7, FF    // VOLCANO
 //                      // 
 //   $00, 60, D0, F0,   // BEACH
-for(_i=_COUNT1-1; _i>=0; _i--)
+var          _COUNT1 = val(dm_enc[?_BIOME+STR_Spawn+STR_Chance+STR_Count]);
+for(_i=0; _i<_COUNT1; _i++) // for data in `dm_enc[?_BIOME+STR_Spawn+STR_Chance..`, values are in decending order, so start at `_i=0`
 {
     _obj_id_idx1 = _i;
-    if (g.dl_RandomOG[|_rand_idx] >= dg_enc_obj_id_spawn_data_1[#_BIOME_IDX,_i])
+    if (g.dl_RandomOG[|_rand_idx] >= val(dm_enc[?_BIOME+STR_Spawn+STR_Chance+hex_str(_i+1)]))
     {
         break;//_i
     }
 }
+
+_obj_id_idx1 &= $3;
 // _idx_obj  = _idx_obj<<2;   // (0,1,2,3)<<2 = 0,4,8,C
 // _idx_obj |= 3;             // 3,7,B,F
+/*
+var    _COUNT1 = ds_grid_height(dg_enc_obj_id_spawn_data_1);
+for(_i=_COUNT1-1; _i>=0; _i--)
+{
+    _obj_id_idx1 = _i;
+    if (g.dl_RandomOG[|_rand_idx] >= dg_enc_obj_id_spawn_data_1[#_BIOME_NUM-1,_i])
+    {
+        break;//_i
+    }
+}
+*/
 
 
 
@@ -221,11 +245,6 @@ for(_i=0; _i<_count; _i++)
     && !BAIT_timer 
     && !BAIT_countdown 
     && (!mot || mot==MOT_WALK) )
-    //&&  enc_objs_spawned_count >= 2+(!!irandom(2)) 
-    //&&  enc_objs_spawned_count >= 2+(!!irandom(2))+(!irandom(2)) 
-    //&&  enc_objs_spawned_count >= 4 
-    //&&  dest_dist
-    //&&  mot==MOT_WALK )
     {
         //enc_objs_spawned_count = 0;
         BAIT_countdown = 3;
@@ -302,56 +321,55 @@ for(_i=0; _i<_count; _i++)
     
     
     // ENC INST LIFE TIMER.  $8247-824C: $0A,0A,18,18,30,30  -----------------------------------------------------------
-    dg_enc_inst[#_i,ENC_INST_TMR_IDX] = dl_enc_inst_life_dur[|_BIOME_IDX];
+    dg_enc_inst[#_i,ENC_INST_TMR_IDX] = val(dm_enc[?_BIOME+dk_EncounterInstance+STR_Duration]);
+    //dg_enc_inst[#_i,ENC_INST_TMR_IDX] = dl_enc_inst_life_dur[|_BIOME_NUM-1];
     
     
     
     
     
     /*
-    if (0){
-        sdm("");
-        if (1){
-            _str  = " ";
-            // _str += ", " + hex_str();
-            _str += ", ENC INST SPAWNED! " + string(dg_enc_inst[#_i,0]);
-            _str += ", x $"         + hex_str(dg_enc_inst[#_i,1]);
-            _str += ", y $"         + hex_str(dg_enc_inst[#_i,2]);
-            _str += ", clm $"       + hex_str(dg_enc_inst[#_i,1]>>SHIFT);
-            _str += ", row $"       + hex_str(dg_enc_inst[#_i,2]>>SHIFT);
-            _str += ", pc on tsrc $" + hex_str(_tsrc);
-            _str += ", _BIOME $"    + hex_str(_BIOME);
-            _str += ", life dur $"  + hex_str(dg_enc_inst[#_i,ENC_INST_TMR_IDX]);
-            _str += ", g.tmr_enc_spawn "   + string(g.tmr_enc_spawn);
-            sdm(_str);
-        }
-        
-        if (0){
-            _str  = " ";
-            _str += ", _pc_clm $"       + hex_str(_pc_clm);
-            _str += ", _pc_row $"       + hex_str(_pc_row);
-            _str += ", pc on tsrc $"    + hex_str(_tsrc);
-            _str += ", pc_step_ctr $"   + hex_str(pc_step_ctr);
-            sdm(_str);
-        }
-        
-        if (0){
-            _str  = " ";
-            _str += ", _a $"        + string(_a);
-            _str += ", _i $"         + string(_i);
-            // _str += ", _idx_obj "   + string(_idx_obj);
-            _str += ", _idx_xy "    + string(_idx_xy);
-            _str += ", _rand_idx "          + string(_rand_idx);
-            _str += ", g.ar_rand[_rand_idx]&3 $" + hex_str(g.ar_rand[_rand_idx]&3);
-            _str += ", g.ar_rand[_rand_idx-1] $" + hex_str(g.ar_rand[_rand_idx-1]);
-            _str += ", _count " + string(_count);
-            show_debug_message(_str);
-        }
-        
-        
-        sdm("");
-        if(!_a) { sdm(""); sdm(""); }
+    sdm("");
+    if (1){
+        _str  = " ";
+        // _str += ", " + hex_str();
+        _str += ", ENC INST SPAWNED! " + string(dg_enc_inst[#_i,0]);
+        _str += ", x $"         + hex_str(dg_enc_inst[#_i,1]);
+        _str += ", y $"         + hex_str(dg_enc_inst[#_i,2]);
+        _str += ", clm $"       + hex_str(dg_enc_inst[#_i,1]>>SHIFT);
+        _str += ", row $"       + hex_str(dg_enc_inst[#_i,2]>>SHIFT);
+        _str += ", pc on tsrc $" + hex_str(_tsrc);
+        _str += ", _BIOME $"    + hex_str(_BIOME);
+        _str += ", life dur $"  + hex_str(dg_enc_inst[#_i,ENC_INST_TMR_IDX]);
+        _str += ", g.tmr_enc_spawn "   + string(g.tmr_enc_spawn);
+        sdm(_str);
     }
+    
+    if (0){
+        _str  = " ";
+        _str += ", _pc_clm $"       + hex_str(_pc_clm);
+        _str += ", _pc_row $"       + hex_str(_pc_row);
+        _str += ", pc on tsrc $"    + hex_str(_tsrc);
+        _str += ", pc_step_ctr $"   + hex_str(pc_step_ctr);
+        sdm(_str);
+    }
+    
+    if (0){
+        _str  = " ";
+        _str += ", _a $"        + string(_a);
+        _str += ", _i $"         + string(_i);
+        // _str += ", _idx_obj "   + string(_idx_obj);
+        _str += ", _idx_xy "    + string(_idx_xy);
+        _str += ", _rand_idx "          + string(_rand_idx);
+        _str += ", g.ar_rand[_rand_idx]&3 $" + hex_str(g.ar_rand[_rand_idx]&3);
+        _str += ", g.ar_rand[_rand_idx-1] $" + hex_str(g.ar_rand[_rand_idx-1]);
+        _str += ", _count " + string(_count);
+        show_debug_message(_str);
+    }
+    
+    
+    sdm("");
+    if(!_a) { sdm(""); sdm(""); }
     */
     
     

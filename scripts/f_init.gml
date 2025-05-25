@@ -2,7 +2,7 @@
 
 // f: file. Save file data. Includes player stats
 
-if (DEV) sdm(" f_init()");
+show_debug_message("f_init()");
 
 
 var _i,_j, _val;

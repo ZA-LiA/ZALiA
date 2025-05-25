@@ -3,8 +3,88 @@
 show_debug_message("Overworld_init_data_1()");
 
 
+/*
+!!!!!!!! MAKE SURE YOU MOVE(not copy) THE NEW FILE THIS CREATES (see `file_text_open_write` below) 
+IN THE %localappdata% FOLDER TO Included Files "other" FOLDER !!!!!!!!!!!!!!!!!
+*/
+
+
 // _C0: In case I want to go back to old method which doesn't automate/pre-bake the data
 var _C0 = isVal(OVERWORLD_INIT_METHOD,2);
+var _C1 = isVal(OVERWORLD_INIT_METHOD,3);
+var _C2 = _C0 || _C1;
+
+if(_C2)repeat($8)sdm("");
+var _i,_j,_k,_m, _val,_val1,_val2, _idx, _count,_count1,_count2, _type, _num;
+if(_C2)sdm("var _i,_j, _idx, _val1,_val2, _count1,_count2;");
+var _x,_y;
+var _clms,_rows, _roff,_coff;
+if(_C2)sdm("var _clms,_rows;");
+var _owrc,_owrc_, _ow_row,_ow_row_, _ow_clm,_ow_clm_;
+if(_C2)sdm("var _owrc,_owrc_"+", _ow_clm,_ow_row"+", _ow_clm_,_ow_row_;");
+
+var _tile_data, _ts, _tsrc,_tsrc_raw, _ts_r,_ts_c;
+var _tsrc0 = 0;
+if(_C2)sdm("var _tsrc;");
+
+var _str,_str1,_str2, _name, _pos, _len,_len1,_len2;
+var _area, _scene_id;
+var _datakey, _dk;
+if(_C2)sdm("var _dk, _str1,_str2, _data;");
+if(_C2)sdm("var _scene_id;");
+
+var _tile_w,_tile_h;
+var _file, _file_name, _file_data, _encoded;
+var _data, _rm_name;
+
+
+if(_C1)
+{
+    repeat($2)sdm("");
+         dm_file_data = ds_map_create();
+    sdm("dm_file_data = ds_map_create();");
+    
+    // This will pull from Included Files
+    repeat($1)sdm("");
+    var _FILE_NAME1 = "OverworldData01.txt";
+    sdm("var             _FILE_NAME1 = "+"'ow_tile_data/"+_FILE_NAME1+"';");
+    sdm("if (file_exists(_FILE_NAME1))");
+    sdm("{");
+    sdm("    var _FILE      = file_text_open_read(working_directory+_FILE_NAME1);")
+    sdm("    var _FILE_DATA = file_text_read_string(_FILE);");
+    sdm("                     file_text_close(      _FILE);");
+    sdm("    dm_file_data = json_decode(_FILE_DATA);");
+    sdm("    _data = dm_file_data[?dk_Map0];");
+    sdm("    if(!is_undefined(_data)) dm = json_decode(_data);");
+    sdm("}");
+    repeat($1)sdm("");
+}
+/*
+var _FILE  = "rm_tile_data";
+if (argument_count>_arg)
+{   _FILE  = argument[_arg++];  }
+    _FILE += "/";
+    _FILE += string_letters(_file_name); // get "PalcA" from "PalcA_003"
+    _FILE += "/";
+    _FILE += _file_name;
+    _FILE += ".json";
+//  _FILE example:  "rm_tile_data/PalcA/PalcA_003.json"
+sdm(_FILE);
+if(!file_exists(_FILE)) return undefined;
+
+
+
+       _FILE  = file_text_open_read(_FILE);
+var    _DATA  = "";
+while (        !file_text_eof(      _FILE)) 
+{      _DATA += file_text_readln(   _FILE);  }
+                file_text_close(    _FILE);
+//
+return _DATA;
+*/
+
+
+
 
 var _owrc_printed = false;
 var _tsrc_started = false;
@@ -33,29 +113,8 @@ var _dg_tsrcub = ds_grid_create(0,2);
 var _db_str = "";
 
 
-if(_C0)repeat($4) sdm("");
+//if(_C2)repeat($4)sdm("");
 
-var _i,_j,_k,_m, _val,_val1,_val2, _idx, _count,_count1,_count2, _type, _num;
-if(_C0)sdm("var _i,_j, _idx, _val1,_val2, _count1,_count2;");
-var _x,_y;
-var _clms,_rows, _roff,_coff;
-if(_C0)sdm("var _clms,_rows;");
-var _owrc,_owrc_, _ow_row,_ow_row_, _ow_clm,_ow_clm_;
-if(_C0)sdm("var _owrc,_owrc_"+", _ow_clm,_ow_row"+", _ow_clm_,_ow_row_;");
-
-var _tile_data, _ts, _tsrc,_tsrc_raw, _ts_r,_ts_c;
-var _tsrc0 = 0;
-if(_C0)sdm("var _tsrc;");
-
-var _str,_str1,_str2, _name, _pos, _len,_len1,_len2;
-var _area, _scene_id;
-var _datakey, _dk;
-if(_C0)sdm("var _dk, _str1,_str2;");
-if(_C0)sdm("var _scene_id;");
-
-var _tile_w,_tile_h;
-
-var _data, _rm_name;
 /*
 var _dl_RANDO_TSRC_A = ds_list_create();
 var _dl_RANDO_TSRC_B = ds_list_create();
@@ -72,16 +131,19 @@ ds_list_shuffle(_dl_RANDO_TSRC_B);
 
 
 
-// --------------------------------------------------------------
-var _file_name = "OvrwA_00.json";
-var _file = file_text_open_read("ow_tile_data/"+_file_name);
 
-    _str  = "";
-while (    !file_text_eof(   _file))
-{   _str += file_text_readln(_file);  }
-            file_text_close( _file);
+// --------------------------------------------------------------
+_file_name = "OvrwA_00.json";
+_file = file_text_open_read("ow_tile_data/"+_file_name);
+    _file_data  = "";
+while (          !file_text_eof(   _file))
+{   _file_data += file_text_readln(_file);  }
+                  file_text_close( _file);
 //
-var _dm_file_data = json_decode(_str);
+var _dm_file_data = json_decode(_file_data);
+
+
+
 
 var _TMX_W      = _dm_file_data[?"width"];
 var _TMX_H      = _dm_file_data[?"height"];
@@ -89,13 +151,51 @@ var _TMX_TILE_W = _dm_file_data[?"tilewidth"];
 var _TMX_TILE_H = _dm_file_data[?"tileheight"];
 
 
+var _STR_IDX    = "_idx";
+var _STR_NAME   = "_name";
+var _dm_ts_info = ds_map_create();
+var _dl_ts_data = _dm_file_data[?"tilesets"];
+var _dm_ts_data;
+var _dg_ts_data = ds_grid_create(0,5);
+var _list_idx_of_ts = 0;
+
+
+var _Anim, _Speed, _Enc, _Boots, _Change, _Solid;
+var _Open, _RmName, _AccessRm, _AccessOw, _CutScene, _Town;
+var _AccessOw_len = 0;
+var _prop_name, _prop_value;
+
+
+var _dm_prop_value = ds_map_create();
+
+var _scale_x, _scale_y;
+
+var _layer_name, _layer_type, _layer_count;
+var _dm_layer_data, _dl_data;
+var _dl_layer_data = _dm_file_data[?"layers"];
+
+var _dl_prop_data, _dm_prop_data;
+var _dm_obj_data;
+
+var _exit_num, _exit_name, _info;
+
+var _count_j = 0;
+var _str_j = "";
+
+var _STR_ENC  = "ENC";
+var _STR_AREA = "AREA";
+
+
 
 
 // --------------------------------------------------------------
-if(_C0)sdm("var _dl1 = ds_list_create();");
+if(_C2)repeat($1)sdm("");
+if(_C2)sdm("var _dl1 = ds_list_create();");
 //sdm("var _dl2 = ds_list_create();");
+
+
 if(_C0)
-{   repeat($1) sdm("");
+{   repeat($1)sdm("");
     sdm("var         _dl_AreaNames = ds_list_create();");
     sdm("ds_list_add(_dl_AreaNames,'NORTH CASTLE FIELD');");
     sdm("ds_list_add(_dl_AreaNames,'NORTH CASTLE WOODS'); // 18 character limit");
@@ -140,132 +240,8 @@ if(_C0)
     sdm("//                                                      //");
     sdm("ds_list_add(_dl_AreaNames,'DRAGMIRE'); // DRAGMIRE B (Island behind Dragmire)");
     //sdm("ds_list_add(_dl_AreaNames,MapAreaName_DEF);");
-    repeat($1) sdm("");
+    //repeat($1)sdm("");
 }
-
-if(_C0)repeat($2) sdm("");
-
-            OW_CLMS = _dm_file_data[?"width"];
-if(_C0)sdm("OW_CLMS = $"+hex_str(OW_CLMS)+";");
-            OW_ROWS = _dm_file_data[?"height"];
-if(_C0)sdm("OW_ROWS = $"+hex_str(OW_ROWS)+";");
-
-            OW_W = OW_CLMS<<SHIFT;
-if(_C0)sdm("OW_W = OW_CLMS<<SHIFT;");
-            OW_H = OW_ROWS<<SHIFT;
-if(_C0)sdm("OW_H = OW_ROWS<<SHIFT;");
-
-
-
-
-
-
-// --------------------------------------------------------------
-// Get tileset info
-var _STR_IDX    = "_idx";
-var _STR_NAME   = "_name";
-var _dm_ts_info = ds_map_create();
-var _dl_ts_data = _dm_file_data[?"tilesets"];
-var _dm_ts_data;
-var _dg_ts_data = ds_grid_create(0,5);
-var _list_idx_of_ts = 0;
-_str = "";
-             _count = ds_list_size(_dl_ts_data);
-for(_i=0; _i<_count; _i++)
-{
-    _name = "";
-    _dm_ts_data = _dl_ts_data[|_i];
-    _str = _dm_ts_data[?"source"];
-    
-    for(_j=string_length(_str); _j>=1; _j--) // start from end, go backwards
-    {   // "source" Example: "..\/..\/..\/Tilesets\/Z2_Remake_1a\/ts_Overworld_1a.tsx"
-        if (string_char_at(_str,_j) != "/") continue;
-        
-        
-            _name = string_copy(_str, _j+1, (string_length(_str)-_j) - 4); // (- 4): truncates the file ext
-            _ts   = val(g.dm_tileset[?_name]);
-        if(!_ts)
-        {
-            _ts   = TILESET1;
-            _name = background_get_name(_ts);
-        }
-        
-        _dm_ts_info[?hex_str(_i)+_STR_NAME] = _name; // ts name
-        _dm_ts_info[?hex_str(_i)+_STR_IDX]  = _ts;   // ts index
-        
-        _idx = ds_grid_width(_dg_ts_data);
-        ds_grid_resize(_dg_ts_data, _idx+1,ds_grid_height(_dg_ts_data));
-        _dg_ts_data[#_idx,0] = _ts;
-        _dg_ts_data[#_idx,1] = _name;
-        _dg_ts_data[#_idx,2] = _dm_ts_data[?"firstgid"];
-        _tile_w = val(g.dm_tileset[?_name+STR_Tile+STR_Width], T_SIZE);
-        _tile_h = val(g.dm_tileset[?_name+STR_Tile+STR_Height],T_SIZE);
-        _dg_ts_data[#_idx,3] = _dg_ts_data[#_idx,2] + (val(g.dm_tileset[?_name+STR_Tile+STR_Count],$100) - 1);
-        _dg_ts_data[#_idx,4] = ds_list_find_index(g.dl_tileset,_ts);
-        break;//_j
-    }
-    
-    ds_map_clear(_dm_ts_data);
-}
-
-var _dg_ts_data_W = ds_grid_width(_dg_ts_data);
-
-
-
-
-
-
-
-
-
-
-// --------------------------------------------------------------
-if(_C0)repeat($2) sdm("");
-
-ds_grid_resize(dg_tsrc_def,  OW_CLMS, OW_ROWS);
-ds_grid_clear (dg_tsrc_def,  TSRC_WATER01);
-ds_grid_copy(dg_tsrc,dg_tsrc_def);
-if(_C0)repeat($1) sdm("");
-if(_C0)sdm("ds_grid_resize(dg_tsrc_def, OW_CLMS, OW_ROWS);");
-if(_C0)sdm("ds_grid_clear( dg_tsrc_def, TSRC_WATER01);");
-if(_C0)sdm("ds_grid_copy(  dg_tsrc,dg_tsrc_def);");
-
-
-ds_grid_resize(dg_solid_def, OW_CLMS, OW_ROWS);
-ds_grid_clear (dg_solid_def, 0);
-ds_grid_copy(dg_solid,dg_solid_def);
-if(_C0)repeat($1) sdm("");
-if(_C0)sdm("ds_grid_resize(dg_solid_def, OW_CLMS, OW_ROWS);");
-if(_C0)sdm("ds_grid_clear( dg_solid_def, 0);");
-if(_C0)sdm("ds_grid_copy(  dg_solid,dg_solid_def);");
-
-
-ds_grid_resize(dg_area,      OW_CLMS, OW_ROWS);
-ds_grid_clear( dg_area,     -1);
-if(_C0)repeat($1) sdm("");
-if(_C0)sdm("ds_grid_resize(dg_area, OW_CLMS, OW_ROWS);");
-if(_C0)sdm("ds_grid_clear( dg_area, -1);");
-
-
-ds_grid_resize(dg_AreaNames, OW_CLMS,OW_ROWS);
-ds_grid_clear (dg_AreaNames, MapAreaName_DEF);
-if(_C0)repeat($1) sdm("");
-if(_C0)sdm("ds_grid_resize(dg_AreaNames, OW_CLMS, OW_ROWS);");
-if(_C0)sdm("ds_grid_clear( dg_AreaNames, MapAreaName_DEF);");
-
-
-ds_grid_resize(HiddenExitIndicator_dg, 0,ds_grid_height(HiddenExitIndicator_dg));
-ds_grid_clear (HiddenExitIndicator_dg, 0);
-if(_C0)repeat($1) sdm("");
-if(_C0)sdm("ds_grid_resize(HiddenExitIndicator_dg, 0,ds_grid_height(HiddenExitIndicator_dg));");
-if(_C0)sdm("ds_grid_clear (HiddenExitIndicator_dg, 0);");
-
-
-
-
-
-
-
 
 // NOTE: 19 characters(including spaces) fits, but is tight.
 // Therefore, 18 characters will be the limit.
@@ -320,40 +296,125 @@ ds_list_add(_dl_AreaNames,MapAreaName_DEF);
 
 
 
-var _Anim, _Speed, _Enc, _Boots, _Change, _Solid;
-var _Open, _RmName, _AccessRm, _AccessOw, _CutScene, _Town;
-var _AccessOw_len = 0;
-var _prop_name, _prop_value;
+if(_C2)repeat($4)sdm("");
 
+            OW_CLMS = _dm_file_data[?"width"];
+if(_C2)sdm("OW_CLMS = $"+hex_str(OW_CLMS)+";");
+            OW_ROWS = _dm_file_data[?"height"];
+if(_C2)sdm("OW_ROWS = $"+hex_str(OW_ROWS)+";");
 
-var _dm_prop_value = ds_map_create();
-
-var _scale_x, _scale_y;
-
-var _layer_name, _layer_type;
-var _dm_layer_data, _dl_data;
-var _dl_layer_data = _dm_file_data[?"layers"];
-
-var _dl_prop_data, _dm_prop_data;
-var _dm_obj_data;
-
-var _exit_num, _exit_name, _info;
-
-var _count_j = 0;
-var _str_j = "";
-
-var _STR_ENC  = "ENC";
-var _STR_AREA = "AREA";
+            OW_W = OW_CLMS<<SHIFT;
+if(_C2)sdm("OW_W = OW_CLMS<<SHIFT;");
+            OW_H = OW_ROWS<<SHIFT;
+if(_C2)sdm("OW_H = OW_ROWS<<SHIFT;");
 
 
 
 
 
 
+// --------------------------------------------------------------
+// Get tileset info
+_str = "";
+             _count = ds_list_size(_dl_ts_data);
+for(_i=0; _i<_count; _i++)
+{
+    _name = "";
+    _dm_ts_data = _dl_ts_data[|_i];
+    _str = _dm_ts_data[?"source"];
+    
+    for(_j=string_length(_str); _j>=1; _j--) // start from end, go backwards
+    {   // "source" Example: "..\/..\/..\/Tilesets\/Z2_Remake_1a\/ts_Overworld_1a.tsx"
+        if (string_char_at(_str,_j) != "/") continue;
+        
+        
+            _name = string_copy(_str, _j+1, (string_length(_str)-_j) - 4); // (- 4): truncates the file ext
+            _ts   = val(g.dm_tileset[?_name]);
+        if(!_ts)
+        {
+            _ts   = TILESET1;
+            _name = background_get_name(_ts);
+        }
+        
+        _dm_ts_info[?hex_str(_i)+_STR_NAME] = _name; // ts name
+        _dm_ts_info[?hex_str(_i)+_STR_IDX]  = _ts;   // ts index
+        
+        _idx = ds_grid_width(_dg_ts_data);
+        ds_grid_resize(_dg_ts_data, _idx+1,ds_grid_height(_dg_ts_data));
+        _dg_ts_data[#_idx,0] = _ts;
+        _dg_ts_data[#_idx,1] = _name;
+        _dg_ts_data[#_idx,2] = _dm_ts_data[?"firstgid"];
+        _tile_w = val(g.dm_tileset[?_name+STR_Tile+STR_Width], T_SIZE);
+        _tile_h = val(g.dm_tileset[?_name+STR_Tile+STR_Height],T_SIZE);
+        _dg_ts_data[#_idx,3] = _dg_ts_data[#_idx,2] + (val(g.dm_tileset[?_name+STR_Tile+STR_Count],$100) - 1);
+        _dg_ts_data[#_idx,4] = ds_list_find_index(g.dl_tileset,_ts);
+        break;//_j
+    }
+    
+    ds_map_clear(_dm_ts_data);
+}
+
+var _dg_ts_data_W = ds_grid_width(_dg_ts_data);
 
 
 
-var          _layer_count = ds_list_size(_dl_layer_data);
+
+
+
+
+
+
+
+// --------------------------------------------------------------
+if(_C2)repeat($2)sdm("");
+
+ds_grid_resize(dg_tsrc_def,  OW_CLMS, OW_ROWS);
+ds_grid_clear (dg_tsrc_def,  TSRC_WATER01);
+ds_grid_copy(dg_tsrc,dg_tsrc_def);
+if(_C0)repeat($1)sdm("");
+if(_C0)sdm("ds_grid_resize(dg_tsrc_def, OW_CLMS, OW_ROWS);");
+if(_C0)sdm("ds_grid_clear( dg_tsrc_def, TSRC_WATER01);");
+if(_C0)sdm("ds_grid_copy(  dg_tsrc,dg_tsrc_def);");
+
+
+ds_grid_resize(dg_solid_def, OW_CLMS, OW_ROWS);
+ds_grid_clear (dg_solid_def, 0);
+ds_grid_copy(dg_solid,dg_solid_def);
+if(_C0)repeat($1)sdm("");
+if(_C0)sdm("ds_grid_resize(dg_solid_def, OW_CLMS, OW_ROWS);");
+if(_C0)sdm("ds_grid_clear( dg_solid_def, 0);");
+if(_C0)sdm("ds_grid_copy(  dg_solid,dg_solid_def);");
+
+
+ds_grid_resize(dg_area, OW_CLMS, OW_ROWS);
+ds_grid_clear( dg_area, -1);
+if(_C0)repeat($1)sdm("");
+if(_C0)sdm("ds_grid_resize(dg_area, OW_CLMS, OW_ROWS);");
+if(_C0)sdm("ds_grid_clear( dg_area, -1);");
+
+
+ds_grid_resize(dg_AreaNames, OW_CLMS,OW_ROWS);
+ds_grid_clear (dg_AreaNames, MapAreaName_DEF);
+if(_C0)repeat($1)sdm("");
+if(_C0)sdm("ds_grid_resize(dg_AreaNames, OW_CLMS, OW_ROWS);");
+if(_C0)sdm("ds_grid_clear( dg_AreaNames, MapAreaName_DEF);");
+
+
+ds_grid_resize(HiddenExitIndicator_dg, 0,ds_grid_height(HiddenExitIndicator_dg));
+ds_grid_clear (HiddenExitIndicator_dg, 0);
+if(_C0)repeat($1)sdm("");
+if(_C0)sdm("ds_grid_resize(HiddenExitIndicator_dg, 0,ds_grid_height(HiddenExitIndicator_dg));");
+if(_C0)sdm("ds_grid_clear (HiddenExitIndicator_dg, 0);");
+
+
+
+
+
+
+
+
+
+             _layer_count = ds_list_size(_dl_layer_data);
 for(_i=0; _i<_layer_count; _i++) // each layer
 {
     _values_were_set = false;
@@ -435,50 +496,44 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                 _area = string_copy(_layer_name, string_length(_STR_AREA)+1, AreaID_LEN);
                 _idx  = ds_list_find_index(g.dl_AREA_NAME, _area);
             if (_idx+1)
-            {
-                if(_C0)
-                {
-                    if(!_encounterareas_started) repeat($4) sdm("");
-                    repeat($4) sdm("");
-                    
-                    sdm("_ow_clm=$"+_ow_clm_+";"+" _ow_row=$"+_ow_row_+";");
-                    //sdm("_ow_clm = $"+_ow_clm_+";");
-                    //sdm("_ow_row = $"+_ow_row_+";");
-                    //repeat($1) sdm("");
-                }
-                
+            {   // AREAS ----------------------------------------------
                 _clms = _dm_obj_data[?"width"]  >>SHIFT;
                 _rows = _dm_obj_data[?"height"] >>SHIFT;
-                
-                // Encounter areas. ---------------------------
                 _str = string_copy(_layer_name, string_length(_layer_name)-1, 2);
+                
                 if(_C0)
                 {
-                    sdm("_clms=$"+hex_str(_clms)+"; _rows=$"+hex_str(_rows)+";");
-                    repeat($1) sdm("");
+                    if(!_encounterareas_started) repeat($4)sdm("");
+                    repeat($4)sdm("");
+                    sdm("_ow_clm=$"+_ow_clm_+";"+" _ow_row=$"+_ow_row_+";"+" _clms=$"+hex_str(_clms)+"; _rows=$"+hex_str(_rows)+";");
+                    //sdm("_ow_clm=$"+_ow_clm_+";"+" _ow_row=$"+_ow_row_+";");
+                    //repeat($1)sdm("");
+                    //sdm("_clms=$"+hex_str(_clms)+"; _rows=$"+hex_str(_rows)+";");
+                    //repeat($1)sdm("");
                 }
                 
-                for(_k=ds_list_size(dl_biome_enc)-1; _k>=0; _k--) // Each biome
-                {   // _dk example:                 '_FIELD'  + '_WestA_' + '02' + '03'
-                        _dk = dl_biome_enc[|_k] +   _area   + _str + _str_j;
+                _count1 = val(Biome_dm[?STR_Biome+STR_Count]);
+                for(_k=0; _k<_count1; _k++) // Each biome
+                //for(_k=ds_list_size(dl_biome_enc)-1; _k>=0; _k--) // Each biome
+                {
+                    _val1 = val(Biome_dm[?STR_Biome+hex_str(_k+1)], STR_undefined);
+                    //  _dk example:  '_FIELD'  + '_WestA_' + '02' + '03'
+                        _dk =          _val1    +  _area    + _str + _str_j;
                     dm[?_dk+STR_Clm]  = _ow_clm;
                     dm[?_dk+STR_Row]  = _ow_row;
                     dm[?_dk+STR_Clms] = _clms;
                     dm[?_dk+STR_Rows] = _rows;
                     if(_C0)
-                    {
-                        //sdm("// _dk example:                '_FIELD'  + '_WestA_' +   '02'   +   '03'");
-                        sdm("    _dk = "+"'"+dl_biome_enc[|_k]+"'+'"+_area+"'+'"+_str+"'+'"+_str_j+"';");
+                    {   //sdm("//_dk example:'_FIELD'  + '_WestA_' +   '02'   +   '03'");
+                        sdm("    _dk = "+  "'"+_val1+"'+'"+_area+"'+'"+_str+"'+'"+_str_j+"';");
                         sdm("dm[?_dk+STR_Clm]  = _ow_clm;");
                         sdm("dm[?_dk+STR_Row]  = _ow_row;");
                         sdm("dm[?_dk+STR_Clms] = _clms;");
                         sdm("dm[?_dk+STR_Rows] = _rows;");
-                        //sdm("dm[?_dk+STR_Clms] = $"+hex_str(_clms)+";");
-                        //sdm("dm[?_dk+STR_Rows] = $"+hex_str(_rows)+";");
-                        repeat($1) sdm("");
+                        repeat($1)sdm("");
                     }
                 }
-                //if(_C0)repeat($2) sdm("");
+                //if(_C0)repeat($2)sdm("");
                 
                 
                 // Area areas. -------------------------------------------
@@ -552,10 +607,10 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             _data = _dm_prop_value[?STR_RmName];
             if(!is_undefined(_data))
             {
-                if(_C0 
+                if(_C2 
                 && !_sceneowrc_started )
                 {
-                    repeat($8) sdm("");
+                    repeat($8)sdm("");
                     sdm("// STR_Scene+STR_OWRC");
                          // This is an exit obj that's soley here to 
                     sdm("// This is an exit obj that's soley here to ");
@@ -570,9 +625,9 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                     sdm("// _data Example: '_WestA_FA,_WestA_F4,_WestA_F3'  (all share same owrc)");
                 }
                 
-                if(_C0)
+                if(_C2)
                 {
-                    repeat($1) sdm("");
+                    repeat($1)sdm("");
                     sdm("_owrc = $"+_owrc_+";");
                     //sdm("_owrc = ($"+_ow_row_+"<<8)|$"+_ow_clm_+";");
                 }
@@ -584,8 +639,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                 {
                     _rm_name = string_copy(_data, 1+(_len2*_k), _len1);
                                 g.dm_rm[?   _rm_name   +STR_OWRC] = _owrc;
-                    if(_C0)sdm("g.dm_rm[?'"+_rm_name+"'+STR_OWRC] = _owrc;");
-                    //if(_C0)sdm(  "dm[?'"   +_rm_name+"'+STR_OWRC] = _owrc;");
+                    if(_C2)sdm("g.dm_rm[?'"+_rm_name+"'+STR_OWRC] = _owrc;");
                 }
                 
                 _sceneowrc_started = true;
@@ -610,21 +664,21 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             if (_layer_name==STR_Raft 
             && !_raft_started )
             {
-                repeat($8) sdm("");
+                repeat($8)sdm("");
                      // Raft data examples: '0101', '0102'
                 sdm("// Raft data examples: '0101', '0102'");
                      // Raft tiles are in pairs: (01)01 Set num, 01(01) Member num 1 or 2
                 sdm("// Raft tiles are in pairs: (01)01 Set num, 01(01) Member num 1 or 2");
                      // Member 1 is always N or W of member 2
                 sdm("// Member 1 is always N or W of member 2");
-                repeat($1) sdm("");
+                repeat($1)sdm("");
             }
             
             if (string_pos(STR_Exit,_layer_name) 
             && !string_pos("_Hidden_Exits_Help",_layer_name) 
             && !_exits_started )
             {
-                repeat($8) sdm("");
+                repeat($8)sdm("");
             }
         }
         
@@ -731,7 +785,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             &&  _layer_name==STR_Monster 
             && !_RiverDevil_started )
             {
-                repeat($8) sdm("");
+                repeat($8)sdm("");
             }
             
             
@@ -771,8 +825,12 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             {
                 _tsrc0 = (_list_idx_of_ts<<8) | _tsrc;
                 ds_grid_clear(dg_tsrc_def,_tsrc0);
-                if(_C0)repeat($2) sdm("");
-                if(_C0)sdm("ds_grid_clear(dg_tsrc_def,$"+hex_str(_tsrc0)+");");
+                if(_C0)
+                {
+                    repeat($3)sdm("");
+                    sdm("// Clear with whatever tsrc was on the 'BG' layer. $0580 == (($05<<8)|TSRC_WATE01) == `TSRC_WATER01`");
+                    sdm("ds_grid_clear(dg_tsrc_def,$"+hex_str(_tsrc0)+");");
+                }
                 break;//_j
             }
             
@@ -807,6 +865,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             
             
             _tsrc0 = (_list_idx_of_ts<<8) | _tsrc;
+            if(_C1&&!_list_idx_of_ts) _tsrc0 = (TILESET1_TS_IDX<<8) | _tsrc;
             dg_tsrc_def[#_ow_clm,_ow_row] = _tsrc0;
         }
         
@@ -861,8 +920,8 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             && !_owrc_printed )
             {
                 _owrc_printed = true;
+                repeat($4)sdm("");
                 Overworld_init_data_1a(_owrc);
-                //repeat($1) sdm("");
             }
             
             _prop_value = str_hex(_dm_prop_value[?STR_Raft]);
@@ -872,7 +931,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             
                         dm[?STR_Raft   +hex_str(_prop_value)   +STR_OWRC] = _owrc;
             if(_C0)sdm("dm[?STR_Raft+'"+hex_str(_prop_value)+"'+STR_OWRC] = _owrc;");
-            if(_C0)repeat($1) sdm("");
+            if(_C0)repeat($1)sdm("");
             
             _raft_started = true;
         }
@@ -904,7 +963,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                     && !_owrc_printed )
                     {
                         _owrc_printed = true;
-                        repeat($2) sdm("");
+                        repeat($4)sdm("");
                         Overworld_init_data_1a(_owrc);
                         sdm("_scene_id = '"+_RmName+"';");
                     }
@@ -956,11 +1015,11 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                         {
                             _exit_name = _RmName+_exit_num; // rm exit name
                             _datakey = hex_str($1<<_k); // pc overworld movement direction
-                                        dm[?_owrc_   +_datakey   +STR_Exit] =    _exit_name;    // goto rm exit
+                                        dm[?_owrc_   +_datakey   +STR_Exit] = _exit_name; // goto rm exit
                             if(_C0)sdm("dm[?_owrc_+'"+_datakey+"'+STR_Exit] = _scene_id+'"+_exit_num+"'; // goto rm exit.  datakey example: owrc + ow move_dir  + '_Exit'");
                         }
                     }
-                    //if(_C0)repeat($1) sdm("");
+                    //if(_C0)repeat($1)sdm("");
                 }
                 
                 
@@ -975,12 +1034,14 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                 // _AccessOw Example: "20-01+00_8, " + "10+01+00_4, " (Do not input " char in Tiled prop field)
                 if (_AccessOw_len)
                 {
-                    //if(_C0)repeat($1) sdm("");
-                    if(_C0 
+                    //if(_C2)repeat($1)sdm("");
+                    if(_C2 
                     && !_owrc_printed )
                     {
                         _owrc_printed = true;
-                        repeat($2) sdm("");
+                        if(_C0)repeat($2)sdm(""); // because _C0 will print a lot more data
+                        else   repeat($2)sdm("");
+                        if(_C2&&!_exits_started) repeat($4)sdm("");
                         Overworld_init_data_1a(_owrc);
                         sdm("_scene_id = '"+_RmName+"';");
                     }
@@ -1003,22 +1064,18 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                         
                         if (is_undefined(g.dm_rm[?_RmName  +STR_OWRC]))
                         {
-                                         g.dm_rm[?_RmName  +STR_OWRC]           = _owrc; // scene owrc
-                            if(_C0) sdm("g.dm_rm[?_scene_id+STR_OWRC]           = _owrc; // scene owrc");
-                            //if(_C0) sdm("dm[?     _scene_id+STR_OWRC]           = _owrc; // scene owrc");
+                                         g.dm_rm[?_RmName  +STR_OWRC]           = _owrc;             // scene owrc
+                            if(_C2)sdm( "g.dm_rm[?_scene_id+STR_OWRC]           = _owrc;             // scene owrc");
                         }
                         
-                                    g.dm_rm[?_exit_name               +STR_OWRC]      =            _val   ; // goto owrc
-                        if(_C0)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_OWRC]      = $"+hex_str(_val)+"; // goto owrc");
-                        //if(_C0)sdm("dm[?     _scene_id+'"+_exit_num+"'+STR_OWRC]      = $"+hex_str(_val)+"; // goto owrc");
+                                    g.dm_rm[?_exit_name               +STR_OWRC]      =            _val   ;             // goto owrc
+                        if(_C2)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_OWRC]      = $"+hex_str(_val)+";             // goto owrc");
                         
-                                    g.dm_rm[?_exit_name               +STR_ow_dir]    =            str_hex(string_char_at(_str,_pos-1))   ; // goto ow facing dir
-                        if(_C0)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_ow_dir]    = $"+hex_str(str_hex(string_char_at(_str,_pos-1)))+"; // goto ow facing dir");
-                        //if(_C0)sdm("dm[?     _scene_id+'"+_exit_num+"'+STR_ow_dir]    = $"+hex_str(str_hex(string_char_at(_str,_pos-1)))+"; // goto ow facing dir");
+                                    g.dm_rm[?_exit_name               +STR_ow_dir]    =            str_hex(string_char_at(_str,_pos-1));                  // goto ow facing dir
+                        if(_C2)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_ow_dir]    = $"+hex_str(str_hex(string_char_at(_str,_pos-1)))+";               // goto ow facing dir");
                         
                                     g.dm_rm[?_exit_name               +STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-                        if(_C0)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit");
-                        //if(_C0)sdm("dm[?     _scene_id+'"+_exit_num+"'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit");
+                        if(_C2)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit");
                         
                         
                         if (_DEBUG1){ _db_str  = _str+': '+" goto owrc $"+hex_str(_val)+", ";
@@ -1027,7 +1084,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                             sdm(_db_str);
                         }
                     }
-                    //if(_C0)repeat($1) sdm("");
+                    //if(_C0)repeat($1)sdm("");
                 }
                 
                 
@@ -1054,7 +1111,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
         // _info Example: "0001_Palace_Three_Eye_Rock", "0001_Town_New_Kasuto", "0001_Fast_Travel_03", "0001_Palace_North_Palace"
         if (string_length(_info))
         {
-            //if(_C0)repeat($2) sdm("");
+            //if(_C0)repeat($2)sdm("");
             
             _str = STR_Fast+STR_Travel;
             if (string_pos(_str,_info))
@@ -1063,7 +1120,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                 && !_owrc_printed )
                 {
                     _owrc_printed = true;
-                    //repeat($1) sdm("");
+                    //repeat($4)sdm("");
                     Overworld_init_data_1a(_owrc);
                 }
                 
@@ -1100,7 +1157,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                         && !_owrc_printed )
                         {
                             _owrc_printed = true;
-                            //repeat($1) sdm("");
+                            //repeat($1)sdm("");
                             Overworld_init_data_1a(_owrc);
                         }
                         
@@ -1127,7 +1184,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                         if(!_owrc_printed)
                         {
                             _owrc_printed = true;
-                            //repeat($1) sdm("");
+                            //repeat($1)sdm("");
                             Overworld_init_data_1a(_owrc);
                         }
                         
@@ -1135,7 +1192,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                     }
                 }
             }
-            //if(_C0)repeat($2) sdm("");
+            //if(_C0)repeat($2)sdm("");
         }//if (string_length(_info))
         // -------------------------------------------------------------------
         
@@ -1155,299 +1212,10 @@ for(_i=0; _i<_layer_count; _i++) // each layer
 
 
 //chr(34)
+// -------------------------------------------------------------------
 if(_C0)
 {
-    repeat($C) sdm("");
-    _count1 = ds_grid_width( dg_tsrc_def);
-    _count2 = ds_grid_height(dg_tsrc_def);
-    sdm("_count1 = $"+hex_str(_count1)+";");
-    sdm("_count2 = $"+hex_str(_count2)+";");
-    sdm("ds_grid_resize(dg_tsrc_def, _count1,_count2);");
-    sdm("ds_grid_clear( dg_tsrc_def, TSRC_WATER01);");
-    //sdm("ds_grid_clear( dg_tsrc_def, $"+hex_str(_tsrc0)+");");
-    sdm("ds_grid_copy(  dg_tsrc,dg_tsrc_def);");
-    repeat($1) sdm("");
-    sdm("ds_list_clear(_dl1);");
-    for(_j=0; _j<_count2; _j++) // Each row of tiles
-    {
-        if!(_j&$F) sdm("// ROWS $"+hex_str(_j)+"-$"+hex_str(_j+$F));
-        _str1 = "'";
-        for(_i=0; _i<_count1; _i++) // Each clm of tiles
-        {
-            _tsrc = dg_tsrc_def[#_i,_j];
-            if (_i)
-            {
-                if!(_i&$7) _str1 += "'";
-                if!(_i&$F) _str1 += " ";
-                if!(_i&$7) _str1 += "+";
-                if!(_i&$F) _str1 += " ";
-                if!(_i&$7) _str1 += "'";
-            }
-            _str2  = hex_str(_tsrc);
-            if!((_tsrc>>8)&$FF) _str2 = TILESET1_TS_IDX_+_str2;
-            _str1 += _str2;
-        }
-        _str1 += "'";
-        sdm("ds_list_add(_dl1,"+_str1+");");
-    }
-    repeat($1) sdm("");
-    
-    repeat($1) sdm("");
-    sdm("for(_j=0; _j<_count2; _j++) // Each row of tiles");
-    sdm("{");
-    sdm("    _str1 = _dl1[|_j];");
-    sdm("    for(_i=0; _i<_count1; _i++) // Each clm of tiles");
-    sdm("    {");
-    sdm("        _str2 = string_copy(_str1,(_i<<2)+1,4);");
-    sdm("        dg_tsrc_def[#_i,_j] = str_hex(_str2);");
-    sdm("    }");//_i. clms
-    sdm("}");//_j. rows
-    repeat($4) sdm("");
-    
-    
-    
-    
-    repeat($8) sdm("");
-    _count1 = ds_grid_width( dg_solid_def);
-    _count2 = ds_grid_height(dg_solid_def);
-    sdm("_count1 = $"+hex_str(_count1)+";");
-    sdm("_count2 = $"+hex_str(_count2)+";");
-    sdm("ds_grid_resize(dg_solid_def, _count1,_count2);");
-    sdm("ds_grid_clear( dg_solid_def,0);");
-    sdm("ds_grid_copy(  dg_solid,dg_solid_def);");
-    repeat($1) sdm("");
-    sdm("ds_list_clear(_dl1);");
-    for(_j=0; _j<_count2; _j++) // Each row of tiles
-    {
-        if!(_j&$F) sdm("// ROWS $"+hex_str(_j)+"-$"+hex_str(_j+$F));
-        _str1 = "'";
-        for(_i=0; _i<_count1; _i++) // Each clm of tiles
-        {
-            _val = dg_solid_def[#_i,_j];
-            if (_i)
-            {
-                if!(_i&$7) _str1 += "'";
-                if!(_i&$F) _str1 += " ";
-                if!(_i&$7) _str1 += "+";
-                if!(_i&$F) _str1 += " ";
-                if!(_i&$7) _str1 += "'";
-            }
-            _str1 += hex_str(_val);
-        }
-        _str1 += "'";
-        sdm("ds_list_add(_dl1,"+_str1+");");
-    }
-    repeat($1) sdm("");
-    
-    repeat($1) sdm("");
-    sdm("for(_j=0; _j<_count2; _j++) // Each row of tiles");
-    sdm("{");
-    sdm("    _str1 = _dl1[|_j];");
-    sdm("    for(_i=0; _i<_count1; _i++) // Each clm of tiles");
-    sdm("    {");
-    sdm("        _str2 = string_copy(_str1,(_i<<1)+1,2);");
-    sdm("        dg_solid_def[#_i,_j] = str_hex(_str2);");
-    sdm("    }");//_i. clms
-    sdm("}");//_j. rows
-    repeat($4) sdm("");
-    
-    
-    
-    
-    repeat($8) sdm("");
-    _count1 = ds_grid_width( dg_AreaNames);
-    _count2 = ds_grid_height(dg_AreaNames);
-    sdm("_count1 = $"+hex_str(_count1)+";");
-    sdm("_count2 = $"+hex_str(_count2)+";");
-    sdm("ds_grid_resize(dg_AreaNames, _count1,_count2);");
-    sdm("ds_grid_clear( dg_AreaNames,MapAreaName_DEF);");
-    repeat($1) sdm("");
-    sdm("ds_list_clear(_dl1);");
-    for(_j=0; _j<_count2; _j++) // Each row of tiles
-    {
-        if!(_j&$F) sdm("// ROWS $"+hex_str(_j)+"-$"+hex_str(_j+$F));
-        _str1 = "'";
-        for(_i=0; _i<_count1; _i++) // Each clm of tiles
-        {
-            _val = dg_AreaNames[#_i,_j];
-            if (_val==MapAreaName_DEF) _idx = $FF;
-            else                       _idx = ds_list_find_index(_dl_AreaNames,_val);
-            if (_idx==-1)              _idx = $FF;
-            
-            if (_i)
-            {
-                if!(_i&$7) _str1 += "'";
-                if!(_i&$F) _str1 += " ";
-                if!(_i&$7) _str1 += "+";
-                if!(_i&$F) _str1 += " ";
-                if!(_i&$7) _str1 += "'";
-            }
-            _str1 += hex_str(_idx);
-        }
-        _str1 += "'";
-        sdm("ds_list_add(_dl1,"+_str1+");");
-    }
-    repeat($1) sdm("");
-    
-    repeat($1) sdm("");
-    sdm("for(_j=0; _j<_count2; _j++) // Each row of tiles");
-    sdm("{");
-    sdm("    _str1 = _dl1[|_j];");
-    sdm("    for(_i=0; _i<_count1; _i++) // Each clm of tiles");
-    sdm("    {");
-    sdm("        _str2 = string_copy(_str1,(_i<<1)+1,2);");
-    sdm("        _idx = str_hex(_str2);");
-    sdm("        if (_idx==$FF) continue;//_i. $FF represents MapAreaName_DEF");
-    sdm("        dg_AreaNames[#_i,_j] = _dl_AreaNames[|_idx];");
-    sdm("    }");//_i. clms
-    sdm("}");//_j. rows
-    repeat($4) sdm("");
-    
-    
-    
-    
-    
-    
-    _count1 = ds_grid_width( HiddenExitIndicator_dg);
-    _count2 = ds_grid_height(HiddenExitIndicator_dg);
-    repeat($8) sdm("");
-    sdm("ds_grid_resize(HiddenExitIndicator_dg, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
-    sdm("ds_grid_clear (HiddenExitIndicator_dg, 0);");
-    repeat($1) sdm("");
-    for(_i=0; _i<_count1; _i++)
-    {
-        _values_were_set = false;
-        
-        for(_j=0; _j<2; _j++) // 2: just need ow clm and ow row
-        //for(_j=0; _j<_count2; _j++)
-        {
-            if (_i && !(_i&$F) && !_j) repeat($3) sdm("");
-            _val = HiddenExitIndicator_dg[#_i,_j];
-            sdm("HiddenExitIndicator_dg[#$"+hex_str(_i)+",$"+hex_str(_j)+"] = $"+hex_str(_val)+";");
-            _values_were_set = true;
-        }
-        if (_values_were_set) repeat($1) sdm("");
-    }
-    
-    
-    
-    
-    
-    
-    _count1 = ds_grid_width( dg_boulders);
-    _count2 = ds_grid_height(dg_boulders);
-    repeat($8) sdm("");
-    sdm("ds_grid_resize(dg_boulders, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
-    repeat($1) sdm("");
-    for(_i=0; _i<_count1; _i++)
-    {
-        _values_were_set = false;
-        
-        for(_j=0; _j<3; _j++)
-        {
-            if (_i && !(_i&$F) && !_j) repeat($3) sdm("");
-            _val = dg_boulders[#_i,_j];
-            sdm("dg_boulders[#$"+hex_str(_i)+",$"+hex_str(_j)+"] = $"+hex_str(_val)+";");
-            //dg_boulders[#_i,0] = _owrc;
-            //dg_boulders[#_i,1] = 1; // boulder state
-            //dg_boulders[#_i,2] = dg_tsrc_def[#_ow_clm,_ow_row]; // tsrc under boulder
-            _values_were_set = true;
-        }
-        if (_values_were_set) repeat($1) sdm("");
-    }
-    
-    
-    repeat($8) sdm("");
-    sdm("BoulderCircle_center_OWRC = $"+hex_str(BoulderCircle_center_OWRC)+";");
-    repeat($1) sdm("");
-    _count1 = ds_list_size(dl_BoulderCircle_OWRC);
-    for(_i=0; _i<_count1; _i++)
-    {
-        _values_were_set = false;
-        
-        if (_i && !(_i&$F)) repeat($1) sdm("");
-        _owrc  = dl_BoulderCircle_OWRC[|_i];
-        _owrc_ = hex_str(_owrc);
-        _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
-        //sdm("_owrc = $"+_owrc_+";");
-        sdm("dl_BoulderCircle_OWRC[|$"+hex_str(_i)+"]    = $"+_owrc_+";");
-        
-        _datakey = STR_OWRC+STR_Boulder+STR_Circle+"_"+hex_str(_i+1);
-        _owrc = dm[?_datakey];
-        if(!is_undefined(_owrc))
-        {
-            _owrc_ = hex_str(_owrc);
-            _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
-            sdm("dm[?'"+_datakey+"'] = $"+_owrc_+"; // datakey example: _OWRC_Boulder_Circle_03");
-        }
-        repeat($1) sdm("");
-    }
-    
-    
-    // tsrcub: tsrc under boulder
-    repeat($8) sdm("");
-    _count1 = ds_grid_width( _dg_tsrcub);
-    _count2 = ds_grid_height(_dg_tsrcub);
-    for(_i=0; _i<_count1; _i++)
-    {
-        _values_were_set = false;
-        
-        if (_i && !(_i&$F)) repeat($1) sdm("");
-        _owrc = _dg_tsrcub[#_i,0];
-        _tsrc = _dg_tsrcub[#_i,1];
-        sdm("dm[?'"+hex_str(_owrc)+"'+STR_TSRC+STR_Under+STR_Boulder] = $"+hex_str(_tsrc)+";");
-        _values_were_set = true;
-    }
-    ds_grid_destroy(_dg_tsrcub); _dg_tsrcub=undefined;
-    
-    
-    
-    
-    
-    
-    repeat($C) sdm("");
-    _count1 = ds_grid_width( dg_ChangeTiles_Boots);
-    _count2 = ds_grid_height(dg_ChangeTiles_Boots);
-    sdm("_count1 = $"+hex_str(_count1)+";");
-    sdm("_count2 = $"+hex_str(_count2)+";");
-    sdm("ds_grid_resize(dg_ChangeTiles_Boots, _count1,_count2);");
-    repeat($1) sdm("");
-    // Solid val, tsrc, and ts are mostly, if not all, the same.
-    sdm("for(_i=0; _i<_count1; _i++)");
-    sdm("{");
-    sdm("    dg_ChangeTiles_Boots[#_i,1] = $00;"); // solid bits
-    sdm("    dg_ChangeTiles_Boots[#_i,2] = TSRC_WATER01;"); // tsrc
-    sdm("    dg_ChangeTiles_Boots[#_i,3] = $26;"); // ts
-    sdm("}");
-    repeat($1) sdm("");
-    for(_i=0; _i<_count1; _i++)
-    {
-        for(_j=0; _j<4; _j++)
-        {
-            if (_i && !(_i&$F) && !_j) repeat($1) sdm("");
-            _val = dg_ChangeTiles_Boots[#_i,_j];
-            if ((_j==1 && _val==$00)   // 1: solid bits
-            ||  (_j==2 && _val==TSRC_WATER01)   // 2: tsrc
-            ||  (_j==3 && _val==$26) ) // 3: ts
-            {
-                continue;//_j;
-            }
-            _val1 = hex_str(_i);
-            _val1 = string_repeat("0", 4-string_length(_val1)) + _val1;
-            sdm("dg_ChangeTiles_Boots[#$"+_val1+",$"+hex_str(_j)+"] = $"+hex_str(_val)+";");
-            //dg_ChangeTiles_Boots[#_i,0] = _owrc;
-            //dg_ChangeTiles_Boots[#_i,1] = _val;   // solid bits
-            //dg_ChangeTiles_Boots[#_i,2] = _tsrc;
-            //dg_ChangeTiles_Boots[#_i,3] = _ts;
-        }
-    }
-    
-    
-    
-    
-    
-    
-    repeat($8) sdm("");
+    repeat($8)sdm("");
     for(_i=1; _i<$100; _i++)
     {
         _values_were_set = false;
@@ -1463,7 +1231,7 @@ if(_C0)
             sdm("dm[?_owrc_+STR_River_Devil] = $"+hex_str(_i)+";");
             sdm("dm[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = $"+hex_str(val(dm[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_River_Devil]))+";");
             _values_were_set = true;
-            if (_values_were_set) repeat($1) sdm("");
+            if (_values_were_set) repeat($1)sdm("");
         }
         else
         {
@@ -1476,7 +1244,7 @@ if(_C0)
     {
         _values_were_set = false;
         
-        //repeat($1) sdm("");
+        //repeat($1)sdm("");
         _owrc = dm[?STR_Rando+STR_River_Devil+STR_OWRC];
         _owrc_ = hex_str(_owrc);
         _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
@@ -1486,18 +1254,18 @@ if(_C0)
         sdm("dm[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = (TILESET1_TS_IDX<<8) | TSRC_PATH02;");
         _values_were_set = true;
     }
-    
-    
-    
-    
-    
-    
+}
+
+
+// -------------------------------------------------------------------
+if(_C0)
+{
     _count1 = val(dm[?STR_Rando+STR_Exit+STR_Count]);
     if (_count1)
     {
         _values_were_set = false;
         
-        repeat($8) sdm("");
+        repeat($8)sdm("");
         sdm("dm[?STR_Rando+STR_Exit+STR_Count] = $"+hex_str(_count1)+";");
         for(_i=1; _i<=_count1; _i++)
         {
@@ -1506,7 +1274,7 @@ if(_C0)
             _owrc = dm[?STR_Rando+STR_Exit+hex_str(_i)+STR_OWRC];
             if(!is_undefined(_owrc))
             {
-                repeat($1) sdm("");
+                repeat($1)sdm("");
                 _owrc_ = hex_str(_owrc);
                 _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
                 Overworld_init_data_1a(_owrc);
@@ -1516,19 +1284,443 @@ if(_C0)
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    repeat($8) sdm("");
-    //sdm("ds_grid_copy(dg_AreaNames_DEF,dg_AreaNames);");
-    sdm("ds_grid_copy(dg_solid,dg_solid_def);");
-    sdm("ds_grid_copy(dg_tsrc,dg_tsrc_def);");
 }
 
 
+// -------------------------------------------------------------------
+if(_C0)
+{
+    // tsrcub: tsrc under boulder
+    repeat($8)sdm("");
+    _count1 = ds_grid_width( _dg_tsrcub);
+    _count2 = ds_grid_height(_dg_tsrcub);
+    for(_i=0; _i<_count1; _i++)
+    {
+        _values_were_set = false;
+        
+        if (_i && !(_i&$F)) repeat($1)sdm("");
+        _owrc = _dg_tsrcub[#_i,0];
+        _tsrc = _dg_tsrcub[#_i,1];
+        sdm("dm[?'"+hex_str(_owrc)+"'+STR_TSRC+STR_Under+STR_Boulder] = $"+hex_str(_tsrc)+";");
+        _values_were_set = true;
+    }
+    ds_grid_destroy(_dg_tsrcub); _dg_tsrcub=undefined;
+}
+
+
+if(_C2)
+{
+    _count1 = ds_grid_width( dg_boulders);
+    _count2 = ds_grid_height(dg_boulders);
+    
+    if(_C0)
+    {
+        repeat($8)sdm("");
+        sdm("ds_grid_resize(dg_boulders, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        repeat($1)sdm("");
+        for(_i=0; _i<_count1; _i++)
+        {
+            _values_were_set = false;
+            
+            for(_j=0; _j<3; _j++)
+            {
+                if (_i && !(_i&$F) && !_j) repeat($1)sdm("");
+                _val = dg_boulders[#_i,_j];
+                sdm("dg_boulders[#$"+hex_str(_i)+",$"+hex_str(_j)+"] = $"+hex_str(_val)+";");
+                //dg_boulders[#_i,0] = _owrc;
+                //dg_boulders[#_i,1] = 1; // boulder state
+                //dg_boulders[#_i,2] = dg_tsrc_def[#_ow_clm,_ow_row]; // tsrc under boulder
+                _values_were_set = true;
+            }
+            if (_values_were_set) repeat($1)sdm("");
+        }
+    }
+    else
+    {
+        dm_file_data[?"dg_boulders"] = ds_grid_write(dg_boulders);
+        repeat($4)sdm("");
+        //sdm("ds_grid_resize(dg_boulders, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        sdm("_data = dm_file_data[?'dg_boulders'];");
+        sdm("if(!is_undefined(_data)) ds_grid_read(dg_boulders, _data);");
+        //sdm("else show_debug_message('`Overworld_init_data_1()`. `dm_file_data[?dg_boulders]` IS UNDEFINED');");
+    }
+    
+    
+    repeat($4)sdm("");
+    sdm("   BoulderCircle_center_OWRC = $"+hex_str(BoulderCircle_center_OWRC)+";");
+    if(_C0)repeat($1)sdm("");
+    _count1 = ds_list_size(dl_BoulderCircle_OWRC);
+    for(_i=0; _i<_count1; _i++)
+    {
+        _values_were_set = false;
+        
+        if (_i && !(_i&$F)) repeat($1)sdm("");
+        _owrc  = dl_BoulderCircle_OWRC[|_i];
+        _owrc_ = hex_str(_owrc);
+        _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
+        //sdm("_owrc = $"+_owrc_+";");
+        sdm("dl_BoulderCircle_OWRC[|$"+hex_str(_i)+"]  = $"+_owrc_+";");
+        
+        _datakey = STR_OWRC+STR_Boulder+STR_Circle+"_"+hex_str(_i+1);
+        _owrc = dm[?_datakey];
+        if (_C0 
+        && !is_undefined(_owrc) )
+        {
+            _owrc_ = hex_str(_owrc);
+            _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
+            sdm("dm[?'"+_datakey+"'] = $"+_owrc_+"; // datakey example: _OWRC_Boulder_Circle_03");
+        }
+        if(_C0)repeat($1)sdm("");
+    }
+}
+
+
+// -------------------------------------------------------------------
+if(_C2)
+{
+    _count1 = ds_grid_width( HiddenExitIndicator_dg);
+    _count2 = ds_grid_height(HiddenExitIndicator_dg);
+    
+    if(_C0)
+    {
+        repeat($8)sdm("");
+        sdm("ds_grid_resize(HiddenExitIndicator_dg, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        sdm("ds_grid_clear (HiddenExitIndicator_dg, 0);");
+        repeat($1)sdm("");
+        for(_i=0; _i<_count1; _i++)
+        {
+            _values_were_set = false;
+            
+            for(_j=0; _j<2; _j++) // 2: just need ow clm and ow row
+            //for(_j=0; _j<_count2; _j++)
+            {
+                if (_i && !(_i&$F) && !_j) repeat($1)sdm("");
+                _val = HiddenExitIndicator_dg[#_i,_j];
+                sdm("HiddenExitIndicator_dg[#$"+hex_str(_i)+",$"+hex_str(_j)+"] = $"+hex_str(_val)+";");
+                _values_were_set = true;
+            }
+            if (_values_were_set) repeat($1)sdm("");
+        }
+    }
+    else
+    {
+        dm_file_data[?"HiddenExitIndicator_dg"] = ds_grid_write(HiddenExitIndicator_dg);
+        repeat($4)sdm("");
+        //sdm("ds_grid_resize(HiddenExitIndicator_dg, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        //sdm("ds_grid_clear (HiddenExitIndicator_dg, 0);");
+        sdm("_data = dm_file_data[?'HiddenExitIndicator_dg'];");
+        sdm("if(!is_undefined(_data)) ds_grid_read(HiddenExitIndicator_dg, _data);");
+        //sdm("else show_debug_message('`Overworld_init_data_1()`. `dm_file_data[?HiddenExitIndicator_dg]` IS UNDEFINED');");
+    }
+}
+
+
+// -------------------------------------------------------------------
+if(_C2)
+{
+    _count1 = ds_grid_width( dg_ChangeTiles_Boots);
+    _count2 = ds_grid_height(dg_ChangeTiles_Boots);
+    
+    if(_C0)
+    {
+        repeat($C)sdm("");
+        sdm("_count1 = $"+hex_str(_count1)+";");
+        sdm("_count2 = $"+hex_str(_count2)+";");
+        sdm("ds_grid_resize(dg_ChangeTiles_Boots, _count1,_count2);");
+        repeat($1)sdm("");
+        // Solid val, tsrc, and ts are mostly, if not all, the same.
+        sdm("for(_i=0; _i<_count1; _i++)");
+        sdm("{");
+        sdm("    dg_ChangeTiles_Boots[#_i,1] = $00;"); // solid bits
+        sdm("    dg_ChangeTiles_Boots[#_i,2] = TSRC_WATER01;"); // tsrc
+        sdm("    dg_ChangeTiles_Boots[#_i,3] = $26;"); // ts
+        sdm("}");
+        repeat($1)sdm("");
+        for(_i=0; _i<_count1; _i++)
+        {
+            for(_j=0; _j<4; _j++)
+            {
+                if (_i && !(_i&$F) && !_j) repeat($1)sdm("");
+                _val = dg_ChangeTiles_Boots[#_i,_j];
+                if ((_j==1 && _val==$00)   // 1: solid bits
+                ||  (_j==2 && _val==TSRC_WATER01)   // 2: tsrc
+                ||  (_j==3 && _val==$26) ) // 3: ts
+                {
+                    continue;//_j;
+                }
+                _val1 = hex_str(_i);
+                _val1 = string_repeat("0", 4-string_length(_val1)) + _val1;
+                sdm("dg_ChangeTiles_Boots[#$"+_val1+",$"+hex_str(_j)+"] = $"+hex_str(_val)+";");
+                //dg_ChangeTiles_Boots[#_i,0] = _owrc;
+                //dg_ChangeTiles_Boots[#_i,1] = _val;   // solid bits
+                //dg_ChangeTiles_Boots[#_i,2] = _tsrc;
+                //dg_ChangeTiles_Boots[#_i,3] = _ts;
+            }
+        }
+    }
+    else
+    {
+        dm_file_data[?"dg_ChangeTiles_Boots"] = ds_grid_write(dg_ChangeTiles_Boots);
+        repeat($4)sdm("");
+        //sdm("ds_grid_resize(dg_ChangeTiles_Boots, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        //sdm("ds_grid_clear (dg_ChangeTiles_Boots, 0);");
+        sdm("_data = dm_file_data[?'dg_ChangeTiles_Boots'];");
+        sdm("if(!is_undefined(_data)) ds_grid_read(dg_ChangeTiles_Boots, _data);");
+        //sdm("else show_debug_message('`Overworld_init_data_1()`. `dm_file_data[?dg_ChangeTiles_Boots]` IS UNDEFINED');");
+    }
+}
+
+
+// -------------------------------------------------------------------
+if(_C2)
+{
+    _count1 = ds_grid_width( dg_tsrc_def);
+    _count2 = ds_grid_height(dg_tsrc_def);
+    
+    if(_C0)
+    {
+        repeat($C)sdm("");
+        sdm("_count1 = $"+hex_str(_count1)+";");
+        sdm("_count2 = $"+hex_str(_count2)+";");
+        sdm("ds_grid_resize(dg_tsrc_def, _count1,_count2);");
+        sdm("ds_grid_clear( dg_tsrc_def, TSRC_WATER01);");
+        //sdm("ds_grid_clear( dg_tsrc_def, $"+hex_str(_tsrc0)+");");
+        sdm("ds_grid_copy(  dg_tsrc, dg_tsrc_def);");
+        repeat($1)sdm("");
+        sdm("ds_list_clear(_dl1);");
+        for(_j=0; _j<_count2; _j++) // Each row of tiles
+        {
+            if!(_j&$F) sdm("// ROWS $"+hex_str(_j)+"-$"+hex_str(_j+$F));
+            _str1 = "'";
+            for(_i=0; _i<_count1; _i++) // Each clm of tiles
+            {
+                _tsrc = dg_tsrc_def[#_i,_j];
+                if (_i)
+                {
+                    if!(_i&$7) _str1 += "'";
+                    if!(_i&$F) _str1 += " ";
+                    if!(_i&$7) _str1 += "+";
+                    if!(_i&$F) _str1 += " ";
+                    if!(_i&$7) _str1 += "'";
+                }
+                _str2  = hex_str(_tsrc);
+                if!((_tsrc>>8)&$FF) _str2 = TILESET1_TS_IDX_+_str2;
+                _str1 += _str2;
+            }
+            _str1 += "'";
+            sdm("ds_list_add(_dl1,"+_str1+");");
+        }
+        repeat($1)sdm("");
+        
+        repeat($1)sdm("");
+        sdm("for(_j=0; _j<_count2; _j++) // Each row of tiles");
+        sdm("{");
+        sdm("    _str1 = _dl1[|_j];");
+        sdm("    for(_i=0; _i<_count1; _i++) // Each clm of tiles");
+        sdm("    {");
+        sdm("        _str2 = string_copy(_str1,(_i<<2)+1,4);");
+        sdm("        dg_tsrc_def[#_i,_j] = str_hex(_str2);");
+        sdm("    }");//_i. clms
+        sdm("}");//_j. rows
+        repeat($1)sdm("");
+        sdm("ds_grid_copy(dg_tsrc, dg_tsrc_def);");
+        repeat($4)sdm("");
+    }
+    else
+    {
+        dm_file_data[?"dg_tsrc_def"] = ds_grid_write(dg_tsrc_def);
+        repeat($4)sdm("");
+        //sdm("ds_grid_resize(dg_tsrc_def, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        //sdm("ds_grid_clear( dg_tsrc_def, TSRC_WATER01);");
+        sdm("_data = dm_file_data[?'dg_tsrc_def'];");
+        sdm("if(!is_undefined(_data)) ds_grid_read(dg_tsrc_def, _data);");
+        //sdm("else show_debug_message('`Overworld_init_data_1()`. `dm_file_data[?dg_tsrc_def]` IS UNDEFINED');");
+        sdm("ds_grid_copy(dg_tsrc, dg_tsrc_def);");
+    }
+}
+
+
+// -------------------------------------------------------------------
+if(_C2)
+{
+    _count1 = ds_grid_width( dg_solid_def);
+    _count2 = ds_grid_height(dg_solid_def);
+    
+    if(_C0)
+    {
+        repeat($8)sdm("");
+        sdm("_count1 = $"+hex_str(_count1)+";");
+        sdm("_count2 = $"+hex_str(_count2)+";");
+        sdm("ds_grid_resize(dg_solid_def, _count1,_count2);");
+        sdm("ds_grid_clear( dg_solid_def, 0);");
+        sdm("ds_grid_copy(  dg_solid, dg_solid_def);");
+        repeat($1)sdm("");
+        sdm("ds_list_clear(_dl1);");
+        for(_j=0; _j<_count2; _j++) // Each row of tiles
+        {
+            if!(_j&$F) sdm("// ROWS $"+hex_str(_j)+"-$"+hex_str(_j+$F));
+            _str1 = "'";
+            for(_i=0; _i<_count1; _i++) // Each clm of tiles
+            {
+                _val = dg_solid_def[#_i,_j];
+                if (_i)
+                {
+                    if!(_i&$7) _str1 += "'";
+                    if!(_i&$F) _str1 += " ";
+                    if!(_i&$7) _str1 += "+";
+                    if!(_i&$F) _str1 += " ";
+                    if!(_i&$7) _str1 += "'";
+                }
+                _str1 += hex_str(_val);
+            }
+            _str1 += "'";
+            sdm("ds_list_add(_dl1,"+_str1+");");
+        }
+        repeat($1)sdm("");
+        
+        repeat($1)sdm("");
+        sdm("for(_j=0; _j<_count2; _j++) // Each row of tiles");
+        sdm("{");
+        sdm("    _str1 = _dl1[|_j];");
+        sdm("    for(_i=0; _i<_count1; _i++) // Each clm of tiles");
+        sdm("    {");
+        sdm("        _str2 = string_copy(_str1,(_i<<1)+1,2);");
+        sdm("        dg_solid_def[#_i,_j] = str_hex(_str2);");
+        sdm("    }");//_i. clms
+        sdm("}");//_j. rows
+        repeat($1)sdm("");
+        sdm("ds_grid_copy(dg_solid, dg_solid_def);");
+        repeat($4)sdm("");
+    }
+    else
+    {
+        dm_file_data[?"dg_solid_def"] = ds_grid_write(dg_solid_def);
+        repeat($2)sdm("");
+        //sdm("ds_grid_resize(dg_solid_def, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        //sdm("ds_grid_clear( dg_solid_def, 0);");
+        sdm("_data = dm_file_data[?'dg_solid_def'];");
+        sdm("if(!is_undefined(_data)) ds_grid_read(dg_solid_def, _data);");
+        //sdm("else show_debug_message('`Overworld_init_data_1()`. `dm_file_data[?dg_solid_def]` IS UNDEFINED');");
+        sdm("ds_grid_copy(dg_solid, dg_solid_def);");
+    }
+}
+
+
+// -------------------------------------------------------------------
+if(_C1)
+{
+        dm_file_data[?"dg_area"] = ds_grid_write(dg_area);
+        repeat($4)sdm("");
+        //sdm("ds_grid_resize(dg_area, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        //sdm("ds_grid_clear( dg_area, 0);");
+        sdm("_data = dm_file_data[?'dg_area'];");
+        sdm("if(!is_undefined(_data)) ds_grid_read(dg_area, _data);");
+        //sdm("else show_debug_message('`Overworld_init_data_1()`. `dm_file_data[?dg_area]` IS UNDEFINED');");
+}
+
+
+// -------------------------------------------------------------------
+if(_C2)
+{
+    _count1 = ds_grid_width( dg_AreaNames);
+    _count2 = ds_grid_height(dg_AreaNames);
+    
+    if(_C0)
+    {
+        repeat($8)sdm("");
+        sdm("_count1 = $"+hex_str(_count1)+";");
+        sdm("_count2 = $"+hex_str(_count2)+";");
+        sdm("ds_grid_resize(dg_AreaNames, _count1,_count2);");
+        sdm("ds_grid_clear( dg_AreaNames,MapAreaName_DEF);");
+        repeat($1)sdm("");
+        sdm("ds_list_clear(_dl1);");
+        for(_j=0; _j<_count2; _j++) // Each row of tiles
+        {
+            if!(_j&$F) sdm("// ROWS $"+hex_str(_j)+"-$"+hex_str(_j+$F));
+            _str1 = "'";
+            for(_i=0; _i<_count1; _i++) // Each clm of tiles
+            {
+                _val = dg_AreaNames[#_i,_j];
+                if (_val==MapAreaName_DEF) _idx = $FF;
+                else                       _idx = ds_list_find_index(_dl_AreaNames,_val);
+                if (_idx==-1)              _idx = $FF;
+                
+                if (_i)
+                {
+                    if!(_i&$7) _str1 += "'";
+                    if!(_i&$F) _str1 += " ";
+                    if!(_i&$7) _str1 += "+";
+                    if!(_i&$F) _str1 += " ";
+                    if!(_i&$7) _str1 += "'";
+                }
+                _str1 += hex_str(_idx);
+            }
+            _str1 += "'";
+            sdm("ds_list_add(_dl1,"+_str1+");");
+        }
+        repeat($1)sdm("");
+        
+        repeat($1)sdm("");
+        sdm("for(_j=0; _j<_count2; _j++) // Each row of tiles");
+        sdm("{");
+        sdm("    _str1 = _dl1[|_j];");
+        sdm("    for(_i=0; _i<_count1; _i++) // Each clm of tiles");
+        sdm("    {");
+        sdm("        _str2 = string_copy(_str1,(_i<<1)+1,2);");
+        sdm("        _idx = str_hex(_str2);");
+        sdm("        if (_idx==$FF) continue;//_i. $FF represents MapAreaName_DEF");
+        sdm("        dg_AreaNames[#_i,_j] = _dl_AreaNames[|_idx];");
+        sdm("    }");//_i. clms
+        sdm("}");//_j. rows
+        repeat($4)sdm("");
+    }
+    else
+    {
+        dm_file_data[?"dg_AreaNames"] = ds_grid_write(dg_AreaNames);
+        repeat($2)sdm("");
+        //sdm("ds_grid_resize(dg_AreaNames, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
+        //sdm("ds_grid_clear( dg_AreaNames, MapAreaName_DEF);");
+        sdm("_data = dm_file_data[?'dg_AreaNames'];");
+        sdm("if(!is_undefined(_data)) ds_grid_read(dg_AreaNames, _data);");
+        //sdm("else show_debug_message('`Overworld_init_data_1()`. `dm_file_data[?dg_AreaNames]` IS UNDEFINED');");
+    }
+}
+
+
+// -------------------------------------------------------------------
+if(_C2)repeat($8)sdm("");
+
+
+
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+if (_C1)
+{   /* Since GameMaker cannot write over Included Files, this will 
+    save in the same directory as save file data(%localappdata%) and 
+    then needs to be moved, manually, to Included Files.
+    This script `Overworld_init_data_1()` only needs to be run 
+    whenever a change has been made to the overworld.
+    */
+    dm_file_data[?dk_Map0] = json_encode(dm);
+    _encoded = json_encode(dm_file_data);
+    _file = file_text_open_write(working_directory+_FILE_NAME1);
+            file_text_write_string(_file,_encoded);
+            file_text_close(       _file);
+}
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
 
 
 
@@ -1671,12 +1863,18 @@ if(!is_undefined(_dl_AreaNames))  {ds_list_destroy(_dl_AreaNames);  _dl_AreaName
 //ds_list_destroy(_dl_RANDO_TSRC_A); _dl_RANDO_TSRC_A=undefined;
 //ds_list_destroy(_dl_RANDO_TSRC_B); _dl_RANDO_TSRC_B=undefined;
 
-if(_C0)sdm("ds_list_destroy(_dl1); _dl1=undefined;");
+if(_C1)
+{
+         ds_map_destroy(dm_file_data); dm_file_data=undefined;
+    sdm("ds_map_destroy(dm_file_data); dm_file_data=undefined;");
+}
+
+if(_C2)sdm("ds_list_destroy(_dl1); _dl1=undefined;");
 //sdm("ds_list_destroy(_dl2); _dl2=undefined;");
 ds_list_destroy(_dl1); _dl1=undefined;
 ds_list_destroy(_dl2); _dl2=undefined;
 if(_C0)sdm("ds_list_destroy(_dl_AreaNames); _dl_AreaNames=undefined;");
-if(_C0) repeat(4) sdm("");
+if(_C2) repeat(8)sdm("");
 
 
 

@@ -12,24 +12,26 @@ if (DEV)
 
 var _i,_j, _a, _idx,_idx1,_idx2,_idx3, _count,_count0,_count1;
 var _val, _val1,_val2,_val3;
-var _clm,_row, _clms,_rows;
+var _clm,_row, _clms,_rows, _grid_rows;
+var _depth;
 var _str, _dk;
 var _type, _data;
-var _area, _biome;
+var _area, _biome, _biome_num;
 var _tsrc, _tsrc_, _tsrc_count;
 
-var _dl_1 = ds_list_create();
-var _dl_biome_tsrc = ds_list_create();
+var _dl0 = ds_list_create();
+//var _dl_biome_tsrc = ds_list_create();
 
 
 // 1: On app start, overworld info is built and from the Tiled overworld .json file
 // 2: On app start, overworld info is built in a script with preprocessed data
-//OVERWORLD_INIT_METHOD = 3;
-OVERWORLD_INIT_METHOD = 2;
+// 3: Most data comes from Included Files "other/OverworldData01.txt"
+OVERWORLD_INIT_METHOD = 3;
 
 
 
 
+// ------------------------------------------------
 dm = ds_map_create();
 
 
@@ -37,26 +39,17 @@ dg_AreaNames_DEF = ds_grid_create(0,0);
 dg_AreaNames     = ds_grid_create(0,0);
 
 
-
-
-Pause_ALLOW_BUFFERING = true;
-Pause_FONT   = spr_Font1;
-Pause_TEXT   = "PAUSED!";
-Pause_TEXT_W = sprite_get_width(Pause_FONT) * string_length(Pause_TEXT);
-Pause_xl = 0;
-Pause_yt = 0;
-
-
-can_draw_exits = 1;
-
-
 //depth = DEPTH_Overworld;
 GO_depth_init(DEPTH_BASE); // sets depth & depth_def
 
-              _a = depth+$16;
-//              _a = depth+$10;
-Tile_DEPTH1 = _a--;
-Tile_DEPTH2 = _a--;
+
+              _depth = depth+$16;
+//              _depth = depth+$10;
+Tile_DEPTH1 = _depth--;
+Tile_DEPTH2 = _depth--;
+
+
+
 
 TILESET1           = ts_Overworld_1;
 TILESET_TILEMARKER = ts_tile_marker_1a_16x16; // For debug drawing exit outlines
@@ -67,15 +60,11 @@ TILESET1_TS_IDX_ = hex_str(TILESET1_TS_IDX);
 TILESET2_TS_IDX  = ds_list_find_index(g.dl_tileset,ts_OverworldAnim01);
 TILESET2_TS_IDX_ = hex_str(TILESET2_TS_IDX);
 
-var _TS1_DATA = TILESET1_TS_IDX<<8;
-var _TS2_DATA = TILESET2_TS_IDX<<8;
+var _TS1 = TILESET1_TS_IDX<<8;
+var _TS2 = TILESET2_TS_IDX<<8;
 
-TSRC_WATER01 = (TILESET2_TS_IDX<<8) | TSRC_WATE01; // deep water
-TSRC_WATER02 = (TILESET2_TS_IDX<<8) | TSRC_WATE02; // shallow water
-
-
-draw_move_offset_x = 0;
-draw_move_offset_y = 0;
+TSRC_WATER01 = _TS2|TSRC_WATE01; // deep water
+TSRC_WATER02 = _TS2|TSRC_WATE02; // shallow water
 
 
 COLOR_IDX_BG1 = $11;
@@ -104,19 +93,18 @@ DRAW_H += VIEW_PAD <<1;       // add (VIEW_PAD<<1) rows to each side
 DRAW_H  =   DRAW_H <<SHIFT;   // $11,$13 <<4 = $110,$130..  $18 pixel pad BTM & TOP
 DRAW_H_ =   DRAW_H >>1;       // FYI, THIS IS NOT THE CENTER OF THE SCREEN
 
-
 DRAW_CLMS = DRAW_W >>SHIFT; // $130,$210 >>4 = $13,$21
 DRAW_ROWS = DRAW_H >>SHIFT; // $110,$130 >>4 = $11,$13
+
+draw_move_offset_x = 0;
+draw_move_offset_y = 0;
+
+
 
 
 //OW_EDGE_PAD = $18;
 OW_CLMS_PAD = (DRAW_CLMS>>1) + 1; // +1 bc GRID_W is odd. $13 div 2 = 9 + 1 = $A
 OW_ROWS_PAD = (DRAW_ROWS>>1) + 1; // +1 bc GRID_H is odd. $11 div 2 = 8 + 1 = 9
-
-
-// Center cam on drawing area
-CAM_X = DRAW_W_ - g.VIEW_W_;
-CAM_Y = DRAW_H_ - g.VIEW_H_;
 
 
 // Based off .json file. Set in init_data_overworld()
@@ -126,6 +114,9 @@ OW_W    = 0; //
 OW_H    = 0; // 
 
 
+// Center cam on drawing area
+CAM_X = DRAW_W_ - g.VIEW_W_;
+CAM_Y = DRAW_H_ - g.VIEW_H_;
 // PC CAM X/Y is relative to the cam/view x/y
 // It is how many pixels away from view_x/yview and in the center of pc spr
 // PC_CAM_X_DEF = g.WINW_HALF;
@@ -141,6 +132,19 @@ rmC_W  = g.VIEW_W; //
 rmC_H  = g.VIEW_H; // 
 ROOM_W = DRAW_W;   // what room_width  get set to in Overworld_Room_Start()
 ROOM_H = DRAW_H;   // what room_height get set to in Overworld_Room_Start()
+
+
+
+
+Pause_ALLOW_BUFFERING = true;
+Pause_FONT   = spr_Font1;
+Pause_TEXT   = "PAUSED!";
+Pause_TEXT_W = sprite_get_width(Pause_FONT) * string_length(Pause_TEXT);
+Pause_xl = 0;
+Pause_yt = 0;
+
+
+can_draw_exits = 1;
 
 
 
@@ -167,14 +171,29 @@ PC_draw_is_sheet  = false;
 PC_draw_sheet_xl  = 0;
 PC_draw_sheet_yt  = 0;
 
+PC_can_draw = false;
+pc_sprite_idx = 0;
+//pc_spr = dg_pc_spr[#pc_sprite_idx,0];
+pc_x_scale = 1;
+pc_step_counter = 0;
+
+
+
+
+// mot: Mode Of Transport. 
+           _i=1;
+MOT_WALK = _i++;
+MOT_RAFT = _i++;
+mot      =  0; // 0: not moving
+
 
 
 
 move_SYS = 1;
-                 _a=0;
-MOVE_SPD_1 = $1<<_a++; // !(g.counter1 & (1-1)): every frame
-MOVE_SPD_2 = $1<<_a++; // !(g.counter1 & (2-1)): every other frame
-MOVE_SPD_3 = $1<<_a++; // !(g.counter1 & (4-1)): every 4 frames
+                 _i=0;
+MOVE_SPD_1 = $1<<_i++; // !(g.counter1 & (1-1)): every frame
+MOVE_SPD_2 = $1<<_i++; // !(g.counter1 & (2-1)): every other frame
+MOVE_SPD_3 = $1<<_i++; // !(g.counter1 & (4-1)): every 4 frames
 move_spd   = 0; // 0: no movement
 move_x     = 0;
 move_y     = 0;
@@ -190,36 +209,7 @@ move_distance = 0.0;
 //move_SYS=2; move_SPEED2=0.75; // testing
 
 
-
-
 exit_grid_xy = 0;
-
-
-PC_can_draw = false;
-pc_sprite_idx = 0;
-//pc_spr = dg_pc_spr[#pc_sprite_idx,0];
-
-
-
-/*
-dg_RAFT_SPR = ds_grid_create(4,1);
-dg_RAFT_SPR[#0,0] = spr_ow_raft_1a_WRB; // RGT
-dg_RAFT_SPR[#1,0] = dg_RAFT_SPR[#0,0];  // LFT
-dg_RAFT_SPR[#2,0] = spr_ow_raft_2a;     // DWN
-dg_RAFT_SPR[#3,0] = spr_ow_raft_3a;     // UP
-*/
-
-pc_x_scale = 1;
-
-
-
-// mot: Mode Of Transport. 
-           _a=1;
-MOT_WALK = _a++;
-MOT_RAFT = _a++;
-mot      =  0; // 0: not moving
-
-pc_step_counter = 0;
 
 
 FLUTE_DURATION1 = $88 + $8; // This is, at worst, an approximation
@@ -241,34 +231,32 @@ BAIT_draw_x    = 0;
 BAIT_draw_y    = 0;
 
 
+
+
 // -------------------------------------------------------------
 TreasureMaps_dg = ds_grid_create($0,$E);
 TreasureMaps_can_draw = false;
 
 TreasureMaps_Kakusu_sprite = spr_Slime_Small_1a_1;
-TreasureMaps_Kakusu_PI = global.PI_MOB_ORG;
-TreasureMaps_Kakusu_YOFF = -4; // -4: because graphic is aligned to bottom of image
+TreasureMaps_Kakusu_PI     = global.PI_MOB_ORG;
+TreasureMaps_Kakusu_YOFF   = -4; // -4: because graphic is aligned to bottom of image
 
 TreasureMaps_Heart_sprite = spr_Heart_1a;
-TreasureMaps_Heart_PI = global.PI_MOB_RED;
-TreasureMaps_Heart_YOFF = 0;
+TreasureMaps_Heart_PI     = global.PI_MOB_RED;
+TreasureMaps_Heart_YOFF   = 0;
 
 TreasureMaps_Magic_sprite0 = spr_Bottle_6a; // empty bottle
 TreasureMaps_Magic_sprite1 = spr_Bottle_6a_Liquid_1a;
-TreasureMaps_Magic_PI = global.PI_MOB_ORG;
-TreasureMaps_Magic_YOFF = -1;
+TreasureMaps_Magic_PI     = global.PI_MOB_ORG;
+TreasureMaps_Magic_YOFF   = -1;
 
 TreasureMaps_1up_sprite = spr_Item_LifeDoll_1a;
-TreasureMaps_1up_PI = global.PI_PC1;
-TreasureMaps_1up_YOFF = 0;
+TreasureMaps_1up_PI     = global.PI_PC1;
+TreasureMaps_1up_YOFF   = 0;
 
 TreasureMaps_Key_sprite = val(g.dm_ITEM[?STR_KEY+STR_Sprite], spr_0);
-TreasureMaps_Key_PI = global.PI_MOB_ORG;
-TreasureMaps_Key_YOFF = 0;
-
-
-
-
+TreasureMaps_Key_PI     = global.PI_MOB_ORG;
+TreasureMaps_Key_YOFF   = 0;
 
 
 
@@ -293,45 +281,12 @@ Pause_SOUND2 = get_audio_theme_track(dk_CursorFileSelect);
 
 
 
-// -------------------------------------------------------------
-// These get set in init_data_overworld() using data from the OW Tiled file.
-/*
-dm[?MK_OWRC_NPAL1]     = 0; // 
-//                                  // 
-dm[?MK_OWRC_TWN_RAUR1] = 0; // 
-dm[?MK_OWRC_TWN_RUTO1] = 0; // 
-dm[?MK_OWRC_TWN_SARI1] = 0; // 
-dm[?MK_OWRC_TWN_SARI2] = 0; // 
-dm[?MK_OWRC_TWN_MIDO1] = 0; // 
-dm[?MK_OWRC_TWN_NABO1] = 0; // 
-dm[?MK_OWRC_TWN_DARU1] = 0; // 
-dm[?MK_OWRC_TWN_NEWK1] = 0; // 
-dm[?MK_OWRC_TWN_OLDK1] = 0; // 
-//                                  // 
-dm[?MK_OWRC_PAL_PRPA1] = 0; // 
-dm[?MK_OWRC_PAL_MDRO1] = 0; // 
-dm[?MK_OWRC_PAL_ISLD1] = 0; // 
-dm[?MK_OWRC_PAL_MAZE1] = 0; // 
-dm[?MK_OWRC_PAL_POTS1] = 0; // 
-dm[?MK_OWRC_PAL_THRE1] = 0; // 
-dm[?MK_OWRC_PAL_GRET1] = 0; // 
-*/
-/* datakey examples:
-MK_OWRC_PAL_PRPA1 = (STR_OWRC + STR_Parapa_Palace + "01")
-MK_OWRC_PAL_MDRO1 = (STR_OWRC + STR_Midoro_Palace + "01")
-MK_OWRC_PAL_ISLD1 = (STR_OWRC + STR_Island_Palace + "01")
-MK_OWRC_PAL_THRE1 = (STR_OWRC + STR_Three_Eye_Rock_Palace + "01")
-*/
 
 
 
 
 
-
-
-
-
-// each cell represents the tile type at that row & clmn of the overworld
+// each cell represents the tile type at that row & clm of the overworld
 dg_solid_def = ds_grid_create(0,0); // def: default
 dg_solid     = ds_grid_create(0,0);
 
@@ -343,14 +298,13 @@ dg_tid       = ds_grid_create(DRAW_CLMS, DRAW_ROWS);
 
 dg_area      = ds_grid_create(0,0);
 
+dg_boulders  = ds_grid_create(0,4);
 
 dg_ChangeTiles_Boots = ds_grid_create(0,8);
 TileChangeEvent_TYPE_BOOT1 = "BOOTS01";
 
-dg_boulders = ds_grid_create(0,4);
-
 BoulderCircle_center_OWRC    = 0; // set in init_data_overworld()
-BoulderCircle_center_TSRC    = (TILESET1_TS_IDX<<8)|TSRC_HOLE01; // $C8: Hole in ground
+BoulderCircle_center_TSRC    = _TS1|TSRC_HOLE01; // $C8: Hole in ground
 dl_BoulderCircle_broke_order = ds_list_create();
 dl_BoulderCircle_OWRC        = ds_list_create();
 for(_i=0; _i<8; _i++) ds_list_add(dl_BoulderCircle_OWRC, 0);
@@ -360,19 +314,11 @@ for(_i=0; _i<8; _i++) ds_list_add(dl_BoulderCircle_OWRC, 0);
 
 if (g.anarkhyaOverworld_MAIN)
 {
-    //            dl_anarkhya_ts = ds_list_create();
-    //ds_list_add(dl_anarkhya_ts, ts_Overworld_anark01);
-    //ds_list_add(dl_anarkhya_ts, ts_Overworld_anark02);
-    //background_assign(ts_Overworld_anark01, ts_Overworld_anark01_00);
-    //background_assign(ts_Overworld_anark02, ts_Overworld_anark02_00);
-    
     dg_anarkhya_tsrc_def        = ds_grid_create(0,0); // def: default
     dg_anarkhya_tsrc            = ds_grid_create(0,0);
     dg_anarkhya_tsrc_detail_def = ds_grid_create(0,0); // for details layer
     dg_anarkhya_tsrc_detail     = ds_grid_create(0,0); // for details layer
-    
-    dg_anarkhya_tsrc_boots  = ds_grid_create(0,2);
-    //dg_anarkhya_tsrc_newkasuto = ds_grid_create(0,2);
+    dg_anarkhya_tsrc_boots      = ds_grid_create(0,2);
     
     anarkhya_TSRC_BOULDER = $173; // this includes a +1 that Tiled assigns
     anarkhya_TSRC_RUBBLE  = $146; // this includes a +1 that Tiled assigns
@@ -382,6 +328,59 @@ if (g.anarkhyaOverworld_MAIN)
     
     anarkhya_TILE_DEPTH1 = Tile_DEPTH1-8;
     anarkhya_TILE_DEPTH2 = anarkhya_TILE_DEPTH1-1; // the details layer
+}
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------------
+Overworld_init_data();
+// -------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------------
+with(g)
+{
+    var _DEFAULT    = val(other.dm[?MK_OWRC_NPAL1], OWRC_DFL); // 
+    OWRC_TOWN_RAUR1 = val(other.dm[?MK_OWRC_TWN_RAUR1], _DEFAULT); // 
+    OWRC_TOWN_RUTO1 = val(other.dm[?MK_OWRC_TWN_RUTO1], _DEFAULT); // 
+    OWRC_TOWN_SARI1 = val(other.dm[?MK_OWRC_TWN_SARI1], _DEFAULT); // 
+    OWRC_TOWN_SARI2 = val(other.dm[?MK_OWRC_TWN_SARI2], _DEFAULT); // 
+    OWRC_TOWN_MIDO1 = val(other.dm[?MK_OWRC_TWN_MIDO1], _DEFAULT); // 
+    OWRC_TOWN_NABO1 = val(other.dm[?MK_OWRC_TWN_NABO1], _DEFAULT); // 
+    OWRC_TOWN_DARU1 = val(other.dm[?MK_OWRC_TWN_DARU1], _DEFAULT); // 
+    OWRC_TOWN_NEWK1 = val(other.dm[?MK_OWRC_TWN_NEWK1], _DEFAULT); // 
+    OWRC_TOWN_OLDK1 = val(other.dm[?MK_OWRC_TWN_OLDK1], _DEFAULT); // 
+    OWRC_TOWN_BULB1 = val(other.dm[?MK_OWRC_TWN_BULB1], _DEFAULT); // 
+    //                                                          // 
+    OWRC_DNGN_PRPA1 = val(other.dm[?MK_OWRC_PAL_PRPA1], _DEFAULT); // 
+    OWRC_DNGN_MDRO1 = val(other.dm[?MK_OWRC_PAL_MDRO1], _DEFAULT); // 
+    OWRC_DNGN_ISLD1 = val(other.dm[?MK_OWRC_PAL_ISLD1], _DEFAULT); // 
+    OWRC_DNGN_MAZE1 = val(other.dm[?MK_OWRC_PAL_MAZE1], _DEFAULT); // 
+    OWRC_DNGN_POTS1 = val(other.dm[?MK_OWRC_PAL_POTS1], _DEFAULT); // 
+    OWRC_DNGN_THRE1 = val(other.dm[?MK_OWRC_PAL_THRE1], _DEFAULT); // 
+    OWRC_DNGN_GRET1 = val(other.dm[?MK_OWRC_PAL_GRET1], _DEFAULT); // 
+    
+    dm_dungeon[?STR_Dungeon+"01"+STR_OWRC] = OWRC_DNGN_PRPA1;
+    dm_dungeon[?STR_Dungeon+"02"+STR_OWRC] = OWRC_DNGN_MDRO1;
+    dm_dungeon[?STR_Dungeon+"03"+STR_OWRC] = OWRC_DNGN_ISLD1;
+    dm_dungeon[?STR_Dungeon+"04"+STR_OWRC] = OWRC_DNGN_MAZE1;
+    dm_dungeon[?STR_Dungeon+"05"+STR_OWRC] = OWRC_DNGN_POTS1;
+    dm_dungeon[?STR_Dungeon+"06"+STR_OWRC] = OWRC_DNGN_THRE1;
+    dm_dungeon[?STR_Dungeon+"07"+STR_OWRC] = OWRC_DNGN_GRET1;
+    //dm_dungeon[?STR_Dungeon+"08"+STR_OWRC] = ;
+    
+    OWRC_NO_EXIT_DATA = _DEFAULT + $10;
 }
 
 
@@ -402,15 +401,8 @@ ENC_TRIG_HB_W = $0A;
 ENC_TRIG_HB_H = $10;
 
 
-dm_enc                     = ds_map_create();
-dl_biome_enc               = ds_list_create();
-//             
-dl_biome_battle            = ds_list_create();
-dl_biome_enc_spawn_trigger = ds_list_create();
-dl_enc_spawn_cooldown_dur  = ds_list_create();
-dl_enc_inst_life_dur       = ds_list_create();
-
-dg_enc_inst = ds_grid_create(6,6);
+dm_enc           = ds_map_create();
+dg_enc_inst      = ds_grid_create(6,6);
 ENC_INST_TMR_IDX = ds_grid_width(dg_enc_inst)-1;
 
 
@@ -422,11 +414,6 @@ ENC_INST_TMR_IDX = ds_grid_width(dg_enc_inst)-1;
 //   $00, 57, D7, F8,   // CEMETERY
 //   $00, 57, D7, FF    // VOLCANO
 dg_enc_obj_id_spawn_data_1 = ds_grid_create(0,4);
-
-
-
-
-//STR_Primary, STR_Secondary, STR_Tertiary
 
 
 Encounters_can_draw = false;
@@ -587,305 +574,45 @@ dm_enc[?STR_Rm+STR_PATH_+_area+"01"] = val(dm_enc[?STR_Rm+STR_PATH_+Area_DthMt+"
 
 
 // -------------------------------------------------------------
-                              _biome = STR_FIELD;
-ds_list_add( dl_biome_enc,    _biome);
-ds_list_add( dl_biome_battle, _biome);
-ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_GRAS01,_TS1_DATA|TSRC_GRAS02,_TS1_DATA|TSRC_GRAS03,_TS1_DATA|TSRC_GRAS04);
-_val1=""; _count=ds_list_size(_dl_1);
-for(_i=0; _i<_count; _i++)
-{
-    _tsrc_ = hex_str(_dl_1[|_i]);
-    _val1 += _tsrc_;
-    //dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-}
-ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_GRAS01,TSRC_GRAS02,TSRC_GRAS03,TSRC_GRAS04));
-ds_list_add( dl_enc_inst_life_dur, $0A); // 
-dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $20; // OG: $20
-dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_GRAS04;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_GRAS01;
-//                                                  // 
-_idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
-     ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
-                    dg_enc_obj_id_spawn_data_1[#_idx,0] = $00;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,1] = $60;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,2] = $B0;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,3] = $D0;    // 
-//                                                  // 
-//                                                  // 
-//                                                  // 
+// -------------------------------------------------------------
+Biome_dm = ds_map_create();
+_biome_num = 0;
+_grid_rows = ds_grid_height(dg_enc_obj_id_spawn_data_1);
 
 
 
 
+// -------------------------------------------------------------
+_biome = Overworld_init_data_biome(STR_FIELD, hex_str(_TS1|TSRC_GRAS01,4)+hex_str(_TS1|TSRC_GRAS02,4)+hex_str(_TS1|TSRC_GRAS03,4)+hex_str(_TS1|TSRC_GRAS04,4),  true,_TS1|TSRC_GRAS04,_TS1|TSRC_GRAS01);
+Overworld_init_data_encounter1(_biome, true,true, $20,$0A, "D0"+"B0"+"60"+"00"); // STR_Spawn+STR_Cooldown OG: $20
 
-                              _biome = STR_DESER;
-ds_list_add( dl_biome_enc,    _biome);
-ds_list_add( dl_biome_battle, _biome);
-ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_SAND01,_TS1_DATA|TSRC_SAND02,_TS1_DATA|TSRC_SAND03, _TS1_DATA|TSRC_PATH03);
-_val1=""; _count=ds_list_size(_dl_1);
-for(_i=0; _i<_count; _i++)
-{
-    _tsrc_ = hex_str(_dl_1[|_i]);
-    _val1 += _tsrc_;
-    //dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-}
-ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_SAND01,TSRC_SAND02,TSRC_SAND03, TSRC_PATH03));
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_SAND01,TSRC_SAND02, TSRC_PATH03, TSRC_SNOW01,TSRC_SNOW02));
-ds_list_add( dl_enc_inst_life_dur, dl_enc_inst_life_dur[|ds_list_size(dl_enc_inst_life_dur)-1]); // 
-dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $18; // OG: $18
-dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_SAND02;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_SAND01;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_SAND03;
-//                                                  // 
-_idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
-     ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
-                    dg_enc_obj_id_spawn_data_1[#_idx,0] = $00;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,1] = $60;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,2] = $D0;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,3] = $F0;    // 
-//                                                  // 
-//                                                  // 
-//                                                  // 
+// -----------------------------------------------------------
+_biome = Overworld_init_data_biome(STR_DESER, hex_str(_TS1|TSRC_SAND01,4)+hex_str(_TS1|TSRC_SAND02,4)+hex_str(_TS1|TSRC_SAND03,4)+hex_str(_TS1|TSRC_PATH03,4),  true,_TS1|TSRC_SAND02,_TS1|TSRC_SAND01,_TS1|TSRC_SAND03);
+Overworld_init_data_encounter1(_biome, true,true, $18, val(dm_enc[?STR_FIELD+dk_EncounterInstance+STR_Duration],$0A), "F0"+"D0"+"60"+"00"); // STR_Spawn+STR_Cooldown OG: $18
 
+// -----------------------------------------------------------
+_biome = Overworld_init_data_biome(STR_BEACH, hex_str(_TS1|TSRC_SNOW01,4)+hex_str(_TS1|TSRC_SNOW02,4)+hex_str(_TS1|TSRC_SNOW03,4)+hex_str(_TS1|TSRC_SNOW04,4),  true,_TS1|TSRC_SNOW04,_TS1|TSRC_SNOW02,_TS1|TSRC_SNOW01);
+Overworld_init_data_encounter1(_biome, true,true, $18, val(dm_enc[?STR_DESER+dk_EncounterInstance+STR_Duration],$0A), "F0"+"D0"+"60"+"00"); // STR_Spawn+STR_Cooldown OG: $18
 
+// -----------------------------------------------------------
+_biome = Overworld_init_data_biome(STR_FORES, hex_str(_TS1|TSRC_TREE01,4)+hex_str(_TS1|TSRC_TREE02,4)+hex_str(_TS1|TSRC_TREE03,4)+hex_str(_TS1|TSRC_TREE04,4),  true,-1,_TS1|TSRC_TREE01);
+Overworld_init_data_encounter1(_biome, true,true, $18,$18, "E0"+"C0"+"60"+"00"); // STR_Spawn+STR_Cooldown OG: $18
 
+// -----------------------------------------------------------
+_biome = Overworld_init_data_biome(STR_SWAMP, hex_str(_TS1|TSRC_SWAM01,4)+hex_str(_TS1|TSRC_SWAM02,4)+hex_str(_TS1|TSRC_SWAM03,4)+hex_str(_TS1|TSRC_SWAM04,4),  true,_TS1|TSRC_SWAM02,_TS1|TSRC_SWAM01);
+Overworld_init_data_encounter1(_biome, true,true, $20, val(dm_enc[?STR_FORES+dk_EncounterInstance+STR_Duration],$18), "F0"+"BB"+"50"+"00"); // STR_Spawn+STR_Cooldown OG: $20
 
+// -----------------------------------------------------------
+_biome = Overworld_init_data_biome(STR_CEMET, hex_str(_TS1|TSRC_GRAV01,4)+hex_str(_TS1|TSRC_GRAV02,4)+hex_str(_TS1|TSRC_GRAV03,4)+hex_str(_TS1|TSRC_GRAV04,4),  true,_TS1|TSRC_GRAV02,_TS1|TSRC_GRAV01,_TS1|TSRC_GRAV03,_TS1|TSRC_GRAV04);
+Overworld_init_data_encounter1(_biome, true,true, $09,$30, "F8"+"D7"+"57"+"00"); // STR_Spawn+STR_Cooldown OG: $09
 
-                              _biome = STR_BEACH;
-ds_list_add( dl_biome_enc,    _biome);
-ds_list_add( dl_biome_battle, _biome);
-ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_SNOW01,_TS1_DATA|TSRC_SNOW02,_TS1_DATA|TSRC_SNOW03,_TS1_DATA|TSRC_SNOW04);
-_val1=""; _count=ds_list_size(_dl_1);
-for(_i=0; _i<_count; _i++)
-{
-    _tsrc_ = hex_str(_dl_1[|_i]);
-    _val1 += _tsrc_;
-    //dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-}
-ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_SNOW01,TSRC_SNOW02,TSRC_SNOW03,TSRC_SNOW04));
-ds_list_add( dl_enc_inst_life_dur, dl_enc_inst_life_dur[|ds_list_size(dl_enc_inst_life_dur)-1]); // 
-dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $18; // OG: $18
-dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_SNOW04;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_SNOW02;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_SNOW01;
-//                                                  // 
-_idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
-     ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
-                    dg_enc_obj_id_spawn_data_1[#_idx,0] = $00;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,1] = $60;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,2] = $D0;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,3] = $F0;    // 
-//                                                  // 
-//                                                  // 
-//                                                  // 
+// -----------------------------------------------------------
+_biome = Overworld_init_data_biome(STR_VOLCA, hex_str(_TS1|TSRC_VOLC01,4),  true,-1,_TS1|TSRC_VOLC01);
+Overworld_init_data_encounter1(_biome, true,true, $03, val(dm_enc[?STR_CEMET+dk_EncounterInstance+STR_Duration],$30), "FF"+"D7"+"57"+"00"); // STR_Spawn+STR_Cooldown OG: $03
 
-
-
-
-
-                              _biome = STR_FORES;
-ds_list_add( dl_biome_enc,    _biome);
-ds_list_add( dl_biome_battle, _biome);
-ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_TREE01,_TS1_DATA|TSRC_TREE02,_TS1_DATA|TSRC_TREE03,_TS1_DATA|TSRC_TREE04);
-_val1=""; _count=ds_list_size(_dl_1);
-for(_i=0; _i<_count; _i++)
-{
-    _tsrc_ = hex_str(_dl_1[|_i]);
-    _val1 += _tsrc_;
-    //dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-}
-ds_list_add(_dl_biome_tsrc, _val1);
-ds_list_add( dl_enc_inst_life_dur, $18); // 
-dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $18; // OG: $18
-dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_TREE01;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_TREE01;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_TREE01;
-//                                                  // 
-_idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
-     ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
-                    dg_enc_obj_id_spawn_data_1[#_idx,0] = $00;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,1] = $60;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,2] = $C0;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,3] = $E0;    // 
-//                                                  // 
-//                                                  // 
-//                                                  // 
-
-
-
-
-
-                              _biome = STR_SWAMP;
-ds_list_add( dl_biome_enc,    _biome);
-ds_list_add( dl_biome_battle, _biome);
-ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_SWAM01,_TS1_DATA|TSRC_SWAM02,_TS1_DATA|TSRC_SWAM03,_TS1_DATA|TSRC_SWAM04);
-_val1=""; _count=ds_list_size(_dl_1);
-for(_i=0; _i<_count; _i++)
-{
-    _tsrc_ = hex_str(_dl_1[|_i]);
-    _val1 += _tsrc_;
-    //dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-}
-ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_SWAM01,TSRC_SWAM02,TSRC_SWAM03,TSRC_SWAM04));
-ds_list_add( dl_enc_inst_life_dur, dl_enc_inst_life_dur[|ds_list_size(dl_enc_inst_life_dur)-1]); // 
-dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $20; // OG: $20
-dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_SWAM02;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_SWAM01;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_SWAM01;
-//                                                  // 
-_idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
-     ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
-                    dg_enc_obj_id_spawn_data_1[#_idx,0] = $00;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,1] = $50;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,2] = $BB;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,3] = $F0;    // 
-//                                                  // 
-//                                                  // 
-//                                                  // 
-
-
-
-
-
-                              _biome = STR_CEMET;
-ds_list_add( dl_biome_enc,    _biome);
-ds_list_add( dl_biome_battle, _biome);
-ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_GRAV01,_TS1_DATA|TSRC_GRAV02,_TS1_DATA|TSRC_GRAV03,_TS1_DATA|TSRC_GRAV04);
-_val1=""; _count=ds_list_size(_dl_1);
-for(_i=0; _i<_count; _i++)
-{
-    _tsrc_ = hex_str(_dl_1[|_i]);
-    _val1 += _tsrc_;
-    //dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-}
-ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_GRAV01,TSRC_GRAV02,TSRC_GRAV03,TSRC_GRAV04));
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_GRAV01,TSRC_GRAV01+2,TSRC_GRAV01+3));
-ds_list_add( dl_enc_inst_life_dur, $30); // 
-dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $09; // OG: $09
-dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_GRAV02;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_GRAV01;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_GRAV03;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Tertiary]  = _TS1_DATA|TSRC_GRAV04;
-//                                                  // 
-_idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
-     ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
-                    dg_enc_obj_id_spawn_data_1[#_idx,0] = $00;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,1] = $57;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,2] = $D7;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,3] = $F8;    // 
-//                                                  // 
-//                                                  // 
-//                                                  // 
-
-
-
-
-
-                              _biome = STR_VOLCA;
-ds_list_add( dl_biome_enc,    _biome);
-ds_list_add( dl_biome_battle, _biome);
-ds_list_add( dl_biome_enc_spawn_trigger, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_VOLC01);
-_val1=""; _count=ds_list_size(_dl_1);
-for(_i=0; _i<_count; _i++)
-{
-    _tsrc_ = hex_str(_dl_1[|_i]);
-    _val1 += _tsrc_;
-    //dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-}
-ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(TSRC_VOLC01));
-ds_list_add( dl_enc_inst_life_dur, dl_enc_inst_life_dur[|ds_list_size(dl_enc_inst_life_dur)-1]); // 
-dm_enc[?_biome+STR_Spawn+STR_Cooldown] = $03; // OG: $03
-dm_enc[?STR_Rando+STR_Biome+_biome] = true;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Special]   = _TS1_DATA|TSRC_VOLC01;
-dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Primary]   = _TS1_DATA|TSRC_VOLC01;
-//dm_enc[?STR_Rando+STR_Biome+_biome+STR_TSRC+STR_Secondary] = _TS1_DATA|TSRC_VOLC01;
-//                                                  // 
-_idx=ds_grid_width( dg_enc_obj_id_spawn_data_1);
-     ds_grid_resize(dg_enc_obj_id_spawn_data_1, _idx+1, ds_grid_height(dg_enc_obj_id_spawn_data_1));
-                    dg_enc_obj_id_spawn_data_1[#_idx,0] = $00;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,1] = $57;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,2] = $D7;    // 
-                    dg_enc_obj_id_spawn_data_1[#_idx,3] = $FF;    // 
-//                                                  // 
-//                                                  // 
-//                                                  // 
-
-
-
-
-
-                           _biome = STR_PATH_;
-ds_list_add( dl_biome_enc, _biome);
-ds_list_clear(_dl_1); ds_list_add(_dl_1,_TS1_DATA|TSRC_PATH01,_TS1_DATA|TSRC_PATH02);
-_val1=""; _count=ds_list_size(_dl_1);
-for(_i=0; _i<_count; _i++)
-{
-    _tsrc_ = hex_str(_dl_1[|_i]);
-    _val1 += _tsrc_;
-    //dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-}
-ds_list_add(_dl_biome_tsrc, _val1);
-//ds_list_add(_dl_biome_tsrc, hexStr(_TS1_DATA|TSRC_PATH01,_TS1_DATA|TSRC_PATH02));
-//                                                  // 
-//                                                  // 
-//                                                  // 
-
-
-
-
-
-
-
-             _count0 = ds_list_size(dl_biome_enc);
-for(_i=0; _i<_count0; _i++)
-{
-    _tsrc_count = 0;
-    _biome = dl_biome_enc[|_i];
-    
-    if (ds_list_size(_dl_biome_tsrc)>_i)
-    {
-        _data =      _dl_biome_tsrc[|_i];
-               _tsrc_count = string_length(_data)>>2;
-               //_tsrc_count = string_length(_data)>>1;
-        for(_j=_tsrc_count-1; _j>=0; _j--)
-        {
-            _tsrc_ = string_copy(_data, (_j<<2)+1, 4);
-            dm_enc[?_tsrc_+STR_Biome]              = _biome;
-            dm_enc[?_tsrc_+STR_Biome+STR_Idx]      = _i;
-            dm_enc[?_biome+STR_TSRC+hex_str(_j+1)] = str_hex(_tsrc_);
-        }
-    }
-    
-    dm_enc[?_biome+STR_TSRC+STR_Count] = _tsrc_count;
-    
-    
-    // ----------------------------------------------------------
-    // Look up the enc biome's index by the _biome
-    dm_enc[?_biome+STR_Idx] = _i; // example: STR_FIELD + STR_Idx
-    
-    // Look up the enc biome by its index
-    dm_enc[?STR_Biome+hex_str(_i)] = _biome; // example: dm_enc[?"00" + STR_Type]  =  STR_FIELD
-}
-
+// -----------------------------------------------------------
+_biome = Overworld_init_data_biome(STR_PATH_, hex_str(_TS1|TSRC_PATH01,4)+hex_str(_TS1|TSRC_PATH02,4));
+Overworld_init_data_encounter1(_biome, true);
 
 
 
@@ -895,203 +622,12 @@ for(_i=0; _i<_count0; _i++)
 
 
 // -------------------------------------------------------------------------
-Overworld_init_data();
-// -------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-             _count0 = min(ds_list_size(dl_biome_enc), ds_list_size(_dl_biome_tsrc));
-for(_i=0; _i<_count0; _i++)
-{
-    _tsrc_count = 0;
-    _biome = dl_biome_enc[|_i];
-    _data = _dl_biome_tsrc[|_i];
-           _tsrc_count = string_length(_data)>>2;
-    for(_j=_tsrc_count-1; _j>=0; _j--)
-    {
-        _tsrc_ = string_copy(_data, (_j<<2)+1, 4);
-        dm[?STR_TSRC+_tsrc_+STR_Biome] = _biome;
-    }
-}
-
-
-
-
-
-
-
-
-// -------------------------------------------------------------------------
-// Draw indicator on walkable water tiles that are always deep water graphic.
-// BTI: Boots Tile Indicator
-BootsTileIndicator_VER = 2;
-BootsTileIndicator_can_draw = false;
-
-WaterSparkle_CUE1       = $08;
-WaterSparkle_DURATION1  = $20;
-WaterSparkle_DURATION2  = $08;
-WaterSparkle_DURATION0  = WaterSparkle_CUE1;
-WaterSparkle_DURATION0 += ((WaterSparkle_DURATION1-WaterSparkle_DURATION2)*4) + WaterSparkle_DURATION2;
-WaterSparkle_DURATION0 += $10;
-WaterSparkle_timer      = 0;
-
-// The row&clm of each possible pixel sparkle w/in an 8x8 square
-dl_WaterSparkle_RC=ds_list_create();
-ds_list_add(dl_WaterSparkle_RC,$03);
-ds_list_add(dl_WaterSparkle_RC,$11);
-ds_list_add(dl_WaterSparkle_RC,$17);
-ds_list_add(dl_WaterSparkle_RC,$24);
-//                                      //
-ds_list_add(dl_WaterSparkle_RC,$30);
-ds_list_add(dl_WaterSparkle_RC,$42);
-ds_list_add(dl_WaterSparkle_RC,$45);
-ds_list_add(dl_WaterSparkle_RC,$57);
-//                                      //
-ds_list_add(dl_WaterSparkle_RC,$61);
-ds_list_add(dl_WaterSparkle_RC,$64);
-ds_list_add(dl_WaterSparkle_RC,$76);
-//ds_list_add(dl_WaterSparkle_RC,$);
-//                                      //
-// Grid clms 0-4 represent an overworld tile under and around the pc;
-// 0: under pc, 1: east of pc, 2: west of pc, 3: south of pc, 4: north of pc
-// Grid row 0 is the owrc of the overworld tile. A -1 value means it will NOT sparkle.
-// Grid rows 1-4 represent an 8x8 section of its overworld tile;
-// 0: owrc, 1: top left, 2: top right, 3: bottom left, 4: bottom right
-// The grid row values are the sparkles for the current sparkle cycle and 
-// will refresh each sparkle cycle picked randomly from dl_WaterSparkle_RC
-dg_WaterSparkle=ds_grid_create(5,5);
-ds_grid_clear(dg_WaterSparkle,-1);
-
-
-//dl_WaterSparkle_OWRC=ds_list_create();
-//dl_BTI_active=ds_list_create();
-//BTI_DURATION0 = $08;
-//BTI_DURATION1 = $14;
-//BTI_DURATION2 = BTI_DURATION0*3;
-//BTI_DURATION3 = $20;
-//BTI_DURATION4 = BTI_DURATION1+BTI_DURATION2;
-//BTI_DURATION5 = BTI_DURATION4+BTI_DURATION3;
-//BTI_CUE1 = BTI_DURATION1;
-BTI_DURATION0  = $0A;
-BTI_DURATION1  = $10;
-//BTI_DURATION0  = $04;
-//BTI_DURATION1  = $08;
-BTI_DURATION2  = $20;
-BTI_DURATION3  = BTI_DURATION0+BTI_DURATION1;
-BTI_DURATION4  =(BTI_DURATION3+BTI_DURATION0) * 3;
-//BTI_DURATION4  = BTI_DURATION3*3;
-//BTI_DURATION4 += BTI_DURATION0*2;
-BTI_DURATION5  = BTI_DURATION2+BTI_DURATION4;
-
-dl_BTI_OWRC=ds_list_create();
-_count=ds_grid_width(dg_ChangeTiles_Boots);
-dg_BTI=ds_grid_create(_count,8);
-for(_i=0; _i<_count; _i++)
-{
-    _owrc = dg_ChangeTiles_Boots[#_i,0];
-    ds_list_add(dl_BTI_OWRC, _owrc);
-    dg_BTI[#_i,0] = _owrc;
-}
-
-             dl_WaterSparkle_RC2=ds_list_create();
-ds_list_copy(dl_WaterSparkle_RC2,dl_WaterSparkle_RC);
-ds_list_add( dl_WaterSparkle_RC2,$53);
-
-var _dl_RC=ds_list_create();
-ds_list_copy(_dl_RC,dl_WaterSparkle_RC2);
-ds_list_shuffle(_dl_RC);
-
-for(_i=0; _i<_count; _i++)
-{
-    for(_j=0; _j<3; _j++)
-    {
-        _idx1 = _j<<2;
-        _idx2 = 2+(_j<<1);
-        _idx2++;
-        
-        _val = (_dl_RC[|_idx1+0]+$00) <<$00;
-        dg_BTI[#_i,_idx2] |= _val;
-        
-        _val = (_dl_RC[|_idx1+1]+$08) <<$08;
-        dg_BTI[#_i,_idx2] |= _val;
-        
-        _val = (_dl_RC[|_idx1+2]+$80) <<$10;
-        dg_BTI[#_i,_idx2] |= _val;
-        
-        _val = (_dl_RC[|_idx1+3]+$88) <<$18;
-        dg_BTI[#_i,_idx2] |= _val;
-    }
-}
-
-ds_list_destroy(_dl_RC); _dl_RC=undefined;
-
-
-dl_WaterSparkle_idx=ds_list_create();
-
-// 11111111    11111111    11111111    11111111    
-//     11111111    11111111    11111111    11111111
-// 1111    11111111    11111111    11111111    1111
-
-
-
-
-
-
-
-
-
-
-
-// -------------------------------------------------------------------------
-enc_reen     = undefined;
+enc_reen     = undefined; // reen: rm entry exit name
 exit_grid_xy = dm[?MK_OWRC_NPAL1];
 pcrc         = dm[?MK_OWRC_NPAL1];
 
 enc_spawn_timer     = 0; // 0516. OW encounter spawn cooldown
 enc_spawn_timer_add = 0;
-
-
-
-with(g)
-{
-    var _DEFAULT    = val(other.dm[?MK_OWRC_NPAL1], OWRC_DFL); // 
-    OWRC_TOWN_RAUR1 = val(other.dm[?MK_OWRC_TWN_RAUR1], _DEFAULT); // 
-    OWRC_TOWN_RUTO1 = val(other.dm[?MK_OWRC_TWN_RUTO1], _DEFAULT); // 
-    OWRC_TOWN_SARI1 = val(other.dm[?MK_OWRC_TWN_SARI1], _DEFAULT); // 
-    OWRC_TOWN_SARI2 = val(other.dm[?MK_OWRC_TWN_SARI2], _DEFAULT); // 
-    OWRC_TOWN_MIDO1 = val(other.dm[?MK_OWRC_TWN_MIDO1], _DEFAULT); // 
-    OWRC_TOWN_NABO1 = val(other.dm[?MK_OWRC_TWN_NABO1], _DEFAULT); // 
-    OWRC_TOWN_DARU1 = val(other.dm[?MK_OWRC_TWN_DARU1], _DEFAULT); // 
-    OWRC_TOWN_NEWK1 = val(other.dm[?MK_OWRC_TWN_NEWK1], _DEFAULT); // 
-    OWRC_TOWN_OLDK1 = val(other.dm[?MK_OWRC_TWN_OLDK1], _DEFAULT); // 
-    OWRC_TOWN_BULB1 = val(other.dm[?MK_OWRC_TWN_BULB1], _DEFAULT); // 
-    //                                                                  // 
-    OWRC_DNGN_PRPA1 = val(other.dm[?MK_OWRC_PAL_PRPA1], _DEFAULT); // 
-    OWRC_DNGN_MDRO1 = val(other.dm[?MK_OWRC_PAL_MDRO1], _DEFAULT); // 
-    OWRC_DNGN_ISLD1 = val(other.dm[?MK_OWRC_PAL_ISLD1], _DEFAULT); // 
-    OWRC_DNGN_MAZE1 = val(other.dm[?MK_OWRC_PAL_MAZE1], _DEFAULT); // 
-    OWRC_DNGN_POTS1 = val(other.dm[?MK_OWRC_PAL_POTS1], _DEFAULT); // 
-    OWRC_DNGN_THRE1 = val(other.dm[?MK_OWRC_PAL_THRE1], _DEFAULT); // 
-    OWRC_DNGN_GRET1 = val(other.dm[?MK_OWRC_PAL_GRET1], _DEFAULT); // 
-    
-    dm_dungeon[?STR_Dungeon+"01"+STR_OWRC] = OWRC_DNGN_PRPA1;
-    dm_dungeon[?STR_Dungeon+"02"+STR_OWRC] = OWRC_DNGN_MDRO1;
-    dm_dungeon[?STR_Dungeon+"03"+STR_OWRC] = OWRC_DNGN_ISLD1;
-    dm_dungeon[?STR_Dungeon+"04"+STR_OWRC] = OWRC_DNGN_MAZE1;
-    dm_dungeon[?STR_Dungeon+"05"+STR_OWRC] = OWRC_DNGN_POTS1;
-    dm_dungeon[?STR_Dungeon+"06"+STR_OWRC] = OWRC_DNGN_THRE1;
-    dm_dungeon[?STR_Dungeon+"07"+STR_OWRC] = OWRC_DNGN_GRET1;
-    //dm_dungeon[?STR_Dungeon+"08"+STR_OWRC] = ;
-    
-    OWRC_NO_EXIT_DATA = _DEFAULT + $10;
-}
-
-
 
 
 // OBJ IDs. $8265-8274: $01,02,01,01, 01,01,01,02, 02,01,02,01 ,01,03,01,03
@@ -1136,6 +672,9 @@ enc_objs_spawned_count = 0;
 
 
 
+
+
+
 // -------------------------------------------------------------
 // 0: location num
 // 1: item id
@@ -1148,10 +687,134 @@ dm_Rando_TSRC = ds_map_create();
 //dm_rando_biome = ds_map_create();
 RandoTSRC_active = false;
 
+
+
+
+
+
+
+
+// -------------------------------------------------------------
 ItemAcquiredIndicator_can_draw = false;
 ItemAcquiredIndicator_FONT     = spr_Font3_1;
 ItemAcquiredIndicator_FONT_W   = sprite_get_width( ItemAcquiredIndicator_FONT);
 ItemAcquiredIndicator_FONT_H   = sprite_get_height(ItemAcquiredIndicator_FONT);
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------------
+// Draw indicator on walkable water tiles that are always deep water graphic.
+// BTI: Boots Tile Indicator
+var _dg_ChangeTiles_Boots_W = ds_grid_width(dg_ChangeTiles_Boots);
+dl_WaterSparkle_idx = ds_list_create();
+
+
+WaterSparkle_CUE1       = $08;
+WaterSparkle_DURATION1  = $20;
+WaterSparkle_DURATION2  = $08;
+WaterSparkle_DURATION0  = WaterSparkle_CUE1;
+WaterSparkle_DURATION0 += ((WaterSparkle_DURATION1-WaterSparkle_DURATION2)*4) + WaterSparkle_DURATION2;
+WaterSparkle_DURATION0 += $10;
+WaterSparkle_timer      = 0;
+
+
+// The row&clm of each possible pixel sparkle w/in an 8x8 square
+dl_WaterSparkle_RC = ds_list_create();
+ds_list_add(dl_WaterSparkle_RC,$03);
+ds_list_add(dl_WaterSparkle_RC,$11);
+ds_list_add(dl_WaterSparkle_RC,$17);
+ds_list_add(dl_WaterSparkle_RC,$24);
+//                                      //
+ds_list_add(dl_WaterSparkle_RC,$30);
+ds_list_add(dl_WaterSparkle_RC,$42);
+ds_list_add(dl_WaterSparkle_RC,$45);
+ds_list_add(dl_WaterSparkle_RC,$57);
+//                                      //
+ds_list_add(dl_WaterSparkle_RC,$61);
+ds_list_add(dl_WaterSparkle_RC,$64);
+ds_list_add(dl_WaterSparkle_RC,$76);
+//                                      //
+// Grid clms 0-4 represent an overworld tile under and around the pc;
+// 0: under pc, 1: east of pc, 2: west of pc, 3: south of pc, 4: north of pc
+// Grid row 0 is the owrc of the overworld tile. A -1 value means it will NOT sparkle.
+// Grid rows 1-4 represent an 8x8 section of its overworld tile;
+// 0: owrc, 1: top left, 2: top right, 3: bottom left, 4: bottom right
+// The grid row values are the sparkles for the current sparkle cycle and 
+// will refresh each sparkle cycle picked randomly from dl_WaterSparkle_RC
+dg_WaterSparkle = ds_grid_create(5,5);
+ds_grid_clear(dg_WaterSparkle,-1);
+
+
+             dl_WaterSparkle_RC2 = ds_list_create();
+ds_list_copy(dl_WaterSparkle_RC2,dl_WaterSparkle_RC);
+ds_list_add( dl_WaterSparkle_RC2,$53);
+
+
+
+
+BootsTileIndicator_VER = 2;
+BootsTileIndicator_can_draw = false;
+//dl_BTI_active=ds_list_create();
+//BTI_DURATION0 = $08;
+//BTI_DURATION1 = $14;
+//BTI_DURATION2 = BTI_DURATION0*3;
+//BTI_DURATION3 = $20;
+//BTI_DURATION4 = BTI_DURATION1+BTI_DURATION2;
+//BTI_DURATION5 = BTI_DURATION4+BTI_DURATION3;
+//BTI_CUE1 = BTI_DURATION1;
+BTI_DURATION0  = $0A;
+BTI_DURATION1  = $10;
+//BTI_DURATION0  = $04;
+//BTI_DURATION1  = $08;
+BTI_DURATION2  = $20;
+BTI_DURATION3  = BTI_DURATION0+BTI_DURATION1;
+BTI_DURATION4  =(BTI_DURATION3+BTI_DURATION0) * 3;
+//BTI_DURATION4  = BTI_DURATION3*3;
+//BTI_DURATION4 += BTI_DURATION0*2;
+BTI_DURATION5  = BTI_DURATION2+BTI_DURATION4;
+
+
+dl_BTI_OWRC = ds_list_create();
+var             _dl_RC = ds_list_create();
+ds_list_copy(   _dl_RC, dl_WaterSparkle_RC2);
+ds_list_shuffle(_dl_RC);
+dg_BTI = ds_grid_create(_dg_ChangeTiles_Boots_W,8);
+for(_i=0; _i<_dg_ChangeTiles_Boots_W; _i++)
+{
+    _owrc =   dg_ChangeTiles_Boots[#_i,0];
+    ds_list_add(dl_BTI_OWRC, _owrc);
+    dg_BTI[#_i,0] = _owrc;
+    
+    for(_j=0; _j<3; _j++)
+    {
+        _idx1 = _j<<2;
+        _idx2 = 2+(_j<<1);
+        _idx2++;
+        
+        _val = (_dl_RC[|_idx1+0]+$00) <<$00;
+        dg_BTI[#_i,_idx2] |= _val;
+        
+        _val = (_dl_RC[|_idx1+1]+$08) <<$08;
+        dg_BTI[#_i,_idx2] |= _val;
+        
+        _val = (_dl_RC[|_idx1+2]+$80) <<$10;
+        dg_BTI[#_i,_idx2] |= _val;
+        
+        _val = (_dl_RC[|_idx1+3]+$88) <<$18;
+        dg_BTI[#_i,_idx2] |= _val;
+    }
+}
+
+ds_list_destroy(_dl_RC); _dl_RC=undefined;
+
+// 11111111    11111111    11111111    11111111    
+//     11111111    11111111    11111111    11111111
+// 1111    11111111    11111111    11111111    1111
 
 
 
@@ -1199,59 +862,60 @@ Warp_draw_y   = 0;
 
 
 Warp_destination_num = 1;
+
+var _Warp_dg_DESTINATIONS_ROWS = 3;
+Warp_dg_DESTINATIONS = ds_grid_create(0, _Warp_dg_DESTINATIONS_ROWS);
 _i=0;
-var _GRID_HEIGHT = 3;
-Warp_dg_DESTINATIONS=ds_grid_create(_i,  _GRID_HEIGHT);
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Rauru;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_RAUR1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_RAURU;
 _i++;
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Ruto;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_RUTO1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_RUTO;
 _i++;
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Saria;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_SARI1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_SARIA;
 _i++;
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Mido;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_MIDO1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_MIDO;
 _i++;
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Nabooru;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_NABO1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_NABOORU;
 _i++;
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Darunia;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_DARU1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_DARUNIA;
 _i++;
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_New_Kasuto;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_NEWK1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_NEW_KASUTO;
 _i++;
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Old_Kasuto;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_OLDK1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_KASUTO;
 _i++;
 //                                              //
-ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_GRID_HEIGHT);
+ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Bulblin;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_BULB1;
 Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_BULBLIN;
@@ -1266,6 +930,8 @@ WarpText_FONT_H   = sprite_get_height(WarpText_FONT);
 WarpText_text     = Warp_dg_DESTINATIONS[#Warp_destination_num-1,2];
 WarpText_draw_xl  = 0;
 WarpText_draw_yt  = 0;
+
+
 
 
 
@@ -1294,8 +960,8 @@ sdm("dg_ENC_SPR:    "+string(dg_ENC_SPR));
 
 
 
-ds_list_destroy(_dl_1); _dl_1=undefined;
-ds_list_destroy(_dl_biome_tsrc); _dl_biome_tsrc=undefined;
+ds_list_destroy(_dl0); _dl0=undefined;
+//ds_list_destroy(_dl_biome_tsrc); _dl_biome_tsrc=undefined;
 
 
 

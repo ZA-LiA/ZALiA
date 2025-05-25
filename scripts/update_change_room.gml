@@ -75,8 +75,7 @@ if (ChangeRoom_timer<=0)
 
 // ------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
-if (FallScene_timer)
-{   FallScene_timer--;  }
+if (FallScene_timer) FallScene_timer--;
 
 
 
@@ -97,35 +96,43 @@ if (ChangeRoom_timer<=0)
         {   // Trigger Falling Scene -----------------------------------------
             ChangeRoom_timer = FallScene_DURATION1; // $6D(109)
             FallScene_timer  = ChangeRoom_timer+1;
+            //sdm("`update_change_room()`. fall scene triggered. FallScene_timer="+string(FallScene_timer)+", get_fall_scene_type()=$"+hex_str(get_fall_scene_type()));
+            
+            var _dk0,_dk1, _pi;
+            
+            var _FALL_DIR   = get_fall_scene_type(); // $1: RIGHT, $2: LEFT, $4: DOWN, $8: UP
+            var _DIR        = sign_(_FALL_DIR&($1|$4)); // $1: RIGHT, $4: DOWN
+            var _TYPE_      = string(1 + ((_FALL_DIR&($1|$2))!=0)); // The type/id of this fall scene. "1": Classic blue vertical fall, "2": Fast travel red horizontal fall
+            var _FALL_SPEED = val(global.FallScene_dm[?STR_Current+STR_Fall+STR_Speed],1) * _DIR;
+            var _Image_W    = val(global.FallScene_dm[?_TYPE_+STR_Image+STR_Width]);
+            var _Image_H    = val(global.FallScene_dm[?_TYPE_+STR_Image+STR_Height]);
             
             
-            var _dk0,_dk1, _palette, _pi;
-            var _FALL_DIRECTION = get_fall_scene_type(); // $1: RIGHT, $2: LEFT, $4: DOWN, $8: UP
-            var _TYPE_   = val(global.FallScene_dm[?STR_Current+STR_Type],"1"); // The type/id of this fall scene. "1": Classic blue vertical fall, "2": Fast travel red horizontal fall
-            var _Image_W = val(global.FallScene_dm[?_TYPE_+STR_Image+STR_Width]);
-            var _Image_H = val(global.FallScene_dm[?_TYPE_+STR_Image+STR_Height]);
-            var _DIR     = sign_(_FALL_DIRECTION&($1|$4)); // $1: RIGHT, $4: DOWN
-            
-            
-            global.FallScene_dm[?STR_Current+STR_Fall+STR_Direction] = _FALL_DIRECTION;
-            global.FallScene_dm[?STR_Current+STR_Fall+STR_Speed]     = val(global.FallScene_dm[?_TYPE_+STR_Fall+STR_Speed]) * _DIR;
+            global.FallScene_dm[?STR_Counter] = 1;
+            global.FallScene_dm[?STR_Current+STR_Type]               = _TYPE_;
+            global.FallScene_dm[?STR_Current+STR_Fall+STR_Direction] = _FALL_DIR;
+            global.FallScene_dm[?STR_Current+STR_Fall+STR_Speed]     = _FALL_SPEED;
             
             
             global.FallScene_dm[?STR_Current+"_x"] = viewXC();
             global.FallScene_dm[?STR_Current+"_y"] = viewYC();
             
-            if (_FALL_DIRECTION&($1|$2)) // Horizontal fall with red vertical stripes. $1: RIGHT, $2: LEFT
+            if (_FALL_DIR&($1|$2)) // Horizontal fall with red vertical stripes. $1: RIGHT, $2: LEFT
             {   // Red vertical stripes. Fast travel fall scene
                 if (_DIR) global.FallScene_dm[?STR_Current+"_x"]  = viewXL(); // falling RIGHT
                 else      global.FallScene_dm[?STR_Current+"_x"]  = viewXR(); // falling LEFT
                           global.FallScene_dm[?STR_Current+"_x"] += val(global.FallScene_dm[?STR_Base+"_X"]) * _DIR;
+                          global.FallScene_dm[?STR_Current+"_x"] -= _FALL_SPEED; // So that x/y coords can update in `FallScene_update()` instead of in the draw
             }
-            else if (_FALL_DIRECTION&($4|$8)) // Vertical fall with blue horizontal stripes. $4: DOWN, $8: UP
+            else if (_FALL_DIR&($4|$8)) // Vertical fall with blue horizontal stripes. $4: DOWN, $8: UP
             {   // Blue horizontal stripes. Normal fall scene
                 if (_DIR) global.FallScene_dm[?STR_Current+"_y"]  = viewYT(); // falling DOWN
                 else      global.FallScene_dm[?STR_Current+"_y"]  = viewYB(); // falling UP
                           global.FallScene_dm[?STR_Current+"_y"] += val(global.FallScene_dm[?STR_Base+"_Y"]) * _DIR;
+                          global.FallScene_dm[?STR_Current+"_y"] -= _FALL_SPEED; // So that x/y coords can update in `FallScene_update()` instead of in the draw
             }
+            
+            
             
             
             _dk0 = STR_Current+STR_Image; // image that will be used for this fall scene
@@ -136,18 +143,24 @@ if (ChangeRoom_timer<=0)
             global.FallScene_dm[?STR_Current+STR_Image+STR_Height] = surface_get_height(global.FallScene_dm[?_dk0]);
             
             
-            _palette = val(global.FallScene_dm[?_TYPE_+STR_Palette], p.PAL_GUI2);
-            global.FallScene_dm[?STR_Current+STR_Palette] = _palette;
-            global.FallScene_dm[?STR_Counter] = 1;
             
+            
+            _dk0  = _TYPE_+dk_PI;
+            _dk0 += hex_str(val(global.FallScene_dm[?dk_PI+STR_Sequence+STR_Index]) + 1);
+            global.FallScene_dm[?STR_Current+dk_PI] = val(global.FallScene_dm[?_dk0], global.PI_GUI2);
             
             // Change palette colors for the fall scene
-            _pi = val(global.FallScene_dm[?STR_Base+dk_PI], global.PI_BGR1);
-            change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(_pi), string_length(_palette), _palette));
+            var _PARENT_PI = val(global.FallScene_dm[?_dk0+"_Parent"], global.PI_GUI2);
+            var _PALETTE   = val(global.FallScene_dm[?_TYPE_+STR_Palette], p.PAL_GUI2);
+            change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(_PARENT_PI), string_length(_PALETTE), _PALETTE));
+            
+            
             
             
             // This is to prevent a couple frames of a bright bgr color drawing clear before transitioning to the bgr color of the next scene
             global.BackgroundColor_scene = p.C_BLK1;
+            
+            
             
             
             // delete all room tiles so falling scene has a clear screen to draw on
@@ -160,6 +173,7 @@ if (ChangeRoom_timer<=0)
         }
         else
         {   // Triggers room_goto() ------------------------------------------
+            //sdm("`update_change_room()`. no fall scene. FallScene_timer="+string(FallScene_timer)+", get_fall_scene_type()=$"+hex_str(get_fall_scene_type()));
             ChangeRoom_timer = ChangeRoom_ENTER_DURATION1; // $22
             update_change_room_1a();
         }
@@ -167,12 +181,12 @@ if (ChangeRoom_timer<=0)
     else
     {   // --------------------------------------------------------------------------------------------------
         // --------------------  FINISHED CHANGING ROOMS  ------------------------------------------------------------------------------------
-        show_debug_message("update_change_room(). FINISHED CHANGING ROOMS");
         FallScene_timer  = FallScene_INACTIVE;
         ChangeRoom_timer = 0;
         if (room_type=="A") counter1 = $26; // simulating OG
         
         Audio.can_play_mus_rm_body = true;
+        show_debug_message("update_change_room(). FINISHED CHANGING ROOMS");
     }
 }
 

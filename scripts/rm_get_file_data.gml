@@ -23,14 +23,15 @@ if (is_undefined(_file_name))
 
 
 var _FILE  = "rm_tile_data";
-if (argument_count>_arg) _FILE = argument[_arg++];
+if (argument_count>_arg)
+{   _FILE  = argument[_arg++];  }
     _FILE += "/";
     _FILE += string_letters(_file_name); // get "PalcA" from "PalcA_003"
     _FILE += "/";
     _FILE += _file_name;
     _FILE += ".json";
 //  _FILE example:  "rm_tile_data/PalcA/PalcA_003.json"
-sdm(_FILE);
+show_debug_message(_FILE);
 if(!file_exists(_FILE)) return undefined;
 
 

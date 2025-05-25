@@ -1,7 +1,7 @@
 /// p_Room_Start()
 
 
-if (DEV) sdm(" p_Room_Start()");
+show_debug_message("p_Room_Start()");
 
 
 var _i,_j,_k, _idx, _count,_count1,_count2, _num,_num_;
@@ -628,42 +628,25 @@ switch(room)
 
 
 
-_type = 1;
-while(true)
+for(_i=val(global.FallScene_dm[?STR_Type+STR_Count])-1; _i>=0; _i--)
 {
-    _type_ = string(_type);
+    _type_ = string(_i+1);
     _count = val(global.FallScene_dm[?_type_+dk_PI+STR_Count]);
-    if(!_count) break;//while(true)
-    
-    for(_i=0; _i<_count; _i++)
+    for(_j=0; _j<_count; _j++)
     {
-        _num_ = hex_str(_i+1);
+        _num_ = hex_str(_j+1);
         _dk = _type_+dk_PI+_num_;
         _color_order = val(global.FallScene_dm[?_dk+STR_Color+STR_Order], global.PAL_BASE_COLOR_ORDER);
         _parent      = val(global.FallScene_dm[?_dk+"_Parent"], global.PI_BGR1);
         _name        = val(global.FallScene_dm[?_dk+STR_Name], _dk);
         global.FallScene_dm[?_dk] = add_pi_permut(_parent, _color_order, _name);
     }
-    
-    _type++;
 }
 
 
 global.spell_unaffordable_pi = add_pi_permut(global.PI_GUI1, "BWRGKYMC", "spell unaffordable");
 global.spell_futile_pi       = add_pi_permut(global.PI_GUI1, "RBWGMKYC", "spell futile");
 
-/*
-_idx = -1;
-ds_grid_resize(FallScene_dg_PI, (++_idx)+1, FallScene_COLOR_COUNT);
-FallScene_dg_PI[#_idx,0] = add_pi_permut(FallScene_PI_BASE, "RBWGMKYC", "fall scene 1a"); // m, s, h
-FallScene_dg_PI[#_idx,1] = add_pi_permut(FallScene_PI_BASE, "BWRGKYMC", "fall scene 1b"); // s, h, m
-FallScene_dg_PI[#_idx,2] =               FallScene_PI_BASE; // h, m, s
-//                                                      //
-ds_grid_resize(FallScene_dg_PI, (++_idx)+1, FallScene_COLOR_COUNT);
-FallScene_dg_PI[#_idx,0] = add_pi_permut(global.PI_MOB_PUR, "RBWGMKYC", "fall scene 2a"); // m, s, h
-FallScene_dg_PI[#_idx,1] = add_pi_permut(global.PI_MOB_PUR, "BWRGKYMC", "fall scene 2b"); // s, h, m
-FallScene_dg_PI[#_idx,2] =               global.PI_MOB_PUR; // h, m, s
-*/
 
 
 

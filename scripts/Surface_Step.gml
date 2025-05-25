@@ -21,7 +21,7 @@ can_update_frame_ = can_update_frame();
 
 
 if (can_update_frame_ 
-&&  g.FallScene_timer<=2 )
+&&  g.FallScene_timer<3 )
 {
     if (g.ChangeRoom_timer>0 
     ||  is_exiting_rm() 

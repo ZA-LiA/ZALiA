@@ -1,5 +1,7 @@
 /// PC_init()
 
+show_debug_message("PC_init()");
+
 
 var _i,_j,_k, _a, _idx,_idx1,_idx2, _val, _count1,_count2;
 var _datakey, _name, _creator, _char, _str, _pos, _len;
@@ -487,16 +489,16 @@ StabFrenzy_charge_counter_DURATION = (attack_phase_DURATION1*3) + attack_phase_D
 //                      // 
 // E66C[atk lvl] = E66D-E674: 02030406090C1218
 dl_ATTACK_DAMAGE = ds_list_create();
-dl_ATTACK_DAMAGE[|$00] = $01; // If I ever use an attack level 0
-dl_ATTACK_DAMAGE[|$01] = $02; // attack level 1
-dl_ATTACK_DAMAGE[|$02] = $03; // attack level 2
-dl_ATTACK_DAMAGE[|$03] = $04; // attack level 3
-dl_ATTACK_DAMAGE[|$04] = $06; // attack level 4
-dl_ATTACK_DAMAGE[|$05] = $09; // attack level 5
-dl_ATTACK_DAMAGE[|$06] = $0C; // attack level 6
-dl_ATTACK_DAMAGE[|$07] = $12; // attack level 7
-dl_ATTACK_DAMAGE[|$08] = $18; // attack level 8
-dl_ATTACK_DAMAGE[|$09] = $1C; // attack level 9
+dl_ATTACK_DAMAGE[|$0] = $01; // If I ever use an attack level 0
+dl_ATTACK_DAMAGE[|$1] = $02; // attack level 1
+dl_ATTACK_DAMAGE[|$2] = $03; // attack level 2
+dl_ATTACK_DAMAGE[|$3] = $04; // attack level 3
+dl_ATTACK_DAMAGE[|$4] = $06; // attack level 4
+dl_ATTACK_DAMAGE[|$5] = $09; // attack level 5
+dl_ATTACK_DAMAGE[|$6] = $0C; // attack level 6
+dl_ATTACK_DAMAGE[|$7] = $12; // attack level 7
+dl_ATTACK_DAMAGE[|$8] = $18; // attack level 8
+dl_ATTACK_DAMAGE[|$9] = $1C; // attack level 9
 
 
 

@@ -240,12 +240,14 @@ for(_i=0; _i<_DG_WIDTH; _i++)
             */
         }
         
-        _biome = dm_enc[?hex_str(_tsrc)+STR_Biome]; // STR_FIELD, STR_DESER, etc..
+        _biome = Biome_dm[?STR_TSRC+hex_str(_tsrc)+STR_Biome];
+        //_biome = dm_enc[?hex_str(_tsrc)+STR_Biome]; // STR_FIELD, STR_DESER, etc..
         
-        if (is_undefined(                   _biome) 
-        || !is_string(                      _biome) 
-        ||  ds_list_find_index(dl_biome_enc,_biome)==-1 )
-        {   // PC is NOT on a tile that can go to a rm
+        if (is_undefined(_biome) 
+        || !is_string(   _biome) 
+        || !val(dm_enc[? _biome+"_Has"+STR_Encounter+STR_Scene]) )
+        //||  ds_list_find_index(dl_biome_enc,_biome)==-1 )
+        {   // PC is NOT on a tile that can go to an encounter scene
             continue;//_i
         }
         
