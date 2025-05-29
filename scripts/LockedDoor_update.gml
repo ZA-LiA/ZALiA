@@ -106,9 +106,9 @@ switch(ver)
     // =========================================================================
     // ------------------------------------------------------------
     case 2:{ // Switch --------------------------
-    var _C1  =  switch_side == (BIT_RGT|BIT_LFT) 
-            || (switch_side ==  BIT_RGT && x <  g.pc.x) 
-            || (switch_side ==  BIT_LFT && x >= g.pc.x);
+    var _C1  =  switch_side==($1|$2)            // $1: right, 2: left
+            || (switch_side== $1 && x< g.pc.x) 
+            || (switch_side== $2 && x>=g.pc.x);
     //
     if (_C1 
     &&  g.pc.cs&CS_BTM )

@@ -9,7 +9,7 @@ var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
 
 
 // ---------------------------------------------------------------
-if(!file_exists(_FILE_NAME)) sdm("save_game_pref():  "+_FILE_NAME+" created!");
+if(!file_exists(_FILE_NAME)) show_debug_message("save_game_pref():  "+_FILE_NAME+" created!");
 
 
 // ---------------------------------------------------------------
@@ -102,7 +102,7 @@ var _FILE_ID = file_text_open_write(working_directory+_FILE_NAME);
 file_text_write_string(_FILE_ID, _ENCODED);
 file_text_close(_FILE_ID);
 
-sdm("save_game_pref():  "+_FILE_NAME+" saved!");
+show_debug_message("save_game_pref():  "+_FILE_NAME+" saved!");
 
 
 

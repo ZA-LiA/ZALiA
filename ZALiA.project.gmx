@@ -11867,7 +11867,6 @@
         <script>scripts\data_spawn_cutscene.gml</script>
         <script>scripts\data_dungeon_2.gml</script>
         <script>scripts\data_dungeon_2a.gml</script>
-        <script>scripts\data_dungeon_2b.gml</script>
         <script>scripts\data_REFLECT_vuln.gml</script>
         <script>scripts\data_rando_scene01.gml</script>
       </scripts>
@@ -13514,7 +13513,7 @@
     </scripts>
     <scripts name="surface">
       <script>scripts\Surface_Game_End.gml</script>
-      <script>scripts\Surface_init.gml</script>
+      <script>scripts\Surface_Create.gml</script>
       <script>scripts\Surface_Step.gml</script>
       <script>scripts\Surface_Draw_End.gml</script>
       <script>scripts\Surface_Draw_GUI_Begin.gml</script>
@@ -13977,6 +13976,7 @@
         <script>scripts\PaletteEditor_draw_PalView1.gml</script>
         <script>scripts\PaletteEditor_draw_cursor.gml</script>
         <script>scripts\PaletteEditor_initiate_pal_edit_mode.gml</script>
+        <script>scripts\PaletteEditor_initiate_bgr_edit_mode.gml</script>
         <script>scripts\dev_output_colors_1a.gml</script>
         <script>scripts\dev_automate_palette_data.gml</script>
         <script>scripts\dev_automate_palette_data2.gml</script>
@@ -14644,9 +14644,8 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1031">
+  <constants number="991">
     <constant name="DEV">true</constant>
-    <constant name="USE_FRAME_DELAY">1</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
     <constant name="PAGE_W_">(PAGE_W&gt;&gt;1)</constant>
@@ -14668,7 +14667,6 @@
     <constant name="VIEW_H_WD">application_surface_H</constant>
     <constant name="VIEW_W_WD_">(VIEW_W_WD &gt;&gt;1)</constant>
     <constant name="VIEW_H_WD_">(VIEW_H_WD &gt;&gt;1)</constant>
-    <constant name="T">3</constant>
     <constant name="FONT_LAYOUT">" _/\()*+-.,:'%&amp;!?0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"</constant>
     <constant name="Area_Title">"_Title_"</constant>
     <constant name="Area_FileS">"_FileSelect_"</constant>
@@ -14693,30 +14691,24 @@
     <constant name="RM_NPALACE_FILE_NAME">(Area_WestA + "000")</constant>
     <constant name="EXIT_NAME_GAME_START">(RM_NAME_NPALACE + "00")</constant>
     <constant name="RM_NAME_TITLSCR">(Area_Title + "00")</constant>
-    <constant name="FastTravel_RMNAME">(Area_MazIs + "60")</constant>
     <constant name="AreaID_LEN">string_length(Area_WestA)</constant>
     <constant name="RmName_LEN">(AreaID_LEN + 2)</constant>
     <constant name="ExitName_LEN">(RmName_LEN + 2)</constant>
-    <constant name="AREA_RM_MAX">$100</constant>
-    <constant name="BIT_RGT">$01</constant>
-    <constant name="BIT_LFT">(BIT_RGT&lt;&lt;1)</constant>
-    <constant name="BIT_DWN">(BIT_LFT&lt;&lt;1)</constant>
-    <constant name="BIT_UP">(BIT_DWN&lt;&lt;1)</constant>
-    <constant name="BIT_ATK1">BIT_RGT</constant>
-    <constant name="BIT_ATK2">BIT_LFT</constant>
-    <constant name="BIT_ATK3">BIT_DWN</constant>
-    <constant name="BIT_ATK4">BIT_UP</constant>
-    <constant name="BIT_ATK5">(BIT_RGT &lt;&lt;4)</constant>
-    <constant name="BIT_ATK6">(BIT_LFT &lt;&lt;4)</constant>
-    <constant name="BIT_ATK7">(BIT_DWN &lt;&lt;4)</constant>
-    <constant name="BIT_ATK8">(BIT_UP &lt;&lt;4)</constant>
+    <constant name="BIT_ATK1">$01</constant>
+    <constant name="BIT_ATK2">$02</constant>
+    <constant name="BIT_ATK3">$04</constant>
+    <constant name="BIT_ATK4">$08</constant>
+    <constant name="BIT_ATK5">$10</constant>
+    <constant name="BIT_ATK6">$20</constant>
+    <constant name="BIT_ATK7">$40</constant>
+    <constant name="BIT_ATK8">$80</constant>
     <constant name="CS_PR1">$40</constant>
     <constant name="CS_SW1">$20</constant>
     <constant name="CS_BD1">$10</constant>
-    <constant name="CS_TOP">BIT_UP</constant>
-    <constant name="CS_BTM">BIT_DWN</constant>
-    <constant name="CS_LFT">BIT_LFT</constant>
-    <constant name="CS_RGT">BIT_RGT</constant>
+    <constant name="CS_TOP">$08</constant>
+    <constant name="CS_BTM">$04</constant>
+    <constant name="CS_LFT">$02</constant>
+    <constant name="CS_RGT">$01</constant>
     <constant name="DEPTH_PAD">8</constant>
     <constant name="DEPTH_BASE">0</constant>
     <constant name="TILE_DEPTHS_PAD">$10</constant>
@@ -14738,7 +14730,6 @@
     <constant name="DEPTH_FG6">(DEPTH_FG5-TILE_DEPTHS_PAD)</constant>
     <constant name="DEPTH_FG7">(DEPTH_FG6-TILE_DEPTHS_PAD)</constant>
     <constant name="DEPTH_FG8">(DEPTH_FG7-TILE_DEPTHS_PAD)</constant>
-    <constant name="DEPTH_HIDDEN">-3000</constant>
     <constant name="DEPTH_SOLIDS">-1000</constant>
     <constant name="DEPTH_UNIQUE">-2000</constant>
     <constant name="DEPTH_BASE_NIAO">(DEPTH_BASE - DEPTH_PAD)</constant>
@@ -14749,7 +14740,6 @@
     <constant name="DEPTH_BASE_HUD">(DEPTH_FG7 - DEPTH_PAD)</constant>
     <constant name="DEPTH_BASE_MENU">(DEPTH_BASE_HUD - DEPTH_PAD)</constant>
     <constant name="DEPTH_BASE_SURFACE">(DEPTH_BASE_MENU - DEPTH_PAD)</constant>
-    <constant name="DEPTH_PERSIST_OBJ">(DEPTH_BASE_SURFACE - DEPTH_PAD)</constant>
     <constant name="DEPTH_FILE_SELECT">(DEPTH_BASE - DEPTH_PAD)</constant>
     <constant name="DEPTH_HUD">DEPTH_BASE_HUD</constant>
     <constant name="DEPTH_NIAO">DEPTH_BASE_NIAO</constant>
@@ -14760,7 +14750,6 @@
     <constant name="DEPTH_ENEMY_EXPLOSION">(DEPTH_ENEMY - 1)</constant>
     <constant name="DEPTH_FLYER">(DEPTH_FG6-(TILE_DEPTHS_PAD&gt;&gt;1))</constant>
     <constant name="DEPTH_PROJECTILE">(DEPTH_FG6-(TILE_DEPTHS_PAD&lt;&lt;1))</constant>
-    <constant name="DEPTH_RISING_XP">(DEPTH_ENEMY_EXPLOSION - 1)</constant>
     <constant name="DEPTH_ITEM">(DEPTH_NPC + 1)</constant>
     <constant name="DEPTH_PC_SWORD_BEAM">DEPTH_BASE_PC</constant>
     <constant name="DEPTH_PC_MAIN">(DEPTH_PC_SWORD_BEAM - 1)</constant>
@@ -14775,7 +14764,6 @@
     <constant name="DEPTH_g">(DEPTH_p - 1)</constant>
     <constant name="DEPTH_Input">(DEPTH_g - 1)</constant>
     <constant name="DEPTH_f">(DEPTH_SURFACE + 1)</constant>
-    <constant name="DEPTH_Overworld">(DEPTH_f + 1)</constant>
     <constant name="SPL_NONE">$000</constant>
     <constant name="SPL_PRTC">$001</constant>
     <constant name="SPL_JUMP">(SPL_PRTC &lt;&lt;1)</constant>
@@ -14855,10 +14843,6 @@
     <constant name="STAT_LEVEL_MAX">9</constant>
     <constant name="XP_MAX">9999</constant>
     <constant name="Container_AMT">$20</constant>
-    <constant name="BOTTLE_STATE_HP">1</constant>
-    <constant name="BOTTLE_STATE_MP">2</constant>
-    <constant name="BOTTLE_STATE_MED">8</constant>
-    <constant name="BOTTLE_STATE_WTR">9</constant>
     <constant name="PC_LOCK_HSPD">$01</constant>
     <constant name="PC_LOCK_JUMP">(PC_LOCK_HSPD &lt;&lt;1)</constant>
     <constant name="PC_LOCK_VSPD">(PC_LOCK_JUMP &lt;&lt;1)</constant>
@@ -14892,12 +14876,7 @@
     <constant name="STR_Shake">"_Shake"</constant>
     <constant name="STR_Screen">"_Screen"</constant>
     <constant name="STR_Flashing">"_Flashing"</constant>
-    <constant name="STR_Background_color">"_Background_color"</constant>
     <constant name="STR_Background">"_Background"</constant>
-    <constant name="STR_Cam_x_max">"_Cam_x_max"</constant>
-    <constant name="STR_Cam_x_min">"_Cam_x_min"</constant>
-    <constant name="STR_Cam_y_max">"_Cam_y_max"</constant>
-    <constant name="STR_Cam_y_min">"_Cam_y_min"</constant>
     <constant name="STR_Camera">"_Camera"</constant>
     <constant name="STR_View">"_View"</constant>
     <constant name="STR_Color">"_Color"</constant>
@@ -14915,7 +14894,6 @@
     <constant name="STR_Cue">"_Cue"</constant>
     <constant name="STR_Phase">"_Phase"</constant>
     <constant name="STR_Cooldown">"_Cooldown"</constant>
-    <constant name="STR_Dark_Room">"_Dark_Room"</constant>
     <constant name="STR_File">"_File"</constant>
     <constant name="STR_Save">"_Save"</constant>
     <constant name="STR_Data">"_Data"</constant>
@@ -14959,7 +14937,6 @@
     <constant name="STR_Dock">"_Dock"</constant>
     <constant name="STR_Platform">"_Platform"</constant>
     <constant name="STR_Challenge">"_Challenge"</constant>
-    <constant name="STR_Challenge_Num">"_Challenge_Num"</constant>
     <constant name="STR_Show">"_Show"</constant>
     <constant name="STR_Hide">"_Hide"</constant>
     <constant name="STR_Hidden">"_Hidden"</constant>
@@ -14985,11 +14962,6 @@
     <constant name="STR_Container">"_Container"</constant>
     <constant name="STR_Magic">"_Magic"</constant>
     <constant name="STR_Heart">"_Heart"</constant>
-    <constant name="STR_Ver_Count">"_Ver_Count"</constant>
-    <constant name="STR_Obj_Count">"_Obj_Count"</constant>
-    <constant name="STR_Item_Type_Count">"_Item_Type_Count"</constant>
-    <constant name="STR_Item_Count">"_Item_Count"</constant>
-    <constant name="STR_GOE_Count">"_GOE_Count"</constant>
     <constant name="STR_eCount">"_eCount"</constant>
     <constant name="STR_Datakey">"_Datakey"</constant>
     <constant name="STR_Locks">"_Locks"</constant>
@@ -15030,11 +15002,10 @@
     <constant name="STR_Text">"_Text"</constant>
     <constant name="STR_gob_id">"_gob_id"</constant>
     <constant name="STR_Instance">"_Instance"</constant>
-    <constant name="STR_Body_HB">"_Body_HB"</constant>
+    <constant name="STR_BodyHB">"_BodyHB"</constant>
     <constant name="STR_CS_Off">"_CS_Off"</constant>
     <constant name="STR_HP">"_HP"</constant>
     <constant name="STR_MP">"_MP"</constant>
-    <constant name="STR_Atk_Lvl">"_Atk_Lvl"</constant>
     <constant name="STR_XP">"_XP"</constant>
     <constant name="STR_Play">"_Play"</constant>
     <constant name="STR_Frame">"_Frame"</constant>
@@ -15050,12 +15021,6 @@
     <constant name="STR_Tunic">"_Tunic"</constant>
     <constant name="STR_Hold">"_Hold"</constant>
     <constant name="STR_Drop">"_Drop"</constant>
-    <constant name="STR_React_Shield">"_React_Shield"</constant>
-    <constant name="STR_React_Body">"_React_Body"</constant>
-    <constant name="STR_React_Sword">"_React_Sword"</constant>
-    <constant name="STR_React_Proj">"_React_Proj"</constant>
-    <constant name="STR_React_Thun">"_React_Thun"</constant>
-    <constant name="STR_React_Spell">"_React_Spell"</constant>
     <constant name="STR_XP_Drain">"_XP_Drain"</constant>
     <constant name="STR_Shield">"_Shield"</constant>
     <constant name="STR_Sword">"_Sword"</constant>
@@ -15105,7 +15070,6 @@
     <constant name="STR_Travel">"_Travel"</constant>
     <constant name="STR_CutScene">"_CutScene"</constant>
     <constant name="STR_FallingScene">"_FallingScene"</constant>
-    <constant name="STR_file_name">"_file_name"</constant>
     <constant name="STR_full_name">"_full_name"</constant>
     <constant name="STR_GoTo">"_GoTo"</constant>
     <constant name="STR_goto_reen">"_goto_reen"</constant>
@@ -15159,7 +15123,7 @@
     <constant name="STR_Malo">"_Malo"</constant>
     <constant name="STR_Talo">"_Talo"</constant>
     <constant name="STR_Bagu">"_Bagu"</constant>
-    <constant name="STR_Error_Friend">"_Error_Friend"</constant>
+    <constant name="STR_ErrorFriend">"_ErrorFriend"</constant>
     <constant name="STR_Scroblin">"_Scroblin"</constant>
     <constant name="STR_Zelda">"_Zelda"</constant>
     <constant name="STR_Ganon">"_Ganon"</constant>
@@ -15421,6 +15385,10 @@
     <constant name="STR_CLOUDS">"CLOUDS"</constant>
     <constant name="STR_None">"_None"</constant>
     <constant name="STR_Castlevania">"_Castlevania"</constant>
+    <constant name="STR_Battle">"_Battle"</constant>
+    <constant name="STR_Defeated">"_Defeated"</constant>
+    <constant name="STR_Won">"_Won"</constant>
+    <constant name="STR_Lost">"_Lost"</constant>
     <constant name="TID_BREAK1">$A0</constant>
     <constant name="TID_BREAK2">$A3</constant>
     <constant name="TID_BREAK3">$A8</constant>
@@ -15520,20 +15488,6 @@
     <constant name="MAX_GOB1">$20</constant>
     <constant name="MAX_GOC1">$20</constant>
     <constant name="MAX_GOC2">$06</constant>
-    <constant name="STR_Battle">"_Battle"</constant>
-    <constant name="STR_Defeated">"_Defeated"</constant>
-    <constant name="STR_Won">"_Won"</constant>
-    <constant name="STR_Lost">"_Lost"</constant>
-    <constant name="STR_Boss_map_page">"_Boss_map_page"</constant>
-    <constant name="TOWN_IDX_RAU">$00</constant>
-    <constant name="TOWN_IDX_RUT">$01</constant>
-    <constant name="TOWN_IDX_SAR">$02</constant>
-    <constant name="TOWN_IDX_MID">$03</constant>
-    <constant name="TOWN_IDX_NAB">$04</constant>
-    <constant name="TOWN_IDX_DAR">$05</constant>
-    <constant name="TOWN_IDX_NKA">$06</constant>
-    <constant name="TOWN_IDX_OKA">$07</constant>
-    <constant name="TOWN_IDX_BUL">$08</constant>
     <constant name="MapAreaName_DEF">"???"</constant>
     <constant name="MapAreaName_DATAKEY">(STR_Map+STR_Area+STR_Name)</constant>
     <constant name="MapAreaName_NORTH_CASTLE">"NORTH CASTLE"</constant>
@@ -15570,28 +15524,23 @@
     <constant name="TSRC_BREAK3_B">('86' + '87' + '96' + '97')</constant>
     <constant name="TSRC_BREAK4_A">('A8' + 'A8' + 'A9' + 'A9')</constant>
     <constant name="PI_PERMUTATIONS">6</constant>
-    <constant name="PC_PAL_COUNT1">3</constant>
-    <constant name="PC_PAL_COUNT2">3</constant>
-    <constant name="PC_PAL_COUNT">(PC_PAL_COUNT1 + PC_PAL_COUNT2 + 1)</constant>
     <constant name="SAVE_NAME_CHAR_LIMIT">8</constant>
     <constant name="SAVE_FILE_MAX">3</constant>
     <constant name="SAVE_NAME_EMPTY">(string_repeat(" ", SAVE_NAME_CHAR_LIMIT))</constant>
     <constant name="SAVE_NAME_NULL">SAVE_NAME_EMPTY</constant>
-    <constant name="QUEST_SPELL_PROTECT">1</constant>
-    <constant name="QUEST_SPELL_JUMP">(QUEST_SPELL_PROTECT + 1)</constant>
-    <constant name="QUEST_SPELL_LIFE">(QUEST_SPELL_JUMP + 1)</constant>
-    <constant name="QUEST_SPELL_FAIRY">(QUEST_SPELL_LIFE + 1)</constant>
-    <constant name="QUEST_SPELL_FIRE">(QUEST_SPELL_FAIRY + 1)</constant>
-    <constant name="QUEST_SPELL_REFLECT">(QUEST_SPELL_FIRE + 1)</constant>
-    <constant name="QUEST_SPELL_SPELL">(QUEST_SPELL_REFLECT + 1)</constant>
-    <constant name="QUEST_SPELL_THUNDER">(QUEST_SPELL_SPELL + 1)</constant>
-    <constant name="QUEST_SARIA_BRIDGE">(QUEST_SPELL_THUNDER + 1)</constant>
-    <constant name="QUEST_CONT_MP">(QUEST_SARIA_BRIDGE + 1)</constant>
-    <constant name="QUEST_SPELL_SUMMON">(QUEST_CONT_MP + 1)</constant>
+    <constant name="QuestID_Rauru_Spell">"_Rauru_Spell"</constant>
+    <constant name="QuestID_Ruto_Spell">"_Ruto_Spell"</constant>
+    <constant name="QuestID_Saria_Spell">"_Saria_Spell"</constant>
+    <constant name="QuestID_Mido_Spell">"_Mido_Spell"</constant>
+    <constant name="QuestID_Nabooru_Spell">"_Nabooru_Spell"</constant>
+    <constant name="QuestID_Darunia_Spell">"_Darunia_Spell"</constant>
+    <constant name="QuestID_NewKasuto_Spell">"_NewKasuto_Spell"</constant>
+    <constant name="QuestID_OldKasuto_Spell">"_OldKasuto_Spell"</constant>
+    <constant name="QuestID_Bulblin_Spell">"_Bulblin_Spell"</constant>
+    <constant name="QuestID_Saria_Bridge">"_Saria_Bridge"</constant>
+    <constant name="QuestID_NewKasuto_Container">"_NewKasuto_Container"</constant>
     <constant name="BODY_HB_IDX_DYNAMIC">-2</constant>
-    <constant name="SPR_Zelda_Asleep">spr_Zelda_Asleep_1a</constant>
     <constant name="Zelda_DATAKEY1">(STR_Zelda+STR_Dialogue+STR_State+STR_Quest+"02")</constant>
-    <constant name="Wiseman_DATAKEY1">(STR_Wiseman+STR_Dialogue+STR_State+STR_Quest+"02")</constant>
     <constant name="Scroblin_DATAKEY1">(STR_Scroblin+STR_Open+STR_Path)</constant>
     <constant name="SteelCrescents_NAME">"Nomaph"</constant>
     <constant name="dk_NO_ENCOUNTER">"NO_ENCOUNTER"</constant>
@@ -15674,6 +15623,17 @@
     <constant name="dk_PlayStation">"_PlayStation"</constant>
     <constant name="dk_Map0">"_Map0"</constant>
     <constant name="dk_EncounterInstance">"_EncounterInstance"</constant>
+    <constant name="dk_BackgroundColor">"_BackgroundColor"</constant>
+    <constant name="dk_DarkRoom">"_DarkRoom"</constant>
+    <constant name="dk_AttackLevel">"_AttackLevel"</constant>
+    <constant name="dk_ReactSword">"_ReactSword"</constant>
+    <constant name="dk_ReactShield">"_ReactShield"</constant>
+    <constant name="dk_ReactBody">"_ReactBody"</constant>
+    <constant name="dk_ReactProj">"_ReactProj"</constant>
+    <constant name="dk_ReactEnigma">"_ReactEnigma"</constant>
+    <constant name="dk_ReactThun">"_ReactThun"</constant>
+    <constant name="dk_FileName">"_FileName"</constant>
+    <constant name="dk_FullName">"_FullName"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
   </constants>

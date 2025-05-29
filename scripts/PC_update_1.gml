@@ -332,16 +332,21 @@ if (f.items&ITM_FRY1)
             var _C1 = collide_solid_grid(csBtm1X,csBtm1Y);
             var _C2 = collide_solid_grid(csBtm2X,csBtm2Y);
             
-            if (_C1 || _C2)
+            if (_C1 
+            ||  _C2 )
             {
+                var _CLMS1 = ds_grid_width( g.dg_RmTile_Break_def);
+                var _ROWS1 = ds_grid_height(g.dg_RmTile_Break_def);
+                var _CLMS2 = ds_grid_width( g.dg_RmTile_TempSolid);
+                var _ROWS2 = ds_grid_height(g.dg_RmTile_TempSolid);
                     _clm  = csBtm1X>>3;
                     _row  = csBtm1Y>>3;
                 var _clm2 = csBtm2X>>3;
                 var _row2 = csBtm2Y>>3;
-                if(!isVal(g.dg_RmTile_Break_def[#_clm ,_row ]&$FF, TID_BREAK1,TID_BREAK2,TID_BREAK3,TID_BREAK4) 
-                && !isVal(g.dg_RmTile_Break_def[#_clm2,_row2]&$FF, TID_BREAK1,TID_BREAK2,TID_BREAK3,TID_BREAK4) 
-                &&       !g.dg_RmTile_TempSolid[#_clm ,_row ]&$FF 
-                &&       !g.dg_RmTile_TempSolid[#_clm2,_row2]&$FF )
+                if(!isVal(g.dg_RmTile_Break_def[#clamp(_clm, 0,_CLMS1) ,clamp(_row, 0,_ROWS1)]&$FF, TID_BREAK1,TID_BREAK2,TID_BREAK3,TID_BREAK4) 
+                && !isVal(g.dg_RmTile_Break_def[#clamp(_clm2,0,_CLMS1) ,clamp(_row2,0,_ROWS1)]&$FF, TID_BREAK1,TID_BREAK2,TID_BREAK3,TID_BREAK4) 
+                &&       !g.dg_RmTile_TempSolid[#clamp(_clm, 0,_CLMS2) ,clamp(_row, 0,_ROWS2)]&$FF 
+                &&       !g.dg_RmTile_TempSolid[#clamp(_clm2,0,_CLMS2) ,clamp(_row2,0,_ROWS2)]&$FF )
                 {
                          if (_C1 && _C2) _clm =       x>>3;
                     else if (_C1)        _clm = csBtm1X>>3;

@@ -52,8 +52,9 @@ palidx_permut = _pi_permut;
 
 
     can_draw_self = true;
-if (g.town_num==TOWN_IDX_NAB+1 
-&& !quest_is_complete(TOWN_IDX_NAB+1) )
+if (g.town_name==STR_Nabooru 
+//if (g.town_num==TOWN_IDX_NAB+1 
+&& !quest_is_complete(QuestID_Nabooru_Spell) )
 {
     can_draw_self = false;
 }

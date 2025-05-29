@@ -1,11 +1,18 @@
 /// OptionsMenu_Create()
 
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("OptionsMenu_Create() START");
+}
 
-var _i,_j,_k, _a, _idx, _val, _count,_count0,_count1,_count2, _len;
+
+var _i,_j,_k, _a, _idx, _val, _count,_count0,_count1,_count2;
 var _x,_y, _w,_h;
 var _dk,_dk0,_dk1,_dk2,_dk3;
 var _first;
-var _text, _font, _size;
+var _text, _font, _len, _size;
 var _theme;
 
 
@@ -228,6 +235,7 @@ MainOptions_dg[#ds_grid_width(MainOptions_dg)-1,0] = "RANDO OPTIONS";
 MainOptions_dg[#ds_grid_width(MainOptions_dg)-1,1] = FONT2;
 MainOptions_dg[#ds_grid_width(MainOptions_dg)-1,2] = "VARIOUS RANDOMIZATION RELATED OPTIONS";
 //MainOptions_dg[#ds_grid_width(MainOptions_dg)-1,2] = "VARIOUS OPTIONS RELATED TO RANDOMIZATION";
+/*
 //                                                                          //
 MainOption_PAL_EDITOR        = ds_grid_width(MainOptions_dg);
 ds_grid_resize(MainOptions_dg, ds_grid_width(MainOptions_dg)+1,MainOptions_dg_H);
@@ -236,6 +244,7 @@ MainOptions_dg[#ds_grid_width(MainOptions_dg)-1,1] = FONT2;
 //MainOptions_dg[#ds_grid_width(MainOptions_dg)-1,2] = "EDIT THIS ROOM'S COLORS";
 //MainOptions_dg[#ds_grid_width(MainOptions_dg)-1,2] = "ALLOWS YOU TO EDIT THIS ROOM'S COLORS";
 MainOptions_dg[#ds_grid_width(MainOptions_dg)-1,2] = "OPEN A TOOL THAT ALLOWS YOU TO EDIT THIS ROOM'S COLORS";
+*/
 //                                                                          //
 MainOption_FORCE_GAMEOVER    = ds_grid_width(MainOptions_dg);
 ds_grid_resize(MainOptions_dg, ds_grid_width(MainOptions_dg)+1,MainOptions_dg_H);
@@ -261,13 +270,9 @@ MainOption = 0;
 MainOption_COUNT = ds_grid_width(MainOptions_dg);
 
 
-TEXT_LENGTH1 = 1;
-for(_i=0; _i<MainOption_COUNT; _i++)
-{
-    _len = string_length(MainOptions_dg[#_i,0]);
-    if (_len>TEXT_LENGTH1) TEXT_LENGTH1 = _len;
-}
-
+_len = 1;
+for(_i=0; _i<MainOption_COUNT; _i++) _len = max(_len, string_length(MainOptions_dg[#_i,0]));
+TEXT_LENGTH1 = _len;
 TEXT_LENGTH2 = TEXT_LENGTH1-2;
 TEXT_LENGTH3 = TEXT_LENGTH1+6;
 
@@ -366,136 +371,145 @@ DevToolsState_MAIN    = _a++;
 DevToolsState         = _first;
 
 
-_first=0;                  _a=_first;
-DevTools_DEV_TOOLS_STATE = _a++;
-DevTools_SET_DEFAULT     = _a++; // Turn all options off
-DevTools_APP_PERFORMANCE = _a++; // App Performance. show_debug_overlay()
-DevTools_HITBOXES        = _a++; // Show hitboxes
-DevTools_SCP             = _a++; // Solid Collision Points
-DevTools_XY              = _a++; // Show xy points
-//DevTools_OCS             = _a++; // Off Camera State
-DevTools_OG_CAM          = _a++; // Original Game Camera outline
-DevTools_HP              = _a++; // Show HP
-DevTools_SPRITE_OUTLINE  = _a++; // Show sprite outlines
-DevTools_FRAME_COUNT     = _a++; // App frame count
-//DevTools_BGR_BLACK       = _a++; // All rm background color black
-DevTools_EXITS           = _a++; // Show exits
-DevTools_SOLID_TILES     = _a++; // Highlight solid tiles
-DevTools_UNIQUE_TILES    = _a++; // Highlight unique tiles
-DevTools_DUNGEON_MAP     = _a++; // Full dungeon map
-DevTools_ADD_ITEMS       = _a++; // Add items by stabbing them
-//DevTools_DOUBLE_JUMP     = _a++; // Gives player FEATHER item (Double Jump)
-DevTools_PC_DASH         = _a++; // Toggle ability to move faster
-//DevTools_INVULNERABILITY = _a++; // Invulnerability state
-DevTools_BACK            = _a++;
-DevTools_cursor          = _first;
+enum DevTools
+{
+    DEV_TOOLS_STATE,  // 
+    SET_DEFAULT,      // Turn all options off
+    APP_PERFORMANCE,  // App Performance. show_debug_overlay()
+    HITBOXES,         // Show hitboxes
+    SCP,              // Solid Collision Points
+    XY,               // Show xy points
+    //OCS,              // Off Camera State
+    OG_CAM,           // Original Game Camera outline
+    HP,               // Show HP
+    SPRITE_OUTLINE,   // Show sprite outlines
+    FRAME_COUNT,      // App frame count
+    EXITS,            // Show exits
+    SOLID_TILES,      // Highlight solid tiles
+    UNIQUE_TILES,     // Highlight unique tiles
+    DUNGEON_MAP,      // Full dungeon map
+    ADD_ITEMS,        // Add items by stabbing them
+    PC_DASH,          // Toggle ability to move faster
+    //INVULNERABILITY,  // Invulnerability state
+    BGR_COLOR,        // Edit background color
+    ROOM_COLOR,       // Edit scene colors
+    BACK,             // 
+    COUNT
+}
 
-DevTools_COUNT = _a;
+DevTools_cursor = 0;
 
 
 
 
 _font = FONT2;
-_size = sprite_get_width(_font);
 
-dg_DevTools = ds_grid_create(DevTools_COUNT,8);
+DevTools_dg = ds_grid_create(DevTools.COUNT,8);
 //                                                                          //
-_a=0;        _i=DevTools_DEV_TOOLS_STATE;
-dg_DevTools[#_i,0] = "DEV TOOLS STATE";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.DEV_TOOLS_STATE;
+DevTools_dg[#_i,0] = "DEV TOOLS STATE";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
-_a+=2;       _i=DevTools_SET_DEFAULT;
-dg_DevTools[#_i,0] = "SET ALL TO DEFAULT";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.SET_DEFAULT;
+DevTools_dg[#_i,0] = "SET ALL TO DEFAULT";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
-_a+=2;       _i=DevTools_APP_PERFORMANCE;
-dg_DevTools[#_i,0] = "APP PERFORMANCE";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.APP_PERFORMANCE;
+DevTools_dg[#_i,0] = "APP PERFORMANCE";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
-_a+=2;       _i=DevTools_HITBOXES;
-dg_DevTools[#_i,0] = "HITBOXES";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.HITBOXES;
+DevTools_dg[#_i,0] = "HITBOXES";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
-_a+=2;       _i=DevTools_SCP;
-dg_DevTools[#_i,0] = "SOLID COLLISION POINTS";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.SCP;
+DevTools_dg[#_i,0] = "SOLID COLLISION POINTS";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
-_a+=2;       _i=DevTools_XY;
-dg_DevTools[#_i,0] = "XY POINTS";
-dg_DevTools[#_i,1] = _font;
-//                                                                          //
-/*
-_a+=2;       _i=DevTools_OCS;
-dg_DevTools[#_i,0] = "OFF-CAMERA LINES";
-dg_DevTools[#_i,1] = _font;
-//                                                                          //
-*/
-_a+=2;       _i=DevTools_OG_CAM;
-//dg_DevTools[#_i,0] = "OG CAMERA OUTLINE";
-dg_DevTools[#_i,0] = "ORIGINAL GAME CAMERA OUTLINE";
-dg_DevTools[#_i,1] = _font;
-//                                                                          //
-_a+=2;       _i=DevTools_HP;
-dg_DevTools[#_i,0] = "HP";
-dg_DevTools[#_i,1] = _font;
-//                                                                          //
-_a+=2;       _i=DevTools_SPRITE_OUTLINE;
-dg_DevTools[#_i,0] = "SPRITE OUTLINES";
-dg_DevTools[#_i,1] = _font;
-//                                                                          //
-_a+=2;       _i=DevTools_FRAME_COUNT;
-dg_DevTools[#_i,0] = "APP FRAME COUNT";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.XY;
+DevTools_dg[#_i,0] = "XY POINTS";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
 /*
-_a+=2;       _i=DevTools_BGR_BLACK;
-dg_DevTools[#_i,0] = "ROOM BACKGROUNDS BLACK ONLY";
-//dg_DevTools[#_i,0] = "ALL ROOM BGR BLACK";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.OCS;
+DevTools_dg[#_i,0] = "OFF-CAMERA LINES";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
 */
-_a+=2;       _i=DevTools_EXITS;
-dg_DevTools[#_i,0] = "EXITS";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.OG_CAM;
+//DevTools_dg[#_i,0] = "OG CAMERA OUTLINE";
+DevTools_dg[#_i,0] = "ORIGINAL GAME CAMERA OUTLINE";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
-_a+=2;       _i=DevTools_SOLID_TILES;
-dg_DevTools[#_i,0] = "HIGHLIGHT SOLID TILES";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.HP;
+DevTools_dg[#_i,0] = "HP";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
-_a+=2;       _i=DevTools_UNIQUE_TILES;
-dg_DevTools[#_i,0] = "HIGHLIGHT UNIQUE TILES";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.SPRITE_OUTLINE;
+DevTools_dg[#_i,0] = "SPRITE OUTLINES";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
-_a+=2;       _i=DevTools_DUNGEON_MAP;
-dg_DevTools[#_i,0] = "COMPLETE DUNGEON MAPS";
-dg_DevTools[#_i,1] = _font;
-//                                                                          //
-_a+=2;       _i=DevTools_ADD_ITEMS;
-dg_DevTools[#_i,0] = "ADD ITEMS CHEAT";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.FRAME_COUNT;
+DevTools_dg[#_i,0] = "APP FRAME COUNT";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
 /*
-_a+=2;       _i=DevTools_DOUBLE_JUMP;
-dg_DevTools[#_i,0] = "DOUBLE JUMP";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.BGR_BLACK;
+DevTools_dg[#_i,0] = "ROOM BACKGROUNDS BLACK ONLY";
+//DevTools_dg[#_i,0] = "ALL ROOM BGR BLACK";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
 */
-_a+=2;       _i=DevTools_PC_DASH;
-dg_DevTools[#_i,0] = "FASTER PC HSPD";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.EXITS;
+DevTools_dg[#_i,0] = "EXITS";
+DevTools_dg[#_i,1] = _font;
+//                                                                          //
+             _i=DevTools.SOLID_TILES;
+DevTools_dg[#_i,0] = "HIGHLIGHT SOLID TILES";
+DevTools_dg[#_i,1] = _font;
+//                                                                          //
+             _i=DevTools.UNIQUE_TILES;
+DevTools_dg[#_i,0] = "HIGHLIGHT UNIQUE TILES";
+DevTools_dg[#_i,1] = _font;
+//                                                                          //
+             _i=DevTools.DUNGEON_MAP;
+DevTools_dg[#_i,0] = "COMPLETE DUNGEON MAPS";
+DevTools_dg[#_i,1] = _font;
+//                                                                          //
+             _i=DevTools.ADD_ITEMS;
+DevTools_dg[#_i,0] = "ADD ITEMS CHEAT";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
 /*
-_a+=2;       _i=DevTools_INVULNERABILITY;
-dg_DevTools[#_i,0] = "INVULNERABILITY STATE";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.DOUBLE_JUMP;
+DevTools_dg[#_i,0] = "DOUBLE JUMP";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
 */
-_a+=2;       _i=DevTools_BACK;
-dg_DevTools[#_i,0] = "BACK";
-dg_DevTools[#_i,1] = _font;
+             _i=DevTools.PC_DASH;
+DevTools_dg[#_i,0] = "FASTER PC HSPD";
+DevTools_dg[#_i,1] = _font;
+//                                                                          //
+/*
+             _i=DevTools.INVULNERABILITY;
+DevTools_dg[#_i,0] = "INVULNERABILITY STATE";
+DevTools_dg[#_i,1] = _font;
+//                                                                          //
+*/
+             _i=DevTools.BGR_COLOR;
+DevTools_dg[#_i,0] = "EDIT BACKGROUND COLOR";
+DevTools_dg[#_i,1] = _font;
+//                                                                          //
+             _i=DevTools.ROOM_COLOR;
+DevTools_dg[#_i,0] = "EDIT ROOM COLORS";
+DevTools_dg[#_i,1] = _font;
+//                                                                          //
+             _i=DevTools.BACK;
+DevTools_dg[#_i,0] = "BACK";
+DevTools_dg[#_i,1] = _font;
 //                                                                          //
 
-//DevTools_OCS DevTools_DOUBLE_JUMP DevTools_INVULNERABILITY
+
 
 
 
@@ -871,7 +885,7 @@ dm_options[?_dk2+STR_Font]                         = FONT2;
 dm_options[?_dk2+STR_Option+STR_Text]              = "IT'S HALLOWEEN?";
 dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "NO";
 dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "YES";
-dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "THIS MAY BE SLIGHTLY SPOOPY";
+dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "THIS MAY BE SLIGHTLY SPOOKY";
 //dm_options[?_dk2+STR_Description+hex_str(_k++)]    = string(val(dm_options[?_dk2+STR_State+"00"+STR_Text]))+": NORMAL";
 //dm_options[?_dk2+STR_Description+hex_str(_k++)]    = string(val(dm_options[?_dk2+STR_State+"01"+STR_Text]))+": IT'S HALLOWEEN!";
 //                                                                          //
@@ -887,6 +901,26 @@ dm_options[?_dk2+STR_Description+hex_str(_k++)]    = string(val(dm_options[?_dk2
 dm_options[?_dk2+STR_Description+hex_str(_k++)]    = string(val(dm_options[?_dk2+STR_State+"01"+STR_Text]))+": ACTIVE SPELLS WILL BE THEIR NORMAL COLOR";
 //                                                                          //
 */
+
+/*
+_j=0; _k=0;
+Other_SCENE_COLORS_EDITOR = ++_i;
+_dk2 = _dk0+hex_str(_i);
+dm_options[?_dk2+STR_Font]                         = FONT2;
+dm_options[?_dk2+STR_Option+STR_Text]              = "EDIT ROOM COLORS";
+//dm_options[?_dk2+STR_Option+STR_Text]              = "EDIT SCENE COLORS";
+//dm_options[?_dk2+STR_Option+STR_Text]              = "OPEN COLOR EDITOR";
+dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "OPEN A TOOL THAT ALLOWS YOU TO EDIT THIS ROOM'S COLORS";
+//                                                                          //
+_j=0; _k=0;
+Other_BGR_COLOR_EDITOR = ++_i;
+_dk2 = _dk0+hex_str(_i);
+dm_options[?_dk2+STR_Font]                         = FONT2;
+dm_options[?_dk2+STR_Option+STR_Text]              = "EDIT BACKGROUND COLOR";
+dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "OPEN A TOOL THAT ALLOWS YOU TO EDIT THIS ROOM'S BACKGROUND COLOR";
+//                                                                          //
+*/
+
 _j=0; _k=0;
 Other_BACK = ++_i;
 _dk2 = _dk0+hex_str(_i);
@@ -926,58 +960,52 @@ var _option_text_width_max = 1;
 
 for(_i=0; _i<MainOption_COUNT; _i++)
 {
-    _len = string_length(MainOptions_dg[#_i,0]);
-    if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = MainOptions_dg[#_i,0];
-    _w = sprite_get_width(_font) * _len;
-    if (_w>_option_text_width_max) _option_text_width_max = _w;
+    _len  = string_length(MainOptions_dg[#_i,0]);
+    _font = MainOptions_dg[#_i,1];
+    _option_text_len_max   = max(_option_text_len_max, _len);
+    _option_text_width_max = max(_option_text_width_max, sprite_get_width(_font)*_len);
 }
 
 for(_i=0; _i<InputConfigOption_COUNT; _i++)
 {
-    _len = string_length(dg_InputConfigOptions[#_i,0]);
-    if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = dg_InputConfigOptions[#_i,0];
-    _w = sprite_get_width(_font) * _len;
-    if (_w>_option_text_width_max) _option_text_width_max = _w;
+    _len  = string_length(dg_InputConfigOptions[#_i,0]);
+    _font = dg_InputConfigOptions[#_i,1];
+    _option_text_len_max   = max(_option_text_len_max, _len);
+    _option_text_width_max = max(_option_text_width_max, sprite_get_width(_font)*_len);
 }
 
-for(_i=0; _i<DevTools_COUNT; _i++)
+for(_i=0; _i<DevTools.COUNT; _i++)
 {
-    _len = string_length(dg_DevTools[#_i,0]);
-    if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = dg_DevTools[#_i,0];
-    _w = sprite_get_width(_font) * _len;
-    if (_w>_option_text_width_max) _option_text_width_max = _w;
+    _len  = string_length(DevTools_dg[#_i,0]);
+    _font = DevTools_dg[#_i,1];
+    _option_text_len_max   = max(_option_text_len_max, _len);
+    _option_text_width_max = max(_option_text_width_max, sprite_get_width(_font)*_len);
 }
 
 _dk0 = "Rando";
 for(_i=val(dm_options[?_dk0+STR_Count])-1; _i>=0; _i--)
 {
-    _len = string_length(val(dm_options[?_dk0+hex_str(_i)+STR_Option+STR_Text],"0"));
-    if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = val(dm_options[?_dk0+hex_str(_i)+STR_Font], FONT2);
-    _w = sprite_get_width(_font) * _len;
-    if (_w>_option_text_width_max) _option_text_width_max = _w;
+    _len  = string_length(val(dm_options[?_dk0+hex_str(_i)+STR_Option+STR_Text],"0"));
+    _font =               val(dm_options[?_dk0+hex_str(_i)+STR_Font], FONT2);
+    _option_text_len_max   = max(_option_text_len_max, _len);
+    _option_text_width_max = max(_option_text_width_max, sprite_get_width(_font)*_len);
 }
 /*
 for(_i=ds_grid_width(dg_RandoOptions)-1; _i>=0; _i--)
 {
-    _len = string_length(dg_RandoOptions[#_i,0]);
-    if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = dg_RandoOptions[#_i,0];
-    _w = sprite_get_width(_font) * _len;
-    if (_w>_option_text_width_max) _option_text_width_max = _w;
+    _len  = string_length(dg_RandoOptions[#_i,0]);
+    _font = dg_RandoOptions[#_i,1];
+    _option_text_len_max   = max(_option_text_len_max, _len);
+    _option_text_width_max = max(_option_text_width_max, sprite_get_width(_font)*_len);
 }
 */
 _dk0 = "Other";
 for(_i=val(dm_options[?_dk0+STR_Count])-1; _i>=0; _i--)
 {
-    _len = string_length(val(dm_options[?_dk0+hex_str(_i)+STR_Option+STR_Text],"0"));
-    if (_len>_option_text_len_max) _option_text_len_max = _len;
-    _font = val(dm_options[?_dk0+hex_str(_i)+STR_Font], FONT2);
-    _w = sprite_get_width(_font) * _len;
-    if (_w>_option_text_width_max) _option_text_width_max = _w;
+    _len  = string_length(val(dm_options[?_dk0+hex_str(_i)+STR_Option+STR_Text],"0"));
+    _font =               val(dm_options[?_dk0+hex_str(_i)+STR_Font], FONT2);
+    _option_text_len_max   = max(_option_text_len_max, _len);
+    _option_text_width_max = max(_option_text_width_max, sprite_get_width(_font)*_len);
 }
 
 //OPTION_STATE_TEXT_XOFF = (_option_text_len_max+1) * _size;
@@ -1069,6 +1097,15 @@ anim_frame      = 0;
 
 BackgroundFlash_W = $18;
 BackgroundFlash_H = $08;
+
+
+
+
+if (DEV)
+{
+    show_debug_message("OptionsMenu_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

@@ -26,17 +26,9 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++)
     set_save_props_def();
     file_save(_file_num,true);
     
-    sdm(_file_name+" created!");
+    show_debug_message(_file_name+" created!");
 }
 
-/*
-var _DIRECTORY="custom_playercharacter_graphics";
-if(!directory_exists(_DIRECTORY))
-{
-    directory_create(_DIRECTORY);
-    sdm(_DIRECTORY+" created!"+"  -  init_save_files");
-}
-*/
 
 
 

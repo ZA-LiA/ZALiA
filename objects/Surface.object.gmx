@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-Surface_init();
-
+            <string>Surface_Create();
 </string>
           </argument>
         </arguments>

@@ -87,14 +87,14 @@ if (1&&DEV)
                 if (_can_simulate)
                 {
                     _scenario  = "Seed_$"+hex_str(_seed);
-                    _scenario += ", "+STR_Start+STR_Quest         +" "+string(_QUEST_NUM);
-                    //_scenario += ", "+STR_Item+STR_Method         +" "+string(val(dm_settings[?STR_Randomize+STR_Item+STR_Method]));
-                    _scenario += ", "+STR_Item+STR_Locations      +" "+string(val(dm_settings[?STR_Randomize+STR_Item+STR_Locations]));
-                    _scenario += ", "+STR_PBAG+STR_Locations      +" "+string(val(dm_settings[?STR_Randomize+STR_PBAG+STR_Locations]));
-                    _scenario += ", "+STR_Key +STR_Locations      +" "+string(val(dm_settings[?STR_Randomize+STR_Key +STR_Locations]));
-                    _scenario += ", "+dk_LimitObscure             +" "+string(val(dm_settings[?dk_LimitObscure]));
-                    _scenario += ", "+STR_Dark_Room+STR_Difficulty+" "+string(val(dm_settings[?STR_Dark_Room+STR_Difficulty]));
-                    _scenario += ", "+STR_Spell+STR_Locations     +" "+string(val(dm_settings[?STR_Randomize+STR_Spell+STR_Locations]));
+                    _scenario += ", "+STR_Start+STR_Quest       +" "+string(_QUEST_NUM);
+                    //_scenario += ", "+STR_Item+STR_Method       +" "+string(val(dm_settings[?STR_Randomize+STR_Item+STR_Method]));
+                    _scenario += ", "+STR_Item+STR_Locations    +" "+string(val(dm_settings[?STR_Randomize+STR_Item+STR_Locations]));
+                    _scenario += ", "+STR_PBAG+STR_Locations    +" "+string(val(dm_settings[?STR_Randomize+STR_PBAG+STR_Locations]));
+                    _scenario += ", "+STR_Key +STR_Locations    +" "+string(val(dm_settings[?STR_Randomize+STR_Key +STR_Locations]));
+                    _scenario += ", "+dk_LimitObscure           +" "+string(val(dm_settings[?dk_LimitObscure]));
+                    _scenario += ", "+dk_DarkRoom+STR_Difficulty+" "+string(val(dm_settings[?dk_DarkRoom+STR_Difficulty]));
+                    _scenario += ", "+STR_Spell+STR_Locations   +" "+string(val(dm_settings[?STR_Randomize+STR_Spell+STR_Locations]));
                     
                     
                     cooldown_timer=cooldown_DURATION1;

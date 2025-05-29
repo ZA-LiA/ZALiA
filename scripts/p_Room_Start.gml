@@ -33,7 +33,7 @@ SpellReady_flash_timer = 0;
 
 if (room!=rmB_Death) global.BackgroundColor_at_death = -1;
 
-     if (g.room_type=="A")   global.BackgroundColor_scene = val(g.dm_rm[?g.rm_name+STR_Background_color], C_BLK1);
+     if (g.room_type=="A")   global.BackgroundColor_scene = val(g.dm_rm[?g.rm_name+dk_BackgroundColor], C_BLK1);
 else if (room==rmB_GameOver) global.BackgroundColor_scene = GameOverScreen_BGR_COLOR;
 else                         global.BackgroundColor_scene = C_BLK1;
 
@@ -72,7 +72,7 @@ if (global.SceneRando_enabled)
     var _SceneRando_scene = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
     if (_SceneRando_scene!=g.rm_name)
     {
-        _color = val(g.dm_rm[?_SceneRando_scene+STR_Background_color], global.BackgroundColor_scene);
+        _color = val(g.dm_rm[?_SceneRando_scene+dk_BackgroundColor], global.BackgroundColor_scene);
         if (_color==C_BLK1) global.BackgroundColor_scene = C_BLK1;
     }
 }
@@ -125,7 +125,7 @@ switch(g.room_type)
     }
     else
     {
-        _dk = g.rm_name+STR_file_name+STR_Quest+hex_str(g.file_data_quest_num);
+        _dk = g.rm_name+dk_FileName+STR_Quest+hex_str(g.file_data_quest_num);
         _dk = g.dm_rm[?_dk];
         if(!is_undefined(_dk))
         {
@@ -460,7 +460,7 @@ if (room!=rmB_Title
 // ------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
 // pal_rm_dark_idx == -1: Means this rm is NOT a dark rm
-pal_rm_dark_idx = val(g.dm_rm[?g.rm_name+STR_Dark_Room], -1);
+pal_rm_dark_idx = val(g.dm_rm[?g.rm_name+dk_DarkRoom], -1);
 pal_rm_dark_idx = clamp(pal_rm_dark_idx, -1, ds_grid_width(dg_pal_rm_dark)-1);
 
 

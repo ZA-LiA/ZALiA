@@ -56,17 +56,17 @@ if (argument_count>_arg) _BRIGHT   = argument[_arg++];
 
 
 if (_PALIDX  >=0) g.dm_go_prop[?_OBJVER+STR_pal_idx]     = _PALIDX;
-if (_BODY_HB >=0) g.dm_go_prop[?_OBJVER+STR_Body_HB]     = _BODY_HB;
+if (_BODY_HB >=0) g.dm_go_prop[?_OBJVER+STR_BodyHB]     = _BODY_HB;
 if (_CS_OFF  >=0) g.dm_go_prop[?_OBJVER+STR_CS_Off]      = _CS_OFF;
 if (_HP_IDX  >=0) g.dm_go_prop[?_OBJVER+STR_HP]          = _HP_IDX;
-if (_ATK_LVL >=0) g.dm_go_prop[?_OBJVER+STR_Atk_Lvl]     = _ATK_LVL;
+if (_ATK_LVL >=0) g.dm_go_prop[?_OBJVER+dk_AttackLevel]     = _ATK_LVL;
 if (_XP_IDX  >=0) g.dm_go_prop[?_OBJVER+STR_XP]          = _XP_IDX;
 if (_RESPAWN >=0) g.dm_go_prop[?_OBJVER+STR_Respawn]     = _RESPAWN;
 if (_DROP_ID >=0) g.dm_go_prop[?_OBJVER+STR_Drop]        = _DROP_ID;
-if (_REACT_SW>=0) g.dm_go_prop[?_OBJVER+STR_React_Sword] = _REACT_SW;
-if (_REACT_PR>=0) g.dm_go_prop[?_OBJVER+STR_React_Proj]  = _REACT_PR;
-if (_REACT_TH>=0) g.dm_go_prop[?_OBJVER+STR_React_Thun]  = _REACT_TH;
-if (_REACT_SP>=0) g.dm_go_prop[?_OBJVER+STR_React_Spell] = _REACT_SP;
+if (_REACT_SW>=0) g.dm_go_prop[?_OBJVER+dk_ReactSword]   = _REACT_SW;
+if (_REACT_PR>=0) g.dm_go_prop[?_OBJVER+dk_ReactProj]    = _REACT_PR;
+if (_REACT_TH>=0) g.dm_go_prop[?_OBJVER+dk_ReactThun]    = _REACT_TH;
+if (_REACT_SP>=0) g.dm_go_prop[?_OBJVER+dk_ReactEnigma]  = _REACT_SP;
 if (_XPDRAIN >=0) g.dm_go_prop[?_OBJVER+STR_XP_Drain]    = _XPDRAIN;
 if (_BRIGHT  >=0) g.dm_go_prop[?_OBJVER+STR_Brightness]  = _BRIGHT;
 

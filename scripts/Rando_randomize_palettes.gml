@@ -186,8 +186,8 @@ for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
         }
         
         // file name data example: "PalcA_003"
-        _file_name1 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+"01"];
-        _file_name2 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+"02"];
+        _file_name1 = g.dm_rm[?_scene_name+dk_FileName+STR_Quest+"01"];
+        _file_name2 = g.dm_rm[?_scene_name+dk_FileName+STR_Quest+"02"];
         if (is_undefined(_file_name1))
         {
             continue;//_j
@@ -253,8 +253,8 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
         _scene_name = _area+hex_str(_j);
         
         // file name data example: "PalcA_003"
-        _file_name1 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+"01"];
-        _file_name2 = g.dm_rm[?_scene_name+STR_file_name+STR_Quest+"02"];
+        _file_name1 = g.dm_rm[?_scene_name+dk_FileName+STR_Quest+"01"];
+        _file_name2 = g.dm_rm[?_scene_name+dk_FileName+STR_Quest+"02"];
         if (is_undefined(_file_name1))
         {
             continue;//_j

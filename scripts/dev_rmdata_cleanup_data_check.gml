@@ -86,29 +86,29 @@ for(_i=0; _i<_AREA_COUNT; _i++) // each area
         
         // rm data ----------------------------------------------------
         _music1       = val( _dm_rm_data_COPY[?_rm_name+STR_Music]);
-        _music2       = val(g.dm_rm[?     _rm_name+STR_Music]);
+        _music2       = val(g.dm_rm[?          _rm_name+STR_Music]);
         if (_music1!=_music2) {_mismatch=true; sdm(_rm_name+": "+STR_Music+" Data Mismatch.  "+"_music1="+string(_music1)+", "+"_music2="+string(_music2));}
         //                                                  //
-        _color1   = val( _dm_rm_data_COPY[?_rm_name+STR_Background_color], -1);
-        _color2   = val(g.dm_rm[?     _rm_name+STR_Background_color], -1);
-        if (_color1+1 && _color1!=_color2) {_mismatch=true; sdm(_rm_name+": "+STR_Background_color+" Data Mismatch.  "+"_color1="+color_str(_color1)+", "+"_color2="+color_str(_color2));}
+        _color1   = val( _dm_rm_data_COPY[?_rm_name+dk_BackgroundColor], -1);
+        _color2   = val(g.dm_rm[?          _rm_name+dk_BackgroundColor], -1);
+        if (_color1+1 && _color1!=_color2) {_mismatch=true; sdm(_rm_name+": "+dk_BackgroundColor+" Data Mismatch.  "+"_color1="+color_str(_color1)+", "+"_color2="+color_str(_color2));}
         //                                                  //
-        _dark_idx1    = val( _dm_rm_data_COPY[?_rm_name+STR_Dark_Room], -1);
-        _dark_idx2    = val(g.dm_rm[?     _rm_name+STR_Dark_Room], -1);
-        if (_dark_idx1+1 && _dark_idx1!=_dark_idx2) {_mismatch=true; sdm(_rm_name+": "+STR_Dark_Room+" Data Mismatch.  "+"_dark_idx1="+string(_dark_idx1)+", "+"_dark_idx2="+string(_dark_idx2));}
+        _dark_idx1    = val( _dm_rm_data_COPY[?_rm_name+dk_DarkRoom], -1);
+        _dark_idx2    = val(g.dm_rm[?          _rm_name+dk_DarkRoom], -1);
+        if (_dark_idx1+1 && _dark_idx1!=_dark_idx2) {_mismatch=true; sdm(_rm_name+": "+dk_DarkRoom+" Data Mismatch.  "+"_dark_idx1="+string(_dark_idx1)+", "+"_dark_idx2="+string(_dark_idx2));}
         //                                                  //
         //                                                  //
         _show_ow_pos1 = val( _dm_rm_data_COPY[?_rm_name+STR_show_ow_pos], -1);
-        _show_ow_pos2 = val(g.dm_rm[?     _rm_name+STR_show_ow_pos], -1);
+        _show_ow_pos2 = val(g.dm_rm[?          _rm_name+STR_show_ow_pos], -1);
         if (_show_ow_pos1!=_show_ow_pos2) {_mismatch=true; sdm(_rm_name+": "+STR_show_ow_pos+" Data Mismatch.  "+"_show_ow_pos1="+string(_show_ow_pos1)+", "+"_show_ow_pos2="+string(_show_ow_pos2));}
         //                                                  //
         _ow_axis1     = val( _dm_rm_data_COPY[?_rm_name+STR_ow_axis], -1);
-        _ow_axis2     = val(g.dm_rm[?     _rm_name+STR_ow_axis], -1);
+        _ow_axis2     = val(g.dm_rm[?          _rm_name+STR_ow_axis], -1);
         if (_ow_axis1!=_ow_axis2) {_mismatch=true; sdm(_rm_name+": "+STR_ow_axis+" Data Mismatch.  "+"_ow_axis1="+string(_ow_axis1)+", "+"_ow_axis2="+string(_ow_axis2));}
         //                                                  //
         _owrc1        = val(        _dm_rm_data_COPY[?_rm_name+STR_OWRC], -1);
         //_owrc2        = val(global.OVERWORLD.dm[?_rm_name+STR_OWRC], -1);
-        _owrc2        = val(g.dm_rm[?     _rm_name+STR_OWRC], -1);
+        _owrc2        = val(g.dm_rm[?                 _rm_name+STR_OWRC], -1);
         //if (_owrc1!=_owrc2) {_mismatch=true; sdm(_rm_name+": "+STR_OWRC+" Data Mismatch.  "+"_owrc1="+string(_owrc1)+", "+"_owrc2="+string(_owrc2));}
         //                                                  //
         //                                                  //

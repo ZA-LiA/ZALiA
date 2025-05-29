@@ -17,7 +17,8 @@ void main()
 
 
 
-//######################_==_YOYO_SHADER_MARKER_==_######################@~
+//######################_==_YOYO_SHADER_MARKER_==_######################@~// This is a modified version of Pixelated Pope's palette swapper
+
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
@@ -44,6 +45,8 @@ Example: See how the map tears are dealt with in `PauseMenu_draw_map()`
 uniform vec3 ALPHA0_COLOR;
 
 
+
+
 void main()
 {
     vec4 _source = texture2D(gm_BaseTexture, v_vTexcoord);
@@ -51,13 +54,13 @@ void main()
     //DoAlphaTest(_source); // is this necessary? I(HoverBat) don't know what this does. Commenting it out seems to work fine.
     
     if (_source.rgb==ALPHA0_COLOR)
-    {
+    {   // Modification by HoverBat to cut out complicated shapes from an image on the fly.
         _source.a = 0.0;
     }
     else
     {
         for(float _i=palette_texture_UVs.y; _i<palette_texture_UVs.w; _i+=texel_size.y) // goes through each base color in `global.palette_image`
-        {   /* `if (distance(_source, texture2D(palette_texture, vec2(palette_texture_UVs.x, _i))) <= 0.004)`
+        {   /* `if (distance(_source, texture2D(palette_texture, vec2(palette_texture_UVs.x, _i))) <= 0.004)`:
             `<= 0.004`: I(HoverBat) didn't write this code so I'm not sure why this 
             doesn't just check if the colors are equal.
             Maybe this is a color tolerance condition where the colors don't need to be exact?
@@ -79,7 +82,6 @@ void main()
 }
 
 
-
 /*
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
@@ -88,7 +90,6 @@ uniform sampler2D palette_texture;
 uniform vec2 texel_size;
 uniform vec4 palette_UVs;
 uniform float palette_index;
-uniform vec3 ALPHA0_COLOR;
 
 void main()
 {
@@ -109,6 +110,7 @@ void main()
     gl_FragColor = source * v_vColour;
 }
 */
+
 
 
 

@@ -80,7 +80,7 @@ switch(MainOption)
     
     if (_InputConfirm_pressed2)
     {
-        DevTools_cursor = DevTools_DEV_TOOLS_STATE;
+        DevTools_cursor = DevTools.DEV_TOOLS_STATE;
         aud_play_sound(CONFIRM_SOUND1);
         timer = DURATION1;
         menu_state = menu_state_DEV_TOOLS;
@@ -126,6 +126,7 @@ switch(MainOption)
     }
     break;}//case MainOption_OTHER
     
+    /*
     // ---------------------------------------------------------
     case MainOption_PAL_EDITOR:{
     if (timer) break;
@@ -147,6 +148,7 @@ switch(MainOption)
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     break;}//case MainOption_RANDO_OPTIONS
+    */
     
     // ---------------------------------------------------------
     case MainOption_FORCE_GAMEOVER:{

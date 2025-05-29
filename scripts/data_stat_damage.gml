@@ -189,8 +189,9 @@ dg_enemy_damage[#$07,$0F] = _val;
 dg_enemy_damage[#$08,$0F] = _val;
 //                                  // 
 
-dg_enemy_damage_DEFAULT = ds_grid_create(ds_grid_width(dg_enemy_damage),ds_grid_height(dg_enemy_damage));
-ds_grid_copy(dg_enemy_damage_DEFAULT,dg_enemy_damage);
+
+//dg_enemy_damage_DEFAULT = ds_grid_create(ds_grid_width(dg_enemy_damage),ds_grid_height(dg_enemy_damage));
+ds_grid_copy(dg_enemy_damage_DEFAULT, dg_enemy_damage);
 
 
 

@@ -13,7 +13,6 @@ var _yoff;
 // TODO: Balance cs points?
 
 
-dg_CS_OFF = ds_grid_create($00, $12);
 
 
 ds_grid_resize(dg_CS_OFF, ds_grid_width(dg_CS_OFF)+1, ds_grid_height(dg_CS_OFF));

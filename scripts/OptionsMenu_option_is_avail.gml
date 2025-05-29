@@ -18,7 +18,7 @@ switch(argument0)
         case MainOption_DEV_TOOLS:     {return true; break;}
         case MainOption_OTHER:         {return true; break;}
         case MainOption_RANDO:         {return true; break;}
-        case MainOption_PAL_EDITOR:    {return true; break;}
+        //case MainOption_PAL_EDITOR:    {return true; break;}
         case MainOption_FORCE_GAMEOVER:{return true; break;}
         case MainOption_CLOSE:         {return true; break;}
     }//switch(argument1)
@@ -32,27 +32,29 @@ switch(argument0)
     switch(argument1)
     {
         default:                      {return false; break;}
-        case DevTools_DEV_TOOLS_STATE:{return true; break;}
-        case DevTools_SET_DEFAULT:    {return true; break;}
-        case DevTools_APP_PERFORMANCE:{return true; break;}
-        case DevTools_HITBOXES:       {return true; break;}
-        case DevTools_SCP:            {return true; break;}
-        case DevTools_XY:             {return true; break;}
-        //case DevTools_OCS:            {return true; break;}
-        case DevTools_OG_CAM:         {return true; break;}
-        case DevTools_HP:             {return true; break;}
-        case DevTools_SPRITE_OUTLINE: {return true; break;}
-        case DevTools_FRAME_COUNT:    {return true; break;}
-        case DevTools_EXITS:          {return DEV; break;}
-        case DevTools_SOLID_TILES:    {return DEV; break;}
-        case DevTools_UNIQUE_TILES:   {return DEV; break;}
-        case DevTools_DUNGEON_MAP:    {return DEV; break;}
-        case DevTools_ADD_ITEMS:      {return DEV; break;}
-        //case DevTools_DOUBLE_JUMP:    {return f.items&ITM_FTHR; break;}
-        //case DevTools_INVULNERABILITY:{return DEV; break;}
-        case DevTools_PC_DASH:        {return true; break;}
-        //case DevTools_PC_DASH:        {return DEV; break;}
-        case DevTools_BACK:           {return true; break;}
+        case DevTools.DEV_TOOLS_STATE:{return true; break;}
+        case DevTools.SET_DEFAULT:    {return true; break;}
+        case DevTools.APP_PERFORMANCE:{return true; break;}
+        case DevTools.HITBOXES:       {return true; break;}
+        case DevTools.SCP:            {return true; break;}
+        case DevTools.XY:             {return true; break;}
+        //case DevTools.OCS:            {return true; break;}
+        case DevTools.OG_CAM:         {return true; break;}
+        case DevTools.HP:             {return true; break;}
+        case DevTools.SPRITE_OUTLINE: {return true; break;}
+        case DevTools.FRAME_COUNT:    {return true; break;}
+        case DevTools.EXITS:          {return DEV; break;}
+        case DevTools.SOLID_TILES:    {return DEV; break;}
+        case DevTools.UNIQUE_TILES:   {return DEV; break;}
+        case DevTools.DUNGEON_MAP:    {return DEV; break;}
+        case DevTools.ADD_ITEMS:      {return DEV; break;}
+        //case DevTools.DOUBLE_JUMP:    {return f.items&ITM_FTHR; break;}
+        //case DevTools.INVULNERABILITY:{return DEV; break;}
+        case DevTools.PC_DASH:        {return true; break;}
+        //case DevTools.PC_DASH:        {return DEV; break;}
+        case DevTools.BGR_COLOR:      {return true; break;}
+        case DevTools.ROOM_COLOR:     {return true; break;}
+        case DevTools.BACK:           {return true; break;}
     }//switch(argument1)
     break;}//case Menu_DEV_TOOLS
     
@@ -84,20 +86,22 @@ switch(argument0)
     case menu_state_OTHER:{
     switch(argument1)
     {
-        default:                      {return false; break;}
-        case Other_FLASHING:          {return true;  break;}
-        case Other_DIALOGUE_SPEED:    {return true;  break;}
-        case Other_HIDDEN_OW_EXITS:   {return true;  break;}
-        case Other_HUD:               {return true;  break;}
-        case Other_TORCH_LIGHTING:    {return true;  break;}
-        //case Other_RENDER_DELAY:      {return global.RenderFrameDelay_state!=-1; break;}
-        case Other_BLACK_BGR:         {return true;  break;}
-        case Other_SCREEN_SHAKE:      {return true;  break;}
-        case Other_STAB_FRENZY:       {return true;  break;}
-        case Other_ANARKHYA_OW:       {return true;  break;}
-        case Other_HALLOWEEN1:        {return true;  break;}
+        default:                       {return false; break;}
+        case Other_FLASHING:           {return true;  break;}
+        case Other_DIALOGUE_SPEED:     {return true;  break;}
+        case Other_HIDDEN_OW_EXITS:    {return true;  break;}
+        case Other_HUD:                {return true;  break;}
+        case Other_TORCH_LIGHTING:     {return true;  break;}
+        //case Other_RENDER_DELAY:       {return global.RenderFrameDelay_state!=-1; break;}
+        case Other_BLACK_BGR:          {return true;  break;}
+        case Other_SCREEN_SHAKE:       {return true;  break;}
+        case Other_STAB_FRENZY:        {return true;  break;}
+        case Other_ANARKHYA_OW:        {return true;  break;}
+        case Other_HALLOWEEN1:         {return true;  break;}
         //case Other_SHOW_ACTIVE_SPELLS:{return false; break;}
-        case Other_BACK:              {return true;  break;}
+        //case Other_SCENE_COLORS_EDITOR:{return true;  break;}
+        //case Other_BGR_COLOR_EDITOR:   {return true;  break;}
+        case Other_BACK:               {return true;  break;}
     }//switch(argument1)
     break;}//case menu_state_OTHER
 }//switch(argument0)

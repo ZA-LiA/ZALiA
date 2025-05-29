@@ -152,8 +152,8 @@ dg_spell_cost[#_idx,8] = _val;
 
 
 
-dg_spell_cost_DEFAULT = ds_grid_create(0,0);
-ds_grid_copy(dg_spell_cost_DEFAULT,dg_spell_cost);
+
+ds_grid_copy(dg_spell_cost_DEFAULT, dg_spell_cost);
 
 
 var                         _DK = STR_Rando+STR_Cost+STR_Max;

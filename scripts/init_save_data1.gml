@@ -11,7 +11,7 @@ with(f)
     dm_quests[?STR_Boulder+STR_Circle+STR_Complete] = 0;
     
     
-    dm_quests[?STR_Error_Friend]                = 0; // boolean: If spoken to Error's friend (Mido)
+    dm_quests[?STR_ErrorFriend]                 = 0; // boolean: If spoken to Error's friend (Mido)
     dm_quests[?dk_MidoChurch+STR_Open]          = 0;
     dm_quests[?STR_Scroblin+STR_Open+STR_Path]  = 0; // 
     dm_quests[?Zelda_DATAKEY1]                  = 0;
@@ -21,9 +21,9 @@ with(f)
     
     
     // 'obj_name(Challenge_Obj)+"01"' is Challenge_Obj.challenge_id
-    dm_challenges[?obj_name(Challenge_BlockConfiguration)+"01"+STR_Complete] = 0;
-    dm_challenges[?obj_name(Challenge_SwitchA)           +"01"+STR_Complete] = 0;
-    dm_challenges[?obj_name(Challenge_SwitchB)           +"01"+STR_Complete] = 0;
+    dm_challenges[?object_get_name(Challenge_BlockConfiguration)+"01"+STR_Complete] = 0;
+    dm_challenges[?object_get_name(Challenge_SwitchA)           +"01"+STR_Complete] = 0;
+    dm_challenges[?object_get_name(Challenge_SwitchB)           +"01"+STR_Complete] = 0;
     
     
     if(!is_undefined(g.TriforceBarrier1_RM_NAME))

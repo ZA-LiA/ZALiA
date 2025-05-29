@@ -16,7 +16,7 @@ GO_init_palidx(global.PI_CLOUD_1); // PI_CLOUD_1==PI_BGR_4(@040921).
 
 
 var                      _SCENE_BGR_COLOR = p.C_BLK1;
-if (g.room_type=="A")    _SCENE_BGR_COLOR = val(g.dm_rm[?g.rm_name+STR_Background_color], _SCENE_BGR_COLOR); // ** `global.BackgroundColor_scene` has not been set yet because `p_Room_Start()` has not happened yet.
+if (g.room_type=="A")    _SCENE_BGR_COLOR = val(g.dm_rm[?g.rm_name+dk_BackgroundColor], _SCENE_BGR_COLOR); // ** `global.BackgroundColor_scene` has not been set yet because `p_Room_Start()` has not happened yet.
 //if (g.room_type=="A")    _SCENE_BGR_COLOR = global.BackgroundColor_scene; // ** Currently `global.BackgroundColor_scene` is its final value from the previous scene because `p_Room_Start()` has not happened yet.
 if (get_color_brightness(_SCENE_BGR_COLOR)<$40) palidx_permut = 5; // 5: SMH/BRW
 

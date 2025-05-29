@@ -8,7 +8,7 @@
 // 500
 // 700
 
-            dl_XP=ds_list_create();
+
 // $00-07 --------------------------------------
 ds_list_add(dl_XP,   0); //    0 ==   $0
 ds_list_add(dl_XP,   1); //    1 ==   $1
@@ -67,15 +67,13 @@ ds_list_add(dl_XP,1700); // 1700 == $
 ds_list_add(dl_XP,2000); // 2000 == $
 
 
-             dl_XP_DEFAULT=ds_list_create();
-ds_list_copy(dl_XP_DEFAULT,dl_XP);
+ds_list_copy(dl_XP_DEFAULT, dl_XP);
 
 
 
 
 // ===============================================
 // ===============================================
-            dl_XP_DRAIN=ds_list_create();
 ds_list_add(dl_XP_DRAIN,$00); // $00 =  0
 ds_list_add(dl_XP_DRAIN,$05); // $05 =  5
 ds_list_add(dl_XP_DRAIN,$0A); // $0A = 10
@@ -84,7 +82,6 @@ ds_list_add(dl_XP_DRAIN,$14); // $14 = 20
 
 
 // Rising XP sprites
-            dl_rising_xp_spr=ds_list_create();
 ds_list_add(dl_rising_xp_spr,spr_Rising_XP_text_0);
 ds_list_add(dl_rising_xp_spr,spr_Rising_XP_text_1);
 ds_list_add(dl_rising_xp_spr,spr_Rising_XP_text_2);

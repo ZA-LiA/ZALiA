@@ -14,7 +14,7 @@ spawn_y = ((g.rm_rows-PAGE_ROWS)+$10)<<3;
 set_xlyt(id, spawn_x,spawn_y);
 
 
-if (quest_is_complete(TOWN_IDX_NAB+1))
+if (quest_is_complete(QuestID_Nabooru_Spell))
 {
     tile_layer_delete(Block_DEPTH); // The 3 blocks blocking water at mouth
     

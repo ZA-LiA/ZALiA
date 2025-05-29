@@ -162,7 +162,7 @@ switch(sub_state)
             &&  projectile )
             {
                 var _PROJ_OBJVER = object_get_name(projectile)+hex_str(projectile_ver);
-                if (val(g.dm_go_prop[?_PROJ_OBJVER+STR_React_Shield])&$4) // if projectile is REFLECT-able
+                if (val(g.dm_go_prop[?_PROJ_OBJVER+dk_ReactShield])&$4) // if projectile is REFLECT-able
                 {
                     var _ENEMY_OBJVER = object_get_name(object_index)+hex_str(ver);
                     if (val(g.dm_go_prop[?_ENEMY_OBJVER+STR_REFLECT+STR_Vulnerable+_PROJ_OBJVER])) // if vulnerable to projectile
@@ -179,8 +179,7 @@ switch(sub_state)
     
     if (_complete)
     {
-        var _TOWN_NAME = val(g.dm_town[?STR_Town+STR_Name+hex_str(TOWN_IDX_NAB+1)], STR_Nabooru);
-        f.dm_quests[?_TOWN_NAME+STR_Quest+STR_Complete] = true;
+        f.dm_quests[?STR_Nabooru+STR_Quest+STR_Complete] = true;
         
         
         // Set Tyell spawn permission so they can't spawn again.
@@ -196,7 +195,6 @@ switch(sub_state)
             
             // TODO: GO spawn_dk need to include save-file num and quest num.
         }
-        
         
         
         g.pc_lock = PC_LOCK_ALL;

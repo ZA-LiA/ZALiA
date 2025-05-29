@@ -3,8 +3,8 @@
 if (DEV)
 {
     var _START_TIME = current_time;
-    sdm("");
-    sdm("RoomData_Create() START");
+    repeat(1) show_debug_message("");
+    show_debug_message("RoomData_Create() START");
 }
 
 
@@ -13,7 +13,7 @@ var _clms,_rows, _clm,_row;
 var _str;
 
 
-dl_used_tiled_files=ds_list_create();
+dl_used_tiled_files = ds_list_create();
 
 
 
@@ -1269,8 +1269,8 @@ RoomData_Create_2a();
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
 // Give FileSelect & ContinueSave scenes a bg color
-g.dm_rm[?Area_FileS+"00"+STR_Background_color] = p.C_BLK1;
-g.dm_rm[?Area_ContS+"00"+STR_Background_color] = p.C_BLK1;
+g.dm_rm[?Area_FileS+"00"+dk_BackgroundColor] = p.C_BLK1;
+g.dm_rm[?Area_ContS+"00"+dk_BackgroundColor] = p.C_BLK1;
 
 // TITLE SCREEN
 rm_name = RM_NAME_TITLSCR;
@@ -1663,8 +1663,8 @@ instance_destroy();
 
 if (DEV)
 {
-    sdm("RoomData_Create() END. "+string(current_time-_START_TIME));
-    sdm("");
+    show_debug_message("RoomData_Create() END. "+string(current_time-_START_TIME));
+    repeat(1) show_debug_message("");
 }
 
 

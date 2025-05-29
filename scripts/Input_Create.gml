@@ -1,7 +1,12 @@
 /// Input_Create()
 
 
-show_debug_message("Input_Create()");
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("Input_Create() START");
+}
 
 
 var _i, _count;
@@ -505,6 +510,15 @@ Buttons_dm[?dk_XBOX+string(GP_other2_DEFAULT)+STR_Sprite] = spr_Button_XBoxY01;
 
 
 dm_UserInputConfig = ds_map_create();
+
+
+
+
+if (DEV)
+{
+    show_debug_message("Input_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

@@ -234,6 +234,52 @@ switch(Other_cursor)
     */
     
     
+    /*
+    // ---------------------------------------------------------
+    case Other_BGR_COLOR_EDITOR:{
+    if (timer) break;
+    
+    if (_InputConfirm_pressed2)
+    {
+        anim_frame      = 0;
+        draw_rows_count = 0;
+        MainOption      = 0;
+        g.gui_state     = 0;
+        with(PaletteEditor) PaletteEditor_initiate_bgr_edit_mode();
+        
+        aud_play_sound(get_audio_theme_track(dk_OpenGUI));
+        //aud_play_sound(CONFIRM_SOUND1);
+        timer = 0;
+        sub_state = sub_state_IDLE_CLOSED;
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    break;}//case Other_BGR_COLOR_EDITOR
+    
+    
+    // ---------------------------------------------------------
+    case Other_SCENE_COLORS_EDITOR:{
+    if (timer) break;
+    
+    if (_InputConfirm_pressed2)
+    {
+        anim_frame      = 0;
+        draw_rows_count = 0;
+        MainOption      = 0;
+        g.gui_state     = 0;
+        //if(!is_undefined(GUI3_pal_backup)) change_pal(strReplaceAt(p.pal_rm_curr, get_pal_pos(global.PI_GUI3), string_length(GUI3_pal_backup), GUI3_pal_backup));
+        //GUI3_pal_backup = undefined;
+        with(PaletteEditor) PaletteEditor_initiate_pal_edit_mode();
+        
+        aud_play_sound(get_audio_theme_track(dk_OpenGUI));
+        //aud_play_sound(CONFIRM_SOUND1);
+        timer = 0;
+        sub_state = sub_state_IDLE_CLOSED;
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    break;}//case Other_SCENE_COLORS_EDITOR
+    */
+    
+    
     // -------------------------------------------------
     case Other_BACK:{
     if (timer) break;

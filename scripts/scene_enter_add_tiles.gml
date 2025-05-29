@@ -848,11 +848,11 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                         // "DIR_01": RGT, "DIR_02": LFT, 04: DWN, 08: UP, or a combo of dirs
                             _pos = string_pos(_STR_DIR_,_layer_name);
                         if (_pos) _dir = str_hex(string_copy(_layer_name, _pos+string_length(_STR_DIR_), 2));
-                        else      _dir = BIT_RGT; // RGT: default
+                        else      _dir = $1; // $1: right, default
                         
                                          _dir &= $F;
-                        if (_dir&$3==$3) _dir  = (_dir&$C) | BIT_RGT;
-                        if (_dir&$C==$C) _dir  = (_dir&$3) | BIT_DWN;
+                        if (_dir&$3==$3) _dir  = (_dir&$C) | $1; // $1: right
+                        if (_dir&$C==$C) _dir  = (_dir&$3) | $4; // $4: down
                         
                         
                         ds_list_add(_dl_liquid_dir, _dir);
@@ -910,11 +910,11 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                     // "DIR_01": RGT, "DIR_02": LFT, 04: DWN, 08: UP, or a combo of dirs
                         _pos = string_pos(_STR_DIR_,_layer_name);
                     if (_pos) _val = str_hex(string_copy(_layer_name, _pos+string_length(_STR_DIR_), 2));
-                    else      _val = BIT_RGT; // RGT: default
+                    else      _val = $1; // $1: right, default
                     
                                      _val &= $F;
-                    if (_val&$3==$3) _val  = (_val&$C) | $1;
-                    if (_val&$C==$C) _val  = (_val&$3) | $4;
+                    if (_val&$3==$3) _val  = (_val&$C) | $1; // $1: right
+                    if (_val&$C==$C) _val  = (_val&$3) | $4; // $4: down
                     
                     ds_list_add(_dl_cloud_dir, _val);
                     

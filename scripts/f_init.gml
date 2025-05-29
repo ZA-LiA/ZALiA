@@ -2,7 +2,12 @@
 
 // f: file. Save file data. Includes player stats
 
-show_debug_message("f_init()");
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("f_init() START");
+}
 
 
 var _i,_j, _val;
@@ -315,6 +320,15 @@ reen          = reen_new_run;  // The exit to spawn at
 
 
 //debug_changeSaveData();
+
+
+
+
+if (DEV)
+{
+    show_debug_message("f_init() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

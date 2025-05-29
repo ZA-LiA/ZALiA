@@ -162,7 +162,7 @@ if (val(_dm_FILE[?_datakey+STR_Rando+STR_Active]))
             //if (val(_dm_Rando[?dk_LimitObscure])) _text = "LIMIT OBSCURE LOCATIONS"
             
             
-            _val = val(_dm_Rando[?STR_Dark_Room+STR_Difficulty]);
+            _val = val(_dm_Rando[?dk_DarkRoom+STR_Difficulty]);
             _x  = _xl0;
             _y += _DIST2;
             _text  = "DARKROOM DIFFICULTY:";

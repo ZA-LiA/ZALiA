@@ -15,7 +15,7 @@ var  _str  = " ";
      _str += "file_name: "
 if (is_string(_FILE_NAME))
 {    _str +=  _FILE_NAME;  }
-else _str  = "WARNING!!!!!  "+_str+" No file name for '"+g.rm_name+STR_file_name+"'";
+else _str  = "WARNING!!!!!  "+_str+" No file name for '"+g.rm_name+dk_FileName+"'";
 
      _str += ", room_width $"  + hex_str(room_width);
      _str += ", room_height $" + hex_str(room_height);

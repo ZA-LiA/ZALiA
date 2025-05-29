@@ -1,5 +1,12 @@
 /// QuitAppMenu_Create()
 
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("QuitAppMenu_Create() START");
+}
+
 
 var _i, _a, _count;
 
@@ -68,6 +75,15 @@ dl_tsrc_data = ds_list_create();
 for(_i=0; _i<ROWS; _i++) ds_list_add(dl_tsrc_data,_TSRC_DATA2); // Mids
 dl_tsrc_data[|0]      = _TSRC_DATA1; // Top
 dl_tsrc_data[|ROWS-1] = _TSRC_DATA1; // Bottom
+
+
+
+
+if (DEV)
+{
+    show_debug_message("QuitAppMenu_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

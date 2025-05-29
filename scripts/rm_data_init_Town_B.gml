@@ -287,7 +287,7 @@ data_spawn(rm+STR_PRIO,SpNPA,$1,  $00<<3,y3);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $76<<3,y3,  dk_PI+hex_str(global.PI_BGR4),STR_Dialogue+DK0040); // Sign
 data_spawn(rm+STR_PRIO,NPC_1,$1,  $40<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0142,STR_Sprite+STR_Acheman); // Idle Simple, 
 data_spawn(rm+STR_PRXM,NPC_3,$3,  $4A<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0342,STR_Sprite+STR_Girubokku); // Special Walker, 
-data_spawn(rm+STR_PRIO,NPC_5,$1,  clm5<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0540,STR_Sprite+STR_Daira,STR_Quest+STR_ID+hex_str(QUEST_SPELL_SUMMON)); // Quest
+data_spawn(rm+STR_PRIO,NPC_5,$1,  clm5<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0540,STR_Sprite+STR_Daira,STR_Quest+STR_ID+QuestID_Bulblin_Spell); // Quest
 
 
                 _a=EXM0;

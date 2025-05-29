@@ -105,20 +105,7 @@ switch(state)
         
         if (_EDIT_REQUESTED_BGR)
         {
-            BgrColor_before_edit = global.BackgroundColor_scene;
-            
-            _idx = ds_list_find_index(ColorGrid_dl_colors, BgrColor_before_edit);
-            if (_idx!=-1)
-            {
-                ColorGrid_Cursor_clm = _idx mod ColorGrid_CLMS;
-                ColorGrid_Cursor_row = _idx div ColorGrid_CLMS;
-            }
-            
-            gui_state_at_sess_start = g.gui_state;
-            g.gui_state = g.gui_state_EDIT_PAL;
-            
-            timer = DELAY1_DUR; // Delay any input reaction in next state.
-            state = state_BGR_COLOR;
+            PaletteEditor_initiate_bgr_edit_mode();
             break;//case state_IDLE
         }
     }

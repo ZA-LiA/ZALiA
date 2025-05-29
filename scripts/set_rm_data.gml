@@ -177,13 +177,13 @@ else
 
 
 
-// Set a default for the rm's background color.
-g.dm_rm[?_RM_NAME+STR_Background_color] = p.C_BLK1;
+// Set a default for the scene's background color.
+g.dm_rm[?_RM_NAME+dk_BackgroundColor] = p.C_BLK1;
 
-// Set a default for view lock. Most rms do not scroll vertically
-g.dm_rm[?_RM_NAME+STR_View+STR_Data]    = $1; // $1 lock vertical scrolling
+// Set a default for view lock. Most scenes do not scroll vertically
+g.dm_rm[?_RM_NAME+STR_View+STR_Data]    = $1; // $1: lock vertical scrolling
 
-// Set a default for show ow pos. Most rms qualify to show ow pos on map
+// Set a default for show ow pos. Most scenes qualify to show ow pos on map
 g.dm_rm[?_RM_NAME+STR_show_ow_pos]      = true;
 
 
@@ -212,7 +212,7 @@ while (_arg<argument_count)
         _len  = string_length(_datakey);
         _val1 = string_copy(_val, _len+1, string_length(_val)-_len);
         _val1 = str_hex(_val1);
-        g.dm_rm[?_RM_NAME+STR_Background_color] = _val1; // p.dl_color index. Background color
+        g.dm_rm[?_RM_NAME+dk_BackgroundColor] = _val1; // p.dl_color index. Background color
         continue;//while (_arg<argument_count)
     }
     
@@ -282,7 +282,7 @@ while (_arg<argument_count)
         _len  = string_length(_datakey);
         _val1 = string_copy(_val, _len+1, string_length(_val)-_len);
         _val1 = str_hex(_val1);
-        g.dm_rm[?_RM_NAME+STR_Dark_Room] = _val1; // the x-index of p.dg_pal_rm_dark so the game knows what dark palette to use
+        g.dm_rm[?_RM_NAME+dk_DarkRoom] = _val1; // the x-index of p.dg_pal_rm_dark so the game knows what dark palette to use
         continue;//while (_arg<argument_count)
     }
     
@@ -332,8 +332,8 @@ if (_MUSIC!=-1)
 {
     if (string_pos(STR_Dungeon,_MUSIC))
     {
-        _val=val(g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num],1);
-        _MUSIC=STR_Dungeon+hex_str(_val);
+        _val = val(g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num],1);
+        _MUSIC = STR_Dungeon+hex_str(_val);
     }
     
     g.dm_rm[?_RM_NAME+STR_Music] = _MUSIC;
@@ -350,16 +350,15 @@ if (_MUSIC!=-1)
 
 
 // -------------------------------------------------------
-if(!is_undefined(           _TILE_FILE))
-{   set_rm_data_1a(_RM_NAME,_TILE_FILE);  } // set: tile data file, rm_w, rm_h
+if(!is_undefined(_TILE_FILE)) set_rm_data_1a(_RM_NAME,_TILE_FILE); // set: tile data file, rm_w, rm_h
 
 
 with(RoomData)
 {
-    if(!rm_w) rm_w=$01<<8;
-    if(!rm_h) rm_h=$01<<8;
-        rm_w_=rm_w>>1;
-        rm_h_=rm_h>>1;
+    if(!rm_w) rm_w = $01<<8;
+    if(!rm_h) rm_h = $01<<8;
+    rm_w_ = rm_w>>1;
+    rm_h_ = rm_h>>1;
     //
     rm_num      =         _RM_NUM;
     rm_num_     =  hex_str(rm_num);

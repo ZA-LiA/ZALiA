@@ -2,6 +2,13 @@
 
 // For NPC, Enemy, Item, Spawner, Projectile
 
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("GameObjectMgr_Create() START");
+}
+
 
 var _i;
 
@@ -23,6 +30,15 @@ repeat(MAX_GOC1) ds_list_add(dl_goc1,noone);
 
 dl_goc2 = ds_list_create(); // Projectile Friendly
 repeat(MAX_GOC2) ds_list_add(dl_goc2,noone);
+
+
+
+
+if (DEV)
+{
+    show_debug_message("GameObjectMgr_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

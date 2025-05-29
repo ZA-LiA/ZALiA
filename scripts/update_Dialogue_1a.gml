@@ -64,7 +64,7 @@ switch(g.dialogue_source.object_index)
         break;//case NPC_5
     }
     
-    if (quest_is_complete(val(g.dm_spawn[?g.dialogue_source.dk_spawn+STR_Quest+STR_ID])))
+    if (quest_is_complete(val(g.dm_spawn[?g.dialogue_source.dk_spawn+STR_Quest+STR_ID], STR_undefined)))
     {
         if(!is_undefined(g.town_name))
         {
@@ -195,13 +195,13 @@ switch(g.dialogue_source.object_index)
         
         // --------------------------------------------
         case $6:{ // B4EE. Error
-        if (val(f.dm_quests[?STR_Error_Friend])) dialogue_ver = "B"; // alt dialogue
+        if (val(f.dm_quests[?STR_ErrorFriend])) dialogue_ver = "B"; // alt dialogue
         break;}//case $6
         
         
         // --------------------------------------------
         case $7:{ // B4EE. Error's friend
-        f.dm_quests[?STR_Error_Friend] = true;
+        f.dm_quests[?STR_ErrorFriend] = true;
         break;}//case $7
         
         

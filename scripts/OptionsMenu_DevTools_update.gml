@@ -14,7 +14,7 @@ var _SOUND2 = CONFIRM_SOUND1;
 if(!timer)
 {
     if (Backout_requested 
-    ||  (DevTools_cursor==DevTools_BACK && _InputConfirm_pressed) )
+    ||  (DevTools_cursor==DevTools.BACK && _InputConfirm_pressed) )
     {
         aud_play_sound(BACK_SOUND1);
         timer = DURATION1;
@@ -34,12 +34,12 @@ if(!timer2)
     ||  Input.pressedV )
     {
         var _DIR = sign_(select_button_pressed || Input.Down_pressed);
-        for(_i=0; _i<DevTools_COUNT; _i++)
+        for(_i=0; _i<DevTools.COUNT; _i++)
         {
             DevTools_cursor += _DIR;
             //DevTools_cursor += _DIR*(Input.GP_Shoulder2R_held*4);
-            DevTools_cursor += DevTools_COUNT;
-            DevTools_cursor  = DevTools_cursor mod DevTools_COUNT;
+            DevTools_cursor += DevTools.COUNT;
+            DevTools_cursor  = DevTools_cursor mod DevTools.COUNT;
             if (OptionsMenu_option_is_avail(menu_state_DEV_TOOLS,DevTools_cursor))
             {
                 aud_play_sound(_SOUND1);
@@ -63,7 +63,7 @@ if(!timer2)
 switch(DevTools_cursor)
 {
     // -------------------------------------------------
-    case DevTools_DEV_TOOLS_STATE:{
+    case DevTools.DEV_TOOLS_STATE:{
     if (timer) break;
     
     if (_InputConfirm_pressed)
@@ -76,7 +76,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_SET_DEFAULT:{
+    case DevTools.SET_DEFAULT:{
     if (timer) break;
     
     if (_InputConfirm_pressed)
@@ -122,7 +122,7 @@ switch(DevTools_cursor)
     
     
     // -------------------------------------------------
-    case DevTools_APP_PERFORMANCE:{
+    case DevTools.APP_PERFORMANCE:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -136,7 +136,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_HITBOXES:{
+    case DevTools.HITBOXES:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -148,7 +148,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_SCP:{
+    case DevTools.SCP:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -160,7 +160,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_XY:{
+    case DevTools.XY:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -172,7 +172,7 @@ switch(DevTools_cursor)
     break;}
     /*
     // -------------------------------------------------
-    case DevTools_OCS:{
+    case DevTools.OCS:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -184,7 +184,7 @@ switch(DevTools_cursor)
     break;}
     */
     // -------------------------------------------------
-    case DevTools_OG_CAM:{
+    case DevTools.OG_CAM:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -196,7 +196,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_HP:{
+    case DevTools.HP:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -208,7 +208,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_SPRITE_OUTLINE:{
+    case DevTools.SPRITE_OUTLINE:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -225,7 +225,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_FRAME_COUNT:{
+    case DevTools.FRAME_COUNT:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -240,7 +240,7 @@ switch(DevTools_cursor)
     break;}
     /*
     // -------------------------------------------------
-    case DevTools_BGR_BLACK:{
+    case DevTools.BGR_BLACK:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -253,7 +253,7 @@ switch(DevTools_cursor)
     break;}
     */
     // -------------------------------------------------
-    case DevTools_EXITS:{
+    case DevTools.EXITS:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -265,7 +265,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_SOLID_TILES:{
+    case DevTools.SOLID_TILES:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -277,7 +277,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_UNIQUE_TILES:{
+    case DevTools.UNIQUE_TILES:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -289,7 +289,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_DUNGEON_MAP:{
+    case DevTools.DUNGEON_MAP:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -302,7 +302,7 @@ switch(DevTools_cursor)
     break;}
     
     // -------------------------------------------------
-    case DevTools_ADD_ITEMS:{
+    case DevTools.ADD_ITEMS:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -314,7 +314,7 @@ switch(DevTools_cursor)
     break;}
     /*
     // -------------------------------------------------
-    case DevTools_DOUBLE_JUMP:{
+    case DevTools.DOUBLE_JUMP:{
     if (timer) break;
     
     if (_InputConfirm_pressed2 
@@ -330,7 +330,7 @@ switch(DevTools_cursor)
     break;}
     */
     // -------------------------------------------------
-    case DevTools_PC_DASH:{
+    case DevTools.PC_DASH:{
     if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -343,7 +343,7 @@ switch(DevTools_cursor)
     break;}
     /*
     // -------------------------------------------------
-    case DevTools_INVULNERABILITY:{
+    case DevTools.INVULNERABILITY:{
     //if (timer) break;
     
     if (_InputConfirm_pressed2)
@@ -364,8 +364,50 @@ switch(DevTools_cursor)
     */
     
     
+    // ---------------------------------------------------------
+    case DevTools.BGR_COLOR:{
+    if (timer) break;
+    
+    if (_InputConfirm_pressed2)
+    {
+        anim_frame      = 0;
+        draw_rows_count = 0;
+        g.gui_state     = 0;
+        with(PaletteEditor) PaletteEditor_initiate_bgr_edit_mode();
+        
+        aud_play_sound(get_audio_theme_track(dk_OpenGUI));
+        //aud_play_sound(CONFIRM_SOUND1);
+        timer = 0;
+        sub_state = sub_state_IDLE_CLOSED;
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    break;}//case DevTools.BGR_COLOR
+    
+    
+    // ---------------------------------------------------------
+    case DevTools.ROOM_COLOR:{
+    if (timer) break;
+    
+    if (_InputConfirm_pressed2)
+    {
+        anim_frame      = 0;
+        draw_rows_count = 0;
+        g.gui_state     = 0;
+        //if(!is_undefined(GUI3_pal_backup)) change_pal(strReplaceAt(p.pal_rm_curr, get_pal_pos(global.PI_GUI3), string_length(GUI3_pal_backup), GUI3_pal_backup));
+        //GUI3_pal_backup = undefined;
+        with(PaletteEditor) PaletteEditor_initiate_pal_edit_mode();
+        
+        aud_play_sound(get_audio_theme_track(dk_OpenGUI));
+        //aud_play_sound(CONFIRM_SOUND1);
+        timer = 0;
+        sub_state = sub_state_IDLE_CLOSED;
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    break;}//case DevTools.ROOM_COLOR
+    
+    
     // -------------------------------------------------
-    case DevTools_BACK:{
+    case DevTools.BACK:{
     if (timer) break;
     
     if (_InputConfirm_pressed)

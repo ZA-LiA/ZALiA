@@ -5,9 +5,6 @@ var _i, _a;
 var _w,_h, _w2,_h2;
 
 
-
-dg_BODY_HB = ds_grid_create($FF, 5);
-
 for(_i=ds_grid_width(dg_BODY_HB)-1; _i>=0; _i--)
 {
     // 16x16 GO, 

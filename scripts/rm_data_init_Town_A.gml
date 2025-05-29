@@ -143,7 +143,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($73<<3)
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $07<<3,y3,  dk_PI+hex_str(global.PI_BGR4),STR_Dialogue+DK0000); // Sign 
 data_spawn(rm+STR_PRIO,NPC_1,$1,  $2F<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0102,STR_Sprite+STR_Joey); // kid w/ CANDLE directions
 data_spawn(rm+STR_PRXM,NPC_3,$4,  $32<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK030B,STR_Sprite+STR_Jill); // Special Walker, Thin lady, Purple
-data_spawn(rm+STR_PRIO,NPC_5,$1,  $44<<3,y3,  STR_Dialogue+DK0500,STR_Sprite+STR_Zoey,STR_Quest+STR_ID+hex_str(QUEST_SPELL_PROTECT)); // Quest
+data_spawn(rm+STR_PRIO,NPC_5,$1,  $44<<3,y3,  STR_Dialogue+DK0500,STR_Sprite+STR_Zoey,STR_Quest+STR_ID+QuestID_Rauru_Spell); // Quest
 data_spawn(rm+STR_PRXM,NPC_3,$3,  $74<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0306,STR_Sprite+STR_Bill); // Special Walker, Thin man, Red
 data_spawn(rm+STR_PRIO,NPC_4,$2,  $6C<<3,y3,  dk_PI+hex_str(PIa),STR_Dialogue+DK0402,STR_Sprite+STR_Barb); // Restore MP
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
@@ -272,7 +272,7 @@ data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $10<<3,y3,  dk_PI+hex_str(Sign_PI),STR_Dialogue+DK0001); // Sign
 data_spawn(rm+STR_PRIO,NPC_1,$1,  $1A<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0106,STR_Sprite+STR_Zoey); // Idle Simple, Pot lady, Purple
 data_spawn(rm+STR_PRXM,NPC_3,$1,  $74<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0300,STR_Sprite+STR_Bill); // Special Walker, Thin man, Purple
-data_spawn(rm+STR_PRIO,NPC_5,$1,  clm5<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0501,STR_Sprite+STR_Jill,STR_Quest+STR_ID+hex_str(QUEST_SPELL_JUMP)); // Quest
+data_spawn(rm+STR_PRIO,NPC_5,$1,  clm5<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0501,STR_Sprite+STR_Jill,STR_Quest+STR_ID+QuestID_Ruto_Spell); // Quest
 data_spawn(rm+STR_PRIO,NPC_4,$3,  clm3<<3,y3,  STR_Dialogue+DK0404,STR_Sprite+STR_Zoey); // Save
 
 
@@ -398,7 +398,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), (row3<<8)|$0055, 1,Fountain_1_init);
 //data_NIAO_1a(rm+STR_NIAO+string(_a++), (row3<<8)|$0055, 1,Fountain_1_init, global.PI_MOB_BLU,0);
 
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3); // NPC Spawner
-data_spawn(rm+STR_PRIO,NPC_5,$1,  $2A<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0502,STR_Sprite+STR_Zoey,STR_Quest+STR_ID+hex_str(QUEST_SPELL_LIFE)); // Quest 
+data_spawn(rm+STR_PRIO,NPC_5,$1,  $2A<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0502,STR_Sprite+STR_Zoey,STR_Quest+STR_ID+QuestID_Saria_Spell); // Quest 
 data_spawn(rm+STR_PRIO,NPC_4,$2,  $72<<3,y3,  dk_PI+hex_str(PIa),STR_Dialogue+DK0402,STR_Sprite+STR_Barb); // Restore MP
 data_spawn(rm+STR_PRXM,NPC_3,$4,  $48<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK030C,STR_Sprite+STR_Mary); // Special Walker, Big lady, Purple
 
@@ -494,7 +494,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($29<<3)
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $10<<3,y3,  dk_PI+hex_str(Sign_PI),STR_Dialogue+DK0003); // Sign 
 data_spawn(rm+STR_PRXM,NPC_3,$2,  $20<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0308,STR_Sprite+STR_Bill); // Special Walker, Thin man, Red
-data_spawn(rm+STR_PRIO,NPC_5,$1,  $62<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0503,STR_Sprite+STR_Barb,STR_Quest+STR_ID+hex_str(QUEST_SPELL_FAIRY)); // Quest 
+data_spawn(rm+STR_PRIO,NPC_5,$1,  $62<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0503,STR_Sprite+STR_Barb,STR_Quest+STR_ID+QuestID_Mido_Spell); // Quest 
 
 
 clm3=$2C;
@@ -679,7 +679,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1744,  1,Fountain_1_init);
 //data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1744,  1,Fountain_1_init, global.PI_BGR3,0);
 data_spawn(rm+STR_PRIO,SpNPA,$1,   $1E<<3,y3);
 data_spawn(rm+STR_PRXM,NPC_3,$1,   $32<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0302,STR_Sprite+STR_Joey); // Special Walker, Child, Purple
-data_spawn(rm+STR_PRIO,NPC_5,$1,  clm3<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0504,STR_Sprite+STR_Jill,STR_Quest+STR_ID+hex_str(QUEST_SPELL_FIRE)); // Quest 
+data_spawn(rm+STR_PRIO,NPC_5,$1,  clm3<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0504,STR_Sprite+STR_Jill,STR_Quest+STR_ID+QuestID_Nabooru_Spell); // Quest 
 
 
 data_exit(EXM0,etB0,0,  clm3,row3,  CLMS2,ROWS2,  clm3-1,row3,  '55'+EXL0_); // MID 0, Quest
@@ -761,7 +761,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($2F<<3)
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($35<<3)+0,y5);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $08<<3,y3,  dk_PI+hex_str(Sign_PI),STR_Dialogue+DK0005); // Sign
 data_spawn(rm+STR_PRIO,NPC_1,$1,  $4C<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0104,STR_Sprite+STR_Joey); // Idle Simple, Child, Red
-data_spawn(rm+STR_PRIO,NPC_5,$1,  $66<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0505,STR_Sprite+STR_Barb,STR_Quest+STR_ID+hex_str(QUEST_SPELL_REFLECT)); // Quest 
+data_spawn(rm+STR_PRIO,NPC_5,$1,  $66<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0505,STR_Sprite+STR_Barb,STR_Quest+STR_ID+QuestID_Darunia_Spell); // Quest 
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
 
 
@@ -897,7 +897,7 @@ data_spawn(rm+STR_PRIO,NPC_0,$2,  $08<<3,y3,  dk_PI+hex_str(global.PI_BGR4),STR_
 data_spawn(rm+STR_PRIO,NPC_1,$1,  $22<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0108,STR_Sprite+STR_Zoey); // Idle Simple, Pot lady, Purple
 data_spawn(rm+STR_PRXM,NPC_3,$2,  $58<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0305,STR_Sprite+STR_Bill); // Special Walker, Thin man, Red
 data_spawn(rm+STR_PRIO,NPC_4,$2,  $6A<<3,y3,  dk_PI+hex_str(PIa),STR_Dialogue+DK0406,STR_Sprite+STR_Barb); // Restore MP
-data_spawn(rm+STR_PRIO,NPC_5,$1,  clm4<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0506,STR_Sprite+STR_Barb,STR_Quest+STR_ID+hex_str(QUEST_CONT_MP)); // Quest
+data_spawn(rm+STR_PRIO,NPC_5,$1,  clm4<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0506,STR_Sprite+STR_Barb,STR_Quest+STR_ID+QuestID_NewKasuto_Container); // Quest
 data_spawn(rm+STR_PRIO,NPC_4,$3,  clm3<<3,y3,  STR_Dialogue+DK0405,STR_Sprite+STR_Zoey); // Save
 
 
@@ -1734,7 +1734,7 @@ g.dm_rm[?rm+STR_Town+STR_House] = true;
 x3=$30<<3; row3=row0+$17; y3=row3<<3;
                                 _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++),  $0000,2,Skull1_init,  global.PI_MOB_ORG,  $23<<3,(row0+$16)<<3, DEPTH_BG3+3);
-data_spawn(rm+STR_PRIO,NPC_9,$2,  x3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0901,STR_Sprite+STR_Cole,STR_Quest+STR_ID+hex_str(QUEST_SARIA_BRIDGE)); // Riverman
+data_spawn(rm+STR_PRIO,NPC_9,$2,  x3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0901,STR_Sprite+STR_Cole,STR_Quest+STR_ID+QuestID_Saria_Bridge); // Riverman
 
 
 _exit1='06'+EXM0_;
@@ -1761,7 +1761,7 @@ g.dm_rm[?rm+STR_Town+STR_House] = true;
 
 
 x3=$0A<<3; row3=row0+$17; y3=row3<<3;
-data_spawn(rm+STR_PRIO,NPC_9,$2,  x3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0901,STR_Sprite+STR_Finn,STR_Quest+STR_ID+hex_str(QUEST_SARIA_BRIDGE)); // Riverman
+data_spawn(rm+STR_PRIO,NPC_9,$2,  x3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0901,STR_Sprite+STR_Finn,STR_Quest+STR_ID+QuestID_Saria_Bridge); // Riverman
 
 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  "06"+EXM1_); // RGT 0, 

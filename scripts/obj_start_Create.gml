@@ -3,34 +3,16 @@
 
 if (DEV)
 {
+    repeat(1) show_debug_message("");
     var _START_TIME = current_time;
-    sdm("");
-    sdm("obj_start_Create() START");
-    /*
-    global.dm_other = ds_map_create();
-    var _DIRECTORY="other";
-    if(!directory_exists(_DIRECTORY))
-    {
-        directory_create(_DIRECTORY);
-        sdm(_DIRECTORY+" created!"+"  -  obj_start_Create()");
-    }
-    else
-    {
-        var _FILE      = file_text_open_read(working_directory+_FILE_NAME);
-        var _FILE_DATA = file_text_read_string(_FILE);
-                         file_text_close(      _FILE);
-        var _dm_FILE   = json_decode(_FILE_DATA);
-        var _OTHER = _dm_FILE[?STR_Other];
-        if(!is_undefined(_OTHER)) global.dm_other = json_decode(_OTHER);
-        ds_map_destroy(_dm_FILE); _dm_FILE=undefined;
-    }
-    */
+    repeat(1) show_debug_message("");
+    show_debug_message("obj_start_Create() START");
 }
 
 
 
 
-global.DB0=false; // DB: DeBug. 
+global.DB0 = false; // DB: DeBug. 
 //global.Split_00 = false;
 //global.Split_01 = false;
 //global.save_file_selected = false;
@@ -66,18 +48,10 @@ else                   random_set_seed(RUN_RANDOMIZATION_SEED);
 
 
 // --------------------------------------------------------------------
-if (DEV) {sdm("");sdm("");sdm("");sdm(""); sdm(" obj_start_Create()"); sdm("");sdm("");}
-
-
-//                                      // 
-
-                    instance_create(0,0,Input);
-                    instance_create(0,0,g);   // g: Game
-                    instance_create(0,0,p);   // p: Palette
-//                                      // 
-                    instance_create(0,0,Audio);
-//                                      // 
-//                                      // 
+instance_create(0,0,Input);
+instance_create(0,0,g);   // g: Game
+instance_create(0,0,p);   // p: Palette
+instance_create(0,0,Audio);
 //                                      // 
 g.PAUSE_MENU        = instance_create(0,0,PauseMenu);
 g.LEVEL_MENU        = instance_create(0,0,LevelUpMenu);
@@ -85,21 +59,15 @@ g.DIALOGUE_WINDOW   = instance_create(0,0,DialogueWindow);
 global.OPTIONS_MENU = instance_create(0,0,OptionsMenu);
 g.QUIT_APP_MENU     = instance_create(0,0,QuitAppMenu);
 //                                      // 
+instance_create(0,0,Surface);
+instance_create(0,0,f);   // f: File
 //                                      // 
-                    instance_create(0,0,Surface);
+global.OVERWORLD = instance_create(0,0,Overworld);
 //                                      // 
-                    instance_create(0,0,f);   // f: File
-//                                      // 
-//                                      // 
-global.OVERWORLD  = instance_create(0,0,Overworld);
-//                                      // 
-//                                      // 
-                    instance_create(0,0,RoomData);
-                    instance_create(0,0,GameObjectData);
-//                                      // 
-g.go_mgr          = instance_create(0,0,GameObjectMgr);
-//                                      // 
-g.burnable_mgr    = instance_create(0,0,BurnableMgr);
+instance_create(0,0,RoomData);
+instance_create(0,0,GameObjectData);
+g.go_mgr       = instance_create(0,0,GameObjectMgr);
+g.burnable_mgr = instance_create(0,0,BurnableMgr);
 //                                      // 
 PC_create(Lonk,0,0);
 
@@ -113,14 +81,11 @@ instance_create(0,0,Dev_RmWarper);
 instance_create(0,0,Dev_StabToCheat);
 
 
+
+
+// --------------------------------------------------------------------
 //debug_exit_data_2a();
 //dev_pal_data_output_1a();
-
-
-
-
-
-
 
 
 
@@ -194,11 +159,9 @@ sdm("DEPTH_SURFACE "+string_repeat(" ",DEPTH_SURFACE>=0)+string(DEPTH_SURFACE)+"
 if (DEV)
 {
     var _DURATION = current_time - _START_TIME;
-    sdm("obj_start_Create() END. "+string(_DURATION));
-    //var _LOW  = val(global.dm_other[?]);
-    //sdm(_GMFUNCTION_);
-    //script_get_name
-    sdm("");
+    repeat(1) show_debug_message("");
+    show_debug_message("obj_start_Create() END. "+string(_DURATION));
+    repeat(1) show_debug_message("");
 }
 
 

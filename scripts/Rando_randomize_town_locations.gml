@@ -234,7 +234,7 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
             if (_val1!=_val2) // if only 1 of these 2 towns has a backside
             {
                 _rm_name2 = string_copy(_exit_name2b,1,RmName_LEN);
-                _datakey2 = _rm_name2+STR_file_name+STR_Quest;
+                _datakey2 = _rm_name2+dk_FileName+STR_Quest;
                 _datakey3 = _datakey2+hex_str(QUEST_NUM);
                 _file_name2 =     g.dm_rm[?_datakey2+"01"];          // _town_name2's inside house
                 _file_name2 = val(g.dm_rm[?_datakey3], _file_name2); // _town_name2's inside house
@@ -350,7 +350,7 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         //sdm("");
         
         
-        _datakey2 = STR_file_name+STR_Quest+hex_str(QUEST_NUM);
+        _datakey2 = dk_FileName+STR_Quest+hex_str(QUEST_NUM);
         switch(_town_name2){
         //default:            {if(!is_undefined(_exit_name2a)) dm_save_data[?string_copy(_exit_name2a,1,RmName_LEN)+_datakey2]="TownA_028"; break;}
         //case STR_Rauru:     {if(!is_undefined(_exit_name2a)) dm_save_data[?string_copy(_exit_name2a,1,RmName_LEN)+_datakey2]="TownA_028"; break;}

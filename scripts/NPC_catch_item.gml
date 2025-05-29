@@ -19,7 +19,7 @@ state = 0; // NPC will spawn after dialogue.
 break; // just in case more than one item spawns in the room
 }
 
-if(Item_OBJ)sdm(obj_name(object_index)+" caught "+obj_name(Item_OBJ)+"!");
+//if (Item_OBJ) show_debug_message(object_get_name(object_index)+" caught "+object_get_name(Item_OBJ)+"!");
 
 
 

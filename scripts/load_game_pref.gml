@@ -3,10 +3,8 @@
 
 var _i, _idx, _val, _count;
 var _dm_data = 0;
+
 var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
-
-
-
 if(!file_exists(_FILE_NAME)) save_game_pref();
 
 

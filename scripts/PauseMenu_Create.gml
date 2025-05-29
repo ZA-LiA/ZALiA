@@ -1,6 +1,11 @@
 /// PauseMenu_Create()
 
-if (DEV) sdm(" PauseMenu_Create()");
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("PauseMenu_Create() START");
+}
 
 
 var _i, _a, _val, _count;
@@ -1396,6 +1401,15 @@ dm_terrain[?_dk+_TS2_IDX_+hex_str($F9)]         = _TSRC_MONSTER1; // River Devil
 
 
 MenuMap_srf = 0;
+
+
+
+
+if (DEV)
+{
+    show_debug_message("PauseMenu_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

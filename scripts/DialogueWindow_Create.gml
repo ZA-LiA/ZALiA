@@ -1,5 +1,12 @@
 /// DialogueWindow_Create()
 
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("DialogueWindow_Create() START");
+}
+
 
 var _i, _a, _val;
 
@@ -370,6 +377,16 @@ ds_map_add(dlgData, 'AF4B', 'EDE1DEF4EDE8F0E7FDE2ECF4DDDEDADDCFFEE5E8E8E4F4DEDAE
 ds_map_add(dlgData, 'AF71', 'E2F4DCDAE7F4E0E2EFDEFDF2E8EEF4E6E8ECEDFDE9E8F0DEEBDFEEE5FDE6DAE0E2DCCFFF');
 ds_map_add(dlgData, 'AF95', 'F2E8EEF4DAEBDEFDE9DEEBECE2ECEDDEE7EDFDDFE2E7DDF4E1DEDAEBEDFDE8EFDEEBF4E8DCDEDAE7FF');
 */
+
+
+
+
+if (DEV)
+{
+    show_debug_message("DialogueWindow_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
+
 
 
 

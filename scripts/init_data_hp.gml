@@ -4,7 +4,8 @@
 // $01, 02, 03, 04, 08, 0C, 0E, 
 // $10, 12, 18, 20, 30, 38, 48, 
 // $50, 60, 90, C0, F8, FA, FF, 
-            dl_HP = ds_list_create();
+
+
 // $0-7                                                     // 
 ds_list_add(dl_HP, $00); //  $00 =    0
 ds_list_add(dl_HP, $01); //  $01 =    1
@@ -52,8 +53,8 @@ ds_list_add(dl_HP,$330); // $330 =  816
 ds_list_add(dl_HP,$3C0); // $3C0 =  960
 //                                                          // 
 
-             dl_HP_DEFAULT=ds_list_create();
-ds_list_copy(dl_HP_DEFAULT,dl_HP);
+
+ds_list_copy(dl_HP_DEFAULT, dl_HP);
 
 
 

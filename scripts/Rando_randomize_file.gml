@@ -60,7 +60,7 @@ ContainersMP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+ST
     ItemLocations_LIMIT_OBSCURE      =val(_dm_SETTINGS[?_datakey]);
 if (ItemLocations_LIMIT_OBSCURE)          dm_save_data[?_datakey] = ItemLocations_LIMIT_OBSCURE;
 
-                                                        _datakey=STR_Dark_Room+STR_Difficulty;
+                                                        _datakey=dk_DarkRoom+STR_Difficulty;
     ItemLocations_DARKROOM_DIFFICULTY=val(_dm_SETTINGS[?_datakey]);
 if (ItemLocations_DARKROOM_DIFFICULTY)    dm_save_data[?_datakey] = ItemLocations_DARKROOM_DIFFICULTY;
 

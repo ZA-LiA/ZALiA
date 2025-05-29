@@ -74,11 +74,11 @@ if (_exists) _exists = ds_exists(        dg_InputConfigOptions,ds_type_grid);
 if (_exists)           ds_grid_destroy(  dg_InputConfigOptions);
 if (_exists)                             dg_InputConfigOptions=undefined;
 
-    _exists=variable_instance_exists(id,"dg_DevTools");
-if (_exists) _exists = !is_undefined(    dg_DevTools);
-if (_exists) _exists = ds_exists(        dg_DevTools,ds_type_grid);
-if (_exists)           ds_grid_destroy(  dg_DevTools);
-if (_exists)                             dg_DevTools=undefined;
+    _exists=variable_instance_exists(id,"DevTools_dg");
+if (_exists) _exists = !is_undefined(    DevTools_dg);
+if (_exists) _exists = ds_exists(        DevTools_dg,ds_type_grid);
+if (_exists)           ds_grid_destroy(  DevTools_dg);
+if (_exists)                             DevTools_dg=undefined;
 /*
     _exists=variable_instance_exists(id,"dg_RandoOptions");
 if (_exists) _exists = !is_undefined(    dg_RandoOptions);

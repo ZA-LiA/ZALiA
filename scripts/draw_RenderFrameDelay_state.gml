@@ -1,9 +1,6 @@
 /// draw_RenderFrameDelay_state()
 
 
-if(!global.RenderFrameDelay_timer) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
 var _XOFF = 0;
 var _YOFF = $28;
 var _Text_XOFF = 4;

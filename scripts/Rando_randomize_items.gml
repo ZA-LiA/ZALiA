@@ -329,7 +329,7 @@ Rando_randomize_items_1();
 
 
 // Scene outside of Fire-Vines Cave
-dm_save_data[?Area_WestA+"40"+STR_file_name+STR_Quest+hex_str(QUEST_NUM)] = "WestA_"+"002";
+dm_save_data[?Area_WestA+"40"+dk_FileName+STR_Quest+hex_str(QUEST_NUM)] = "WestA_"+"002";
 
 
 

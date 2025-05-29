@@ -1,4 +1,11 @@
-/// Surface_init()
+/// Surface_Create()
+
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("Surface_Create() START");
+}
 
 
 depth = DEPTH_SURFACE;
@@ -142,6 +149,15 @@ testval2=_VAL1+_VAL2;
 //testval2=-testval1;
 //teststr1=undefined;
 */
+
+
+
+
+if (DEV)
+{
+    show_debug_message("Surface_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

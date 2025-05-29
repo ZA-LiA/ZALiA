@@ -1184,7 +1184,7 @@ if (DungeonBoss_WILL_RANDOMIZE)
                 _dm_palette[?hex_str(_i)+"_palette"]      = _palette;
             }
             
-            _datakey = _b_scene_name+STR_file_name+STR_Quest+"01";
+            _datakey = _b_scene_name+dk_FileName+STR_Quest+"01";
             _file_name = g.dm_rm[?_datakey]; // Tiled file name. Example: "PalcA_004"
             if(!is_undefined(_file_name))
             {

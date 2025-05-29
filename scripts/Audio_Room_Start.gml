@@ -1,7 +1,7 @@
 /// Audio_Room_Start();
 
 
-if (DEV) sdm("Audio_Room_Start()");
+show_debug_message("Audio_Room_Start()");
 
 
 var _val, _theme;
@@ -324,7 +324,7 @@ else if(!string_pos("MAKARRHA",       _AREA_NAME)) dm[?STR_Overworld+STR_Makarrh
 else                                               dm[?STR_Overworld+STR_Standard    +dk_Intro_CanPlay] = true; // Normal Overworld theme
 
 
-var _ROOM_B1 = _ROOM_B && isVal(room, rmB_Title,rmB_FileSelect,rmB_ContinueSave);
+var _ROOM_B1 = _ROOM_B && (room==rmB_Title || room==rmB_FileSelect || room==rmB_ContinueSave);
 
 if (_ROOM_B1 
 ||  _ROOM_C 

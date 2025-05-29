@@ -31,7 +31,7 @@ if (_WILL_ELIMINATE
     _file = file_text_open_write(working_directory+_FILE_NAME);
             file_text_write_string(_file,_data);
             file_text_close(       _file);
-    sdm(_FILE_NAME+" cleared!");
+    show_debug_message(_FILE_NAME+" cleared!");
 }
 
 

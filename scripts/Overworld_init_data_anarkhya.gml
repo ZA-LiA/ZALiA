@@ -72,7 +72,6 @@ for(_i=0; _i<_layer_count; _i++) // each layer
         _owrc = (_ow_row<<8) | _ow_clm;
         
         
-        
             _tile_data = _dl_data[|_j];
         if (_tile_data!=0)
         {
@@ -98,6 +97,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
     }
 }
 
+
 for(_i=ds_grid_width(dg_boulders)-1; _i>=0; _i--)
 {
     _owrc = dg_boulders[#_i,0];
@@ -106,8 +106,12 @@ for(_i=ds_grid_width(dg_boulders)-1; _i>=0; _i--)
     dg_anarkhya_tsrc_detail_def[#_clm,_row] = anarkhya_TSRC_BOULDER;
 }
 
+
 ds_grid_copy(dg_anarkhya_tsrc,        dg_anarkhya_tsrc_def);
 ds_grid_copy(dg_anarkhya_tsrc_detail, dg_anarkhya_tsrc_detail_def);
+
+
+
 
 ds_list_destroy(_dl_tsidx); _dl_tsidx=undefined;
 ds_map_destroy(_dm_file_data); _dm_file_data=undefined;

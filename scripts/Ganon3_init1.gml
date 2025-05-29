@@ -217,7 +217,7 @@ DURATION4 = $40;
 
 
 
-COLOR0 = val(g.dm_rm[?g.rm_name+STR_Background_color], p.C_BLK1);
+COLOR0 = val(g.dm_rm[?g.rm_name+dk_BackgroundColor], p.C_BLK1);
 COLOR1 = p.C_RED4;
 COLOR2 = p.C_ORG4;
 

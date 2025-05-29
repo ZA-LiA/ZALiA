@@ -89,11 +89,16 @@ if (can_draw_keys) draw_key_stats();
 if (can_draw_hints) draw_rando_hints();
 
 
-// Invulnerability(dev only) State
-dev_draw_invState();
+if (g.dev_invState&$FF8)
+{   // Invulnerability(dev only) State
+    dev_draw_invState();
+}
 
-// Draw the state of the Frame Delay option
-draw_RenderFrameDelay_state();
+if (global.RenderFrameDelay_state 
+&&  global.RenderFrameDelay_timer )
+{   // Draw the state of the Frame Delay option
+    draw_RenderFrameDelay_state();
+}
 
 // Draw the App Paused Icon
 dev_draw_app_paused_icon();

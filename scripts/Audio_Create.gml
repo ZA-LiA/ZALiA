@@ -1,7 +1,12 @@
 #define Audio_Create
 /// Audio_Create()
 
-if (DEV) sdm(" Audio_Create()");
+if (DEV)
+{
+    var _START_TIME = current_time;
+    repeat(1) show_debug_message("");
+    show_debug_message("Audio_Create() START");
+}
 
 
 var _i,_j, _idx, _val, _count,_count1, _num, _vol;
@@ -1571,289 +1576,289 @@ var _dl2 = ds_list_create();
 // IsabelleChiming
 _val=asset_get_index("mus_IsabelleChiming_Overworld_Dragmire_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_IsabelleChiming_Overworld"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Overworld"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld");               if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld");               if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn");      if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn");      if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_DeathMtn_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl");       if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl");       if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Dungeon1"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon1_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Dungeon1"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon1_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon1");                if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon1_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon1");                if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon1_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Dungeon2"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon2_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Dungeon2"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon2_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon2");                if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon2_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon2");                if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon2_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Dungeon3"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon3_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Dungeon3"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon3_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon3");                if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon3_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon3");                if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon3_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Dungeon4"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon4_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Dungeon4"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon4_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon4");                if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon4_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon4");                if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon4_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Dungeon5"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon5_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Dungeon5"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon5_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon5");                if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon5_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon5");                if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon5_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Dungeon6"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon6_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Dungeon6"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon6_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon6");                if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon6_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon6");                if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon6_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Dungeon7"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon7_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Dungeon7"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon7_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon7");                if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon7_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Dungeon7");                if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Dungeon7_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_DragmireTower_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_DragmireTower_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_DragmireTower_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_DragmireTower_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_DragmireTower_Body");      if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_IsabelleChiming_DragmireTower_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_DragmireTower_Body");      if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_DragmireTower_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Boss"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Boss_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Boss");                    if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Boss_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_ThunderBird"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_ThunderBird_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_ThunderBird");             if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_ThunderBird_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_ShadowBoss_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_ShadowBoss");              if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_ShadowBoss_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_EvilHeart_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_EvilHeart_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_EvilHeart_Body");          if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_EvilHeart_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Ganon3"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Ganon3_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Ganon3");                  if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Ganon3_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_BattleJPN_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_BattleJPN_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_BattleJPN_Body");          if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_BattleJPN_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Title"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Title_Intro_1")));}
+_val=asset_get_index("mus_IsabelleChiming_Title");                   if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Title_Intro_1")));}
 
-_val=asset_get_index("mus_IsabelleChiming_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_FileSelect_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_FileSelect");              if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_FileSelect_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_GameOver"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_GameOver_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_GameOver");                if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_GameOver_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_InDoors"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_InDoors_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_InDoors");                 if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_InDoors_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_FastTravel_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_FastTravel_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_FastTravel_Body");         if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_FastTravel_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Minigame_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Minigame_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Minigame_Body");           if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Minigame_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town");                    if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_OldKasuto"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_OldKasuto_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_OldKasuto");               if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_IsabelleChiming_OldKasuto_Intro")));}
 
-_val=asset_get_index("mus_IsabelleChiming_WakeZelda"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_IsabelleChiming_Credits"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_IsabelleChiming_WakeZelda");               if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_IsabelleChiming_Credits");                 if (_val!=-1){ds_list_add(_dl2,_val);}
 
 
 
 
 // SteelCrescent
-_val=asset_get_index("mus_SteelCrescent_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent3_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_Overworld_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent3_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Overworld_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_Overworld_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Overworld_Body");    if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Overworld_Body");   if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Overworld_Body");   if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Overworld_Body");   if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Overworld_Body");   if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Overworld_Body");    if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Overworld_Body");   if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Overworld_Body");   if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Overworld_Body");   if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Overworld_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Overworld_Body");   if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Overworld_Intro")));}
 
-_val=asset_get_index("mus_SteelCrescent_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent2_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent3_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent4_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent5_DeathMountain"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_DeathMountain"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_DeathMountain");     if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_DeathMountain");    if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_DeathMountain");    if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent4_DeathMountain");    if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_DeathMountain");    if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_DeathMountain");     if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_DeathMountain");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_DeathMountain");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_DeathMountain");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_DeathMountain");    if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_MazeIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent2_MazeIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent3_MazeIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent4_MazeIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent5_MazeIsland_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_MazeIsland_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_MazeIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_MazeIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_MazeIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_MazeIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_MazeIsland_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_MazeIsland_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_MazeIsland");        if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_MazeIsland");       if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_MazeIsland");       if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent4_MazeIsland");       if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_MazeIsland_Body");  if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_MazeIsland_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_MazeIsland");        if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_MazeIsland");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_MazeIsland");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_MazeIsland");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_MazeIsland_Body");  if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_MazeIsland_Intro")));}
 
-_val=asset_get_index("mus_SteelCrescent_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent2_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent3_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent4_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent5_Dragmire"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_Dragmire"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_Dragmire");          if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Dragmire");         if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Dragmire");         if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Dragmire");         if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Dragmire");         if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_Dragmire");          if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Dragmire");         if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Dragmire");         if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Dragmire");         if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Dragmire");         if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent2_SwordIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent5_SwordIsland"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent2_SwordIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_SwordIsland"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_SwordIsland");      if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_SwordIsland");      if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_SwordIsland");      if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_SwordIsland");      if (_val!=-1){ds_list_add(_dl2,_val);}
 /*
-_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_OldKasuto"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent3_OldKasuto"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_Town_Body");         if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body");        if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body");        if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body");        if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body");        if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_OldKasuto");        if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_OldKasuto");        if (_val!=-1){ds_list_add(_dl1,_val);}
 */
-_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_OldKasuto"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_OldKasuto"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_Town_Body");         if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Town_Body");        if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Town_Body");        if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body");        if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Town_Body");        if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_OldKasuto");        if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_OldKasuto");        if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_Dungeon2"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_Dungeon_Body");      if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon2");         if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body");     if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body");     if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body");     if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body");     if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02");   if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_Dungeon_Body");      if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Dungeon_Body");     if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Dungeon_Body");     if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body");     if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Dungeon_Body");     if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Dungeon_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_DungeonTheme02");   if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body");  if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent2_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent2_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent3_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent3_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent4_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent4_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent5_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl1,_val, max(0,asset_get_index("mus_SteelCrescent5_GreatPalace_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body");  if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent2_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent3_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent4_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent5_GreatPalace_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_GreatPalace_Intro")));}
 
-_val=asset_get_index("mus_SteelCrescent_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent2_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent3_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent4_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent5_DragmireTower"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_SteelCrescent_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_DragmireTower"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_DragmireTower");     if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent2_DragmireTower");    if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent3_DragmireTower");    if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent4_DragmireTower");    if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent5_DragmireTower");    if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_SteelCrescent_DragmireTower");     if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_DragmireTower");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_DragmireTower");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_DragmireTower");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_DragmireTower");    if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_Boss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_Boss");              if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Boss");             if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Boss");             if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Boss");             if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Boss");             if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_Thunderbird"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_Thunderbird");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Thunderbird");      if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Thunderbird");      if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Thunderbird");      if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Thunderbird");      if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_DarkLink"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_ShadowBoss"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_DarkLink");          if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_ShadowBoss");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_ShadowBoss");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_ShadowBoss");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_ShadowBoss");       if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent2_Ganon01_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Ganon01_Intro")));}
-_val=asset_get_index("mus_SteelCrescent3_Ganon1And2_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Ganon1And2_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_Ganon01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_Ganon01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Ganon01_Body");     if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Ganon01_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Ganon1And2_Body");  if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Ganon1And2_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Ganon01");          if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Ganon01");          if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent2_Ganon02"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Ganon02");          if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_Ganon_FinalPhase"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_GanonPhase03"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_Ganon03"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_Ganon03"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_Ganon_FinalPhase");  if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_GanonPhase03");     if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Ganon03");          if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Ganon03");          if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Title_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Title_Intro")));}
-_val=asset_get_index("mus_SteelCrescent3_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Title_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Title_Intro")));}
-_val=asset_get_index("mus_SteelCrescent5_Title_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Title_Body");        if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Title_Body");       if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent3_Title_Body");       if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent3_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_Title_Body");       if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent4_Title_Intro")));}
+_val=asset_get_index("mus_SteelCrescent5_Title_Body");       if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent5_Title_Intro")));}
 
-_val=asset_get_index("mus_SteelCrescent_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_FileSelect"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_FileSelect");        if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_FileSelect");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_FileSelect");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_FileSelect");       if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_FileSelect");       if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_ContinueSave"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_ContinueSave"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_ContinueSave");      if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_ContinueSave");     if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_House"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_House_1"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_House"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_House"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_House"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_House");             if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_House_1");          if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_House");            if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_House");            if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_House");            if (_val!=-1){ds_list_add(_dl2,_val);}
 
 _val=asset_get_index("mus_SteelCrescent_FastTravelTunnels"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_TravelTunnels"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_TravelTunnels"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_TravelTunnels"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_TravelTunnels");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_TravelTunnels");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_TravelTunnels");    if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_MiniGame_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_MiniGame_Intro")));}
-_val=asset_get_index("mus_SteelCrescent2_Minigame_Body"); if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Minigame_Intro")));}
-_val=asset_get_index("mus_SteelCrescent4_MiniGame"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_MiniGame"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_MiniGame_Body");     if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_MiniGame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent2_Minigame_Body");    if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Minigame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent4_MiniGame");         if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_MiniGame");         if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_Battle"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_Battle");            if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Battle");           if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Battle");           if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Battle");           if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Battle");           if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_Credits_Intro"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent2_Credits_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent3_Credits_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent4_Credits"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_SteelCrescent5_Credits"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent_Credits_Intro");     if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent2_Credits_Body");     if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent3_Credits_Body");     if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent4_Credits");          if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_SteelCrescent5_Credits");          if (_val!=-1){ds_list_add(_dl2,_val);}
 
 
 
 
 // Wyng
-_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_Wyng1_OldKasuto_Body"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){ds_list_add(_dl1,_val);}
-_val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body");           if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_OldKasuto_Body");            if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_Overworld01");               if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_DeathMountain01");           if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_Dungeon01");                 if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_GreatPalace01");             if (_val!=-1){ds_list_add(_dl1,_val);}
+_val=asset_get_index("mus_Wyng1_DragmireTower01");           if (_val!=-1){ds_list_add(_dl1,_val);}
 //ds_list_add(_dl1,mus_Wyng1_Town01);
 //ds_list_add(_dl1,mus_Wyng1_Bulblin01);
 
-_val=asset_get_index("mus_Wyng1_MazeIsland_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_OldKasuto_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_ShadowBoss_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_FileSelect_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_ContinueSave_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_House_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_FastTravelTunnels_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Minigame_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Battle1_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Battle2_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_DungeonClear_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_GameClear_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_PrincessZeldaQuest1_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_PrincessZeldaQuest2_Body"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Credits"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_MazeIsland_Body");           if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_OldKasuto_Body");            if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_ShadowBoss_Body");           if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_FileSelect_Body");           if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_ContinueSave_Body");         if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_House_Body");                if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_FastTravelTunnels_Body");    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Minigame_Body");             if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Battle1_Body");              if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Battle2_Body");              if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_DungeonClear_Body");         if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_GameClear_Body");            if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_PrincessZeldaQuest1_Body");  if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_PrincessZeldaQuest2_Body");  if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Credits");                   if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Bulblin01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Thunderbird01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Ganon01"); if (_val!=-1){ds_list_add(_dl2,_val);}
-_val=asset_get_index("mus_Wyng1_Title01"); if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Overworld01");               if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_DeathMountain01");           if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Town01");                    if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Bulblin01");                 if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Dungeon01");                 if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_GreatPalace01");             if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_DragmireTower01");           if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_BossBattle01");              if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Thunderbird01");             if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Ganon01");                   if (_val!=-1){ds_list_add(_dl2,_val);}
+_val=asset_get_index("mus_Wyng1_Title01");                   if (_val!=-1){ds_list_add(_dl2,_val);}
 
 
 
@@ -1965,38 +1970,38 @@ dm[?audio_get_name(mus_IsabelleChiming_BattleJPN01)             +STR_Body +STR_L
 
 
 // Wyng --------------------------------------
-_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){dm[?audio_get_name(_val)    +STR_Intro+STR_Length] = 011.319;}
-_val=asset_get_index("mus_Wyng1_Overworld01"); if (_val!=-1){dm[?audio_get_name(_val)    +STR_Body +STR_Length] = 077.617;}
+_val=asset_get_index("mus_Wyng1_Overworld01");     if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 011.319;}
+_val=asset_get_index("mus_Wyng1_Overworld01");     if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 077.617;}
 //                                                                              //
 _val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 006.909;}
 _val=asset_get_index("mus_Wyng1_DeathMountain01"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 051.818;}
 //                                                                              //
-_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){dm[?audio_get_name(_val)         +STR_Intro+STR_Length] = 003.535;}
-_val=asset_get_index("mus_Wyng1_Town01"); if (_val!=-1){dm[?audio_get_name(_val)         +STR_Body +STR_Length] = 062.959;}
+_val=asset_get_index("mus_Wyng1_Town01");          if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 003.535;}
+_val=asset_get_index("mus_Wyng1_Town01");          if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 062.959;}
 //                                                                              //
-_val=asset_get_index("mus_Wyng1_Bulblin01"); if (_val!=-1){dm[?audio_get_name(_val)      +STR_Intro+STR_Length] = 003.968;}
-_val=asset_get_index("mus_Wyng1_Bulblin01"); if (_val!=-1){dm[?audio_get_name(_val)      +STR_Body +STR_Length] = 068.655;}
+_val=asset_get_index("mus_Wyng1_Bulblin01");       if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 003.968;}
+_val=asset_get_index("mus_Wyng1_Bulblin01");       if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 068.655;}
 //                                                                              //
-_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){dm[?audio_get_name(_val)      +STR_Intro+STR_Length] = 003.310;}
-_val=asset_get_index("mus_Wyng1_Dungeon01"); if (_val!=-1){dm[?audio_get_name(_val)      +STR_Body +STR_Length] = 099.955;}
+_val=asset_get_index("mus_Wyng1_Dungeon01");       if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 003.310;}
+_val=asset_get_index("mus_Wyng1_Dungeon01");       if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 099.955;}
 //                                                                              //
-_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){dm[?audio_get_name(_val)  +STR_Intro+STR_Length] = 033.529;}
-_val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){dm[?audio_get_name(_val)  +STR_Body +STR_Length] = 149.019;}
+_val=asset_get_index("mus_Wyng1_GreatPalace01");   if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 033.529;}
+_val=asset_get_index("mus_Wyng1_GreatPalace01");   if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 149.019;}
 //                                                                              //
 _val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 017.021;}
 _val=asset_get_index("mus_Wyng1_DragmireTower01"); if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 080.222;}
 //                                                                              //
-_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){dm[?audio_get_name(_val)   +STR_Intro+STR_Length] = 001.333;}
-_val=asset_get_index("mus_Wyng1_BossBattle01"); if (_val!=-1){dm[?audio_get_name(_val)   +STR_Body +STR_Length] = 032.000;}
+_val=asset_get_index("mus_Wyng1_BossBattle01");    if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 001.333;}
+_val=asset_get_index("mus_Wyng1_BossBattle01");    if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 032.000;}
 //                                                                              //
-_val=asset_get_index("mus_Wyng1_Thunderbird01"); if (_val!=-1){dm[?audio_get_name(_val)  +STR_Intro+STR_Length] = 004.145;}
-_val=asset_get_index("mus_Wyng1_Thunderbird01"); if (_val!=-1){dm[?audio_get_name(_val)  +STR_Body +STR_Length] = 040.073;}
+_val=asset_get_index("mus_Wyng1_Thunderbird01");   if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 004.145;}
+_val=asset_get_index("mus_Wyng1_Thunderbird01");   if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 040.073;}
 //                                                                              //
-_val=asset_get_index("mus_Wyng1_Ganon01"); if (_val!=-1){dm[?audio_get_name(_val)        +STR_Intro+STR_Length] = 005.901;}
-_val=asset_get_index("mus_Wyng1_Ganon01"); if (_val!=-1){dm[?audio_get_name(_val)        +STR_Body +STR_Length] = 084.708;}
+_val=asset_get_index("mus_Wyng1_Ganon01");         if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 005.901;}
+_val=asset_get_index("mus_Wyng1_Ganon01");         if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 084.708;}
 //                                                                              //
-_val=asset_get_index("mus_Wyng1_Title01"); if (_val!=-1){dm[?audio_get_name(_val)        +STR_Intro+STR_Length] = 007.752;}
-_val=asset_get_index("mus_Wyng1_Title01"); if (_val!=-1){dm[?audio_get_name(_val)        +STR_Body +STR_Length] = 060.945;}
+_val=asset_get_index("mus_Wyng1_Title01");         if (_val!=-1){dm[?audio_get_name(_val)+STR_Intro+STR_Length] = 007.752;}
+_val=asset_get_index("mus_Wyng1_Title01");         if (_val!=-1){dm[?audio_get_name(_val)+STR_Body +STR_Length] = 060.945;}
 //                                                                              //
 
 
@@ -2014,6 +2019,15 @@ _val=asset_get_index("mus_Wyng1_Title01"); if (_val!=-1){dm[?audio_get_name(_val
 
 ds_list_destroy(_dl1); _dl1=undefined;
 ds_list_destroy(_dl2); _dl2=undefined;
+
+
+
+
+if (DEV)
+{
+    show_debug_message("Audio_Create() END. "+string(current_time-_START_TIME));
+    repeat(1) show_debug_message("");
+}
 
 
 

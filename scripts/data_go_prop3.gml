@@ -16,8 +16,8 @@ var                      _REACT_SHIELD = -1; // Shield reaction
 if (argument_count>_arg) _REACT_SHIELD = argument[_arg++];
 //                                       //
 
-if (_REACT_BODY>=0)   g.dm_go_prop[?_OBJVER+STR_React_Body]   = _REACT_BODY;
-if (_REACT_SHIELD>=0) g.dm_go_prop[?_OBJVER+STR_React_Shield] = _REACT_SHIELD;
+if (_REACT_BODY>=0)   g.dm_go_prop[?_OBJVER+dk_ReactBody]   = _REACT_BODY;
+if (_REACT_SHIELD>=0) g.dm_go_prop[?_OBJVER+dk_ReactShield] = _REACT_SHIELD;
 
 
 

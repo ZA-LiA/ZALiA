@@ -6,8 +6,8 @@
 if (DEV)
 {
     var _START_TIME = current_time;
-    sdm("");
-    sdm("g_Create() START");
+    repeat(1) show_debug_message("");
+    show_debug_message("g_Create() START");
 }
 
 
@@ -206,7 +206,7 @@ DevTools_state = 0;
 
 // Frame Delay: An option that delays the game's render by 1 frame to simulate what I think happens in fceux.
 // Draws the state of the frame delay. -1: App will not include this option, 0: Don't draw the Frame Delay's state, 1: Draw the Frame Delay's state
-//global.RenderFrameDelay_state = -1;
+global.RenderFrameDelay_state = -1;
 global.RenderFrameDelay_timer =  0; // Display state when > 0
 
 view_update_order = 1; // 1: OG, 2: update after gob update
@@ -453,8 +453,8 @@ VIEW_W    = VIEW_W_WD;
 VIEW_H    = VIEW_H_WD;
 VIEW_W_   = VIEW_W>>1;
 VIEW_H_   = VIEW_H>>1;
-VIEW_CLMS = VIEW_W>>T; // 32
-VIEW_ROWS = VIEW_H>>T; // 28
+VIEW_CLMS = VIEW_W>>3; // 32
+VIEW_ROWS = VIEW_H>>3; // 28
 
 
 view_wview[0] = VIEW_W;
@@ -473,13 +473,6 @@ VIEW_PORT_W = view_wview[0] * VIEW_PORT_SCALE;
 VIEW_PORT_H = view_hview[0] * VIEW_PORT_SCALE;
 view_wport[0] = VIEW_PORT_W;
 view_hport[0] = VIEW_PORT_H;
-
-
-
-global.RetroShaders_IS_LIVE = true; // false disables all RetroShaders actions
-global.RetroShaders_enabled = false;
-global.RetroShaders_surface_scale = 2;
-global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
 
 
 
@@ -533,9 +526,9 @@ view_lock_boss  = 0; // What dir of the view a boss is locking.
 
 VIEW_Y_TILE_OFF = ((viewH()^$7)+1) & $7; // 0: viewH is 224, 2: viewH is 270
 
-VIEW_PAD_YT     = $01<<T; // pad 1 row = 8
+VIEW_PAD_YT     = $01<<3; // pad 1 row = 8
 VIEW_PAD_YB_OFF = 0;
-VIEW_PAD_YB     = $01<<T; // pad 1 row = 8
+VIEW_PAD_YB     = $01<<3; // pad 1 row = 8
 VIEW_PAD_YB    += VIEW_PAD_YB_OFF;
 
 // For horizontal scroll rms, cam sits 8 above bottom of rm
@@ -562,6 +555,18 @@ ViewCatchUp_STATE   = $0;
 //ViewCatchUp_STATE   = $3;
 ViewCatchUp_SPEED_X = .25;
 ViewCatchUp_SPEED_Y = .25;
+
+
+
+
+
+
+
+
+global.RetroShaders_IS_LIVE = true; // false disables all RetroShaders actions
+global.RetroShaders_enabled = false;
+global.RetroShaders_surface_scale = 2;
+global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
 
 
 
@@ -702,7 +707,7 @@ CHAR_END_LINE3 = "{"; // '{' End line
 CHAR_END_LINE4 = "}"; // '}' End line with extra delay
 CHAR_TIMES     = "*"; // times/multiplication char
 
-global.SWAP_LINK_NAME_WITH_SAVE_NAME = true;
+global.SWAP_LINK_NAME_WITH_SAVE_NAME = false;
 global.USE_PLAYER_NAME_INDICATOR = "@@@";
 
 
@@ -1135,11 +1140,11 @@ dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset
 
 // Users can add their own dungeon tilesets by putting the image file 
 // in %localappdata%\Z2TAOL_XXX\custom_dungeon_graphics.
-var _DIRECTORY="custom_dungeon_graphics";
-if(!directory_exists(_DIRECTORY))
+var                    _DIRECTORY = "custom_dungeon_graphics";
+if(!directory_exists(  _DIRECTORY))
 {
-    directory_create(_DIRECTORY);
-    sdm(_DIRECTORY+" created!"+"  -  g_Create()");
+    directory_create(  _DIRECTORY);
+    show_debug_message(_DIRECTORY+" created!"+"  -  g_Create()");
 }
 else
 {
@@ -1212,7 +1217,7 @@ TSRC_SolidColor_TEL0 = _a++; // Teal    Full
 
 
 
-_rows=$9;
+_rows = $9;
 dg_tile_anim = ds_grid_create(0,_rows); // current room's tile animation info
 repeat($10)
 {
@@ -1345,6 +1350,7 @@ dg_RmTile_Break         = ds_grid_create(0,0); // 8x8 room grid. Values represen
 dg_RmTile_Break_def     = ds_grid_create(0,0); // 8x8 room grid. Values represent break blocks, break bridge
 
 dg_RmTile_Liquid        = ds_grid_create(0,0); // 8x8 room grid. Values represent liquid
+
 dg_RmTile_Liquid_def    = ds_grid_create(0,0); // 8x8 room grid. Values represent liquid
 
 dg_RmTile_Current       = ds_grid_create(0,0); // 8x8 room grid. Values represent a push force(like wind or water current)
@@ -2811,6 +2817,7 @@ dl_spell_history = ds_list_create();
 ds_list_add(dl_spell_history,0);
 
 dg_spell_cost = ds_grid_create(SPELL_COUNT+1,9);
+dg_spell_cost_DEFAULT = ds_grid_create(0,0);
 ds_grid_clear(dg_spell_cost,$F0);
 init_data_spells_1a(); // spell costs
 
@@ -2942,6 +2949,8 @@ dm_spawn_DEFAULT = ds_map_create();
 
 dl_Enemy_OBJVER = ds_list_create();
 dg_enemy_damage = ds_grid_create(0,0); // w: f.level_lif, h: enemy atk lvl
+dg_enemy_damage_DEFAULT = ds_grid_create(0,0);
+//dg_enemy_damage_DEFAULT = ds_grid_create(ds_grid_width(dg_enemy_damage),ds_grid_height(dg_enemy_damage));
 data_stat_damage();
 
 KILL_COUNT1 = 6;
@@ -3058,54 +3067,54 @@ Rando_init_enemy_data();
 // The lists also categorize these objver to help the enemy rando.
 // -------------------------------------------------------------------------
             dl_RandoEnemy_OBJVER_A1 = ds_list_create(); // Enemies that can be defeated with no items and no spells
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(Bot_A)+"01",obj_name(Bot_A)+"02");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(Myu_A)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(LowdA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(MegmA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Bot_A)+"01",object_get_name(Bot_A)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Myu_A)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(LowdA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(MegmA)+"01");
 //                                                                                              //
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(GeldA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(GeldA)+"01");
 //                                                                                              //
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(AnerA)+"01",obj_name(AnerA)+"02");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(OctoA)+"01",obj_name(OctoA)+"02",obj_name(OctoA)+"03");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(LeevA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(AnerA)+"01",object_get_name(AnerA)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(OctoA)+"01",object_get_name(OctoA)+"02",object_get_name(OctoA)+"03");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(LeevA)+"01");
 //                                                                                              //
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(WosuA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(Stallakk)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(WosuA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Stallakk)+"01");
 //                                                                                              //
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(GoriA)+"01",obj_name(GoriA)+"02",obj_name(GoriA)+"03");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(GumaA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(DairA)+"01",obj_name(DairA)+"02");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(DoomA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(GoriA)+"01",object_get_name(GoriA)+"02",object_get_name(GoriA)+"03");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(GumaA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(DairA)+"01",object_get_name(DairA)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(DoomA)+"01");
 //                                                                                              //
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(MoblA)+"01",obj_name(MoblA)+"02",obj_name(MoblA)+"03");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(StalA)+"01",obj_name(StalA)+"02");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(IrKnA)+"01",obj_name(IrKnA)+"02");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(GeruA)+"01",obj_name(GeruA)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(MoblA)+"01",object_get_name(MoblA)+"02",object_get_name(MoblA)+"03");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(StalA)+"01",object_get_name(StalA)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(IrKnA)+"01",object_get_name(IrKnA)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(GeruA)+"01",object_get_name(GeruA)+"02");
 //                                                                                              //
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(MagoA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(ArurA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(AttaA)+"01");
-//ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(Wheep)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(MagoA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(ArurA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(AttaA)+"01");
+//ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Wheep)+"01");
 //                                                                                              //
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(GeruA)+"03"); // Blue Geru
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(IrKnA)+"03");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(BoBoA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(AnerA)+"03"); // Fire Aneru
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(FokkA)+"01",obj_name(FokkA)+"02");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, obj_name(FokuA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(GeruA)+"03"); // Blue Geru
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(IrKnA)+"03");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(BoBoA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(AnerA)+"03"); // Fire Aneru
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(FokkA)+"01",object_get_name(FokkA)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(FokuA)+"01");
 //                                                                                              //
 //                                                                                              //
 //                                                                                              //
 //                                                                                              //
              dl_RandoEnemy_OBJVER1=ds_list_create(); // Sword-Immune Enemies
 ds_list_copy(dl_RandoEnemy_OBJVER1,dl_RandoEnemy_OBJVER_A1);
-ds_list_add( dl_RandoEnemy_OBJVER1, obj_name(GlzmA)+"01",obj_name(GlzmA)+"02");
-ds_list_add( dl_RandoEnemy_OBJVER1, obj_name(TektA)+"01");
-ds_list_add( dl_RandoEnemy_OBJVER1, obj_name(ZoraA)+"01");
-ds_list_add( dl_RandoEnemy_OBJVER1, obj_name(WizaA)+"01");
-ds_list_add( dl_RandoEnemy_OBJVER1, obj_name(BlazA)+"01",obj_name(BlazA)+"02");
-ds_list_add( dl_RandoEnemy_OBJVER1, obj_name(FiRoA)+"01"); // Spinning FireRope
-ds_list_add( dl_RandoEnemy_OBJVER1, obj_name(SpTrC)+"01"); // Spinning spike ball
+ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(GlzmA)+"01",object_get_name(GlzmA)+"02");
+ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(TektA)+"01");
+ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(ZoraA)+"01");
+ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(WizaA)+"01");
+ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(BlazA)+"01",object_get_name(BlazA)+"02");
+ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(FiRoA)+"01"); // Spinning FireRope
+ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(SpTrC)+"01"); // Spinning spike ball
 //                                                                                              //
 //                                                                                              //
 //                                                                                              //
@@ -3123,31 +3132,31 @@ ds_list_add( dl_RandoEnemy_OBJVER1, obj_name(SpTrC)+"01"); // Spinning spike bal
 //"Snaraa01",
 //"GeruB01",
             dl_RandoEnemy_OBJVER2=ds_list_create(); // Flying Enemies
-ds_list_add(dl_RandoEnemy_OBJVER2, obj_name(BoonA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER2, obj_name(BubbA)+"01",obj_name(BubbA)+"02",obj_name(BubbA)+"08");
-ds_list_add(dl_RandoEnemy_OBJVER2, obj_name(GiruA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER2, obj_name(Moa_A)+"01",obj_name(Moa_A)+"02");
-ds_list_add(dl_RandoEnemy_OBJVER2, obj_name(Moa_B)+"01"); // Fiery Moa
-ds_list_add(dl_RandoEnemy_OBJVER2, obj_name(MobyA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER2, obj_name(Ra__A)+"01",obj_name(Ra__A)+"02",obj_name(Ra__A)+"03");
+ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(BoonA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(BubbA)+"01",object_get_name(BubbA)+"02",object_get_name(BubbA)+"08");
+ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(GiruA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(Moa_A)+"01",object_get_name(Moa_A)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(Moa_B)+"01"); // Fiery Moa
+ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(MobyA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(Ra__A)+"01",object_get_name(Ra__A)+"02",object_get_name(Ra__A)+"03");
 //                                                                                              //
 //                                                                                              //
 //                                                                                              //
 //                                                                                              //
             dl_RandoEnemy_OBJVER3=ds_list_create(); // Enemy Spawners
-ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpPoA)+"01"); // PoisonBubbleSpawner
-ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpRoA)+"01"); // RockSpawner
-ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpBaA)+"01"); // BagoSpawner
-ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpMaA)+"01"); // MauSpawner
-ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpMoA)+"01"); // MobySpawner
+ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpPoA)+"01"); // PoisonBubbleSpawner
+ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpRoA)+"01"); // RockSpawner
+ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpBaA)+"01"); // BagoSpawner
+ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpMaA)+"01"); // MauSpawner
+ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpMoA)+"01"); // MobySpawner
 //                                                                                              //
-//ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpGrA)+"01"); // GruntSpawner
-//ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpWoA)+"01"); // WosuSpawner
+//ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpGrA)+"01"); // GruntSpawner
+//ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpWoA)+"01"); // WosuSpawner
 //                                                                                              //
-//ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(Spawner_Boggnipp)+"01"); // BoggnippSpawner
-//ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpBlA)+"01"); // BlockSpawner
-//ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpBuA)+"01"); // BulletSpawner
-//ds_list_add(dl_RandoEnemy_OBJVER3, obj_name(SpDrA)+"01"); // DropSpawner
+//ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(Spawner_Boggnipp)+"01"); // BoggnippSpawner
+//ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpBlA)+"01"); // BlockSpawner
+//ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpBuA)+"01"); // BulletSpawner
+//ds_list_add(dl_RandoEnemy_OBJVER3, object_get_name(SpDrA)+"01"); // DropSpawner
 //                                                                                              //
 //                                                                                              //
 //                                                                                              //
@@ -3239,11 +3248,27 @@ DialogueDK_MIDO_CHURCH_DOOR = "undefined";
 
 
 
+dg_BODY_HB = ds_grid_create($FF, 5);
 init_body_hb_data();
+
+
+dg_ShieldHB = ds_grid_create($0B, 5);
 init_shield_hb_data();
+
+
+dg_CS_OFF = ds_grid_create($00, $12);
 init_cs_points_data();
 
+
+dl_HP = ds_list_create();
+dl_HP_DEFAULT = ds_list_create();
 init_data_hp(); // dl_HP
+
+
+dl_XP = ds_list_create();
+dl_XP_DEFAULT = ds_list_create();
+dl_XP_DRAIN = ds_list_create();
+dl_rising_xp_spr = ds_list_create();
 init_data_xp(); // dl_XP, dl_XP_DRAIN, dl_rising_xp_spr
 
 
@@ -3340,8 +3365,40 @@ ds_list_add(dl_rando_seed_SPRITES, val(dm_ITEM[?STR_SWORD   +STR_Sprite], _defau
 // -----------------------------------------------------------------
 // -----------------------------------------------------------------
 //db_test_various_1a(); // for testing various basic coding things
+
+// *** You can also full search for "ds_grid_create" to find the order grids have been created.
 //debug_ds_grids_1a();
+/* Grid Indices As Of 2025/05/28:
+  dg_YxY_:                  0
+  dg_tile_anim:             1
+  dg_anim_liquid:           2
+  dg_anim_clouds:           3
+  dg_RmTile_solid:          4
+  dg_RmTile_solid_def:      5
+  dg_RmTile_Break:          6
+  dg_RmTile_Break_def:      7
+  dg_RmTile_Liquid:         8
+  dg_RmTile_Liquid_def:     9
+  dg_RmTile_Current:       10
+  dg_RmTile_Current_def:   11
+  dg_RmTile_TempSolid:     12
+  dg_RmTile_Spike:         13
+  dg_RmTile_Spike_def:     14
+  dg_StarSky_data:         15
+  dg_spawn_prxm:           16
+  dg_spawn_prio:           17
+  dg_spell_cost:           18
+  dg_spell_cost_DEFAULT:   19
+  dg_enemy_damage:         20
+  dg_enemy_damage_DEFAULT: 21
+  dg_NPC_SPR:              22
+  dg_BODY_HB:              23
+  dg_ShieldHB:             24
+  dg_CS_OFF:               25
+*/
+
 //db_spawnData_Automate_code_1a();
+
 //dev_automate_tile_layer_data();
 
 
@@ -3354,8 +3411,8 @@ ds_list_destroy(_dl_1); _dl_1=undefined;
 
 if (DEV)
 {
-    sdm("g_Create() END. "+string(current_time-_START_TIME));
-    sdm("");
+    show_debug_message("g_Create() END. "+string(current_time-_START_TIME));
+    repeat(1) show_debug_message("");
 }
 
 

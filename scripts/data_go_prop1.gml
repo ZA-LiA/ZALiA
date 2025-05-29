@@ -8,7 +8,7 @@ var _SPRITE    = argument[_arg++];
 var _OBJ_NAME  = object_get_name(_OBJECT);
 
 g.dm_go_prop[?_OBJ_NAME+STR_Object+STR_Idx] = _OBJECT;
-g.dm_go_prop[?_OBJ_NAME+STR_full_name]      = _FULL_NAME;
+g.dm_go_prop[?_OBJ_NAME+dk_FullName]        = _FULL_NAME;
 g.dm_go_prop[?_OBJ_NAME+STR_Placement_spr]  = _SPRITE;
 g.dm_go_prop[?_OBJ_NAME+STR_Width]          = sprite_get_width( _SPRITE);
 g.dm_go_prop[?_OBJ_NAME+STR_Height]         = sprite_get_height(_SPRITE);

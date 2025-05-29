@@ -1,7 +1,12 @@
 /// LevelUpMenu_Create()
 
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("LevelUpMenu_Create() START");
+}
 
-// g.lu = id;
 
 var _i, _idx;
 
@@ -224,6 +229,15 @@ ds_list_add(dl_xp_next_stat,0,0,0);
 
 srf_FRAME = 0;
 //srf_FRAME = surface_create(CLMS<<3, ROWS<<3);
+
+
+
+
+if (DEV)
+{
+    show_debug_message("LevelUpMenu_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

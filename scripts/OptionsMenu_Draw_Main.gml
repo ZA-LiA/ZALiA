@@ -237,6 +237,7 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         
         
         
+        /*
         // --------------------------------------------------------------------
         case MainOption_PAL_EDITOR:{
         if (_i==MainOption) _pi = PI_MENU1;
@@ -245,6 +246,7 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         _yt = _yt1;
         draw_text_(_xl,_yt, _text, _font, _pi);
         break;}//case MainOption_RANDO_OPTIONS
+        */
     }//switch(_i)
     
     

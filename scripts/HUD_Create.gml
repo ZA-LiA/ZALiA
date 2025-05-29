@@ -1,5 +1,12 @@
 /// HUD_Create()
 
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("HUD_Create() START");
+}
+
 
 var _GROUP_PAD_CLMS =  $01;
 var _GROUP_PAD      = (_GROUP_PAD_CLMS<<3);
@@ -172,6 +179,15 @@ Keys_can_draw = false;
 Keys_text = "*"+string(f.key_count);
 Keys_xl   = 0;
 Keys_yt   = 0;
+
+
+
+
+if (DEV)
+{
+    show_debug_message("HUD_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

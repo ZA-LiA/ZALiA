@@ -33,7 +33,7 @@ if (is_talking)
                 // --------------------------------------------------
                 case NPC_5:{
                 if(!is_undefined(dk_spawn) 
-                &&  quest_is_complete(val(g.dm_spawn[?dk_spawn+STR_Quest+STR_ID])) )
+                &&  quest_is_complete(val(g.dm_spawn[?dk_spawn+STR_Quest+STR_ID], STR_undefined)) )
                 {
                     counter = -1; // Indicates move torwards door to enter house
                 }

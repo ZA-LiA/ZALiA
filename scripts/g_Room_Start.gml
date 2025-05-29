@@ -330,7 +330,7 @@ file_data_quest_num = 1;
 if (_ROOM_A 
 &&  f.quest_num>1 )
 {
-    _datakey = _SceneRando_scene+STR_file_name+STR_Quest+"02";
+    _datakey = _SceneRando_scene+dk_FileName+STR_Quest+"02";
     if(!is_undefined(dm_rm[?_datakey]) 
     || !is_undefined(f.dm_rando[?_datakey]) )
     {
@@ -421,7 +421,7 @@ if (_ROOM_A
     if (rm_is_bottom_page_locked(_SceneRando_scene)) view_y_page_min = view_y_page_max;
     //if (rm_is_bottom_page_locked(scene_data_scene_name)) view_y_page_min = view_y_page_max;
     
-    _datakey = _SceneRando_scene+STR_file_name+STR_Quest+hex_str(file_data_quest_num);
+    _datakey = _SceneRando_scene+dk_FileName+STR_Quest+hex_str(file_data_quest_num);
     //_datakey = scene_data_scene_name+STR_file_name+STR_Quest+hex_str(file_data_quest_num);
     var _FILE_NAME = val(dm_rm[?_datakey]);
         _FILE_NAME = val(f.dm_rando[?_datakey], _FILE_NAME);
@@ -1353,7 +1353,7 @@ if (_ROOM_A)
         {   set_rm_brightness(rm_brightness+1);  }
         
         
-        _val = dm_rm[?rm_name+STR_Dark_Room];
+        _val = dm_rm[?rm_name+dk_DarkRoom];
         //_val = dm_rm[?scene_data_scene_name+STR_Dark_Room];
         if (is_undefined(_val) 
         ||  _val==-1 

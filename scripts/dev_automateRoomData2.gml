@@ -9,26 +9,29 @@ var _datakey,_datakey1,_datakey2;
 var _rm_w,_rm_h;
 var _area, _rm_name;
 var _file, _file_name, _area_file_num_, _file_data, _data;
-var _dm_file=ds_map_create();
+var _dm_file = 0;
+//var _dm_file=ds_map_create();
 
 var _STR1="***********************";
 var _STR2="----------------------------";
 
-sdm("");
+repeat(1) sdm("");
+sdm("with(g)");
+sdm("{");
 
-var _AREA_COUNT=ds_list_size(g.dl_AREA_NAME);
+var          _AREA_COUNT = ds_list_size(g.dl_AREA_NAME);
 for(_i=0; _i<_AREA_COUNT; _i++)
 {
-    _area=g.dl_AREA_NAME[|_i];
-    sdm("// "+_STR1+"  "+_area+"  "+_STR1);
-    sdm("// -------------------------------------------------------------");
-    sdm("");sdm("");
+    _area = g.dl_AREA_NAME[|_i];
+    sdm("    // "+_STR1+"  "+_area+"  "+_STR1);
+    sdm("    // -------------------------------------------------------------");
+    repeat(2) sdm("    ");
     
     for(_j=0; _j<$100; _j++)
     {
         _area_file_num_  = string_repeat("0",3-string_length(string(_j)));
         _area_file_num_ += string(_j);
-        sdm("//  "+_STR2+"  "+_area_file_num_+"  "+_STR2);
+        sdm("    //  "+_STR2+"  "+_area_file_num_+"  "+_STR2);
         
         //_file_name example: "PalcA_003"
         _file_name  = string_letters(_area); // get "PalcA" from "_PalcA_"
@@ -59,19 +62,30 @@ for(_i=0; _i<_AREA_COUNT; _i++)
             _rm_h = _rm_h<<3;
             
             
-            sdm("g.dm_rm[?STR_Tile+STR_File+'"+_file_name+"'+STR_Width ] = $"+hex_str(_rm_w>>8)+"<<8; // ");
-            sdm("g.dm_rm[?STR_Tile+STR_File+'"+_file_name+"'+STR_Height] = $"+hex_str(_rm_h>>8)+"<<8; // ");
+            sdm("    dm_rm[?STR_Tile+STR_File+'"+_file_name+"'+STR_Width ] = $"+hex_str(_rm_w)+";");
+            sdm("    dm_rm[?STR_Tile+STR_File+'"+_file_name+"'+STR_Height] = $"+hex_str(_rm_h)+";");
+            //sdm("g.dm_rm[?STR_Tile+STR_File+'"+_file_name+"'+STR_Width ] = $"+hex_str(_rm_w>>8)+"<<8; // ");
+            //sdm("g.dm_rm[?STR_Tile+STR_File+'"+_file_name+"'+STR_Height] = $"+hex_str(_rm_h>>8)+"<<8; // ");
+            
+            ds_map_destroy(_dm_file); _dm_file=undefined;
         }
         
-        sdm("");
+        repeat(1) sdm("    ");
         //if (_j && !(_j&$F)){sdm("");sdm("");}
     }
     
-    sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");sdm("");
+    if (_i<_AREA_COUNT-1){repeat(8) sdm("    ");}
 }
 
+sdm("}");
 
-ds_map_destroy(_dm_file); _dm_file=undefined;
+
+var _exists=variable_instance_exists(id,"_dm_file");
+if (_exists) _exists = !is_undefined(    _dm_file);
+if (_exists) _exists = ds_exists(        _dm_file,ds_type_map);
+if (_exists)           ds_map_destroy(   _dm_file);
+if (_exists)                             _dm_file=undefined;
+//ds_map_destroy(_dm_file); _dm_file=undefined;
 
 
 

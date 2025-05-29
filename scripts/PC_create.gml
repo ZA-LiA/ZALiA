@@ -21,8 +21,8 @@ with(instance_create(argument1, argument2, argument0))
 
 if (DEV)
 {
-    sdm("PC_create() END. "+string(current_time-_START_TIME));
-    sdm("");
+    show_debug_message("PC_create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
 }
 
 

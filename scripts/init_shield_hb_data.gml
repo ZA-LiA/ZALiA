@@ -10,7 +10,6 @@ var _w,_h, _w2,_h2;
 // 0004 shldXOffset: array E5AA-E5B0: 00 00 00 FC 00 FF 02
 // 0006 shldW:       array E5B1-E5B7: 02 02 10 18 0F 12 14
 
-dg_ShieldHB = ds_grid_create($0B, 5);
 
 // NO HB
 dg_ShieldHB[#$00, 0] =    0; // xoff RGT

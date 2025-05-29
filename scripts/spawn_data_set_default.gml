@@ -8,7 +8,7 @@ var _dk, _rm_name, _spawn_trigger;
 
 for(_i=ds_list_size(g.dl_AREA_NAME)-1; _i>=0; _i--) // Each area
 {
-    for(_j=0; _j<AREA_RM_MAX; _j++) // Each room of the area
+    for(_j=0; _j<$100; _j++) // Each room of the area
     {
         _rm_name = g.dl_AREA_NAME[|_i]+hex_str(_j);
         for(_k=0; _k<2; _k++) // PRoXiMity type spawns, then PRIOrity type spawns

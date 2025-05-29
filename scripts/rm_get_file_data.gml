@@ -9,7 +9,7 @@ if (argument_count>_arg) _QUEST_NUM = clamp(argument[_arg++], 1,2);
 
 
 //  _file_name example: "PalcA_003"
-var _DATAKEY = _RM_NAME+STR_file_name+STR_Quest+hex_str(_QUEST_NUM);
+var _DATAKEY = _RM_NAME+dk_FileName+STR_Quest+hex_str(_QUEST_NUM);
 var _file_name = g.dm_rm[?_DATAKEY];
     _file_name = val(f.dm_rando[?_DATAKEY], _file_name);
 //

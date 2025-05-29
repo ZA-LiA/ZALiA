@@ -1,9 +1,6 @@
 /// dev_draw_invState()
 
 
-if!(g.dev_invState&$FF8) exit; //!!!!!!!!!!!!!!!!!!!!!!!!! if NO timing bit
-
-
 var _xOff = 0;
 var _yOff = $18;
 var _textXOff = 4;

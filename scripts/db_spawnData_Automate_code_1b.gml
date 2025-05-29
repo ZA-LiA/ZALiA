@@ -60,7 +60,7 @@ for (j = 0; j < _go_count; j++) // Each GO of the rm
     _spawn_y    = g.dm_spawn[? _key + "_y" + STR_Default];
     
     _go_id        = g.dm_go_prop[? _oi_name + STR_gob_id];
-    _go_full_name = g.dm_go_prop[? _oi_name + STR_full_name];
+    _go_full_name = g.dm_go_prop[? _oi_name + dk_FullName];
     
     
     _str  = "data_spawn_PRXM(_rm";

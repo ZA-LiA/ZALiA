@@ -12,7 +12,7 @@ var                      _QUEST_NUM = 1;
 if (argument_count>_arg) _QUEST_NUM = clamp(argument[_arg++], 1,2)
 
 // _FILE_NAME example: "PalcA_003"
-g.dm_rm[?_RM_NAME+STR_file_name+STR_Quest+hex_str(_QUEST_NUM)] = _FILE_NAME;
+g.dm_rm[?_RM_NAME+dk_FileName+STR_Quest+hex_str(_QUEST_NUM)] = _FILE_NAME;
 ds_list_add(dl_used_tiled_files,_FILE_NAME);
 
 

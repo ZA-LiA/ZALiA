@@ -20,7 +20,7 @@ if (g.rm_name!=g.GameEnd1B_RM_NAME)
 
 
 // ------------------------------------------------------------------
-SPR_SLEP  = SPR_Zelda_Asleep;
+SPR_SLEP  = spr_Zelda_Asleep_1a;
 SPR_WAKE  = spr_Zelda_Awake_1a;
 SPR_TALK  = spr_Zelda_Talk_1a;
 SPR_POSE1 = spr_Zelda_Pose_3a;

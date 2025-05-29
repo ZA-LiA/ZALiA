@@ -13,7 +13,7 @@ if (BASE_GAME_RESOLUTION_W*_scale > display_get_width() -g.WINDOW_PAD
 
 if (window_get_scale()!=_scale) // if requested scale != current scale
 {
-    g.WindowScale_scale=_scale;
+    g.WindowScale_scale = _scale;
     
      // !! DOES NOT TAKE EFFECT UNTIL NEXT FRAME !!
     window_set_size(BASE_GAME_RESOLUTION_W*_scale, BASE_GAME_RESOLUTION_H*_scale);
