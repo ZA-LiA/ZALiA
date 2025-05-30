@@ -40,8 +40,8 @@ ds_map_copy(  _dm_PBags_DEFAULT_COPY,f.dm_PBags_DEFAULT);
 ds_map_clear(f.dm_PBags_DEFAULT);
 
 var           _dm_Jars_DEFAULT_COPY=ds_map_create();
-ds_map_copy(  _dm_Jars_DEFAULT_COPY,f.dm_Jars_DEFAULT);
-ds_map_clear(f.dm_Jars_DEFAULT);
+ds_map_copy(  _dm_Jars_DEFAULT_COPY,f.dm_jars_DEFAULT);
+ds_map_clear(f.dm_jars_DEFAULT);
 
 cont_piece_count_hp = cont_piece_cnt_hp();
 cont_piece_count_mp = cont_piece_cnt_mp();
@@ -259,7 +259,7 @@ ds_map_copy(g.dm_spawn,_dm_spawn_COPY);
 ds_map_copy(f.dm_keys_DEFAULT,_dm_keys_DEFAULT_COPY);
 ds_map_copy(f.dm_1up_doll_DEFAULT,_dm_1up_doll_DEFAULT_COPY);
 ds_map_copy(f.dm_PBags_DEFAULT,_dm_PBags_DEFAULT_COPY);
-ds_map_copy(f.dm_Jars_DEFAULT,_dm_Jars_DEFAULT_COPY);
+ds_map_copy(f.dm_jars_DEFAULT,_dm_Jars_DEFAULT_COPY);
 
 
 

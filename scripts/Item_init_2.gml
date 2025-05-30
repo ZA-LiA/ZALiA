@@ -80,11 +80,12 @@ if (ITEM_TYPE==STR_RFAIRY)
 
 
 // So super cucco can grab the falling key
-if (ITEM_TYPE==STR_KEY 
+if (g.CuccoSpell2_Active 
+&&  ITEM_TYPE==STR_KEY 
 && !is_undefined(dk_spawn) 
-&& !is_undefined(g.FallingKey1_spawn_datakey) 
-&&  dk_spawn==g.FallingKey1_spawn_datakey 
-&&  g.CuccoSpell2_Active )
+&&  dk_spawn==val(g.dm_spawn[?"FallingKey1"+dk_SpawnDatakey]) )
+//&& !is_undefined(g.FallingKey1_spawn_datakey) 
+//&&  dk_spawn==g.FallingKey1_spawn_datakey )
 {
     set_xy(id, x,y-($05<<3));
 }

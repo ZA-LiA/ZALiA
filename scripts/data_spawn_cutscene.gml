@@ -20,9 +20,8 @@ if (_ARGS>_arg) _PAL_IDX = argument[_arg++];
 _count = val(g.dm_spawn[?rm_name+STR_CutScene+STR_Count]) + 1;
              g.dm_spawn[?rm_name+STR_CutScene+STR_Count] = _count;
 //
-var _SPAWN_DATAKEY = rm_name+STR_CutScene+hex_str(_count);
 
-
+var         _SPAWN_DATAKEY = rm_name+STR_CutScene+hex_str(_count);
 g.dm_spawn[?_SPAWN_DATAKEY+STR_Object]          = _OBJ;
 g.dm_spawn[?_SPAWN_DATAKEY+STR_Version]         = _VER;
 g.dm_spawn[?_SPAWN_DATAKEY+"_x"]                = _X;
@@ -30,8 +29,8 @@ g.dm_spawn[?_SPAWN_DATAKEY+"_y"]                = _Y;
 g.dm_spawn[?_SPAWN_DATAKEY+STR_Palette+STR_Idx] = _PAL_IDX;
 
 
-var _DK = _SPAWN_DATAKEY+STR_Data;
-_count=1;
+var _DK =   _SPAWN_DATAKEY+STR_Data;
+_count = 1;
 for(_i=_arg; _i<_ARGS; _i++) g.dm_spawn[?_DK+hex_str(_count++)] = argument[_arg++];
 
 

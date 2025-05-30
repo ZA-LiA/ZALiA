@@ -17,6 +17,9 @@ var _str, _data;
 var _dk;
 
 
+g.PAUSE_MENU = id;
+
+
 mapDelay1 = 1; // dev/testing
 mapDelay1_state_Backup = 0;
 mapDelay1_state_dir_Backup = 0;

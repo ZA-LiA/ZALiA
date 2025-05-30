@@ -1,7 +1,5 @@
 /// Dev_StabToCheat_Create()
 
-show_debug_message("Dev_StabToCheat_Create() - START");
-
 
 var _i,_j;
 
@@ -166,9 +164,6 @@ Dev_StabToCheat_update_1a();
 0000 0000 >>2 = 00
 0000 0000 >>2 = 00
 */
-
-
-show_debug_message("Dev_StabToCheat_Create() - END");
 
 
 

@@ -124,7 +124,8 @@ switch(sub_state)
         }
         
         
-        f.dm_quests[?g.TriforceBarrier1_RM_NAME+STR_Barrier+STR_State] = 1; // Barrier has been removed
+        f.dm_quests[?Barrier1_SCENE_NAME+STR_Barrier+STR_State] = 1; // Barrier has been removed
+        //f.dm_quests[?g.TriforceBarrier1_RM_NAME+STR_Barrier+STR_State] = 1; // Barrier has been removed
         
         g.pc_lock = 0;
         PC_set_behavior(g.pc.behavior_IDLE); // 

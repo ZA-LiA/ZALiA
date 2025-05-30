@@ -69,7 +69,8 @@ if (g.town_num
 
 
 
-if (dialogue_datakey==g.DialogueDK_MIDO_CHURCH_DOOR 
+if (dialogue_datakey==val(g.dm_rm[?"MidoChurchDoor"+dk_DialogueDatakey]) 
+//if (dialogue_datakey==g.DialogueDK_MIDO_CHURCH_DOOR 
 &&  val(f.dm_quests[?dk_MidoChurch+STR_Open]) )
 {
     state = 0;

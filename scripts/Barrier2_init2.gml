@@ -21,6 +21,11 @@ sub_state           = sub_state_IDLE1;
 
 
 
+
+Barrier1_SCENE_NAME = val(g.dm_rm[?"TriforceBarrier1"+dk_SceneName], STR_undefined);
+
+
+
 Blocks_SPR      = spr_Block_02a;
 
 Blocks_CLMS     = $07;
@@ -64,8 +69,8 @@ TriforceSymbol_YC  -= $01;
 dg_Blocks = ds_grid_create(Blocks_COUNT,6);
 
 
-    _val = val(f.dm_quests[?g.TriforceBarrier1_RM_NAME+STR_Barrier+STR_State]);
-if (_val)
+    //_val = val(f.dm_quests[?g.TriforceBarrier1_RM_NAME+STR_Barrier+STR_State]);
+if (val(f.dm_quests[?Barrier1_SCENE_NAME+STR_Barrier+STR_State]))
 {
     sub_state = sub_state_IDLE2;
 }

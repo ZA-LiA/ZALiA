@@ -97,7 +97,8 @@ if (g.spells_active &   SPL_SPEL)
     var _DIFFICULTY = val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Difficulty],1);
     
     
-    if (g.rm_name == g.MKH_RM_NAME 
+    if (g.rm_name==val(g.dm_rm[?dk_MagicalKeyHouse+dk_SceneName]) 
+    //if (g.rm_name==g.MKH_RM_NAME 
     && !g.cutscene_house_built )
     {   // Build MagicalKey house
         g.pc_lock = PC_LOCK_ALL; // Lock all

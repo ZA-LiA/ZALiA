@@ -194,7 +194,18 @@ Cucco_skills        = 0;
 
 
 
-// dm_boss         = ds_map_create(); // boss data
+dm_jars_DEFAULT = ds_map_create(); // 
+dm_jars         = ds_map_create(); // Red bottles restock after leaving area
+
+
+dm_1up_doll_DEFAULT = ds_map_create(); // 
+dm_1up_doll         = ds_map_create(); // Which Link dolls have been taken
+
+
+dm_PBags_DEFAULT = ds_map_create(); // 
+dm_PBags         = ds_map_create(); // 
+//dm_takenPBags   = ds_map_create(); // Which pBags have been taken
+
 
 // datakey structure for f.dm_keys depends on the spawn source of the key.
 // For a key dropped by a challenge/enemy, the key's datakey is based off 
@@ -204,19 +215,11 @@ dm_keys         = ds_map_create(); // Which keys have been taken (defined) & if 
 key_count       = 0; // How many keys are in Link's possesion
 dm_openedLocks  = ds_map_create(); // Which locks have been opened
 
-dm_Jars_DEFAULT = ds_map_create(); // 
-dm_jars         = ds_map_create(); // Red bottles restock after leaving area
-
-dm_1up_doll_DEFAULT = ds_map_create(); // 
-dm_1up_doll     = ds_map_create(); // Which Link dolls have been taken
-
-dm_PBags_DEFAULT = ds_map_create(); // 
-dm_PBags        = ds_map_create(); // 
-//dm_takenPBags   = ds_map_create(); // Which pBags have been taken
 
 // kakusu: hide, conceal, be hidden
 dm_kakusu       = ds_map_create(); // Which kakusu have been killed
 kakusu_count    = 0; // How many kakusu have been killed
+
 
 dm_explored     = ds_map_create();
 
@@ -226,6 +229,9 @@ dm_challenges   = ds_map_create();
 
 
 dm_rando        = ds_map_create(); // rando data for the current loaded save file
+
+
+
 
 init_save_data1();
 

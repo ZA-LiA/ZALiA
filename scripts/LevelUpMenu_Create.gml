@@ -29,6 +29,9 @@ var _TEXT_WILL      = "WILL";
 var _TEXT_GO_UP     = "GO UP";
 
 
+g.LEVEL_MENU = id;
+
+
                _idx = 0;
 IDX_TEXT_CLM = _idx++;
 IDX_TEXT_ROW = _idx++;

@@ -574,7 +574,8 @@ var _C4 =                       _ROOM_C && (_dungeon_num_PREV || _town_num_PREV)
 if (_C1 || _C2 || _C3 || _C4)
 {
     // --------------------------------------------------------------------
-    ds_map_clear(f.dm_jars);
+    ds_map_copy(f.dm_jars, f.dm_jars_DEFAULT);
+    //ds_map_clear(f.dm_jars);
     spawn_data_set_default();
     
     // --------------------------------------------------------------------

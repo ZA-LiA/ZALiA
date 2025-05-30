@@ -26,11 +26,16 @@ with(f)
     dm_challenges[?object_get_name(Challenge_SwitchB)           +"01"+STR_Complete] = 0;
     
     
-    if(!is_undefined(g.TriforceBarrier1_RM_NAME))
-    {   dm_quests[?  g.TriforceBarrier1_RM_NAME+STR_Barrier+STR_State] = 0;  } // Barrier reset
+    if(!is_undefined(g.dm_rm[?"TriforceBarrier1"+dk_SceneName]))
+    {   dm_quests[?  g.dm_rm[?"TriforceBarrier1"+dk_SceneName]+STR_Barrier+STR_State] = 0;  } // Barrier reset
+    //if(!is_undefined(g.TriforceBarrier1_RM_NAME))
+    //{   dm_quests[?  g.TriforceBarrier1_RM_NAME+STR_Barrier+STR_State] = 0;  } // Barrier reset
     
-    if(!is_undefined(g.CrystalBarrier1_RM_NAME))
-    {   dm_quests[?  g.CrystalBarrier1_RM_NAME +STR_Barrier+STR_State] = 0;  } // Barrier reset
+    
+    if(!is_undefined(g.dm_rm[?"CrystalBarrier1"+dk_SceneName]))
+    {   dm_quests[?  g.dm_rm[?"CrystalBarrier1"+dk_SceneName] +STR_Barrier+STR_State] = 0;  } // Barrier reset
+    //if(!is_undefined(g.CrystalBarrier1_RM_NAME))
+    //{   dm_quests[?  g.CrystalBarrier1_RM_NAME +STR_Barrier+STR_State] = 0;  } // Barrier reset
     
     
     

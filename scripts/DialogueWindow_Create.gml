@@ -10,6 +10,10 @@ if (DEV)
 
 var _i, _a, _val;
 
+
+g.DIALOGUE_WINDOW = id;
+
+
                   _a = 1;
 // SUB_STATE_ = _a++; // 
 SUB_STATE_OPEN0 = _a++; // OPENing delay 1. Save game(if applies)

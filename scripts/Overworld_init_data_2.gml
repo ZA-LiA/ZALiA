@@ -30,14 +30,6 @@ var _dl1 = ds_list_create();
 
 
 
-OW_CLMS = $0100;
-OW_ROWS = $0100;
-OW_W = OW_CLMS<<SHIFT;
-OW_H = OW_ROWS<<SHIFT;
-
-
-
-
 
 
 
@@ -2703,12 +2695,6 @@ _owrc = $D6C2;
 g.dm_rm[?'_EastA_B0'+STR_OWRC] = _owrc;
 g.dm_rm[?'_EastA_B1'+STR_OWRC] = _owrc;
 
-_owrc = $897E;
-g.dm_rm[?'_EastA_C0'+STR_OWRC] = _owrc;
-g.dm_rm[?'_EastA_C1'+STR_OWRC] = _owrc;
-g.dm_rm[?'_EastA_C2'+STR_OWRC] = _owrc;
-g.dm_rm[?'_EastA_C3'+STR_OWRC] = _owrc;
-
 _owrc = $AE34;
 g.dm_rm[?'_DthMt_10'+STR_OWRC] = _owrc;
 g.dm_rm[?'_DthMt_11'+STR_OWRC] = _owrc;
@@ -2746,6 +2732,13 @@ g.dm_rm[?'_PalcB_16'+STR_OWRC] = _owrc;
 
 _owrc = $7518;
 g.dm_rm[?'_WestA_54'+STR_OWRC] = _owrc;
+
+_owrc = $897E;
+g.dm_rm[?'_EastA_C0'+STR_OWRC] = _owrc;
+g.dm_rm[?'_EastA_C1'+STR_OWRC] = _owrc;
+g.dm_rm[?'_EastA_C2'+STR_OWRC] = _owrc;
+g.dm_rm[?'_EastA_C3'+STR_OWRC] = _owrc;
+g.dm_rm[?'_EastA_C6'+STR_OWRC] = _owrc;
 
 
 
@@ -2809,6 +2802,8 @@ if(!is_undefined(_data)) ds_grid_read(dg_AreaNames, _data);
 
 ds_map_destroy(dm_file_data); dm_file_data=undefined;
 ds_list_destroy(_dl1); _dl1=undefined;
+
+
 
 
 

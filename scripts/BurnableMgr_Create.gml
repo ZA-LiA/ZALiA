@@ -3,6 +3,10 @@
 
 init_vars_go_1a(); // ver, state, xl,xc,xr, yt,yc,yb, ww,hh, 
 
+
+g.burnable_mgr = id;
+
+
 dg_RmTile_Burnable     = ds_grid_create(0,0); // 8x8 room grid. Values represent burnables
 dg_RmTile_Burnable_def = ds_grid_create(0,0); // 8x8 room grid. Values represent burnables
 dg_Burnable            = ds_grid_create(0,9); // 

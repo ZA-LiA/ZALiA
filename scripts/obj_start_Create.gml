@@ -3,10 +3,10 @@
 
 if (DEV)
 {
-    repeat(1) show_debug_message("");
     var _START_TIME = current_time;
     repeat(1) show_debug_message("");
     show_debug_message("obj_start_Create() START");
+    repeat(1) show_debug_message("");
 }
 
 
@@ -50,25 +50,25 @@ else                   random_set_seed(RUN_RANDOMIZATION_SEED);
 // --------------------------------------------------------------------
 instance_create(0,0,Input);
 instance_create(0,0,g);   // g: Game
-instance_create(0,0,p);   // p: Palette
+instance_create(0,0,p);   // p: Palette/Color
 instance_create(0,0,Audio);
-//                                      // 
-g.PAUSE_MENU        = instance_create(0,0,PauseMenu);
-g.LEVEL_MENU        = instance_create(0,0,LevelUpMenu);
-g.DIALOGUE_WINDOW   = instance_create(0,0,DialogueWindow);
-global.OPTIONS_MENU = instance_create(0,0,OptionsMenu);
-g.QUIT_APP_MENU     = instance_create(0,0,QuitAppMenu);
-//                                      // 
+
+instance_create(0,0,PauseMenu);
+instance_create(0,0,LevelUpMenu);
+instance_create(0,0,DialogueWindow);
+instance_create(0,0,OptionsMenu);
+instance_create(0,0,QuitAppMenu);
+
 instance_create(0,0,Surface);
 instance_create(0,0,f);   // f: File
-//                                      // 
-global.OVERWORLD = instance_create(0,0,Overworld);
-//                                      // 
+
+instance_create(0,0,Overworld);
+
 instance_create(0,0,RoomData);
 instance_create(0,0,GameObjectData);
-g.go_mgr       = instance_create(0,0,GameObjectMgr);
-g.burnable_mgr = instance_create(0,0,BurnableMgr);
-//                                      // 
+instance_create(0,0,GameObjectMgr);
+instance_create(0,0,BurnableMgr);
+
 PC_create(Lonk,0,0);
 
 

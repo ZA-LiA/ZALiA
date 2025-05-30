@@ -148,10 +148,10 @@ if (_IS_ITEM)
         g.dm_spawn[?_datakey+STR_Item+STR_ID]       = _ITEM_ID;
         g.dm_spawn[?_RM_NAME+STR_Key +STR_ID]       = _ITEM_ID;
         
-        f.dm_keys_DEFAULT[?_ITEM_ID+STR_Acquired]          = 0;
-        f.dm_keys_DEFAULT[?_SPAWN_DATAKEY+STR_Num]  = _count;
-        f.dm_keys_DEFAULT[?_ITEM_ID+STR_Spawn+STR_Datakey] = _SPAWN_DATAKEY;
-        f.dm_keys_DEFAULT[?_ITEM_ID+STR_Dungeon+STR_Num]   = _DUNGEON_NUM;
+        f.dm_keys[?_ITEM_ID+STR_Acquired]          = 0;
+        f.dm_keys[?_SPAWN_DATAKEY+STR_Num]         = _count;
+        f.dm_keys[?_ITEM_ID+STR_Spawn+STR_Datakey] = _SPAWN_DATAKEY;
+        f.dm_keys[?_ITEM_ID+STR_Dungeon+STR_Num]   = _DUNGEON_NUM;
         break;}
         
         
@@ -164,9 +164,9 @@ if (_IS_ITEM)
         
         _ITEM_ID += hex_str(_num);
         
-        f.dm_1up_doll_DEFAULT[?_ITEM_ID+STR_Acquired]         = 0;
-        f.dm_1up_doll_DEFAULT[?_SPAWN_DATAKEY+STR_Num]        = g.LifeDoll_MAX;
-        f.dm_1up_doll_DEFAULT[?hex_str(_num)+STR_Item+STR_ID] = _ITEM_ID;
+        f.dm_1up_doll[?_ITEM_ID+STR_Acquired]         = 0;
+        f.dm_1up_doll[?_SPAWN_DATAKEY+STR_Num]        = g.LifeDoll_MAX;
+        f.dm_1up_doll[?hex_str(_num)+STR_Item+STR_ID] = _ITEM_ID;
         break;}
         
         
@@ -174,17 +174,17 @@ if (_IS_ITEM)
         
         // -------------------------------------------------------
         case STR_PBAG:{
-        f.dm_PBags_DEFAULT[?STR_Count] = val(f.dm_PBags_DEFAULT[?STR_Count]) + 1;
-        _num =                           val(f.dm_PBags_DEFAULT[?STR_Count]);
+        f.dm_PBags[?STR_Count] = val(f.dm_PBags[?STR_Count]) + 1;
+        _num =                   val(f.dm_PBags[?STR_Count]);
         
         _ITEM_ID += hex_str(_num);
         
-        f.dm_PBags_DEFAULT[?_ITEM_ID+STR_Acquired]               = 0;
-        f.dm_PBags_DEFAULT[?hex_str(_num)+STR_Spawn+STR_Datakey] = _SPAWN_DATAKEY;
-        f.dm_PBags_DEFAULT[?hex_str(_num)+STR_Rm+STR_Name]       = _RM_NAME;
-        f.dm_PBags_DEFAULT[?hex_str(_num)+STR_Version]           = _VERSION;
-        f.dm_PBags_DEFAULT[?hex_str(_num)+"_x"]                  = _XL;
-        f.dm_PBags_DEFAULT[?hex_str(_num)+"_y"]                  = _YT;
+        f.dm_PBags[?_ITEM_ID+STR_Acquired]               = 0;
+        f.dm_PBags[?hex_str(_num)+STR_Spawn+STR_Datakey] = _SPAWN_DATAKEY;
+        f.dm_PBags[?hex_str(_num)+STR_Rm+STR_Name]       = _RM_NAME;
+        f.dm_PBags[?hex_str(_num)+STR_Version]           = _VERSION;
+        f.dm_PBags[?hex_str(_num)+"_x"]                  = _XL;
+        f.dm_PBags[?hex_str(_num)+"_y"]                  = _YT;
         break;}
         
         
@@ -192,17 +192,17 @@ if (_IS_ITEM)
         
         // -------------------------------------------------------
         case STR_JAR:{
-        f.dm_Jars_DEFAULT[?STR_Count] = val(f.dm_Jars_DEFAULT[?STR_Count]) + 1;
-        _num =                          val(f.dm_Jars_DEFAULT[?STR_Count]);
+        f.dm_jars[?STR_Count] = val(f.dm_jars[?STR_Count]) + 1;
+        _num =                  val(f.dm_jars[?STR_Count]);
         
         _ITEM_ID += hex_str(_num);
         
-        f.dm_Jars_DEFAULT[?_ITEM_ID+STR_Acquired]               = 0;
-        f.dm_Jars_DEFAULT[?hex_str(_num)+STR_Spawn+STR_Datakey] = _SPAWN_DATAKEY;
-        f.dm_Jars_DEFAULT[?hex_str(_num)+STR_Rm+STR_Name]       = _RM_NAME;
-        f.dm_Jars_DEFAULT[?hex_str(_num)+STR_Version]           = _VERSION;
-        f.dm_Jars_DEFAULT[?hex_str(_num)+"_x"]                  = _XL;
-        f.dm_Jars_DEFAULT[?hex_str(_num)+"_y"]                  = _YT;
+        f.dm_jars[?_ITEM_ID+STR_Acquired]               = 0;
+        f.dm_jars[?hex_str(_num)+STR_Spawn+STR_Datakey] = _SPAWN_DATAKEY;
+        f.dm_jars[?hex_str(_num)+STR_Rm+STR_Name]       = _RM_NAME;
+        f.dm_jars[?hex_str(_num)+STR_Version]           = _VERSION;
+        f.dm_jars[?hex_str(_num)+"_x"]                  = _XL;
+        f.dm_jars[?hex_str(_num)+"_y"]                  = _YT;
         break;}
     }//switch(_ITEM_TYPE)
     
@@ -537,10 +537,11 @@ for(_i=_arg; _i<argument_count; _i++)
             g.dm_RandoHints[?hex_str(_num)+STR_Area]=_val2;
             g.dm_RandoHints[?hex_str(_num)+STR_Rm+STR_Name]=_RM_NAME;
             
-            if(0){_val2+=string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_val2));
+            /*
+            _val2+=string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_val2));
             _val3=val(g.DIALOGUE_WINDOW.dm_dialogue[?_val1+"A"], _val1+"A");
             sdm("Hint_"+hex_str(_num)+". "+"Area: "+_val2+", Rm: "+_RM_NAME+".  '"+_val3+"'");
-            }
+            */
         }
         continue;//_i
     }

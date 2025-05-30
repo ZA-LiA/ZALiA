@@ -16,6 +16,9 @@ var _text, _font, _len, _size;
 var _theme;
 
 
+global.OPTIONS_MENU = id;
+
+
 dm_options = ds_map_create();
 
 
@@ -143,7 +146,7 @@ menu_state_MAIN          = _a++;
 menu_state_INPUT_CONFIG  = _a++;
 menu_state_DEV_TOOLS     = _a++;
 menu_state_AUDIO_CUSTOM  = _a++;
-menu_state_RANDO = _a++;
+menu_state_RANDO         = _a++;
 menu_state_OTHER         = _a++;
 menu_state               = _first;
 
@@ -313,49 +316,46 @@ _size = sprite_get_width(_font);
 dg_InputConfigOptions = ds_grid_create(InputConfigOption_COUNT,8);
 //                                                                          //
 //ds_grid_resize(dg_InputConfigOptions, ds_grid_width(dg_InputConfigOptions)+1, ds_grid_height(dg_InputConfigOptions));
-_a=0;                  _i=InputConfigOption_RIGHT;
+                       _i=InputConfigOption_RIGHT;
 dg_InputConfigOptions[#_i,0] = "RIGHT";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=2;                 _i=InputConfigOption_LEFT;
+                       _i=InputConfigOption_LEFT;
 dg_InputConfigOptions[#_i,0] = "LEFT";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=2;                 _i=InputConfigOption_DOWN;
+                       _i=InputConfigOption_DOWN;
 dg_InputConfigOptions[#_i,0] = "DOWN";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=2;                 _i=InputConfigOption_UP;
+                       _i=InputConfigOption_UP;
 dg_InputConfigOptions[#_i,0] = "UP";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=2;                 _i=InputConfigOption_MAGIC;
+                       _i=InputConfigOption_MAGIC;
 dg_InputConfigOptions[#_i,0] = "MAGIC";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=2;                 _i=InputConfigOption_PAUSE;
+                       _i=InputConfigOption_PAUSE;
 dg_InputConfigOptions[#_i,0] = "PAUSE";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=2;                 _i=InputConfigOption_ATTACK;
+                       _i=InputConfigOption_ATTACK;
 dg_InputConfigOptions[#_i,0] = "ATTACK";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=2;                 _i=InputConfigOption_JUMP;
+                       _i=InputConfigOption_JUMP;
 dg_InputConfigOptions[#_i,0] = "JUMP";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=3;                 _i=InputConfigOption_DEFAULT;
+                       _i=InputConfigOption_DEFAULT;
 dg_InputConfigOptions[#_i,0] = "SET DEFAULTS";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-_a+=2;                 _i=InputConfigOption_BACK;
+                       _i=InputConfigOption_BACK;
 dg_InputConfigOptions[#_i,0] = "BACK";
 dg_InputConfigOptions[#_i,1] = _font;
 //                                                                          //
-
-
-InputConfigOption_COUNT = ds_grid_width(dg_InputConfigOptions);
 
 
 
@@ -990,15 +990,7 @@ for(_i=val(dm_options[?_dk0+STR_Count])-1; _i>=0; _i--)
     _option_text_len_max   = max(_option_text_len_max, _len);
     _option_text_width_max = max(_option_text_width_max, sprite_get_width(_font)*_len);
 }
-/*
-for(_i=ds_grid_width(dg_RandoOptions)-1; _i>=0; _i--)
-{
-    _len  = string_length(dg_RandoOptions[#_i,0]);
-    _font = dg_RandoOptions[#_i,1];
-    _option_text_len_max   = max(_option_text_len_max, _len);
-    _option_text_width_max = max(_option_text_width_max, sprite_get_width(_font)*_len);
-}
-*/
+
 _dk0 = "Other";
 for(_i=val(dm_options[?_dk0+STR_Count])-1; _i>=0; _i--)
 {

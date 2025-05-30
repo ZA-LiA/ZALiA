@@ -165,8 +165,11 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '02'+EXL0_); // RGT 0, 
 //
 
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RAUR1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RAUR1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+// '01': moving right, '02': moving left, '04': moving down, '08': moving up
+//dm_overworld[?hex_str(g.OWRC_TOWN_RAUR1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//dm_overworld[?hex_str(g.OWRC_TOWN_RAUR1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RAUR1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RAUR1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -288,8 +291,11 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '18'+EXL0_); // RGT 0, 
 //
 
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RUTO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RUTO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+// '01': moving right, '02': moving left, '04': moving down, '08': moving up
+//dm_overworld[?hex_str(g.OWRC_TOWN_RUTO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//dm_overworld[?hex_str(g.OWRC_TOWN_RUTO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RUTO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RUTO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -510,10 +516,14 @@ clm4=$62;
 //
 _exit=data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0);          // LFT 0, to Overworld 
 g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_MIDO1)+'01'+STR_Exit] = _exit; // EXL0, LFT 0
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_MIDO1)+'04'+STR_Exit] = _exit; // EXL0, LFT 0
-      data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RGT 0, 
-//
+
+// '01': moving right, '02': moving left, '04': moving down, '08': moving up
+//dm_overworld[?hex_str(g.OWRC_TOWN_MIDO1)+'01'+STR_Exit] = _exit; // EXL0, LFT 0
+//dm_overworld[?hex_str(g.OWRC_TOWN_MIDO1)+'04'+STR_Exit] = _exit; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_MIDO1)+'01'+STR_Exit] = _exit; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_MIDO1)+'04'+STR_Exit] = _exit; // EXL0, LFT 0
+
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RGT 0, 
 
 
 
@@ -541,8 +551,10 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($40<<3)
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($77<<3)+0,y5);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3); // NPC Spawner
 
-g.DialogueDK_MIDO_CHURCH_DOOR = DK0008;
-data_spawn(rm+STR_PRIO,NPC_0,$1,  $3C<<3,y3,  STR_Dialogue+g.DialogueDK_MIDO_CHURCH_DOOR); // Church door dlg
+g.dm_rm[?"MidoChurchDoor"+dk_DialogueDatakey] = DK0008;
+data_spawn(rm+STR_PRIO,NPC_0,$1,  $3C<<3,y3,  STR_Dialogue+g.dm_rm[?"MidoChurchDoor"+dk_DialogueDatakey]); // Church door dlg
+//g.DialogueDK_MIDO_CHURCH_DOOR = DK0008;
+//data_spawn(rm+STR_PRIO,NPC_0,$1,  $3C<<3,y3,  STR_Dialogue+g.DialogueDK_MIDO_CHURCH_DOOR); // Church door dlg
 data_spawn(rm+STR_PRXM,NPC_3,$1,  $52<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0301,STR_Sprite+STR_Joey); // Special Walker, Child, Purple
 
 
@@ -649,8 +661,11 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0D'+EXL0_); // RGT 0, 
 //
 
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_NABO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_NABO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+// '01': moving right, '02': moving left, '04': moving down, '08': moving up
+//dm_overworld[?hex_str(g.OWRC_TOWN_NABO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//dm_overworld[?hex_str(g.OWRC_TOWN_NABO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_NABO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_NABO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -773,8 +788,11 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '10'+EXL0_); // RGT 0, 
 //
 
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_DARU1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_DARU1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+// '01': moving right, '02': moving left, '04': moving down, '08': moving up
+//dm_overworld[?hex_str(g.OWRC_TOWN_DARU1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//dm_overworld[?hex_str(g.OWRC_TOWN_DARU1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_DARU1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_DARU1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -981,8 +999,10 @@ data_spawn_cutscene(Cutscene_MagicalKeyHouse,1,  clm3<<3,(row0+$1B)<<3,  global.
 
 
 _exit=data_exit(EXM0,etB0,0,  clm4,row3,  CLMS2,ROWS2,  clm4+1,row3,  '6A'+EXL0_); // MID 0, 
-g.MKH_RM_NAME   = rm;
-g.MKH_EXIT_NAME = _exit;
+g.dm_rm[?dk_MagicalKeyHouse+dk_SceneName] = rm;
+g.dm_rm[?dk_MagicalKeyHouse+dk_ExitName]  = _exit;
+//g.MKH_RM_NAME   = rm;
+//g.MKH_EXIT_NAME = _exit;
       data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '71'+EXR0_); // LFT 0, 
 //
 
@@ -1003,7 +1023,9 @@ _town_name1 = STR_Old_Kasuto;
 rm_num  = $15;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR5_, STR_Tile+area_TA+'019', STR_ow_axis+hex_str(ow_axis), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_KASUTO);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
-p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET5;
+_val = p.PAL_MOB_SET5;
+dm_palette[?        rm+dk_MOB] = _val;
+p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
 row5=row0+$1A; y5=row5<<3;
@@ -1053,9 +1075,11 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
 
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '16'+EXL0_);   // RGT 0, 
 //
-
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_OLDK1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_OLDK1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+// '01': moving right, '02': moving left, '04': moving down, '08': moving up
+//dm_overworld[?hex_str(g.OWRC_TOWN_OLDK1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//dm_overworld[?hex_str(g.OWRC_TOWN_OLDK1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_OLDK1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
+//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_OLDK1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -1071,7 +1095,9 @@ _town_name1 = STR_Old_Kasuto;
 rm_num  = $16;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR5_, STR_Tile+area_TA+'031', STR_ow_axis+hex_str(ow_axis), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_KASUTO);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
-p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET5;
+_val = p.PAL_MOB_SET5;
+dm_palette[?        rm+dk_MOB] = _val;
+p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
 row3=row0+$17; y3=row3<<3;
@@ -1179,7 +1205,9 @@ _town_name1 = STR_Old_Kasuto;
 rm_num  = $17;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR5_, STR_Tile+area_TA+'021', STR_ow_axis+hex_str(ow_axis), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_KASUTO);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
-p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET5;
+_val = p.PAL_MOB_SET5;
+dm_palette[?        rm+dk_MOB] = _val;
+p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
 row5=row0+$1A; y5=row5<<3;
@@ -1276,7 +1304,9 @@ _town_name1 = STR_Nabooru;
 rm_num  = $19;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR2_, STR_Tile+area_TA+'025', STR_ow_axis+hex_str(1), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_NABOORU);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
-p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET1;
+_val = p.PAL_MOB_SET1;
+dm_palette[?        rm+dk_MOB] = _val;
+p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
 row5=row0+$1A; y5=row5<<3;
@@ -1351,11 +1381,10 @@ g.dm_rm[?_exit+STR_goto_reen] = Area_OvrwA+hex_str(g.OWRC_TOWN_NEWK1);
 
 
 //   --------------------------  1B  --------------------------- 
+/*
 //                  Old Kasuto Midtown 2
 rm_num  = $1B;
-/*
 set_rm_data(area+hex_str(rm_num), STR_Old_Kasuto, STR_Color+COLOR5_, STR_Tile+area_TA+'028', STR_ow_axis+hex_str(0), STR_Town+STR_Old_Kasuto, MapAreaName_DATAKEY+MapAreaName_KASUTO);
-
 
                                 _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init); // 
@@ -1406,224 +1435,152 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '17'+EXL0_); // RG
 
 //   --------------------------  1C  --------------------------- 
 //    
-rm_num  = $1C; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  1D  --------------------------- 
 //    
-rm_num  = $1D; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  1E  --------------------------- 
 //    
-rm_num  = $1E; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  1F  --------------------------- 
 //    
-rm_num  = $1F; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  20  --------------------------- 
 //    
-rm_num  = $20; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  21  --------------------------- 
 //    
-rm_num  = $21; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  22  --------------------------- 
 //    
-rm_num  = $22; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  23  --------------------------- 
 //    
-rm_num  = $23; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  24  --------------------------- 
 //    
-rm_num  = $24; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  25  --------------------------- 
 //    
-rm_num  = $25; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  26  --------------------------- 
 //    
-rm_num  = $26; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  27  --------------------------- 
 //    
-rm_num  = $27; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  28  --------------------------- 
 //    
-rm_num  = $28; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  29  --------------------------- 
 //    
-rm_num  = $29; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  2A  --------------------------- 
 //    
-rm_num  = $2A; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  2B  --------------------------- 
 //    
-rm_num  = $2B; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  2C  --------------------------- 
 //    
-rm_num  = $2C; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  2D  --------------------------- 
 //    
-rm_num  = $2D; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  2E  --------------------------- 
 //    
-rm_num  = $2E; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  2F  --------------------------- 
 //    
-rm_num  = $2F; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  30  --------------------------- 
 //    
-rm_num  = $30; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  31  --------------------------- 
 //    
-rm_num  = $31; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  32  --------------------------- 
 //    
-rm_num  = $32; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  33  --------------------------- 
 //    
-rm_num  = $33; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  34  --------------------------- 
 //    
-rm_num  = $34; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  35  --------------------------- 
 //    
-rm_num  = $35; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  36  --------------------------- 
 //    
-rm_num  = $36; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  37  --------------------------- 
 //    
-rm_num  = $37; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  38  --------------------------- 
 //    
-rm_num  = $38; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  39  --------------------------- 
 //    
-rm_num  = $39; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  3A  --------------------------- 
 //    
-rm_num  = $3A; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  3B  --------------------------- 
 //    
-rm_num  = $3B; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  3C  --------------------------- 
 //    
-rm_num  = $3C; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  3D  --------------------------- 
 //    
-rm_num  = $3D; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  3E  --------------------------- 
 //    
-rm_num  = $3E; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  3F  --------------------------- 
 //    
-rm_num  = $3F; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  40  --------------------------- 
+/*
 //                  Rauru West, House A, Room 1 
 rm_num  = $40;
-/*
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'064', STR_ow_axis+hex_str(0), STR_Town+STR_Rauru, MapAreaName_DATAKEY+MapAreaName_RAURU);
 g.dm_rm[?rm+STR_Town+STR_House] = true;
 
@@ -2701,27 +2658,11 @@ g.dm_rm[?STR_Spell+STR_Scene+STR_Name+STR_Old_Kasuto] = rm;
 
 
 //   --------------------------  6C  --------------------------- 
-//    Ruto
-rm_num  = $6C;
-/*
-set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'064', STR_ow_axis+hex_str(0), STR_Town+STR_Ruto);
-g.dm_rm[?rm+STR_Town+STR_House] = true;
-
-
-row3=row0+$17; y3=row3<<3;
-data_spawn(rm+STR_PRIO,NPC_1,$1,  $0A<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK010A,STR_Sprite+STR_Mary); // Idle Simple, Big lady, Red
-
-
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '04'+EXM0_); // RGT 0, 
-*/
-
-
-
+//    
 
 
 //   --------------------------  6D  --------------------------- 
 //    
-rm_num  = $6D;
 
 
 //   --------------------------  6E  --------------------------- 
@@ -2789,13 +2730,6 @@ data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  clm3<<3,row4<<3
 
 //   --------------------------  70  --------------------------- 
 //    
-rm_num  = $70;
-
-
-
-
-
-
 
 
 //   --------------------------  71  --------------------------- 
@@ -2820,17 +2754,14 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '14'+EXL0_); // RG
 
 //   --------------------------  72  --------------------------- 
 //    
-rm_num  = $72;
 
 
 //   --------------------------  73  --------------------------- 
 //    
-rm_num  = $73;
 
 
 //   --------------------------  74  --------------------------- 
 //    
-rm_num  = $74;
 
 
 //   --------------------------  75  --------------------------- 
@@ -2858,22 +2789,10 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  _exit); // RGT 0,
 
 //   --------------------------  76  --------------------------- 
 //    
-rm_num  = $76;
-
-
-
-
 
 
 //   --------------------------  77  --------------------------- 
 //    
-rm_num  = $77;
-
-
-
-
-
-
 
 
 //   --------------------------  78  --------------------------- 
@@ -2985,7 +2904,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '7E'+EXL0_); // RG
 
 //   --------------------------  7D  --------------------------- 
 //    
-rm_num  = $7D; 
 
 
 //   --------------------------  7E  --------------------------- 
@@ -3019,56 +2937,38 @@ data_spawn(rm+STR_PRIO,Kakusu009,$1,  0,0,  STR_Treasure+STR_Map+"02",STR_Locati
 
 //   --------------------------  7F  --------------------------- 
 //    
-rm_num  = $7F; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  80  --------------------------- 
 //    
-rm_num  = $80; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  81  --------------------------- 
 //    
-rm_num  = $81; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  82  --------------------------- 
 //    
-rm_num  = $82; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  83  --------------------------- 
 //    
-rm_num  = $83; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  84  --------------------------- 
 //    
-rm_num  = $84; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  85  --------------------------- 
 //    
-rm_num  = $85; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  86  --------------------------- 
 //    
-rm_num  = $86; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  87  --------------------------- 
 //    
-rm_num  = $87; 
-rm_name = area + hex_str(rm_num); 
 
 
 // ====================================================================
@@ -3119,45 +3019,35 @@ data_spawn(rm+STR_PRIO,ItmK8,$1,  _x1,(row3-$02)<<3); // ITM_MAP1
 
 //   --------------------------  8A  --------------------------- 
 //    
-rm_num  = $8A; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  8B  --------------------------- 
 //    
-rm_num  = $8B; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  8C  --------------------------- 
 //    
-rm_num  = $8C; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  8D  --------------------------- 
 //    
-rm_num  = $8D; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  8E  --------------------------- 
 //    
-rm_num  = $8E; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  8F  --------------------------- 
 //    
-rm_num  = $8F; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  90  --------------------------- 
 //                  Saria,  Target Minigame 1
 rm_num  = $90;
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+COLOR2_, STR_Tile+area_TA+'255', STR_ow_axis+hex_str(0), STR_Town+STR_Saria, MapAreaName_DATAKEY+MapAreaName_SARIA);
-p.dm_scene_palette[?rm+dk_MOB] = p.PAL_NPC_SET3; // purple mob brown outline
+_val = p.PAL_NPC_SET3; // purple mob brown outline
+dm_palette[?        rm+dk_MOB] = _val;
+p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
@@ -3199,188 +3089,122 @@ data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $37<<3,$0E<<3, 
 
 //   --------------------------  92  --------------------------- 
 //    
-rm_num  = $92; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  93  --------------------------- 
 //    
-rm_num  = $93; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  94  --------------------------- 
 //    
-rm_num  = $94; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  95  --------------------------- 
 //    
-rm_num  = $95; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  96  --------------------------- 
 //    
-rm_num  = $96; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  97  --------------------------- 
 //    
-rm_num  = $97; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  98  --------------------------- 
 //    
-rm_num  = $98; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  99  --------------------------- 
 //    
-rm_num  = $99; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  9A  --------------------------- 
 //    
-rm_num  = $9A; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  9B  --------------------------- 
 //    
-rm_num  = $9B; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  9C  --------------------------- 
 //    
-rm_num  = $9C; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  9D  --------------------------- 
 //    
-rm_num  = $9D; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  9E  --------------------------- 
 //    
-rm_num  = $9E; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  9F  --------------------------- 
 //    
-rm_num  = $9F; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A0  --------------------------- 
 //    
-rm_num  = $A0; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A1  --------------------------- 
 //    
-rm_num  = $A1; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A2  --------------------------- 
 //    
-rm_num  = $A2; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A3  --------------------------- 
 //    
-rm_num  = $A3; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A4  --------------------------- 
 //    
-rm_num  = $A4; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A5  --------------------------- 
 //    
-rm_num  = $A5; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A6  --------------------------- 
 //    
-rm_num  = $A6; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A7  --------------------------- 
 //    
-rm_num  = $A7; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A8  --------------------------- 
 //    
-rm_num  = $A8; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  A9  --------------------------- 
 //    
-rm_num  = $A9; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  AA  --------------------------- 
 //    
-rm_num  = $AA; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  AB  --------------------------- 
 //    
-rm_num  = $AB; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  AC  --------------------------- 
 //    
-rm_num  = $AC; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  AD  --------------------------- 
 //    
-rm_num  = $AD; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  AE  --------------------------- 
 //    
-rm_num  = $AE; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  AF  --------------------------- 
 //    
-rm_num  = $AF; 
-rm_name = area + hex_str(rm_num); 
-
-
-
-
-
-
 
 
 // ===================================================================
@@ -3395,44 +3219,11 @@ mus1         = MUS_BASEMENT1;
 _dark_idx    = 1;
 _ow_axis     = 0;
 //   --------------------------  B0  --------------------------- 
-//    Town Fast Travel, Rauru, House
-rm_num  = $B0;
-
-
-
-
-
+//    
 
 
 //   --------------------------  B1  --------------------------- 
-//    Town Fast Travel, Rauru, Basement1
-rm_num  = $B1;
-/*
-set_rm_data(area+hex_str(rm_num), mus1, STR_Dark+hex_str(_dark_idx), STR_Tile+area_TA+'124', STR_ow_axis+hex_str(_ow_axis), STR_Town+STR_Rauru, MapAreaName_DATAKEY+MapAreaName_RAURU);
-
-
-row3=row0+$17; y3=row3<<3;
-data_spawn(rm+STR_PRIO,NPC_1,$1,  $15<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0102,STR_Sprite+STR_Joey); // kid w/ CANDLE directions
-
-clm4=$04; row3=row0+$0C;  clm5=$1C; clm6=clm5+$06; row4=row0+$19;
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm5<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm6<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-
-clm3=$20; // clm3: Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num+1)+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_, clm3,row0+$16);                                                          // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  '01'+EXM1_); // LFT 0, 
-
-
-g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
-*/
-
-
-
-
-
-
+//    
 
 
 //   --------------------------  B2  --------------------------- 
@@ -3483,54 +3274,16 @@ g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 
 //   --------------------------  B3  --------------------------- 
 //    
-rm_num  = $B3; 
-rm_name = area + hex_str(rm_num);
-
-
-
-
-
-
 
 
 // ===================================================================
 _ow_axis     = 0;
 //   --------------------------  B4  --------------------------- 
-//    Town Fast Travel, Ruto, House
-rm_num  = $B4;
-
-
-
-
+//    
 
 
 //   --------------------------  B5  --------------------------- 
-//    Town Fast Travel, Ruto, Basement1
-rm_num  = $B5;
-/*
-set_rm_data(area+hex_str(rm_num), mus1, STR_Dark+hex_str(_dark_idx), STR_Tile+area_TA+'113', STR_ow_axis+hex_str(_ow_axis), STR_Town+STR_Ruto, MapAreaName_DATAKEY+MapAreaName_RUTO);
-
-
-clm4=$04; clm5=$1C; clm6=clm5+$06;
-row3=row0+$0C; row4=row0+$19;
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm5<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm6<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-
-clm3=$20; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num+1)+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_, clm3,row0+$16);                                                          // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  '05'+EXM1_); // LFT 0, 
-
-
-g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
-*/
-
-
-
-
-
-
+//    
 
 
 //   --------------------------  B6  --------------------------- 
@@ -3577,71 +3330,16 @@ g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 
 //   --------------------------  B7  --------------------------- 
 //    
-rm_num  = $B7; 
-rm_name = area + hex_str(rm_num); 
-
-
-
-
-
-
 
 
 // ===================================================================
 _ow_axis     = 1;
 //   --------------------------  B8  --------------------------- 
-/*
-//    Town Fast Travel, Saria, House
-_town_name1 = STR_Saria;
-rm_num  = $B8;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_TA+'086', STR_ow_axis+hex_str(_ow_axis), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_SARIA);
-g.dm_rm[?rm+STR_Town+STR_House] = true;
-
-
-row3=row0+$17; y3=row3<<3;
-data_spawn(rm+STR_PRIO,NPC_9,$5,  $14<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0905,STR_Sprite+STR_Bot); // Bot NPC 
-
-
-      data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '08'+EXM0_); // LFT 0, 
-_exit=data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'BA'+EXU0_); // RGT 0, 
-g.dm_rm[?_town_name1+STR_Fast+STR_Travel+STR_Exit+'A'] = _exit;
-
-
-g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
-*/
-
-
-
-
-
+//    
 
 
 //   --------------------------  B9  --------------------------- 
-//    Town Fast Travel, Saria, Basement1
-rm_num  = $B9;
-/*
-set_rm_data(area+hex_str(rm_num), mus1, STR_Dark+hex_str(_dark_idx), STR_Tile+area_TA+'126', STR_ow_axis+hex_str(_ow_axis), STR_Town+STR_Saria, MapAreaName_DATAKEY+MapAreaName_SARIA);
-
-
-clm4=$04; row3=row0+$0C;  clm5=$1C; clm6=clm5+$06; row4=row0+$19;
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm5<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm6<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-
-clm3=$20; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-$04,row_e2,  CLMS4,ROWS5,  clm3-$01,row_e3,  hex_str(rm_num+1)+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_, clm3,row0+$16);                                                              // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
-
-
-g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
-*/
-
-
-
-
-
-
+//    
 
 
 //   --------------------------  BA  --------------------------- 
@@ -3691,56 +3389,17 @@ g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 
 //   --------------------------  BB  --------------------------- 
 //    
-rm_num  = $BB; 
-rm_name = area + hex_str(rm_num); 
-
-
-
-
-
-
 
 
 // ===================================================================
 
 _ow_axis     = 1;
 //   --------------------------  BC  --------------------------- 
-//    Town Fast Travel, Mido, House
-rm_num  = $BC;
-
-
-
-
-
-
+//    
 
 
 //   --------------------------  BD  --------------------------- 
-//    Town Fast Travel, Mido, Basement1
-rm_num  = $BD;
-/*
-set_rm_data(area+hex_str(rm_num), mus1, STR_Dark+hex_str(_dark_idx), STR_Tile+area_TA+'125', STR_ow_axis+hex_str(_ow_axis), STR_Town+STR_Mido, MapAreaName_DATAKEY+MapAreaName_MIDO);
-
-
-clm4=$04; row3=row0+$0C;  clm5=$1C; clm6=clm5+$06; row4=row0+$19;
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm5<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm6<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-
-clm3=$20; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num+1)+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_,  clm3,row0+$16);                                                         // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  '09'+EXM0_); // LFT 0, 
-
-
-g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
-*/
-
-
-
-
-
-
+//    
 
 
 //   --------------------------  BE  --------------------------- 
@@ -3786,56 +3445,16 @@ g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 
 //   --------------------------  BF  --------------------------- 
 //    
-rm_num  = $BF; 
-rm_name = area + hex_str(rm_num); 
-
-
-
-
-
-
 
 
 // ===================================================================
 _ow_axis     = 0;
 //   --------------------------  C0  --------------------------- 
-//    Town Fast Travel, Nabooru, House
-rm_num  = $C0;
-
-
-
-
-
+//    
 
 
 //   --------------------------  C1  --------------------------- 
-//    Town Fast Travel, Nabooru, Basement1
-rm_num  = $C1;
-/*
-set_rm_data(area+hex_str(rm_num), mus1, STR_Dark+hex_str(_dark_idx), STR_Tile+area_TA+'119', STR_ow_axis+hex_str(_ow_axis), STR_Town+STR_Nabooru, MapAreaName_DATAKEY+MapAreaName_NABOORU);
-
-
-row3=row0+$0B; y3=row3<<3;
-row4=row0+$19; y4=row4<<3;
-clm3=$20; // clm3: Elevator center clm
-clm5=clm3-$04; clm6=clm5+$06;
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm5<<3)+4,y4,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm6<<3)+4,y4,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num+1)+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_, clm3,row0+$16);                                                          // Elevator DW $40, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0B,  '0E'+EXM0_); // RGT 0, 
-
-
-g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
-*/
-
-
-
-
-
-
+//    
 
 
 //   --------------------------  C2  --------------------------- 
@@ -3879,53 +3498,16 @@ g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 
 //   --------------------------  C3  --------------------------- 
 //    
-rm_num  = $C3; 
-rm_name = area + hex_str(rm_num);
-
-
-
-
-
-
 
 
 // ===================================================================
 _ow_axis     = 0;
 //   --------------------------  C4  --------------------------- 
-//    Town Fast Travel, Darunia, House
-rm_num  = $C4;
-
-
-
-
+//    
 
 
 //   --------------------------  C5  --------------------------- 
-//    Town Fast Travel, Darunia, Basement1
-rm_num  = $C5;
-/*
-set_rm_data(area+hex_str(rm_num), mus1, STR_Dark+hex_str(_dark_idx), STR_Tile+area_TA+'124', STR_ow_axis+hex_str(_ow_axis), STR_Town+STR_Darunia, MapAreaName_DATAKEY+MapAreaName_DARUNIA);
-
-
-clm4=$04; row3=row0+$0C;  clm5=$1C; clm6=clm5+$06; row4=row0+$19;
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm5<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  (clm6<<3)+4,row4<<3,  dk_PI+hex_str(_PI5),STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-
-clm3=$20; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num+1)+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_,  clm3,row0+$16);                                                         // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  '11'+EXM0_); // LFT 0, 
-
-
-g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
-*/
-
-
-
-
-
-
+//    
 
 
 //   --------------------------  C6  --------------------------- 
@@ -3968,344 +3550,231 @@ g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 
 //   --------------------------  C7  --------------------------- 
 //    
-rm_num  = $C7; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  C8  --------------------------- 
 //    
-rm_num  = $C8; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  C9  --------------------------- 
 //    
-rm_num  = $C9; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  CA  --------------------------- 
 //    
-rm_num  = $CA; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  CB  --------------------------- 
 //    
-rm_num  = $CB; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  CC  --------------------------- 
 //    
-rm_num  = $CC; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  CD  --------------------------- 
 //    
-rm_num  = $CD; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  CE  --------------------------- 
 //    
-rm_num  = $CE; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  CF  --------------------------- 
 //    
-rm_num  = $CF; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D0  --------------------------- 
 //    
-rm_num  = $D0; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D1  --------------------------- 
 //    
-rm_num  = $D1; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D2  --------------------------- 
 //    
-rm_num  = $D2; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D3  --------------------------- 
 //    
-rm_num  = $D3; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D4  --------------------------- 
 //    
-rm_num  = $D4; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D5  --------------------------- 
 //    
-rm_num  = $D5; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D6  --------------------------- 
 //    
-rm_num  = $D6; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D7  --------------------------- 
 //    
-rm_num  = $D7; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D8  --------------------------- 
 //    
-rm_num  = $D8; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  D9  --------------------------- 
 //    
-rm_num  = $D9; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  DA  --------------------------- 
 //    
-rm_num  = $DA; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  DB  --------------------------- 
 //    
-rm_num  = $DB; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  DC  --------------------------- 
 //    
-rm_num  = $DC; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  DD  --------------------------- 
 //    
-rm_num  = $DD; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  DE  --------------------------- 
 //    
-rm_num  = $DE; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  DF  --------------------------- 
 //    
-rm_num  = $DF; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E0  --------------------------- 
 //    
-rm_num  = $E0; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E1  --------------------------- 
 //    
-rm_num  = $E1; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E2  --------------------------- 
 //    
-rm_num  = $E2; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E3  --------------------------- 
 //    
-rm_num  = $E3; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E4  --------------------------- 
 //    
-rm_num  = $E4; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E5  --------------------------- 
 //    
-rm_num  = $E5; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E6  --------------------------- 
 //    
-rm_num  = $E6; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E7  --------------------------- 
 //    
-rm_num  = $E7; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E8  --------------------------- 
 //    
-rm_num  = $E8; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  E9  --------------------------- 
 //    
-rm_num  = $E9; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  EA  --------------------------- 
 //    
-rm_num  = $EA; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  EB  --------------------------- 
 //    
-rm_num  = $EB; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  EC  --------------------------- 
 //    
-rm_num  = $EC; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  ED  --------------------------- 
 //    
-rm_num  = $ED; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  EE  --------------------------- 
 //    
-rm_num  = $EE; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  EF  --------------------------- 
 //    
-rm_num  = $EF; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F0  --------------------------- 
 //    
-rm_num  = $F0; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F1  --------------------------- 
 //    
-rm_num  = $F1; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F2  --------------------------- 
 //    
-rm_num  = $F2; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F3  --------------------------- 
 //    
-rm_num  = $F3; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F4  --------------------------- 
 //    
-rm_num  = $F4; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F5  --------------------------- 
 //    
-rm_num  = $F5; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F6  --------------------------- 
 //    
-rm_num  = $F6; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F7  --------------------------- 
 //    
-rm_num  = $F7; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F8  --------------------------- 
 //    
-rm_num  = $F8; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  F9  --------------------------- 
 //    
-rm_num  = $F9; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  FA  --------------------------- 
 //    
-rm_num  = $FA; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  FB  --------------------------- 
 //    
-rm_num  = $FB; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  FC  --------------------------- 
 //    
-rm_num  = $FC; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  FD  --------------------------- 
 //    
-rm_num  = $FD; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  FE  --------------------------- 
 //    
-rm_num  = $FE; 
-rm_name = area + hex_str(rm_num); 
 
 
 //   --------------------------  FF  --------------------------- 
 //     
-rm_num  = $FF; 
-rm_name = area + hex_str(rm_num); 
+
 
 
 

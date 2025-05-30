@@ -1916,8 +1916,8 @@ rm_ow_dir = 0; // 0: WE, 1: NS, 2:
 
 
 
-CrystalBarrier1_RM_NAME  = Area_PalcG+"00";
-TriforceBarrier1_RM_NAME = Area_EastA+"78";
+//CrystalBarrier1_RM_NAME  = Area_PalcG+"00";
+//TriforceBarrier1_RM_NAME = Area_EastA+"78";
 
 
 
@@ -2682,7 +2682,7 @@ dl_MapItem_ITEM_IDS = ds_list_create();
 
 
 // This will be set in rm_data_init_Palc_F()
-FallingKey1_spawn_datakey = undefined;
+//FallingKey1_spawn_datakey = undefined;
 
 
 
@@ -2899,10 +2899,10 @@ BEBF BEBF 0404 BEBF BEBF
 BEBF BEBF 0404 BEBF BEBF
 */
 
-MKH_CLMS      = string_length(_TSRC3) >>1;
-MKH_ROWS      = string_length(MKH_TSRC_DATA) div string_length(_TSRC3);
-MKH_RM_NAME   = undefined; // Gets set in rm_data_init_Town_A()
-MKH_EXIT_NAME = undefined; // Gets set in rm_data_init_Town_A()
+MKH_CLMS = string_length(_TSRC3)>>1;
+MKH_ROWS = string_length(MKH_TSRC_DATA) div string_length(_TSRC3);
+//MKH_RM_NAME   = undefined; // Gets set in rm_data_init_Town_A()
+//MKH_EXIT_NAME = undefined; // Gets set in rm_data_init_Town_A()
 
 
 
@@ -3238,7 +3238,7 @@ last_pc_xscale = 1; // For Death flash screen
 
 
 
-DialogueDK_MIDO_CHURCH_DOOR = "undefined";
+//DialogueDK_MIDO_CHURCH_DOOR = "undefined";
 
 
 

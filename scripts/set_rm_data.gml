@@ -1,5 +1,7 @@
 /// set_rm_data(rm name, rm music, *_data, ..)
 
+// *** Only use in `RoomData_Create()`
+
 
 var _i, _val,_val1,_val2,_val3, _count;
 var _len, _datakey;
@@ -54,75 +56,67 @@ if (_IS_DUNGEON)
     switch(_AREA)
     {
         case Area_PalcA:{
-        dungeon_num =1;
-        dungeon_name=val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
+        dungeon_num  = 1;
+        dungeon_name = val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "PARAPA PALACE";
-        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_PRPA1],OWRC_DFL);
         g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_PRPA1],OWRC_DFL);
         break;}
         case Area_PalcB:{
-        dungeon_num =2;
-        dungeon_name=val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
+        dungeon_num  = 2;
+        dungeon_name = val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "MIDORO PALACE";
-        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MDRO1],OWRC_DFL);
         g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MDRO1],OWRC_DFL);
         break;}
         case Area_PalcC:{
-        dungeon_num =3;
-        dungeon_name=val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
+        dungeon_num  = 3;
+        dungeon_name = val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "ISLAND PALACE";
-        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_ISLD1],OWRC_DFL);
         g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_ISLD1],OWRC_DFL);
         break;}
         case Area_PalcD:{
-        dungeon_num =4;
-        dungeon_name=val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
+        dungeon_num  = 4;
+        dungeon_name = val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "MAZE ISLAND PALACE";
-        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MAZE1],OWRC_DFL);
         g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MAZE1],OWRC_DFL);
         break;}
         case Area_PalcE:{
-        dungeon_num =5;
-        dungeon_name=val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
+        dungeon_num  = 5;
+        dungeon_name = val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "PALACE ON THE SEA";
-        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_POTS1],OWRC_DFL);
         g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_POTS1],OWRC_DFL);
         break;}
         case Area_PalcF:{
-        dungeon_num =6;
-        dungeon_name=val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
+        dungeon_num  = 6;
+        dungeon_name = val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "3-EYE ROCK PALACE";
-        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_THRE1],OWRC_DFL);
         g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_THRE1],OWRC_DFL);
         break;}
         case Area_PalcG:{
-        dungeon_num =7;
-        dungeon_name=val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
+        dungeon_num  = 7;
+        dungeon_name = val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "GREAT PALACE";
-        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_GRET1],OWRC_DFL);
         g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_GRET1],OWRC_DFL);
         break;}
         case Area_PalcH:{
-        dungeon_num =8;
-        dungeon_name=val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
+        dungeon_num  = 8;
+        dungeon_name = val(g.dm_dungeon[?STR_Dungeon+hex_str(dungeon_num)+STR_Name], STR_undefined);
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "DRAGMIRE TOWER";
-        //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_DRAG1],OWRC_DFL);
         g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_DRAG1],OWRC_DFL);
         break;}
     }
@@ -181,10 +175,10 @@ else
 g.dm_rm[?_RM_NAME+dk_BackgroundColor] = p.C_BLK1;
 
 // Set a default for view lock. Most scenes do not scroll vertically
-g.dm_rm[?_RM_NAME+STR_View+STR_Data]    = $1; // $1: lock vertical scrolling
+g.dm_rm[?_RM_NAME+STR_View+STR_Data]  = $1; // $1: lock vertical scrolling
 
 // Set a default for show ow pos. Most scenes qualify to show ow pos on map
-g.dm_rm[?_RM_NAME+STR_show_ow_pos]      = true;
+g.dm_rm[?_RM_NAME+STR_show_ow_pos]    = true;
 
 
 
@@ -319,6 +313,7 @@ while (_arg<argument_count)
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
     {
+        dm_audio[?_datakey+_RM_NAME] = true;
         with(Audio) dm[?_datakey+_RM_NAME] = true;
         continue;//while (_arg<argument_count)
     }
@@ -353,90 +348,87 @@ if (_MUSIC!=-1)
 if(!is_undefined(_TILE_FILE)) set_rm_data_1a(_RM_NAME,_TILE_FILE); // set: tile data file, rm_w, rm_h
 
 
-with(RoomData)
-{
-    if(!rm_w) rm_w = $01<<8;
-    if(!rm_h) rm_h = $01<<8;
-    rm_w_ = rm_w>>1;
-    rm_h_ = rm_h>>1;
-    //
-    rm_num      =         _RM_NUM;
-    rm_num_     =  hex_str(rm_num);
-    rm_name     = _AREA +  rm_num_;
-    rm          =  rm_name;
-    //                              // 
-    pages_x     =  rm_w>>8;
-    pages_y     =  rm_h>>8;
-    pages       =  pages_x * pages_y;
-    //                              // 
-    clms0       =  rm_w>>3;           //  rm clms
-    clms1       =  clms0 + CLMS0;     // (rm clms) + (2 pages of clms)
-    clm0        =  clms0 - PAGE_CLMS; // lft clm of rgt-most page
-    clm1        =  clms0>>1;          // rm center clm
-    clm2        =  clms0+$01;         // right exit clm
-    clmA        =  clms0-$04;         // right enter clm
-    //                              // 
-    clmt0       =  clms0-CLMT0;
-    //                              // 
-    //                              // 
-    //                              // 
-    rows0       =  rm_h>>3;           //  rm rows
-    rows1       =  rows0 + ROWS0;     // (rm rows) + (2 pages of rows)
-    row0        =  rows0 - PAGE_ROWS; // top row of btm-most page
-    row1        =  rows0>>1;          // rm center row
-    row2        =  row0+$18;          // common spawn_y row
-    //                              // 
-    row_e0      =  row0-$0F; // Elevator exit up   top row
-    row_e1      =  row0+$05; // Elevator exit up   pc spawn row
-    row_e2      =  row0+$1F; // Elevator exit down top row
-    row_e3      =  row0+$1B; // Elevator exit down pc spawn row
-    row_e4      =  row0+$02; // Pit exit up pc spawn row
-    row_e5      =  row0+$14; // Elevator spawn row 1
-    //                              // 
-    //                              // 
-    //                              // 
-    x0          =  rm_w_;           // xc: rm
-    xt0         = DIST1;
-    //xt0         = (clmt0<<3)+4;
-    xt1         = rm_w-DIST1;
-    //                              // 
-    y0          =  row0<<3;           // yt: btm-most page
-    y2          =  row2<<3;
-    //                              // 
-    
-    
-    // get this ready for data_exit() for this rm
-                   _val=EXIT_NAME_GAME_START;
-    exit_name_m0 = _val;
-    exit_name_m1 = _val;
-    exit_name_m2 = _val;
-    exit_name_m3 = _val;
-    //                  //
-    exit_name_r0 = _val;
-    exit_name_r1 = _val;
-    exit_name_r2 = _val;
-    exit_name_r3 = _val;
-    //                  //
-    exit_name_l0 = _val;
-    exit_name_l1 = _val;
-    exit_name_l2 = _val;
-    exit_name_l3 = _val;
-    //                  //
-    exit_name_d0 = _val;
-    exit_name_d1 = _val;
-    exit_name_d2 = _val;
-    exit_name_d3 = _val;
-    //                  //
-    exit_name_u0 = _val;
-    exit_name_u1 = _val;
-    exit_name_u2 = _val;
-    exit_name_u3 = _val;
-    //                  //
-    
-    
-    // get this ready for data_exit() for this rm
-    ds_list_clear(dl_exit);
-}
+if(!rm_w) rm_w = $01<<8;
+if(!rm_h) rm_h = $01<<8;
+rm_w_ = rm_w>>1;
+rm_h_ = rm_h>>1;
+//
+rm_num      =         _RM_NUM;
+rm_num_     =  hex_str(rm_num);
+rm_name     = _AREA +  rm_num_;
+rm          =  rm_name;
+//                              // 
+pages_x     =  rm_w>>8;
+pages_y     =  rm_h>>8;
+pages       =  pages_x * pages_y;
+//                              // 
+clms0       =  rm_w>>3;           //  rm clms
+clms1       =  clms0 + CLMS0;     // (rm clms) + (2 pages of clms)
+clm0        =  clms0 - PAGE_CLMS; // lft clm of rgt-most page
+clm1        =  clms0>>1;          // rm center clm
+clm2        =  clms0+$01;         // right exit clm
+clmA        =  clms0-$04;         // right enter clm
+//                              // 
+clmt0       =  clms0-CLMT0;
+//                              // 
+//                              // 
+//                              // 
+rows0       =  rm_h>>3;           //  rm rows
+rows1       =  rows0 + ROWS0;     // (rm rows) + (2 pages of rows)
+row0        =  rows0 - PAGE_ROWS; // top row of btm-most page
+row1        =  rows0>>1;          // rm center row
+row2        =  row0+$18;          // common spawn_y row
+//                              // 
+row_e0      =  row0-$0F; // Elevator exit up   top row
+row_e1      =  row0+$05; // Elevator exit up   pc spawn row
+row_e2      =  row0+$1F; // Elevator exit down top row
+row_e3      =  row0+$1B; // Elevator exit down pc spawn row
+row_e4      =  row0+$02; // Pit exit up pc spawn row
+row_e5      =  row0+$14; // Elevator spawn row 1
+//                              // 
+//                              // 
+//                              // 
+x0          =  rm_w_;           // xc: rm
+xt0         = DIST1;
+//xt0         = (clmt0<<3)+4;
+xt1         = rm_w-DIST1;
+//                              // 
+y0          =  row0<<3;           // yt: btm-most page
+y2          =  row2<<3;
+//                              // 
+
+
+// get this ready for data_exit() for this rm
+               _val=EXIT_NAME_GAME_START;
+exit_name_m0 = _val;
+exit_name_m1 = _val;
+exit_name_m2 = _val;
+exit_name_m3 = _val;
+//                  //
+exit_name_r0 = _val;
+exit_name_r1 = _val;
+exit_name_r2 = _val;
+exit_name_r3 = _val;
+//                  //
+exit_name_l0 = _val;
+exit_name_l1 = _val;
+exit_name_l2 = _val;
+exit_name_l3 = _val;
+//                  //
+exit_name_d0 = _val;
+exit_name_d1 = _val;
+exit_name_d2 = _val;
+exit_name_d3 = _val;
+//                  //
+exit_name_u0 = _val;
+exit_name_u1 = _val;
+exit_name_u2 = _val;
+exit_name_u3 = _val;
+//                  //
+
+
+// get this ready for data_exit() for this rm
+ds_list_clear(dl_exit);
 
 
 

@@ -151,7 +151,7 @@ if(!is_string(_GOTO_EXIT))
 // Dungeon maps use this data for dungeon exit arrows.
 if(!is_undefined(g.dm_dungeon[?STR_Dungeon+area+STR_Name]) 
 //if (area_is_dungeon(area) 
-&&  _GOTO_AREA !=   area ) // goto exit goes to diff area
+&&  _GOTO_AREA!=area ) // goto exit goes to diff area
 {
     _dk = area+STR_Entrance+STR_Count;
     g.dm_rm[?_dk] = val(g.dm_rm[?_dk]) + 1;
@@ -180,8 +180,7 @@ g.dm_rm[?_EXIT_NAME+STR_Palette+STR_Idx] = _PAL_IDX;
 
 
 // ------------------------------------------------------------------------
-if (ds_list_find_index(dl_exit,_EXIT_NAME)==-1)
-{   ds_list_add(       dl_exit,_EXIT_NAME);  }
+if (ds_list_find_index(dl_exit,_EXIT_NAME)==-1) ds_list_add(dl_exit,_EXIT_NAME);
 
 
 

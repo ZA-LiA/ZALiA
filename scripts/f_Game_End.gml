@@ -168,11 +168,11 @@ if (_exists)                          ds_map_destroy( dm_rando_data);
 if (_exists)                                          dm_rando_data = undefined;
 */
 
-    _exists = variable_instance_exists(id, "dm_Jars_DEFAULT");
-if (_exists) _exists =      !is_undefined(  dm_Jars_DEFAULT);
-if (_exists) _exists =       ds_exists(     dm_Jars_DEFAULT, ds_type_map);
-if (_exists)                 ds_map_destroy(dm_Jars_DEFAULT);
-if (_exists)                                dm_Jars_DEFAULT = undefined;
+    _exists = variable_instance_exists(id, "dm_jars_DEFAULT");
+if (_exists) _exists =      !is_undefined(  dm_jars_DEFAULT);
+if (_exists) _exists =       ds_exists(     dm_jars_DEFAULT, ds_type_map);
+if (_exists)                 ds_map_destroy(dm_jars_DEFAULT);
+if (_exists)                                dm_jars_DEFAULT = undefined;
 
 /*
     _exists = variable_instance_exists(id, "dm_target_game");

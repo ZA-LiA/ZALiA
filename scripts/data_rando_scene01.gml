@@ -148,34 +148,33 @@ global.dm_scene_rando[?_dk1+STR_Scene] = _SCENE_NAME;
 
 
 
-if (0)
-{   // debug
-    _count3 = 0;
-    for(_i=0; _i<_PRIO_COUNT; _i++)
+/* // debug
+_count3 = 0;
+for(_i=0; _i<_PRIO_COUNT; _i++)
+{
+    _spawn_dk = get_spawn_datakey(_SCENE_NAME,STR_PRIO,_i);
+    _obj = g.dm_spawn[?_spawn_dk+STR_obj_idx];
+    if(!is_undefined(_obj))
     {
-        _spawn_dk = get_spawn_datakey(_SCENE_NAME,STR_PRIO,_i);
-        _obj = g.dm_spawn[?_spawn_dk+STR_obj_idx];
-        if(!is_undefined(_obj))
+        _obj_name = object_get_name(_obj);
+        _ver      = val(g.dm_spawn[?_spawn_dk+STR_Version]);
+        _objver1  = _obj_name+hex_str(_ver);
+        
+        _item_type = val(g.dm_ITEM[?_obj_name+STR_Item+STR_Type]);
+        _is_item   = is_string(_item_type);
+        _item_id   =    string(_item_type);
+        
+        if (_is_item)
+        //&&  _item_type!=STR_JAR )
         {
-            _obj_name = object_get_name(_obj);
-            _ver      = val(g.dm_spawn[?_spawn_dk+STR_Version]);
-            _objver1  = _obj_name+hex_str(_ver);
-            
-            _item_type = val(g.dm_ITEM[?_obj_name+STR_Item+STR_Type]);
-            _is_item   = is_string(_item_type);
-            _item_id   =    string(_item_type);
-            
-            if (_is_item)
-            //&&  _item_type!=STR_JAR )
-            {
-                sdm("SceneRando. "+_SCENE_NAME+", "+_dk1+". Item: "+string(_item_type));
-                _count3++;
-            }
+            sdm("SceneRando. "+_SCENE_NAME+", "+_dk1+". Item: "+string(_item_type));
+            _count3++;
         }
     }
-    
-    if (_count3>1) sdm("");
 }
+
+if (_count3>1) sdm("");
+*/
 
 
 

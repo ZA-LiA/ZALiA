@@ -10,7 +10,8 @@ if (OVERWORLD_INIT_METHOD==1)
 }
 else
 {
-    if (false)
+    var _REINITIALIZING = false; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED ***
+    if (_REINITIALIZING)
     {   // This will print the code for Overworld_init_data_2(). Run it whenever a change is made to the overworld.
         Overworld_init_data_1();
     }

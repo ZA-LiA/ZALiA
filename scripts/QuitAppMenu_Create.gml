@@ -11,6 +11,9 @@ if (DEV)
 var _i, _a, _count;
 
 
+g.QUIT_APP_MENU = id;
+
+
 PI_MENU1 = global.PI_GUI1;
 gui_state_backup    = 0;
 

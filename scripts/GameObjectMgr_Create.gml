@@ -13,6 +13,9 @@ if (DEV)
 var _i;
 
 
+g.go_mgr = id;
+
+
 update_idx   =  0;
 UPDATE_CNT   =  max(MAX_GOB1, MAX_GOC1);
 counter      =  0; // 0485

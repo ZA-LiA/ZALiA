@@ -8,13 +8,55 @@ if (DEV)
 }
 
 
+FILE_NAME0 = "SceneData01.txt";
+FILE_NAME1 = "other/"+FILE_NAME0;
+
+
+
+
+var _REINITIALIZING = false; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED ***
+if(!_REINITIALIZING)
+{
+    if (file_exists(FILE_NAME1))
+    {
+        RoomData_Create_3(); // get and set data for `g.dm_rm`, `g.dm_spawn`, `g.dm_dungeon`, ...
+        
+        instance_destroy();
+        
+        if (DEV)
+        {
+            show_debug_message("RoomData_Create() END1. "+string(current_time-_START_TIME));
+            repeat(1) show_debug_message("");
+        }
+        
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+}
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 var _i,_j, _idx, _num, _val, _len, _count;
 var _clms,_rows, _clm,_row;
-var _str;
+var _str, _dk;
 
 
 dl_used_tiled_files = ds_list_create();
-
+//dm_overworld = ds_map_create();
+dm_palette = ds_map_create();
+dm_audio = ds_map_create();
+//dm_pbags = ds_map_create();
+//dm_1ups = ds_map_create();
+//dm_door_keys = ds_map_create();
+//dm_magic_jars = ds_map_create();
 
 
 DIST1 = ($08<<3)+4; // for torhes. common dist from rm edge
@@ -387,12 +429,14 @@ MAP_TSRC_Z1  = MAP_TSRC_Z0 + $01; //
 //                                // 
 
 
-dl_dungeon_map_clm  = ds_list_create();
-dl_dungeon_map_row  = ds_list_create();
-dm_dungeon_map_rc   = ds_map_create();
+dl_dungeon_map_clm = ds_list_create();
+dl_dungeon_map_row = ds_list_create();
+dm_dungeon_map_rc  = ds_map_create();
+
+
+
 
 // ------------------------------
-
 area    = undefined;
 area_OA = Area_OvrwA; // Overworld A
 
@@ -1452,39 +1496,75 @@ rm_data_init_Town_B();
 
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
-ds_map_copy(f.dm_PBags, f.dm_PBags_DEFAULT);
-ds_map_copy(f.dm_1up_doll, f.dm_1up_doll_DEFAULT);
-ds_map_copy(f.dm_keys, f.dm_keys_DEFAULT);
+// --------------------------------------------------------------------------------------------
+if (DEV)
+{
+    var _dm_save_data = ds_map_create();
+    _dm_save_data[?"scene_data"]       = ds_map_write(g.dm_rm);
+    _dm_save_data[?"spawn_data"]       = ds_map_write(g.dm_spawn);
+    _dm_save_data[?"dungeon_data"]     = ds_map_write(g.dm_dungeon);
+    _dm_save_data[?"town_data"]        = ds_map_write(g.dm_town);
+    _dm_save_data[?"pbags_data"]       = ds_map_write(f.dm_PBags);
+    _dm_save_data[?"1up_data"]         = ds_map_write(f.dm_1up_doll);
+    _dm_save_data[?"keys_data"]        = ds_map_write(f.dm_keys);
+    _dm_save_data[?"scene_rando_data"] = ds_map_write(global.dm_scene_rando);
+    
+    _dm_save_data[?"palette_data"]     = ds_map_write(dm_palette);
+    _dm_save_data[?"audio_data"]       = ds_map_write(dm_audio);
+    
+    _dm_save_data[?"dg_dngn_map_1"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_1);
+    _dm_save_data[?"dg_dngn_map_2"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_2);
+    _dm_save_data[?"dg_dngn_map_3"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_3);
+    _dm_save_data[?"dg_dngn_map_4"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_4);
+    _dm_save_data[?"dg_dngn_map_5"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_5);
+    _dm_save_data[?"dg_dngn_map_6"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_6);
+    _dm_save_data[?"dg_dngn_map_7"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_7);
+    _dm_save_data[?"dg_dngn_map_8"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_8);
+    
+    
+    var _ENCODED = json_encode(_dm_save_data);
+    var _FILE = file_text_open_write(working_directory+FILE_NAME0);
+                file_text_write_string(_FILE, _ENCODED);
+                file_text_close(       _FILE);
+    // !!!! MOVE(NOT COPY) THE SAVED DATA FROM %localappdata% TO Included Files !!!!
+    repeat(1) show_debug_message("");
+    show_debug_message("RoomData_Create(). Data saved to '"+FILE_NAME0+"'!");
+    repeat(1) show_debug_message("");
+    show_debug_message("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    show_debug_message("THIS IS A REMINDER TO MOVE(NOT COPY) FILE '"+FILE_NAME0+"' FROM THE %localappdata% DIRECTORY TO ITS Included Files DIRECTORY!");
+    show_debug_message("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    repeat(1) show_debug_message("");
+    
+    
+    ds_map_destroy(_dm_save_data); _dm_save_data=undefined;
+}
 
 
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
 ds_map_copy(g.dm_spawn_DEFAULT, g.dm_spawn);
 
-// --------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------
+
 ds_grid_resize(g.PAUSE_MENU.dg_dngn_map, 0, g.PAUSE_MENU.DUNGEON_MAP_ROWS_DEFAULT);
 ds_grid_clear( g.PAUSE_MENU.dg_dngn_map, 0);
 
 
-/*
-with(g.PAUSE_MENU)
-{
-    var _dg_dngn_map_COUNT=ds_grid_width(dg_dngn_map_5);
-    for(_i=0; _i<_dg_dngn_map_COUNT; _i++)
-    {
-        _str  = "$"+hex_str(_i)+": ";
-        _str += ", "+dg_dngn_map_5[#_i,5];
-        _str += ", "+"page $" +hex_str(dg_dngn_map_5[#_i,6]);
-        _str += ", "+"clm $"  +hex_str(dg_dngn_map_5[#_i,0])+", row $"+hex_str(dg_dngn_map_5[#_i,1]);
-        _str += ", "+"tsrc $" +hex_str(dg_dngn_map_5[#_i,2]);
-        _str += ", "+"exits: "+hex_str(dg_dngn_map_5[#_i,8]);
-        sdm(_str);
-    }
-}
-*/
 
 
 
 
+
+
+// --------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
 // Sort data in g.dl_MapItem_ITEM_IDS
 var _DEBUG_MAP=false;
@@ -1516,11 +1596,6 @@ ds_list_destroy(_dl_id_1up);       _dl_id_1up      =undefined;
 ds_list_destroy(_dl_id_key);       _dl_id_key      =undefined;
 
 
-
-
-
-
-
 /*
 with(g.ow)
 {
@@ -1542,10 +1617,26 @@ with(g.ow)
 */
 
 
-// --------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------
+/*
+with(g.PAUSE_MENU)
+{
+    var _dg_dngn_map_COUNT=ds_grid_width(dg_dngn_map_5);
+    for(_i=0; _i<_dg_dngn_map_COUNT; _i++)
+    {
+        _str  = "$"+hex_str(_i)+": ";
+        _str += ", "+dg_dngn_map_5[#_i,5];
+        _str += ", "+"page $" +hex_str(dg_dngn_map_5[#_i,6]);
+        _str += ", "+"clm $"  +hex_str(dg_dngn_map_5[#_i,0])+", row $"+hex_str(dg_dngn_map_5[#_i,1]);
+        _str += ", "+"tsrc $" +hex_str(dg_dngn_map_5[#_i,2]);
+        _str += ", "+"exits: "+hex_str(dg_dngn_map_5[#_i,8]);
+        sdm(_str);
+    }
+}
+*/
+
+
+
+
 //dev_automateRoomData2(); // automates code for  RoomData_Create_2a()
 
 
@@ -1580,7 +1671,7 @@ for(_i=0; _i<ds_list_size(g.dl_AREA_NAME); _i++)
 // Output which Tiled files aren't used
 if (g.FileCleaning01_STATE)
 {
-    var _dk,_dk1,_dk2;
+    var _dk1,_dk2;
     var _file_name1,_file_name2;
     _count=ds_list_size(g.dl_AREA_NAME);
     for(_i=0; _i<_count; _i++)
@@ -1646,8 +1737,13 @@ ds_list_destroy(dl_dungeon_map_row); dl_dungeon_map_row=undefined;
 ds_map_destroy(dm_dialogue_spell); dm_dialogue_spell=undefined;
 ds_list_destroy(dl_exit); dl_exit=undefined;
 
-
-
+//ds_map_destroy(dm_overworld); dm_overworld=undefined;
+ds_map_destroy(dm_palette); dm_palette=undefined;
+ds_map_destroy(dm_audio); dm_audio=undefined;
+//ds_map_destroy(dm_pbags); dm_pbags=undefined;
+//ds_map_destroy(dm_1ups); dm_1ups=undefined;
+//ds_map_destroy(dm_door_keys); dm_door_keys=undefined;
+//ds_map_destroy(dm_magic_jars); dm_magic_jars=undefined;
 
 
 
@@ -1663,7 +1759,7 @@ instance_destroy();
 
 if (DEV)
 {
-    show_debug_message("RoomData_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("RoomData_Create() END2. "+string(current_time-_START_TIME));
     repeat(1) show_debug_message("");
 }
 

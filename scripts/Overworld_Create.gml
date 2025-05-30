@@ -3,8 +3,8 @@
 if (DEV)
 {
     var _START_TIME = current_time;
-    sdm("");
-    sdm("Overworld_Create() START");
+    show_debug_message("");
+    show_debug_message("Overworld_Create() START");
 }
 
 
@@ -21,6 +21,9 @@ var _tsrc, _tsrc_, _tsrc_count;
 
 var _dl0 = ds_list_create();
 //var _dl_biome_tsrc = ds_list_create();
+
+
+global.OVERWORLD = id;
 
 
 // 1: On app start, overworld info is built and from the Tiled overworld .json file
@@ -107,11 +110,10 @@ OW_CLMS_PAD = (DRAW_CLMS>>1) + 1; // +1 bc GRID_W is odd. $13 div 2 = 9 + 1 = $A
 OW_ROWS_PAD = (DRAW_ROWS>>1) + 1; // +1 bc GRID_H is odd. $11 div 2 = 8 + 1 = 9
 
 
-// Based off .json file. Set in init_data_overworld()
-OW_CLMS = 0; // 
-OW_ROWS = 0; // 
-OW_W    = 0; // 
-OW_H    = 0; // 
+OW_CLMS = $100;
+OW_ROWS = $100;
+OW_W = OW_CLMS<<SHIFT;
+OW_H = OW_ROWS<<SHIFT;
 
 
 // Center cam on drawing area
@@ -338,7 +340,7 @@ if (g.anarkhyaOverworld_MAIN)
 
 
 // -------------------------------------------------------------------------
-Overworld_init_data();
+//Overworld_init_data();
 // -------------------------------------------------------------------------
 
 
@@ -675,6 +677,17 @@ enc_objs_spawned_count = 0;
 
 
 
+// -------------------------------------------------------------------------
+Overworld_init_data();
+// -------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 // -------------------------------------------------------------
 // 0: location num
 // 1: item id
@@ -968,8 +981,8 @@ ds_list_destroy(_dl0); _dl0=undefined;
 
 if (DEV)
 {
-    sdm("Overworld_Create() END. "+string(current_time-_START_TIME));
-    sdm("");
+    show_debug_message("Overworld_Create() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
 }
 
 

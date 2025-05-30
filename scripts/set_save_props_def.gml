@@ -39,10 +39,11 @@ with(f)
     ds_map_clear(dm_kakusu);
     
     key_count           = 0;
-    ds_map_clear(dm_keys);
+    //ds_map_clear(dm_keys);
     ds_map_clear(dm_openedLocks);
     
-    ds_map_clear(dm_jars);
+    ds_map_copy(f.dm_jars, f.dm_jars_DEFAULT);
+    //ds_map_clear(dm_jars);
     
     
     
