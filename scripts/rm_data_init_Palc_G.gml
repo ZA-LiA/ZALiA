@@ -6,7 +6,7 @@ var _val, _val1,_val2,_val3;
 var _dist,_dist1,_dist2;
 var _obj, _ver;
 var _rm;
-var _exit = EXIT_NAME_GAME_START;
+var _exit = REEN_DEFAULT;
 var _file;
 var _rc = $00;
 var _tsrc = $00;
@@ -2147,24 +2147,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 data_spawn(rm+STR_PRIO,ItmF0,$A,  $24<<3,(row0+$13)<<3); // PBag $A: 1000
-
-
-// $6: Moving '02'_LFT or '04'_DWN
-//dm_overworld[?hex_str(g.OWRC_DNGN_GRET1)+'02'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
-//dm_overworld[?hex_str(g.OWRC_DNGN_GRET1)+'04'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_DNGN_GRET1)+'02'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_DNGN_GRET1)+'04'+STR_Exit] = exit_name_r0; // EXR0, RGT 0
-
-
-
-
-
-
-
-
-//   --------------------------  3C  --------------------------- 
-//    
-rm_num  = $3C;
 
 
 

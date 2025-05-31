@@ -1,7 +1,7 @@
 /// rm_data_init_Palc_H()
 
 
-var _i, _a, _val, _dist;
+var _i, _a, _val,_val1, _dist;
 var _x,_y, _w,_h;
 var _clm,_row, _clms,_rows, _rc;
 var _pi, _obj,_ver;
@@ -568,7 +568,7 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_B1;
 //   --------------------------  22  --------------------------- 
 //      Ganon3. Final Battle
 rm_num  = $22;
-set_rm_data(area+hex_str(rm_num), mus1, STR_Color+p.CI_VLT4_, STR_Tile+area_PH+'255', STR_ow_axis+hex_str(ow_axis));
+set_rm_data(area+hex_str(rm_num), mus1, STR_Color+color_str(p.C_VLT4), STR_Tile+area_PH+'255', STR_ow_axis+hex_str(ow_axis));
 //p.dm_scene_palette[?rm+dk_MOB] = p.PAL_MOB_SET3;
 
 
@@ -587,8 +587,13 @@ data_spawn(rm+STR_PRIO,Ganon3,$1,  $27<<3,row4<<3,  STR_Arena+'_x'+hex_str(rm_w>
 clm3=$04;  clms3=clms0-(clm3<<1);
 //_exit=data_exit(EXD0,etA1,1,  clm3,row_e2,  clms3,$10,  clm1-1,row_e3,  '00'+EXL0_); // DWN 0, Pit down 
 //data_pit(_exit, 0,2);
-//_val = val(global.OVERWORLD.dm[?g.GameEnd1B_TO_EXIT_NAME+STR_goto_reen], g.GameEnd1B_RM_NAME+EXM0_);
-_val = val(g.dm_rm[?g.GameEnd1B_TO_EXIT_NAME+STR_goto_reen], g.GameEnd1B_RM_NAME+EXM0_);
+
+_dk   = string(val(g.dm_rm[?"GameEnd1B_TO_EXIT_NAME"]))+STR_goto_reen;
+_val1 = string(val(g.dm_rm[?"GameEnd1B_RM_NAME"]))+EXM0_;
+//_dk = g.GameEnd1B_TO_EXIT_NAME+STR_goto_reen;
+//_val = val(global.OVERWORLD.dm[?_dk], g.GameEnd1B_RM_NAME+EXM0_);
+_val = val(g.dm_rm[?_dk], _val1);
+//_val = val(g.dm_rm[?_dk], g.GameEnd1B_RM_NAME+EXM0_);
 data_exit(EXM0,etB0,0,  clm1-1,row4,  CLMS2,ROWS2,  clm1-2,row4,  _val); // MID 0, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row4,  '21'+EXR0_); // LFT 0, 
 //data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  rm_num_+EXL0_); // RGT 0, 

@@ -4,9 +4,9 @@
 // Triggers update_change_room() to change the room
 with(g)
 {
-    if (counter1 != other.ROOM_CHANGE_CUE)
+    if (counter1!=other.ROOM_CHANGE_CUE)
     {
-        break;
+        break;//with(g)
     }
     
     

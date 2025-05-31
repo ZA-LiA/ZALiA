@@ -6,7 +6,7 @@ var _val,_val1,_val2,_val3,_val4;
 var _rm, _pages, _data, _dk;
 var _len, _dir, _dur, _dist;
 var _file;
-var _exit_name = EXIT_NAME_GAME_START;
+//var _exit_name = REEN_DEFAULT;
 var _ow_axis = 0;
 
 
@@ -3706,7 +3706,7 @@ data_exit(EXR0,etA0,1,  clm2,row3,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to O
 //   --------------------------  FE  --------------------------- 
 //    Testing: Bounceable object 'Blooby'. CHAL_VerticalClimb_008.tmx
 rm_num  = $FE;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_CYN4_, STR_Tile+area_MI+'254', STR_View+'02', STR_ow_axis+'00', STR_show_ow_pos+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+color_str(p.C_CYN4), STR_Tile+area_MI+'254', STR_View+'02', STR_ow_axis+'00', STR_show_ow_pos+'00');
 
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000,1, Cloud_1_init); // 

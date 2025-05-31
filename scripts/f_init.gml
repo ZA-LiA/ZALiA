@@ -318,6 +318,7 @@ cont_run_town_num = 0;
 // REEN: Rm Entry Exit Name
 // Most of these are taken care of in g.Room_Start
 REEN_NEW_FILE = EXIT_NAME_GAME_START;
+//global.REEN_DEFAULT  = EXIT_NAME_GAME_START;
 reen_new_run  = REEN_NEW_FILE; // Coming from FileSelect. This will be from saved data
 reen          = reen_new_run;  // The exit to spawn at
 

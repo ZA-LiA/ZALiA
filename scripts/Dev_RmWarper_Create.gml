@@ -147,7 +147,7 @@ TEXT_DRAWAREA_PAD_Y     = $04<<3;
 
 
 // ExitName:  GO-TO exit name. Constantly displays.
-ExitName_goto   = EXIT_NAME_GAME_START;
+ExitName_goto   = REEN_DEFAULT;
 ExitName_CLM    = $02;
 ExitName_ROW    = $03;
 

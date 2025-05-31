@@ -21,7 +21,7 @@ var _PAGES_X   = rm_get_wh(rm_name,0)>>8;
 var _PAGES_Y   = rm_get_wh(rm_name,1)>>8;
 
 
-var _EXIT_NAME = EXIT_NAME_GAME_START;
+var _EXIT_NAME = REEN_DEFAULT;
 if (is_string(_EXIT_NAME_DATA)) 
 {   // _EXIT_NAME_DATA: passed as string full exit name
     // This allows for in-game temporary-Exit creation so 

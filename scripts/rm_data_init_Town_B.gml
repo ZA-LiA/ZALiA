@@ -126,9 +126,9 @@ town_num =  9; // 9: Monster town
 dark_id  = -1; // 
 ow_axis  = $0; // ow_axis bits: $0:horizontal, $1:vertical, $2:flip x/yscale
 
-owrc0   = g.OWRC_TOWN_BULB1;
-owrc0   = -1;
-mus1    = MUS_HOUSE1;
+//owrc0 = g.OWRC_TOWN_BULB1;
+//owrc0 = -1;
+mus1 = MUS_HOUSE1;
 
 
 

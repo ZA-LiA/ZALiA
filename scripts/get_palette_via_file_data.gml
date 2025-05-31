@@ -112,7 +112,8 @@ if(!is_undefined(_dl_layer))
                             _tsrc--;
                             _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
                             _tsrc &= $FF;
-                            if (string_pos("palette v2",_layer_name))
+                            if (_data_system_ver>=4)
+                            //if (string_pos("palette v2",_layer_name))
                             {
                                 _idx  = (_tsrc>>4)&$F;
                                 _idx *= p.ColorGrid_CLMS;

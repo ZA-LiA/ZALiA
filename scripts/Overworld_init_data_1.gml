@@ -1012,7 +1012,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                     {
                             _exit_num = string_copy(_AccessRm, (_k<<1)+1, 2);
                         if (_exit_num!="FF")
-                        {
+                        {   // _datakey Example: "50C3" + "04" + STR_Exit
                             _exit_name = _RmName+_exit_num; // rm exit name
                             _datakey = hex_str($1<<_k); // pc overworld movement direction
                                         dm[?_owrc_   +_datakey   +STR_Exit] = _exit_name; // goto rm exit
@@ -1023,7 +1023,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                 }
                 
                 
-                var _DEBUG1 = 0 && DEV && _RmName=="_WestA_01";
+                var _DEBUG1 = false && DEV && _RmName=="_WestA_01";
                 if (_DEBUG1){
                     _db_str  = "owrc $"+_owrc_+", row $"+_ow_row_+" clm $"+_ow_clm_+".  ";
                     _db_str += '_AccessOw "'+_AccessOw+'"';
@@ -1031,7 +1031,9 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                 }
                 
                 
-                // _AccessOw Example: "20-01+00_8, " + "10+01+00_4, " (Do not input " char in Tiled prop field)
+                
+                
+                //  _AccessOw Example: "20-01+00_8, " + "10+01+00_4, " (Do not input " char in Tiled prop field)
                 if (_AccessOw_len)
                 {
                     //if(_C2)repeat($1)sdm("");
@@ -1047,7 +1049,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                     }
                     
                     _pos   = string_pos(",",_AccessOw);
-                    _len   = _pos+1; // bc of space after comma
+                    _len   = _pos+1; // because of space after comma
                     _count = _AccessOw_len div _len;
                     for(_k=_count-1; _k>=0; _k--) // each set of data representing an exit
                     {

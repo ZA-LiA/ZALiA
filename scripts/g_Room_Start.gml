@@ -1,9 +1,13 @@
 /// g_Room_Start()
 
 
-if (DEV){sdm("")sdm(""); sdm(" g_Room_Start()    "+room_get_name(room));}
+if (DEV)
+{
+    repeat(2) show_debug_message("");
+    show_debug_message("g_Room_Start()    "+room_get_name(room));
+}
 
-//g.game_end_state = 1; // Testing wake Zelda cutscene
+
 
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
@@ -24,6 +28,8 @@ var _dl1 = ds_list_create();
 var _dl2 = ds_list_create();
 
 
+//g.game_end_state = 1; // Testing wake Zelda cutscene
+
 
 for(_i=ds_grid_width(dg_YxY_)-1; _i>=0; _i--)
 {
@@ -33,10 +39,8 @@ for(_i=ds_grid_width(dg_YxY_)-1; _i>=0; _i--)
 }
 
 
-
 room_speed = ROOM_SPEED_BASE;
 global.Room_frame_count = 0;
-
 
 
 _val = room_get_name(room);
@@ -53,7 +57,6 @@ var _dungeon_num_PREV = get_dungeon_num(_rm_name_PREV);
 var _town_num_PREV    = get_town_num(   _rm_name_PREV);
 var _area_name_PREV   = area_name;
 var _room_PREV        = 0;
-
 
 
 switch(room)
@@ -479,7 +482,7 @@ if (room==rmB_NextLife)
         
         if (coming_from==coming_from_FILE) f.xpPending = 0;
         //f.xpPending = 0;
-        f.xpDrain   = 0;
+        f.xpDrain = 0;
         
         
         if (coming_from==coming_from_FILE)
@@ -520,7 +523,7 @@ if (room==rmB_NextLife)
         }
         
         
-        global.OVERWORLD.exit_grid_xy = val(global.OVERWORLD.dm[?MK_OWRC_NPAL1],OWRC_DFL);
+        global.OVERWORLD.exit_owrc = val(global.OVERWORLD.dm[?MK_OWRC_NPAL1],OWRC_DFL);
     }
 }
 
@@ -533,12 +536,12 @@ if(!f.xpNext) f.xpNext = min(get_xp_next(STAT_ATK),get_xp_next(STAT_MAG),get_xp_
 
 if (_ROOM_A)
 {
-    if (coming_from != coming_from_RM_C)
+    if (coming_from!=coming_from_RM_C)
     {
         //_owrc = global.OVERWORLD.dm[?rm_name+STR_OWRC];
         _owrc = dm_rm[?rm_name+STR_OWRC];
         if(!is_undefined(_owrc) 
-        &&               _owrc>=0 )
+        &&  _owrc>=0 )
         {
             global.OVERWORLD.pcrc = _owrc;
             
@@ -595,7 +598,7 @@ if (_C1 || _C2 || _C3 || _C4)
             if (string_pos(STR_Open,   _datakey)   // _datakey does     contain "_Open"
             && !string_pos(STR_Default,_datakey) ) // _datakey does NOT contain "_Default"
             {
-                if(!is_undefined(        dm[?_datakey+STR_Default]))
+                if(!is_undefined(   dm[?_datakey+STR_Default]))
                 {   dm[?_datakey] = dm[?_datakey+STR_Default];  }
             }
             
@@ -874,7 +877,7 @@ if (_ROOM_A)
         with(Exit){g.exit_enter=id; break;}
         if (exit_enter==noone)
         {   // Probably wrong datakey for rm data.
-            f.reen = EXIT_NAME_GAME_START;
+            f.reen = REEN_DEFAULT;
             var _RM_NAME = get_exit_rm_name(f.reen);
             room_goto_(rmA_ACTION, rm_get_wh(_RM_NAME,0), rm_get_wh(_RM_NAME,1));
         }
@@ -1102,7 +1105,8 @@ if (_ROOM_A)
                         if(!is_undefined(_val2))
                         {
                             // *** Cutscene_CreateWaterfall_update() checks for any hard skin enemies and if PC can defeat them
-                            if (_SceneRando_scene!=NabooruQuest_RM_NAME  // All enemies must be defeated in this rm
+                            if (_SceneRando_scene!=val(g.dm_rm[?"NabooruQuest_RM_NAME"])  // All enemies must be defeated in this rm
+                            //if (_SceneRando_scene!=NabooruQuest_RM_NAME  // All enemies must be defeated in this rm
                             || !isVal(_val2,GeldA,GlzmA,LeevA) )         // these enemies draw behind the wall so restrict them for now
                             {
                                 if (cam_xl_range() 

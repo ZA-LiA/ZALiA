@@ -1,7 +1,7 @@
 /// Overworld_Draw()
 
 
-var _C1 = g.room_type=="C" && !exit_grid_xy;
+var _C1 = g.room_type=="C" && !exit_owrc;
 var _A1 = g.room_type=="A" && g.PAUSE_MENU.canDrawSections>g.PAUSE_MENU.ANIM_FRAMES_DEF;
 
 

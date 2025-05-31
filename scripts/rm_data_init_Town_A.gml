@@ -135,7 +135,7 @@ row3=row0+$17; y3=row3<<3;
 row4=row3+$02; y4=row4<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC1, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC1, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($17<<3)+0,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($42<<3)+4,y5);
@@ -165,12 +165,6 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '02'+EXL0_); // RGT 0, 
 //
 
-// '01': moving right, '02': moving left, '04': moving down, '08': moving up
-//dm_overworld[?hex_str(g.OWRC_TOWN_RAUR1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//dm_overworld[?hex_str(g.OWRC_TOWN_RAUR1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RAUR1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RAUR1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-
 
 
 
@@ -189,7 +183,7 @@ clm3=$58;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC1, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC1, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($12<<3)+4,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($6C<<3)+4,y5);
@@ -229,13 +223,12 @@ ow_axis=$0; // ow_axis bits: $0:horizontal, $1:vertical, $2:flip x/yscale
 _town_name1 = STR_Ruto;
 rm_num  = $03;
 set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR3_, STR_Tile+area_WA+'241', STR_ow_axis+hex_str(ow_axis^$1), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_RUTO);
-//set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_WA+'241', STR_ow_axis+hex_str(1), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_RUTO);
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 
 
 row4=row0+$17;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $1C<<3,row4<<3,  dk_PI+hex_str(Sign_PI),STR_Dialogue+DK0018); // Sign
 //data_spawn(rm+STR_PRXM,Bot_A,$2,  $14<<3,(row0+$13)<<3); // Bot  2 
@@ -268,7 +261,7 @@ clm3=$2E; clm5=$66;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($44<<3)+0,y5);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
@@ -291,12 +284,6 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '18'+EXL0_); // RGT 0, 
 //
 
-// '01': moving right, '02': moving left, '04': moving down, '08': moving up
-//dm_overworld[?hex_str(g.OWRC_TOWN_RUTO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//dm_overworld[?hex_str(g.OWRC_TOWN_RUTO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RUTO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_RUTO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-
 
 
 
@@ -315,7 +302,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($14<<3)+0,(row0+$12)<<3);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($6A<<3)+4,y5);
@@ -354,7 +341,7 @@ var _ROW_SARIA = $15;
 //                  Saria River Crossing 
 _town_name1 = STR_Saria;
 rm_num  = $06;
-set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR2_, STR_Tile+area_TA+'004', STR_ow_axis+hex_str(ow_axis), STR_OWRC+hex_str(g.OWRC_TOWN_SARI2), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_SARIA);
+set_rm_data(area+hex_str(rm_num), _town_name1, STR_Color+COLOR2_, STR_Tile+area_TA+'004', STR_OWRC+hex_str(g.OWRC_TOWN_SARI2), STR_ow_axis+hex_str(ow_axis), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_SARIA);
 g.dm_rm[?STR_Saria+STR_Bridge+STR_Scene] = rm;
 g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 g.dm_rm[?rm+STR_Town+STR_Outside] = true;
@@ -365,7 +352,7 @@ row3=row0+_ROW_SARIA; y3=row3<<3;
 row5=row0+$18; y5=row5<<3;
 data_spawn_cutscene(Cutscene_SariaBridge,1, 0,0); // 
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($61<<3)+4,y5);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  x3,y3,  dk_PI+hex_str(global.PI_BGR2),STR_Dialogue+DK0002); // Sign
@@ -396,7 +383,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+_ROW_SARIA; y3=row3<<3;
 row5=row0+$18; y5=row5<<3;
                                 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($10<<3)+0,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($53<<3)+0,y5-($01<<3));
@@ -441,7 +428,7 @@ clm3=$56;
 row3=row0+_ROW_SARIA; y3=row3<<3;
 row5=row0+$18; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($4E<<3)+4,y5);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3); // NPC Spawner
@@ -494,7 +481,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($29<<3)+4,y5);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
@@ -516,13 +503,6 @@ clm4=$62;
 //
 _exit=data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0);          // LFT 0, to Overworld 
 g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
-
-// '01': moving right, '02': moving left, '04': moving down, '08': moving up
-//dm_overworld[?hex_str(g.OWRC_TOWN_MIDO1)+'01'+STR_Exit] = _exit; // EXL0, LFT 0
-//dm_overworld[?hex_str(g.OWRC_TOWN_MIDO1)+'04'+STR_Exit] = _exit; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_MIDO1)+'01'+STR_Exit] = _exit; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_MIDO1)+'04'+STR_Exit] = _exit; // EXL0, LFT 0
-
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RGT 0, 
 
 
@@ -545,7 +525,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($40<<3)+4,(row0+$10)<<3);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($77<<3)+0,y5);
@@ -589,7 +569,7 @@ clm3=$62;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($50<<3)+0,y5);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3); // NPC Spawner
@@ -632,7 +612,7 @@ clm6=$14; clm7=clm6+$04;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($1F<<3)+0,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++),  $1768,  1,Fountain_1_init);
@@ -661,12 +641,6 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0D'+EXL0_); // RGT 0, 
 //
 
-// '01': moving right, '02': moving left, '04': moving down, '08': moving up
-//dm_overworld[?hex_str(g.OWRC_TOWN_NABO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//dm_overworld[?hex_str(g.OWRC_TOWN_NABO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_NABO1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_NABO1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-
 
 
 
@@ -686,7 +660,7 @@ clm3=$60; clm4=$2A;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($42<<3)+0,y5-($01<<3));
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($5E<<3)+4,y5);
@@ -722,7 +696,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($29<<3)+4,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($69<<3)+4,y5);
@@ -770,7 +744,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($2F<<3)+0,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($35<<3)+0,y5);
@@ -787,12 +761,6 @@ _exit=data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0);         
 g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '10'+EXL0_); // RGT 0, 
 //
-
-// '01': moving right, '02': moving left, '04': moving down, '08': moving up
-//dm_overworld[?hex_str(g.OWRC_TOWN_DARU1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//dm_overworld[?hex_str(g.OWRC_TOWN_DARU1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_DARU1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_DARU1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -814,7 +782,7 @@ clm3=$46; clm4=$70;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($0D<<3)+0,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($2E<<3)+4,y5);
@@ -863,7 +831,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($21<<3)+0,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($63<<3)+4,y5);
@@ -906,7 +874,7 @@ clm3=$12; clm4=$3A;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($48<<3)+0,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($6D<<3)+4,y5);
@@ -956,7 +924,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($54<<3)+4,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $1766, 1,Fountain_1_init);
@@ -993,7 +961,7 @@ clm3=$15; clm4=clm3+4;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_spawn_cutscene(Cutscene_MagicalKeyHouse,1,  clm3<<3,(row0+$1B)<<3,  global.PI_BGR4,DEPTH_BG4);
 
@@ -1030,7 +998,7 @@ p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 
 switch(g.mod_OldKasutoFire){
@@ -1075,11 +1043,6 @@ g.dm_rm[?_town_name1+STR_Rando+STR_Town+"_End"+STR_Exit+"_Left"] = _exit;
 
       data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '16'+EXL0_);   // RGT 0, 
 //
-// '01': moving right, '02': moving left, '04': moving down, '08': moving up
-//dm_overworld[?hex_str(g.OWRC_TOWN_OLDK1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//dm_overworld[?hex_str(g.OWRC_TOWN_OLDK1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_OLDK1)+'01'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
-//global.OVERWORLD.dm[?hex_str(g.OWRC_TOWN_OLDK1)+'04'+STR_Exit] = exit_name_l0; // EXL0, LFT 0
 
 
 
@@ -1103,7 +1066,7 @@ p.dm_scene_palette[?rm+dk_MOB] = _val;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 
 switch(g.mod_OldKasutoFire){
@@ -1151,7 +1114,7 @@ set_rm_data(area+hex_str(rm_num), STR_Old_Kasuto, STR_Color+COLOR5_, STR_Tile+ar
 
 
                                 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init); // 
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init); // 
 
 if (g.mod_OldKasutoFire==1){
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $1344, 1,Fire1_init, _FIRE_PI); // 
@@ -1212,7 +1175,7 @@ p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 
 switch(g.mod_OldKasutoFire){
@@ -1276,7 +1239,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 row3=row0+$17; y3=row3<<3;
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 
 // Returned TRPOPHY
@@ -1311,7 +1274,7 @@ p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 row5=row0+$1A; y5=row5<<3;
 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 y3  = (row0+$19)<<3;
 data_spawn(rm+STR_PRXM,Bot_A,$2,  $3C<<3,y3); // Bot  2 
@@ -1355,7 +1318,7 @@ g.dm_rm[?rm+STR_Town+STR_Outside] = true;
 
 row5=row0+$1A; y5=row5<<3;
                                 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1, Cloud_1_init); // 
+data_NIAO_1a(rm+STR_NIAO+string(_a++), _CLOUD_RC_NEWK, 1,Cloud_1_init); // 
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Moon1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($21<<3)+4,y5);
 
@@ -1387,7 +1350,7 @@ rm_num  = $1B;
 set_rm_data(area+hex_str(rm_num), STR_Old_Kasuto, STR_Color+COLOR5_, STR_Tile+area_TA+'028', STR_ow_axis+hex_str(0), STR_Town+STR_Old_Kasuto, MapAreaName_DATAKEY+MapAreaName_KASUTO);
 
                                 _a=0;
-data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1, Cloud_1_init); // 
+data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init); // 
 
 if (g.mod_OldKasutoFire==1){
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0D20, 1,Fire1_init, _FIRE_PI); // 
@@ -1684,7 +1647,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '05'+EXM0_); // LF
 //                  Saria River Crossing, House A, Room 1 
 _town_name1 = STR_Saria;
 rm_num  = $44;
-set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'085', STR_ow_axis+hex_str(0), STR_OWRC+hex_str(g.OWRC_TOWN_SARI2), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_SARIA);
+set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'085', STR_OWRC+hex_str(g.OWRC_TOWN_SARI2), STR_ow_axis+hex_str(0), STR_Town+_town_name1, MapAreaName_DATAKEY+MapAreaName_SARIA);
 g.dm_rm[?rm+STR_Town+STR_House] = true;
 
 
@@ -1713,7 +1676,7 @@ g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 //   --------------------------  45  --------------------------- 
 //                  Saria River Crossing, House B, Room 1 
 rm_num  = $45;
-set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'064', STR_ow_axis+hex_str(1), STR_Town+STR_Saria, MapAreaName_DATAKEY+MapAreaName_SARIA);
+set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'064', STR_OWRC+hex_str(g.OWRC_TOWN_SARI2), STR_ow_axis+hex_str(1), STR_Town+STR_Saria, MapAreaName_DATAKEY+MapAreaName_SARIA);
 g.dm_rm[?rm+STR_Town+STR_House] = true;
 
 
@@ -3050,7 +3013,7 @@ dm_palette[?        rm+dk_MOB] = _val;
 p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
-data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init); // 
 row3=row0+$14; y3=row3<<3;
 data_spawn(rm+STR_PRIO,NPC_B,$1,  $14<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0B00,STR_Sprite+STR_Jack); // Target Minigame 1
 
@@ -3068,11 +3031,11 @@ data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $07<<3,(row0+$0
 //   --------------------------  91  --------------------------- 
 //    Minigame - Pogo to the Top
 rm_num  = $91;
-set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+p.CI_CYN4_, STR_Tile+area_TA+'252', STR_View+'02', STR_ow_axis+hex_str(0), STR_Town+STR_Darunia, MapAreaName_DATAKEY+MapAreaName_DARUNIA);
+set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+color_str(p.C_CYN4), STR_Tile+area_TA+'252', STR_View+'02', STR_ow_axis+hex_str(0), STR_Town+STR_Darunia, MapAreaName_DATAKEY+MapAreaName_DARUNIA);
 
 
 row3=row0+$14; y3=row3<<3;
-data_NIAO_1a(rm+STR_NIAO+'0', $0000,1, Cloud_1_init); // 
+data_NIAO_1a(rm+STR_NIAO+'0', $0000,1,Cloud_1_init); // 
 data_spawn(rm+STR_PRIO,NPC_B,$3,  $12<<3,y3,  dk_PI+hex_str(PIc),STR_Dialogue+DK0B01,STR_Sprite+STR_Bill); // 'Pogo to the Top' Minigame Owner
 
 
@@ -3277,7 +3240,7 @@ g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 
 
 // ===================================================================
-_ow_axis     = 0;
+_ow_axis = 0;
 //   --------------------------  B4  --------------------------- 
 //    
 
@@ -3315,13 +3278,14 @@ _exit=data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '05'+EXM
 _datakey = _town_name1+dk_FastTravel+STR_Exit+'B';
 g.dm_rm[?_exit+dk_FastTravel+STR_Exit+STR_Datakey] = _datakey;
 g.dm_rm[?_datakey] = _exit;
-      data_Elev(EXU0_, clm3,row3-$01);                                                            // Elevator UP $80, 
-      data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  'BA'+EXR0_); // LFT 0, to Saria
-      data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'B2'+EXL0_); // RGT 0, to Rauru
+data_Elev(EXU0_, clm3,row3-$01); // Elevator UP $80, 
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  'BA'+EXR0_); // LFT 0, to Saria
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'B2'+EXL0_); // RGT 0, to Rauru
 //
 
 g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
-
+//MK_OWRC_TWN_RUTO1
 
 
 

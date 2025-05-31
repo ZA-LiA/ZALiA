@@ -10,7 +10,7 @@ var _pages, _data, _map_area;
 var _config_ver;
 var _file, _area_name,_rm_name;
 var _exit;
-var _exit_name = EXIT_NAME_GAME_START;
+//var _exit_name = REEN_DEFAULT;
 var _DEPTH1 = DEPTH_NPC2;
 var _WHALE_ISL_OUTSIDE_RM_NAME = undefined;
 
@@ -1215,8 +1215,7 @@ data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,rows4,  clmA,row0+$18,  '2A'+EXL1_); /
 //   --------------------------  2A  ---------------------------  
 //     Hylian text for spell combo to NECKLACE
 rm_num  = $2A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_BLU3_, STR_Tile+area_EA+'075', STR_ow_axis+'01');
-//set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_EA+'075', STR_ow_axis+'01');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+color_str(p.C_BLU3), STR_Tile+area_EA+'075', STR_ow_axis+'01');
 
 
 data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init);
@@ -2607,7 +2606,8 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'022', STR_Dark+
 
 
 g.dm_rm[?rm+STR_Ground+STR_Row] = row0+$17;
-g.NabooruQuest_RM_NAME = rm;
+g.dm_rm[?"NabooruQuest_RM_NAME"] = rm;
+//g.NabooruQuest_RM_NAME = rm;
 row3=row0+$13; y3=row3<<3;
 row4=row0+$11; y4=row4<<3;
 row5=row0+$05; y5=row5<<3;
@@ -3012,7 +3012,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$12,  0); // RGT 0, 
 //   --------------------------  6A  ---------------------------  
 //     Single house tile in forest on island NW of bridge to Maze Is 
 rm_num  = $6A;
-set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+p.CI_BLU3_, STR_Tile+area_EA+'096', STR_ow_axis+'00');
+set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+color_str(p.C_BLU3), STR_Tile+area_EA+'096', STR_ow_axis+'00');
 
 
 row3=row0+$17; y3=row3<<3;
@@ -3247,7 +3247,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$10,  0); // RGT 0, 
 //   --------------------------  78  ---------------------------  
 //     TRIFORCE BARRIER
 rm_num  = $78;
-set_rm_data(area+hex_str(rm_num), STR_Overworld+dk_ValleyOfDeath, STR_Color+p.CI_BLU3_, STR_Tile+area_EA+'104', STR_ow_axis+'00');
+set_rm_data(area+hex_str(rm_num), STR_Overworld+dk_ValleyOfDeath, STR_Color+color_str(p.C_BLU3), STR_Tile+area_EA+'104', STR_ow_axis+'00');
 
                                 _a=0;
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init); // 

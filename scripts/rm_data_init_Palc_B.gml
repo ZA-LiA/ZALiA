@@ -2,7 +2,7 @@
 
 
 var _rm, _x, _y, _data, _tsrc;
-var _exit = EXIT_NAME_GAME_START;
+var _exit = REEN_DEFAULT;
 
 map_clm_off     =  0;
 map_row_off     =  0;

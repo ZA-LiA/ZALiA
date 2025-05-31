@@ -14,7 +14,7 @@ FILE_NAME1 = "other/"+FILE_NAME0;
 
 
 
-var _REINITIALIZING = false; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED ***
+var _REINITIALIZING = false; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED. BUT UPDATE OVERWORLD DATA FIRST IF IT NEEDS TO BE UPDATED ***
 if(!_REINITIALIZING)
 {
     if (file_exists(FILE_NAME1))
@@ -53,6 +53,8 @@ dl_used_tiled_files = ds_list_create();
 //dm_overworld = ds_map_create();
 dm_palette = ds_map_create();
 dm_audio = ds_map_create();
+dm_rando_hints = ds_map_create();
+dm_rando_enemy = ds_map_create();
 //dm_pbags = ds_map_create();
 //dm_1ups = ds_map_create();
 //dm_door_keys = ds_map_create();
@@ -604,7 +606,7 @@ etD8 = etD0 | g.EXIT_BIT_WARP1; // $48. Don't reload rm. Warps to another exit i
 //etE0 = g.EXIT_TYPE_V1;          // Vertical 1. Means don't base spawn x off g.leave_rm_x
 
 
-               _val=EXIT_NAME_GAME_START;
+               _val = REEN_DEFAULT;
 exit_name_m0 = _val;
 exit_name_m1 = _val;
 exit_name_m2 = _val;
@@ -1511,6 +1513,8 @@ if (DEV)
     
     _dm_save_data[?"palette_data"]     = ds_map_write(dm_palette);
     _dm_save_data[?"audio_data"]       = ds_map_write(dm_audio);
+    _dm_save_data[?"rando_hint_data"]  = ds_map_write(dm_rando_hints);
+    _dm_save_data[?"rando_enemy_data"] = ds_map_write(dm_rando_enemy);
     
     _dm_save_data[?"dg_dngn_map_1"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_1);
     _dm_save_data[?"dg_dngn_map_2"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_2);
@@ -1740,6 +1744,8 @@ ds_list_destroy(dl_exit); dl_exit=undefined;
 //ds_map_destroy(dm_overworld); dm_overworld=undefined;
 ds_map_destroy(dm_palette); dm_palette=undefined;
 ds_map_destroy(dm_audio); dm_audio=undefined;
+ds_map_destroy(dm_rando_hints); dm_rando_hints=undefined;
+ds_map_destroy(dm_rando_enemy); dm_rando_enemy=undefined;
 //ds_map_destroy(dm_pbags); dm_pbags=undefined;
 //ds_map_destroy(dm_1ups); dm_1ups=undefined;
 //ds_map_destroy(dm_door_keys); dm_door_keys=undefined;

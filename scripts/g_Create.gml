@@ -2845,9 +2845,9 @@ cutscene_ctr            = 0;
 cutscene_part           = 0;
 cutscene_timer          = 0;
 
-GameEnd1B_TO_EXIT_NAME  = RM_NAME_NPALACE+'01'; // this gets set in rm_data_init..
-GameEnd1B_RM_NAME       = Area_WestA+'3B';      // this gets set in rm_data_init..
-NabooruQuest_RM_NAME    = Area_EastA+'59';      // this gets set in rm_data_init..
+//GameEnd1B_TO_EXIT_NAME  = RM_NAME_NPALACE+'01'; // this gets set in rm_data_init..
+//GameEnd1B_RM_NAME       = Area_WestA+'3B';      // this gets set in rm_data_init..
+//NabooruQuest_RM_NAME    = Area_EastA+'59';      // this gets set in rm_data_init..
 
 cutscene_house_built    = 0;
 

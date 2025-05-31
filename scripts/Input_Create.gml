@@ -406,21 +406,21 @@ GP_other4   = GP_other4_DEFAULT;
 GP_other5   = GP_other5_DEFAULT;
 GP_other6   = GP_other6_DEFAULT;
 */
-Buttons_dm[?string(gp_padr)+STR_Name]       = "DPAD RIGHT";
-Buttons_dm[?string(gp_padl)+STR_Name]       = "DPAD LEFT";
-Buttons_dm[?string(gp_padd)+STR_Name]       = "DPAD DOWN";
-Buttons_dm[?string(gp_padu)+STR_Name]       = "DPAD UP";
+Buttons_dm[?string(gp_padr)      +STR_Name] = "DPAD RIGHT";
+Buttons_dm[?string(gp_padl)      +STR_Name] = "DPAD LEFT";
+Buttons_dm[?string(gp_padd)      +STR_Name] = "DPAD DOWN";
+Buttons_dm[?string(gp_padu)      +STR_Name] = "DPAD UP";
 
-Buttons_dm[?string(gp_face1)+STR_Name]      = "FACE1"; // Xbox A button
-Buttons_dm[?string(gp_face2)+STR_Name]      = "FACE2"; // Xbox B button
-Buttons_dm[?string(gp_face3)+STR_Name]      = "FACE3"; // Xbox X button
-Buttons_dm[?string(gp_face4)+STR_Name]      = "FACE4"; // Xbox Y button
+Buttons_dm[?string(gp_face1)     +STR_Name] = "FACE1"; // Xbox A button
+Buttons_dm[?string(gp_face2)     +STR_Name] = "FACE2"; // Xbox B button
+Buttons_dm[?string(gp_face3)     +STR_Name] = "FACE3"; // Xbox X button
+Buttons_dm[?string(gp_face4)     +STR_Name] = "FACE4"; // Xbox Y button
 
-Buttons_dm[?string(gp_start)+STR_Name]      = "START";
-Buttons_dm[?string(gp_select)+STR_Name]     = "SELECT";
+Buttons_dm[?string(gp_start)     +STR_Name] = "START";
+Buttons_dm[?string(gp_select)    +STR_Name] = "SELECT";
 
-Buttons_dm[?string(gp_shoulderl)+STR_Name]  = "BUMP LEFT";
-Buttons_dm[?string(gp_shoulderr)+STR_Name]  = "BUMP RIGHT";
+Buttons_dm[?string(gp_shoulderl) +STR_Name] = "BUMP LEFT";
+Buttons_dm[?string(gp_shoulderr) +STR_Name] = "BUMP RIGHT";
 Buttons_dm[?string(gp_shoulderlb)+STR_Name] = "TRIG LEFT";
 Buttons_dm[?string(gp_shoulderrb)+STR_Name] = "TRIG RIGHT";
 

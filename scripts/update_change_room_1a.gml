@@ -4,7 +4,7 @@
 // ------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
 // ---------------------------   CHANGE ROOM   ----------------------------------------------
-var _i, _val, _num, _count, _datakey;
+var _i, _num, _datakey;
 var _EXITING_RM     = is_exiting_rm();
 var _EXITING_OW     = is_exiting_ow();
 var _EXITING_RM_ENC = _EXITING_RM && rm_get_encounter_types(rm_name);
@@ -12,38 +12,69 @@ var _EXITING_RM_ENC = _EXITING_RM && rm_get_encounter_types(rm_name);
 
 
 
-
+// ------------------------------------------------------------------
+// reen: Room-Entry Exit-Name
+//f.reen = REEN_DEFAULT;
 
 if (room==rmB_NextLife)
-{   //                                        reen: Room-Entry Exit-Name
-         if (coming_from==coming_from_FILE) f.reen = f.reen_new_run;      // coming from FileSelect
-    else if (coming_from==coming_from_CONT) f.reen = get_continue_reen(); // coming from Continue
+{
+    switch(coming_from)
+    {
+        case coming_from_FILE:{ // coming from FileSelect
+        f.reen = f.reen_new_run;
+        break;}
+        
+        case coming_from_CONT:{ // coming from ContinueSave
+        f.reen = get_continue_reen();
+        break;}
+        
+        case coming_from_DEAD:{ // coming from a death
+        _datakey = val(dm_room_history[?STR_Last+STR_Rm+"A"+STR_Datakey], STR_undefined);
+        f.reen   = val(dm_room_history[?_datakey+STR_reen], f.reen);
+        break;}
+    }
 }
-else if (_EXITING_RM)                       f.reen = exit_leave.goToExitName; // exiting rm
+else if (_EXITING_RM)
+{
+    f.reen = exit_leave.goToExitName;
+}
 else if (_EXITING_OW)
-{   // exiting global.OVERWORLD
-    _datakey = hex_str(global.OVERWORLD.exit_grid_xy)+hex_str(global.OVERWORLD.pc_dir)+STR_Exit;
-    f.reen = val(global.OVERWORLD.dm[?_datakey], EXIT_NAME_GAME_START);
-    f.reen = val(f.dm_rando[?_datakey], f.reen);
+{
+    _datakey = hex_str(global.OVERWORLD.exit_owrc)+hex_str(global.OVERWORLD.pc_dir)+STR_Exit;
+    f.reen = val(global.OVERWORLD.dm[?_datakey], REEN_DEFAULT);
+    f.reen = val(f.dm_rando[?_datakey], f.reen); // this returns the vanilla exit if rando isn't active
     //sdm(_datakey+" - "+string(val(f.dm_rando[?_datakey]))); // 803004_Exit - _TownA_0210
 }
-else                                        f.reen = EXIT_NAME_GAME_START;
+else
+{
+    f.reen = REEN_DEFAULT;
+}
 
-if (is_undefined(f.reen))                   f.reen = EXIT_NAME_GAME_START;
-var _GOING_TO_OW =               area_is_ow(f.reen); // going to global.OVERWORLD
-// Leaving an encounter, going back to OW
-if (_GOING_TO_OW && _EXITING_RM_ENC)        f.reen = Area_OvrwA+hex_str(global.OVERWORLD.pcrc);
+
+var _GOING_TO_OW = area_is_ow(f.reen);
+
+
+if (_GOING_TO_OW 
+&&  _EXITING_RM_ENC )
+{   // Leaving an encounter, going back to OW
+    f.reen = Area_OvrwA+hex_str(global.OVERWORLD.pcrc);
+}
+
 
 with(global.OVERWORLD)
 {
     if (_EXITING_OW 
-    &&  is_undefined(dm[?hex_str(pcrc)+dk_NO_ENCOUNTER])  // CAN use encounter skip exploit for this exit
-    && !is_undefined(enc_reen) )  // Going to an encounter rm
-    {   f.reen =     enc_reen;  }
+    && !is_undefined(enc_reen)  // if going to an encounter scene
+    &&  is_undefined(dm[?hex_str(pcrc)+dk_NO_ENCOUNTER]) ) // if this scene does NOT have the strict 'no encounter' rule
+    {   // go to the encounter scene
+        f.reen = enc_reen;
+    }
 }
 
 
 
+
+// ------------------------------------------------------------------
 if (_EXITING_RM)
 {
     _num = val(dm_exit_leave_history[?STR_Counter])+1;
@@ -55,13 +86,13 @@ if (_EXITING_RM)
     // correct sequence of exits needs to be taken in 
     // a certain scene to get to the scene beyond it.
     _datakey = rm_name+STR_Exit+STR_Sequence;
-    _count = val(dm_rm[?_datakey+STR_Count]);
-    if (_count 
-    &&  _count<=_num )
+    var _COUNT1 = val(dm_rm[?_datakey+STR_Count]);
+    if (_COUNT1 
+    &&  _COUNT1<=_num )
     {
         var _exit_name1,_exit_name2;
-        _num -= _count;
-        for(_i=1; _i<=_count; _i++)
+        _num -= _COUNT1;
+        for(_i=1; _i<=_COUNT1; _i++)
         {
             _exit_name1 = dm_rm[?_datakey+hex_str(_i)];
             _exit_name2 = dm_exit_leave_history[?hex_str(_num+_i)+STR_Exit+STR_Name];
@@ -72,7 +103,7 @@ if (_EXITING_RM)
                 break;//_i
             }
             
-            if (_i==_count)
+            if (_i==_COUNT1)
             {   // The correct sequence of exits has been taken.
                 f.reen = val(dm_rm[?_datakey+STR_Complete+STR_Exit+STR_Name], f.reen);
                 aud_play_sound(get_audio_theme_track(STR_Secret));
@@ -132,10 +163,10 @@ var _RM_NAME = string_copy(f.reen,1,RmName_LEN);
 
 
 if(!_GOING_TO_OW 
-&&  _RM_NAME == rm_name 
+&&  _RM_NAME==rm_name 
 &&  exit_leave 
-&&  exit_leave.exit_type & EXIT_BIT_WARP1     // Don't reload rm.
-&&  f.reen != EXIT_NAME_GAME_START )
+&&  exit_leave.exit_type&EXIT_BIT_WARP1     // Don't reload rm.
+&&  f.reen!=EXIT_NAME_GAME_START )
 {   // When exit_leave goes to the same rm.
     
     exit_leave         = noone;

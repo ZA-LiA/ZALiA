@@ -11,8 +11,7 @@ if(!is_undefined(_TYPE)
         // =========================================================================
         // ------------------------------------------------------------------
         case "gamepad discovered":{
-        if (gamepad_slot == -1)
-        {   gamepad_slot = _SLOT;  }
+        if (gamepad_slot==-1) gamepad_slot = _SLOT;
         
         gamepad_name = gamepad_get_description(_SLOT);
         show_debug_message("gamepad discovered"+", slot: "+string(_SLOT)+", gamepad name: "+gamepad_name);

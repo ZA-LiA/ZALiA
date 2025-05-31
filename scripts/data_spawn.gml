@@ -527,16 +527,32 @@ for(_i=_arg; _i<argument_count; _i++)
         
         if (val(g.dm_RandoHints[?_val1]))
         {
-                     g.dm_RandoHints[?STR_Hint+STR_Count]=val(g.dm_RandoHints[?STR_Hint+STR_Count])+1;
-            _num=val(g.dm_RandoHints[?STR_Hint+STR_Count]);
+            _datakey1 = STR_Hint+STR_Count;
+            _num = val(g.dm_RandoHints[?_datakey1]) + 1;
+            g.dm_RandoHints[?_datakey1] = _num;
+            dm_rando_hints[? _datakey1] = _num;
             
-            g.dm_RandoHints[?hex_str(_num)+STR_Dialogue+STR_Datakey]=_val1;
-            g.dm_RandoHints[?hex_str(_num)+STR_Spawn+STR_Datakey]=_SPAWN_DATAKEY;
+            
+            _datakey1 = hex_str(_num)+STR_Dialogue+STR_Datakey;
+            g.dm_RandoHints[?_datakey1] = _val1;
+            dm_rando_hints[? _datakey1] = _val1;
+            
+            
+            _datakey1 = hex_str(_num)+STR_Spawn+STR_Datakey;
+            g.dm_RandoHints[?_datakey1] = _SPAWN_DATAKEY;
+            dm_rando_hints[? _datakey1] = _SPAWN_DATAKEY;
+            
+            
+            _datakey1 = hex_str(_num)+STR_Area;
             if (_TOWN_NUM) _val2=_TOWN_NAME;
             else           _val2=STR_Other;
-            g.dm_RandoHints[?hex_str(_num)+STR_Area]=_val2;
-            g.dm_RandoHints[?hex_str(_num)+STR_Rm+STR_Name]=_RM_NAME;
+            g.dm_RandoHints[?_datakey1] = _val2;
+            dm_rando_hints[? _datakey1] = _val2;
             
+            
+            _datakey1 = hex_str(_num)+STR_Rm+STR_Name;
+            g.dm_RandoHints[?_datakey1] = _RM_NAME;
+            dm_rando_hints[? _datakey1] = _RM_NAME;
             /*
             _val2+=string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_val2));
             _val3=val(g.DIALOGUE_WINDOW.dm_dialogue[?_val1+"A"], _val1+"A");

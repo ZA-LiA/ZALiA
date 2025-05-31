@@ -35,9 +35,7 @@ global.Room_frame_count = -1;
 global.Room_frame_count_can_draw = false;
 
 
-
 global.use_pal_swap = true;
-
 
 
     global.randomized = false;

@@ -1,7 +1,5 @@
 /// Overworld_Step()
 
-//if (DEV) sdm(" Overworld_Step()");
-
 
 var _i, _x, _y, _idx, _num, _val,_val1,_val2, _count, _mapkey;
 var _clm,_row, _rm_clm,_rm_row, _pc_clm,_pc_row, _owrc,_owrc1, _ow_clm,_ow_row, _ow_clm1,_ow_row1;
@@ -9,7 +7,7 @@ var _dir;
 var _tsrc,_tsrc1, _tid;
 var _str, _datakey, _data;
 
-var _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
+var _C1 = !dest_dist && !exit_owrc && !flute_timer;
 
 
 
@@ -48,7 +46,7 @@ if (_val+1
 
 
 // --------------------------------------------------------------------------------
-if (_C1  // _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
+if (_C1  // _C1 = !dest_dist && !exit_owrc && !flute_timer;
 && !Warp_is_warping 
 &&  Input.heldHV )
 {
@@ -122,7 +120,7 @@ if(!dest_dist
     if (Input.Jump_pressed)
     {
         if (f.items&ITM_HAMM 
-        &&  _C1 ) // var _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
+        &&  _C1 ) // var _C1 = !dest_dist && !exit_owrc && !flute_timer;
         {
             _pc_clm = (pcrc>>0)&$FF;
             _pc_row = (pcrc>>8)&$FF;
@@ -280,7 +278,7 @@ if(!dest_dist
             && (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) || val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations])) 
             &&  val(f.dm_quests[?STR_Warp+STR_Qualified]) ) // if any warp locations have been opened
             {
-                if(!exit_grid_xy)
+                if(!exit_owrc)
                 {
                     if(!Warp_state 
                     ||  Warp_state==Warp_state_FLUTE 
@@ -313,7 +311,7 @@ if(!dest_dist
             }
             else
             {
-                if (_C1  // var _C1 = !dest_dist && !exit_grid_xy && !flute_timer;
+                if (_C1  // var _C1 = !dest_dist && !exit_owrc && !flute_timer;
                 && !Warp_is_warping )
                 {
                     var _INST = aud_play_sound(get_audio_theme_track(STR_Flute));
@@ -371,7 +369,7 @@ else             var _IS_MOVE_FRAME = dest_dist && !(g.counter1&(move_spd-1)); /
 move_distance = frac(move_distance);
 
 
-if (dest_dist) exit_grid_xy = 0;
+if (dest_dist) exit_owrc = 0;
 
 
 if (_IS_MOVE_FRAME)
@@ -472,9 +470,9 @@ if (_IS_MOVE_FRAME)
                 _datakey = _PCRC_+hex_str(pc_dir)+STR_Exit;
                 
                 if(!is_undefined(dm[?_datakey]))
-                {   // Setting exit_grid_xy triggers the room change process.
-                    exit_grid_xy = pcrc;
-                    //sdm("exit_grid_xy $"+hex_str(exit_grid_xy));
+                {   // Setting exit_owrc triggers the room change process.
+                    exit_owrc = pcrc;
+                    //sdm("exit_owrc $"+hex_str(exit_owrc));
                 }
             }
         }
@@ -588,7 +586,7 @@ switch(Warp_state)
     case Warp_state_SPIN_UP:{
     if (Warp_timer) break; // chance to cancel/avoid warp during this time
     if (pcrc==Warp_owrc 
-    && !exit_grid_xy )
+    && !exit_owrc )
     {
         Warp_is_warping = true;
     }
@@ -600,7 +598,7 @@ switch(Warp_state)
     case Warp_state_VANISH:{
     if (Warp_timer) break;
     if (Warp_is_warping 
-    && !exit_grid_xy )
+    && !exit_owrc )
     {
         Warp_timer = $20;
         Warp_state = Warp_state_OWRC_CHANGE;
@@ -809,7 +807,7 @@ if (_val){
 
 
 
-if (exit_grid_xy)
+if (exit_owrc)
 {
     g.overworld_paused = false;
     audio_stop_sound(global.OVERWORLD.Pause_SOUND1);
@@ -837,7 +835,7 @@ case 3:{background_assign(ts_OverworldAnim01, ts_OverworldAnim01_03); break;}
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
 if (g.room_type=="C" 
-&& !exit_grid_xy 
+&& !exit_owrc 
 && !g.overworld_paused 
 &&  (move_x!=0 || move_y!=0) ) // if movement happened this frame
 {

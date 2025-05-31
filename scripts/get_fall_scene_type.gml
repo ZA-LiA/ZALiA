@@ -3,7 +3,7 @@
 
 var                        _direction = 0;
      if (is_exiting_rm())  _direction = g.exit_leave.exit_type & g.FallScene_BITS;
-else if (is_exiting_ow())  _direction = val(global.OVERWORLD.dm[?hex_str(global.OVERWORLD.exit_grid_xy)+STR_CutScene]);
+else if (is_exiting_ow())  _direction = val(global.OVERWORLD.dm[?hex_str(global.OVERWORLD.exit_owrc)+STR_CutScene]);
 
 if (is_string(_direction)) _direction = val(g.dm_cut_scene[?_direction+STR_ID]);
 

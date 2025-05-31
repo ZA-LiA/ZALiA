@@ -1,6 +1,6 @@
 /// Overworld_Room_Start()
 
-if (DEV) sdm(" Overworld_Room_Start()");
+if (DEV) show_debug_message("Overworld_Room_Start()");
 
 
 if (g.room_type!="C") exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -21,7 +21,7 @@ room_height     = DRAW_H;
 view_xview[0]   = CAM_X;
 view_yview[0]   = CAM_Y;
 
-exit_grid_xy    = 0;
+exit_owrc       = 0;
 pc_x_scale      = 1;
 mot             = 0; // mot: Mode Of Transportation.  0: not moving
 dest_dist       = 0;

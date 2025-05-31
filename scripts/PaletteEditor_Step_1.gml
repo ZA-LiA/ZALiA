@@ -6,18 +6,15 @@ if (state==state_EDIT1A
 ||  state==state_BGR_COLOR )
 {   // if in an edit mode
     PalView_enabled = false;
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 else if (PP0) // PP0: Only 'P' pressed
 {   // Toggle show all palettes
     PalView_enabled = !PalView_enabled;
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
-
-
-if (state==state_IDLE)
+else if (state==state_IDLE)
 //&&  g.gui_state!=g.gui_state_EDIT_PAL )
 {
+    /*
     // Turn off palette randomizing & restore default palette
     if (PP && ALT && CTL)
     {
@@ -26,7 +23,7 @@ if (state==state_IDLE)
         set_background_color(_COLOR);
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
-    
+    */
     
     // Randomize palette right now
     if ((PP && CTL && SHF) 
@@ -42,7 +39,6 @@ if (state==state_IDLE)
         }
         
         change_pal(_palette);
-        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 }
 

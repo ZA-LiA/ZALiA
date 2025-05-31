@@ -56,7 +56,8 @@ else if(!_ROOM_B)
         rm_music_theme = STR_Battle+"02"; // STR_Battle+"02": only difference is Niko's audio set will be a fuller variation of battle theme
     }
     else if (_ROOM_A 
-    &&  g.rm_name==g.GameEnd1B_RM_NAME 
+    &&  g.rm_name==val(g.dm_rm[?"GameEnd1B_RM_NAME"]) 
+    //&&  g.rm_name==g.GameEnd1B_RM_NAME 
     &&  rm_music_theme==dk_WakeZelda 
     &&  f.quest_num>=2 )
     {

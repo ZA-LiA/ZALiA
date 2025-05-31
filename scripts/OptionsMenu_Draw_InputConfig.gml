@@ -65,7 +65,7 @@ for(_i=0; _i<InputConfigOption_COUNT; _i++)
         case InputConfigOption_JUMP:  {_val=Input.GP_jump;   break;}
         }
         
-        _text = val(Input.Buttons_dm[?string(_val)], "BUTTON");
+        _text = val(Input.Buttons_dm[?string(_val)+STR_Name], "BUTTON");
         draw_text_(_xl,_yt1, _text, _font, _pi);
     }
     

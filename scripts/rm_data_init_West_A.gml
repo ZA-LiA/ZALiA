@@ -87,7 +87,8 @@ data_spawn(rm+STR_PRIO,Zelda,$2,  (clm1+$02)<<3,y4);          // Zelda, 2nd Ques
 clm4=clm1-1; clm5=clm4+3;
 data_exit(EXM0,etB0,0,  clm4,row5,  CLMS2,ROWS2,  clm4,row5,  rm_num_+EXM0_); // MID 0, 
 data_exit(EXM1,etB0,0,  clm5,row5,  CLMS2,ROWS2,  clm5,row5,  '3B'+EXM0_); // MID 1. Goes to end game cutscene
-g.GameEnd1B_TO_EXIT_NAME = exit_name_m1;
+g.dm_rm[?"GameEnd1B_TO_EXIT_NAME"] = exit_name_m1;
+//g.GameEnd1B_TO_EXIT_NAME = exit_name_m1;
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '18'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '03'+EXL1_); // RGT 0, 
 
@@ -1882,7 +1883,8 @@ data_spawn(rm+STR_PRIO,ItmE0,$1,  ($1A<<3)+3,y3); // Magic Jar (Full)
 rm_num  = $3B;
 set_rm_data(area+hex_str(rm_num), dk_WakeZelda, STR_Tile+area_WA+'059', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
 //set_rm_data(area+hex_str(rm_num), dk_WakeZelda, STR_Tile+area_WA+'059', STR_ow_axis+'00', STR_OWRC+hex_str(val(g.dm_rm[?rm+STR_OWRC])), MapAreaName_DATAKEY+_MapAreaName_NORTH_CASTLE);
-g.GameEnd1B_RM_NAME = rm_name;
+g.dm_rm[?"GameEnd1B_RM_NAME"] = rm_name;
+//g.GameEnd1B_RM_NAME = rm_name;
 
 
 data_spawn_cutscene(Cutscene_GameEnd_1B,1,  0,0);
@@ -1902,9 +1904,11 @@ data_spawn(rm+STR_PRIO,Zelda,$1,  x0+8,y6,  STR_Dialogue+DK0Z00); // Zelda!!
 clm3=(x0-PC_W_)>>3;
 _exit=EXIT_NAME_GAME_START;
 data_exit(EXM0,etB0,0,  clm3-1,row4,  CLMS2,ROWS2,  clm3,row4,  _exit); // MID 0, 
+
 // This is just to help things go smoother in case data gets changed later.
 //global.OVERWORLD.dm[?g.GameEnd1B_TO_EXIT_NAME+STR_goto_reen] = exit_name_m0;
-g.dm_rm[?g.GameEnd1B_TO_EXIT_NAME+STR_goto_reen]   = exit_name_m0;
+g.dm_rm[?string(val(g.dm_rm[?"GameEnd1B_TO_EXIT_NAME"]))+STR_goto_reen] = exit_name_m0;
+//g.dm_rm[?g.GameEnd1B_TO_EXIT_NAME+STR_goto_reen]   = exit_name_m0;
 //g.dm_rm[?g.GameEnd1B_TO_EXIT_NAME+STR_GoTo+STR_Rm] = rm_name;
 
 _val=string_copy(_exit, string_length(_exit)-3, 2); // rm num
@@ -2574,7 +2578,7 @@ rm_num  = $51;
 //   --------------------------  52  ---------------------------  
 //    Saria Lake, BAIT Path Entrance
 rm_num  = $52;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_VLT3_, STR_Tile+area_EA+'099', STR_ow_axis+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+color_str(p.C_VLT3), STR_Tile+area_EA+'099', STR_ow_axis+'00');
 
 
 row3=row0+$15; y3=row3<<3; // PC yt right exit
@@ -2764,7 +2768,7 @@ data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 //   --------------------------  5A  ---------------------------  
 //    Swamp scene for MEDICINE/FLOWER item
 rm_num  = $5A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+p.CI_RED1_, STR_Tile+area_WA+'028', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MORUGE_SWAMP);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+color_str(p.C_RED1), STR_Tile+area_WA+'028', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_MORUGE_SWAMP);
 
 
 row3=row0+$0C; y3=row3<<3;

@@ -215,8 +215,8 @@ for(_i=0; _i<_DG_WIDTH; _i++)
         _rm_name = dm[?hex_str(_owrc)+STR_Special+STR_Encounter];
         if(!is_undefined(_rm_name))
         {   // Dark Forest Kakusu
-            pcrc         = _owrc;
-            exit_grid_xy =  pcrc; // triggers the change room process -------------------------------
+            pcrc      = _owrc;
+            exit_owrc =  pcrc; // triggers the change room process -------------------------------
             exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
         
@@ -303,7 +303,7 @@ for(_i=0; _i<_DG_WIDTH; _i++)
                     g.encounter_type = dg_enc_inst[#_i,0];
                     
                     pcrc = (_pc_row<<8) | _pc_clm;
-                    exit_grid_xy = pcrc; // trigger change room process -------------------------------
+                    exit_owrc = pcrc; // trigger change room process -------------------------------
                     
                     // enc_reen_dk  = hex_str(exit_grid_xy) + hex_str(pc_dir) + STR_Exit + STR_Encounter;
                     enc_reen = _rm_name+"00"; // exit num $00

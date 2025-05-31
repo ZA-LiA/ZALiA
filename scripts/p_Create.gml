@@ -3,8 +3,8 @@
 if (DEV)
 {
     var _START_TIME = current_time;
-    sdm("");
-    sdm("p_Create() START");
+    repeat(1) show_debug_message("");
+    show_debug_message("p_Create() START");
 }
 
 
@@ -24,8 +24,8 @@ p_init();
 
 if (DEV)
 {
-    sdm("p_Create() END. "+string(current_time-_START_TIME));
-    sdm("");
+    show_debug_message("p_Create() END. "+string(current_time-_START_TIME));
+    repeat(1) show_debug_message("");
 }
 
 

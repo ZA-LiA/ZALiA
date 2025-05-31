@@ -86,6 +86,8 @@ if(!is_undefined(_val))
 }
 
 
+
+
 _val = _dm_file_data[?"audio_data"];
 if(!is_undefined(_val))
 {
@@ -98,6 +100,43 @@ if(!is_undefined(_val))
         _dk = ds_map_find_next(_dm, _dk);
     }
 }
+
+
+
+
+_val = _dm_file_data[?"rando_hint_data"];
+if(!is_undefined(_val))
+{
+    ds_map_read(_dm, _val);
+    
+    _dk = ds_map_find_first(_dm);
+    while(!is_undefined(_dk))
+    {
+        g.dm_RandoHints[?_dk] = _dm[?_dk];
+        _dk = ds_map_find_next(_dm, _dk);
+    }
+}
+
+
+
+
+
+_val = _dm_file_data[?"rando_enemy_data"];
+if(!is_undefined(_val))
+{
+    ds_map_read(_dm, _val);
+    
+    _dk = ds_map_find_first(_dm);
+    while(!is_undefined(_dk))
+    {
+        g.dm_RandoEnemy[?_dk] = _dm[?_dk];
+        _dk = ds_map_find_next(_dm, _dk);
+    }
+}
+
+
+
+
 
 
 

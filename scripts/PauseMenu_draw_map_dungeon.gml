@@ -11,7 +11,7 @@ var _AREA_NAME         = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Area], g.area
 var _DUNGEON_NUM       = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
 
 var _Entrance_COUNT    = val(g.dm_rm[?_AREA_NAME+STR_Entrance+STR_Count]);
-var _Entrance_ExitName = val(g.dm_rm[?get_dk_dungeon_entrance(_DUNGEON_NUM)], EXIT_NAME_GAME_START);
+var _Entrance_ExitName = val(g.dm_rm[?get_dk_dungeon_entrance(_DUNGEON_NUM)], REEN_DEFAULT);
 var _Entrance_ExitID   = str_hex(string_copy(_Entrance_ExitName,    RmName_LEN+1, 2));
 var _Entrance_RmName   =         string_copy(_Entrance_ExitName, 1, RmName_LEN);
 var _Entrance_Page     = val(g.dm_rm[?_Entrance_ExitName+STR_Page]);
@@ -24,7 +24,7 @@ if (_Entrance_COUNT)
     var _dg_Entrance = ds_grid_create(_Entrance_COUNT, 5);
     for(_i=0; _i<_Entrance_COUNT; _i++)
     {
-        _Entrance_ExitName  = val(g.dm_rm[?_AREA_NAME+STR_Entrance+hex_str(_i+1)], EXIT_NAME_GAME_START);
+        _Entrance_ExitName  = val(g.dm_rm[?_AREA_NAME+STR_Entrance+hex_str(_i+1)], REEN_DEFAULT);
         _Entrance_ExitID    = str_hex(string_copy(_Entrance_ExitName,    RmName_LEN+1, 2));
         _Entrance_RmName    =         string_copy(_Entrance_ExitName, 1, RmName_LEN);
         _Entrance_Page      = val(g.dm_rm[?_Entrance_ExitName+STR_Page]);

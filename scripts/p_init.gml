@@ -1,6 +1,6 @@
 /// p_init()
 
-if (DEV) sdm(" p_init()");
+show_debug_message("p_init()");
 
 
 var _i,_j,_k,_m, _a,_b,_c, _idx,_idx1,_idx2, _num, _count,_count1,_count2;
@@ -14,7 +14,7 @@ var _adj = 0;
 var _color,_color1,_color2,_color3, _brightness;
 var _base_color_char, _c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn;
 var _base_color_order = "";
-var _file, _data;
+var _file, _file_name, _data;
 // ci: Color Index
 var _ci1="";
 var _ci2="";
@@ -28,14 +28,13 @@ dl_PAL_POS = ds_list_create();
 dm_scene_palette = ds_map_create();
 dl_various_pals1 = ds_list_create();
 dl_various_pals2 = ds_list_create();
+dl_BASE_COLORS = ds_list_create();
+
+
 
 
 depth = DEPTH_p;
 
-
-
-
-dl_BASE_COLORS = ds_list_create();
 
 // 7 colors means 5040 permutations per palette
 // 6 colors means  720 permutations per palette
@@ -717,8 +716,9 @@ ds_list_add(global.dl_COLOR01,$FCFCFC); // Hue-$00,  Sat-$00,  Bright-$FB
 // ROW $0E                                                              //
 // ROW $0F                                                              //
 //                                                                      //
-ColorGrid_CLMS = $0A;
-ColorGrid_ROWS = $0E;
+ColorGrid_CLMS = $A;
+ColorGrid_ROWS = $E;
+//spr_ColorGrid01, ts_SolidColors01_8x8
 
 
 
@@ -913,14 +913,7 @@ ds_list_copy(_dl,global.dl_COLOR01);
 for(_i=ds_list_size(_dl)-1; _i>=0; _i--)
 {
     _color = _dl[|_i];
-    if (_color!=C_WHT0 
-    &&  _color!=C_RED0 
-    &&  _color!=C_BLU0 
-    &&  _color!=C_GRN0 
-    &&  _color!=C_YLW0 
-    &&  _color!=C_MGN0 
-    &&  _color!=C_BLK0 
-    &&  _color!=C_CYN0 )
+    if (ds_list_find_index(dl_BASE_COLORS,_color)==-1)
     {
         _brightness = get_color_brightness(_color);
              if (_brightness<$40) ds_list_add(dl_colors_s,_color);
@@ -1151,7 +1144,8 @@ PAL_POS_MOB4_DARK = PAL_POS_MOB4 + (COL_PER_SET*global.PAL_CHAR_PER_COLOR);
 
 
 
-PAL_BASE = build_pal(C_WHT0,C_RED0,C_BLU0,C_GRN0,C_YLW0,C_MGN0,C_BLK0,C_CYN0);
+PAL_BASE = build_pal(dl_BASE_COLORS[|0],dl_BASE_COLORS[|1],dl_BASE_COLORS[|2],dl_BASE_COLORS[|3], dl_BASE_COLORS[|4],dl_BASE_COLORS[|5],dl_BASE_COLORS[|6],dl_BASE_COLORS[|7]); // FFFFFF 0000FF FF0000 00FF00 00FFFF FF00FF 000000 FFFF00
+//PAL_BASE = build_pal(C_WHT0,C_RED0,C_BLU0,C_GRN0,C_YLW0,C_MGN0,C_BLK0,C_CYN0);
 //                                                                          //
 //                                                                          //
 //                                                                          //
@@ -1513,6 +1507,7 @@ dg_PI_SEQ[#$08,3] = dg_PI_SEQ[#$08,1];
 
 
 
+// ---------------------------------------------------------------------------
 // FALLING SCENE  ----------------------------------
 var _FALL_SPEED_DEFAULT = 2;
 var _STRIPE_W = 8;
@@ -1624,7 +1619,7 @@ for(_i=val(global.FallScene_dm[?STR_Type+STR_Count])-1; _i>=0; _i--)
 
 
 
-
+// ---------------------------------------------------------------------------
 var _layer_name="";
 var _tile_was_found, _tsrc;
 var _CLM_SHIFT = 5; // 32. Palette groups are aligned to left edge of each scene section/map-page
@@ -1761,83 +1756,83 @@ ds_map_destroy(_dm_data); _dm_data=undefined;
 
 
 
+
+/* // *** Turning this off because rando seems to be picking them too often
 // This adds a bunch of extra palettes with a black mid-tone.
-if (0) // *** Turning this off because rando seems to be picking them too often
+ds_list_clear(_dl);
+
+var _dl_COLORS1=ds_list_create();
+ds_list_add(_dl_COLORS1, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,CI_ORG4_,CI_BLU4_,CI_VLT4_);
+
+var _dl_COLORS2=ds_list_create();
+ds_list_add(_dl_COLORS2, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,         CI_BLU4_,CI_VLT4_);
+
+for(_i=0; _i<=1; _i++)
 {
-    ds_list_clear(_dl);
+    switch(_i){
+    case 0:{ds_list_copy(_dl,dl_various_pals1); break;}
+    case 1:{ds_list_copy(_dl,dl_various_pals2); break;}
+    }
     
-    var _dl_COLORS1=ds_list_create();
-    ds_list_add(_dl_COLORS1, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,CI_ORG4_,CI_BLU4_,CI_VLT4_);
-    
-    var _dl_COLORS2=ds_list_create();
-    ds_list_add(_dl_COLORS2, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,         CI_BLU4_,CI_VLT4_);
-    
-    for(_i=0; _i<=1; _i++)
+    for(_j=ds_list_size(_dl)-1; _j>=0; _j--)
     {
-        switch(_i){
-        case 0:{ds_list_copy(_dl,dl_various_pals1); break;}
-        case 1:{ds_list_copy(_dl,dl_various_pals2); break;}
-        }
+        _val  = _dl[|_j];
+        _ci1  = string_copy(_val,1,2);
+        _ci2  = string_copy(_val,3,2);
+        _ci3  = string_copy(_val,5,2);
+        _ci4  = string_copy(_val,7,2);
+        _val1 = _ci1 + _ci2 + _ci4 + _ci3;
+        _val2 = _ci1 + _ci3 + _ci4 + _ci2;
+        _val3 = _ci1 + _ci4 + _ci3 + _ci2;
         
-        for(_j=ds_list_size(_dl)-1; _j>=0; _j--)
+        switch(_i)
         {
-            _val  = _dl[|_j];
-            _ci1  = string_copy(_val,1,2);
-            _ci2  = string_copy(_val,3,2);
-            _ci3  = string_copy(_val,5,2);
-            _ci4  = string_copy(_val,7,2);
-            _val1 = _ci1 + _ci2 + _ci4 + _ci3;
-            _val2 = _ci1 + _ci3 + _ci4 + _ci2;
-            _val3 = _ci1 + _ci4 + _ci3 + _ci2;
+            case 0:{//====================================================
+            if (ds_list_find_index(dl_various_pals1,_val1)==-1)
+            {   ds_list_add(       dl_various_pals1,_val1);  }
             
-            switch(_i)
+            if (_ci3==CI_BLK1_ 
+            ||  _ci4==CI_BLK1_ )
             {
-                case 0:{//====================================================
-                if (ds_list_find_index(dl_various_pals1,_val1)==-1)
-                {   ds_list_add(       dl_various_pals1,_val1);  }
-                
-                if (_ci3==CI_BLK1_ 
-                ||  _ci4==CI_BLK1_ )
+                if (_ci3==CI_BLK1_) _val = _val2;
+                else                _val = _val3;
+                if (ds_list_find_index(dl_various_pals1,_val)==-1)
+                {   ds_list_add(       dl_various_pals1,_val);  }
+            }
+            break;}//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            
+            
+            case 1:{//====================================================
+            var _colors, _pal;
+            var _COLORS = CI_BLK1_ + CI_GRY4_ + CI_CYN4_ + CI_GRB4_ + CI_YGR4_ + CI_YLW4_ + CI_BLU4_ + CI_VLT4_; // darkest colors
+            var         _dl_PALS=ds_list_create();
+            ds_list_add(_dl_PALS, _val1,_val2,_val3);
+            
+            for(_k=ds_list_size(_dl_PALS)-1; _k>=0; _k--)
+            {
+                _pal = _dl_PALS[|_k];
+                    _color1 = string_copy(_pal,5,2); // midtone
+                    _color2 = string_copy(_pal,7,2); // shadow
+                if (_color1==CI_BLK1_ 
+                ||  _color2==CI_BLK1_ )
                 {
-                    if (_ci3==CI_BLK1_) _val = _val2;
-                    else                _val = _val3;
-                    if (ds_list_find_index(dl_various_pals1,_val)==-1)
-                    {   ds_list_add(       dl_various_pals1,_val);  }
-                }
-                break;}//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                
-                
-                case 1:{//====================================================
-                var _colors, _pal;
-                var _COLORS = CI_BLK1_ + CI_GRY4_ + CI_CYN4_ + CI_GRB4_ + CI_YGR4_ + CI_YLW4_ + CI_BLU4_ + CI_VLT4_; // darkest colors
-                var         _dl_PALS=ds_list_create();
-                ds_list_add(_dl_PALS, _val1,_val2,_val3);
-                
-                for(_k=ds_list_size(_dl_PALS)-1; _k>=0; _k--)
-                {
-                    _pal = _dl_PALS[|_k];
-                        _color1 = string_copy(_pal,5,2); // midtone
-                        _color2 = string_copy(_pal,7,2); // shadow
-                    if (_color1==CI_BLK1_ 
-                    ||  _color2==CI_BLK1_ )
+                    if (string_pos(_color1,_COLORS) 
+                    ||  string_pos(_color2,_COLORS) )
                     {
-                        if (string_pos(_color1,_COLORS) 
-                        ||  string_pos(_color2,_COLORS) )
-                        {
-                            if (ds_list_find_index(dl_various_pals2,_pal)==-1)
-                            {   ds_list_add(       dl_various_pals2,_pal);  }
-                        }
+                        if (ds_list_find_index(dl_various_pals2,_pal)==-1)
+                        {   ds_list_add(       dl_various_pals2,_pal);  }
                     }
                 }
-                
-                ds_list_destroy(_dl_PALS); _dl_PALS=undefined;
-                break;}//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            }//switch(_i)
-        }
+            }
+            
+            ds_list_destroy(_dl_PALS); _dl_PALS=undefined;
+            break;}//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        }//switch(_i)
     }
-    ds_list_destroy(_dl_COLORS1); _dl_COLORS1=undefined;
-    ds_list_destroy(_dl_COLORS2); _dl_COLORS2=undefined;
 }
+ds_list_destroy(_dl_COLORS1); _dl_COLORS1=undefined;
+ds_list_destroy(_dl_COLORS2); _dl_COLORS2=undefined;
+*/
 
 
 
@@ -1846,25 +1841,20 @@ if (0) // *** Turning this off because rando seems to be picking them too often
 
 
 
+// ---------------------------------------------------------------------------
 // This will load palette data from `PaletteData01.txt` or initialize it if it doesn't exist
 p_init_palette_data();
 
-// automates code for p_init_palette_data()
-/* *** As of 2025/05/24, palette data is saved in 
-`PaletteData01.txt` instead of fully layed out in a script.
-Therefor `dev_automate_palette_data2()` isn't needed unless 
-I decide to go back to the old format.
-*/
-//dev_automate_palette_data2();
 
 
 
-
+// ---------------------------------------------------------------------------
 instance_create(0,0, PaletteEditor);
 
 
 
 
+// ---------------------------------------------------------------------------
 shader_set(shd_pal_swapper);
 shader_set_uniform_f(shader_get_uniform(shd_pal_swapper,"ALPHA0_COLOR"), ((global.C_ALPHA0>>$10)&$FF)/$FF, ((global.C_ALPHA0>>$08)&$FF)/$FF, ((global.C_ALPHA0>>$00)&$FF)/$FF);
 shader_reset();
@@ -1872,16 +1862,69 @@ shader_reset();
 
 
 
-ds_list_destroy(_dl); _dl=undefined;
-
-
-
-
-
-
-
-
+// ---------------------------------------------------------------------------
 //dev_list_tile_liquid_layers();
+
+
+/*
+// List all Tiled files that use the 8-color palette system
+var _dm0,_dm1, _dl0;
+for(_i=ds_list_size(g.dl_AREA_NAME)-1; _i>=0; _i--) // each area
+{
+    for(_j=0; _j<$100; _j++) // num of possible scenes in this area
+    {
+        _file_name = string_letters(g.dl_AREA_NAME[|_i])+"_"+string_repeat("0",3-string_length(string(_j))) + string(_j); // _file_name example: PalcA_003
+        _file = "rm_tile_data/"+string_letters(g.dl_AREA_NAME[|_i])+"/"+_file_name+".json"; // _file example: "rm_tile_data/PalcA/PalcA_003.json"
+        if (file_exists(_file))
+        {
+                _file  = file_text_open_read(_file);
+                _data  = "";
+            while(      !file_text_eof(   _file)) 
+            {   _data += file_text_readln(_file);  }
+                         file_text_close( _file);
+            _dm0 = json_decode(_data);
+            
+            _dl0 = _dm0[?"layers"];
+            if(!is_undefined(_dl0))
+            {
+                for(_k=ds_list_size(_dl0)-1; _k>=0; _k--) // each layer
+                {
+                    _dm1 = _dl0[|_k];
+                    _val = val(_dm1[?"name"], "");
+                    if (string_pos("tile_data_system", _val))
+                    {
+                        _val1 = str_hex(string_copy(_val, string_pos("v.", _val)+2, 2));
+                        if (_val1==4) sdm(_file_name);
+                        break;//_k
+                    }
+                }
+            }
+            
+            ds_map_destroy(_dm0); _dm0=undefined;
+        }
+    }
+}
+TownA_005
+TownA_010
+TownA_011
+TownA_012
+TownA_017
+TownA_110
+TownA_121
+TownA_122
+TownA_123
+TownA_129
+TownA_130
+TownA_255
+MazIs_003
+EastA_100
+*/
+
+
+
+
+// ---------------------------------------------------------------------------
+ds_list_destroy(_dl); _dl=undefined;
 
 
 

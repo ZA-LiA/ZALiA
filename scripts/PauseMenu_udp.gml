@@ -8,6 +8,7 @@ var _grid_clm,_grid_row;
 var _ts, _tsrc1,_tsrc2,_tsrc3,_tsrc4, _tsrcA,_tsrcB, _ts_x,_ts_y, _ts_xoff,_ts_yoff, _tile_data, _tile_w,_tile_h;
 var _is_treeA,_is_treeB;
 var _owrc;
+var _dk;
 
 
 drawX = get_menu_x();
@@ -131,9 +132,10 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
     terrain_draw_area_yb -= 8;     // -8(terrain pad)
     
     
-    var _OWRC = val(f.dm_rando[?g.rm_name+STR_OWRC], global.OVERWORLD.pcrc_map);
-    tsrc_grid_clm_base = ((_OWRC>>0)&$FF) - (TerrainDraw_CLMS>>1);
-    tsrc_grid_row_base = ((_OWRC>>8)&$FF) - (TerrainDraw_ROWS>>1);
+    _owrc = val(g.dm_rm[?   g.rm_name+STR_OWRC], global.OVERWORLD.pcrc_map);
+    _owrc = val(f.dm_rando[?g.rm_name+STR_OWRC], _owrc);
+    tsrc_grid_clm_base = ((_owrc>>0)&$FF) - (TerrainDraw_CLMS>>1);
+    tsrc_grid_row_base = ((_owrc>>8)&$FF) - (TerrainDraw_ROWS>>1);
     
     
     var _TSRC_ERROR = $FF;

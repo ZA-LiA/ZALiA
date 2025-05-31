@@ -30,6 +30,14 @@ var _dl1 = ds_list_create();
 
 
 
+OW_CLMS = $0100;
+OW_ROWS = $0100;
+OW_W = OW_CLMS<<SHIFT;
+OW_H = OW_ROWS<<SHIFT;
+
+
+
+
 
 
 
@@ -283,14 +291,6 @@ g.dm_rm[?_scene_id+STR_OWRC]           = _owrc;             // scene owrc
 g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $897E;             // goto owrc
 g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $04;               // goto ow facing dir
 g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc=$897E; _owrc_=hex_str(_owrc);
-_scene_id = '_PalcG_36';
-g.dm_rm[?_scene_id+STR_OWRC]           = _owrc;             // scene owrc
-g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $897E;             // goto owrc
-g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $08;               // goto ow facing dir
-g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
 
 
 _owrc=$EAD6; _owrc_=hex_str(_owrc);
@@ -2802,8 +2802,6 @@ if(!is_undefined(_data)) ds_grid_read(dg_AreaNames, _data);
 
 ds_map_destroy(dm_file_data); dm_file_data=undefined;
 ds_list_destroy(_dl1); _dl1=undefined;
-
-
 
 
 

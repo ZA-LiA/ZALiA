@@ -5,7 +5,8 @@ var _i, _a, _datakey;
 
 
 // Two Zelda's are spawned to this room, only 1 can remain..
-if (g.rm_name!=g.GameEnd1B_RM_NAME)
+if (g.rm_name!=val(g.dm_rm[?"GameEnd1B_RM_NAME"]))
+//if (g.rm_name!=g.GameEnd1B_RM_NAME)
 {
     if ((ver==1 && f.quest_num>=2)  
     ||  (ver==2 && f.quest_num==1) )

@@ -7,7 +7,7 @@ var _clm,_row;
 var _rm, _page, _pages, _data
 var _ver;
 var _exit;
-var _exit_name = EXIT_NAME_GAME_START;
+var _exit_name = REEN_DEFAULT;
 
 
 

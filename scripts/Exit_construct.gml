@@ -14,7 +14,7 @@ with(instance_create(0,0,Exit))
     exit_type = val(g.dm_rm[?exitName+STR_Type]);
     
     
-    goToExitName = val(g.dm_rm[?   exitName+STR_goto_reen], EXIT_NAME_GAME_START);
+    goToExitName = val(g.dm_rm[?   exitName+STR_goto_reen], REEN_DEFAULT);
     goToExitName = val(f.dm_rando[?exitName+STR_goto_reen], goToExitName);
     
     goToRoom     = get_exit_rm_name(goToExitName);

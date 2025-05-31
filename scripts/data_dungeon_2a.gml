@@ -481,7 +481,7 @@ for(_i=0; _i<4; _i++) // side exits: RGT $10, LFT $20, BTM $40, TOP $80
         }
         
         
-        _exit_name2 = val(g.dm_rm[?_exit_name1+STR_goto_reen], EXIT_NAME_GAME_START);
+        _exit_name2 = val(g.dm_rm[?_exit_name1+STR_goto_reen], REEN_DEFAULT);
         _rm_name = get_exit_rm_name(_exit_name2);
         if (_exit_name1 == _exit_curr 
         ||  _exit_name2 == _exit_from 

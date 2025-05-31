@@ -1,58 +1,43 @@
 /// p_init_palette_data()
 
 
-var _datakey;
+var _file, _file_data;
 var _REINITIALIZING = false; // *** SET true TO RUN THIS IN CASE A SCENE'S PALETTE DATA HAS CHANGED ***
+var _FILE_NAME0 = "PaletteData01.txt"; // use %localappdata% directory so user can save edited palettes
+//var _FILE_NAME0 = 'other/PaletteData01.txt';
 
 
-var             _FILE_NAME1 = "PaletteData01.txt"; // use %localappdata% directory so user can save edited palettes
-//var             _FILE_NAME1 = 'other/PaletteData01.txt';
-if (file_exists(_FILE_NAME1))
+
+
+if(!_REINITIALIZING 
+&&  file_exists(_FILE_NAME0) )
 {
-    var _FILE      = file_text_open_read(working_directory+_FILE_NAME1);
-    var _FILE_DATA = file_text_read_string(_FILE);
-                     file_text_close(      _FILE);
-    dm_scene_palette = json_decode(_FILE_DATA);
+    _file      = file_text_open_read(working_directory+_FILE_NAME0);
+    _file_data = file_text_read_string(_file);
+                 file_text_close(      _file);
+    dm_scene_palette = json_decode(_file_data);
 }
-
-
-
-
-
-
-
-
-// ***********************  _Title_  ***********************
-//  ----------------------------  000  ----------------------------
-_datakey = 'Title_000'+dk_BGR;
-if (_REINITIALIZING 
-||  is_undefined(dm_scene_palette[?_datakey]) )
-{   //                            [                                      BGR1                                      ]  +  [                                      BGR2                                      ]  +  [                                      BGR3                                      ]  +  [                                      BGR4                                      ]
-    dm_scene_palette[?_datakey] = build_pal('BCE89E','747474','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('EC3820','005000','010101','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCBC3C','EC3820','A80000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_)  +  build_pal('FCFCFC','3E3E3E','888000','010101', C_YLW0_, C_MGN0_, C_BLK0_, C_CYN0_);
-}
-
-
-
-
-
-
-
-
-// --------------------------------------------------------------------------------------------------------
-
-if (_REINITIALIZING 
-|| !file_exists(_FILE_NAME1) )
+else
 {
-    var _i,_j, _palette1, _area;
-    var _file, _file_name, _area_file_num_, _file_data;
+    var _i,_j, _val, _area, _palette1;
+    var _file_name, _area_file_num_;
     var _SINGLE_SCENE = undefined;
     //_SINGLE_SCENE = Area_TownA+"129"; // use this line only when getting data for a single scene
     
+    var _dl_area = ds_list_create();
+    ds_list_copy(_dl_area, g.dl_AREA_NAME);
+    if (ds_list_find_index(_dl_area,Area_Title)==-1) ds_list_insert(_dl_area, 0, Area_Title);
     
-    var          _AREA_COUNT = ds_list_size(g.dl_AREA_NAME);
+    _val = build_pal(C_RED3,C_GRY4,C_BLK1,C_BLK1,-2,-2,-2,-2);
+    _palette1 = "";
+    repeat(val(global.dm_pi[?"BGR"+STR_Count])) _palette1 += _val;
+    var _DEFAULT_PAL = _palette1;
+    
+    
+    var          _AREA_COUNT = ds_list_size(_dl_area);
     for(_i=0; _i<_AREA_COUNT; _i++)
     {
-        _area = g.dl_AREA_NAME[|_i];
+        _area = _dl_area[|_i];
         
         for(_j=0; _j<$100; _j++) // num of possible scenes in this area
         {
@@ -87,7 +72,8 @@ if (_REINITIALIZING
                                   file_text_close( _file);
                 //
                 _palette1 = get_palette_via_file_data(_file_data); // just bgr palettes from Tiled file
-                if(!is_undefined(_palette1)) dm_scene_palette[?_file_name+dk_BGR] = _palette1;
+                if (is_undefined(_palette1)) _palette1 = _DEFAULT_PAL;
+                dm_scene_palette[?_file_name+dk_BGR] = _palette1;
             }
             
             if(!is_undefined(_SINGLE_SCENE))
@@ -102,20 +88,17 @@ if (_REINITIALIZING
     
     
     // -------------------------------------------------------------------
-    // -------------------------------------------------------------------
-    // -------------------------------------------------------------------
-    // -------------------------------------------------------------------
     if (ds_map_size(dm_scene_palette))
     {
-        var _ENCODED = json_encode(dm_scene_palette);
-        _file = file_text_open_write(working_directory+_FILE_NAME1);
-                file_text_write_string(_file, _ENCODED);
+        _file_data = json_encode(dm_scene_palette);
+        _file = file_text_open_write(working_directory+_FILE_NAME0);
+                file_text_write_string(_file, _file_data);
                 file_text_close(       _file);
     }
     // -------------------------------------------------------------------
-    // -------------------------------------------------------------------
-    // -------------------------------------------------------------------
-    // -------------------------------------------------------------------
+    
+    
+    ds_list_destroy(_dl_area); _dl_area=undefined;
 }
 
 

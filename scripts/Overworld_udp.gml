@@ -6,7 +6,7 @@ var _x,_y, _yoff;
 var _clm,_row;
 var _spr, _pi;
 var _item_id, _datakey1, _owrc_;
-var _C1 = g.room_type=="C" && !exit_grid_xy;
+var _C1 = g.room_type=="C" && !exit_owrc;
 
 
 if (false)

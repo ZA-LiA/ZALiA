@@ -78,13 +78,18 @@ if (_IS_TYPE1
     
     if(!val(g.dm_RandoEnemy[?_datakey1])) // if not added yet
     {   // This makes a list of spawns that are qualified to rando the objver
-                                   _datakey2 = _datakey+STR_Count;
-        _num1=val(g.dm_RandoEnemy[?_datakey2])+1;
-                  g.dm_RandoEnemy[?_datakey2] = _num1;
-        //
-                         _datakey2  = _datakey+hex_str(_num1)+STR_Spawn+STR_Datakey;
-        g.dm_RandoEnemy[?_datakey2] = _SPAWN_DATAKEY;
+        _datakey2 = _datakey+STR_Count;
+        _num1 = val(g.dm_RandoEnemy[?_datakey2]) + 1;
+        g.dm_RandoEnemy[?_datakey2] = _num1;
+        dm_rando_enemy[? _datakey2] = _num1;
+        
         g.dm_RandoEnemy[?_datakey1] = _num1;
+        dm_rando_enemy[? _datakey1] = _num1;
+        
+        
+        _datakey2 = _datakey+hex_str(_num1)+STR_Spawn+STR_Datakey;
+        g.dm_RandoEnemy[?_datakey2] = _SPAWN_DATAKEY;
+        dm_rando_enemy[? _datakey2] = _SPAWN_DATAKEY;
     }
 }
 

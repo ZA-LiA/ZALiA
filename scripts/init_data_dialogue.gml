@@ -924,9 +924,14 @@ _dm[?_dk+'A']='_ LOVED<'
              +' SUN RISE';
 break;}////////////////////////////////////
 case   3:{//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+_dm[?_dk+'A']='LOVED TO<'
+             +'WATCH THE<'
+             +'SUN RISE';
+/*
 _dm[?_dk+'A']=' LOVED TO<'
              +' WATCH THE<'
              +' SUN RISE';
+*/
 break;}////////////////////////////////////
 }//HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 //           --------------- // 

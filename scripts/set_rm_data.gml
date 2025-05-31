@@ -61,7 +61,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "PARAPA PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_PRPA1],OWRC_DFL);
+        if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = g.OWRC_DNGN_PRPA1;
+        //g.dm_rm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_PRPA1],OWRC_DFL);
         break;}
         case Area_PalcB:{
         dungeon_num  = 2;
@@ -69,7 +70,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "MIDORO PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MDRO1],OWRC_DFL);
+        if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = g.OWRC_DNGN_MDRO1;
+        //g.dm_rm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MDRO1],OWRC_DFL);
         break;}
         case Area_PalcC:{
         dungeon_num  = 3;
@@ -77,7 +79,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "ISLAND PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_ISLD1],OWRC_DFL);
+        if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = g.OWRC_DNGN_ISLD1;
+        //g.dm_rm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_ISLD1],OWRC_DFL);
         break;}
         case Area_PalcD:{
         dungeon_num  = 4;
@@ -85,7 +88,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "MAZE ISLAND PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MAZE1],OWRC_DFL);
+        if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = g.OWRC_DNGN_MAZE1;
+        //g.dm_rm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_MAZE1],OWRC_DFL);
         break;}
         case Area_PalcE:{
         dungeon_num  = 5;
@@ -93,7 +97,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "PALACE ON THE SEA";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_POTS1],OWRC_DFL);
+        if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = g.OWRC_DNGN_POTS1;
+        //g.dm_rm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_POTS1],OWRC_DFL);
         break;}
         case Area_PalcF:{
         dungeon_num  = 6;
@@ -101,7 +106,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "3-EYE ROCK PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_THRE1],OWRC_DFL);
+        if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = g.OWRC_DNGN_THRE1;
+        //g.dm_rm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_THRE1],OWRC_DFL);
         break;}
         case Area_PalcG:{
         dungeon_num  = 7;
@@ -109,7 +115,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "GREAT PALACE";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_GRET1],OWRC_DFL);
+        if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = g.OWRC_DNGN_GRET1;
+        //g.dm_rm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_GRET1],OWRC_DFL);
         break;}
         case Area_PalcH:{
         dungeon_num  = 8;
@@ -117,7 +124,8 @@ if (_IS_DUNGEON)
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Num]  = dungeon_num;
         g.dm_rm[?_RM_NAME+STR_Dungeon+STR_Name] = dungeon_name;
         g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]  = "DRAGMIRE TOWER";
-        g.dm_rm[?_RM_NAME+STR_OWRC]             = val(global.OVERWORLD.dm[?MK_OWRC_PAL_DRAG1],OWRC_DFL);
+        if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = g.OWRC_DNGN_DRAG1;
+        //if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC])) g.dm_rm[?_RM_NAME+STR_OWRC] = val(global.OVERWORLD.dm[?MK_OWRC_PAL_DRAG1],OWRC_DFL);
         break;}
     }
 }
@@ -137,26 +145,42 @@ else
             _val2 = val(g.dm_town[?STR_Town+STR_Num+_val1]);
             if (_val2)
             {
-                g.dm_rm[?_RM_NAME+STR_Town+STR_Num]  = _val2; // Town number (1-9)
-                g.dm_rm[?_RM_NAME+STR_Town+STR_Name] = _val1;
-                
-                                     _val3=OWRC_DFL;
-                switch(_val1){
-                case STR_Rauru:     {_val3=g.OWRC_TOWN_RAUR1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_RAURU);      break;}
-                case STR_Ruto:      {_val3=g.OWRC_TOWN_RUTO1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_RUTO);       break;}
-                case STR_Saria:     {_val3=g.OWRC_TOWN_SARI1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_SARIA);      break;}
-                case STR_Mido:      {_val3=g.OWRC_TOWN_MIDO1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_MIDO);       break;}
-                case STR_Nabooru:   {_val3=g.OWRC_TOWN_NABO1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_NABOORU);    break;}
-                case STR_Darunia:   {_val3=g.OWRC_TOWN_DARU1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_DARUNIA);    break;}
-                case STR_New_Kasuto:{_val3=g.OWRC_TOWN_NEWK1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_NEW_KASUTO); break;}
-                case STR_Old_Kasuto:{_val3=g.OWRC_TOWN_OLDK1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_KASUTO);     break;}
-                case STR_Bulblin:   {_val3=g.OWRC_TOWN_BULB1; g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?_val1+MapAreaName_DATAKEY], MapAreaName_BULBLIN);    break;}
-                }
-                //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC] = _val3;
-                g.dm_rm[?_RM_NAME+STR_OWRC] = _val3;
-                
-                town_num  = _val2;
                 town_name = _val1;
+                town_num  = _val2;
+                g.dm_rm[?_RM_NAME+STR_Town+STR_Name] = town_name;
+                g.dm_rm[?_RM_NAME+STR_Town+STR_Num]  = town_num; // Town number (1-9)
+                
+                
+                if (is_undefined(g.dm_rm[?_RM_NAME+STR_OWRC]))
+                {
+                    switch(town_name){
+                    default:            {g.dm_rm[?_RM_NAME+STR_OWRC]=OWRC_DFL;          break;}
+                    case STR_Rauru:     {g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_RAUR1; break;}
+                    case STR_Ruto:      {g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_RUTO1; break;}
+                    case STR_Saria:     {g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_SARI1; break;}
+                    case STR_Mido:      {g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_MIDO1; break;}
+                    case STR_Nabooru:   {g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_NABO1; break;}
+                    case STR_Darunia:   {g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_DARU1; break;}
+                    case STR_New_Kasuto:{g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_NEWK1; break;}
+                    case STR_Old_Kasuto:{g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_OLDK1; break;}
+                    case STR_Bulblin:   {g.dm_rm[?_RM_NAME+STR_OWRC]=g.OWRC_TOWN_BULB1; break;}
+                    }
+                    //global.OVERWORLD.dm[?_RM_NAME+STR_OWRC];
+                }
+                
+                
+                
+                switch(town_name){
+                case STR_Rauru:     {g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_RAURU);      break;}
+                case STR_Ruto:      {g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_RUTO);       break;}
+                case STR_Saria:     {g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_SARIA);      break;}
+                case STR_Mido:      {g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_MIDO);       break;}
+                case STR_Nabooru:   {g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_NABOORU);    break;}
+                case STR_Darunia:   {g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_DARUNIA);    break;}
+                case STR_New_Kasuto:{g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_NEW_KASUTO); break;}
+                case STR_Old_Kasuto:{g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_KASUTO);     break;}
+                case STR_Bulblin:   {g.dm_rm[?_RM_NAME+MapAreaName_DATAKEY]=val(g.dm_town[?town_name+MapAreaName_DATAKEY], MapAreaName_BULBLIN);    break;}
+                }
                 break;//while (_i<argument_count)
             }
         }
@@ -399,7 +423,7 @@ y2          =  row2<<3;
 
 
 // get this ready for data_exit() for this rm
-               _val=EXIT_NAME_GAME_START;
+               _val = REEN_DEFAULT;
 exit_name_m0 = _val;
 exit_name_m1 = _val;
 exit_name_m2 = _val;

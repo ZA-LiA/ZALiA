@@ -379,7 +379,7 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         
         
         
-        for(_j=0; _j<4; _j++)
+        for(_j=0; _j<4; _j++) // each pc move dir($1,2,4,8)
         {
             _dir = $1<<_j; // pc movement dir when entering town from overworld. $1,2,4,8
             _datakey1 = hex_str(_owrc1)+hex_str(_dir)+STR_Exit;

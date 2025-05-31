@@ -7,7 +7,7 @@ var _clm,_clm2, _row,_row2, _clms,_rows;
 var _pi, _obj;
 var _rm, _file, _data, _exit, _owrc;
 var _exit, _file;
-var _exit_name = EXIT_NAME_GAME_START;
+var _exit_name = REEN_DEFAULT;
 //var _Ra_VER = 1; // P5 OG
 var _Ra_VER = 2; // mod
 

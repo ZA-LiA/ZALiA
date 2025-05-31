@@ -14663,7 +14663,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="994">
+  <constants number="995">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -14713,6 +14713,7 @@
     <constant name="AreaID_LEN">string_length(Area_WestA)</constant>
     <constant name="RmName_LEN">(AreaID_LEN + 2)</constant>
     <constant name="ExitName_LEN">(RmName_LEN + 2)</constant>
+    <constant name="REEN_DEFAULT">EXIT_NAME_GAME_START</constant>
     <constant name="BIT_ATK1">$01</constant>
     <constant name="BIT_ATK2">$02</constant>
     <constant name="BIT_ATK3">$04</constant>
