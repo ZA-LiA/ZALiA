@@ -44,8 +44,8 @@ if (input_start_pressed) // OPTION HAS BEEN SELECTED
         ds_list_copy(g.dl_XP, g.dl_XP_DEFAULT);
         ds_list_copy(g.dl_HP, g.dl_HP_DEFAULT);
         
-        ds_grid_copy(g.dg_spell_cost,   g.dg_spell_cost_DEFAULT);
-        ds_grid_copy(f.dg_xp_next,      f.dg_xp_next_DEFAULT);
+        ds_grid_copy(g.dg_spell_cost, g.dg_spell_cost_DEFAULT);
+        ds_grid_copy(f.dg_xp_next, f.dg_xp_next_DEFAULT);
         ds_grid_copy(g.dg_enemy_damage, g.dg_enemy_damage_DEFAULT);
         
         set_save_props_def();

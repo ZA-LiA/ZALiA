@@ -3008,9 +3008,6 @@ data_spawn(rm+STR_PRIO,ItmK8,$1,  _x1,(row3-$02)<<3); // ITM_MAP1
 //                  Saria,  Target Minigame 1
 rm_num  = $90;
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+COLOR2_, STR_Tile+area_TA+'255', STR_ow_axis+hex_str(0), STR_Town+STR_Saria, MapAreaName_DATAKEY+MapAreaName_SARIA);
-_val = p.PAL_NPC_SET3; // purple mob brown outline
-dm_palette[?        rm+dk_MOB] = _val;
-p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init); // 

@@ -1,22 +1,19 @@
 /// get_palette_via_file_data(encoded file data, *scene name, *quest num)
 
 
-var _i, _val;
+var                    _arg = -1;
+var _data = argument[++_arg]; // pass 0 to have this open the file for the data
+
 var _palette1 = undefined;
 
-                       _i=-1;
-var _data = argument[++_i]; // pass 0 to have this open the file for the data
 
 if(!is_string(_data))
 {
-    if (argument_count>_i+1 && is_string(argument[++_i])) _val = argument[_i];
-    else                                                  _val = g.rm_name;
-    var _SCENE_NAME = _val;
+    if (argument_count>_arg+1 && is_string(argument[++_arg])) var _SCENE_NAME = argument[_arg];
+    else                                                      var _SCENE_NAME = g.rm_name;
     
-    
-    if (argument_count>_i+1) _val = argument[++_i];
-    else                     _val = g.file_data_quest_num;
-    var _QUEST_NUM = _val;
+    if (argument_count>_arg+1) var _QUEST_NUM = argument[++_arg];
+    else                       var _QUEST_NUM = g.file_data_quest_num;
     
     _data = rm_get_file_data(_SCENE_NAME, _QUEST_NUM);
     if (is_undefined(_data))
@@ -44,7 +41,7 @@ if (_dm_FILE!=-1)
         var _layer_name;
         var _LAYER_COUNT = ds_list_size(_dl_layer);
         var _dm_layer;
-        var _pal1, _color, _base_color_char;
+        var _color, _base_color_char;
         var _c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn;
         
         
@@ -145,10 +142,11 @@ if (_dm_FILE!=-1)
                             }
                         }
                         
-                        //sdm("_c_wht "+color_str(_c_wht)+", _c_red "+color_str(_c_red)+", _c_blu "+color_str(_c_blu)+", _c_grn "+color_str(_c_grn)+", _c_ylw "+color_str(_c_ylw)+", _c_mgn "+color_str(_c_mgn)+", _c_blk "+color_str(_c_blk)+", _c_cyn "+color_str(_c_cyn));
+                        
                         _palette1  = build_pal(_c_wht, _c_red, _c_blu, _c_grn, _c_ylw, _c_mgn, _c_blk, _c_cyn);
-                        //sdm("_palette1: "+_palette1);
                         _palette2 += _palette1;
+                        //sdm("_c_wht "+color_str(_c_wht)+", _c_red "+color_str(_c_red)+", _c_blu "+color_str(_c_blu)+", _c_grn "+color_str(_c_grn)+", _c_ylw "+color_str(_c_ylw)+", _c_mgn "+color_str(_c_mgn)+", _c_blk "+color_str(_c_blk)+", _c_cyn "+color_str(_c_cyn));
+                        //sdm("_palette1: "+_palette1);
                     }
                 }
             }

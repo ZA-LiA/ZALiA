@@ -206,7 +206,7 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
         //||  _tsrc1==$06 ) // Water - shallow
         {
             if (_tile_data==global.OVERWORLD.TSRC_WATER01) _tsrc2 = $82; // Water - deep
-            else                                      _tsrc2 = $86; // Water - shallow
+            else                                           _tsrc2 = $86; // Water - shallow
             _tsrc2 += _grid_clm&$1;
             _tsrc2 += (!(g.counter0&$40))<<1;
             _tsrc2 +=(_grid_row&$1)<<4;

@@ -11681,6 +11681,7 @@
         <background>background\ts_Natural_4a_HMS</background>
         <background>background\ts_Cave01</background>
         <background>background\ts_Natural02</background>
+        <background>background\ts_Natural03</background>
       </backgrounds>
       <backgrounds name="man_made">
         <background>background\ts_Man_made_1a_WRB</background>

@@ -132,7 +132,7 @@ _num1 =                        val(global.dm_scene_rando[?_dk1]);
 
 _dk2 = dk_SceneRando+STR_Scene+STR_Type;
 
-if (_num1==1)
+if (_num1==1) // if this scene is the first of its `_RANDO_SCENE_TYPE`
 {
     _dk3 = _dk2+STR_Count;
     global.dm_scene_rando[?_dk3] = val(global.dm_scene_rando[?_dk3])+1;

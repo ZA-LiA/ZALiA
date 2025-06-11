@@ -1111,7 +1111,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$4,  $54<<3,(row0+$0A)<<3); // PBag v4:200 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1301,7 +1301,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$8,  $4A<<3,y3); // PBag v8: 500 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1489,7 +1489,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$9,  $32<<3,(row2-2)<<3); // PBag $9: 700
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1695,7 +1695,7 @@ data_spawn(rm+STR_PRIO,ItmF0,$4,  x3,y3); // PBag v4: 200
 //data_spawn(rm+STR_PRIO,ItmF0,$4,  x4,y3,  STR_Qualified+STR_Quest+STR_Nums+"02"); // PBag v4: 200
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1837,7 +1837,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$8,  $60,$B0); // PBag 500 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -2277,7 +2277,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -3010,7 +3010,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$12,  0); // RGT 0, 
 
 
 //   --------------------------  6A  ---------------------------  
-//     Single house tile in forest on island NW of bridge to Maze Is 
+//     Outside of "IT'S A SECRET TO EVERYBODY" npc. Single house tile in forest on island NW of bridge to Maze Is 
 rm_num  = $6A;
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Color+color_str(p.C_BLU3), STR_Tile+area_EA+'096', STR_ow_axis+'00');
 
@@ -3832,7 +3832,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -3865,7 +3865,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -3897,7 +3897,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 

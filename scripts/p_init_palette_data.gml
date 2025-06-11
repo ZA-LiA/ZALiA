@@ -61,13 +61,17 @@ else
             _file_name += "_";
             _file_name += _area_file_num_;
             
+            // `_file_name1` example: "rm_tile_data/PalcA/PalcA_003.json"
+            _file_name1 = "rm_tile_data/"+string_copy(_file_name,1,5)+"/"+_file_name+".json";
+            /*
             // `_file_name1` example: "PalcA_003.json"
             _file_name1 = _file_name+".json";
+            */
             
             if (file_exists(_file_name1))
             {
                     _file_data  = "";
-                    _file =       file_text_open_read(_file_name1);
+                    _file       = file_text_open_read(_file_name1);
                 while(           !file_text_eof(   _file)) 
                 {   _file_data += file_text_readln(_file);  }
                                   file_text_close( _file);

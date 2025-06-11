@@ -741,6 +741,36 @@ if (_ROOM_C)
 
 
 
+// So that rando specific overworld tiles, like the cave passage next to Rauru, do not show on the map.
+if (_ROOM_A 
+||  _ROOM_C )
+{
+    if(!val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
+    {
+        with(global.OVERWORLD)
+        {
+            var _clm,_row;
+            var _COUNT = val(dm[?STR_Rando+STR_Exit+STR_Count]);
+            //sdm("g_Room_Start(). val(dm[?STR_Rando+STR_Exit+STR_Count])="+string(_COUNT));
+            for(_i=1; _i<=_COUNT; _i++)
+            {
+                _owrc = dm[?STR_Rando+STR_Exit+hex_str(_i)+STR_OWRC];
+                if(!is_undefined(_owrc))
+                {
+                    _clm = (_owrc>>0)&$FF;
+                    _row = (_owrc>>8)&$FF;
+                    dg_tsrc[# _clm,_row] = (TILESET1_TS_IDX<<8)|TSRC_MOUN01;
+                    dg_solid[#_clm,_row] = $01;
+                    dm[?hex_str(_owrc)+STR_Open] = 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+
 
 
 
@@ -1698,7 +1728,7 @@ if (_ROOM_A
         }
         
         // Remove ceiling?
-        if (0
+        if (false 
         && !(_exit_sides&$8)     // if there's no up exit
         &&  _exit_sides&$3==$3 ) // if there is both a right and left exit
         {

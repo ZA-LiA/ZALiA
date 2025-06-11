@@ -54,6 +54,8 @@ switch(ver){
 case 1:{GO_init_palidx(global.PI_MOB_PUR); break;}
 case 2:{GO_init_palidx(global.PI_MOB_RED); break;}
 }
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"W"), global.PAL_CHAR_PER_COLOR, color_str(p.C_WHT1)));
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"Y"), global.PAL_CHAR_PER_COLOR, color_str(p.C_WHT1)));
 change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"B"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
 change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"K"), global.PAL_CHAR_PER_COLOR, color_str(p.C_BLK1)));
 

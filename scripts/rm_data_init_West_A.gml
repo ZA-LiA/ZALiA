@@ -671,7 +671,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -702,7 +702,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -733,7 +733,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -767,7 +767,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -882,7 +882,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -914,7 +914,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1019,7 +1019,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$5,  ($14<<3)+2,row3<<3); // PBag v5: 250 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1049,7 +1049,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  (clm1+$12)<<3,(row3+$02)<<3,  STR_Treasure+STR_Map+"01"); // MAGIC PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1219,7 +1219,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $40<<3,(row3+$02)<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1378,7 +1378,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$1,  $4C<<3,y3); // PBag v1: 50
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1476,7 +1476,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$2,  $4C<<3,y3); // PBag v2: 100
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1514,7 +1514,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$5,  $4C<<3,y3); // PBag v5: 250
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1631,7 +1631,7 @@ data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($2E<<3)-2,y3, 
 //data_spawn(rm+STR_PRIO,ItmF0,$2,  x3-($10<<3),y3); // PBag v2: 100
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -1820,7 +1820,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $3B<<3,y6,  STR_Treasure+STR_Map+"01"); // HEART PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 
@@ -2203,7 +2203,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,ItmF0,$8,  ($06<<3)+4,y3); // PBag v8: 500 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 

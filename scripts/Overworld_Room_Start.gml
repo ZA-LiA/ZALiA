@@ -75,23 +75,24 @@ if (room==FileSelect)
     //ds_map_clear(dm_rando_biome);
 }
 
+/*
 if(!val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
 {
-    _count=val(dm[?STR_Rando+STR_Exit+STR_Count]);
+    _count = val(dm[?STR_Rando+STR_Exit+STR_Count]);
     for(_i=1; _i<=_count; _i++)
     {
-        _owrc=dm[?STR_Rando+STR_Exit+hex_str(_i)+STR_OWRC];
+        _owrc = dm[?STR_Rando+STR_Exit+hex_str(_i)+STR_OWRC];
         if(!is_undefined(_owrc))
         {
-            _clm=(_owrc>>0)&$FF;
-            _row=(_owrc>>8)&$FF;
-            dg_tsrc[# _clm,_row]=(TILESET1_TS_IDX<<8)|TSRC_MOUN01;
-            dg_solid[#_clm,_row]=$01;
-            dm[?hex_str(_owrc)+STR_Open]=0;
+            _clm = (_owrc>>0)&$FF;
+            _row = (_owrc>>8)&$FF;
+            dg_tsrc[# _clm,_row] = (TILESET1_TS_IDX<<8)|TSRC_MOUN01;
+            dg_solid[#_clm,_row] = $01;
+            dm[?hex_str(_owrc)+STR_Open] = 0;
         }
     }
 }
-
+*/
 
 
 

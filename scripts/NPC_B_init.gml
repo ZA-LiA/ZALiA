@@ -101,13 +101,12 @@ switch(ver) // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     MINIGAME_OBJ  = MnGmA; // Target game
     MINIGAME_VER  = 1;     // Target game 1
     minigame_inst = 0;
-    
     MINIGAME_X    = $40<<3;
     
     
-    POINTS_PRIZE_1 =  0; // need: max - POINTS_PRIZE_1 (30-0=30)
-    POINTS_PRIZE_2 =  POINTS_PRIZE_1+2; // need: max - POINTS_PRIZE_2 (30-2=28)
-    POINTS_PRIZE_3 =  max(POINTS_PRIZE_1+4,POINTS_PRIZE_2+2); // need: max - POINTS_PRIZE_3 (30-4=26)
+    POINTS_PRIZE_1 = 0; // need: max - POINTS_PRIZE_1 (30-0=30)
+    POINTS_PRIZE_2 = POINTS_PRIZE_1+2; // need: max - POINTS_PRIZE_2 (30-2=28)
+    POINTS_PRIZE_3 = max(POINTS_PRIZE_1+4,POINTS_PRIZE_2+2); // need: max - POINTS_PRIZE_3 (30-4=26)
     
     
     
@@ -160,6 +159,11 @@ switch(ver) // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     
     COST = 60;
     //COST = 0; // testing
+    
+    
+    // give npc a brown outline so they contrast with the black background
+    change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"B"), global.PAL_CHAR_PER_COLOR, color_str(p.C_YLW4))); // C_YLW4: Darkest NES Brown
+    change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"K"), global.PAL_CHAR_PER_COLOR, color_str(p.C_YLW4))); // C_YLW4: Darkest NES Brown
     break;}//case 1
     
     
@@ -235,6 +239,11 @@ switch(ver) // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     MUS_GAME_THEME  = dk_Minigame+"01";
     MUS_GAME_ACTIVE = get_audio_theme_track(MUS_GAME_THEME);
     //MUS_GAME_ACTIVE = get_audio_theme_track(STR_Battle+"01");
+    
+    
+    // give npc a brown outline so they contrast with the black background
+    change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"B"), global.PAL_CHAR_PER_COLOR, color_str(p.C_YLW4))); // C_YLW4: Darkest NES Brown
+    change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(palidx,"K"), global.PAL_CHAR_PER_COLOR, color_str(p.C_YLW4))); // C_YLW4: Darkest NES Brown
     break;}////case 3
     
     
