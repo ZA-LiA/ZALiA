@@ -10509,6 +10509,23 @@
           <filename>PalcZ_021.json</filename>
         </datafile>
       </datafiles>
+      <datafile>
+        <name>SceneData01.txt</name>
+        <exists>-1</exists>
+        <size>12549828</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>SceneData01.txt</filename>
+      </datafile>
     </datafiles>
     <datafiles number="1137" name="ow_tile_data">
       <datafile>
@@ -10614,23 +10631,6 @@
           </Config>
         </ConfigOptions>
         <filename>automate_code01.txt</filename>
-      </datafile>
-      <datafile>
-        <name>SceneData01.txt</name>
-        <exists>-1</exists>
-        <size>12549828</size>
-        <exportAction>2</exportAction>
-        <exportDir></exportDir>
-        <overwrite>0</overwrite>
-        <freeData>-1</freeData>
-        <removeEnd>0</removeEnd>
-        <store>0</store>
-        <ConfigOptions>
-          <Config name="Default">
-            <CopyToMask>9223372036854775807</CopyToMask>
-          </Config>
-        </ConfigOptions>
-        <filename>SceneData01.txt</filename>
       </datafile>
     </datafiles>
   </datafiles>
@@ -13391,7 +13391,6 @@
       <script>scripts\qual_spawn_3a.gml</script>
     </scripts>
     <scripts name="niao">
-      <script>scripts\NIAO_data_init.gml</script>
       <script>scripts\data_NIAO_1a.gml</script>
       <script>scripts\NIAO_create.gml</script>
       <script>scripts\NIAO_create2.gml</script>
@@ -13658,12 +13657,10 @@
       <script>scripts\get_save_name.gml</script>
       <script>scripts\get_saved_value.gml</script>
       <script>scripts\set_saved_value.gml</script>
+      <script>scripts\get_encoded_file_data.gml</script>
       <script>scripts\init_save_files.gml</script>
       <script>scripts\file_save.gml</script>
       <script>scripts\file_load.gml</script>
-      <script>scripts\file_load_pref.gml</script>
-      <script>scripts\file_save_pref.gml</script>
-      <script>scripts\save_user_input_pref.gml</script>
       <script>scripts\save_game_pref.gml</script>
       <script>scripts\load_game_pref.gml</script>
       <script>scripts\update_stat_restore.gml</script>
@@ -13678,7 +13675,6 @@
       <script>scripts\set_life_doll_data_to_default.gml</script>
       <script>scripts\get_life_doll_count.gml</script>
       <script>scripts\get_kakusu_count.gml</script>
-      <script>scripts\debug_changeSaveData.gml</script>
       <script>scripts\cont_piece_cnt_hp.gml</script>
       <script>scripts\cont_piece_cnt_mp.gml</script>
       <script>scripts\cont_cnt_hp.gml</script>
@@ -14663,7 +14659,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="995">
+  <constants number="997">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -15657,8 +15653,10 @@
     <constant name="dk_FileName">"_FileName"</constant>
     <constant name="dk_FullName">"_FullName"</constant>
     <constant name="dk_DialogueDatakey">"_DialogueDatakey"</constant>
+    <constant name="dk_UserPreferences">"_UserPreferences"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
+    <constant name="UserPrefFileName">"UserPreferences.txt"</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

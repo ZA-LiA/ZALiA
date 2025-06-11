@@ -66,7 +66,7 @@ switch(DevTools_cursor)
     case DevTools.DEV_TOOLS_STATE:{
     if (timer) break;
     
-    if (_InputConfirm_pressed)
+    if (_InputConfirm_pressed2)
     {
         g.DevTools_state = !g.DevTools_state;
         save_game_pref();

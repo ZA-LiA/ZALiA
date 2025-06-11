@@ -12,7 +12,8 @@ var _color1;
 var _area, _rm_name;
 var _file, _file_name, _area_file_num_, _file_data, _data;
 var _layer_name, _data_system_ver;
-var _dm_file = ds_map_create();
+var _dm_file = undefined;
+//var _dm_file = ds_map_create();
 var _dm_layer, _dl_layer;
 var _STR1="***********************";
 var _STR2="----------------------------";
@@ -76,75 +77,80 @@ for(_i=0; _i<_AREA_COUNT; _i++)
                               file_text_close( _file);
             //
             _dm_file = json_decode(_file_data);
-            _data_system_ver = 3;
-            _dl_layer = _dm_file[?"layers"];
-            if(!is_undefined(_dl_layer))
+            if (_dm_file!=-1)
             {
-                _count = ds_list_size(_dl_layer);
-                for(_k=0; _k<_count; _k++) // each layer
+                _data_system_ver = 3;
+                _dl_layer = _dm_file[?"layers"];
+                if(!is_undefined(_dl_layer))
                 {
-                    _dm_layer = _dl_layer[|_k];
-                    _layer_name = val(_dm_layer[?"name"], "");
-                    if (string_pos("tile_data_system", _layer_name))
+                    _count = ds_list_size(_dl_layer);
+                    for(_k=0; _k<_count; _k++) // each layer
                     {
-                        _data_system_ver = str_hex(string_copy(_layer_name, string_pos("v.", _layer_name)+2, 2));
-                        break;//_k
+                        _dm_layer = _dl_layer[|_k];
+                        _layer_name = val(_dm_layer[?"name"], "");
+                        if (string_pos("tile_data_system", _layer_name))
+                        {
+                            _data_system_ver = str_hex(string_copy(_layer_name, string_pos("v.", _layer_name)+2, 2));
+                            break;//_k
+                        }
                     }
                 }
-            }
-            
-            
-            _palette1 = get_palette_via_file_data(_file_data); // just bgr palettes from Tiled file
-            if(!is_undefined(_palette1))
-            {
-                _str = "_dm[?'"+_file_name+"'] = ";
-                _palette_count = string_length(_palette1) div global.PAL_CHAR_PER_PAL;
-                //sdm("_data_system_ver "+string(_data_system_ver)+", _palette_count $"+hex_str(_palette_count));
                 
-                for(_k=0; _k<_palette_count; _k++) // each palette
+                
+                _palette1 = get_palette_via_file_data(_file_data); // just bgr palettes from Tiled file
+                if(!is_undefined(_palette1))
                 {
-                    _palette2 = string_copy(_palette1, (global.PAL_CHAR_PER_PAL*_k)+1, global.PAL_CHAR_PER_PAL);
-                    //sdm("_palette2: "+_palette2);
-                    _str2 = "build_pal(";
-                    for(_m=0; _m<global.COLORS_PER_PALETTE; _m++) // each color of this palette
+                    _str = "_dm[?'"+_file_name+"'] = ";
+                    _palette_count = string_length(_palette1) div global.PAL_CHAR_PER_PAL;
+                    //sdm("_data_system_ver "+string(_data_system_ver)+", _palette_count $"+hex_str(_palette_count));
+                    
+                    for(_k=0; _k<_palette_count; _k++) // each palette
                     {
-                        _str3 = "";
-                        //if (_data_system_ver>=4 ||  _m )
-                        _color1 = string_copy(_palette2, (global.PAL_CHAR_PER_COLOR*_m)+1, global.PAL_CHAR_PER_COLOR);
-                        if (_color1!=C_BLK0_ 
-                        ||  string_char_at(global.PAL_BASE_COLOR_ORDER,_m+1)=="K" )
+                        _palette2 = string_copy(_palette1, (global.PAL_CHAR_PER_PAL*_k)+1, global.PAL_CHAR_PER_PAL);
+                        //sdm("_palette2: "+_palette2);
+                        _str2 = "build_pal(";
+                        for(_m=0; _m<global.COLORS_PER_PALETTE; _m++) // each color of this palette
                         {
-                            switch(_color1){
-                            case C_WHT0_:{_str3=" C_WHT0_"; break;}
-                            case C_RED0_:{_str3=" C_RED0_"; break;}
-                            case C_BLU0_:{_str3=" C_BLU0_"; break;}
-                            case C_GRN0_:{_str3=" C_GRN0_"; break;}
-                            case C_YLW0_:{_str3=" C_YLW0_"; break;}
-                            case C_MGN0_:{_str3=" C_MGN0_"; break;}
-                            case C_BLK0_:{_str3=" C_BLK0_"; break;}
-                            case C_CYN0_:{_str3=" C_CYN0_"; break;}
+                            _str3 = "";
+                            //if (_data_system_ver>=4 ||  _m )
+                            _color1 = string_copy(_palette2, (global.PAL_CHAR_PER_COLOR*_m)+1, global.PAL_CHAR_PER_COLOR);
+                            if (_color1!=C_BLK0_ 
+                            ||  string_char_at(global.PAL_BASE_COLOR_ORDER,_m+1)=="K" )
+                            {
+                                switch(_color1){
+                                case C_WHT0_:{_str3=" C_WHT0_"; break;}
+                                case C_RED0_:{_str3=" C_RED0_"; break;}
+                                case C_BLU0_:{_str3=" C_BLU0_"; break;}
+                                case C_GRN0_:{_str3=" C_GRN0_"; break;}
+                                case C_YLW0_:{_str3=" C_YLW0_"; break;}
+                                case C_MGN0_:{_str3=" C_MGN0_"; break;}
+                                case C_BLK0_:{_str3=" C_BLK0_"; break;}
+                                case C_CYN0_:{_str3=" C_CYN0_"; break;}
+                                }
                             }
+                            
+                            if (string_length(_str3)) _str2 += _str3;
+                            else                      _str2 += "'"+_color1+"'";
+                            
+                            if (_m<global.COLORS_PER_PALETTE-1) _str2 += ",";
+                            //if (_m<global.COLORS_PER_PALETTE-1) _str2 += "+";
+                            //if (_data_system_ver<4 ||  _m<global.COLORS_PER_PALETTE-1 ) _str2 += "+";
                         }
                         
-                        if (string_length(_str3)) _str2 += _str3;
-                        else                      _str2 += "'"+_color1+"'";
+                        //if (_data_system_ver<4) _str2 += "_SET1";
                         
-                        if (_m<global.COLORS_PER_PALETTE-1) _str2 += ",";
-                        //if (_m<global.COLORS_PER_PALETTE-1) _str2 += "+";
-                        //if (_data_system_ver<4 ||  _m<global.COLORS_PER_PALETTE-1 ) _str2 += "+";
+                        _str += _str2;
+                        _str += ")";
+                        if (_k<_palette_count-1) _str += "  +  ";
                     }
-                    
-                    //if (_data_system_ver<4) _str2 += "_SET1";
-                    
-                    _str += _str2;
-                    _str += ")";
-                    if (_k<_palette_count-1) _str += "  +  ";
+                    _str += ";";
+                    sdm(_str);
+                    //sdm("p.dm_scene_palette[?'"+_file_name+"'] = '"+_palette1+"';");
                 }
-                _str += ";";
-                sdm(_str);
-                //sdm("p.dm_scene_palette[?'"+_file_name+"'] = '"+_palette1+"';");
+                //sdm("g.dm_rm[?STR_Tile+STR_File+'"+_file_name+"'+STR_Width ] = $"+hex_str(_rm_w>>8)+"<<8; // ");
+                
+                ds_map_destroy(_dm_file); _dm_file=undefined;
             }
-            //sdm("g.dm_rm[?STR_Tile+STR_File+'"+_file_name+"'+STR_Width ] = $"+hex_str(_rm_w>>8)+"<<8; // ");
         }
         
         //sdm("");
@@ -157,7 +163,7 @@ for(_i=0; _i<_AREA_COUNT; _i++)
 //dm_scene_palette[?'WestA_000'] = build_pal('FCFCFC'+'BCBCBC'+'747474'+C_BLK0_ +C_YLW0_ +C_MGN0_ +C_BLK0_ +C_CYN0_   +  'FC88CC'+'9C0044'+C_BLK0_ +C_BLK0_ +C_YLW0_ +C_MGN0_ +C_BLK0_ +C_CYN0_   +  'B0BCFC'+'0028D8'+'00087C'+C_BLK0_ +C_YLW0_ +C_MGN0_ +C_BLK0_ +C_CYN0_   +  'FCFCFC'+'D8E800'+'5C3C18'+C_BLK0_ +C_YLW0_ +C_MGN0_ +C_BLK0_ +C_CYN0_ ;
 
 
-ds_map_destroy(_dm_file); _dm_file=undefined;
+//ds_map_destroy(_dm_file); _dm_file=undefined;
 ds_list_destroy(_dl_areas); _dl_areas=undefined;
 
 

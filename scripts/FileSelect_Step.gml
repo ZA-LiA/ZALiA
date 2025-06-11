@@ -109,7 +109,7 @@ if (save_num_selected
     
     
     
-    var _datakey=STR_Quest+STR_Puzzles+STR_Set;
+    var _datakey = STR_Quest+STR_Puzzles+STR_Set;
     if(!val(f.dm_quests[?_datakey]))
     {   // Everytime a save file is loaded, this will be done 
         // until the user saves their progress.
@@ -131,25 +131,25 @@ if (save_num_selected
     }
     
     
-    var      _DATAKEY1=STR_Target+STR_Game+STR_Order;
-    _datakey=_DATAKEY1+STR_Set;
+    var _DATAKEY1 = STR_Target+STR_Game+STR_Order;
+    _datakey = _DATAKEY1+STR_Set;
     if(!val(f.dm_quests[?_datakey]))
     {   // Everytime a save file is loaded, this will be done 
         // until the user saves their progress.
         f.dm_quests[?_datakey] = 1;
         
-        var              _dl_order=ds_list_create();
+        var              _dl_order = ds_list_create();
         if (f.quest_num==1)
         {    ds_list_add(_dl_order, $2,$6,$9,$9,$A,$B,$B,  $4,$5,$8);  } // difficulty 1,2
         else ds_list_add(_dl_order, $4,$4,$5,$5,$8,$8,$8,  $3,$7,$D);    // difficulty 2,3
         
         //see MiniGameA_init() to see how _order is used
-        var _COUNT=ds_list_size(_dl_order);
-        var _order="";
+        var _COUNT = ds_list_size(_dl_order);
+        var _order = "";
         for(_i=0; _i<8; _i++)
         {
             ds_list_shuffle(_dl_order);
-            for(_j=0; _j<_COUNT; _j++) _order+=hex_str(_dl_order[|_j]);
+            for(_j=0; _j<_COUNT; _j++) _order += hex_str(_dl_order[|_j]);
         }
         f.dm_quests[?_DATAKEY1+STR_Reset] = _order;
         f.dm_quests[?_DATAKEY1]           = _order;

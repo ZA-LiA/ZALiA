@@ -36,13 +36,13 @@ if (input_start_pressed) // OPTION HAS BEEN SELECTED
         ds_map_clear(g.dm_room_history);
         
         // in case switching files and prev file changed data in these datasets
-        ds_map_copy(g.dm_spawn,g.dm_spawn_DEFAULT);
-        ds_map_copy(f.dm_PBags,f.dm_PBags_DEFAULT);
+        ds_map_copy(g.dm_spawn, g.dm_spawn_DEFAULT);
+        ds_map_copy(f.dm_PBags, f.dm_PBags_DEFAULT);
         ds_map_copy(f.dm_1up_doll, f.dm_1up_doll_DEFAULT);
         ds_map_copy(f.dm_keys, f.dm_keys_DEFAULT);
         
-        ds_list_copy(g.dl_XP,g.dl_XP_DEFAULT);
-        ds_list_copy(g.dl_HP,g.dl_HP_DEFAULT);
+        ds_list_copy(g.dl_XP, g.dl_XP_DEFAULT);
+        ds_list_copy(g.dl_HP, g.dl_HP_DEFAULT);
         
         ds_grid_copy(g.dg_spell_cost,   g.dg_spell_cost_DEFAULT);
         ds_grid_copy(f.dg_xp_next,      f.dg_xp_next_DEFAULT);
@@ -51,15 +51,14 @@ if (input_start_pressed) // OPTION HAS BEEN SELECTED
         set_save_props_def();
         save_num_selected = Main_cursor+1;
         file_load(save_num_selected);
-        if (g.mod_ContinueFrom & g.mod_ContinueFrom_TWN2)
-        {   f.reen_new_run = get_continue_reen();  }
-        //sdm("g.mod_ContinueFrom & g.mod_ContinueFrom_TWN2: $"+hex_str(g.mod_ContinueFrom & g.mod_ContinueFrom_TWN2)+", g.CF_FILE: $"+hex_str(g.CF_FILE)+", g.comingFrom: $"+hex_str(g.comingFrom)+", f.reen_new_run: "+f.reen_new_run+", f.cont_run_town_num: "+hex_str(f.cont_run_town_num));
+        if (g.mod_ContinueFrom&g.mod_ContinueFrom_TWN2) f.reen_new_run = get_continue_reen();
+        //sdm("g.mod_ContinueFrom&g.mod_ContinueFrom_TWN2: $"+hex_str(g.mod_ContinueFrom&g.mod_ContinueFrom_TWN2)+", g.CF_FILE: $"+hex_str(g.CF_FILE)+", g.comingFrom: $"+hex_str(g.comingFrom)+", f.reen_new_run: "+f.reen_new_run+", f.cont_run_town_num: "+hex_str(f.cont_run_town_num));
         //sdm("val(g.dm_town_data[?STR_Continue+STR_Exit+STR_Town+STR_Num+hex_str(f.cont_run_town_num)]): "+string(val(g.dm_town_data[?STR_Continue+STR_Exit+STR_Town+STR_Num+hex_str(f.cont_run_town_num)])));
         
         cue_change_state = -1;
         g.counter1 = 0;
         state_previous = state;
-        state          = State_NULL;
+        state = State_NULL;
     }
     else if (Main_cursor==SAVE_FILE_MAX) // Go to Register
     {

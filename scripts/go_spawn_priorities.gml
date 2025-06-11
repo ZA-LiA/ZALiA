@@ -67,8 +67,11 @@ for(_i=0; _i<_RM_SPAWN_COUNT_PRIO; _i++)
         with(GameObject_create(_xl,_yt, _obj,_ver, _dk_spawn))
         {
             vspd = 1;
-            if(!is_undefined(_item_id)) ITEM_ID = _item_id;
-            //sdm("ITEM_ID: "+ITEM_ID+", _item_id: "+_item_id);
+            if(!is_undefined(_item_id))
+            {
+                ITEM_ID = _item_id;
+                show_debug_message("go_spawn_priorities(). Item `"+object_get_name(object_index)+"` spawned. ITEM_ID: "+ITEM_ID+", _item_id: "+_item_id);
+            }
         }
         
         //if (_SceneRando_scene!=g.rm_name) sdm("SceneRando Item-E. _SceneRando_scene '"+_SceneRando_scene+"', g.rm_name '"+g.rm_name+"', _dk_spawn '"+_dk_spawn+"', _obj_name '"+_obj_name+"', _item_id '"+_item_id+"', _item_type '"+_item_type+"'");

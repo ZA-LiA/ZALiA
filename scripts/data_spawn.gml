@@ -159,13 +159,17 @@ if (_IS_ITEM)
         
         // -------------------------------------------------------
         case STR_1UP:{
-        g.LifeDoll_MAX++;
-        _num = g.LifeDoll_MAX;
+        f.dm_1up_doll[?STR_Count] = val(f.dm_1up_doll[?STR_Count]) + 1;
+        _num =                      val(f.dm_1up_doll[?STR_Count]);
+        //_num = val(f.dm_1up_doll[?STR_Count]) + 1;
+        //f.dm_1up_doll[?STR_Count] = _num;
+        //g.LifeDoll_MAX++;
+        //_num = g.LifeDoll_MAX;
         
         _ITEM_ID += hex_str(_num);
         
         f.dm_1up_doll[?_ITEM_ID+STR_Acquired]         = 0;
-        f.dm_1up_doll[?_SPAWN_DATAKEY+STR_Num]        = g.LifeDoll_MAX;
+        f.dm_1up_doll[?_SPAWN_DATAKEY+STR_Num]        = _num;
         f.dm_1up_doll[?hex_str(_num)+STR_Item+STR_ID] = _ITEM_ID;
         break;}
         

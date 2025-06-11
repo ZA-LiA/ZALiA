@@ -42,11 +42,8 @@ with(f)
     //ds_map_clear(dm_keys);
     ds_map_clear(dm_openedLocks);
     
-    ds_map_copy(f.dm_jars, f.dm_jars_DEFAULT);
+    ds_map_copy(dm_jars, dm_jars_DEFAULT);
     //ds_map_clear(dm_jars);
-    
-    
-    
     //ds_map_clear(dm_takenPBags);
     ds_map_copy(dm_PBags, dm_PBags_DEFAULT);
     ds_map_copy(dm_1up_doll, dm_1up_doll_DEFAULT);
@@ -55,8 +52,8 @@ with(f)
     
     
     ds_map_clear(dm_explored);
-    reen_new_run    = REEN_NEW_FILE; // Coming from FileSelect. This will be from saved data
-    reen            = reen_new_run;  // The exit to spawn at
+    reen_new_run = REEN_NEW_FILE; // Coming from FileSelect. This will be from saved data
+    reen         = reen_new_run;  // The exit to spawn at
     cont_run_town_num = 0;
     
     

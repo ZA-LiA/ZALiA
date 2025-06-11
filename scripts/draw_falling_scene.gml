@@ -26,7 +26,7 @@ if (val(global.FallScene_dm[?STR_PC+dk_can_draw]))
 {
         global.FallScene_dm[?STR_PC+dk_can_draw] = false;
     //
-    var _X_SCALE = val(global.FallScene_dm[?STR_Current+STR_ScaleX],1);
+    var _X_SCALE = val(global.FallScene_dm[?STR_Current+STR_ScaleX], -1);
     _x  = val(global.FallScene_dm[?STR_Current+"_x"]);
     _y  = val(global.FallScene_dm[?STR_Current+"_y"]);
     _pi = val(global.FallScene_dm[?STR_PC+dk_PI], global.PI_PC1);

@@ -19,8 +19,8 @@ if (MainItems_can_draw)
         {
             _x = Window_xl0 + dg_items[#_i,$1]; // x center (draw x)
             _y = drawY      + dg_items[#_i,$2]; // y center (draw y)
-            _sprite = dg_items[#_i,$3];
-            _pi     = dg_items[#_i,$4];
+            _sprite =         dg_items[#_i,$3];
+            _pi     =         dg_items[#_i,$4];
             draw_sprite_(_sprite,0, _x,_y, _pi);
         }
     }

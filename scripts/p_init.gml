@@ -1625,7 +1625,8 @@ var _tile_was_found, _tsrc;
 var _CLM_SHIFT = 5; // 32. Palette groups are aligned to left edge of each scene section/map-page
 var _ROW_SHIFT = 3; // 08. A palette group every 8 rows
 
-var _dm_data=ds_map_create();
+var _dm_data = undefined;
+//var _dm_data = ds_map_create();
 var _dm_layers;
 var _dl_layers;
 var _dl_tiles;
@@ -1633,126 +1634,129 @@ var _dl_tiles;
 var           _COUNT0=2;
 for(_i=1; _i<=_COUNT0; _i++)
 {
-    //var _file  = "other"+"/"+"RandoPalettes01.json";
-    _file  = "other"+"/"+"RandoPalettes";
-    _file += hex_str(_i)+".json";
+    _file_name = "other/"+"RandoPalettes"+hex_str(_i)+".json";
     //sdm("_file "+_file+", file_exists(_file) "+string(file_exists(_file)));
-    if(!file_exists(_file)) continue;
+    if(!file_exists(_file_name)) continue;
     
-        _file  = file_text_open_read(_file);
         _data  = "";
-    while (     !file_text_eof(      _file)) 
-    {   _data += file_text_readln(   _file);  }
-                 file_text_close(    _file);
+        _file  = file_text_open_read(_file_name);
+    while(      !file_text_eof(   _file)) 
+    {   _data += file_text_readln(_file);  }
+                 file_text_close( _file);
     if (is_undefined(_data)) continue;
     
     
-    ds_map_clear(_dm_data);
-    _dm_data   = json_decode(_data);
-    _dl_layers = _dm_data[?"layers"];
-    if (is_undefined(_dl_layers)) continue;
-    
-    
-                 _count = ds_list_size(_dl_layers);
-    for(_j=0; _j<_count; _j++) // each layer
+    //ds_map_clear(_dm_data);
+    _dm_data = json_decode(_data);
+    if (_dm_data!=-1)
     {
-        _dm_layers  =     _dl_layers[|_j];
-        _layer_name = val(_dm_layers[?"name"], "");
-        if (string_pos("palette",_layer_name)) break;
-    }
-    if(!string_pos("palette",_layer_name)) continue;
-    
-    
-    
-    
-    _dl_tiles = _dm_layers[?"data"];
-    var _CLMS = _dm_data[?"width"];
-    var _ROWS = _dm_data[?"height"];
-    if (is_undefined(_dl_tiles) 
-    ||  is_undefined(_CLMS) 
-    ||  is_undefined(_ROWS) )
-    {
-        continue;
-    }
-    
-    
-    
-    var _CLMS0 = _CLMS>>_CLM_SHIFT;
-    var _ROWS0 = _ROWS>>_ROW_SHIFT;
-    var          _COUNT1 = _CLMS0*_ROWS0;
-    for(_j=0; _j<_COUNT1; _j++) // each palette_group(_j)
-    {
-        _clm0 = (_j mod _CLMS0) <<_CLM_SHIFT;
-        _row0 = (_j div _CLMS0) <<_ROW_SHIFT;
+        _dl_layers = _dm_data[?"layers"];
+        if (is_undefined(_dl_layers)) continue;
         
-        for(_k=0; _k<($1<<_CLM_SHIFT); _k++) // each palette(_k) of the palette_group(_j)
+        
+                     _count = ds_list_size(_dl_layers);
+        for(_j=0; _j<_count; _j++) // each layer
         {
-            _c_wht = C_WHT0;
-            _c_red = C_RED0;
-            _c_blu = C_BLU0;
-            _c_grn = C_GRN0;
-            _c_ylw = C_YLW0;
-            _c_mgn = C_MGN0;
-            _c_blk = C_BLK0;
-            _c_cyn = C_CYN0;
-            _palette = "";
-            _color = "";
-            _tile_was_found = false;
+            _dm_layers  =     _dl_layers[|_j];
+            _layer_name = val(_dm_layers[?"name"], "");
+            if (string_pos("palette",_layer_name)) break;
+        }
+        if(!string_pos("palette",_layer_name)) continue;
+        
+        
+        
+        
+        _dl_tiles = _dm_layers[?"data"];
+        var _CLMS = _dm_data[?"width"];
+        var _ROWS = _dm_data[?"height"];
+        if (is_undefined(_dl_tiles) 
+        ||  is_undefined(_CLMS) 
+        ||  is_undefined(_ROWS) )
+        {
+            continue;
+        }
+        
+        
+        
+        var _CLMS0 = _CLMS>>_CLM_SHIFT;
+        var _ROWS0 = _ROWS>>_ROW_SHIFT;
+        var          _COUNT1 = _CLMS0*_ROWS0;
+        for(_j=0; _j<_COUNT1; _j++) // each palette_group(_j)
+        {
+            _clm0 = (_j mod _CLMS0) <<_CLM_SHIFT;
+            _row0 = (_j div _CLMS0) <<_ROW_SHIFT;
             
-            _clm = _clm0+_k;
-            for(_m=1; _m<4; _m++) // each color(_m) of the palette(_k). Note that the 1st color is skipped because Tile file is in old palette format.
+            for(_k=0; _k<($1<<_CLM_SHIFT); _k++) // each palette(_k) of the palette_group(_j)
             {
-                _base_color_char = string_char_at(global.PAL_BASE_COLOR_ORDER,_m);
-                _row = _row0+_m;
+                _c_wht = C_WHT0;
+                _c_red = C_RED0;
+                _c_blu = C_BLU0;
+                _c_grn = C_GRN0;
+                _c_ylw = C_YLW0;
+                _c_mgn = C_MGN0;
+                _c_blk = C_BLK0;
+                _c_cyn = C_CYN0;
+                _palette = "";
+                _color = "";
+                _tile_was_found = false;
                 
-                    _idx  = (_row*_CLMS) + _clm;
-                    _tsrc = _dl_tiles[|_idx];
-                if (_tsrc!=0) // 0 means no tile here
+                _clm = _clm0+_k;
+                for(_m=1; _m<4; _m++) // each color(_m) of the palette(_k). Note that the 1st color is skipped because Tile file is in old palette format.
                 {
-                    _tile_was_found = true;
-                    _tsrc--; // because Tiled adds 1
-                    _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
-                    _tsrc &= $FF;
-                    _color = color_str(dl_COLOR[|_tsrc]);
+                    _base_color_char = string_char_at(global.PAL_BASE_COLOR_ORDER,_m);
+                    _row = _row0+_m;
+                    
+                        _idx  = (_row*_CLMS) + _clm;
+                        _tsrc = _dl_tiles[|_idx];
+                    if (_tsrc!=0) // 0 means no tile here
+                    {
+                        _tile_was_found = true;
+                        _tsrc--; // because Tiled adds 1
+                        _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
+                        _tsrc &= $FF;
+                        _color = color_str(dl_COLOR[|_tsrc]);
+                    }
+                    else
+                    {
+                        _k=_CLMS*_ROWS; // move on to next palette_group(_j)
+                        break;//_m
+                    }
+                    
+                    switch(_base_color_char){
+                    case "W":{_c_wht=_color; break;}
+                    case "R":{_c_red=_color; break;}
+                    case "B":{_c_blu=_color; break;}
+                    case "G":{_c_grn=_color; break;}
+                    case "Y":{_c_ylw=_color; break;}
+                    case "M":{_c_mgn=_color; break;}
+                    case "K":{_c_blk=_color; break;}
+                    case "C":{_c_cyn=_color; break;}
+                    }
                 }
-                else
+                
+                if (_tile_was_found)
                 {
-                    _k=_CLMS*_ROWS; // move on to next palette_group(_j)
-                    break;//_m
+                    _palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_wht,_c_red,_c_blu,_c_cyn);
+                    //_palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_ylw,_c_mgn,_c_blk,_c_cyn);
+                    
+                    switch(_i){
+                    case 1:{ds_list_add(dl_various_pals1,_palette); break;}
+                    case 2:{ds_list_add(dl_various_pals2,_palette); break;}
+                    }
+                    /*switch(_i){
+                    case 1:{sdm("dl_various_pals1[|$"+hex_str(ds_list_size(dl_various_pals1)-1)+"] = "+_palette); break;}
+                    case 2:{sdm("dl_various_pals2[|$"+hex_str(ds_list_size(dl_various_pals2)-1)+"] = "+_palette); break;}
+                    }*/
+                    //sdm("dl_various_pals[|$"+hex_str(ds_list_size(dl_various_pals)-1)+"] = "+_palette);
                 }
-                
-                switch(_base_color_char){
-                case "W":{_c_wht=_color; break;}
-                case "R":{_c_red=_color; break;}
-                case "B":{_c_blu=_color; break;}
-                case "G":{_c_grn=_color; break;}
-                case "Y":{_c_ylw=_color; break;}
-                case "M":{_c_mgn=_color; break;}
-                case "K":{_c_blk=_color; break;}
-                case "C":{_c_cyn=_color; break;}
-                }
-            }
-            
-            if (_tile_was_found)
-            {
-                _palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_wht,_c_red,_c_blu,_c_cyn);
-                //_palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_ylw,_c_mgn,_c_blk,_c_cyn);
-                
-                switch(_i){
-                case 1:{ds_list_add(dl_various_pals1,_palette); break;}
-                case 2:{ds_list_add(dl_various_pals2,_palette); break;}
-                }
-                /*switch(_i){
-                case 1:{sdm("dl_various_pals1[|$"+hex_str(ds_list_size(dl_various_pals1)-1)+"] = "+_palette); break;}
-                case 2:{sdm("dl_various_pals2[|$"+hex_str(ds_list_size(dl_various_pals2)-1)+"] = "+_palette); break;}
-                }*/
-                //sdm("dl_various_pals[|$"+hex_str(ds_list_size(dl_various_pals)-1)+"] = "+_palette);
-            }
-        }//_k
-    }//_j
+            }//_k
+        }//_j
+        
+        ds_map_destroy(_dm_data); _dm_data=undefined;
+    }
 }//_i
 
-ds_map_destroy(_dm_data); _dm_data=undefined;
+//ds_map_destroy(_dm_data); _dm_data=undefined;
 
 
 

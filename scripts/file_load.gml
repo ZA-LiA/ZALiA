@@ -15,7 +15,9 @@ var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 
 if(!file_exists(_FILE_NAME))
 {
-    show_debug_message("CANNOT LOAD FILE "+string(_FILE_NUM)+"  '"+_FILE_NAME+"'.  FILE DOES NOT EXIST.");
+    show_debug_message("");
+    show_debug_message("!!!! WARNING! CANNOT LOAD FILE "+string(_FILE_NUM)+"  '"+_FILE_NAME+"'.  FILE DOES NOT EXIST !!!!");
+    show_debug_message("");
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -24,6 +26,19 @@ var _FILE      = file_text_open_read(working_directory+_FILE_NAME);
 var _FILE_DATA = file_text_read_string(_FILE);
                  file_text_close(      _FILE);
 var _dm_file_data = json_decode(_FILE_DATA);
+
+if (_dm_file_data==-1) // `json_decode` returns -1 if it fails
+{
+    show_debug_message("");
+    show_debug_message("!!!! WARNING! file_load(). `_dm_file_data` failed to get data from '"+_FILE_NAME+"' !!!!");
+    show_debug_message("");
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
+
+
+
 
 
 
@@ -55,7 +70,7 @@ f.crystals              =       val(_dm_file_data[?f.SDNAME_crystals]);
 var _kakusu             =       val(_dm_file_data[?f.SDNAME_kakusu]);
 var _taken_keys         =       val(_dm_file_data[?f.SDNAME_takenKeys]);
 var _opened_locks       =       val(_dm_file_data[?f.SDNAME_openedLocks]);
-var _link_dolls         =       val(_dm_file_data[?f.SDNAME_linkDolls]);
+var _1up_dolls          =       val(_dm_file_data[?f.SDNAME_linkDolls]);
 //                                                                              // 
 var _taken_pbags        =       val(_dm_file_data[?f.SDNAME_takenPBags]);
 var _pbags              =       val(_dm_file_data[?STR_PBAG]);
@@ -64,7 +79,7 @@ var _quests             =       val(_dm_file_data[?f.SDNAME_quests]);
 var _explored_rooms     =       val(_dm_file_data[?f.SDNAME_exploredRooms]);
 //f.fastTravel            =       val(_dm_file_data[?f.SDNAME_fastTravel]);
 //                                                                              // 
-if (g.mod_ContinueFrom & g.mod_ContinueFrom_TWN2)
+if (g.mod_ContinueFrom&g.mod_ContinueFrom_TWN2)
 {   f.cont_run_town_num =       val(_dm_file_data[?STR_Save+STR_Town+STR_Num]);  }
 //                                                                              // 
 f.xp                    =       val(_dm_file_data[?STR_XP]);
@@ -73,6 +88,10 @@ f.xp                    =       val(_dm_file_data[?STR_XP]);
 
 
 
+ds_map_clear(f.dm_1up_doll);
+             f.dm_1up_doll    = json_decode(_1up_dolls);
+//show_debug_message("file_load(). ds_map_size(f.dm_1up_doll)="+string(ds_map_size(f.dm_1up_doll)));
+//
 ds_map_clear(f.dm_kakusu);
              f.dm_kakusu      = json_decode(_kakusu);
 //
@@ -84,9 +103,6 @@ ds_map_clear(f.dm_openedLocks);
 //
 ds_map_clear(f.dm_PBags);
              f.dm_PBags       = json_decode(_pbags);
-//
-ds_map_clear(f.dm_1up_doll);
-             f.dm_1up_doll    = json_decode(_link_dolls);
 //
 ds_map_clear(f.dm_explored);
              f.dm_explored    = json_decode(_explored_rooms);
@@ -389,44 +405,42 @@ ds_map_destroy(_dm_file_data); _dm_file_data=undefined;
 
 
 show_debug_message("");
-show_debug_message("file num "+string(f.file_num)+"  LOADED!");
+show_debug_message("FILE '"+_FILE_NAME+"'  LOADED!");
+//show_debug_message("file num "+string(f.file_num)+"  LOADED!");
 show_debug_message("");
 
 
 /*
-if (0)
+var _dl = ds_list_create();
+
+var _FILE1_NAME = "SaveFile_2.txt";
+var _file1      = file_text_open_read(working_directory+_FILE1_NAME);
+var _file1_data = file_text_read_string(_file1);
+                  file_text_close(      _file1);
+var _dm_file1 = json_decode(_file1_data);
+
+_dk1 = STR_Quest+"01"+STR_Rando+STR_Data;
+var _rando_data = _dm_file1[?_dk1];
+
+if(!is_undefined(_rando_data))
 {
-    var _dl = ds_list_create();
+    var _dm_rando = json_decode(_rando_data);
     
-    var _FILE1_NAME = "SaveFile_2.txt";
-    var _file1      = file_text_open_read(working_directory+_FILE1_NAME);
-    var _file1_data = file_text_read_string(_file1);
-                      file_text_close(      _file1);
-    var _dm_file1 = json_decode(_file1_data);
+    _dm_rando[?Area_TownA+"01"+"01"+STR_Open] = false;
     
-    _dk1 = STR_Quest+"01"+STR_Rando+STR_Data;
-    var _rando_data = _dm_file1[?_dk1];
+    //_dm_rando[?Area_TownA+"4A"+STR_file_name+STR_Quest+"01"] = "TownA_086";
     
-    if(!is_undefined(_rando_data))
-    {
-        var _dm_rando = json_decode(_rando_data);
-        
-        _dm_rando[?Area_TownA+"01"+"01"+STR_Open] = false;
-        
-        //_dm_rando[?Area_TownA+"4A"+STR_file_name+STR_Quest+"01"] = "TownA_086";
-        
-        _rando_data = json_encode(_dm_rando);
-        _dm_file1[?_dk1] = _rando_data;
-        
-        _file1_data = json_encode(_dm_file1);
-        _file1 = file_text_open_write(working_directory+_FILE1_NAME);
-                 file_text_write_string(_file1, _file1_data);
-                 file_text_close(       _file1);
-    }
+    _rando_data = json_encode(_dm_rando);
+    _dm_file1[?_dk1] = _rando_data;
     
-    ds_map_destroy(_dm_file1); _dm_file1=undefined;
-    ds_list_destroy(_dl); _dl = undefined;
+    _file1_data = json_encode(_dm_file1);
+    _file1 = file_text_open_write(working_directory+_FILE1_NAME);
+             file_text_write_string(_file1, _file1_data);
+             file_text_close(       _file1);
 }
+
+ds_map_destroy(_dm_file1); _dm_file1=undefined;
+ds_list_destroy(_dl); _dl = undefined;
 */
 
 

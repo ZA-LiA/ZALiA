@@ -67,6 +67,27 @@ with(Input) Input_update2(); // determine inputs for this frame
 if (room_type=="C" 
 &&  overworld_paused )
 {
+    if ((Input.GP_Other5_held && Input.GP_Other6_held && Input.GP_Other1_held)  // Other5: LT, Other6: RT, Other1: Xbox B
+    ||  (keyboard_check(vk_control) && keyboard_check(vk_backspace)) )
+    {
+        if(!global.OverworldSoftlock_timer)
+        {
+            global.OverworldSoftlock_timer = global.OverworldSoftlock_DURATION0;
+        }
+        else
+        {
+            global.OverworldSoftlock_timer--;
+            if(!global.OverworldSoftlock_timer)
+            {
+                room_goto_(rmB_ContinueSave);
+            }
+        }
+    }
+    else
+    {
+        global.OverworldSoftlock_timer = 0;
+    }
+    
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 

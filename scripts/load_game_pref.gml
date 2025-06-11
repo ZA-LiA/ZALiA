@@ -1,20 +1,32 @@
 /// load_game_pref()
 
 
-var _i, _idx, _val, _count;
-var _dm_data = 0;
+var _val;
 
-var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
+
+var _FILE_NAME = UserPrefFileName;
+//var _FILE_NAME = string_letters(dk_UserPreferences)+"01"+".txt";
+//var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
 if(!file_exists(_FILE_NAME)) save_game_pref();
 
 
 
 
+// --------------------------------------------------
 var _FILE    = file_text_open_read(working_directory+_FILE_NAME);
 var _ENCODED = file_text_read_string(_FILE);
                file_text_close(_FILE);
-//
 var _dm_FILE_DATA = json_decode(_ENCODED);
+// --------------------------------------------------
+
+
+if (_dm_FILE_DATA==-1) // `json_decode` returns -1 if it fails
+{
+    show_debug_message("");
+    show_debug_message("!!!! WARNING! load_game_pref(). `_dm_file_data` failed to get data from '"+_FILE_NAME+"' !!!!");
+    show_debug_message("");
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
 
 
 
@@ -23,10 +35,8 @@ var _dm_FILE_DATA = json_decode(_ENCODED);
 g.WindowScale_scale = val(_dm_FILE_DATA[?STR_Window+STR_Scale], g.WindowScale_scale);
 window_set_scale(window_get_scale());
 
-var _XL  = g.window_center_x;
-    _XL -= (viewW()*g.WindowScale_scale) >>1;
-var _YT  = g.window_center_y;
-    _YT -= (viewH()*g.WindowScale_scale) >>1;
+var _XL = g.window_center_x - ((viewW()*g.WindowScale_scale)>>1);
+var _YT = g.window_center_y - ((viewH()*g.WindowScale_scale)>>1);
 window_set_position_(_XL,_YT);
 
 window_set_fullscreen(val(_dm_FILE_DATA[?STR_Fullscreen]));
@@ -35,13 +45,17 @@ window_set_fullscreen(val(_dm_FILE_DATA[?STR_Fullscreen]));
 
 
 // --------------------------------------------------
-if(!is_undefined( _dm_FILE_DATA[?f.SDNAME_volume_sound])){
-    Audio.snd_vol=_dm_FILE_DATA[?f.SDNAME_volume_sound];
+_val = _dm_FILE_DATA[?f.SDNAME_volume_sound];
+if(!is_undefined(_val))
+{
+    Audio.snd_vol = _val;
     audio_group_set_gain(audiogroup_snd, Audio.snd_vol/10, 0);
 }
 
-if(!is_undefined( _dm_FILE_DATA[?f.SDNAME_volume_music])){
-    Audio.mus_vol=_dm_FILE_DATA[?f.SDNAME_volume_music];
+_val = _dm_FILE_DATA[?f.SDNAME_volume_music];
+if(!is_undefined(_val))
+{
+    Audio.mus_vol = _val;
     audio_group_set_gain(audiogroup_mus, Audio.mus_vol/10, 0);
 }
 
@@ -57,8 +71,9 @@ if(!is_undefined(_val)) Audio.dm_random_custom = json_decode(_val);
 _val = _dm_FILE_DATA[?STR_Input+STR_Preferences];
 if(!is_undefined(_val))
 {
-    _val = json_decode(_val);
-    ds_map_copy(Input.dm_UserInputConfig,_val);
+    var _dm = json_decode(_val);
+    ds_map_copy(Input.dm_UserInputConfig, _dm);
+    ds_map_destroy(_dm); _dm=undefined;
 }
 
 

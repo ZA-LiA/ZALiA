@@ -3,15 +3,10 @@
 show_debug_message("Overworld_init_data_2()");
 
 
-var _i,_j, _idx, _val1,_val2, _count1,_count2;
-var _clms,_rows;
-var _owrc,_owrc_, _ow_clm,_ow_row, _ow_clm_,_ow_row_;
-var _tsrc;
-var _dk, _str1,_str2, _data;
-var _scene_id;
+var _data;
 
 
-dm_file_data = ds_map_create();
+dm_file_data = -1;
 
 var             _FILE_NAME1 = 'ow_tile_data/OverworldData01.txt';
 if (file_exists(_FILE_NAME1))
@@ -20,12 +15,53 @@ if (file_exists(_FILE_NAME1))
     var _FILE_DATA = file_text_read_string(_FILE);
                      file_text_close(      _FILE);
     dm_file_data = json_decode(_FILE_DATA);
-    _data = dm_file_data[?dk_Map0];
-    if(!is_undefined(_data)) dm = json_decode(_data);
+}
+else
+{
+    show_debug_message('');
+    show_debug_message('!!!! WARNING! Overworld_init_data_2(). File  `ow_tile_data/OverworldData01.txt`  does not exist !!!!');
+    show_debug_message('');
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 
-var _dl1 = ds_list_create();
+if (dm_file_data==-1)
+{
+    show_debug_message('');
+    show_debug_message('!!!! WARNING! Overworld_init_data_2(). `dm_file_data = json_decode(_FILE_DATA);` failed to get data !!!!');
+    show_debug_message('');
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
+_data = dm_file_data[?dk_Map0];
+if (is_undefined(_data))
+{
+    show_debug_message('');
+    show_debug_message('!!!! WARNING! Overworld_init_data_2(). `dm_file_data[?dk_Map0]` is undefined !!!!');
+    show_debug_message('');
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
+dm = json_decode(_data);
+if (dm==-1)
+{
+    show_debug_message('');
+    show_debug_message('!!!! WARNING! Overworld_init_data_2(). `dm = json_decode(_data);` failed to get data !!!!');
+    show_debug_message('');
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
+
+
+
+
+
+
+var _owrc,_owrc_;
+var _scene_id;
 
 
 
@@ -2796,12 +2832,7 @@ if(!is_undefined(_data)) ds_grid_read(dg_AreaNames, _data);
 
 
 
-
-
-
-
 ds_map_destroy(dm_file_data); dm_file_data=undefined;
-ds_list_destroy(_dl1); _dl1=undefined;
 
 
 

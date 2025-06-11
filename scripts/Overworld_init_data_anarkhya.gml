@@ -1,22 +1,37 @@
 /// Overworld_init_data_anarkhya()
 
 
-var _i,_j, _idx;
-var _count_j;
-var _str_j;
-var _clm,_row, _ow_clm,_ow_row, _owrc;
-var _ts_idx=0;
-var _tile_data;
-var _layer_name;
+var _file_name;
 
+
+_file_name = "ow_tile_data/anarkhya_OvrwA_00.json";
+if(!file_exists(_file_name))
+{
+    show_debug_message("!!!! WARNING! Overworld_init_data_anarkhya(). file '"+_file_name+"' does not exist !!!!");
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
+
+
+var _data, _file;
+var _dm_file_data = -1;
+
+
+_file = file_text_open_read(working_directory+_file_name);
+
+    _data  = "";
+while(      !file_text_eof(   _file))
+{   _data += file_text_readln(_file);  }
+             file_text_close( _file);
+_dm_file_data = json_decode(_data);
+/*
 var _dm_file_data = ds_map_create();
 var _dl_layer_data = ds_list_create();
 var _dm_layer_data = ds_map_create();
 var _dl_data = ds_list_create();
 
 //var _dl_debug1 = ds_list_create();
-
-
 
 
 var _file_name = "anarkhya_OvrwA_00.json";
@@ -28,10 +43,42 @@ while (    !file_text_eof(   _file))
             file_text_close( _file);
 //
 _dm_file_data = json_decode(_str);
+*/
 
 
 
-// -------------------------------------------------------------------
+
+if (_dm_file_data==-1)
+{
+    show_debug_message("!!!! WARNING! Overworld_init_data_anarkhya(). `dm_file_data` failed to get data from '"+_file_name+"' !!!!");
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
+
+
+
+
+
+
+// ---------------------------------------------------------------------------------------
+var _i,_j, _idx;
+var _count_j;
+var _str, _str_j;
+var _clm,_row, _ow_clm,_ow_row, _owrc;
+var _ts_idx=0;
+var _tile_data;
+var _layer_name;
+
+var _dl_layer_data = ds_list_create();
+var _dm_layer_data = ds_map_create();
+var _dl_data = ds_list_create();
+
+//var _dl_debug1 = ds_list_create();
+
+
+
+
 ds_grid_resize(dg_anarkhya_tsrc_def,    OW_CLMS, OW_ROWS);
 ds_grid_clear (dg_anarkhya_tsrc_def,    0);
 

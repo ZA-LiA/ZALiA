@@ -46,7 +46,8 @@ ds_map_clear(f.dm_jars_DEFAULT);
 cont_piece_count_hp = cont_piece_cnt_hp();
 cont_piece_count_mp = cont_piece_cnt_mp();
 
-g.LifeDoll_MAX=0;
+//val(f.dm_1up_doll[?STR_Count])
+//g.LifeDoll_MAX=0;
 
 
 

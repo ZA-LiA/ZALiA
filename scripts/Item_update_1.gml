@@ -305,7 +305,10 @@ switch(ITEM_TYPE)
     
     if(!is_undefined(  ITEM_ID) 
     &&  is_string(     ITEM_ID) )
-    {   f.dm_1up_doll[?ITEM_ID+STR_Acquired] = true;  }
+    {
+        f.dm_1up_doll[?ITEM_ID+STR_Acquired] = true;
+        sdm("f.dm_1up_doll[?'"+ITEM_ID+"'+STR_Acquired] = true;");
+    }
     
     aud_play_sound(get_audio_theme_track(_MUSIC_THEME2), -1,false,-1, _MUSIC_THEME2);
     break;}
@@ -315,7 +318,7 @@ switch(ITEM_TYPE)
 
 if (_can_flash)
 {
-    var                     _DURATION = p.SpellFlash_DURATION1; // SpellFlash_DURATION1=$20. bit $80 mean flash bgr
+    var                     _DURATION = p.SpellFlash_DURATION1; // SpellFlash_DURATION1=$20. bit $80 means flash background
     p.Flash_Pal_timer     = _DURATION;
     p.Flash_Bgr_timer     = _DURATION;
     p.SpellFlash_PC_timer = _DURATION;

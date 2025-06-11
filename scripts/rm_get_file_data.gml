@@ -16,12 +16,32 @@ var _file_name = g.dm_rm[?_DATAKEY];
 
 if (is_undefined(_file_name))
 {
+    show_debug_message("!!!! WARNING. rm_get_file_data(). '"+_file_name+"' is undefined because `g.dm_rm[?'"+_DATAKEY+"']` is undefined !!!!");
+    return undefined;
+}
+
+
+// _file_name example: "rm_tile_data/PalcA/PalcA_003.json"
+_file_name = "rm_tile_data/"+string_copy(_file_name,1,5)+"/"+_file_name+".json";
+//_file_name += ".json"; // _file_name example: "PalcA_003.json"
+if(!file_exists(_file_name))
+{
+    show_debug_message("!!!! WARNING. rm_get_file_data(). File '"+_file_name+"' does not exist !!!!");
     return undefined;
 }
 
 
 
 
+//show_debug_message(_file_name);
+var _data  = "";
+var _FILE  = file_text_open_read(_file_name);
+while(      !file_text_eof(   _FILE)) 
+{   _data += file_text_readln(_FILE);  }
+             file_text_close( _FILE);
+//
+return _data;
+/*
 var _FILE  = "rm_tile_data";
 if (argument_count>_arg)
 {   _FILE  = argument[_arg++];  }
@@ -31,18 +51,19 @@ if (argument_count>_arg)
     _FILE += _file_name;
     _FILE += ".json";
 //  _FILE example:  "rm_tile_data/PalcA/PalcA_003.json"
-show_debug_message(_FILE);
+//show_debug_message(_FILE);
 if(!file_exists(_FILE)) return undefined;
 
 
-
+show_debug_message(_FILE);
        _FILE  = file_text_open_read(_FILE);
-var    _DATA  = "";
+var    _data  = "";
 while (        !file_text_eof(      _FILE)) 
-{      _DATA += file_text_readln(   _FILE);  }
+{      _data += file_text_readln(   _FILE);  }
                 file_text_close(    _FILE);
 //
-return _DATA;
+return _data;
+*/
 
 
 

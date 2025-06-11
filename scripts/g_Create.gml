@@ -296,6 +296,11 @@ CUCCO_CAN_FIRE     = true; // Allow cucco can use fire
 
 
 
+
+global.OverworldSoftlock_DURATION0 = ROOM_SPEED_BASE * 3;
+global.OverworldSoftlock_timer = 0;
+
+
 DisplayOWPosOnMap_VER = 0; // 0: ow map will show pcrc as last uncovered(outside/not a cave) position. owrc does NOT update when going through multiple covered(like caves) rms and will show PC at the last un-covered owrc.
 //DisplayOWPosOnMap_VER = 1; // 1: pcrc for map will always update, unless a particular challenge needs otherwise.
 
@@ -740,7 +745,8 @@ tile_pal_swap_ver = 1; // tracks which depths have tiles that need pal swapping
 dm_tile         = ds_map_create();  // various/general tile data. Mostly populated in init_tile_data()
 dm_hidden_tiles = ds_map_create();  // 
 dl_hidden_tiles = ds_list_create(); // 
-dm_tile_file    = ds_map_create();  // 
+dm_tile_file    = undefined;
+//dm_tile_file    = ds_map_create();  // 
 
 file_data_quest_num = 1; // For the current rm.
 
@@ -2674,7 +2680,7 @@ FlowerItemAnim_SPR3 = spr_Item_Flower_1c;
 
 
 
-LifeDoll_MAX = 0; // This will be set in RoomData_Create()
+//LifeDoll_MAX = 0; // This will be set in RoomData_Create()
 
 
 dl_MapItem_ITEM_IDS = ds_list_create();

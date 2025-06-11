@@ -32,7 +32,7 @@ with(g.QUIT_APP_MENU)
                     if (room==rmB_Title 
                     ||  room==rmB_FileSelect )
                     {
-                        sdm("update_QuitAppMenu() -> case sub_state_IDLE_CLOSED -> game_end()");
+                        //sdm("update_QuitAppMenu() -> case sub_state_IDLE_CLOSED -> game_end()");
                         game_end(); // Quit app
                     }
                     else
@@ -104,7 +104,7 @@ with(g.QUIT_APP_MENU)
                 if (room==rmB_Title 
                 ||  room==rmB_FileSelect )
                 {
-                    sdm("update_QuitAppMenu() -> case sub_state_OPEN1 -> game_end()");
+                    //sdm("update_QuitAppMenu() -> case sub_state_OPEN1 -> game_end()");
                     game_end(); // Quit app
                 }
                 else

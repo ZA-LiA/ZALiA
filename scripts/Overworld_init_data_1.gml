@@ -14,77 +14,88 @@ var _C0 = isVal(OVERWORLD_INIT_METHOD,2);
 var _C1 = isVal(OVERWORLD_INIT_METHOD,3);
 var _C2 = _C0 || _C1;
 
-if(_C2)repeat($8)sdm("");
-var _i,_j,_k,_m, _val,_val1,_val2, _idx, _count,_count1,_count2, _type, _num;
-if(_C2)sdm("var _i,_j, _idx, _val1,_val2, _count1,_count2;");
-var _x,_y;
-var _clms,_rows, _roff,_coff;
-if(_C2)sdm("var _clms,_rows;");
-var _owrc,_owrc_, _ow_row,_ow_row_, _ow_clm,_ow_clm_;
-if(_C2)sdm("var _owrc,_owrc_"+", _ow_clm,_ow_row"+", _ow_clm_,_ow_row_;");
 
-var _tile_data, _ts, _tsrc,_tsrc_raw, _ts_r,_ts_c;
-var _tsrc0 = 0;
-if(_C2)sdm("var _tsrc;");
-
-var _str,_str1,_str2, _name, _pos, _len,_len1,_len2;
-var _area, _scene_id;
-var _datakey, _dk;
-if(_C2)sdm("var _dk, _str1,_str2, _data;");
-if(_C2)sdm("var _scene_id;");
-
-var _tile_w,_tile_h;
-var _file, _file_name, _file_data, _encoded;
-var _data, _rm_name;
 
 
 if(_C1)
 {
+    var _SCR_NAME = "Overworld_init_data_2()";
+    var _FILE_NAME1 = "ow_tile_data/OverworldData01.txt";
+    repeat($8)sdm("");
+    sdm("var _data;");
     repeat($2)sdm("");
-         dm_file_data = ds_map_create();
-    sdm("dm_file_data = ds_map_create();");
-    
-    // This will pull from Included Files
+    sdm("dm_file_data = -1;");
     repeat($1)sdm("");
-    var _FILE_NAME1 = "OverworldData01.txt";
-    sdm("var             _FILE_NAME1 = "+"'ow_tile_data/"+_FILE_NAME1+"';");
+    sdm("var             _FILE_NAME1 = '"+_FILE_NAME1+"';");
     sdm("if (file_exists(_FILE_NAME1))");
     sdm("{");
-    sdm("    var _FILE      = file_text_open_read(working_directory+_FILE_NAME1);")
+    sdm("    var _FILE      = file_text_open_read(working_directory+_FILE_NAME1);");
     sdm("    var _FILE_DATA = file_text_read_string(_FILE);");
     sdm("                     file_text_close(      _FILE);");
     sdm("    dm_file_data = json_decode(_FILE_DATA);");
-    sdm("    _data = dm_file_data[?dk_Map0];");
-    sdm("    if(!is_undefined(_data)) dm = json_decode(_data);");
     sdm("}");
-    repeat($1)sdm("");
+    sdm("else");
+    sdm("{");
+    sdm("    show_debug_message('');");
+    sdm("    show_debug_message('!!!! WARNING! "+_SCR_NAME+". File  `"+_FILE_NAME1+"`  does not exist !!!!');");
+    sdm("    show_debug_message('');");
+    sdm("    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    sdm("}");
+    repeat($2)sdm("");
+    sdm("if (dm_file_data==-1)");
+    sdm("{");
+    sdm("    show_debug_message('');");
+    sdm("    show_debug_message('!!!! WARNING! "+_SCR_NAME+". `dm_file_data = json_decode(_FILE_DATA);` failed to get data !!!!');");
+    sdm("    show_debug_message('');");
+    sdm("    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    sdm("}");
+    repeat($2)sdm("");
+    sdm("_data = dm_file_data[?dk_Map0];");
+    sdm("if (is_undefined(_data))");
+    sdm("{");
+    sdm("    show_debug_message('');");
+    sdm("    show_debug_message('!!!! WARNING! "+_SCR_NAME+". `dm_file_data[?dk_Map0]` is undefined !!!!');");
+    sdm("    show_debug_message('');");
+    sdm("    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    sdm("}");
+    repeat($2)sdm("");
+    sdm("dm = json_decode(_data);");
+    sdm("if (dm==-1)");
+    sdm("{");
+    sdm("    show_debug_message('');");
+    sdm("    show_debug_message('!!!! WARNING! "+_SCR_NAME+". `dm = json_decode(_data);` failed to get data !!!!');");
+    sdm("    show_debug_message('');");
+    sdm("    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    sdm("}");
 }
-/*
-var _FILE  = "rm_tile_data";
-if (argument_count>_arg)
-{   _FILE  = argument[_arg++];  }
-    _FILE += "/";
-    _FILE += string_letters(_file_name); // get "PalcA" from "PalcA_003"
-    _FILE += "/";
-    _FILE += _file_name;
-    _FILE += ".json";
-//  _FILE example:  "rm_tile_data/PalcA/PalcA_003.json"
-sdm(_FILE);
-if(!file_exists(_FILE)) return undefined;
 
 
 
-       _FILE  = file_text_open_read(_FILE);
-var    _DATA  = "";
-while (        !file_text_eof(      _FILE)) 
-{      _DATA += file_text_readln(   _FILE);  }
-                file_text_close(    _FILE);
-//
-return _DATA;
-*/
 
+if(_C2)repeat($8)sdm("");
+var _i,_j,_k,_m, _val,_val1,_val2, _idx, _count,_count1,_count2, _type, _num;
+if(_C0)sdm("var _i,_j, _idx, _val1,_val2, _count1,_count2;");
+var _x,_y;
+var _clms,_rows, _roff,_coff;
+if(_C0)sdm("var _clms,_rows;");
+var _owrc,_owrc_, _ow_row,_ow_row_, _ow_clm,_ow_clm_;
+if(_C0)sdm("var _owrc,_owrc_"+", _ow_clm,_ow_row"+", _ow_clm_,_ow_row_;");
+if(_C1)sdm("var _owrc,_owrc_;");
 
+var _tile_data, _ts, _tsrc,_tsrc_raw, _ts_r,_ts_c;
+var _tsrc0 = 0;
+if(_C0)sdm("var _tsrc;");
 
+var _str,_str1,_str2, _name, _pos, _len,_len1,_len2;
+var _area, _scene_id;
+var _datakey, _dk;
+if(_C0)sdm("var _dk, _str1,_str2, _data;");
+if(_C2)sdm("var _scene_id;");
+if(_C0)sdm("var _dl1 = ds_list_create();");
+
+var _tile_w,_tile_h;
+var _file, _file_name, _file_data, _encoded;
+var _data, _rm_name;
 
 var _owrc_printed = false;
 var _tsrc_started = false;
@@ -133,28 +144,41 @@ ds_list_shuffle(_dl_RANDO_TSRC_B);
 
 
 // --------------------------------------------------------------
-_file_name = "OvrwA_00.json";
-_file = file_text_open_read("ow_tile_data/"+_file_name);
-    _file_data  = "";
-while (          !file_text_eof(   _file))
-{   _file_data += file_text_readln(_file);  }
-                  file_text_close( _file);
-//
-var _dm_file_data = json_decode(_file_data);
+var _dm_Tiled_file_data = -1;
+
+_file_name = "ow_tile_data/OvrwA_00.json";
+if (file_exists(_file_name))
+{
+        _file_data  = "";
+        _file       = file_text_open_read(working_directory+_file_name);
+    while(           !file_text_eof(   _file))
+    {   _file_data += file_text_readln(_file);  }
+                      file_text_close( _file);
+    _dm_Tiled_file_data = json_decode(_file_data);
+}
+
+if (_dm_Tiled_file_data==-1)
+{
+    repeat(2) show_debug_message("");
+    show_debug_message("!!!! WARNING! Overworld_init_data_1(). `_dm_Tiled_file_data` failed to get data from '"+_file_name+"' !!!!");
+    repeat(2) show_debug_message("");
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
 
 
 
 
-var _TMX_W      = _dm_file_data[?"width"];
-var _TMX_H      = _dm_file_data[?"height"];
-var _TMX_TILE_W = _dm_file_data[?"tilewidth"];
-var _TMX_TILE_H = _dm_file_data[?"tileheight"];
+// -----------------------------------------------------------------------
+var _TMX_W      = _dm_Tiled_file_data[?"width"];
+var _TMX_H      = _dm_Tiled_file_data[?"height"];
+var _TMX_TILE_W = _dm_Tiled_file_data[?"tilewidth"];
+var _TMX_TILE_H = _dm_Tiled_file_data[?"tileheight"];
 
 
 var _STR_IDX    = "_idx";
 var _STR_NAME   = "_name";
 var _dm_ts_info = ds_map_create();
-var _dl_ts_data = _dm_file_data[?"tilesets"];
+var _dl_ts_data = _dm_Tiled_file_data[?"tilesets"];
 var _dm_ts_data;
 var _dg_ts_data = ds_grid_create(0,5);
 var _list_idx_of_ts = 0;
@@ -172,7 +196,7 @@ var _scale_x, _scale_y;
 
 var _layer_name, _layer_type, _layer_count;
 var _dm_layer_data, _dl_data;
-var _dl_layer_data = _dm_file_data[?"layers"];
+var _dl_layer_data = _dm_Tiled_file_data[?"layers"];
 
 var _dl_prop_data, _dm_prop_data;
 var _dm_obj_data;
@@ -189,8 +213,8 @@ var _STR_AREA = "AREA";
 
 
 // --------------------------------------------------------------
-if(_C2)repeat($1)sdm("");
-if(_C2)sdm("var _dl1 = ds_list_create();");
+//if(_C2)repeat($1)sdm("");
+//if(_C2)sdm("var _dl1 = ds_list_create();");
 //sdm("var _dl2 = ds_list_create();");
 
 
@@ -298,9 +322,9 @@ ds_list_add(_dl_AreaNames,MapAreaName_DEF);
 
 if(_C2)repeat($4)sdm("");
 
-            OW_CLMS = _dm_file_data[?"width"];
+            OW_CLMS = _dm_Tiled_file_data[?"width"];
 if(_C2)sdm("OW_CLMS = $"+hex_str(OW_CLMS)+";");
-            OW_ROWS = _dm_file_data[?"height"];
+            OW_ROWS = _dm_Tiled_file_data[?"height"];
 if(_C2)sdm("OW_ROWS = $"+hex_str(OW_ROWS)+";");
 
             OW_W = OW_CLMS<<SHIFT;
@@ -537,7 +561,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                 
                 
                 // Area areas. -------------------------------------------
-                if(0&&_C0 
+                if(false&&_C0 
                 && !_encounterareas_started )
                 {        // _val is 2 bytes
                     sdm("// _val is 2 bytes");
@@ -1114,7 +1138,6 @@ for(_i=0; _i<_layer_count; _i++) // each layer
         if (string_length(_info))
         {
             //if(_C0)repeat($2)sdm("");
-            
             _str = STR_Fast+STR_Travel;
             if (string_pos(_str,_info))
             {
@@ -1198,9 +1221,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
         }//if (string_length(_info))
         // -------------------------------------------------------------------
         
-        
         ds_map_clear(_dm_prop_value);
-        
     }//for(_j=0; _j<_count_j; _j++) // each tile or obj of this layer
 }//for(_i=0; _i<_layer_count; _i++) // each layer
 
@@ -1213,10 +1234,29 @@ for(_i=0; _i<_layer_count; _i++) // each layer
 
 
 
-//chr(34)
+
+
+
+
+
+
+
+
 // -------------------------------------------------------------------
-if(_C0)
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+// -------------------------------------------------------------------
+if(_C1)
 {
+    var _dm_save_data = ds_map_create();
+}
+
+
+
+
+if(_C0)
+{//chr(34)
     repeat($8)sdm("");
     for(_i=1; _i<$100; _i++)
     {
@@ -1339,7 +1379,7 @@ if(_C2)
     }
     else
     {
-        dm_file_data[?"dg_boulders"] = ds_grid_write(dg_boulders);
+        _dm_save_data[?"dg_boulders"] = ds_grid_write(dg_boulders);
         repeat($4)sdm("");
         //sdm("ds_grid_resize(dg_boulders, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
         sdm("_data = dm_file_data[?'dg_boulders'];");
@@ -1406,7 +1446,7 @@ if(_C2)
     }
     else
     {
-        dm_file_data[?"HiddenExitIndicator_dg"] = ds_grid_write(HiddenExitIndicator_dg);
+        _dm_save_data[?"HiddenExitIndicator_dg"] = ds_grid_write(HiddenExitIndicator_dg);
         repeat($4)sdm("");
         //sdm("ds_grid_resize(HiddenExitIndicator_dg, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
         //sdm("ds_grid_clear (HiddenExitIndicator_dg, 0);");
@@ -1462,7 +1502,7 @@ if(_C2)
     }
     else
     {
-        dm_file_data[?"dg_ChangeTiles_Boots"] = ds_grid_write(dg_ChangeTiles_Boots);
+        _dm_save_data[?"dg_ChangeTiles_Boots"] = ds_grid_write(dg_ChangeTiles_Boots);
         repeat($4)sdm("");
         //sdm("ds_grid_resize(dg_ChangeTiles_Boots, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
         //sdm("ds_grid_clear (dg_ChangeTiles_Boots, 0);");
@@ -1530,7 +1570,7 @@ if(_C2)
     }
     else
     {
-        dm_file_data[?"dg_tsrc_def"] = ds_grid_write(dg_tsrc_def);
+        _dm_save_data[?"dg_tsrc_def"] = ds_grid_write(dg_tsrc_def);
         repeat($4)sdm("");
         //sdm("ds_grid_resize(dg_tsrc_def, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
         //sdm("ds_grid_clear( dg_tsrc_def, TSRC_WATER01);");
@@ -1596,7 +1636,7 @@ if(_C2)
     }
     else
     {
-        dm_file_data[?"dg_solid_def"] = ds_grid_write(dg_solid_def);
+        _dm_save_data[?"dg_solid_def"] = ds_grid_write(dg_solid_def);
         repeat($2)sdm("");
         //sdm("ds_grid_resize(dg_solid_def, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
         //sdm("ds_grid_clear( dg_solid_def, 0);");
@@ -1611,7 +1651,7 @@ if(_C2)
 // -------------------------------------------------------------------
 if(_C1)
 {
-        dm_file_data[?"dg_area"] = ds_grid_write(dg_area);
+        _dm_save_data[?"dg_area"] = ds_grid_write(dg_area);
         repeat($4)sdm("");
         //sdm("ds_grid_resize(dg_area, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
         //sdm("ds_grid_clear( dg_area, 0);");
@@ -1678,7 +1718,7 @@ if(_C2)
     }
     else
     {
-        dm_file_data[?"dg_AreaNames"] = ds_grid_write(dg_AreaNames);
+        _dm_save_data[?"dg_AreaNames"] = ds_grid_write(dg_AreaNames);
         repeat($2)sdm("");
         //sdm("ds_grid_resize(dg_AreaNames, $"+hex_str(_count1)+",$"+hex_str(_count2)+");");
         //sdm("ds_grid_clear( dg_AreaNames, MapAreaName_DEF);");
@@ -1690,7 +1730,8 @@ if(_C2)
 
 
 // -------------------------------------------------------------------
-if(_C2)repeat($8)sdm("");
+if(_C0)repeat($8)sdm("");
+if(_C1)repeat($4)sdm("");
 
 
 
@@ -1713,16 +1754,29 @@ if (_C1)
     This script `Overworld_init_data_1()` only needs to be run 
     whenever a change has been made to the overworld.
     */
-    dm_file_data[?dk_Map0] = json_encode(dm);
-    _encoded = json_encode(dm_file_data);
-    _file = file_text_open_write(working_directory+_FILE_NAME1);
+    _file_name = "OverworldData01.txt";
+    _dm_save_data[?dk_Map0] = json_encode(dm);
+    _encoded = json_encode(_dm_save_data);
+    _file = file_text_open_write(working_directory+_file_name);
             file_text_write_string(_file,_encoded);
             file_text_close(       _file);
+    //
+    ds_map_destroy(_dm_save_data); _dm_save_data=undefined;
 }
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
+
+
+
+
+if(!is_undefined(_dm_Tiled_file_data) 
+&&  _dm_Tiled_file_data!=-1 )
+{
+    ds_map_destroy(_dm_Tiled_file_data); _dm_Tiled_file_data=undefined;
+}
+//ds_map_clear(_dm_Tiled_file_data);
 
 
 
@@ -1736,98 +1790,99 @@ if (_C1)
 // -------------------------------------------------------------------
 if (g.anarkhyaOverworld_MAIN)
 {
-    var _ts_idx=0;
-    
-    ds_map_clear(_dm_file_data);
-    
-    _file_name = "anarkhya_OvrwA_00.json";
-    _file = file_text_open_read("ow_tile_data/"+_file_name);
-    
-        _str  = "";
-    while (    !file_text_eof(   _file))
-    {   _str += file_text_readln(_file);  }
-                file_text_close( _file);
-    //
-    _dm_file_data = json_decode(_str);
-    
-    
-    
-    // -------------------------------------------------------------------
-    ds_grid_resize(dg_anarkhya_tsrc_def,    OW_CLMS, OW_ROWS);
-    ds_grid_clear (dg_anarkhya_tsrc_def,    0);
-    
-    ds_grid_resize(dg_anarkhya_tsrc,        OW_CLMS, OW_ROWS);
-    ds_grid_clear (dg_anarkhya_tsrc,        0);
-    
-    ds_grid_resize(dg_anarkhya_tsrc_detail_def, OW_CLMS, OW_ROWS);
-    ds_grid_clear (dg_anarkhya_tsrc_detail_def, 0);
-    
-    ds_grid_resize(dg_anarkhya_tsrc_detail,     OW_CLMS, OW_ROWS);
-    ds_grid_clear (dg_anarkhya_tsrc_detail,     0);
-    
-    
-    _dl_layer_data = _dm_file_data[?"layers"];
-    
-    
-    
-    var _dl_tsidx = ds_list_create();
-    
-    
-                 _layer_count = ds_list_size(_dl_layer_data);
-    for(_i=0; _i<_layer_count; _i++) // each layer
+    _dm_Tiled_file_data = -1;
+    _file_name = "ow_tile_data/anarkhya_OvrwA_00.json";
+    if (file_exists(_file_name))
     {
-        _dm_layer_data = _dl_layer_data[|_i];
-        _layer_name    = _dm_layer_data[?"name"];
+            _file_data  = "";
+            _file       = file_text_open_read(working_directory+_file_name);
+        while(           !file_text_eof(   _file))
+        {   _file_data += file_text_readln(_file);  }
+                          file_text_close( _file);
+        _dm_Tiled_file_data = json_decode(_file_data);
+    }
+    
+    if (_dm_Tiled_file_data==-1  // `json_decode` returns -1 if it fails
+    || !file_exists(_file_name) )
+    {
+        show_debug_message("!!!! WARNING! Overworld_init_data_1(), Failed to get data from '"+_file_name+"' !!!!");
+        //exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    else
+    {
+        var _ts_idx = 0;
+        var _dl_tsidx = ds_list_create();
         
-        _dl_data = _dm_layer_data[?"data"];
+        ds_grid_resize(dg_anarkhya_tsrc_def, OW_CLMS, OW_ROWS);
+        ds_grid_clear (dg_anarkhya_tsrc_def, 0);
+        
+        ds_grid_resize(dg_anarkhya_tsrc,     OW_CLMS, OW_ROWS);
+        ds_grid_clear (dg_anarkhya_tsrc,     0);
+        
+        ds_grid_resize(dg_anarkhya_tsrc_detail_def, OW_CLMS, OW_ROWS);
+        ds_grid_clear (dg_anarkhya_tsrc_detail_def, 0);
+        
+        ds_grid_resize(dg_anarkhya_tsrc_detail,     OW_CLMS, OW_ROWS);
+        ds_grid_clear (dg_anarkhya_tsrc_detail,     0);
         
         
+        _dl_layer_data = _dm_Tiled_file_data[?"layers"];
         
-        // ---------------------------------------------------------------------------
-                     _count_j = ds_list_size(_dl_data);
-        for(_j=0; _j<_count_j; _j++) // each tile or obj of this layer
+                     _layer_count = ds_list_size(_dl_layer_data);
+        for(_i=0; _i<_layer_count; _i++) // each layer
         {
-            _str_j = hex_str(_j);
-            _ow_clm = _j mod OW_CLMS;
-            _ow_row = _j div OW_CLMS;
-            _owrc = (_ow_row<<8) | _ow_clm;
+            _dm_layer_data = _dl_layer_data[|_i];
+            _layer_name    = _dm_layer_data[?"name"];
+            
+            _dl_data = _dm_layer_data[?"data"];
             
             
             
-                _tile_data = _dl_data[|_j];
-            if (_tile_data!=0)
+            // ---------------------------------------------------------------------------
+                         _count_j = ds_list_size(_dl_data);
+            for(_j=0; _j<_count_j; _j++) // each tile or obj of this layer
             {
-                if (string_pos("BOOTS",_layer_name))
+                _str_j = hex_str(_j);
+                _ow_clm = _j mod OW_CLMS;
+                _ow_row = _j div OW_CLMS;
+                _owrc = (_ow_row<<8) | _ow_clm;
+                
+                
+                    _tile_data = _dl_data[|_j];
+                if (_tile_data!=0)
                 {
-                    _idx = ds_grid_width(dg_anarkhya_tsrc_boots);
-                    ds_grid_resize(dg_anarkhya_tsrc_boots, _idx+1, ds_grid_height(dg_anarkhya_tsrc_boots));
-                    dg_anarkhya_tsrc_boots[#_idx,0] = _owrc;
-                    dg_anarkhya_tsrc_boots[#_idx,1] = _tile_data;
-                }
-                else if (string_pos("DETAIL",_layer_name))
-                {
-                    dg_anarkhya_tsrc_detail_def[#_ow_clm,_ow_row] = _tile_data;
-                }
-                else
-                {
-                    dg_anarkhya_tsrc_def[#_ow_clm,_ow_row] = _tile_data;
+                    if (string_pos("BOOTS",_layer_name))
+                    {
+                        _idx = ds_grid_width(dg_anarkhya_tsrc_boots);
+                        ds_grid_resize(dg_anarkhya_tsrc_boots, _idx+1, ds_grid_height(dg_anarkhya_tsrc_boots));
+                        dg_anarkhya_tsrc_boots[#_idx,0] = _owrc;
+                        dg_anarkhya_tsrc_boots[#_idx,1] = _tile_data;
+                    }
+                    else if (string_pos("DETAIL",_layer_name))
+                    {
+                        dg_anarkhya_tsrc_detail_def[#_ow_clm,_ow_row] = _tile_data;
+                    }
+                    else
+                    {
+                        dg_anarkhya_tsrc_def[#_ow_clm,_ow_row] = _tile_data;
+                    }
                 }
             }
         }
+        
+        for(_i=ds_grid_width(dg_boulders)-1; _i>=0; _i--)
+        {
+            _owrc = dg_boulders[#_i,0];
+            _clm = (_owrc>>0)&$FF;
+            _row = (_owrc>>8)&$FF;
+            dg_anarkhya_tsrc_detail_def[#_clm,_row] = anarkhya_TSRC_BOULDER;
+        }
+        
+        ds_grid_copy(dg_anarkhya_tsrc,        dg_anarkhya_tsrc_def);
+        ds_grid_copy(dg_anarkhya_tsrc_detail, dg_anarkhya_tsrc_detail_def);
+        
+        ds_list_destroy(_dl_tsidx); _dl_tsidx=undefined;
     }
-    
-    for(_i=ds_grid_width(dg_boulders)-1; _i>=0; _i--)
-    {
-        _owrc = dg_boulders[#_i,0];
-        _clm = (_owrc>>0)&$FF;
-        _row = (_owrc>>8)&$FF;
-        dg_anarkhya_tsrc_detail_def[#_clm,_row] = anarkhya_TSRC_BOULDER;
-    }
-    
-    ds_grid_copy(dg_anarkhya_tsrc,        dg_anarkhya_tsrc_def);
-    ds_grid_copy(dg_anarkhya_tsrc_detail, dg_anarkhya_tsrc_detail_def);
-    
-    ds_list_destroy(_dl_tsidx); _dl_tsidx=undefined;
 }
 
 
@@ -1844,8 +1899,6 @@ if (g.anarkhyaOverworld_MAIN)
 if(!is_undefined(_dm_ts_data))    {ds_map_destroy(_dm_ts_data);     _dm_ts_data=undefined;}
 if(!is_undefined(_dl_ts_data))    {ds_list_destroy(_dl_ts_data);    _dl_ts_data=undefined;}
 if(!is_undefined(_dg_ts_data))    {ds_grid_destroy(_dg_ts_data);    _dg_ts_data=undefined;}
-
-if(!is_undefined(_dm_file_data))  {ds_map_destroy(_dm_file_data);   _dm_file_data=undefined;}
 
 if(!is_undefined(_dl_data))       {ds_list_destroy(_dl_data);       _dl_data=undefined;}
 if(!is_undefined(_dl_layer_data)) {ds_list_destroy(_dl_layer_data); _dl_layer_data=undefined;}
@@ -1865,16 +1918,25 @@ if(!is_undefined(_dl_AreaNames))  {ds_list_destroy(_dl_AreaNames);  _dl_AreaName
 //ds_list_destroy(_dl_RANDO_TSRC_A); _dl_RANDO_TSRC_A=undefined;
 //ds_list_destroy(_dl_RANDO_TSRC_B); _dl_RANDO_TSRC_B=undefined;
 
+
+if(!is_undefined(_dm_Tiled_file_data) 
+&&  _dm_Tiled_file_data!=-1 )
+{
+    ds_map_destroy(_dm_Tiled_file_data); _dm_Tiled_file_data=undefined;
+}
+
 if(_C1)
 {
-         ds_map_destroy(dm_file_data); dm_file_data=undefined;
+         //ds_map_destroy(dm_file_data); dm_file_data=undefined;
     sdm("ds_map_destroy(dm_file_data); dm_file_data=undefined;");
 }
 
-if(_C2)sdm("ds_list_destroy(_dl1); _dl1=undefined;");
+
+if(_C0)sdm("ds_list_destroy(_dl1); _dl1=undefined;");
 //sdm("ds_list_destroy(_dl2); _dl2=undefined;");
 ds_list_destroy(_dl1); _dl1=undefined;
 ds_list_destroy(_dl2); _dl2=undefined;
+
 if(_C0)sdm("ds_list_destroy(_dl_AreaNames); _dl_AreaNames=undefined;");
 if(_C2) repeat(8)sdm("");
 

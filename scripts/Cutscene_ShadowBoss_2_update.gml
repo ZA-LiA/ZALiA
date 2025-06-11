@@ -1,7 +1,7 @@
 /// Cutscene_ShadowBoss_2_update()
 
 
-if (g.ChangeRoom_timer > 0 
+if (g.ChangeRoom_timer>0 
 ||  g.EnterRoom_SpawnGO_timer )
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -51,7 +51,7 @@ switch(sub_state)
     audio_stop_sound(Audio.mus_rm_inst);
     Audio.can_play_boss_music=false;
     
-    var                     _DURATION = $30-1;
+    var                     _DURATION = $30 - 1;
     p.Flash_Pal_timer     = _DURATION;
     p.Flash_Bgr_timer     = _DURATION;
     p.SpellFlash_PC_timer = _DURATION;
@@ -114,17 +114,15 @@ switch(sub_state)
     case sub_state_WALK_PC:{ // ShadowBoss-9B53 -------------------------------------------------
     if (g.cutscene_timer)
     {
-        if (g.pc.behavior != g.pc.behavior_CROUCH)
-        {   PC_set_behavior( g.pc.behavior_IDLE);  }
-        
+        if (g.pc.behavior!=g.pc.behavior_CROUCH) PC_set_behavior(g.pc.behavior_IDLE);
         break;//case sub_state_WALK_PC
     }
 
     
     
     // ------------------------------------------------------
-    var                 _TARGET_X  = ARENA_X;
-    if (f.quest_num>=2) _TARGET_X -= $02<<3;
+    if (f.quest_num>=2) var _TARGET_X = ARENA_X - ($02<<3);
+    else                var _TARGET_X = ARENA_X;
     
     
     g.pc_lock = PC_LOCK_ALL
@@ -142,8 +140,8 @@ switch(sub_state)
         PC_set_behavior(g.pc.behavior_IDLE);
         g.pc.xScale = 1;
         
-        var                 _X = g.pc.x + ($03<<3);
-        if (f.quest_num>=2) _X = ARENA_X + (ARENA_X-g.pc.x);
+        if (f.quest_num>=2) var _X = ARENA_X + (ARENA_X-g.pc.x);
+        else                var _X = g.pc.x + ($03<<3);
         with(TK_OBJ) // TK: Triforce Keeper
         {
             set_xy(id, _X, GROUND_Y-hh_);
@@ -277,10 +275,10 @@ switch(sub_state)
     
     // Triforce fills hp & mp. 
     // w/out this, low hp beep will continue for rest of game.
-    var       _HP_MAX = get_stat_max(STR_Heart);
-    var       _MP_MAX = get_stat_max(STR_Magic);
-    if (f.hp!=_HP_MAX) g.StatRestore_timer_hp = max($FF,_HP_MAX);
-    if (f.mp!=_MP_MAX) g.StatRestore_timer_mp = max($FF,_MP_MAX);
+    var _HP_MAX = get_stat_max(STR_Heart);
+    var _MP_MAX = get_stat_max(STR_Magic);
+    if (_HP_MAX!=f.hp) g.StatRestore_timer_hp = max($FF,_HP_MAX);
+    if (_MP_MAX!=f.mp) g.StatRestore_timer_mp = max($FF,_MP_MAX);
     
     
     
@@ -292,20 +290,16 @@ switch(sub_state)
     // 9BBA
     with(Exit)
     {
-        if (exitNum&$F0 != g.EXIT_DIR_MID)
+        if (exitNum&$F0==g.EXIT_DIR_MID)
         {
-            continue;//with(Exit)
+            g.exit_leave = id;
+            show_debug_message("exit door");
+            
+            g.cutscene_part  = 0;
+            g.game_end_state = 1;
+            other.sub_state = other.sub_state_DONE;
+            break;//with(Exit)
         }
-        
-        g.exit_leave = id;
-        sdm("exit door");
-        
-        
-        g.cutscene_part  = 0;
-        g.game_end_state = 1;
-        
-        other.sub_state = other.sub_state_DONE;
-        break;//with(Exit)
     }
     break;}//case sub_state_HOLD_TRIFORCE
     
@@ -482,11 +476,11 @@ switch(sub_state)
     if (g.cutscene_timer) break;//case sub_state_FILL_BOTTLE4
     
     if!(g.counter1&$7)
-    {   Blood_yb  = min(Blood_yb+$2, Blood_yb_MAX);  }
+    {   Blood_yb = min(Blood_yb+$2, Blood_yb_MAX);  }
     
-    if (Blood_yb >= Blood_yb_MAX)
+    if (Blood_yb>=Blood_yb_MAX)
     {
-        Blood_yb  = Blood_yb_MAX;
+        Blood_yb = Blood_yb_MAX;
         BottleLiquid_level++;
         
         f.dm_quests[?STR_Bottle+"01"+STR_State] = 1; // Indicates bottle has been filled w/ blood.
@@ -513,7 +507,7 @@ switch(sub_state)
     if!(g.counter1&$F)
     {   BottleLiquid_level++;  }
     
-    if (BottleLiquid_level >= 6)
+    if (BottleLiquid_level>=6)
     {
         g.cutscene_timer = $20;
         sub_state = sub_state_FILL_BOTTLE6;
@@ -555,8 +549,8 @@ switch(sub_state)
     if (g.cutscene_timer) break;//case sub_state_FILL_BOTTLE7
     
     if!(g.counter1&$7) Boss_vspd = min(Boss_vspd+1, 7);
-        Boss_y +=      Boss_vspd;
-    if (Boss_y >= viewYB()+$30)
+    Boss_y += Boss_vspd;
+    if (Boss_y>=viewYB()+$30)
     {
         if (pc_is_cucco()) g.pc.HoldItem_timer = $FF;
         
@@ -585,10 +579,10 @@ switch(sub_state)
     if (g.cutscene_timer) break;//case sub_state_HOLD_BOTTLE
     
     
-    var       _HP_MAX = get_stat_max(STR_Heart);
-    var       _MP_MAX = get_stat_max(STR_Magic);
-    if (f.hp!=_HP_MAX) g.StatRestore_timer_hp = max($FF,_HP_MAX);
-    if (f.mp!=_MP_MAX) g.StatRestore_timer_mp = max($FF,_MP_MAX);
+    var _HP_MAX = get_stat_max(STR_Heart);
+    var _MP_MAX = get_stat_max(STR_Magic);
+    if (_HP_MAX!=f.hp) g.StatRestore_timer_hp = max($FF,_HP_MAX);
+    if (_MP_MAX!=f.mp) g.StatRestore_timer_mp = max($FF,_MP_MAX);
     
     PC_set_behavior(g.pc.behavior_IDLE);
     g.pc_lock = 0;
@@ -610,7 +604,7 @@ switch(sub_state)
 
 
 if (f.quest_num>=2 
-&&  sub_state > sub_state_REVEAL_TK )
+&&  sub_state>sub_state_REVEAL_TK )
 {
     with(TK_OBJ)
     {

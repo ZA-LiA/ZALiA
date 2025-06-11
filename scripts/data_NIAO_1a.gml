@@ -2,20 +2,20 @@
 
 
 // xy data example $1352: x = ($1352&$FF)<<3, y = ($1352>>8)<<3
-var                                               _a=1;
-     g.dm_rm[?argument[0]+"_xy"]       = argument[_a++];
-     g.dm_rm[?argument[0]+STR_version] = argument[_a++];
-     g.dm_rm[?argument[0]+"_init"]     = argument[_a++];
+var                                               _arg=1;
+     g.dm_rm[?argument[0]+"_xy"]       = argument[_arg++];
+     g.dm_rm[?argument[0]+STR_version] = argument[_arg++];
+     g.dm_rm[?argument[0]+"_init"]     = argument[_arg++];
 
 if (argument_count>4)
-{    g.dm_rm[?argument[0]+STR_pal_idx] = argument[_a++];  }
+{    g.dm_rm[?argument[0]+STR_pal_idx] = argument[_arg++];  }
 else g.dm_rm[?argument[0]+STR_pal_idx] = -1;
 
-if (argument_count>_a)
+if (argument_count>_arg)
 {
-    for(var _i=0; _i<argument_count-_a; _i++)
+    for(var _i=0; _i<argument_count-_arg; _i++)
     {
-        g.dm_rm[?argument[0]+STR_Data+hex_str(_i+1)] = argument[_a+_i];
+        g.dm_rm[?argument[0]+STR_Data+hex_str(_i+1)] = argument[_arg+_i];
     }
 }
 

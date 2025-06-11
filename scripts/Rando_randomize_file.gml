@@ -14,7 +14,7 @@ var _SAVE_NAME = f.dl_save_names[|FILE_NUM-1];
 
 if(!file_exists(_FILE_NAME))
 {
-    sdm("!!! "+"Rando Failed.  File: "+_FILE_NAME+"  does NOT exist."+" !!!");
+    show_debug_message("!!! "+"Rando Failed.  File: "+_FILE_NAME+"  does NOT exist."+" !!!");
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -50,6 +50,7 @@ dm_save_data[?STR_Rando+STR_Settings] = _RANDO_SETTINGS;
 
 
 var _dm_SETTINGS = json_decode(_RANDO_SETTINGS);
+if (_dm_SETTINGS==-1) _dm_SETTINGS = ds_map_create(); // So the code below doesn't error when trying to get map data
 
 ContainersHP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+STR_HP]);
 ContainersMP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+STR_MP]);
@@ -219,6 +220,7 @@ var _file      = file_text_open_read(working_directory+_FILE_NAME);
 var _file_data = file_text_read_string(_file);
                  file_text_close(      _file);
 var _dm_save_data = json_decode(_file_data);
+if (_dm_save_data==-1) _dm_save_data = ds_map_create(); // So the code below doesn't error when trying to get map data
 
 
 var _is_active  = ItemLocations_WILL_RANDOMIZE!=0;
@@ -404,20 +406,9 @@ file_text_close(_file);
 
 
 
-
-
-
-
-
-if (DEV){sdm("");
-var _str  = "Save File  ";
-    _str += "'"+_FILE_NAME +"'" + ", Save Name  ";
-    _str += "'"+_SAVE_NAME+"'" + ",  rando data saved!";
-sdm(_str); sdm("");
-}
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
+show_debug_message("");
+show_debug_message("Save File  '"+_FILE_NAME+"', Save Name  '"+_SAVE_NAME+"',  rando data saved!");
+show_debug_message("");
 
 
 

@@ -15,12 +15,18 @@ if(!_REINITIALIZING
     _file      = file_text_open_read(working_directory+_FILE_NAME0);
     _file_data = file_text_read_string(_file);
                  file_text_close(      _file);
-    dm_scene_palette = json_decode(_file_data);
+    var _dm = json_decode(_file_data);
+    if (_dm!=-1)
+    {
+        ds_map_copy(dm_scene_palette, _dm);
+        ds_map_destroy(_dm); _dm=undefined;
+    }
+    //dm_scene_palette = json_decode(_file_data);
 }
 else
 {
     var _i,_j, _val, _area, _palette1;
-    var _file_name, _area_file_num_;
+    var _file_name,_file_name1, _area_file_num_;
     var _SINGLE_SCENE = undefined;
     //_SINGLE_SCENE = Area_TownA+"129"; // use this line only when getting data for a single scene
     
@@ -50,6 +56,27 @@ else
                 _area = string_copy(_SINGLE_SCENE, 1,AreaID_LEN);
             }
             
+            // `_file_name` example: "PalcA_003"
+            _file_name  = string_letters(_area); // get "PalcA" from "_PalcA_"
+            _file_name += "_";
+            _file_name += _area_file_num_;
+            
+            // `_file_name1` example: "PalcA_003.json"
+            _file_name1 = _file_name+".json";
+            
+            if (file_exists(_file_name1))
+            {
+                    _file_data  = "";
+                    _file =       file_text_open_read(_file_name1);
+                while(           !file_text_eof(   _file)) 
+                {   _file_data += file_text_readln(_file);  }
+                                  file_text_close( _file);
+                //
+                _palette1 = get_palette_via_file_data(_file_data); // just bgr palettes from Tiled file
+                if (is_undefined(_palette1)) _palette1 = _DEFAULT_PAL;
+                dm_scene_palette[?_file_name+dk_BGR] = _palette1;
+            }
+            /*
             _file_name  = string_letters(_area); // get "PalcA" from "_PalcA_"
             _file_name += "_";
             _file_name += _area_file_num_;
@@ -75,6 +102,7 @@ else
                 if (is_undefined(_palette1)) _palette1 = _DEFAULT_PAL;
                 dm_scene_palette[?_file_name+dk_BGR] = _palette1;
             }
+            */
             
             if(!is_undefined(_SINGLE_SCENE))
             {

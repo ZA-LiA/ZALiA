@@ -1,6 +1,57 @@
 /// GraphicsEffectsEditor_Create()
 
 
+var _UserPref_dm = -1;
+
+var _UserPref_FILE_NAME = UserPrefFileName;
+//var _UserPref_FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
+if (file_exists(_UserPref_FILE_NAME))
+{
+    var _UserPref_FILE = file_text_open_read(working_directory+_UserPref_FILE_NAME);
+    var _encoded       = file_text_read_string(_UserPref_FILE);
+    file_text_close(_UserPref_FILE);
+    var _dm_FILE = json_decode(_encoded);
+    if (_dm_FILE!=-1) // -1: json_decode() failed
+    {
+        global.RetroShaders_enabled       = val(_dm_FILE[?"_Retro_Shaders_Enabled"],       global.RetroShaders_enabled);
+        global.RetroShaders_surface_scale = val(_dm_FILE[?"_Retro_Shaders_Surface_Scale"], global.RetroShaders_surface_scale);
+        global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
+        application_surface_draw_enable(global.application_surface_draw_enable_state);
+        update_shaders_surf_resize();
+        
+        _encoded = _dm_FILE[?"_Graphics_Effects"+STR_Preferences];
+        if(!is_undefined(_encoded)) _UserPref_dm = json_decode(_encoded);
+        /*
+        if(!is_undefined(_encoded))
+        {
+                _val = json_decode(_encoded);
+            if (_val!=-1)
+            {
+                ds_map_copy(_UserPref_dm,_val);
+                ds_map_destroy(_val); _val=undefined;
+            }
+        }
+        */
+        
+        ds_map_destroy(_dm_FILE); _dm_FILE=undefined;
+    }
+}
+
+if(!file_exists(_UserPref_FILE_NAME) 
+||  _UserPref_dm==-1 )
+{
+    // Just so the code below doesn't error when trying to get data from `_UserPref_dm()`
+    if (_UserPref_dm==-1) _UserPref_dm = ds_map_create();
+    //exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
+
+
+
+
+
+
 var _i, _a,_b, _idx, _val, _num,_num1,_num2;
 var _x,_y, _x1,_y1;
 var _dk,_dk1,_dk2,_dk3;
@@ -35,39 +86,6 @@ PI_DARK1 = global.PI_GUI2;
 state_CLOSED = ++_a;
 state_OPEN   = ++_a;
 state = state_CLOSED;
-
-
-
-
-
-
-
-var _UserPref_dm = ds_map_create();
-var _UserPref_FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
-if (file_exists(_UserPref_FILE_NAME))
-{
-    var _UserPref_FILE = file_text_open_read(working_directory+_UserPref_FILE_NAME);
-    var _encoded       = file_text_read_string(_UserPref_FILE);
-    file_text_close(_UserPref_FILE);
-    var _dm_FILE = json_decode(_encoded);
-    if (_dm_FILE!=-1) // -1: json_decode() failed
-    {
-        global.RetroShaders_enabled       = val(_dm_FILE[?"_Retro_Shaders_Enabled"],       global.RetroShaders_enabled);
-        global.RetroShaders_surface_scale = val(_dm_FILE[?"_Retro_Shaders_Surface_Scale"], global.RetroShaders_surface_scale);
-        global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
-        application_surface_draw_enable(global.application_surface_draw_enable_state);
-        update_shaders_surf_resize();
-        
-        _encoded = _dm_FILE[?"_Graphics_Effects"+STR_Preferences];
-        if(!is_undefined(_encoded))
-        {
-                _val = json_decode(_encoded);
-            if (_val!=-1) ds_map_copy(_UserPref_dm,_val);
-        }
-        
-        ds_map_destroy(_dm_FILE); _dm_FILE=undefined;
-    }
-}
 
 
 
@@ -206,7 +224,7 @@ dg_Brightness[#dg_menu_idx,$1] = _y; // YT
 dg_Brightness[#dg_menu_idx,$2] = "STATE"; // 
 dg_Brightness[#dg_menu_idx,$3] = _font_sprite;
 dg_Brightness[#dg_menu_idx,$4] = true; // option is available
-dg_Brightness[#dg_menu_idx,$5] = val(_UserPref_dm[?STR_Brightness+STR_State], false); // current setting
+dg_Brightness[#dg_menu_idx,$5] = val(_UserPref_dm[?STR_Brightness+STR_State], true); // current setting
 dg_Brightness[#dg_menu_idx,$8] = dg_Brightness[#dg_menu_idx,$5]; // default
 dg_Brightness[#dg_menu_idx,$9] = menu_focus_Brightness;
 if (dg_Brightness[#dg_menu_idx,$5]) dg_Brightness[#dg_menu_idx,$A] = "ON";  // value text
@@ -222,8 +240,7 @@ dg_Brightness[#dg_menu_idx,$1] = _y; // YT
 dg_Brightness[#dg_menu_idx,$2] = "EDIT"; // 
 dg_Brightness[#dg_menu_idx,$3] = _font_sprite;
 dg_Brightness[#dg_menu_idx,$4] = true; // option is available
-dg_Brightness[#dg_menu_idx,$5] =  val(_UserPref_dm[?STR_Brightness+"A"], 0.00); // current setting
-//dg_Brightness[#dg_menu_idx,$5] = -0.08; // current setting
+dg_Brightness[#dg_menu_idx,$5] =  val(_UserPref_dm[?STR_Brightness+"A"], 0.05); // current setting
 dg_Brightness[#dg_menu_idx,$6] = -1.00; // min
 dg_Brightness[#dg_menu_idx,$7] =  1.00; // max
 dg_Brightness[#dg_menu_idx,$8] = dg_Brightness[#dg_menu_idx,$5]; // default
@@ -436,7 +453,6 @@ dg_Bloom[#dg_menu_idx,$2] = "STATE"; //
 dg_Bloom[#dg_menu_idx,$3] = _font_sprite;
 dg_Bloom[#dg_menu_idx,$4] = true; // option is available
 dg_Bloom[#dg_menu_idx,$5] = val(_UserPref_dm[?STR_Bloom+STR_State], true); // current setting
-//dg_Bloom[#dg_menu_idx,$5] = false; // current setting
 dg_Bloom[#dg_menu_idx,$8] = dg_Bloom[#dg_menu_idx,$5]; // default
 if (dg_Bloom[#dg_menu_idx,$5]) dg_Bloom[#dg_menu_idx,$A] = "ON";  // value text
 else                           dg_Bloom[#dg_menu_idx,$A] = "OFF"; // value text
@@ -608,7 +624,6 @@ dg_Blur[#dg_menu_idx,$2] = "STATE"; //
 dg_Blur[#dg_menu_idx,$3] = _font_sprite;
 dg_Blur[#dg_menu_idx,$4] = true; // option is available
 dg_Blur[#dg_menu_idx,$5] = val(_UserPref_dm[?STR_Blur+STR_State], true); // current setting
-//dg_Blur[#dg_menu_idx,$5] = false; // current setting
 dg_Blur[#dg_menu_idx,$8] = dg_Blur[#dg_menu_idx,$5]; // default
 if (dg_Blur[#dg_menu_idx,$5]) dg_Blur[#dg_menu_idx,$A] = "ON";  // value text
 else                          dg_Blur[#dg_menu_idx,$A] = "OFF"; // value text
@@ -624,7 +639,7 @@ dg_Blur[#dg_menu_idx,$2] = "EDIT"; //
 dg_Blur[#dg_menu_idx,$3] = _font_sprite;
 dg_Blur[#dg_menu_idx,$4] = true; // option is available
 //dg_Blur[#dg_menu_idx,$5] = 0.50; // current setting
-dg_Blur[#dg_menu_idx,$5] = val(_UserPref_dm[?STR_Blur+"A"], 1.0); // current setting
+dg_Blur[#dg_menu_idx,$5] = val(_UserPref_dm[?STR_Blur+"A"], 0.85); // current setting
 //dg_Blur[#dg_menu_idx,$5] = 0.75; // current setting
 dg_Blur[#dg_menu_idx,$6] = 0.00; // min
 dg_Blur[#dg_menu_idx,$7] = 1.00; // max

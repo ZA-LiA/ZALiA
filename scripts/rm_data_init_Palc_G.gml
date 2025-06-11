@@ -1544,7 +1544,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '2A'+EXL0_); // RG
 
 
 x3=$68<<3;
-data_spawn(rm+STR_PRIO,ItmG0,$1,  x3,y3,  STR_Treasure+STR_Map+"02",STR_Qualified+STR_Quest+STR_Nums+"01"); // Extra Life Doll 
+data_spawn(rm+STR_PRIO,ItmG0,$1,  x3,y3,  STR_Treasure+STR_Map+"02", STR_Qualified+STR_Quest+STR_Nums+"01"); // Extra Life Doll 
 data_spawn(rm+STR_PRIO,ItmF0,$A,  x3,y3,  STR_Qualified+STR_Quest+STR_Nums+"02"); // PBag $A: 1000
 data_spawn(rm+STR_PRIO,ItmF0,$A,  $5A<<3,(row0+$0D)<<3); // PBag $A: 1000
 

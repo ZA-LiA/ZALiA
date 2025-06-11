@@ -1,7 +1,7 @@
 /// rm_data_init_Palc_B()
 
 
-var _rm, _x, _y, _data, _tsrc;
+var _a, _rm, _x, _y, _data, _tsrc;
 var _exit = REEN_DEFAULT;
 
 map_clm_off     =  0;

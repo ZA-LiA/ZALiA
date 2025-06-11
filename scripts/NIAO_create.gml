@@ -20,11 +20,9 @@ with(instance_create(0,0, GameObject))
     yt  = _YT;
     ver = _VER;
     
-    if(!is_undefined(_SPAWN_DK))
-    {     dk_spawn = _SPAWN_DK;  }
+    if(!is_undefined(_SPAWN_DK)) dk_spawn = _SPAWN_DK;
     
-    if (               _INIT)
-    {   script_execute(_INIT);  } // init scr
+    if (_INIT) script_execute(_INIT);
     
     
     if(!is_undefined(id) 
@@ -33,8 +31,14 @@ with(instance_create(0,0, GameObject))
         set_xlyt(id, xl,yt);
         update_draw_xy();
         
-        if ( ver) debug_NIAO_spawn_1a();
-        else ver = 1;
+        if (ver)
+        {
+            if (DEV) debug_NIAO_spawn_1a();
+        }
+        else
+        {
+            ver = 1;
+        }
         
         return id;
     }

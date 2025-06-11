@@ -80,11 +80,17 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++)
 global.dm_save_file_data = ds_map_create();
 for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
 {
+    _file_data = "";
     _file_name = dl_file_names[|_i];
-    _file      = file_text_open_read(working_directory+_file_name);
-    _file_data = file_text_read_string(_file);
-                 file_text_close(      _file);
-    global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
+    if (file_exists(_file_name))
+    {
+        _file      = file_text_open_read(working_directory+_file_name);
+        _file_data = file_text_read_string(_file);
+                     file_text_close(      _file);
+        global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
+    }
+    
+    //global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
 }
 
 
@@ -324,9 +330,6 @@ reen          = reen_new_run;  // The exit to spawn at
 
 // rlen: Rm Leave Exit Name
 // rlen = undefined;
-
-
-//debug_changeSaveData();
 
 
 

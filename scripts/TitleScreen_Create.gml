@@ -371,34 +371,37 @@ if(!is_undefined(_DATA))
     var _dm_layer_data, _layer_name, _pos, _name, _depth, _idx, _pi, _w;
     var _terrain_idx = 0;
     g.dm_tile_file = json_decode(_DATA);
-    tile_clms = g.dm_tile_file[?"width"];
-    dl_tile_layer_data = val(g.dm_tile_file[?"layers"]);
-    
-    var          _layer_count = ds_list_size(dl_tile_layer_data);
-    for(_i=0; _i<_layer_count; _i++)
+    if (g.dm_tile_file!=-1)
     {
-        _dm_layer_data = dl_tile_layer_data[|_i];
-        _layer_name = _dm_layer_data[?"name"];
-        _layer_name = string(_layer_name);
-        if (string_pos("BG",_layer_name) 
-        ||  string_pos("FG",_layer_name) )
+        tile_clms = g.dm_tile_file[?"width"];
+        dl_tile_layer_data = val(g.dm_tile_file[?"layers"]);
+        
+        var          _layer_count = ds_list_size(dl_tile_layer_data);
+        for(_i=0; _i<_layer_count; _i++)
         {
-            if (        string_pos("BG",_layer_name))
-            {    _pos = string_pos("BG",_layer_name);  }
-            else _pos = string_pos("FG",_layer_name);
-            _name  = string_copy(_layer_name,_pos,4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
-            _depth = val(g.dm_TILE_DEPTH[?_name],dg_terrain[#_terrain_idx,2]);
-            //_idx   = ds_list_find_index(g.dl_TILE_DEPTHS, _depth);
-            
-            _pi  = string_copy(_layer_name, _pos+string_length(_name), 2); // bg palette num ('01', '02', '03', '04')
-            _pi  = str_hex(_pi);
-            _pi -= _pi>5;
-            _pi  = global.PI_BGR1 + (_pi-1);
-            
-            _idx = ds_grid_width(dg_terrain);
-            ds_grid_resize(dg_terrain,_idx+1,dg_terrain_H);
-            dg_terrain[#_idx,1] = _pi;
-            dg_terrain[#_idx,2] = _i;
+            _dm_layer_data = dl_tile_layer_data[|_i];
+            _layer_name = _dm_layer_data[?"name"];
+            _layer_name = string(_layer_name);
+            if (string_pos("BG",_layer_name) 
+            ||  string_pos("FG",_layer_name) )
+            {
+                if (        string_pos("BG",_layer_name))
+                {    _pos = string_pos("BG",_layer_name);  }
+                else _pos = string_pos("FG",_layer_name);
+                _name  = string_copy(_layer_name,_pos,4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
+                _depth = val(g.dm_TILE_DEPTH[?_name],dg_terrain[#_terrain_idx,2]);
+                //_idx   = ds_list_find_index(g.dl_TILE_DEPTHS, _depth);
+                
+                _pi  = string_copy(_layer_name, _pos+string_length(_name), 2); // bg palette num ('01', '02', '03', '04')
+                _pi  = str_hex(_pi);
+                _pi -= _pi>5;
+                _pi  = global.PI_BGR1 + (_pi-1);
+                
+                _idx = ds_grid_width(dg_terrain);
+                ds_grid_resize(dg_terrain,_idx+1,dg_terrain_H);
+                dg_terrain[#_idx,1] = _pi;
+                dg_terrain[#_idx,2] = _i;
+            }
         }
     }
 }

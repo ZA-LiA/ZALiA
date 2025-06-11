@@ -18,7 +18,7 @@ var _dir, _dir1,_dir2;
 var _x,_xl,_xl1,_xl2, _y,_yt,_yt1,_yt2, _w,_w_, _h,_h_;
 var _clm,_clm1,_clm2, _row,_row1,_row2, _clms1,_clms2, _rows1,_rows2, _rc,_rc1,_rc2, _owrc;
 var _depth, _tile_id, _layer_name;
-var _data;
+var _file_name, _data;
 var _dk, _datakey,_datakey1,_datakey2;
 var _obj,_ver, _obj_name, _spr,_pi, _inst;
 var _rm,_rm_name, _scene_name, _scene_name1,_scene_name2;
@@ -41,6 +41,7 @@ for(_i=ds_grid_width(dg_YxY_)-1; _i>=0; _i--)
 
 room_speed = ROOM_SPEED_BASE;
 global.Room_frame_count = 0;
+global.OverworldSoftlock_timer = 0;
 
 
 _val = room_get_name(room);
@@ -342,20 +343,27 @@ if (_ROOM_A
 }
 
 
-if (_ROOM_A 
-||  _ROOM_B1 ) // Title-Screen
-{
-    var                      _DATA = rm_get_file_data(_SceneRando_scene, file_data_quest_num); // _SceneRando_scene==rm_name here if this scene isn't rando'd
-    if (is_undefined(_DATA)) _DATA = rm_get_file_data(_rm_name_PREV,     file_data_quest_num);
-    if (is_undefined(_DATA)) _DATA = rm_get_file_data(RM_NAME_NPALACE,   file_data_quest_num);
-    if(!is_undefined(_DATA))  dm_tile_file = json_decode(_DATA);
-}
-
-
 if (FileCleaning01_STATE 
 &&  _ROOM_A 
 &&  rm_name==FileCleaning01_rm_name )
 {
+    // `FileCleaning01_dm` data example: "PalcA_003.json"
+    _file_name = FileCleaning01_dm[?STR_Tile+STR_File+hex_str(FileCleaning01_current_data_id)+STR_Name];
+    if(!is_undefined(_file_name))
+    {   // _file_name example:  "rm_tile_data/PalcA/PalcA_003.json"
+        _file_name = "rm_tile_data/"+string_copy(_file_name,1,5)+"/"+_file_name;
+        if (file_exists(_file_name))
+        {
+            var _FILE  = file_text_open_read(_file_name);
+                _data  = "";
+            while(      !file_text_eof(   _FILE)) 
+            {   _data += file_text_readln(_FILE);  }
+                         file_text_close( _FILE);
+            dm_tile_file = json_decode(_data);
+            show_debug_message("FileCleaning01: "+_file_name);
+        }
+    }
+    /*
     var _FILE_NAME = FileCleaning01_dm[?STR_Tile+STR_File+hex_str(FileCleaning01_current_data_id)+STR_Name];
     if(!is_undefined(_FILE_NAME))
     {   //  _FILE example:  "rm_tile_data/PalcA/PalcA_003.json"
@@ -373,8 +381,33 @@ if (FileCleaning01_STATE
             {      _data += file_text_readln(   _FILE);  }
                             file_text_close(    _FILE);
             dm_tile_file = json_decode(_data);
-            sdm("FileCleaning01: "+_FILE_NAME);
+            show_debug_message("FileCleaning01: "+_FILE_NAME);
         }
+    }
+    */
+}
+else
+{
+    if (_ROOM_A 
+    ||  _ROOM_B1 ) // Title-Screen
+    {
+        var                      _DATA = rm_get_file_data(_SceneRando_scene, file_data_quest_num); // _SceneRando_scene==rm_name here if this scene isn't rando'd
+        if (is_undefined(_DATA)) _DATA = rm_get_file_data(_rm_name_PREV,     file_data_quest_num);
+        if (is_undefined(_DATA)) _DATA = rm_get_file_data(RM_NAME_NPALACE,   file_data_quest_num);
+        if(!is_undefined(_DATA)) dm_tile_file = json_decode(_DATA);
+    }
+}
+
+
+if (_ROOM_A 
+||  _ROOM_B1 ) // Title-Screen
+{
+    if (is_undefined(dm_tile_file)  // `dm_tile_file` gets set as `undefined` in g_Room_End()
+    ||  dm_tile_file==-1 ) // `json_decode` returns -1 if it fails
+    {   // if for some reason `dm_tile_file` fails to get data
+        show_debug_message("!!! WARNING: No tile data could be found for "+rm_name);
+        room_goto_(rmA_ACTION, rm_get_wh(RM_NAME_NPALACE,0), rm_get_wh(RM_NAME_NPALACE,1));
+        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 }
 
@@ -489,7 +522,7 @@ if (room==rmB_NextLife)
         {
             for(_i=ds_grid_width(global.OVERWORLD.TreasureMaps_dg)-1; _i>=0; _i--)
             {   // Mark as NOT acquired. Overworld_Room_Start() will check what has been acquired and update this.
-                global.OVERWORLD.TreasureMaps_dg[#_i,$05]=0;
+                global.OVERWORLD.TreasureMaps_dg[#_i,$05] = 0;
             }
         }
         
@@ -499,7 +532,7 @@ if (room==rmB_NextLife)
         {
             if (mod_START_RUN_LIVES) lives = STARTING_LIVES + get_life_doll_count();
             else                     lives = STARTING_LIVES;
-            
+            show_debug_message("g_Room_Start(). lives = "+string(lives)+", get_life_doll_count() = "+string(get_life_doll_count()));
             
             f.xpNext=0;
             if (f.xp)
@@ -873,13 +906,14 @@ if (_ROOM_A)
     
     if (exit_enter==noone)
     {
-        sdm("!!! WARNING: No Exit matches f.reen: "+string(f.reen));
+        show_debug_message("!!! WARNING: No Exit matches f.reen: "+string(f.reen));
         with(Exit){g.exit_enter=id; break;}
         if (exit_enter==noone)
         {   // Probably wrong datakey for rm data.
             f.reen = REEN_DEFAULT;
             var _RM_NAME = get_exit_rm_name(f.reen);
             room_goto_(rmA_ACTION, rm_get_wh(_RM_NAME,0), rm_get_wh(_RM_NAME,1));
+            exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
     else
@@ -1071,7 +1105,7 @@ if (_ROOM_A)
                 if (is_string(_item_type))
                 {
                     _obj = val(g.dm_ITEM[?_item_type+STR_Object]);
-                    _ver = val(g.dm_spawn[?_item_id+STR_Version],1);
+                    _ver = val(g.dm_spawn[?_item_id+STR_Version], 1);
                     _obj_name = object_get_name(_obj);
                     _objver2  = _obj_name+hex_str(_ver);
                     

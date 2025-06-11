@@ -1,7 +1,9 @@
 /// RandoDebug01_Room_End()
 
 
-sdm(""); sdm("RandoDebug01_Room_End()"); sdm("");
+show_debug_message("");
+show_debug_message("RandoDebug01_Room_End()");
+show_debug_message("");
 
 /*
 var _exists = false;

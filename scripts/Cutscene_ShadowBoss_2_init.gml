@@ -26,6 +26,17 @@ ARENA_X = 0;
 //with(BOSS_OBJ) other.ARENA_X = arena_x;
 
 
+Boss_can_draw   = false;
+Boss_SPR        = 0;
+Boss_PI         = global.PI_GUI4; // Greyscale, like PI_GUI2
+//Boss_PI         = global.PI_MOB_PUR;
+Boss_pi         = Boss_PI;
+Boss_x          = 0;
+Boss_y          = 0;
+Boss_Raise_DIST = $20;
+Boss_Target_y   = 0;
+Boss_vspd       = 0;
+
 if (f.quest_num>=2)
 {   
     Blood_can_draw  = false;
@@ -37,30 +48,16 @@ if (f.quest_num>=2)
     Blood_h         = 2;
     //Blood_h_MAX     = 0;
     
+    Bottle_can_draw    = false;
+    Bottle_SPR1        = spr_Item_Bottle_8d; // No top
+    Bottle_SPR2        = spr_Item_Bottle_8c; // full, including liquid
+    Bottle_spr         = Bottle_SPR1;
+    BottleTop_SPRITE   = spr_Item_Bottle_8_Top;
+    Bottle_x           = 0;
+    Bottle_y           = 0;
     
-    Boss_can_draw   = false;
-    Boss_SPR        = 0;
-    Boss_PI         = global.PI_GUI4; // Greyscale, like PI_GUI2
-    //Boss_PI         = global.PI_MOB_PUR;
-    Boss_pi         = Boss_PI;
-    Boss_x          = 0;
-    Boss_y          = 0;
-    Boss_Raise_DIST = $20;
-    Boss_Target_y   = 0;
-    Boss_vspd       = 0;
-    
-    
-    
-    Bottle_can_draw     = false;
-    Bottle_SPR1         = spr_Item_Bottle_8d; // No top
-    Bottle_SPR2         = spr_Item_Bottle_8c; // full, including liquid
-    Bottle_spr          = Bottle_SPR1;
-    BottleTop_SPRITE    = spr_Item_Bottle_8_Top;
-    Bottle_x            = 0;
-    Bottle_y            = 0;
-    
-    BottleLiquid_level  = 0;
-    BottleLiquid_SPR    = spr_Item_Bottle_8_Liquid_1a_1;
+    BottleLiquid_level = 0;
+    BottleLiquid_SPR   = spr_Item_Bottle_8_Liquid_1a_1;
 }
 
 

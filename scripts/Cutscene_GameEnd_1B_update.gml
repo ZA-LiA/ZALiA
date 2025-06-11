@@ -844,133 +844,136 @@ switch(g.cutscene_part)
                 _settings = f.dm_rando[?STR_Rando+STR_Settings]; // json encoded map
                 if(!is_undefined(_settings))
                 {
-                    var _spell_bit, _spell_name, _datakey;
-                    
                     var _dm_SETTINGS = json_decode(_settings);
-                                  _datakey=STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Level;
-                    _dm_SETTINGS[?_datakey+STR_Attack] = f.level_atk;
-                    _dm_SETTINGS[?_datakey+STR_Magic]  = f.level_mag;
-                    _dm_SETTINGS[?_datakey+STR_Life]   = f.level_lif;
-                    
-                    _dm_SETTINGS[?STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Skill] = f.skills;
-                    
-                    for(_i=ds_list_size(g.dl_Spell_STR)-1; _i>=0; _i--)
+                    if (_dm_SETTINGS!=-1)
                     {
-                        _spell_name =   g.dl_Spell_STR[|_i];
-                        _spell_bit  = val(g.dm_Spell[?STR_Bit+_spell_name]);
+                        var _spell_bit, _spell_name, _datakey;
                         
-                        _datakey = STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Spell+_spell_name;
-                        _dm_SETTINGS[?_datakey] = f.spells & _spell_bit;
-                    }
-                    
-                    
-                    
-                    
-                    // --------------------------------------------------------
-                    var _items  = get_saved_value(_FILE_NUM, f.SDNAME_items, 0);
-                        _items |= get_saved_value(_FILE_NUM, STR_File+STR_Start+STR_Items, 0);
-                    if (_items)   set_saved_value(_FILE_NUM, f.SDNAME_items, _items);
-                    //sdm("_items $"+hex_str(_items));
-                    
-                    
-                    
-                    
-                    var _START_CONT_HP = get_saved_value(_FILE_NUM, STR_File+STR_Start+STR_Container+STR_HP, cont_cnt_hp());
-                    if (_START_CONT_HP>=cont_cnt_hp())
-                    {
-                        _val="";
-                        for(_i=1; _i<=_START_CONT_HP; _i++)
+                                      _datakey=STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Level;
+                        _dm_SETTINGS[?_datakey+STR_Attack] = f.level_atk;
+                        _dm_SETTINGS[?_datakey+STR_Magic]  = f.level_mag;
+                        _dm_SETTINGS[?_datakey+STR_Life]   = f.level_lif;
+                        
+                        _dm_SETTINGS[?STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Skill] = f.skills;
+                        
+                        for(_i=ds_list_size(g.dl_Spell_STR)-1; _i>=0; _i--)
                         {
-                            for(_j=1; _j<=f.CONT_PIECE_PER_HP; _j++)
-                            {
-                                _val += hex_str(_i)+hex_str(_j);
-                            }
-                        }
-                        set_saved_value(_FILE_NUM, f.SDNAME_cont_pieces_hp, _val);
-                    }
-                    //sdm("_START_CONT_HP $"+hex_str(_START_CONT_HP)+", cont pieces hp: "+_val);
-                    
-                    var _START_CONT_MP = get_saved_value(_FILE_NUM, STR_File+STR_Start+STR_Container+STR_MP, cont_cnt_mp());
-                    if (_START_CONT_MP>=cont_cnt_mp())
-                    {
-                        _val="";
-                        for(_i=1; _i<=_START_CONT_MP; _i++)
-                        {
-                            for(_j=1; _j<=f.CONT_PIECE_PER_MP; _j++)
-                            {
-                                _val += hex_str(_i)+hex_str(_j);
-                            }
-                        }
-                        set_saved_value(_FILE_NUM, f.SDNAME_cont_pieces_mp, _val);
-                    }
-                    //sdm("_START_CONT_MP $"+hex_str(_START_CONT_MP)+", cont pieces mp: "+_val);
-                    
-                    
-                    
-                    
-                    
-                    var _DOLL_COUNT = get_saved_value(_FILE_NUM, STR_File+STR_Start+STR_Dolls, 0);
-                    if (_DOLL_COUNT)
-                    {
-                        var _item_id;
-                        for(_i=1; _i<=_DOLL_COUNT; _i++)
-                        {
-                            _item_id = f.dm_1up_doll[?hex_str(_i)+STR_Item+STR_ID];
-                            if(!is_undefined(_item_id)) f.dm_1up_doll[?_item_id+STR_Acquired] = true;
+                            _spell_name =   g.dl_Spell_STR[|_i];
+                            _spell_bit  = val(g.dm_Spell[?STR_Bit+_spell_name]);
+                            
+                            _datakey = STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Spell+_spell_name;
+                            _dm_SETTINGS[?_datakey] = f.spells & _spell_bit;
                         }
                         
-                        _val = json_encode(f.dm_1up_doll);
-                        set_saved_value(_FILE_NUM, f.SDNAME_linkDolls, _val);
+                        
+                        
+                        
+                        // --------------------------------------------------------
+                        var _items  = get_saved_value(_FILE_NUM, f.SDNAME_items, 0);
+                            _items |= get_saved_value(_FILE_NUM, STR_File+STR_Start+STR_Items, 0);
+                        if (_items)   set_saved_value(_FILE_NUM, f.SDNAME_items, _items);
+                        //sdm("_items $"+hex_str(_items));
+                        
+                        
+                        
+                        
+                        var _START_CONT_HP = get_saved_value(_FILE_NUM, STR_File+STR_Start+STR_Container+STR_HP, cont_cnt_hp());
+                        if (_START_CONT_HP>=cont_cnt_hp())
+                        {
+                            _val="";
+                            for(_i=1; _i<=_START_CONT_HP; _i++)
+                            {
+                                for(_j=1; _j<=f.CONT_PIECE_PER_HP; _j++)
+                                {
+                                    _val += hex_str(_i)+hex_str(_j);
+                                }
+                            }
+                            set_saved_value(_FILE_NUM, f.SDNAME_cont_pieces_hp, _val);
+                        }
+                        //sdm("_START_CONT_HP $"+hex_str(_START_CONT_HP)+", cont pieces hp: "+_val);
+                        
+                        var _START_CONT_MP = get_saved_value(_FILE_NUM, STR_File+STR_Start+STR_Container+STR_MP, cont_cnt_mp());
+                        if (_START_CONT_MP>=cont_cnt_mp())
+                        {
+                            _val="";
+                            for(_i=1; _i<=_START_CONT_MP; _i++)
+                            {
+                                for(_j=1; _j<=f.CONT_PIECE_PER_MP; _j++)
+                                {
+                                    _val += hex_str(_i)+hex_str(_j);
+                                }
+                            }
+                            set_saved_value(_FILE_NUM, f.SDNAME_cont_pieces_mp, _val);
+                        }
+                        //sdm("_START_CONT_MP $"+hex_str(_START_CONT_MP)+", cont pieces mp: "+_val);
+                        
+                        
+                        
+                        
+                        
+                        var _DOLL_COUNT = get_saved_value(_FILE_NUM, STR_File+STR_Start+STR_Dolls, 0);
+                        if (_DOLL_COUNT)
+                        {
+                            var _item_id;
+                            for(_i=1; _i<=_DOLL_COUNT; _i++)
+                            {
+                                _item_id = f.dm_1up_doll[?hex_str(_i)+STR_Item+STR_ID];
+                                if(!is_undefined(_item_id)) f.dm_1up_doll[?_item_id+STR_Acquired] = true;
+                            }
+                            
+                            _val = json_encode(f.dm_1up_doll);
+                            set_saved_value(_FILE_NUM, f.SDNAME_linkDolls, _val);
+                        }
+                        //sdm("_DOLL_COUNT $"+hex_str(_DOLL_COUNT));
+                        
+                        
+                        
+                        
+                        
+                        
+                        var _KAKUSU_MAX = val(g.dm_spawn[?STR_Kakusu+STR_Count]);
+                        _val = get_saved_value(_FILE_NUM, STR_Kakusu+STR_Required+STR_Count, _KAKUSU_MAX);
+                        if (_KAKUSU_MAX-_val) set_saved_value(_FILE_NUM, STR_Kakusu+STR_Required+STR_Count, _val);
+                        //sdm("kakusu requirement $"+hex_str(_val));
+                        
+                        _val = get_saved_value(_FILE_NUM, STR_Crystal+STR_Required+STR_Count, f.CRYSTAL_MAX);
+                        if (f.CRYSTAL_MAX-_val) set_saved_value(_FILE_NUM, STR_Crystal+STR_Required+STR_Count, _val);
+                        //sdm("crystals requirement $"+hex_str(_val));
+                        
+                        
+                        
+                        
+                        
+                        
+                        // Delete Rando Hints
+                        set_saved_value(_FILE_NUM, STR_Found+STR_Hint, -1, true);
+                        
+                        
+                        
+                        
+                        
+                        // --------------------------------------------------------
+                        _settings = json_encode(_dm_SETTINGS);
+                        ds_map_destroy(_dm_SETTINGS);_dm_SETTINGS=undefined;
+                        //f.dm_rando[?STR_Rando+STR_Settings] = _settings;
+                        
+                        /*
+                        var _SEED = get_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,_QUEST_NUM), "undefined");
+                        if (is_string(_SEED))
+                        {   // Just in case a value wasn't found.
+                            _SEED = val(f.dm_rando[?STR_Rando+STR_Seed], RUN_RANDOMIZATION_SEED);
+                            if (f.quest_num==1) _SEED ^= $FFFFFFFF;
+                        }
+                        //var _SEED = get_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,_QUEST_NUM), RUN_RANDOMIZATION_SEED);
+                        //sdm("RUN_RANDOMIZATION_SEED $"+hex_str(RUN_RANDOMIZATION_SEED));
+                        //sdm("rando quest-"+string(_QUEST_NUM)+", seed $"+hex_str(_SEED));
+                        with(instance_create(0,0,Rando))
+                        {
+                            Rando_randomize_file(_FILE_NUM, _QUEST_NUM, _SEED, _settings);
+                            instance_destroy();
+                        }
+                        */
                     }
-                    //sdm("_DOLL_COUNT $"+hex_str(_DOLL_COUNT));
-                    
-                    
-                    
-                    
-                    
-                    
-                    var _KAKUSU_MAX = val(g.dm_spawn[?STR_Kakusu+STR_Count]);
-                    _val = get_saved_value(_FILE_NUM, STR_Kakusu+STR_Required+STR_Count, _KAKUSU_MAX);
-                    if (_KAKUSU_MAX-_val) set_saved_value(_FILE_NUM, STR_Kakusu+STR_Required+STR_Count, _val);
-                    //sdm("kakusu requirement $"+hex_str(_val));
-                    
-                    _val = get_saved_value(_FILE_NUM, STR_Crystal+STR_Required+STR_Count, f.CRYSTAL_MAX);
-                    if (f.CRYSTAL_MAX-_val) set_saved_value(_FILE_NUM, STR_Crystal+STR_Required+STR_Count, _val);
-                    //sdm("crystals requirement $"+hex_str(_val));
-                    
-                    
-                    
-                    
-                    
-                    
-                    // Delete Rando Hints
-                    set_saved_value(_FILE_NUM, STR_Found+STR_Hint, -1, true);
-                    
-                    
-                    
-                    
-                    
-                    // --------------------------------------------------------
-                    _settings = json_encode(_dm_SETTINGS);
-                    ds_map_destroy(_dm_SETTINGS);_dm_SETTINGS=undefined;
-                    //f.dm_rando[?STR_Rando+STR_Settings] = _settings;
-                    
-                    /*
-                    var _SEED = get_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,_QUEST_NUM), "undefined");
-                    if (is_string(_SEED))
-                    {   // Just in case a value wasn't found.
-                        _SEED = val(f.dm_rando[?STR_Rando+STR_Seed], RUN_RANDOMIZATION_SEED);
-                        if (f.quest_num==1) _SEED ^= $FFFFFFFF;
-                    }
-                    //var _SEED = get_saved_value(_FILE_NUM, get_file_seed_dk(_FILE_NUM,_QUEST_NUM), RUN_RANDOMIZATION_SEED);
-                    //sdm("RUN_RANDOMIZATION_SEED $"+hex_str(RUN_RANDOMIZATION_SEED));
-                    //sdm("rando quest-"+string(_QUEST_NUM)+", seed $"+hex_str(_SEED));
-                    with(instance_create(0,0,Rando))
-                    {
-                        Rando_randomize_file(_FILE_NUM, _QUEST_NUM, _SEED, _settings);
-                        instance_destroy();
-                    }
-                    */
                 }
             }
             

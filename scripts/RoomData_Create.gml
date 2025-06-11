@@ -9,7 +9,8 @@ if (DEV)
 
 
 FILE_NAME0 = "SceneData01.txt";
-FILE_NAME1 = "other/"+FILE_NAME0;
+FILE_NAME1 = "rm_tile_data/"+FILE_NAME0;
+//FILE_NAME1 = "other/"+FILE_NAME0;
 
 
 
@@ -1509,6 +1510,7 @@ if (DEV)
     _dm_save_data[?"pbags_data"]       = ds_map_write(f.dm_PBags);
     _dm_save_data[?"1up_data"]         = ds_map_write(f.dm_1up_doll);
     _dm_save_data[?"keys_data"]        = ds_map_write(f.dm_keys);
+    _dm_save_data[?"jars_data"]        = ds_map_write(f.dm_jars);
     _dm_save_data[?"scene_rando_data"] = ds_map_write(global.dm_scene_rando);
     
     _dm_save_data[?"palette_data"]     = ds_map_write(dm_palette);
@@ -1686,6 +1688,29 @@ if (g.FileCleaning01_STATE)
             _num = string_repeat("0",3-string_length(_num)) + _num;
             
             // _file_name2 example: "PalcA_003"
+            _file_name2  = string_letters(g.dl_AREA_NAME[|_i]);
+            _file_name2 += "_"+_num;
+            //_file_name2 += ".json";
+            
+            // _file_name1 example: "PalcA_003.json"
+            _file_name1 = _file_name2+".json";
+            
+            if (file_exists(_file_name1) 
+            &&  ds_list_find_index(dl_used_tiled_files,_file_name2)==-1)
+            {
+                _dk = STR_Tile+STR_File+STR_Count;
+                       g.FileCleaning01_dm[?_dk] = val(g.FileCleaning01_dm[?_dk])+1;
+                _num = g.FileCleaning01_dm[?_dk];
+                
+                g.FileCleaning01_dm[?STR_Tile+STR_File+hex_str(_num)+STR_Name] = _file_name1;
+                g.FileCleaning01_dm[?_file_name1+STR_Tile+STR_File+STR_Num] = _num;
+                //sdm(_file_name2);
+            }
+            /*
+            _num = string(_j);
+            _num = string_repeat("0",3-string_length(_num)) + _num;
+            
+            // _file_name2 example: "PalcA_003"
             _file_name2  = string_letters(g.dl_AREA_NAME[|_i])+"_"+_num;
             
             // _file_name1 example: "rm_tile_data/PalcA/PalcA_003.json"
@@ -1708,6 +1733,7 @@ if (g.FileCleaning01_STATE)
                 g.FileCleaning01_dm[?_file_name2+STR_Tile+STR_File+STR_Num] = _num;
                 //sdm(_file_name2);
             }
+            */
         }
         sdm("");
     }

@@ -211,6 +211,40 @@ else
 }
 
 
+var _dm_FILE_DATA = -1;
+var _FILE_NAME = UserPrefFileName;
+//var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
+if (file_exists(_FILE_NAME))
+{
+    var _FILE    = file_text_open_read(working_directory+_FILE_NAME);
+    var _ENCODED = file_text_read_string(_FILE);
+                   file_text_close(_FILE);
+    //
+    _dm_FILE_DATA = json_decode(_ENCODED);
+    if (_dm_FILE_DATA!=-1) // `json_decode` returns -1 if it fails
+    {
+        _val = _dm_FILE_DATA[?STR_PC+STR_Sprite+STR_Set];
+        if(!is_undefined(_val))
+        {
+            dm_skins[?STR_Current+STR_Idx] = clamp(_val, 0,val(dm_skins[?STR_Set+STR_Count])-1);
+            
+            _idx       = val(dm_skins[?STR_Current+STR_Idx]);
+            _datakey   = val(dm_skins[?hex_str(_idx)+STR_Datakey], STR_undefined);
+            Skin_image = val(dm_skins[?_datakey+STR_Sprite], PCSkin_DEFAULT_SPRITE);
+        }
+        
+        ds_map_destroy(_dm_FILE_DATA); _dm_FILE_DATA=undefined;
+    }
+}
+
+if(!file_exists(_FILE_NAME) 
+||  _dm_FILE_DATA==-1 )
+{
+    show_debug_message("");
+    show_debug_message("!!!! WARNING! PC_init(). Either file '"+_FILE_NAME+"' does not exist, or `_dm_FILE_DATA` failed to get data !!!!");
+    show_debug_message("");
+}
+/*
 var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
 if (file_exists(_FILE_NAME))
 {
@@ -219,19 +253,22 @@ if (file_exists(_FILE_NAME))
                    file_text_close(_FILE);
     //
     var _dm_FILE_DATA = json_decode(_ENCODED);
-    
-    _val = _dm_FILE_DATA[?STR_PC+STR_Sprite+STR_Set];
-    if(!is_undefined(_val))
+    if (_dm_FILE_DATA!=-1) // `json_decode` returns -1 if it fails
     {
-        dm_skins[?STR_Current+STR_Idx] = clamp(_val, 0,val(dm_skins[?STR_Set+STR_Count])-1);
+        _val = _dm_FILE_DATA[?STR_PC+STR_Sprite+STR_Set];
+        if(!is_undefined(_val))
+        {
+            dm_skins[?STR_Current+STR_Idx] = clamp(_val, 0,val(dm_skins[?STR_Set+STR_Count])-1);
+            
+            _idx       = val(dm_skins[?STR_Current+STR_Idx]);
+            _datakey   = val(dm_skins[?hex_str(_idx)+STR_Datakey], STR_undefined);
+            Skin_image = val(dm_skins[?_datakey+STR_Sprite], PCSkin_DEFAULT_SPRITE);
+        }
         
-        _idx       = val(dm_skins[?STR_Current+STR_Idx]);
-        _datakey   = val(dm_skins[?hex_str(_idx)+STR_Datakey], STR_undefined);
-        Skin_image = val(dm_skins[?_datakey+STR_Sprite], PCSkin_DEFAULT_SPRITE);
+        ds_map_destroy(_dm_FILE_DATA); _dm_FILE_DATA=undefined;
     }
-    
-    ds_map_destroy(_dm_FILE_DATA); _dm_FILE_DATA=undefined;
 }
+*/
 
 
 

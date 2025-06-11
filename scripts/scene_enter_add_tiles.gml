@@ -1,25 +1,14 @@
 /// scene_enter_add_tiles()
 
 
-/*
-if (0)
+// TODO: Optimize tile add system. `tile_add()` by far takes up the most time.
+
+
+if (is_undefined(g.dm_tile_file) 
+|| !ds_map_size( g.dm_tile_file) )
 {
-    rm_enter_set_tiles();
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
-*/
-
-
-
-
-
-
-// ====================================================================================
-// ====================================================================================
-// TODO: Optimize tile add system. 
-
-
-if(!ds_map_size(g.dm_tile_file)) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 

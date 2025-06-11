@@ -3,23 +3,21 @@
 
 var _i, _idx, _val, _count;
 var _dm = ds_map_create();
-
-
-var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
-
-
-// ---------------------------------------------------------------
-if(!file_exists(_FILE_NAME)) show_debug_message("save_game_pref():  "+_FILE_NAME+" created!");
-
-
-// ---------------------------------------------------------------
 var _dm_save_data = ds_map_create();
-_dm_save_data[?STR_Fullscreen]                          = window_get_fullscreen();
-_dm_save_data[?STR_Window+STR_Scale]                    = g.WindowScale_scale;
+var _FILE_NAME = UserPrefFileName;
+//var _FILE_NAME = string_letters(dk_UserPreferences)+"01"+".txt";
+//var _FILE_NAME = STR_Game+STR_Preferences+"01"+".txt";
+
+
+
+
+// ---------------------------------------------------------------
 _dm_save_data[?f.SDNAME_volume_sound]                   = Audio.snd_vol;
 _dm_save_data[?f.SDNAME_volume_music]                   = Audio.mus_vol;
 _dm_save_data[?STR_Music+STR_Set]                       = Audio.audio_set;
 _dm_save_data[?STR_Audio+STR_Random+STR_Custom]         = json_encode(Audio.dm_random_custom);
+_dm_save_data[?STR_Fullscreen]                          = window_get_fullscreen();
+_dm_save_data[?STR_Window+STR_Scale]                    = g.WindowScale_scale;
 _dm_save_data[?STR_PC+STR_Sprite+STR_Set]               = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
 _dm_save_data[?STR_Background+STR_Flashing]             = p.BackgroundFlash_setting;
 _dm_save_data[?STR_Screen+STR_Shake]                    = g.ScreenShake_user_pref;
@@ -29,6 +27,10 @@ _dm_save_data[?STR_Torch+STR_Lighting]                  = g.torch_lighting_metho
 _dm_save_data[?STR_HUD+STR_Type]                        = global.HUD_state;
 _dm_save_data[?STR_Frenzy+STR_Stab]                     = g.mod_StabFrenzy;
 _dm_save_data[?STR_Cucco+STR_Spell+"02"+STR_Preference] = g.CuccoSpell2_Option;
+_dm_save_data[?STR_Overworld+STR_Mark+STR_Hidden+STR_Exit] = g.HiddenExitIndicator_enabled;
+_dm_save_data[?STR_Halloween+"01"]                      = global.Halloween1_enabled;
+
+_dm_save_data[?STR_Overworld+STR_Mark+STR_Acquired]     = g.can_mark_acquired_item_locations;
 _dm_save_data[?STR_Rando+STR_Palette]                   = g.RandoPalette_state;
 _dm_save_data[?STR_Rando+STR_Enemy]                     = g.Rando_enemy;
 _dm_save_data[?STR_Rando+STR_Overworld+STR_TSRC]        = global.can_rando_ow_tsrc;
@@ -36,12 +38,8 @@ _dm_save_data[?STR_Rando+STR_Scene]                     = global.SceneRando_enab
 _dm_save_data[?STR_Rando+STR_Hint]                      = global.RandoHints_enabled;
 _dm_save_data[?STR_Rando+STR_Dungeon+STR_Tileset]       = global.RandoDungeonTilesets_enabled;
 _dm_save_data[?STR_Map+STR_Show+STR_Key]                = g.RandoKeys_MAP_items_show_keys;
-_dm_save_data[?STR_Overworld+STR_Mark+STR_Acquired]     = g.can_mark_acquired_item_locations;
-_dm_save_data[?STR_Overworld+STR_Mark+STR_Hidden+STR_Exit] = g.HiddenExitIndicator_enabled;
-_dm_save_data[?STR_Halloween+"01"]                      = global.Halloween1_enabled;
 
 _dm_save_data[?STR_Input+STR_Preferences]               = json_encode(Input.dm_UserInputConfig);
-
 
 _dm_save_data[?"_DevTools"     +STR_State] = g.DevTools_state;
 _dm_save_data[?"_DoubleJump"   +STR_State] = g.DoubleJump_state;
@@ -91,22 +89,27 @@ with(g.surf.GEE)
 
 
 
+
+
+
 // ---------------------------------------------------------------
+if (DEV 
+&& !file_exists(_FILE_NAME) )
+{
+    show_debug_message("save_game_pref():  '"+_FILE_NAME+"'  created!");
+}
+
 var _ENCODED = json_encode(_dm_save_data);
-ds_map_destroy(_dm_save_data); _dm_save_data=undefined;
-
-
-
+var _FILE = file_text_open_write(working_directory+_FILE_NAME);
+            file_text_write_string(_FILE, _ENCODED);
+            file_text_close(_FILE);
+show_debug_message("save_game_pref():  '"+_FILE_NAME+"'  saved!");
 // ---------------------------------------------------------------
-var _FILE_ID = file_text_open_write(working_directory+_FILE_NAME);
-file_text_write_string(_FILE_ID, _ENCODED);
-file_text_close(_FILE_ID);
-
-show_debug_message("save_game_pref():  "+_FILE_NAME+" saved!");
 
 
 
 
+ds_map_destroy(_dm_save_data); _dm_save_data=undefined;
 ds_map_destroy(_dm); _dm=undefined;
 
 

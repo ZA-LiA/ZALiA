@@ -120,8 +120,11 @@ switch(g.room_type)
     case 'A':{
     if (_FILE_CLEANING)
     {
-        _val = json_encode(g.dm_tile_file);
-        pal_rm_file = get_palette_via_file_data(_val); // Get rm palette data from file
+        if(!is_undefined(g.dm_tile_file))
+        {
+            _val = json_encode(g.dm_tile_file);
+            pal_rm_file = get_palette_via_file_data(_val); // Get rm palette data from file
+        }
     }
     else
     {

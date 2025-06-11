@@ -1,5 +1,5 @@
 
-sdm("");
+show_debug_message("");
 
 var _str = "";
 // _str += "";
@@ -12,7 +12,7 @@ if(!is_undefined(dk_spawn)
 }
 
 _str += "NIAO Spawned!  ";
-if(!is_undefined(dk_spawn)){_str += "spawn datakey: '" + dk_spawn + "'" + ", ";}
+if(!is_undefined(dk_spawn)) _str += "spawn datakey: '"+dk_spawn+"', ";
 _str += "ver "    + string(ver)     + ", ";
 _str += "x $"     + hex_str(x)      + ", ";
 _str += "y $"     + hex_str(y)      + ", ";
@@ -36,7 +36,7 @@ _str += "$"+hex_str(_update_idx);
 
 
 
-sdm(_str);
+show_debug_message(_str);
 
 
 

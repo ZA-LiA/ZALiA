@@ -10,9 +10,8 @@ with(g)
     }
     
     
-    
     ChangeRoom_timer = ChangeRoom_ENTER_DURATION1;
-    ChangeRoom_timer++; // bc this frame will decrement 1
+    ChangeRoom_timer++; // because this frame will decrement 1
     update_change_room_1a();
 }
 
