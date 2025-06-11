@@ -93,7 +93,7 @@ switch(sub_state)
     // ----------------------------------------------------
     case SUB_STATE_OFFER:{ // Player is offered product with "YES" or "NO" options.
     if (timer) break;
-    if (g.gui_state) break;
+    if (g.gui_state!=g.gui_state_NONE) break;
     // A choice has been made.
     
     
@@ -142,7 +142,7 @@ switch(sub_state)
     if (timer) break;
     
     dialogue_ver = "B";
-    if (g.gui_state) break;
+    if (g.gui_state!=g.gui_state_NONE) break;
     
     g.pc_lock = 0;
     

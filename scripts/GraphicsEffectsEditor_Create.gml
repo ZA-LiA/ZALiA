@@ -82,15 +82,16 @@ PI_DARK1 = global.PI_GUI2;
 
 
 
-                 _a=-1;
-state_CLOSED = ++_a;
-state_OPEN   = ++_a;
+                    _a=-1;
+state_CLOSED    = ++_a;
+state_OPEN_INIT = ++_a;
+state_OPEN      = ++_a;
 state = state_CLOSED;
 
 
 
 
-
+gui_state_at_sess_start = g.gui_state;
 
 
 

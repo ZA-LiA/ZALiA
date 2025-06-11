@@ -382,7 +382,8 @@ switch(state)
 
 
 
-if (0 && keyboard_check_pressed(vk_space)){
+/*
+if (keyboard_check_pressed(vk_space)){
     var _str, _mapkey, _area;
     var _idx, _val, _count, _rm_count, _exit_count;
     sdm("");
@@ -424,6 +425,8 @@ if (0 && keyboard_check_pressed(vk_space)){
     // sdm("Game rm count:  $");
     sdm("");
 }
+*/
+
 /*
 _mapkey = _RM_NAME + STR_Exit + STR_ID + STR_List;
 

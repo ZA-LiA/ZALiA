@@ -5,7 +5,7 @@
 
 if (is_talking)
 {   // Right after this inst's dialogue window closes
-    if(!g.gui_state 
+    if (g.gui_state==g.gui_state_NONE 
     ||  g.menu_state==g.DIALOGUE_WINDOW.SUB_STATE_CLOS1 ) // prevents pc from jumping away before they can pick up item
     {
         if(!is_undefined(Item_SPAWN_DATAKEY))

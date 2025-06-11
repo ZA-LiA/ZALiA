@@ -95,7 +95,7 @@ switch(state)
     case state_IDLE:{
     if (timer) break;
     
-    if(!g.gui_state)
+    if (g.gui_state==g.gui_state_NONE)
     {
         if (_EDIT_REQUESTED_PAL)
         {
@@ -135,7 +135,12 @@ switch(state)
     if (Input.Pause_pressed)
     {
         ds_list_clear(dl_hist_sess);
-        g.gui_state = gui_state_at_sess_start;
+        g.gui_state = g.gui_state_NONE;
+        /*
+        if (gui_state_at_sess_start!=g.gui_state_OPTIONS) g.gui_state = gui_state_at_sess_start;
+        else                                              g.gui_state = g.gui_state_NONE;
+        //g.gui_state = gui_state_at_sess_start;
+        */
         
         timer = DELAY1_DUR; // Delay any input reaction in next state.
         state = state_IDLE;
@@ -149,7 +154,12 @@ switch(state)
     {
         change_pal(pal_before_edit_sess);
         ds_list_clear(dl_hist_sess);
-        g.gui_state = gui_state_at_sess_start;
+        g.gui_state = g.gui_state_NONE;
+        /*
+        if (gui_state_at_sess_start!=g.gui_state_OPTIONS) g.gui_state = gui_state_at_sess_start;
+        else                                              g.gui_state = g.gui_state_NONE;
+        //g.gui_state = gui_state_at_sess_start;
+        */
         
         timer = DELAY1_DUR; // Delay any input reaction in next state.
         state = state_IDLE;
@@ -426,7 +436,12 @@ switch(state)
     {
         global.BackgroundColor_scene = PaletteEditor_get_cursor_color(false); // color grid cursor color
         set_background_color(global.BackgroundColor_scene);
-        g.gui_state = gui_state_at_sess_start;
+        g.gui_state = g.gui_state_NONE;
+        /*
+        if (gui_state_at_sess_start!=g.gui_state_OPTIONS) g.gui_state = gui_state_at_sess_start;
+        else                                              g.gui_state = g.gui_state_NONE;
+        //g.gui_state = gui_state_at_sess_start;
+        */
         
         timer = DELAY1_DUR; // Delay any input reaction in next state.
         state = state_IDLE;
@@ -439,7 +454,12 @@ switch(state)
     {
         global.BackgroundColor_scene = BgrColor_before_edit;
         set_background_color(global.BackgroundColor_scene);
-        g.gui_state = gui_state_at_sess_start;
+        g.gui_state = g.gui_state_NONE;
+        /*
+        if (gui_state_at_sess_start!=g.gui_state_OPTIONS) g.gui_state = gui_state_at_sess_start;
+        else                                              g.gui_state = g.gui_state_NONE;
+        //g.gui_state = gui_state_at_sess_start;
+        */
         
         timer = DELAY1_DUR; // Delay any input reaction in next state.
         state = state_IDLE;

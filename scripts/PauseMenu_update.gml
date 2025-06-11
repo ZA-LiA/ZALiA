@@ -235,7 +235,7 @@ switch(g.menu_state)
     
     // A338
     timer0 = 0;
-    g.gui_state        = 0;
+    g.gui_state        = g.gui_state_NONE;
     g.menu_state       = 0;
     g.menu_built_count = 0;
     break;}

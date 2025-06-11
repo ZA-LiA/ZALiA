@@ -125,7 +125,7 @@ with(g.pc)
     
     
     if(!HoldItem_timer  // MOD
-    && !g.gui_state ) // Added 2024/07/24. PC can't jump after taking damage with dialogue window open. It causes a scenario where PC_update_vertical() can't update vspd because: cs&$4=$4, ogr=0, vspd=$FE.
+    &&  g.gui_state==g.gui_state_NONE ) // Added 2024/07/24. PC can't jump after taking damage with dialogue window open. It causes a scenario where PC_update_vertical() can't update vspd because: cs&$4=$4, ogr=0, vspd=$FE.
     {
         if(!is_fairy)
         {
@@ -155,10 +155,10 @@ with(g.pc)
         
         var _HP_MAX = get_stat_max(STR_Heart);
         
-        if (_damage           >=round(_HP_MAX*.5)  // If this hit is hard enough.
-        ||  Cucco_damage_taken>=round(_HP_MAX*.7)  // If total dmg taken is enough
-        || (Cucco_damage_taken>=round(_HP_MAX*.15) && Cucco_damaged_count>=$20)  // If hit enough times
-        || (Cucco_damage_taken>=round(_HP_MAX*.4)  && Cucco_damaged_count>=$03) )
+        if (_damage           >=round(_HP_MAX*0.5)  // If this hit is hard enough.
+        ||  Cucco_damage_taken>=round(_HP_MAX*0.7)  // If total dmg taken is enough
+        || (Cucco_damage_taken>=round(_HP_MAX*0.15) && Cucco_damaged_count>=$20)  // If hit enough times
+        || (Cucco_damage_taken>=round(_HP_MAX*0.4)  && Cucco_damaged_count>=$03) )
         {
             Cucco_rage_tokens++; // Triggers fury atk when ready.
             

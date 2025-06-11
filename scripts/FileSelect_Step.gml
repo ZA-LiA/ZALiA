@@ -23,7 +23,8 @@ input_up_pressed     = Input.Up_pressed;
 input_up_held        = Input.Up_held;
 
 InputConfirm_pressed = input_a_pressed || input_start_pressed;
-InputBack_pressed    = input_b_pressed || keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace);
+InputBack_pressed    = input_b_pressed || keyboard_check_pressed(vk_backspace);
+//InputBack_pressed    = input_b_pressed || keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace);
 
 
 

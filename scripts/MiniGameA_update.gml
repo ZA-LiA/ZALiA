@@ -370,7 +370,7 @@ switch(sub_state)
     }
     
     
-    if(!g.gui_state)
+    if (g.gui_state==g.gui_state_NONE)
     {
         sub_state = ST_SUB1_END1;
     }

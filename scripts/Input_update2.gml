@@ -35,7 +35,7 @@ else if (held_0)          held_0 = held;
 
 if (g.room_type=="C" 
 &&  g.ChangeRoom_timer<=0 
-&& !g.gui_state )
+&&  g.gui_state==g.gui_state_NONE )
 {
     if (Pause_pressed)
     //if (Pause_held     // Start button is being held

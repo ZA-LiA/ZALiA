@@ -58,7 +58,7 @@ if (object_index==NPC_4  // 4: Healer, Saver
 &&  pc_can_enter )       // NPC waiting in house for UP held
 {
     if (Input.Up_held 
-    && !g.gui_state 
+    &&  g.gui_state==g.gui_state_NONE 
     && !g.pc.ogr 
     &&  pointInRect(g.pc.cp1X,g.pc.cp1Y, DoorHB_XL,DoorHB_YT, DOOR_W,DOOR_H) )
     {   // 99D4. Start dialogue
@@ -107,7 +107,7 @@ if (Input.Attack_pressed
     
     
     if (_qualifies 
-    &&  g.gui_state )
+    &&  g.gui_state!=g.gui_state_NONE )
     {
         _qualifies = false;
         

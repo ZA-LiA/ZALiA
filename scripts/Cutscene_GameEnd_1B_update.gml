@@ -26,7 +26,7 @@ THE_END_can_draw  = 0;
 triforce_can_draw = 0;
 
 
-if (g.gui_state)
+if (g.gui_state!=g.gui_state_NONE)
 {
     with(g.DIALOGUE_WINDOW) // DialogueWindow
     {

@@ -44,7 +44,7 @@ if (_C1
 else if (_OwO_) _OwO_--;
 
 if (_OwO_==-1 
-&& !gui_state )
+&&  gui_state==gui_state_NONE )
 {
     _OwO_=0;
 }
@@ -68,7 +68,7 @@ if (_C1
 else if (_OxO_) _OxO_--;
 
 if (_OxO_==-1 
-&& !gui_state )
+&&  gui_state==gui_state_NONE )
 {
     _OxO_=0;
 }

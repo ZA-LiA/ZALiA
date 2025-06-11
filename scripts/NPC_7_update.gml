@@ -61,7 +61,7 @@ if (g.mod_PC_CUCCO_1
 &&  g.mod_WISEMEN_CAST_SPELL 
 &&  object_index==NPC_7 
 &&  use_cucco_dlg 
-&& !g.gui_state )
+&&  g.gui_state==g.gui_state_NONE )
 {
     switch(use_cucco_dlg)
     {

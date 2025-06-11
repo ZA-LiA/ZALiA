@@ -279,6 +279,22 @@ switch(Other_cursor)
     break;}//case Other_SCENE_COLORS_EDITOR
     */
     
+    // -------------------------------------------------
+    case Other_GEE:{
+    if (timer) break;
+    
+    if (_InputConfirm_pressed)
+    {
+        GraphicsEffectsEditor.state = GraphicsEffectsEditor.state_OPEN_INIT;
+        GraphicsEffectsEditor.gui_state_at_sess_start = g.gui_state;
+        g.gui_state = g.gui_state_GEE;
+        
+        aud_play_sound(_SOUND2);
+        timer = DURATION1;
+        menu_state = menu_state_MAIN;
+        sub_state = sub_state_IDLE_CLOSED;
+    }
+    break;}
     
     // -------------------------------------------------
     case Other_BACK:{

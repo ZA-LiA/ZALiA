@@ -6,7 +6,7 @@ if(!g.dialogue_source)
     g.pc_lock = 0;
     g.pc.in_restore_house = false;
     
-    g.gui_state        = 0;
+    g.gui_state        = g.gui_state_NONE;
     g.menu_built_count = 0;
     g.menu_state       = 0;
     
@@ -979,7 +979,7 @@ switch(g.menu_state)
     
     g.menu_built_count = 0;
     g.menu_state       = 0;
-    g.gui_state        = 0;
+    g.gui_state        = g.gui_state_NONE;
     break;}//case SUB_STATE_CLOS1
 }//switch(g.menu_state)
 

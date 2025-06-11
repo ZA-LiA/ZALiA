@@ -42,7 +42,10 @@ with(global.OPTIONS_MENU)
         
         if (g.gui_state!=g.gui_state_OPTIONS)
         {
-            if (OpenClose_Key_pressed)
+            if (OpenClose_Key_pressed 
+            &&  g.gui_state==g.gui_state_NONE 
+            &&  g.room_type=="A" )
+            //if (OpenClose_Key_pressed)
             {
                 OpenClose_Key_pressed = false;
                 

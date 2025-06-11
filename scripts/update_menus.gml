@@ -45,23 +45,22 @@ switch(gui_state)
 {
     // -----------------------------------------------------------------
     // -----------------------------------------------------------------
-    case 0:{ //   -----------------------------------------
+    case gui_state_NONE:{ //   -----------------------------------------
     if (f.xp>=f.xpNext)
     {   // Open LevelUp Menu
         gui_state = gui_state_LEVEL_UP;
-        break;
+        //break;
     }
-    
-    
-    if (Input.Pause_pressed)
+    else if (Input.Pause_pressed)
     //if ( Input.Pause_held          // Start btn $10
     //&& !(Input.heldPrev&Input.S) ) // Start btn $10
     {   // Open Pause Menu
         gui_state = gui_state_PAUSE;
         menu_state = 1;
         PAUSE_MENU.state = PAUSE_MENU.state_SPELL;
+        //sdm("update_menus(). gui_state==gui_state_PAUSE: "+string(gui_state==gui_state_PAUSE));
     }
-    break;}//case 0
+    break;}//case gui_state_NONE
     
     
     
@@ -73,19 +72,22 @@ switch(gui_state)
     // -----------------------------------------------------------------
     // -----------------------------------------------------------------
     case gui_state_PAUSE:{ // SPELL/ITEM/MAP  ----------------------------
-    if (pc_lock&PC_LOCK_MENU)
+    if!(pc_lock&PC_LOCK_MENU)
     {
-        gui_state = 0;
-        menu_state = 0;
-        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // C212: JSR D250       - set all GO.can_draw_self = false
+        if (menu_state) set_go_can_draw_self(false);
+        
+        // 9D91 - Pause Menu
+        with(PAUSE_MENU) PauseMenu_update();
     }
-    
-    
-    // C212: JSR D250       - set all GO.can_draw_self = false
-    if (menu_state) set_go_can_draw_self(false);
-    
-    // 9D91 - Pause Menu
-    with(PAUSE_MENU) PauseMenu_update();
+    else
+    //if (pc_lock&PC_LOCK_MENU)
+    {
+        gui_state  = gui_state_NONE;
+        menu_state = 0;
+        //exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //sdm("update_menus(). Exiting PauseMenu. gui_state==gui_state_NONE");
+    }
     break;}//case gui_state_PAUSE
     
     

@@ -56,7 +56,7 @@ with(f)
     
     // D4CE: JSR 968D       - Activate Level-up menu
     // TODO: I doubt this OG code is necessary since update_menus() takes care of it. Test without this code to see if it's necessary.
-    if(!g.gui_state 
+    if (g.gui_state==g.gui_state_NONE 
     && !g.cutscene  // 2025/03/23. Added to prevent softlock during a cutscene
     &&  xp>=xpNext )
     {

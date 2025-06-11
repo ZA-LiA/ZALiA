@@ -234,6 +234,7 @@ SwordHB_COLOR               = c_green;
 
 dev_invState = 0; // For testing. The state of pc's invulnerability. 0: Off. 1: No dmg. 2: NOT collidable
 
+//global.AppPause_unpause_key = vk_escape;
 app_paused    = false;
 app_adv_frame = false;
 adv_frame_held_counter = 0;
@@ -3287,16 +3288,18 @@ init_data_xp(); // dl_XP, dl_XP_DRAIN, dl_rising_xp_spr
 // GUI WINDOW  ----------------------------------------------
 gui_window_can_draw = 0;
 
-                      _a=1;
-gui_state_PAUSE     = _a++; // 
-gui_state_LEVEL_UP  = _a++; // 
-gui_state_DIALOGUE1 = _a++; // 
-gui_state_DIALOGUE2 = _a++; // 
-gui_state_DIALOGUE3 = _a++; // 
-gui_state_OPTIONS   = _a++; // 
-gui_state_QUIT_APP  = _a++; // 
-gui_state_EDIT_PAL  = _a++; // 
-gui_state           = 0; // 074C. GUI Window. 1 PauseMenu, 2 LevelUp, 3 Dialogue
+                      _a=0;
+gui_state_NONE      = _a++; // 
+gui_state_PAUSE     = _a++; // PauseMenu(spell menu, inventory, map)
+gui_state_LEVEL_UP  = _a++; // LevelUpMenu
+gui_state_DIALOGUE1 = _a++; // DialogueWindow
+gui_state_DIALOGUE2 = _a++; // DialogueWindow
+gui_state_DIALOGUE3 = _a++; // DialogueWindow
+gui_state_OPTIONS   = _a++; // OptionsMenu
+gui_state_QUIT_APP  = _a++; // QuitAppMenu
+gui_state_EDIT_PAL  = _a++; // PaletteEditor
+gui_state_GEE       = _a++; // GraphicsEffectsEditor
+gui_state           = gui_state_NONE; // 074C. GUI Window. 1 PauseMenu, 2 LevelUp, 3 Dialogue
 
 
 menu_state       = 0; // 0524

@@ -122,7 +122,7 @@ if(!update_change_room()) // if not changing rm
     
     // --------------------------------------------------------------------
     // C14E
-    var _GUI_CONDITION =  gui_state==0 
+    var _GUI_CONDITION =  gui_state==gui_state_NONE 
                       ||  gui_state==gui_state_DIALOGUE1 
                       ||  gui_state==gui_state_DIALOGUE2 
                       ||  gui_state==gui_state_DIALOGUE3;

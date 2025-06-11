@@ -3,37 +3,51 @@
 
 with(Input)
 {
-    g.app_adv_frame = g.app_paused && GP_Other4_pressed; // if app paused && Bumper RGT pressed
-    //
-    if (GP_Other4_released    // bump R  released
-    || !GP_Other4_held )      // bump R  NOT held
-    {        g.adv_frame_held_counter = 0;  }
+    g.app_adv_frame = g.app_paused && GP_Other4_pressed; // if app paused && BR pressed
     
-    if (GP_Other4_held)       // bump R held
+    
+    if (GP_Other4_released  // BR released
+    || !GP_Other4_held )    // BR NOT held
     {
-        if ( g.adv_frame_held_counter<$18)
-        {    g.adv_frame_held_counter++; }
-        else g.app_adv_frame = true;
+        g.adv_frame_held_counter = 0;
+    }
+    
+    if (GP_Other4_held)     // BR held
+    {
+        if (g.adv_frame_held_counter<$18)
+        {
+            g.adv_frame_held_counter++;
+        }
+        else
+        {
+            g.app_adv_frame = true;
+        }
         
-        if ( g.app_paused) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        if (g.app_paused)
+        {
+            exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        }
     }
     
     
+    
+    
     if (g.app_paused 
-    && !GP_Other4_held )       // bump R NOT held
+    && !GP_Other4_held )       // BR NOT held
     {
-        if (GP_Other3_pressed  // bump L pressed
+        if (GP_Other3_pressed  // BL pressed
         ||  keyboard_check_pressed(vk_escape) )
+        //||  keyboard_check_pressed(global.AppPause_unpause_key) )
         {
             g.app_paused = false;
         }
     }
     
     if(!g.app_paused 
-    &&  GP_Other5_held      // trig L held
-    &&  GP_Other6_held      // trig R held
-    &&  GP_Other4_held      // bump R held
-    &&  GP_Other3_pressed ) // bump L pressed
+    &&  GP_Other5_held      // TL held
+    &&  GP_Other6_held      // TR held
+    &&  GP_Other4_held      // BR held
+    &&  GP_Other3_pressed ) // BL pressed
     {
         g.app_paused = true;
     }

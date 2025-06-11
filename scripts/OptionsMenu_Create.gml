@@ -676,7 +676,7 @@ _j=0; _k=0;
 Rando_DUNGEON_TILESETS = ++_i;
 _dk2 = _dk0+hex_str(_i);
 dm_options[?_dk2+STR_Font]                         = FONT2;
-dm_options[?_dk2+STR_Option+STR_Text]              = "RANDO DUNGEON GRAPHICS";
+dm_options[?_dk2+STR_Option+STR_Text]              = "DUNGEON GRAPHICS RANDO";
 dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "OFF";
 dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "ON";
 dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "ON: DUNGEONS USE GRAPHICS RANDOMLY PICKED FOR THIS QUEST";
@@ -922,7 +922,14 @@ dm_options[?_dk2+STR_Option+STR_Text]              = "EDIT BACKGROUND COLOR";
 dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "OPEN A TOOL THAT ALLOWS YOU TO EDIT THIS ROOM'S BACKGROUND COLOR";
 //                                                                          //
 */
-
+_j=0; _k=0;
+Other_GEE = ++_i; // GEE: Graphics Effects Editor
+_dk2 = _dk0+hex_str(_i);
+dm_options[?_dk2+STR_Font]                         = FONT2;
+dm_options[?_dk2+STR_Option+STR_Text]              = "GRAPHICS EFFECTS EDITOR";
+//dm_options[?_dk2+STR_Option+STR_Text]              = "OPEN GRAPHICS EFFECTS EDITOR";
+dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "ADJUST BRIGHTNESS, SATURATION, BLOOM, BLUR, SCANLINES";
+//                                                                          //
 _j=0; _k=0;
 Other_BACK = ++_i;
 _dk2 = _dk0+hex_str(_i);

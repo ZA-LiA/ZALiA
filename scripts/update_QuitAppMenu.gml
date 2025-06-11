@@ -9,22 +9,29 @@ with(g.QUIT_APP_MENU)
         will_go_to_continuesave = false;
         if (timer){timer--; break;}
         
+        /*
+        if (g.gui_state==g.gui_state_NONE 
+        ||  g.gui_state==g.gui_state_PAUSE 
+        ||  g.gui_state==g.gui_state_LEVEL_UP 
+        ||  g.gui_state==g.gui_state_DIALOGUE1 
+        ||  g.gui_state==g.gui_state_DIALOGUE2 
+        ||  g.gui_state==g.gui_state_DIALOGUE3 )
+        */
         if (g.gui_state!=g.gui_state_QUIT_APP)
         {
-            if (g.room_type=="A" 
+            if (room==rmB_Title 
+            ||  room==rmB_FileSelect 
+            ||  (g.room_type=="A" && isVal(g.gui_state, g.gui_state_NONE,g.gui_state_PAUSE,g.gui_state_LEVEL_UP,g.gui_state_DIALOGUE1,g.gui_state_DIALOGUE2,g.gui_state_DIALOGUE3)) )
+            //||  (g.room_type=="A" && g.gui_state==g.gui_state_NONE) )
             //||  (g.room_type=="C" && !g.overworld.dest_dist) 
-            ||  room==rmB_Title 
-            ||  room==rmB_FileSelect )
             {
                 var _qual = Input.GP_Other5_held && Input.GP_Other6_held && Input.Magic_held && Input.Pause_held; // hold trig RGT + hold trig LFT + hold Select + hold Start
                 if(!_qual 
                 &&  keyboard_check_pressed(vk_escape) 
                 && !g.Fullscreen_toggled ) // toggling fullscreen can happen earlier in the frame, window_get_fullscreen() will not be accurate here
                 {
-                    with(PaletteEditor)
-                    {   // exiting these Dev_PalettePicker states gets priority
-                        _qual = state!=state_EDIT1A && state!=state_EDIT1B && state!=state_BGR_COLOR;
-                    }
+                    _qual = true;
+                    //with(PaletteEditor) _qual = state!=state_EDIT1A && state!=state_EDIT1B && state!=state_BGR_COLOR; // exiting these Dev_PalettePicker states gets priority
                 }
                 
                 if (_qual)
@@ -41,7 +48,7 @@ with(g.QUIT_APP_MENU)
                     }
                 }
             }
-            //if (g.gui_state==g.gui_state_PAUSE)
+            
             
             return false;
         }
@@ -116,7 +123,7 @@ with(g.QUIT_APP_MENU)
                     with(global.OPTIONS_MENU) sub_state = sub_state_IDLE_CLOSED;
                     with(global.OPTIONS_MENU) gui_state_backup = 0;
                     gui_state_backup = 0;
-                    g.gui_state = 0;
+                    g.gui_state = g.gui_state_NONE;
                     
                     timer = 0;
                     sub_state = sub_state_IDLE_CLOSED;
@@ -211,7 +218,7 @@ with(g.QUIT_APP_MENU)
         anim_frame    = 0;
         cnt_draw_rows = 0;
         cursor_option = 0;
-        g.gui_state   = 0;
+        g.gui_state   = g.gui_state_NONE;
         //g.gui_state   = gui_state_backup;
         
         if (will_go_to_continuesave) room_goto_(rmB_ContinueSave);

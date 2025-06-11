@@ -95,7 +95,6 @@ if (RoomPreview_VER)
 
 
 //global.application_surface_draw_enable_STATE = true;
-RetroShaders_CAN_USE  = false;
 RetroShaders_can_draw = false;
 RetroShaders_u_dist_x = 0.00;
 RetroShaders_u_dist_y = 0.00;
@@ -114,6 +113,25 @@ RetroShaders_Bloom_can_draw = false;
 RetroShaders_Blur_can_draw = false;
 //RetroShaders_Blur_VER = 2;
 
+
+shd_SaturationBrightness_IS_COMPILED = shader_is_compiled(shd_SaturationBrightness);
+shd_ScanLines01_IS_COMPILED          = shader_is_compiled(shd_ScanLines01);
+shd_Bloom01_IS_COMPILED              = shader_is_compiled(shd_Bloom01);
+shd_Blur01_IS_COMPILED               = shader_is_compiled(shd_Blur01);
+
+if (global.RetroShaders_IS_LIVE 
+&&  shaders_are_supported() 
+&&  (shd_SaturationBrightness_IS_COMPILED || shd_ScanLines01_IS_COMPILED || shd_Bloom01_IS_COMPILED || shd_Blur01_IS_COMPILED) )
+{
+    RetroShaders_CAN_USE = true;
+    GEE = instance_create(0,0,GraphicsEffectsEditor);
+}
+else
+{
+    RetroShaders_CAN_USE = false;
+}
+/*
+RetroShaders_CAN_USE  = false;
 shd_SaturationBrightness_IS_COMPILED = false;
 shd_ScanLines01_IS_COMPILED          = false;
 shd_Bloom01_IS_COMPILED              = false;
@@ -136,6 +154,7 @@ if (global.RetroShaders_IS_LIVE
         GEE = instance_create(0,0,GraphicsEffectsEditor);
     }
 }
+*/
 
 
 

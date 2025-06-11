@@ -49,7 +49,7 @@ pc.state = pc.state_NULL;
 
 
 gui_window_can_draw = 0;
-gui_state        = 0; // 074C. GUI Window. 1 PauseMenu, 2 LevelUp, 3 Dialogue
+gui_state        = gui_state_NONE; // 074C. GUI Window. 1 PauseMenu, 2 LevelUp, 3 Dialogue
 menu_state       = 0;
 menu_built_count = 0;
 level_up_timer   = 0; // 

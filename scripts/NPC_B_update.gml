@@ -71,7 +71,7 @@ switch(sub_state)
     // ----------------------------------------------------
     case sub_state_OFFER:{ // Player is offered to play minigame with "YES" or "NO" options.
     if (timer) break;
-    if (g.gui_state) break;
+    if (g.gui_state!=g.gui_state_NONE) break;
     
     Minigame_display_timer_can_draw = false;
     
@@ -146,7 +146,7 @@ switch(sub_state)
     dialogue_ver = "B";
     
     if (timer) break;
-    if (g.gui_state) break;
+    if (g.gui_state!=g.gui_state_NONE) break;
     
     timer     = 0;
     sub_state = sub_state_IDLE;
@@ -414,7 +414,7 @@ switch(sub_state)
     // ----------------------------------------------------
     case sub_state_RESULT:{
     if (timer) break;
-    if (g.gui_state) break;
+    if (g.gui_state!=g.gui_state_NONE) break;
     
     
     if (prize_num)

@@ -1,13 +1,9 @@
 /// GraphicsEffectsEditor_update_Main()
 
 
-if (timer)
+if (timer 
+||  GraphicsEffectsEditor_update_backout(Main_cursor==Main_BACK) ) // Handles the check for this sub-menu's BACK option
 {
-    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-}
-
-if (GraphicsEffectsEditor_update_backout(Main_cursor==Main_BACK))
-{   // Handles the check for this sub-menu's BACK option
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -38,8 +34,14 @@ if (pressed_move_cursor_v)
 }
 
 
+
+
+
+
+
+
 switch(Main_cursor)
-{
+{   // ----------------------------------------------------------------------
     case Main_ENABLE:{
     if (pressed_confirm1)
     {
@@ -62,6 +64,7 @@ switch(Main_cursor)
     
     
     
+    // ----------------------------------------------------------------------
     case Main_DETAIL:{
     if (pressed_right 
     ||  pressed_left )
@@ -89,6 +92,7 @@ switch(Main_cursor)
     
     
     
+    // ----------------------------------------------------------------------
     case Main_BRIGHTNESS:{
     if (pressed_confirm1)
     {
@@ -101,6 +105,7 @@ switch(Main_cursor)
     
     
     
+    // ----------------------------------------------------------------------
     case Main_SATURATION:{
     if (pressed_confirm1)
     {
@@ -113,6 +118,7 @@ switch(Main_cursor)
     
     
     
+    // ----------------------------------------------------------------------
     case Main_SCANLINES:{
     if (pressed_confirm1)
     {
@@ -125,6 +131,7 @@ switch(Main_cursor)
     
     
     
+    // ----------------------------------------------------------------------
     case Main_BLOOM:{
     if (pressed_confirm1)
     {
@@ -137,6 +144,7 @@ switch(Main_cursor)
     
     
     
+    // ----------------------------------------------------------------------
     case Main_BLUR:{
     if (pressed_confirm1)
     {
@@ -149,29 +157,21 @@ switch(Main_cursor)
     
     
     
+    // ----------------------------------------------------------------------
     case Main_DEFAULT:{ // restore all defaults
     if (pressed_confirm1)
     {
-        dg_Brightness[#Brightness_EDIT,5] = dg_Brightness[#Brightness_EDIT,8];
-        dg_Saturation[#Saturation_EDIT,5] = dg_Saturation[#Saturation_EDIT,8];
-        dg_Scanlines[#Scanlines_EDIT,5]   = dg_Scanlines[#Scanlines_EDIT,8];
-        dg_Bloom[#Bloom_A,5]              = dg_Bloom[#Bloom_A,8];
-        dg_Bloom[#Bloom_B,5]              = dg_Bloom[#Bloom_B,8];
-        dg_Bloom[#Bloom_C,5]              = dg_Bloom[#Bloom_C,8];
-        dg_Bloom[#Bloom_D,5]              = dg_Bloom[#Bloom_D,8];
-        dg_Bloom[#Bloom_E,5]              = dg_Bloom[#Bloom_E,8];
-        dg_Bloom[#Bloom_F,5]              = dg_Bloom[#Bloom_F,8];
-        dg_Bloom[#Bloom_G,5]              = dg_Bloom[#Bloom_G,8];
-        dg_Blur[#Blur_EDIT,5]             = dg_Blur[#Blur_EDIT,8];
-        /*
-        dg_BloomEdit[#BloomEdit_A,5]      = dg_BloomEdit[#BloomEdit_A,8];
-        dg_BloomEdit[#BloomEdit_B,5]      = dg_BloomEdit[#BloomEdit_B,8];
-        dg_BloomEdit[#BloomEdit_C,5]      = dg_BloomEdit[#BloomEdit_C,8];
-        dg_BloomEdit[#BloomEdit_D,5]      = dg_BloomEdit[#BloomEdit_D,8];
-        dg_BloomEdit[#BloomEdit_E,5]      = dg_BloomEdit[#BloomEdit_E,8];
-        dg_BloomEdit[#BloomEdit_F,5]      = dg_BloomEdit[#BloomEdit_F,8];
-        dg_BloomEdit[#BloomEdit_G,5]      = dg_BloomEdit[#BloomEdit_G,8];
-        */
+        dg_Brightness[#Brightness_EDIT,$5] = dg_Brightness[#Brightness_EDIT,$8];
+        dg_Saturation[#Saturation_EDIT,$5] = dg_Saturation[#Saturation_EDIT,$8];
+        dg_Scanlines[#Scanlines_EDIT,$5]   = dg_Scanlines[#Scanlines_EDIT,$8];
+        dg_Bloom[#Bloom_A,$5]              = dg_Bloom[#Bloom_A,$8];
+        dg_Bloom[#Bloom_B,$5]              = dg_Bloom[#Bloom_B,$8];
+        dg_Bloom[#Bloom_C,$5]              = dg_Bloom[#Bloom_C,$8];
+        dg_Bloom[#Bloom_D,$5]              = dg_Bloom[#Bloom_D,$8];
+        dg_Bloom[#Bloom_E,$5]              = dg_Bloom[#Bloom_E,$8];
+        dg_Bloom[#Bloom_F,$5]              = dg_Bloom[#Bloom_F,$8];
+        dg_Bloom[#Bloom_G,$5]              = dg_Bloom[#Bloom_G,$8];
+        dg_Blur[#Blur_EDIT,$5]             = dg_Blur[#Blur_EDIT,$8];
         
         save_game_pref();
         aud_play_sound(SOUND_CONFIRM1, -1,-1, SOUND_VOLUME);

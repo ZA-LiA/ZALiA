@@ -372,7 +372,7 @@ switch(DevTools_cursor)
     {
         anim_frame      = 0;
         draw_rows_count = 0;
-        g.gui_state     = 0;
+        g.gui_state     = g.gui_state_NONE;
         with(PaletteEditor) PaletteEditor_initiate_bgr_edit_mode();
         
         aud_play_sound(get_audio_theme_track(dk_OpenGUI));
@@ -392,7 +392,7 @@ switch(DevTools_cursor)
     {
         anim_frame      = 0;
         draw_rows_count = 0;
-        g.gui_state     = 0;
+        g.gui_state     = g.gui_state_NONE;
         //if(!is_undefined(GUI3_pal_backup)) change_pal(strReplaceAt(p.pal_rm_curr, get_pal_pos(global.PI_GUI3), string_length(GUI3_pal_backup), GUI3_pal_backup));
         //GUI3_pal_backup = undefined;
         with(PaletteEditor) PaletteEditor_initiate_pal_edit_mode();

@@ -327,9 +327,9 @@ switch(g.menu_state)
     // ---------------------------------------------------------------------
     case 10:{ // ---------------------------------------------------------------------
         // A338
-        g.gui_state         = 0;
-        g.menu_built_count    = 0;
-        g.menu_state         = 0;
+        g.gui_state        = g.gui_state_NONE;
+        g.menu_built_count = 0;
+        g.menu_state       = 0;
         
     break;}
 }
@@ -338,7 +338,7 @@ switch(g.menu_state)
 
 
 // MOD. Start stat restore in level up menu instead of after.
-if (g.gui_state 
+if (g.gui_state!=g.gui_state_NONE 
 &&  g.menu_state > 5 )
 {
     update_stat_restore();

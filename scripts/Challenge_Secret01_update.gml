@@ -15,7 +15,7 @@ switch(sub_state)
     case sub_state_IDLE:{
     if (timer) break;//case sub_state_IDLE
     
-    if(!g.gui_state)
+    if (g.gui_state==g.gui_state_NONE)
     {
         if (_C1)
         {
