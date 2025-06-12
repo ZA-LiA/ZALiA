@@ -163,6 +163,8 @@ if (surface_exists(Story_srf)
 // FG --------------------------------------------------------------
 if (dl_tile_layer_data!=0)
 {
+    var _dm_ts_info = -1;
+    
     for(_i=0; _i<dg_terrain_W; _i++)
     {
         if(!surface_exists(dg_terrain[#_i,0]))
@@ -172,7 +174,16 @@ if (dl_tile_layer_data!=0)
             var _tile_count = ds_list_size(_dl_tile);
             if (_tile_count)
             {
-                var _tile_data, _tsrc, _ts_x,_ts_y, _x,_y, _scale_x,_scale_y;
+                var _tile_data, _ts, _tsrc, _ts_x,_ts_y, _x,_y, _scale_x,_scale_y;
+                
+                if (_dm_ts_info==-1)
+                {
+                    var _ENCODED = get_scene_ts_data(); // returns -1 if it fails
+                    if (_ENCODED   !=-1) _dm_ts_info = json_decode(_ENCODED);
+                    if (_dm_ts_info==-1) _dm_ts_info = ds_map_create(); // in case data wasn't found, prevent errors below when trying to access map
+                    //sdm("_ENCODED==-1: "+string(_ENCODED==-1));
+                }
+                
                 dg_terrain[#_i,0] = surface_create(room_width,room_height);
                 surface_set_target(dg_terrain[#_i,0]);
                 draw_clear_alpha(c_black,0);
@@ -204,7 +215,11 @@ if (dl_tile_layer_data!=0)
                         _y += _scale_y==-1;
                         _y  = _y<<3;
                         
-                        draw_background_part_ext(ts_Natural_2a_WRB, _ts_x,_ts_y, 8,8, _x,_y, _scale_x,_scale_y, c_white,1);
+                        _ts = ts_Natural_2a_WRB;
+                        if (_dm_ts_info!=-1) _ts = val(_dm_ts_info[?hex_str((_tile_data>>8)&$FF)+"_idx"], _ts);
+                        //if (_dm_ts_info!=-1) sdm("TitleScreen_Draw(). _i=$"+hex_str(_i)+", _ts="+background_get_name(_ts));
+                        
+                        draw_background_part_ext(_ts, _ts_x,_ts_y, 8,8, _x,_y, _scale_x,_scale_y, c_white,1);
                     }
                 }
                 
@@ -212,6 +227,8 @@ if (dl_tile_layer_data!=0)
             }
         }
     }
+    
+    if (_dm_ts_info!=-1){ds_map_destroy(_dm_ts_info); _dm_ts_info=undefined;}
     
     
     for(_i=0; _i<dg_terrain_W; _i++)

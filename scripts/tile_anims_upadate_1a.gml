@@ -17,10 +17,16 @@ if (is_undefined(_DATA2)) return _return;
 
 var _dm_frame1 = json_decode(_DATA1);
 var _dm_frame2 = json_decode(_DATA2);
+if (_dm_frame1==-1 
+||  _dm_frame2==-1 )
+{
+    return _return;
+}
 
-var _SOLID1  = val(_dm_frame1[?"0"+STR_Solid]);
-var _SOLID2  = val(_dm_frame2[?"0"+STR_Solid]);
-if (_SOLID1 != _SOLID2)
+
+var _SOLID1 = val(_dm_frame1[?"0"+STR_Solid]);
+var _SOLID2 = val(_dm_frame2[?"0"+STR_Solid]);
+if (_SOLID1!=_SOLID2)
 {
     if (_SOLID1==TID_SOLID1 
     ||  _SOLID2==TID_SOLID1 )

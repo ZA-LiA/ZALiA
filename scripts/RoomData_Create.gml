@@ -10,7 +10,6 @@ if (DEV)
 
 FILE_NAME0 = "SceneData01.txt";
 FILE_NAME1 = "rm_tile_data/"+FILE_NAME0;
-//FILE_NAME1 = "other/"+FILE_NAME0;
 
 
 
@@ -30,6 +29,7 @@ if(!_REINITIALIZING)
             repeat(1) show_debug_message("");
         }
         
+        //dev_find_scenes_using_certain_tiles();
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 }
@@ -1325,7 +1325,7 @@ _len    = string_length(rm_name);
 area    = string_copy(  rm_name,1,_len-2);
 rm_num_ = string_copy(  rm_name,_len-1,2)
 rm_num  = str_hex(rm_num_);
-set_rm_data(RM_NAME_TITLSCR, STR_Title, STR_Color+COLOR1_, STR_Tile+Area_Title+'000');
+set_rm_data(rm_name, STR_Title, STR_Color+COLOR1_, STR_Tile+Area_Title+'000');
 
 
 // FILE SELECT
@@ -1675,7 +1675,8 @@ for(_i=0; _i<ds_list_size(g.dl_AREA_NAME); _i++)
 
 
 // Output which Tiled files aren't used
-if (g.FileCleaning01_STATE)
+if (DEV 
+&&  g.FileCleaning01_STATE )
 {
     var _dk1,_dk2;
     var _file_name1,_file_name2;

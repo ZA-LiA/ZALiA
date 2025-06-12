@@ -1,14 +1,25 @@
 /// TitleScreen_Room_End()
 
+show_debug_message("TitleScreen_Room_End()");
 
-var i;
+
+var _i, _exists;
 
 
-// ar_FG_SPRS = 0;
+if (surface_exists(Story_srf)) surface_free(Story_srf);
 
-for (i=(ds_list_size(  dl_STAR_SKY))-1; i>=0; i--) {
-    if (surface_exists(dl_STAR_SKY[|i]))
-    {   surface_free(  dl_STAR_SKY[|i]);  }
+
+for(_i=ds_list_size(   dl_STAR_SKY)-1; _i>=0; _i--)
+{
+    if (surface_exists(dl_STAR_SKY[|_i]))
+    {   surface_free(  dl_STAR_SKY[|_i]);  }
+}
+
+
+for(_i=ds_grid_width(  dg_terrain)-1; _i>=0; _i--)
+{
+    if (surface_exists(dg_terrain[#_i,0]))
+    {   surface_free(  dg_terrain[#_i,0]);  }
 }
 
 
@@ -32,10 +43,6 @@ if (_exists) _exists =      !is_undefined(   dg_SeaSparkle);
 if (_exists) _exists =       ds_exists(      dg_SeaSparkle, ds_type_grid);
 if (_exists)                 ds_grid_destroy(dg_SeaSparkle);
 if (_exists)                                 dg_SeaSparkle = undefined;
-
-
-
-
 
 
 

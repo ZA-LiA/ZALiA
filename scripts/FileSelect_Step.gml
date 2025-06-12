@@ -1,6 +1,6 @@
 /// FileSelect_Step()
 
-
+//if (keyboard_check_pressed(vk_f7)) sdm("FileSelect_Step(). "+"instance_number(TitleScreen)="+string(instance_number(TitleScreen)));
 var _i,_j, _val,_num, _count;
 
 

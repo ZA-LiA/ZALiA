@@ -1,7 +1,6 @@
 /// dev_find_scenes_using_certain_tiles()
 
 
-//if (keyboard_check_pressed(vk_f7))
 var _i,_j,_k,_m, _idx, _count, _area, _scene_name;
 var _str, _pos;
 var _file, _file_name,_file_name1, _file_data;
@@ -9,15 +8,28 @@ var _layer_count, _layer_name, _layer, _dl_layer_data, _dm_layer_data;
 
 var _dl_ts_data, _dm_ts_data, _dl_tile;
 var _tile_count, _tile_data, _tsrc, _tsrc_found, _ts_idx, _ts_name;
-var _dm_ts_info = ds_map_create();
+//var _dm_ts_info = ds_map_create();
 var _dl_tsrc  = ds_list_create();
 var _dl_tsrc1 = ds_list_create();
 var _dl_tiles1 = ds_list_create();
 //var _dg_tiles1 = ds_grid_create(0,2);
+var _dl_areas = ds_list_create();
+ds_list_copy(_dl_areas,g.dl_AREA_NAME);
+if (ds_list_find_index(_dl_areas,Area_Title)==-1) ds_list_insert(_dl_areas, 0, Area_Title);
 
 // Special rule for this search. 0: Normal search
 var _RULE = 0;
 
+
+// Looking for anything using ts_Natural_2a_WRB
+var _TS_NAME = "ts_Natural_2a_WRB";
+ds_list_clear(_dl_tsrc); // means any tile from the tileset
+
+/*
+// Natural tiles in ts_ManMade05
+var _TS_NAME = "ts_ManMade05";
+ds_list_add(_dl_tsrc,$80,$81,$82,$83, $88,$89,$8A,$8B,$8C,$8D,$8E,$8F, $90,$91,$92,$93, $9C,$9D,$9E,$9F);
+*/
 
 /* // Outside town room connector tiles in ts_Man_made_1a
 var _TS_NAME = "ts_Man_made_2a";
@@ -37,10 +49,10 @@ ds_list_clear(_dl_tsrc); // means any tile from the tileset
 //for(_i=$00; _i<$100; _i++) ds_list_add(_dl_tsrc,_i);
 */
 
-///* // Looking for usage of any tile from the following tileset
+/* // Looking for usage of any tile from the following tileset
 var _TS_NAME = "ts_Man_made_1a_BRW";
 ds_list_clear(_dl_tsrc); // means any tile from the tileset
-//*/
+*/
 
 /* // Recheck the moved tiles in ts_Man_made_1a
 var _TS_NAME = "ts_Man_made_1a";
@@ -198,10 +210,10 @@ ds_list_add(_dl_tsrc,$D6,$D7,$D8,$D9);
 
 repeat(2) sdm("");
 
-var          _COUNT1 = ds_list_size(g.dl_AREA_NAME);
+var          _COUNT1 = ds_list_size(_dl_areas);
 for(_i=0; _i<_COUNT1; _i++) // Each area
 {
-    _area = g.dl_AREA_NAME[|_i];
+    _area = _dl_areas[|_i];
     for(_j=0; _j<$100; _j++) // Each possible file of area
     {   // file name example:  "rm_tile_data/PalcA/PalcA_003.json"
         _file_has_ts = false;
@@ -237,7 +249,7 @@ for(_i=0; _i<_COUNT1; _i++) // Each area
         _ts_name = "";
         
         _dl_ts_data = _file_data[?"tilesets"];
-        ds_map_clear(_dm_ts_info);
+        //ds_map_clear(_dm_ts_info);
                      _count = ds_list_size(_dl_ts_data);
         for(_k=0; _k<_count; _k++) // Each tileset
         {
@@ -343,11 +355,12 @@ repeat(2) sdm("");
 
 ds_list_destroy(_dl_ts_data); _dl_ts_data=undefined;
 ds_map_destroy(_dm_ts_data); _dm_ts_data=undefined;
-ds_map_destroy(_dm_ts_info); _dm_ts_info=undefined;
+//ds_map_destroy(_dm_ts_info); _dm_ts_info=undefined;
 ds_list_destroy(_dl_tsrc); _dl_tsrc=undefined;
 ds_list_destroy(_dl_tsrc1); _dl_tsrc1=undefined;
 ds_list_destroy(_dl_tiles1); _dl_tiles1=undefined;
 //ds_grid_destroy(_dg_tiles1); _dg_tiles1=undefined;
+ds_list_destroy(_dl_areas); _dl_areas=undefined;
 
 
 

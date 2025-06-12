@@ -1,6 +1,6 @@
 /// TitleScreen_Create()
 
-if (DEV) sdm(" TitleScreen_Create()");
+show_debug_message("TitleScreen_Create()");
 
 
 var _i, _a, _x,_y;
@@ -365,17 +365,29 @@ dg_terrain = ds_grid_create(0,dg_terrain_H);
 
 dl_tile_layer_data = 0;
 tile_clms = 0;
-var _DATA = rm_get_file_data(RM_NAME_TITLSCR);
-if(!is_undefined(_DATA))
+
+
+
+
+if (is_undefined(g.dm_tile_file) 
+||  g.dm_tile_file==-1 )
+{
+    var _DATA = rm_get_file_data(RM_NAME_TITLSCR);
+    if(!is_undefined(_DATA)) g.dm_tile_file = json_decode(_DATA);
+}
+
+
+if(!is_undefined(g.dm_tile_file) 
+&&  g.dm_tile_file!=-1 )
 {
     var _dm_layer_data, _layer_name, _pos, _name, _depth, _idx, _pi, _w;
     var _terrain_idx = 0;
-    g.dm_tile_file = json_decode(_DATA);
-    if (g.dm_tile_file!=-1)
+    
+    tile_clms = val(g.dm_tile_file[?"width"]);
+    
+    dl_tile_layer_data = val(g.dm_tile_file[?"layers"]);
+    if (dl_tile_layer_data!=0)
     {
-        tile_clms = g.dm_tile_file[?"width"];
-        dl_tile_layer_data = val(g.dm_tile_file[?"layers"]);
-        
         var          _layer_count = ds_list_size(dl_tile_layer_data);
         for(_i=0; _i<_layer_count; _i++)
         {
@@ -405,8 +417,13 @@ if(!is_undefined(_DATA))
         }
     }
 }
+
+
 dg_terrain_W = ds_grid_width(dg_terrain);
 //scene_enter_add_tiles();
+
+
+
 
 set_rm_brightness(g.RM_BRIGHTNESS_MAX);
 

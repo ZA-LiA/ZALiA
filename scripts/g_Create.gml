@@ -753,7 +753,7 @@ file_data_quest_num = 1; // For the current rm.
 
 
 ts_TILE_MARKER  = ts_tile_marker_1a_8x8;
-ts_SOLID_COLORS = ts_solid_color_1a_8x8;
+//ts_SOLID_COLORS = ts_solid_color_1a_8x8;
 
 
 
@@ -800,7 +800,17 @@ dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+S
 dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
 dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
-_ts = ts_SOLID_COLORS;
+_ts = ts_solid_color_1a_8x8;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_SolidColors01_8x8;
 ds_list_add(dl_tileset,_ts);
 _name = background_get_name(_ts);
 dm_tileset[?_name] = _ts;

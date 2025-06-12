@@ -7,7 +7,7 @@ var                                               _arg=1;
      g.dm_rm[?argument[0]+STR_version] = argument[_arg++];
      g.dm_rm[?argument[0]+"_init"]     = argument[_arg++];
 
-if (argument_count>4)
+if (argument_count>_arg)
 {    g.dm_rm[?argument[0]+STR_pal_idx] = argument[_arg++];  }
 else g.dm_rm[?argument[0]+STR_pal_idx] = -1;
 

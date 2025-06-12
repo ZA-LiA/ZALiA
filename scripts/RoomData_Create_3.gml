@@ -10,14 +10,10 @@ if(!file_exists(FILE_NAME1))
 
 
 
-var _dm_file_data = -1;
-
-
-var _FILE    = file_text_open_read(working_directory+FILE_NAME1);
+var _FILE    = file_text_open_read(FILE_NAME1);
 var _ENCODED = file_text_read_string(_FILE);
                file_text_close(      _FILE);
-_dm_file_data = json_decode(_ENCODED);
-
+var _dm_file_data = json_decode(_ENCODED);
 if (_dm_file_data==-1) // `json_decode` returns -1 if it fails
 {
     show_debug_message("!!!! WARNING! RoomData_Create_3(). `_dm_file_data` failed to get data from file '"+FILE_NAME1+"' !!!!");

@@ -23,23 +23,6 @@
           </ConfigOptions>
           <filename>Title_000.json</filename>
         </datafile>
-        <datafile>
-          <name>Title_001.json</name>
-          <exists>-1</exists>
-          <size>65318</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>Title_001.json</filename>
-        </datafile>
       </datafiles>
       <datafiles number="1137" name="WestA">
         <datafile>
@@ -11679,16 +11662,16 @@
         <background>background\ts_Natural_1a_WRB</background>
         <background>background\ts_Natural_2a_WRB</background>
         <background>background\ts_Natural_4a_HMS</background>
-        <background>background\ts_Cave01</background>
         <background>background\ts_Natural02</background>
         <background>background\ts_Natural03</background>
+        <background>background\ts_Cave01</background>
       </backgrounds>
       <backgrounds name="man_made">
         <background>background\ts_Man_made_1a_WRB</background>
         <background>background\ts_Man_made_2a_WRB</background>
         <background>background\ts_Man_made_3a_WRB</background>
-        <background>background\ts_ManMade05</background>
         <background>background\ts_Man_made_4a_WRB</background>
+        <background>background\ts_ManMade05</background>
         <background>background\ts_Man_made_6a_WRB</background>
         <background>background\ts_Man_made_7a_WRB</background>
         <background>background\ts_Man_made_8a_HMS</background>
@@ -11964,6 +11947,7 @@
       <script>scripts\tile_visibility.gml</script>
       <script>scripts\tile_delete_all.gml</script>
       <script>scripts\break_block.gml</script>
+      <script>scripts\get_scene_ts_data.gml</script>
     </scripts>
     <scripts name="graphics">
       <script>scripts\spr_x_at_x.gml</script>
@@ -13875,7 +13859,6 @@
         <script>scripts\TitleScreen_Room_End.gml</script>
         <script>scripts\TitleScreen_Create.gml</script>
         <script>scripts\update_TitleScreen.gml</script>
-        <script>scripts\TitleScreen_Step.gml</script>
         <script>scripts\TitleScreen_Draw.gml</script>
       </scripts>
       <scripts name="game_over">

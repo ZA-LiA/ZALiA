@@ -363,28 +363,6 @@ if (FileCleaning01_STATE
             show_debug_message("FileCleaning01: "+_file_name);
         }
     }
-    /*
-    var _FILE_NAME = FileCleaning01_dm[?STR_Tile+STR_File+hex_str(FileCleaning01_current_data_id)+STR_Name];
-    if(!is_undefined(_FILE_NAME))
-    {   //  _FILE example:  "rm_tile_data/PalcA/PalcA_003.json"
-        var _FILE  = "rm_tile_data";
-            _FILE += "/";
-            _FILE += string_letters(_FILE_NAME); // get "PalcA" from "PalcA_003"
-            _FILE += "/";
-            _FILE += _FILE_NAME;
-            _FILE += ".json";
-        //sdm(_FILE);
-        if (file_exists(_FILE))
-        {          _FILE  = file_text_open_read(_FILE);
-                   _data  = "";
-            while (        !file_text_eof(      _FILE)) 
-            {      _data += file_text_readln(   _FILE);  }
-                            file_text_close(    _FILE);
-            dm_tile_file = json_decode(_data);
-            show_debug_message("FileCleaning01: "+_FILE_NAME);
-        }
-    }
-    */
 }
 else
 {
@@ -532,7 +510,7 @@ if (room==rmB_NextLife)
         {
             if (mod_START_RUN_LIVES) lives = STARTING_LIVES + get_life_doll_count();
             else                     lives = STARTING_LIVES;
-            show_debug_message("g_Room_Start(). lives = "+string(lives)+", get_life_doll_count() = "+string(get_life_doll_count()));
+            //show_debug_message("g_Room_Start(). lives = "+string(lives)+", get_life_doll_count() = "+string(get_life_doll_count()));
             
             f.xpNext=0;
             if (f.xp)

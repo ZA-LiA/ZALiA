@@ -67,20 +67,6 @@ for(_i=ds_list_size(g.dl_niao)-1; _i>=0; _i--)
             }
         }
     }
-    /*
-    with(NIAO_create(_x,_y, _ver, _init, _dk))
-    {
-        state = _state;
-        g.dl_niao[|_i] = id;
-        
-        if (state 
-        && !is_undefined(_pi) 
-        && _pi+1 )
-        {
-            GO_init_palidx(_pi);
-        }
-    }
-    */
 }
 
 

@@ -2,7 +2,6 @@
 show_debug_message("");
 
 var _str = "";
-// _str += "";
 
 if(!is_undefined(dk_spawn) 
 && !is_undefined(g.dm_rm[?dk_spawn+"_init"]) )
