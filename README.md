@@ -12,7 +12,7 @@ Please read our [license](LICENSE) before distributing, modifying, contributing 
 # Contributing
 Please read our [Contribution Guidelines](CONTRIBUTING.md) before opening any issues or creating pull requests.
 
-Additionally, it would be most helpful if you joined the [Zelda Again: Link is Adventuresome Discord server](https://discord.gg/Z4H2RhwP4p) if you plan on contributing to the project. You can find some development files there such as my notes on what a specific RAM address is used for and a text file of dissected assembly.
+Additionally, it would be most helpful if you joined the [Zelda Again: Link is Adventuresome Discord server](https://discord.gg/hFusD9VzVE) if you plan on contributing to the project. You can find some development files there such as my notes on what a specific RAM address is used for and a text file of dissected assembly.
 
 
 # Disclaimer(s)
