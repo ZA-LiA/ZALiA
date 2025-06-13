@@ -59,6 +59,13 @@ else
     var _IS_RANDOMIZED_SCENE = !is_undefined(_rm_name1) && g.rm_name!=_rm_name1;
 }
 
+
+
+
+var _RANDOMIZED_TILES_DUNGEON_NAME = global.dm_randomized_tiles01[?STR_Dungeon+STR_Name];
+var _CAN_USE_RANDOMIZED_TILES = global.RandoDungeonTilesets_enabled && g.dungeon_num && !is_undefined(_RANDOMIZED_TILES_DUNGEON_NAME) && _RANDOMIZED_TILES_DUNGEON_NAME==g.dungeon_name;
+
+
 if(!is_undefined(_rm_name1)) _area_name1 = string_copy(_rm_name1,1,AreaID_LEN);
 else                         _area_name1 = g.area_name;
 
@@ -582,6 +589,21 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             }
             //_ts = ts_DungeonAlt05; // testing
         }
+        
+        
+        if (_CAN_USE_RANDOMIZED_TILES)
+        {
+            _dk = background_get_name(_ts)+STR_TSRC+hex_str(_tsrc,4);
+            _val1 = global.dm_randomized_tiles01[?_dk+STR_Tileset];
+            _val2 = global.dm_randomized_tiles01[?_dk+STR_TSRC];
+            if(!is_undefined(_val1) 
+            && !is_undefined(_val2) )
+            {
+                _ts   = _val1;
+                _tsrc = _val2;
+            }
+        }
+        //_RANDOMIZED_TILES_DUNGEON_NAME
         
         
         

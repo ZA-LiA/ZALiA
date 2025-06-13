@@ -48,6 +48,8 @@ if (input_start_pressed) // OPTION HAS BEEN SELECTED
         ds_grid_copy(f.dg_xp_next, f.dg_xp_next_DEFAULT);
         ds_grid_copy(g.dg_enemy_damage, g.dg_enemy_damage_DEFAULT);
         
+        ds_map_clear(global.dm_randomized_tiles01);
+        
         set_save_props_def();
         save_num_selected = Main_cursor+1;
         file_load(save_num_selected);

@@ -346,6 +346,9 @@ TargetGame_case = 0; // 0: off
 
 global.can_rando_ow_tsrc = false;
 
+// For dungeon tileset rando, and maybe more?
+global.dm_randomized_tiles01 = ds_map_create();
+
 
 Rando_FLUTE_WARPING=true;
 //Rando_FLUTE_WARPING=false;
@@ -810,16 +813,10 @@ dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+S
 dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
 dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
-_ts = ts_SolidColors01_8x8;
-ds_list_add(dl_tileset,_ts);
-_name = background_get_name(_ts);
-dm_tileset[?_name] = _ts;
-dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
-dm_tileset[?_name+STR_Tile+STR_Height] = $08;
-dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
-dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
-dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
+
+
+// *** NOTE that overworld tile data is expecting the overworld tilesets to be at a specific index of `g.dl_tileset`
 _ts = ts_Overworld_1;
 ds_list_add(dl_tileset,_ts);
 _name = background_get_name(_ts);
@@ -830,12 +827,37 @@ dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+S
 dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
 dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
+// *** NOTE that overworld tile data is expecting the overworld tilesets to be at a specific index of `g.dl_tileset`
 _ts = ts_OverworldAnim01;
 ds_list_add(dl_tileset,_ts);
 _name = background_get_name(_ts);
 dm_tileset[?_name] = _ts;
 dm_tileset[?_name+STR_Tile+STR_Width]  = $10;
 dm_tileset[?_name+STR_Tile+STR_Height] = $10;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_Overworld_8x8_01;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+
+
+
+// *** This is here because overworld tile data is expecting the overworld tilesets to be at a specific index of `g.dl_tileset`
+_ts = ts_SolidColors01_8x8;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
 dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
 dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
 dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
@@ -3429,6 +3451,34 @@ ds_list_add(dl_rando_seed_SPRITES, val(dm_ITEM[?STR_SWORD   +STR_Sprite], _defau
 //db_spawnData_Automate_code_1a();
 
 //dev_automate_tile_layer_data();
+
+
+
+
+/*
+// Learning how `ds_list_write` and `ds_list_read` work
+// It seems that `ds_list_read` returns an empty list if it fails
+repeat(4) sdm("");
+var _dl1 = ds_list_create();
+var _dl2 = ds_list_create();
+var _dl3 = ds_list_create();
+ds_list_add(_dl1,12,4,757,7);
+var _data = ds_list_write(_dl1);
+ds_list_read(_dl2,_data);
+sdm("ds_list_size(_dl1)="+string(ds_list_size(_dl1)));
+repeat(1) sdm("");
+sdm("ds_list_size(_dl2)="+string(ds_list_size(_dl2)));
+for(_i=ds_list_size(_dl2)-1; _i>=0; _i--) sdm("_dl2[|"+string(_i)+"]="+string(_dl2[|_i]));
+//ds_list_read(_dl3,""); // returns an empty list
+ds_list_read(_dl3,0); // returns an empty list
+repeat(1) sdm("");
+sdm("ds_list_size(_dl3)="+string(ds_list_size(_dl3)));
+for(_i=ds_list_size(_dl3)-1; _i>=0; _i--) sdm("_dl3[|"+string(_i)+"]="+string(_dl3[|_i]));
+ds_list_destroy(_dl1); _dl1=undefined;
+ds_list_destroy(_dl2); _dl2=undefined;
+ds_list_destroy(_dl3); _dl3=undefined;
+repeat(4) sdm("");
+*/
 
 
 

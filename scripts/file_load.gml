@@ -157,6 +157,17 @@ if(!is_undefined(_val))
 
 
 
+// Dungeon Tileset Rando
+_val = f.dm_rando[?STR_Randomized+"_Tiles"+"01"];
+if(!is_undefined(_val))
+{
+    ds_map_read(global.dm_randomized_tiles01, _val);
+}
+//dm_save_data[?STR_Randomized+"_Tiles"+"01"] = ds_map_write(_dm_randomized_tiles);
+
+
+
+
 if (val(_dm_file_data[?STR_Rando+STR_Active]))
 //if (val(_dm_file_data[?_QUEST_KEY+STR_Rando+STR_Active]))
 {
