@@ -15454,8 +15454,8 @@
     <constant name="TSRC_SNOW02">(TSRC_SNOW01 + 1)</constant>
     <constant name="TSRC_SNOW03">(TSRC_SNOW02 + 1)</constant>
     <constant name="TSRC_SNOW04">(TSRC_SNOW03 + 1)</constant>
-    <constant name="TSRC_BOUL01">$D0</constant>
-    <constant name="TSRC_BOUL02">$80</constant>
+    <constant name="TSRC_BOUL01">$60</constant>
+    <constant name="TSRC_BOUL02">$61</constant>
     <constant name="TSRC_PALA01">$E0</constant>
     <constant name="TSRC_PALA02">$90</constant>
     <constant name="TSRC_TOWN01">$E8</constant>
