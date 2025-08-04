@@ -63,7 +63,12 @@ else
 
 
 var _RANDOMIZED_TILES_DUNGEON_NAME = global.dm_randomized_tiles01[?STR_Dungeon+STR_Name];
-var _CAN_USE_RANDOMIZED_TILES = global.RandoDungeonTilesets_enabled && g.dungeon_num && !is_undefined(_RANDOMIZED_TILES_DUNGEON_NAME) && _RANDOMIZED_TILES_DUNGEON_NAME==g.dungeon_name;
+var _CAN_USE_RANDOMIZED_TILES = global.RandoDungeonTilesets_enabled 
+&& g.dungeon_num 
+&& !is_undefined(_RANDOMIZED_TILES_DUNGEON_NAME) 
+&& _RANDOMIZED_TILES_DUNGEON_NAME==g.dungeon_name;
+
+//_CAN_USE_RANDOMIZED_TILES = g.dungeon_num!=0;//TESTING
 
 
 if(!is_undefined(_rm_name1)) _area_name1 = string_copy(_rm_name1,1,AreaID_LEN);
