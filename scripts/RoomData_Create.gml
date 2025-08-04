@@ -21,8 +21,6 @@ if(!_REINITIALIZING)
     {
         RoomData_Create_3(); // get and set data for `g.dm_rm`, `g.dm_spawn`, `g.dm_dungeon`, ...
         
-        instance_destroy();
-        
         if (DEV)
         {
             show_debug_message("RoomData_Create() END1. "+string(current_time-_START_TIME));
@@ -30,6 +28,7 @@ if(!_REINITIALIZING)
         }
         
         //dev_find_scenes_using_certain_tiles();
+        instance_destroy();
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 }
@@ -1500,6 +1499,43 @@ rm_data_init_Town_B();
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
+// Sort data in g.dl_MapItem_ITEM_IDS
+var _DEBUG_MAP=false;
+if (_DEBUG_MAP)sdm("");
+var _dl_id_kakusu   =ds_list_create();
+var _dl_id_container=ds_list_create();
+var _dl_id_1up      =ds_list_create();
+var _dl_id_key      =ds_list_create();
+       ds_list_sort(g.dl_MapItem_ITEM_IDS,true);
+for(_i=ds_list_size(g.dl_MapItem_ITEM_IDS)-1; _i>=0; _i--)
+{   _val =          g.dl_MapItem_ITEM_IDS[|_i];
+         if (string_pos(STR_Kakusu,_val)) ds_list_add(_dl_id_kakusu,   _val);
+    else if (string_pos(STR_MAGIC, _val)) ds_list_add(_dl_id_container,_val);
+    else if (string_pos(STR_HEART, _val)) ds_list_add(_dl_id_container,_val);
+    else if (string_pos(STR_1UP,   _val)) ds_list_add(_dl_id_1up,      _val);
+    else if (string_pos(STR_KEY,   _val)) ds_list_add(_dl_id_key,      _val);
+    if (_DEBUG_MAP)sdm("g.dl_MapItem_ITEM_IDS[|$"+hex_str(_i)+"] = "+_val);
+}
+
+ds_list_clear(g.dl_MapItem_ITEM_IDS);
+for(_i=ds_list_size(_dl_id_kakusu)-1;    _i>=0; _i--) ds_list_add(g.dl_MapItem_ITEM_IDS,_dl_id_kakusu[|_i]);
+for(_i=ds_list_size(_dl_id_container)-1; _i>=0; _i--) ds_list_add(g.dl_MapItem_ITEM_IDS,_dl_id_container[|_i]);
+for(_i=ds_list_size(_dl_id_1up)-1;       _i>=0; _i--) ds_list_add(g.dl_MapItem_ITEM_IDS,_dl_id_1up[|_i]);
+for(_i=ds_list_size(_dl_id_key)-1;       _i>=0; _i--) ds_list_add(g.dl_MapItem_ITEM_IDS,_dl_id_key[|_i]);
+if (_DEBUG_MAP){sdm(""); for(_i=ds_list_size(g.dl_MapItem_ITEM_IDS)-1; _i>=0; _i--){sdm("g.dl_MapItem_ITEM_IDS[|$"+hex_str(_i)+"] = "+g.dl_MapItem_ITEM_IDS[|_i]);} sdm("");}
+ds_list_destroy(_dl_id_kakusu);    _dl_id_kakusu   =undefined;
+ds_list_destroy(_dl_id_container); _dl_id_container=undefined;
+ds_list_destroy(_dl_id_1up);       _dl_id_1up      =undefined;
+ds_list_destroy(_dl_id_key);       _dl_id_key      =undefined;
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------
 if (DEV)
 {
     var _dm_save_data = ds_map_create();
@@ -1527,7 +1563,9 @@ if (DEV)
     _dm_save_data[?"dg_dngn_map_7"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_7);
     _dm_save_data[?"dg_dngn_map_8"]    = ds_grid_write(g.PAUSE_MENU.dg_dngn_map_8);
     
+    _dm_save_data[?"dl_MapItem_ITEM_IDS"] = ds_list_write(g.dl_MapItem_ITEM_IDS);
     
+    //ds_list_write
     var _ENCODED = json_encode(_dm_save_data);
     var _FILE = file_text_open_write(working_directory+FILE_NAME0);
                 file_text_write_string(_FILE, _ENCODED);
@@ -1572,36 +1610,6 @@ ds_grid_clear( g.PAUSE_MENU.dg_dngn_map, 0);
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
-// Sort data in g.dl_MapItem_ITEM_IDS
-var _DEBUG_MAP=false;
-if (_DEBUG_MAP)sdm("");
-var _dl_id_kakusu   =ds_list_create();
-var _dl_id_container=ds_list_create();
-var _dl_id_1up      =ds_list_create();
-var _dl_id_key      =ds_list_create();
-       ds_list_sort(g.dl_MapItem_ITEM_IDS,true);
-for(_i=ds_list_size(g.dl_MapItem_ITEM_IDS)-1; _i>=0; _i--)
-{   _val =          g.dl_MapItem_ITEM_IDS[|_i];
-         if (string_pos(STR_Kakusu,_val)) ds_list_add(_dl_id_kakusu,   _val);
-    else if (string_pos(STR_MAGIC, _val)) ds_list_add(_dl_id_container,_val);
-    else if (string_pos(STR_HEART, _val)) ds_list_add(_dl_id_container,_val);
-    else if (string_pos(STR_1UP,   _val)) ds_list_add(_dl_id_1up,      _val);
-    else if (string_pos(STR_KEY,   _val)) ds_list_add(_dl_id_key,      _val);
-    if (_DEBUG_MAP)sdm("g.dl_MapItem_ITEM_IDS[|$"+hex_str(_i)+"] = "+_val);
-}
-
-ds_list_clear(g.dl_MapItem_ITEM_IDS);
-for(_i=ds_list_size(_dl_id_kakusu)-1;    _i>=0; _i--) ds_list_add(g.dl_MapItem_ITEM_IDS,_dl_id_kakusu[|_i]);
-for(_i=ds_list_size(_dl_id_container)-1; _i>=0; _i--) ds_list_add(g.dl_MapItem_ITEM_IDS,_dl_id_container[|_i]);
-for(_i=ds_list_size(_dl_id_1up)-1;       _i>=0; _i--) ds_list_add(g.dl_MapItem_ITEM_IDS,_dl_id_1up[|_i]);
-for(_i=ds_list_size(_dl_id_key)-1;       _i>=0; _i--) ds_list_add(g.dl_MapItem_ITEM_IDS,_dl_id_key[|_i]);
-if (_DEBUG_MAP){sdm(""); for(_i=ds_list_size(g.dl_MapItem_ITEM_IDS)-1; _i>=0; _i--){sdm("g.dl_MapItem_ITEM_IDS[|$"+hex_str(_i)+"] = "+g.dl_MapItem_ITEM_IDS[|_i]);} sdm("");}
-ds_list_destroy(_dl_id_kakusu);    _dl_id_kakusu   =undefined;
-ds_list_destroy(_dl_id_container); _dl_id_container=undefined;
-ds_list_destroy(_dl_id_1up);       _dl_id_1up      =undefined;
-ds_list_destroy(_dl_id_key);       _dl_id_key      =undefined;
-
-
 /*
 with(g.ow)
 {

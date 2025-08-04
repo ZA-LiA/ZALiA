@@ -177,7 +177,6 @@ if (f.items&(ITM_MAP1|ITM_MAP2))
                     if (item_acquired(_item_id)) continue;//_i
                 }
                 
-                
                 _rm_name = val(g.dm_spawn[?_spawn_datakey+STR_Rm+STR_Name], "undefined");
                 
                 // Make a default owrc right outside North Castle so errors are obvious.

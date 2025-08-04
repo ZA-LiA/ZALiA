@@ -255,6 +255,16 @@ if(!is_undefined(_val))
 
 
 
+
+_val = _dm_file_data[?"dl_MapItem_ITEM_IDS"];
+if(!is_undefined(_val))
+{
+    ds_list_read(g.dl_MapItem_ITEM_IDS, _val);
+}
+
+
+
+
 ds_map_destroy(_dm); _dm=undefined;
 ds_map_destroy(_dm_file_data); _dm_file_data=undefined;
 
