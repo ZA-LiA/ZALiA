@@ -12,7 +12,16 @@ else
 {
     var _REINITIALIZING = false; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED ***
     if (_REINITIALIZING)
-    {   // This will print the code for Overworld_init_data_2(). Run it whenever a change is made to the overworld.
+    {
+        /* This will print the code for Overworld_init_data_2(). 
+        Run it whenever a change is made to the overworld.
+        Also, since GameMaker cannot write over Included Files, this will 
+        create file "OverworldData01.txt" and save it 
+        in the same directory as save file data(%localappdata%) and 
+        then needs to be moved, manually, to Included Files.
+        This script `Overworld_init_data_1()` only needs to be run 
+        whenever a change has been made to the overworld.
+        */
         Overworld_init_data_1();
     }
     else
