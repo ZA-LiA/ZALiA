@@ -60,21 +60,19 @@ SUB_STATE_RSET_1A   = _a++; // ReSET. Draw solid black for x frames before going
 CURTAIN_CLMS = viewW()>>3;
 
 // CURTAIN_CLM: The first clm of the curtains that animates.
-// ** NOTE:  rm_center(0) may return the wrong value if used before view_wview[0] has been set for the current rm.
-CURTAIN_CLM  = (g.rm_w_>>3) - (CURTAIN_CLMS>>1);
-CURTAIN_TS   = ts_Man_made_1a_WRB;
+// ** NOTE: rm_center(0) may return the wrong value if used before view_wview[0] has been set for the current rm.
+CURTAIN_CLM = (g.rm_w_>>3) - (CURTAIN_CLMS>>1);
+CURTAIN_TS  = ts_Man_made_1a_WRB;
 
 curtain_lowest_row = 0;
 
-CURTAIN_FRAMES = 4;
-
 dg_curtain = ds_grid_create(CURTAIN_CLMS,6);
 
-var _TSRC1 = $6C;               // mid
-var _TSRC2 = _TSRC1+2;          // frame 4
-var _TSRC3 = _TSRC1 + $10 - 2;  // frame 1
-var _TSRC4 = _TSRC3 + 2;        // frame 2
-var _TSRC5 = _TSRC4 + 2;        // frame 3
+var _TSRC1 = $6C;              // mid
+var _TSRC2 = _TSRC1 + 2;       // frame 4
+var _TSRC3 = _TSRC1 + $10 - 2; // frame 1
+var _TSRC4 = _TSRC3 + 2;       // frame 2
+var _TSRC5 = _TSRC4 + 2;       // frame 3
 
 dl_curtain_tsrc = ds_list_create();
 ds_list_add(dl_curtain_tsrc,_TSRC1); // Mid
@@ -83,6 +81,7 @@ ds_list_add(dl_curtain_tsrc,_TSRC4); // Anim frame 2
 ds_list_add(dl_curtain_tsrc,_TSRC5); // Anim frame 3
 ds_list_add(dl_curtain_tsrc,_TSRC2); // Anim frame 4
 
+CURTAIN_FRAMES = 4;
 curtain_frame = CURTAIN_FRAMES;
 
 
@@ -158,8 +157,8 @@ CREDITS_CLM2 = (viewXC()>>3)-8; // JOB TITLE
 CREDITS_CLM2++; // MOD
 */
 
-CREDITS_CLM1  = (viewXC()>>3) - 5; // NAME, "STAFF"
-CREDITS_CLM2  = CREDITS_CLM1  - 4; // JOB TITLE
+CREDITS_CLM1 = (viewXC()>>3) - 5; // NAME, "STAFF"
+CREDITS_CLM2 = CREDITS_CLM1  - 4; // JOB TITLE
 CREDITS_CLM2++; // MOD
 
 
@@ -372,11 +371,11 @@ CREDITS_COUNT1 = ds_grid_width(dg_CREDITS);
 sdm("_idx $"+hex_str(_idx)+", ds_grid_width(dg_CREDITS): $"+hex_str(ds_grid_width(dg_CREDITS)));
 
 
-triforce_can_draw   = 0;
-TRIFORCE_SPR        = spr_Triforce_1a;
-//p.triforce_pi       = PI_MOB_PUR;
-p.triforce_pi       = global.PI_BGR3;
-//p.triforce_pi       = PI_BGR_4;
+triforce_can_draw = 0;
+TRIFORCE_SPR      = spr_Triforce_1a;
+//p.triforce_pi     = PI_MOB_PUR;
+p.triforce_pi     = global.PI_BGR3;
+//p.triforce_pi     = PI_BGR_4;
 
 
 

@@ -118,54 +118,54 @@ PCSkin_DEFAULT_SPRITE = spr_PCSkin_KazunobuShimizu_Link01;
 PC_init_add_spritesheet(spr_PCSkin_KazunobuShimizu_Link01,               "Link",                "Kazunobu Shimizu");
 
 // UNCOMMENT WHICH SKINS YOU WILL USE HERE
-//PC_init_add_spritesheet(spr_PCSkin_Broomietunes_GamelonZelda01,          "Gamelon Zelda",       "Broomietunes");
-//PC_init_add_spritesheet(spr_PCSkin_Broomietunes_MikeJones01,             "Mike Jones",          "Broomietunes");
-//PC_init_add_spritesheet(spr_PCSkin_EpsilonTheDragon_WolfLink01,          "Wolf Link",           "Epsilon The Dragon");
+PC_init_add_spritesheet(spr_PCSkin_Broomietunes_GamelonZelda01,          "Gamelon Zelda",       "Broomietunes");
+PC_init_add_spritesheet(spr_PCSkin_Broomietunes_MikeJones01,             "Mike Jones",          "Broomietunes");
+PC_init_add_spritesheet(spr_PCSkin_EpsilonTheDragon_WolfLink01,          "Wolf Link",           "Epsilon The Dragon");
 
-//PC_init_add_spritesheet(spr_PCSkin_EpsilonTheDragon_OverworldLink01,     "Overworld Link",      "Epsilon The Dragon");
-//PC_init_add_spritesheet(spr_PCSkin_wolf0s_Basil01,                       "Basil",               "wolf0s");
-//PC_init_add_spritesheet(spr_PCSkin_HoverBat_Nyus01,                      "Nyus",                "HoverBat");
-//PC_init_add_spritesheet(spr_PCSkin_HoverBat_Stalfos01,                   "Stalfos",             "HoverBat");
+PC_init_add_spritesheet(spr_PCSkin_EpsilonTheDragon_OverworldLink01,     "Overworld Link",      "Epsilon The Dragon");
+PC_init_add_spritesheet(spr_PCSkin_wolf0s_Basil01,                       "Basil",               "wolf0s");
+PC_init_add_spritesheet(spr_PCSkin_HoverBat_Nyus01,                      "Nyus",                "HoverBat");
+PC_init_add_spritesheet(spr_PCSkin_HoverBat_Stalfos01,                   "Stalfos",             "HoverBat");
 
-//PC_init_add_spritesheet(spr_PCSkin_HoverBat_DarkLink01,                  "Dark Link",           "HoverBat");
-//PC_init_add_spritesheet(spr_PCSkin_HoverBat_Scribbles01,                 "Scribbles",           "HoverBat");
-//PC_init_add_spritesheet(spr_PCSkin_Cryonisis_SimonBelmont01,             "Simon Belmont",       "Cryonisis");
-//PC_init_add_spritesheet(spr_PCSkin_mattforce2_Wario01,                   "Wario",               "Wyng");
+PC_init_add_spritesheet(spr_PCSkin_HoverBat_DarkLink01,                  "Dark Link",           "HoverBat");
+PC_init_add_spritesheet(spr_PCSkin_HoverBat_Scribbles01,                 "Scribbles",           "HoverBat");
+PC_init_add_spritesheet(spr_PCSkin_Cryonisis_SimonBelmont01,             "Simon Belmont",       "Cryonisis");
+PC_init_add_spritesheet(spr_PCSkin_mattforce2_Wario01,                   "Wario",               "Wyng");
 
-//PC_init_add_spritesheet(spr_PCSkin_mattforce2_Meat01,                    "Meat",                "Wyng");
-//PC_init_add_spritesheet(spr_PCSkin_SnowyAndMattforce2_SuccubusHunter01,  "Succubus Hunter",     "Snowy, Wyng");
-//PC_init_add_spritesheet(spr_PCSkin_LoriAndRed3445_Cornelius01,           "Cornelius",           "Lori, Red3445");
-//PC_init_add_spritesheet(spr_PCSkin_RippedSnorlax_Mipha01,                "Mipha",               "RippedSnorlax");
+PC_init_add_spritesheet(spr_PCSkin_mattforce2_Meat01,                    "Meat",                "Wyng");
+PC_init_add_spritesheet(spr_PCSkin_SnowyAndMattforce2_SuccubusHunter01,  "Succubus Hunter",     "Snowy, Wyng");
+PC_init_add_spritesheet(spr_PCSkin_LoriAndRed3445_Cornelius01,           "Cornelius",           "Lori, Red3445");
+PC_init_add_spritesheet(spr_PCSkin_RippedSnorlax_Mipha01,                "Mipha",               "RippedSnorlax");
 
-//PC_init_add_spritesheet(spr_PCSkin_OkImpala_AmidaLink01,                 "Amida Link",          "Ok Impala, Revility, Falchion22, dartvaderx");
-//PC_init_add_spritesheet(spr_PCSkin_Link580_Marth01,                      "Marth",               "Link580");
-//PC_init_add_spritesheet(spr_PCSkin_Artisano_DiddyKong01,                 "Diddy Kong",          "Artisano");
-//PC_init_add_spritesheet(spr_PCSkin_Kowalth_Erdrick01,                    "Erdrick",             "Kowalth");
+PC_init_add_spritesheet(spr_PCSkin_OkImpala_AmidaLink01,                 "Amida Link",          "Ok Impala, Revility, Falchion22, dartvaderx");
+PC_init_add_spritesheet(spr_PCSkin_Link580_Marth01,                      "Marth",               "Link580");
+PC_init_add_spritesheet(spr_PCSkin_Artisano_DiddyKong01,                 "Diddy Kong",          "Artisano");
+PC_init_add_spritesheet(spr_PCSkin_Kowalth_Erdrick01,                    "Erdrick",             "Kowalth");
 
-//PC_init_add_spritesheet(spr_PCSkin_Kowalth_Orpheus01,                    "Orpheus",             "Kowalth");
-//PC_init_add_spritesheet(spr_PCSkin_Charade_Banjo01,                      "Banjo",               "Charade");
-//PC_init_add_spritesheet(spr_PCSkin_NightmareJames_ShadowLink01,          "Shadow Link",         "Nightmare James");
-//PC_init_add_spritesheet(spr_PCSkin_SteelCrescent_PleasingLinkColors01,   "Pleasing Link Colors", SteelCrescents_NAME);
+PC_init_add_spritesheet(spr_PCSkin_Kowalth_Orpheus01,                    "Orpheus",             "Kowalth");
+PC_init_add_spritesheet(spr_PCSkin_Charade_Banjo01,                      "Banjo",               "Charade");
+PC_init_add_spritesheet(spr_PCSkin_NightmareJames_ShadowLink01,          "Shadow Link",         "Nightmare James");
+PC_init_add_spritesheet(spr_PCSkin_SteelCrescent_PleasingLinkColors01,   "Pleasing Link Colors", SteelCrescents_NAME);
 
-//PC_init_add_spritesheet(spr_PCSkin_Anarkhya_Stonuckle01,                 "Stonuckle",           "anarkhya");
-//PC_init_add_spritesheet(spr_PCSkin_Broomietunes_Popolon01,               "Popolon",             "Broomietunes");
-//PC_init_add_spritesheet(spr_PCSkin_RetroFrito_CharaChimera01,            "CharaChimera",        "RetroFrito");
-//PC_init_add_spritesheet(spr_PCSkin_RetroFrito_Roy01,                     "Roy",                 "RetroFrito");
+PC_init_add_spritesheet(spr_PCSkin_Anarkhya_Stonuckle01,                 "Stonuckle",           "anarkhya");
+PC_init_add_spritesheet(spr_PCSkin_Broomietunes_Popolon01,               "Popolon",             "Broomietunes");
+PC_init_add_spritesheet(spr_PCSkin_RetroFrito_CharaChimera01,            "CharaChimera",        "RetroFrito");
+PC_init_add_spritesheet(spr_PCSkin_RetroFrito_Roy01,                     "Roy",                 "RetroFrito");
 
-//PC_init_add_spritesheet(spr_PCSkin_HoverBat_Caelius01,                   "Caelius",             "HoverBat");
-//PC_init_add_spritesheet(spr_PCSkin_MisterMikeAndSteelCrescent_Bokoblin01,"Bokoblin",            "Mister Mike, "+SteelCrescents_NAME);
-//PC_init_add_spritesheet(spr_PCSkin_4IFalcon_Lonk01,                      "Lonk",                "4IFalcon");
-//PC_init_add_spritesheet(spr_PCSkin_Crim_PrincessZelda01,                 "Princess Zelda",      "Crim");
+PC_init_add_spritesheet(spr_PCSkin_HoverBat_Caelius01,                   "Caelius",             "HoverBat");
+PC_init_add_spritesheet(spr_PCSkin_MisterMikeAndSteelCrescent_Bokoblin01,"Bokoblin",            "Mister Mike, "+SteelCrescents_NAME);
+PC_init_add_spritesheet(spr_PCSkin_4IFalcon_Lonk01,                      "Lonk",                "4IFalcon");
+PC_init_add_spritesheet(spr_PCSkin_Crim_PrincessZelda01,                 "Princess Zelda",      "Crim");
 
-//PC_init_add_spritesheet(spr_PCSkin_Crim_Rygar01,                         "Rygar",               "Crim");
-//PC_init_add_spritesheet(spr_PCSkin_Crim_LeeBrothers01,                   "Lee Brothers",        "Crim");
-//PC_init_add_spritesheet(spr_PCSkin_Glottal_Hepper01,                     "Hepper",              "Glottal");
-//PC_init_add_spritesheet(spr_PCSkin_Irenepunmaster_Shadow01,              "Shadow",              "Irenepunmaster");
+PC_init_add_spritesheet(spr_PCSkin_Crim_Rygar01,                         "Rygar",               "Crim");
+PC_init_add_spritesheet(spr_PCSkin_Crim_LeeBrothers01,                   "Lee Brothers",        "Crim");
+PC_init_add_spritesheet(spr_PCSkin_Glottal_Hepper01,                     "Hepper",              "Glottal");
+PC_init_add_spritesheet(spr_PCSkin_Irenepunmaster_Shadow01,              "Shadow",              "Irenepunmaster");
 
-//PC_init_add_spritesheet(spr_PCSkin_Broomietunes_Gail01,                  "Gail",                "Broomietunes");
-//PC_init_add_spritesheet(spr_PCSkin_MisterMike_Ganondorf01,               "Ganondorf",           "MisterMike");
-//PC_init_add_spritesheet(spr_PCSkin_Debilitante_Jason01,                  "Jason",               "Debilitante");
-//PC_init_add_spritesheet(spr_PCSkin_Glottal_Hepper01,                     "Hepper",              "Glottal");
+PC_init_add_spritesheet(spr_PCSkin_Broomietunes_Gail01,                  "Gail",                "Broomietunes");
+PC_init_add_spritesheet(spr_PCSkin_MisterMike_Ganondorf01,               "Ganondorf",           "MisterMike");
+PC_init_add_spritesheet(spr_PCSkin_Debilitante_Jason01,                  "Jason",               "Debilitante");
+PC_init_add_spritesheet(spr_PCSkin_Glottal_Hepper01,                     "Hepper",              "Glottal");
 
 
 Skin_image = PCSkin_DEFAULT_SPRITE;

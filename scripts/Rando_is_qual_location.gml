@@ -2797,10 +2797,8 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
     var _dungeon_name1 = val(dm_save_data[?STR_Dungeon+STR_Rando+STR_Great_Palace+"A"], STR_Great_Palace);
     if (Rando_is_qual_location(_dungeon_name1))
     {
-        // 2024/10/04 - Changed leaving Great Palace puts player ON the palace so they don't need JUMP to get to the fast travel cave.
-        // These overworld locations force you to enter Great Palace at the left entrance. This means you'll need JUMP to get to this item location.
         if (_dungeon_name1==STR_Island_Palace) // At Island Palace in the overworld, you can only approach from the top or left which means you can only enter Great Palace at the left entrance
-        //||  _dungeon_name1==STR_Great_Palace ) // At Great Palace in the overworld, you approach from the bottom which puts you at the left entrance. Leaving through the left entrance puts you 1 tile below the palace, so you can't approach it from a diff direction
+        //||  _dungeon_name1==STR_Great_Palace ) // At Great Palace in the overworld, you approach from the bottom which puts you at the left entrance. Leaving through the left entrance puts you 1 tile below the palace, so you can't approach it from a diff direction. (2024/10/04 - Changed leaving Great Palace puts player ON the palace so they don't need JUMP to get to the fast travel cave.)
         {
             if (Rando_is_attainable(STR_JUMP))
             {

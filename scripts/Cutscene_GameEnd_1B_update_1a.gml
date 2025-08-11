@@ -8,7 +8,7 @@
 // 1: every 2 frames
 // 2: every 4 frames
 // 3: every 8 frames...
-var            _TIMING = 1<<argument[0];
+var _TIMING = 1<<argument[0];
 
 if (g.counter1&_TIMING-1)
 {
@@ -28,8 +28,8 @@ var _END_PAD =       argument[2];
 var _i, _idx, _x,_y;
 var _depth;
 
-var _ts     = CURTAIN_TS;
-var _tsrc   = 0;
+var _ts   = CURTAIN_TS;
+var _tsrc = 0;
 
 
 var _str;
@@ -97,7 +97,7 @@ for(_i=(CURTAIN_CLMS>>1)-1; _i>=0; _i--)
         _tsrc = dl_curtain_tsrc[|0]; // Mid curtain graphic
         
         _y  = dg_curtain[#_idx,2]; // row under curtain
-        _y--;                     // curtain btm row
+        _y--;                      // curtain btm row
         _y  = _y<<3;
         tile_change_1a(_depth, _x,  _y, _ts,_tsrc);
         tile_change_1a(_depth, _x+8,_y, _ts,_tsrc+1);
@@ -108,9 +108,8 @@ for(_i=(CURTAIN_CLMS>>1)-1; _i>=0; _i--)
     }
     
     
-    _ts    = CURTAIN_TS;
-    
-    _tsrc  = dl_curtain_tsrc[|curtain_frame];
+    _ts   = CURTAIN_TS;
+    _tsrc = dl_curtain_tsrc[|curtain_frame];
     
     _y  = dg_curtain[#_idx,2]; // row under curtain
     _y--;                     // curtain btm row
@@ -158,7 +157,10 @@ for(_i=(CURTAIN_CLMS>>1)-1; _i>=0; _i--)
 
 
 // if all curtain reached goal, reset 'reached goal' to 0
-if (_complete){for(_i=0;_i<CURTAIN_CLMS;_i++) dg_curtain[#_i,1]=0;}
+if (_complete)
+{
+    for(_i=0;_i<CURTAIN_CLMS;_i++) dg_curtain[#_i,1] = 0;
+}
 
 
 

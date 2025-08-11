@@ -8,7 +8,7 @@ if (DEV)
 }
 
 
-var _i,_j, _idx, _val, _count,_count1, _num, _vol;
+var _i,_j, _idx, _val,_val1,_val2, _count,_count1, _num, _vol;
 var _snd1,_snd2, _mus1,_mus2, _theme;
 var _dk,_dk1,_dk2, _prefix;
 var _town_name;
@@ -107,6 +107,27 @@ dm[?_dk1+_dk]="THE LEGEND OF ZELDA 1";
 
 
 
+_val1 = "ISABELLE CHIMING (VRC6 OST)";
+    _val = asset_get_index("mus_IsabelleChiming_Title"); // title song is just to check if the audio files for the audio set are in the app
+if (_val!=-1)
+{
+    _dk = dk_IsabelleChiming;
+    ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk] = _val1;
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+}
+
+    _val = asset_get_index("mus_IsabelleChiming_BattleJPN_Body"); // 2025/08/11. `mus_IsabelleChiming_BattleJPN_Body` currently the only `dk_IsabelleChiming2` audio set track
+if (_val!=-1)
+{
+    _dk = dk_IsabelleChiming2;
+    //ds_list_add(dl_AUDIO_SETS,_dk);
+    dm[?_dk1+_dk] = _val1;
+    dm[?dk_SceneMusicThemeException+"01"+_dk] = true;
+    dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
+}
+/*
     _val = asset_get_index("mus_IsabelleChiming_Title");
 if (_val!=-1)
 {
@@ -127,6 +148,7 @@ if (_val!=-1)
         dm[?dk_SceneMusicThemeException+"02"+_dk] = true;
     }
 }
+*/
 
 
 
@@ -862,17 +884,17 @@ add_sound_data(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2, 
 _town_name = STR_Bulblin;
 _theme = _town_name;
 dm[?_theme+STR_Description] = _prefix+string(val(g.dm_town[?STR_Town+STR_Num+_town_name]))+":"+string_upper(string_replace_all(_town_name,"_"," "));
-add_sound_data(mus_Town_Body_1a,                 1, _theme,STR_Default,        mus_Town_Intro_1a);
-_val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){add_sound_data(_val,             1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
-_val=asset_get_index("mus_NikoTengoku_Town_Body"); if (_val!=-1){add_sound_data(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
-_val=asset_get_index("mus_IsabelleChiming_Town"); if (_val!=-1){add_sound_data(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_Town_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
+add_sound_data(mus_Town_Body_1a, 1, _theme,STR_Default, mus_Town_Intro_1a);
+_val=asset_get_index("mus_ZeldaII_FDS_Town");         if (_val!=-1){add_sound_data(_val,        1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
+_val=asset_get_index("mus_NikoTengoku_Town_Body");    if (_val!=-1){add_sound_data(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Town_Intro")));}
+_val=asset_get_index("mus_IsabelleChiming_Town");     if (_val!=-1){add_sound_data(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Town_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Town_Body");  if (_val!=-1){add_sound_data(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Town_Intro")));}
 _val=asset_get_index("mus_SteelCrescent2_Town_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Town_Intro")));}
 _val=asset_get_index("mus_SteelCrescent3_Town_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_Town_Intro")));}
 _val=asset_get_index("mus_SteelCrescent4_Town_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR4, _theme,dk_SteelCrescent4,  max(0,asset_get_index("mus_SteelCrescent4_Town_Intro")));}
 _val=asset_get_index("mus_SteelCrescent5_Town_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR5, _theme,dk_SteelCrescent5,  max(0,asset_get_index("mus_SteelCrescent5_Town_Intro")));}
-_val=asset_get_index("mus_Wyng1_Bulblin01"); if (_val!=-1){add_sound_data(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
-add_sound_data(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
+_val=asset_get_index("mus_Wyng1_Bulblin01");          if (_val!=-1){add_sound_data(_val,_VOL_WYNG1, _theme,dk_Wyng);}
+add_sound_data(mus_Castlevania2_Town_Body, 1, _theme,dk_Castlevania2, mus_Castlevania2_Town_Intro);
 //                                                                                                                  //
 
 
@@ -1210,26 +1232,29 @@ for(_i=1; _i<=2; _i++)
 {
     _theme=STR_Battle+hex_str(_i);
     dm[?_theme+STR_Description] = "BATTLE "+string(_i);
-    add_sound_data(mus_Battle_Main_1a,                  1, _theme,STR_Default);
-    _val=asset_get_index("mus_ZeldaII_FDS_Battle"); if (_val!=-1){add_sound_data(_val,              1, _theme,_set_ZELDA2_FDS);}
+    //add_sound_data(mus_Battle_Main_1a, 1, _theme,STR_Default);
     switch(_i){
-    case  1:{
-    _val=asset_get_index("mus_NikoTengoku_Battle1"); if (_val!=-1){add_sound_data(_val,   .9, _theme,dk_Nikos8BitStereo);}
-    _val=asset_get_index("mus_NikoTengoku_Battle1_2"); if (_val!=-1){add_sound_data(_val, .6, _theme,STR_Other);}
-    _val=asset_get_index("mus_IsabelleChiming_Battle"); if (_val!=-1){add_sound_data(_val,  _VOL_CHIM, _theme,dk_IsabelleChiming);}
-    _val=asset_get_index("mus_Wyng1_Battle1_Body"); if (_val!=-1){add_sound_data(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
+    case 1:{
+    add_sound_data(mus_Battle_Main_1a, 1, _theme,STR_Default);
+    _val=asset_get_index("mus_NikoTengoku_Battle1");    if (_val!=-1){add_sound_data(_val,        .9,  _theme,dk_Nikos8BitStereo);}
+    _val=asset_get_index("mus_NikoTengoku_Battle1_2");  if (_val!=-1){add_sound_data(_val,        .6,  _theme,STR_Other);}
+    _val=asset_get_index("mus_IsabelleChiming_Battle"); if (_val!=-1){add_sound_data(_val, _VOL_CHIM,  _theme,dk_IsabelleChiming);}
+    _val=asset_get_index("mus_Wyng1_Battle1_Body");     if (_val!=-1){add_sound_data(_val, _VOL_WYNG1, _theme,dk_Wyng);}
     break;}
-    case  2:{
-    _val=asset_get_index("mus_NikoTengoku_Battle1_2"); if (_val!=-1){add_sound_data(_val, .6, _theme,dk_Nikos8BitStereo);}
-    _val=asset_get_index("mus_IsabelleChiming_BattleJPN_Body"); if (_val!=-1){add_sound_data(_val, _VOL_CHIM, _theme,dk_IsabelleChiming2, max(0,asset_get_index("mus_IsabelleChiming_BattleJPN_Intro")));}
-    _val=asset_get_index("mus_Wyng1_Battle2_Body"); if (_val!=-1){add_sound_data(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
-    break;} // unused battle theme variation that's fuller with reverb
+    case 2:{ // unused battle theme variation that's fuller with reverb
+    _val=asset_get_index("mus_NikoTengoku_Battle1_2");          if (_val!=-1){add_sound_data(mus_Battle_Main_1a, 1, _theme,STR_Default);}
+    _val=asset_get_index("mus_NikoTengoku_Battle1_2");          if (_val!=-1){add_sound_data(_val,        .6,  _theme,dk_Nikos8BitStereo);}
+    _val=asset_get_index("mus_IsabelleChiming_Battle");         if (_val!=-1){add_sound_data(_val, _VOL_CHIM,  _theme,dk_IsabelleChiming);}
+    _val=asset_get_index("mus_IsabelleChiming_BattleJPN_Body"); if (_val!=-1){add_sound_data(_val, _VOL_CHIM,  _theme,dk_IsabelleChiming2, max(0,asset_get_index("mus_IsabelleChiming_BattleJPN_Intro")));}
+    _val=asset_get_index("mus_Wyng1_Battle2_Body");             if (_val!=-1){add_sound_data(_val, _VOL_WYNG1, _theme,dk_Wyng);}
+    break;}
     }
-    _val=asset_get_index("mus_SteelCrescent_Battle"); if (_val!=-1){add_sound_data(_val,    _VOL_STCR, _theme,dk_SteelCrescent);}
-    _val=asset_get_index("mus_SteelCrescent2_Battle"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR2, _theme,dk_SteelCrescent2);}
-    _val=asset_get_index("mus_SteelCrescent3_Battle"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR3, _theme,dk_SteelCrescent3);}
-    _val=asset_get_index("mus_SteelCrescent4_Battle"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR4, _theme,dk_SteelCrescent4);}
-    _val=asset_get_index("mus_SteelCrescent5_Battle"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR5, _theme,dk_SteelCrescent5);}
+    _val=asset_get_index("mus_ZeldaII_FDS_Battle");    if (_val!=-1){add_sound_data(_val,         1,  _theme,_set_ZELDA2_FDS);}
+    _val=asset_get_index("mus_SteelCrescent_Battle");  if (_val!=-1){add_sound_data(_val, _VOL_STCR,  _theme,dk_SteelCrescent);}
+    _val=asset_get_index("mus_SteelCrescent2_Battle"); if (_val!=-1){add_sound_data(_val, _VOL_STCR2, _theme,dk_SteelCrescent2);}
+    _val=asset_get_index("mus_SteelCrescent3_Battle"); if (_val!=-1){add_sound_data(_val, _VOL_STCR3, _theme,dk_SteelCrescent3);}
+    _val=asset_get_index("mus_SteelCrescent4_Battle"); if (_val!=-1){add_sound_data(_val, _VOL_STCR4, _theme,dk_SteelCrescent4);}
+    _val=asset_get_index("mus_SteelCrescent5_Battle"); if (_val!=-1){add_sound_data(_val, _VOL_STCR5, _theme,dk_SteelCrescent5);}
     add_sound_data(mus_Castlevania2_BloodyTears_Body, 1, _theme,dk_Castlevania2, mus_Castlevania2_BloodyTears_Intro);
 }
 

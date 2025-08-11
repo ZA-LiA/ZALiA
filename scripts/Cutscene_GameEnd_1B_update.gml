@@ -111,9 +111,9 @@ switch(g.cutscene_part)
     
     
     // ---------------------------------------------------
-    var _X       =  CURTAIN_CLM <<3;
+    var _X = CURTAIN_CLM<<3;
     var _Y_START = (viewYC()>>3)<<3;
-    var _GRID_ROWS = 6;
+    var _GRID_ROWS = ds_grid_height(dg_curtain);
     
     for(_i=CURTAIN_CLMS-1; _i>=0; _i--)
     {
@@ -487,14 +487,16 @@ switch(g.cutscene_part)
     case SUB_STATE_CURT_3A:{ // DELAY CURTAINS MOVE UP
     if (g.cutscene_timer) break;
     
+    // I guess this is here to be dynamic in case I change 
+    // the scene at some point.
     
-    // Trying to get only the curtains between the 2 inner-most stone clms to move up.
-    var _clm_found = false;
-    var _dir   =  1; // -1 left, 1 right
+    // Make it so only the curtains between the 2 inner-most stone clms to move up.
+    var _pillar_found = false;
+    var _dir = 1; // -1 left, 1 right
     
-    //  _IDX1 is the middle-right clm.
-    var _IDX1  =  ds_grid_height(dg_curtain)>>1;
-    var _idx2  = _IDX1 - !_dir; // - !_dir: Start at the left middle curtain if !_dir(searching left)
+    //  _IDX1 is the middle-right curtain clm.
+    var _IDX1 = ds_grid_width(dg_curtain)>>1;
+    var _idx2 = _IDX1 - !_dir; // - !_dir: Start at the left middle curtain if !_dir(searching left)
     
     // Start with the middle 2 curtains and search outward 
     // each dir(-1 left, 1 right) until you find a 
@@ -507,7 +509,7 @@ switch(g.cutscene_part)
             //     _idx2 is the start index(one of the 2 middle curtains)
             _idx = _idx2 + (_j*_dir);
             
-            if (_clm_found)
+            if (_pillar_found)
             {
                 dg_curtain[#_idx,0] = 0;
                 continue;//_j
@@ -516,13 +518,12 @@ switch(g.cutscene_part)
             
             if(!dg_curtain[#_idx,0])
             {
-                _clm_found = true;
+                _pillar_found = true;
             }
         }
         
-        _clm_found = false;
-        _dir  = -_dir; // flip dirs
-        
+        _pillar_found = false;
+        _dir = -_dir; // flip dirs
         _idx2 = _IDX1 - !_dir; // - !_dir: Start at the left middle curtain and search left.
     }
     

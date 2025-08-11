@@ -25,7 +25,7 @@ with(g.QUIT_APP_MENU)
             //||  (g.room_type=="A" && g.gui_state==g.gui_state_NONE) )
             //||  (g.room_type=="C" && !g.overworld.dest_dist) 
             {
-                var _qual = Input.GP_Other5_held && Input.GP_Other6_held && Input.Magic_held && Input.Pause_held; // hold trig RGT + hold trig LFT + hold Select + hold Start
+                var _qual = Input.GP_Other5_held && Input.GP_Other6_held && Input.Magic_held && Input.Pause_held; // hold RT + hold LT + hold Select + hold Start
                 if(!_qual 
                 &&  keyboard_check_pressed(vk_escape) 
                 && !g.Fullscreen_toggled ) // toggling fullscreen can happen earlier in the frame, window_get_fullscreen() will not be accurate here
@@ -97,11 +97,11 @@ with(g.QUIT_APP_MENU)
         
         QuitAppMenu_udp();
         
-        var _CONFIRM  = Input.Pause_pressed;
-        //var _CONFIRM  =(Input.Pause_held && !(Input.heldPrev&Input.S)) 
+        var _CONFIRM = Input.Pause_pressed;
+        //var _CONFIRM =(Input.Pause_held && !(Input.heldPrev&Input.S)) 
         //             || keyboard_check_pressed(vk_enter);
-        var _CANCEL   = Input.GP_Other1_pressed  // gp2: xbox 'B'
-                     || keyboard_check_pressed(vk_escape);
+        var _CANCEL  = Input.GP_Other1_pressed  // gp2: xbox 'B'
+                    || keyboard_check_pressed(vk_escape);
         if (_CONFIRM 
         ||  _CANCEL )
         {
