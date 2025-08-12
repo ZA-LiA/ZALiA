@@ -165,6 +165,7 @@ PC_init_add_spritesheet(spr_PCSkin_Irenepunmaster_Shadow01,              "Shadow
 PC_init_add_spritesheet(spr_PCSkin_Broomietunes_Gail01,                  "Gail",                "Broomietunes");
 PC_init_add_spritesheet(spr_PCSkin_MisterMike_Ganondorf01,               "Ganondorf",           "MisterMike");
 PC_init_add_spritesheet(spr_PCSkin_Debilitante_Jason01,                  "Jason",               "Debilitante");
+PC_init_add_spritesheet(spr_PCSkin_JarachiKid_VaseLady01,                "Vase Lady",           "Jarachi Kid");
 
 
 Skin_image = PCSkin_DEFAULT_SPRITE;
