@@ -1,4 +1,4 @@
-// RoomData_Create()
+/// RoomData_Create()
 
 if (DEV)
 {
@@ -1565,7 +1565,7 @@ if (DEV)
     
     _dm_save_data[?"dl_MapItem_ITEM_IDS"] = ds_list_write(g.dl_MapItem_ITEM_IDS);
     
-    //ds_list_write
+    
     var _ENCODED = json_encode(_dm_save_data);
     var _FILE = file_text_open_write(working_directory+FILE_NAME0);
                 file_text_write_string(_FILE, _ENCODED);

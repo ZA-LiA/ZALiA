@@ -67,7 +67,7 @@ var _CAN_USE_RANDOMIZED_TILES = global.RandoDungeonTilesets_enabled
 && g.dungeon_num 
 && !is_undefined(_RANDOMIZED_TILES_DUNGEON_NAME) 
 && _RANDOMIZED_TILES_DUNGEON_NAME==g.dungeon_name;
-
+_CAN_USE_RANDOMIZED_TILES = false; // 2025/08/11. Turning this off for now. Doesn't look good.
 //_CAN_USE_RANDOMIZED_TILES = g.dungeon_num!=0;//TESTING
 
 

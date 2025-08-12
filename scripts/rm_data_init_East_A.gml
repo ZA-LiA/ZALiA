@@ -2889,6 +2889,9 @@ data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm);
 //owrc0   = $15DB; // 219,21 = $DB,$15 = $15DB
 rm_num  = $63;
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'118', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_WHALE_ISLAND);
+_val = p.PAL_NPC_SET1;
+dm_palette[?        rm+dk_MOB] = _val;
+p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
 row3=row0+$17; y3=row3<<3;

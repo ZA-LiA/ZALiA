@@ -55,6 +55,7 @@ if (_dm_FILE!=-1)
             if (string_pos("tile_data_system", _layer_name))
             {
                 _data_system_ver = str_hex(string_copy(_layer_name, string_pos("v.", _layer_name)+2, 2));
+                //if (_data_system_ver==4){var _FILE_NAME = argument[1]; sdm("tile_data_system 4:  "+_FILE_NAME);}
                 break;//_i
             }
         }

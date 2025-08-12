@@ -74,7 +74,8 @@ var _CLOUD_RC_NEWK = _CLOUD_RC2;
 var _depth;
 var _DEPTH1 = DEPTH_NPC2;
 var _PI1    = global.PI_MOB_BLU; // For skulls
-var _COLOR1_= p.CI_CYN4_;
+var _COLOR1_= color_str(p.C_CYN4);
+//var _COLOR1_= p.CI_CYN4_;
 /*
 var _Recover_NPC_HP = STR_Girubokku;
 var _Recover_NPC_MP = STR_Daira;

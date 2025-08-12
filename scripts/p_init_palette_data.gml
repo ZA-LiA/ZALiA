@@ -77,6 +77,7 @@ else
                                   file_text_close( _file);
                 //
                 _palette1 = get_palette_via_file_data(_file_data); // just bgr palettes from Tiled file
+                //_palette1 = get_palette_via_file_data(_file_data, _file_name); // just bgr palettes from Tiled file
                 if (is_undefined(_palette1)) _palette1 = _DEFAULT_PAL;
                 dm_scene_palette[?_file_name+dk_BGR] = _palette1;
             }

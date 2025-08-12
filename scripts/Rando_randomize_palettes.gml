@@ -163,7 +163,8 @@ for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
     
     
     // The main color scheme palette of the dungeon
-    _val2 = build_pal(_color1,_color2,_color3,_C_BLK1_, _color1,_color2,_color3,-2);
+    _val2 = build_pal(_color1,_color2,_color3,_C_BLK1_, _color1,_color2,_color3,_C_BLK1_);
+    //_val2 = build_pal(_color1,_color2,_color3,_C_BLK1_, _color1,_color2,_color3,-2);
     //_val2 = build_pal(_color1,_color2,_color3,_C_BLK1_, -2,-2,-2,-2);
     //_val2 = _color1 + _color2 + _color3 + _C_BLK1_;
     

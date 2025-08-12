@@ -56,7 +56,7 @@ if (_p.type_bits & (_p.BIT_BEM1 | _p.BIT_FIR1))
             Ganon3_Fire_update_1a(_clm0,_row);
         }
         
-        aud_play_sound(get_audio_theme_track(dk_StrikeEnemy));
+        //aud_play_sound(get_audio_theme_track(dk_StrikeEnemy));
         
         _p.hspd  = 0;
         _p.disintegrate_counter = $F2; // 008D,Y = $F2. Start disintegrate

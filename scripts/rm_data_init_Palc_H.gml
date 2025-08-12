@@ -45,7 +45,7 @@ g.dm_dungeon[?_DUNGEON_NAME+STR_Area]             = area;
 
 
 
-var _BGR_COLOR = p.CI_BLU3_;
+var _BGR_COLOR = color_str(p.C_BLU3);
 
 
 

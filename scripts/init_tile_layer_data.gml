@@ -1290,11 +1290,11 @@ _dm[?'EastA_087'+STR_Layer+'04'+STR_Name] = 'BG0501';
 _dm[?'EastA_087'+STR_Layer+'05'+STR_Name] = 'BG0603';
 _dm[?'EastA_087'+STR_Layer+'06'+STR_Name] = 'BG0704, PERMUT_03';
 //  ----------------------------  088  ----------------------------
-_dm[?'EastA_088'+STR_Layer+'01'+STR_Name] = 'FG0702';
-_dm[?'EastA_088'+STR_Layer+'02'+STR_Name] = 'FG0601';
-_dm[?'EastA_088'+STR_Layer+'03'+STR_Name] = 'FG0402';
-_dm[?'EastA_088'+STR_Layer+'04'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_02';
-_dm[?'EastA_088'+STR_Layer+'05'+STR_Name] = 'BG0404';
+_dm[?'EastA_088'+STR_Layer+'01'+STR_Name] = 'FG0601';
+_dm[?'EastA_088'+STR_Layer+'02'+STR_Name] = 'FG0402';
+_dm[?'EastA_088'+STR_Layer+'03'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_02';
+_dm[?'EastA_088'+STR_Layer+'04'+STR_Name] = 'BG0404';
+_dm[?'EastA_088'+STR_Layer+'05'+STR_Name] = 'BG0602';
 _dm[?'EastA_088'+STR_Layer+'06'+STR_Name] = 'BG0701';
 //  ----------------------------  089  ----------------------------
 _dm[?'EastA_089'+STR_Layer+'01'+STR_Name] = 'FG0303, LIQUID_02, DIR_02, SPEED_04';
@@ -5608,9 +5608,9 @@ _dm[?'TownA_130'+STR_Layer+'04'+STR_Name] = 'BG0701';
 //  ----------------------------  250  ----------------------------
 //  ----------------------------  251  ----------------------------
 //  ----------------------------  252  ----------------------------
-_dm[?'TownA_252'+STR_Layer+'01'+STR_Name] = 'FG0202, PERMUT_06';
-_dm[?'TownA_252'+STR_Layer+'02'+STR_Name] = 'FG0104, PERMUT_04';
-_dm[?'TownA_252'+STR_Layer+'03'+STR_Name] = 'BG0104, PERMUT_04';
+_dm[?'TownA_252'+STR_Layer+'01'+STR_Name] = 'FG0202';
+_dm[?'TownA_252'+STR_Layer+'02'+STR_Name] = 'FG0103';
+_dm[?'TownA_252'+STR_Layer+'03'+STR_Name] = 'BG0103';
 _dm[?'TownA_252'+STR_Layer+'04'+STR_Name] = 'BG0202';
 _dm[?'TownA_252'+STR_Layer+'05'+STR_Name] = 'BG0301';
 _dm[?'TownA_252'+STR_Layer+'06'+STR_Name] = 'BG0403';
