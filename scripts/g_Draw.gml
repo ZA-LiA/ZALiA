@@ -86,8 +86,8 @@ if (global.Rain_is_active)
 /* This creates a file with a list of tiles that have at least 1 pixel.
 Run this anytime you make a change to one of the below tilesets.
 */
-/*
-if (DEV 
+if (false  // change to true when reinitializing the data
+&&  DEV 
 &&  keyboard_check_pressed(vk_f7) )
 {
     var _k;
@@ -165,7 +165,7 @@ if (DEV
     ds_list_destroy(_dl_qual_ts); _dl_qual_ts=undefined;
     ds_list_destroy(_dl_qual_tiles); _dl_qual_tiles=undefined;
 }
-*/
+
 
 
 

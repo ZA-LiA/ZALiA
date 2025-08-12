@@ -468,7 +468,7 @@ _count3=ds_list_size(dl_remaining_keys);
 // before everything else will help.
 if (isVal(CONTAINER_METHOD,3))
 {   // Place pieces equal to X number of containers in beginning areas
-    Rando_randomize_items_2(f.CONT_PIECE_PER_HP*2, f.CONT_PIECE_PER_MP*2);
+    //Rando_randomize_items_2(f.CONT_PIECE_PER_HP*2, f.CONT_PIECE_PER_MP*2);
 }
 //Rando_place_container_pieces(1,1);
 //ds_list_size(dl_placed_containers_hp)

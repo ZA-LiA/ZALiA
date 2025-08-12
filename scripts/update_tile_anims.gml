@@ -177,7 +177,7 @@ if (g.mod_CLOUD_MOVEMENT)
 
 if (BackgroundTileAnimations_VER)
 {
-    _count = ds_list_size(g.dl_scene_anims);
+    _count = ds_list_size(dl_scene_anims);
     if (_count)
     {
         var _datakey2;
@@ -185,15 +185,15 @@ if (BackgroundTileAnimations_VER)
         var _game_frame, _anim_duration;
         for(_i=0; _i<_count; _i++)
         {
-            _datakey1 = g.dl_scene_anims[|_i];
+            _datakey1 = dl_scene_anims[|_i];
             _ts1 = dm_TILE_ANIM[?_datakey1+STR_Tileset];
             if(!is_undefined(     _ts1) 
             &&  background_exists(_ts1) )
             {
-                _anim_duration = val(g.dm_TILE_ANIM[?_datakey1+STR_Duration]);
+                _anim_duration = val(dm_TILE_ANIM[?_datakey1+STR_Duration]);
                 if (_anim_duration)
                 {
-                    _game_frame = g.counter1 mod _anim_duration;
+                    _game_frame = counter1 mod _anim_duration;
                     _datakey2 = dm_TILE_ANIM[?_datakey1+STR_Cue+hex_str(_game_frame)+STR_Frame+STR_Datakey];
                     if(!is_undefined(_datakey2))
                     {
