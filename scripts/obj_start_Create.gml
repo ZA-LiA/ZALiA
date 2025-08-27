@@ -29,8 +29,11 @@ room_speed = ROOM_SPEED_BASE;
 
 // --------------------------------------------------------------------
 var _file, _file_data;
-var _val = -1;
+var _version = -1;
 var _dk_APP_VERSION = "app_version";
+//var _build_date = -1;
+var _date = -1;
+var _dk_SESSION_DATE = "session_date";
 var _FILE_NAME0 = "AppData01.txt"; // use %localappdata% directory so data in the file can be updated during runtime
 var _dm = -1;
 if (file_exists(_FILE_NAME0))
@@ -41,14 +44,17 @@ if (file_exists(_FILE_NAME0))
         _dm = json_decode(_file_data);
     if (_dm!=-1)
     {
-        _val = _dm[?_dk_APP_VERSION];
+        _version = val(_dm[?_dk_APP_VERSION], _version);
+        _date    = val(_dm[?_dk_SESSION_DATE], _date);
     }
 }
 
-global.APP_VER_OF_LAST_APP_SESSION = _val;
+global.LAST_APP_SESSION_APP_VER = _version;
+global.LAST_APP_SESSION_DATE = _date;
 
 if (_dm==-1) _dm = ds_map_create();
 _dm[?_dk_APP_VERSION] = GM_version;
+_dm[?_dk_SESSION_DATE] = date_current_datetime();
 _file_data = json_encode(_dm);
 _file = file_text_open_write(working_directory+_FILE_NAME0);
         file_text_write_string(_file, _file_data);

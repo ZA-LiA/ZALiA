@@ -56,7 +56,7 @@ if(!_WILL_ELIMINATE)
 
 
 
-_dm_save_data[?"_App_Version"] = "ZALiA version: "+GM_version;
+//_dm_save_data[?"_App_Version"] = "ZALiA version: "+GM_version;
 _dm_save_data[?"_DateTimeOfSave"] = date_current_datetime();
 //                                                                              // 
 _dm_save_data[?f.SDNAME_saveCreated]            = _SAVE_IS_CREATED_STATE;

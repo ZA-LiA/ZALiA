@@ -11,7 +11,7 @@ var _FILE_NAME0 = "PaletteData01.txt"; // use %localappdata% directory so user c
 
 if(!_REINITIALIZING 
 &&  file_exists(_FILE_NAME0) 
-&&  global.APP_VER_OF_LAST_APP_SESSION==GM_version )
+&&  global.LAST_APP_SESSION_APP_VER==GM_version ) // because PaletteData01.txt is stored in %localappdata%, it needs to be updated at runtime
 {
     _file      = file_text_open_read(working_directory+_FILE_NAME0);
     _file_data = file_text_read_string(_file);
