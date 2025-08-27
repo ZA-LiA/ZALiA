@@ -316,7 +316,7 @@ if (room!=rmB_Title
                             _layer_name = g.dm_tile_file[? _dk+STR_Depth+STR_Layer+STR_Name];
                             if(!is_undefined(_depth) 
                             && !is_undefined(_layer_name) 
-                            &&  string_pos("STRUCTURE_FGWALL01_01",_layer_name) ) // use "STRUCTURE_BGWALL01_02" in the layer name so this doesn't run
+                            &&  string_pos("STRUCTURE_FGWALL01_01",_layer_name) ) // use "STRUCTURE_FGWALL01_02" in the layer name so this doesn't run
                             {
                                 _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
                                 if (_idx!=-1)
@@ -341,17 +341,15 @@ if (room!=rmB_Title
                                 _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
                                 if (_idx!=-1)
                                 {
-                                    _pi  = dg_depth_pi[#_idx,1]; // pi for bgr wall
-                                    _pos = get_pal_pos(_pi);
+                                    _pi = dg_depth_pi[#_idx,1]; // pi for bgr wall
                                     
-                                    var _COLOR_DATA1 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*1), global.PAL_CHAR_PER_COLOR); // 2nd to last color, mid-tone, base color
-                                    var _COLOR_DATA2 = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*2), global.PAL_CHAR_PER_COLOR); // last color, and last 2 str chars of a palette
+                                    var _MID_COLOR = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*1), global.PAL_CHAR_PER_COLOR); // "R" color(mid-tone)    of STRUCTURE_FGWALL01_01 palette
+                                    var _SHD_COLOR = string_copy(pal_rm_def, _solid_wall_pi_pos+(global.PAL_CHAR_PER_COLOR*2), global.PAL_CHAR_PER_COLOR); // "B" color(shadow-tone) of STRUCTURE_FGWALL01_01 palette
                                     
-                                    // If the mid-tone (_ci_) IS black, make the bgr wall full black to contrast the fgr wall
-                                    if (_COLOR_DATA1!=color_str(C_BLK1))
+                                    if (_MID_COLOR!=color_str(C_BLK1))
                                     {
-                                        if (_COLOR_DATA2==color_str(C_BLK1)) _color = str_hex(_COLOR_DATA1);
-                                        else                                 _color = str_hex(_COLOR_DATA2);
+                                        if (_SHD_COLOR==color_str(C_BLK1)) _color = str_hex(_MID_COLOR);
+                                        else                               _color = str_hex(_SHD_COLOR);
                                         
                                         if (_color==C_WHT0 
                                         ||  _color==C_RED0 
@@ -366,46 +364,46 @@ if (room!=rmB_Title
                                         }
                                         //if (ds_list_find_index(dl_COLOR,str_hex(_color_data))>=$40) _color_data = color_str(C_BLK1); // temp fix for new colors
                                         
-                                        _pos += global.PAL_CHAR_PER_COLOR*2;
-                                        
                                         if (_color!=C_BLK1)
                                         {
-                                            // find the color with the closest hue out of `dl_colors_s`
-                                            _val1 = colour_get_hue(_color);
-                                            _val2 = $FF; // hue difference
+                                            // find the color in `dl_colors_s` closest to _color
+                                            var _BASE_R = color_get_red(  _color);
+                                            var _BASE_G = color_get_green(_color);
+                                            var _BASE_B = color_get_blue( _color);
+                                            var _BASE_BRIGHTNESS = get_color_brightness(_color);
+                                            var _min_dist = $FFFFFFFF;
+                                            var _closest_color = C_BLK1;
+                                            
                                             for(_j=ds_list_size(dl_colors_s)-1; _j>=0; _j--)
                                             {
-                                                _val3 = colour_get_hue(dl_colors_s[|_j]);
-                                                _val3 = abs(_val3-_val1);
-                                                if (_val3<_val2) // if hue diff _val3 < hue diff _val2
+                                                var _CURRENT_COLOR = dl_colors_s[|_j]; // all dl_colors_s color's brightness are < $40
+                                                var _CURRENT_BRIGHTNESS = get_color_brightness(_CURRENT_COLOR);
+                                                if (_CURRENT_BRIGHTNESS<_BASE_BRIGHTNESS 
+                                                ||  (_CURRENT_BRIGHTNESS==_BASE_BRIGHTNESS && _BASE_BRIGHTNESS<$40) )
                                                 {
-                                                    _val2 = _val3;
-                                                    _color = dl_colors_s[|_j];
+                                                    var _CURRENT_R = color_get_red(  _CURRENT_COLOR);
+                                                    var _CURRENT_G = color_get_green(_CURRENT_COLOR);
+                                                    var _CURRENT_B = color_get_blue( _CURRENT_COLOR);
+                                                    
+                                                    var _DIST_SQ = power(_BASE_R-_CURRENT_R,2) + power(_BASE_G-_CURRENT_G,2) + power(_BASE_B-_CURRENT_B,2);
+                                                    if (_DIST_SQ<_min_dist)
+                                                    {
+                                                        _min_dist = _DIST_SQ;
+                                                        _closest_color = _CURRENT_COLOR;
+                                                    }
                                                 }
                                             }
+                                            
+                                            _color = _closest_color;
                                         }
-                                        _pal1 = color_str(_color);
-                                        /*
-                                        _pos += global.PAL_CHAR_PER_COLOR*2;
-                                        _pal1 = color_str(_color);
                                         
-                                        if (_color_data!=C_BLK1)
-                                        {
-                                            _color_data = ds_list_find_index(dl_COLOR,str_hex(_color_data));
-                                            _color_data = hex_str(_color_data);
-                                            _val1 = string_char_at(_color_data,2);
-                                                 if (isVal(_val1,"0","D"))     _pal1 = CI_GRY4_; // CI_GRY4_: darkest grey. if white or grey
-                                            else if (isVal(_val1,"9","A","B")) _pal1 = CI_GRB4_; // CI_GRB4_: darkest green tone
-                                            else if (isVal(_val1,"5","6","7")) _pal1 = CI_ORG4_; // CI_ORG4_: darkest red tone
-                                            else if (isVal(_val1,"1","2"))     _pal1 = CI_VLT4_; // CI_VLT4_: darkest blue/purple tone
-                                            else                               _pal1 = "0"+_val1; // use darkest of this color
-                                        }
-                                        _pal1 = color_str(dl_COLOR[|str_hex(_pal1)]);
-                                        */
+                                        _pos  = get_pal_pos(_pi) + (global.PAL_CHAR_PER_COLOR*2);
+                                        _pal1 = color_str(_color);
                                     }
                                     else
-                                    {
-                                        _pal1 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1,-2,-2,-2,-2);
+                                    {   // If the "R" color is black, make the bgr wall full black to contrast the STRUCTURE_FGWALL01_01 palette
+                                        _pos  = get_pal_pos(_pi);
+                                        _pal1 = build_pal(C_BLK1,C_BLK1,C_BLK1,C_BLK1, -2,-2,-2,-2);
                                     }
                                     
                                     

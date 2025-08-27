@@ -1632,7 +1632,7 @@ var _dl_layers;
 var _dl_tiles;
 
 var           _COUNT0=2;
-for(_i=1; _i<=_COUNT0; _i++)
+for(_i=1; _i<=_COUNT0; _i++) // each file
 {
     _file_name = "other/"+"RandoPalettes"+hex_str(_i)+".json";
     //sdm("_file "+_file+", file_exists(_file) "+string(file_exists(_file)));
@@ -1696,12 +1696,14 @@ for(_i=1; _i<=_COUNT0; _i++)
                 _c_mgn = C_MGN0;
                 _c_blk = C_BLK0;
                 _c_cyn = C_CYN0;
+                
                 _palette = "";
                 _color = "";
                 _tile_was_found = false;
                 
                 _clm = _clm0+_k;
-                for(_m=1; _m<4; _m++) // each color(_m) of the palette(_k). Note that the 1st color is skipped because Tile file is in old palette format.
+                
+                for(_m=1; _m<=3; _m++) // each color(_m) of the palette(_k). Because the palettes in the file are in the old format, which are only for wht,red,blu, _m only iterates 1,2,3
                 {
                     _base_color_char = string_char_at(global.PAL_BASE_COLOR_ORDER,_m);
                     _row = _row0+_m;
@@ -1736,8 +1738,14 @@ for(_i=1; _i<=_COUNT0; _i++)
                 
                 if (_tile_was_found)
                 {
-                    _palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_wht,_c_red,_c_blu,_c_cyn);
-                    //_palette = build_pal(_c_wht,_c_red,_c_blu,C_BLK1, _c_ylw,_c_mgn,_c_blk,_c_cyn);
+                    // because the palettes in the file are in the old format, which are only for wht,red,blu, grn uses C_BLK1 and ylw,mgn,blk,cyn just use what wht,red,blu,grn use
+                    _c_grn = C_BLK1;
+                    _c_ylw = _c_wht;
+                    _c_mgn = _c_red;
+                    _c_blk = _c_blu;
+                    _c_cyn = _c_grn;
+                    
+                    _palette = build_pal(_c_wht,_c_red,_c_blu,_c_grn, _c_ylw,_c_mgn,_c_blk,_c_cyn);
                     
                     switch(_i){
                     case 1:{ds_list_add(dl_various_pals1,_palette); break;}
