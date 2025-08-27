@@ -9,6 +9,7 @@ if (DEV)
 
 
 FILE_NAME0 = "SceneData01.txt";
+//FILE_NAME1 = FILE_NAME0;
 FILE_NAME1 = "rm_tile_data/"+FILE_NAME0;
 
 
@@ -1651,7 +1652,7 @@ with(g.PAUSE_MENU)
 
 
 
-//dev_automateRoomData2(); // automates code for  RoomData_Create_2a()
+//if (global.REINITIALIZE_DATA1) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 
 
 //dev_rmdata_cleanup_data_check();

@@ -8,6 +8,7 @@ if (Rando_can_traverse_RauruPass()
     return true;
 }
 
+
 if ( Rando_is_attainable(STR_FIRE)  // Through Fire-Vines Cave
 ||  (Rando_is_attainable(STR_RAFT) && Rando_can_traverse_NIslMtnPass()) ) // Whale Isl warp to Mido
 {

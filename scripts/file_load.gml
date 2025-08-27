@@ -16,7 +16,7 @@ var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
 if(!file_exists(_FILE_NAME))
 {
     show_debug_message("");
-    show_debug_message("!!!! WARNING! CANNOT LOAD FILE "+string(_FILE_NUM)+"  '"+_FILE_NAME+"'.  FILE DOES NOT EXIST !!!!");
+    show_debug_message("file_load(). !!!! WARNING! CANNOT LOAD FILE "+string(_FILE_NUM)+"  '"+_FILE_NAME+"'.  FILE DOES NOT EXIST !!!!");
     show_debug_message("");
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -30,7 +30,7 @@ var _dm_file_data = json_decode(_FILE_DATA);
 if (_dm_file_data==-1) // `json_decode` returns -1 if it fails
 {
     show_debug_message("");
-    show_debug_message("!!!! WARNING! file_load(). `_dm_file_data` failed to get data from '"+_FILE_NAME+"' !!!!");
+    show_debug_message("file_load(). !!!! WARNING! file_load(). `_dm_file_data` failed to get data from '"+_FILE_NAME+"' !!!!");
     show_debug_message("");
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

@@ -40,12 +40,6 @@ TODO: Add more difficulty, challenges, and content to 2nd quest
 */
 
 /*
-TODO: Revamp palette system
-  * Increase available swap colors from 3 to 7. The 3-color-limit rule will continue. The extra colors are for potential future things
-  * The rule that full green guarantees black is pointless. Just use black in the sprite/tile
-*/
-
-/*
 TODO: Revamp dungeon tileset format and re-tile dungeons
   * For more space in the tilesets, for more graphics, offset tiles need to be removed, but scenes will need to be re-tiled so offsets aren't neccessary
 */
@@ -371,6 +365,41 @@ use_8x8_ow_menu_map=true;
 
 anarkhyaOverworld_MAIN    = true;
 anarkhyaOverworld_enabled = false;
+
+
+
+
+/* global.REINITIALIZE_DATA1: Set to true to reinitialize data that has changed;
+
+1. Scene width and height data
+      `dev_automateRoomData2()`, which is in `RoomData_Create()`, will be run
+      Copy the printed data in the CompileForm to `RoomData_Create_2a()`
+      Also make sure you copy over the data for Title Screen.
+
+2. Overworld Data
+     `Overworld_init_data()` will create the data
+     Copy the printed data in the CompileForm to Overworld_init_data_2(), 
+     Move(not copy) OverworldData01.txt from %localappdata% to Included Files
+
+3. Scene Data (make sure ow data is updated 1st)
+     `RoomData_Create()` will create the data
+     Move(not copy) SceneData01.txt from %localappdata% to Included Files
+
+4. data in `dev_automate_tile_layer_data()`
+     `dev_automate_tile_layer_data()` is near the bottom of `g_Create()`
+     copy paste the output into `init_tile_layer_data()`
+
+5. data in `p_init_palette_data()`
+     `p_init_palette_data()` is in `p_init()`
+     Since i have manually changed colors in there, check first if they conflict with what's in the Tiled file
+       I don't remember how to check that.
+
+6. data for `TilesetData01.txt`
+     The code that does this is near the bottom of `g_Draw()`
+     Move(not copy) the file it created %localappdata% to its Included Files directory
+*/
+global.REINITIALIZE_DATA1 = false;
+
 
 
 
@@ -1930,6 +1959,7 @@ switch(1)
 room_type = "B";
 
 dm_rm = ds_map_create();
+global.dm_scene_wh = ds_map_create();
 
             dl_AREA_NAME=ds_list_create();
 ds_list_add(dl_AREA_NAME,Area_WestA);

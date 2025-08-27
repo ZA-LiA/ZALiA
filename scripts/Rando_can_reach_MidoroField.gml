@@ -9,9 +9,8 @@ if (Rando_can_traverse_RauruPass()          // The boulder/RiverDevil next to Ra
 }
 
 
-// Raftway to Whale Isl to Mido
 if ( Rando_is_attainable(STR_FIRE)  // Through Fire-Vines Cave
-||  (Rando_is_attainable(STR_RAFT) && Rando_can_traverse_NIslMtnPass()) )
+||  (Rando_is_attainable(STR_RAFT) && Rando_can_traverse_NIslMtnPass()) ) // Raftway to Whale Isl to Mido
 {
     // Mido boulder
     if (Rando_is_attainable(STR_HAMMER))

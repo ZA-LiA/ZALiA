@@ -508,6 +508,7 @@ if (_exists)                             dm_RandoHintsRecorder=undefined;
 if (ds_exists(global.dm_randomized_tiles01,ds_type_map)){ds_map_destroy(global.dm_randomized_tiles01); global.dm_randomized_tiles01=undefined;}
 if (ds_exists(global.dm_scene_rando,ds_type_map)){ds_map_destroy(global.dm_scene_rando); global.dm_scene_rando=undefined;}
 if (ds_exists(global.dm_tile_layer_data,ds_type_map)){ds_map_destroy(global.dm_tile_layer_data); global.dm_tile_layer_data=undefined;}
+if (ds_exists(global.dm_scene_wh,ds_type_map)){ds_map_destroy(global.dm_scene_wh); global.dm_scene_wh=undefined;}
 
 if (FileCleaning01_STATE)
 {
