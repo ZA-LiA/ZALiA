@@ -220,9 +220,10 @@ switch(RandoState)
             draw_text_(_x,_y, _text, _FONT_SPRITE, _pi3);
             
             switch(dg_RandoITEM_Options[#_i,2]){
-            case 0:{_text="OFF"; break;}
-            case 1:{_text="ALLKEY"; break;}
-            case 2:{_text="JUMP TOWN"; break;}
+            case ZELDA_HINT_OPTIONS.NONE:  {_text="OFF"; break;}
+            case ZELDA_HINT_OPTIONS.FLUTE: {_text="FLUTE"; break;}
+            case ZELDA_HINT_OPTIONS.ALLKEY:{_text="ALLKEY"; break;}
+            case ZELDA_HINT_OPTIONS.JUMP:  {_text="JUMP TOWN"; break;}
             }
             _x  = _xr-(string_length(_text)*_char_w);
             _x -= _x mod _char_w;

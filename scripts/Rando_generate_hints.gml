@@ -70,11 +70,18 @@ for(_i=0; _i<_count; _i++)
     _item_id  = dm_save_data[?_dk_loc+STR_Item+STR_ID+STR_Randomized];
     _dk_spawn = dm_save_data[?_dk_loc+STR_Spawn+STR_Datakey];
     
-    if (ItemLocations_ZELDA_HINT==1  // 1: ALLKEY hint
+    if ((ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.FLUTE  && _item_id==STR_FLUTE) 
+    ||  (ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.ALLKEY && _item_id==STR_ALLKEY) )
+    {
+        continue;//_i
+    }
+    /*
+    if (ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.ALLKEY 
     &&  _item_id==STR_ALLKEY )
     {
         continue;//_i
     }
+    */
     
     ds_list_clear(_dl_choices);
     _j=1;
@@ -226,7 +233,36 @@ _dialogue = undefined;
 
 switch(ItemLocations_ZELDA_HINT)
 {   // ------------------------------------------------------------------------------
-    default:{ // 1: ALLKEY hint
+    case ZELDA_HINT_OPTIONS.FLUTE:{
+    _item_id = STR_FLUTE;
+    
+    if (FLUTE_LOC_NUM)
+    {
+        ds_list_clear(_dl_choices);
+        for(_j=1; _j<=$20; _j++)
+        {   // different kinds of hints for an item location
+            _val = dm_LOCATIONS[?hex_str(FLUTE_LOC_NUM)+STR_Hint+hex_str(_j)];
+            if (is_undefined(_val)) break;//_j
+            ds_list_add(_dl_choices,_val);
+        }
+        
+        if (ds_list_size(   _dl_choices))
+        {
+            ds_list_shuffle(_dl_choices);
+            _dialogue =     _dl_choices[|0];
+            _pos=string_pos("&",_dialogue);
+            if (_pos)
+            {
+                _val = string_upper(string_letters(_item_id));
+                _dialogue = string_delete(_dialogue,_pos,1);
+                _dialogue = string_insert(_val,_dialogue,_pos);
+            }
+        }
+    }
+    break;}//case ZELDA_HINT_OPTIONS.FLUTE
+    
+    // ------------------------------------------------------------------------------
+    case ZELDA_HINT_OPTIONS.ALLKEY:{
     _item_id = STR_ALLKEY;
     
     if (ALLKEY_LOC_NUM)
@@ -252,10 +288,10 @@ switch(ItemLocations_ZELDA_HINT)
             }
         }
     }
-    break;}//default
+    break;}//case ZELDA_HINT_OPTIONS.ALLKEY
     
     // ------------------------------------------------------------------------------
-    case 2:{ // JUMP hint
+    case ZELDA_HINT_OPTIONS.JUMP:{
     _item_id = STR_JUMP;
     //sdm("");sdm("STR_JUMP+STR_Location: "+string(val(dm_save_data[?STR_JUMP+STR_Location])));sdm("");
     switch(val(dm_save_data[?STR_JUMP+STR_Location]))
@@ -305,7 +341,7 @@ switch(ItemLocations_ZELDA_HINT)
                          "YOU NEED<THE CROSS<FOR THE<JUMP SPELL");
         break;}
     }
-    break;}//case 2
+    break;}//case ZELDA_HINT_OPTIONS.JUMP
 }//switch(ItemLocations_ZELDA_HINT)
 
 

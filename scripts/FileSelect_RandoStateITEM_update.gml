@@ -130,16 +130,17 @@ switch(RandoITEM_cursor)
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
         
         if (dg_RandoITEM_Options[#RandoITEM_HINTS,2] 
-        &&  dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] 
+        &&  dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2]==ZELDA_HINT_OPTIONS.ALLKEY 
         &&  dg_RandoITEM_Options[#RandoITEM_KEYS,2] )
         {
-            dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] = 2; // 2: JUMP town hint
+            dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] =ZELDA_HINT_OPTIONS.FLUTE;
         }
         /*
         if (dg_RandoITEM_Options[#RandoITEM_HINTS,2] 
-        && !dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] )
+        &&  dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] 
+        &&  dg_RandoITEM_Options[#RandoITEM_KEYS,2] )
         {
-            dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] = 1; // 1: ALLKEY hint
+            dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] = ZELDA_HINT_OPTIONS.JUMP; // 2: JUMP town hint
         }
         */
     }
@@ -153,13 +154,13 @@ switch(RandoITEM_cursor)
     if (_InputConfirm_pressed2)
     {
         _val = dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2];
-        for(var _i=0; _i<RandoITEM_ZELDA_HINT_COUNT; _i++)
+        for(var _i=0; _i<ZELDA_HINT_OPTIONS.COUNT; _i++)
         {
-            _val += RandoITEM_ZELDA_HINT_COUNT;
+            _val += ZELDA_HINT_OPTIONS.COUNT;
             _val += _DIR;
-            _val  = _val mod RandoITEM_ZELDA_HINT_COUNT;
+            _val  = _val mod ZELDA_HINT_OPTIONS.COUNT;
             if(!dg_RandoITEM_Options[#RandoITEM_KEYS,2] 
-            ||  _val!=1 ) // 1: ALLKEY hint
+            ||  _val!=ZELDA_HINT_OPTIONS.ALLKEY )
             {
                 break;//_i
             }
@@ -201,9 +202,10 @@ switch(RandoITEM_cursor)
     {
         dg_RandoITEM_Options[#RandoITEM_cursor,2] = !dg_RandoITEM_Options[#RandoITEM_cursor,2]; // 2: state
         if (dg_RandoITEM_Options[#RandoITEM_cursor,2] 
-        &&  dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2]==1 ) // 1: ALLKEY hint
+        &&  dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2]==ZELDA_HINT_OPTIONS.ALLKEY ) // ALLKEY location
         {
-            dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] =2;  // 2: JUMP town hint
+            dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] =ZELDA_HINT_OPTIONS.FLUTE;  // FLUTE location hint
+            //dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2] =ZELDA_HINT_OPTIONS.JUMP;  // JUMP location hint
         }
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }

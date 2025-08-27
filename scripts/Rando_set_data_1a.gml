@@ -39,11 +39,19 @@ else
     {   ds_list_add(       dl_items_placed,_ITEM_ID);  }
     else _is_already_placed=true;
     
-    if(!_is_already_placed 
-    &&  _ITEM_ID==STR_ALLKEY )
+    if(!_is_already_placed)
     {
-        if (CONTROL_ALLKEY==1) ALLKEY_LOC_NUM=_LOC_NUM;
-        //sdm("ALLKEY location num: $"+hex_str(_LOC_NUM));
+        switch(_ITEM_ID)
+        {
+            case STR_FLUTE:{
+            FLUTE_LOC_NUM=_LOC_NUM;
+            break;}//case STR_FLUTE
+            
+            case STR_ALLKEY:{
+            if (CONTROL_ALLKEY==1) ALLKEY_LOC_NUM=_LOC_NUM;
+            //sdm("ALLKEY location num: $"+hex_str(_LOC_NUM));
+            break;}//case STR_ALLKEY
+        }//switch(_ITEM_ID)
     }
 }
 

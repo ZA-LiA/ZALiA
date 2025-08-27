@@ -85,11 +85,15 @@ dg_RandoMAIN_Options = ds_grid_create(0,RandoGrid_H);
 _idx = -1;
 RandoMAIN_ITEMS = ++_idx;
 ds_grid_resize(dg_RandoMAIN_Options, _idx+1,RandoGrid_H);
-dg_RandoMAIN_Options[#_idx,0] = _X;       // 0: x
-dg_RandoMAIN_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
-dg_RandoMAIN_Options[#_idx,2] = 0;        // 2: state
-dg_RandoMAIN_Options[#_idx,3] = "ITEMS";  // 3: text
-dg_RandoMAIN_Options[#_idx,4] = "ITEM RANDO SETTINGS"; // 
+dg_RandoMAIN_Options[#_idx,0]  = _X;       // 0: x
+dg_RandoMAIN_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
+dg_RandoMAIN_Options[#_idx,2]  = 0;        // 2: state
+dg_RandoMAIN_Options[#_idx,3]  = "ITEMS";  // 3: text
+dg_RandoMAIN_Options[#_idx,4]  = "ITEM RANDO SETTINGS"; // 
+//dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"FLUTE WARPING: HOLD THE CAST MAGIC BUTTON WHEN PLAYING THE FLUTE TO WARP TO VISITED TOWNS.";
+dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: WITH THE FLUTE ITEM, YOU CAN WARP TO VISITED TOWNS.";
+dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"HOLD THE CAST MAGIC BUTTON, THEN PRESS THE FLUTE BUTTON TO SEQUENCE THROUGH TOWNS.";
+//dg_RandoMAIN_Options[#_idx,4] += g.CHAR_END_LINE3+"HOLD THE CAST MAGIC BUTTON WHEN PLAYING THE FLUTE TO WARP";
 //                                                          //
 RandoMAIN_SPELLS = ++_idx;
 ds_grid_resize(dg_RandoMAIN_Options, _idx+1,RandoGrid_H);
@@ -189,6 +193,15 @@ for(_i=0; _i<RandoMAIN_COUNT; _i++) dg_RandoMAIN_Options[#_i,0] = _xl;
 
 
 
+
+enum ZELDA_HINT_OPTIONS
+{
+    NONE,
+    FLUTE,
+    ALLKEY,
+    JUMP,
+    COUNT
+}
 
 _X = dg_RandoMAIN_Options[#0,0];
 
@@ -303,9 +316,10 @@ dg_RandoITEM_Options[#_idx,0]  = _X;       // 0: x
 dg_RandoITEM_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
 dg_RandoITEM_Options[#_idx,2]  = 0;        // 2: state
 dg_RandoITEM_Options[#_idx,3]  = "ZELDA HINT"; // 3: text
-dg_RandoITEM_Options[#_idx,4]  = "ALLKEY: ZELDA GIVES A HINT TO THE LOCATION OF THE ALLKEY";
-dg_RandoITEM_Options[#_idx,5]  = "JUMP TOWN: ZELDA GIVES A HINT TO WHICH TOWN THE JUMP SPELL IS IN"+g.CHAR_END_LINE3;
-dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+"NOTE: THE ALLKEY OPTION WILL NOT BE AVAILABLE WITH KEY-SANITY TURNED ON BECAUSE THE ALLKEY WILL BE IN ITS VANILLA LOCATION.";
+dg_RandoITEM_Options[#_idx,4]  = "FLUTE: ZELDA GIVES A HINT TO THE LOCATION OF THE FLUTE";
+dg_RandoITEM_Options[#_idx,5]  = "ALLKEY: ZELDA GIVES A HINT TO THE LOCATION OF THE ALLKEY";
+dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"JUMP TOWN: ZELDA GIVES A HINT TO WHICH TOWN THE JUMP SPELL IS IN";
+dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: THE ALLKEY OPTION WILL NOT BE AVAILABLE WITH KEY-SANITY TURNED ON BECAUSE THE ALLKEY WILL BE IN ITS VANILLA LOCATION.";
 //                                                          //
 RandoITEM_BACK     = ++_idx;
 ds_grid_resize(dg_RandoITEM_Options, _idx+1,RandoGrid_H);
@@ -321,7 +335,7 @@ RandoITEM_cursor = RandoITEM_LOCS;
 
 
 // 0: NONE, 1: ALLKEY LOCATION, 2: JUMP TOWN
-RandoITEM_ZELDA_HINT_COUNT = 3;
+//RandoITEM_ZELDA_HINT_COUNT = 3;
 
 
 

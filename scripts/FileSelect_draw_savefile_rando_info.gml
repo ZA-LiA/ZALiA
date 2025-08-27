@@ -191,8 +191,9 @@ if (_dm_FILE!=-1)
                     _y += _DIST2;
                     _text  = "ZELDA HINT: ";
                     switch(_val){
-                    case 1:{_text+="ALLKEY"; break;}
-                    case 2:{_text+="JUMP TOWN"; break;}
+                    case ZELDA_HINT_OPTIONS.FLUTE: {_text+="FLUTE"; break;}
+                    case ZELDA_HINT_OPTIONS.ALLKEY:{_text+="ALLKEY"; break;}
+                    case ZELDA_HINT_OPTIONS.JUMP:  {_text+="JUMP TOWN"; break;}
                     }
                     _len = string_length(_text);
                     if (_len>_char_limit) _text = string_copy(_text, 1,_char_limit-2) + "..";
