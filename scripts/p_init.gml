@@ -1513,6 +1513,7 @@ var _FALL_SPEED_DEFAULT = 2;
 var _STRIPE_W = 8;
 _current_type_ = "1";
 global.FallScene_IS_SURFACE = true;
+global.FallScene_BACKGROUND_COLOR = C_BLK1;
 global.FallScene_dm = ds_map_create();
 global.FallScene_dm[?"_Stripe"+STR_Width] = _STRIPE_W;
 global.FallScene_dm[?STR_Current+STR_Type] = string(_current_type_); // Which fall scene will occur. 1: Vertical, 2: Horizontal

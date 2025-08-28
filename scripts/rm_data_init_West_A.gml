@@ -1163,7 +1163,7 @@ data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 data_spawn(rm+STR_PRIO,TorchA,$3,  (x0-_dist)-4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
 data_spawn(rm+STR_PRIO,TorchA,$3,  (x0+_dist)-4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
 data_spawn(rm+STR_PRIO,NPC_C,$1,  x0-8,(row0+$15)<<3,  dk_PI+hex_str(_pi),STR_Dialogue+DK0C00); // Tomb dlg
-data_spawn(rm+STR_PRIO,NPC_1,$1,  $2D<<3,y3,  dk_PI+hex_str(PId), STR_Palette+p.PAL_NPC_PUR1, STR_Dialogue+DK010C, STR_Sprite+STR_Barb); // Idle Simple, Old lady, Purple
+data_spawn(rm+STR_PRIO,NPC_1,$1,  $2D<<3,y3,  dk_PI+hex_str(PId), STR_Palette+p.PAL_NPC_PUR1, STR_Dialogue+DK010C, STR_Sprite+STR_Barb, STR_Rando+STR_Hint); // Idle Simple, Old lady, Purple
 
 
 data_exit(EXD0,etA1,1,  $00,row_e2,  clms0,ROWS5,  clm1-1,row_e3,  '60'+EXU0_); // DWN 0, Pit down 
@@ -1746,7 +1746,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR4_, STR_Tile+area_
 row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-data_spawn(rm+STR_PRIO,NPC_0,$1,  $47<<3,(row0+$10)<<3,  STR_Dialogue+DK000E); // Headstone with Dragon Quest reference
+data_spawn(rm+STR_PRIO,NPC_0,$1,  $47<<3,(row0+$10)<<3,  STR_Dialogue+DK000E, STR_Rando+STR_Hint); // Headstone with Dragon Quest reference
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $18<<3,(row0+$16)<<3); // Bot  1 
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $38<<3,(row0+$14)<<3); // Bot  1 
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $5A<<3,(row0+$14)<<3); // Bot  1 
@@ -1790,7 +1790,7 @@ if (true)
 //if (DEV&&1)
 {
     clm3=$40; x3=clm3<<3; // Headstone xl
-    _dk = data_spawn(rm+STR_PRIO,NPC_0,$1,  x3,y6,  STR_Dialogue+DK0012); // Headstone dialogue
+    _dk = data_spawn(rm+STR_PRIO,NPC_0,$1,  x3,y6,  STR_Dialogue+DK0012, STR_Rando+STR_Hint); // Headstone dialogue
     data_spawn_2a(STR_Challenge,Challenge_Secret01,$1,  x3,y6, -1, STR_NPC+STR_Spawn+STR_Datakey+_dk); // x and y arguments are headstone xl/yt, and yt of ghost
     //data_spawn_2a(STR_Challenge,Challenge_Secret01,$1,  x3-($0C<<3),y6, -1, 'headstone_xc='+hex_str(x3));
     //data_spawn_2a(STR_Challenge,Challenge_Secret01,$1,  x3-($0C<<3),y6, -1, 'headstone_xc='+hex_str(x3), 'headstone_yb='+hex_str((row0+$14)<<3));

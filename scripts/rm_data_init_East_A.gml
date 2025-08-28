@@ -2341,7 +2341,8 @@ rm_num  = $50;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'076', STR_ow_axis+'01', STR_show_ow_pos+'00');
 
 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $0E<<3,(row0+$10)<<3); // Octorok  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $0E<<3,(row0+$10)<<3); // Myu  1 
+//data_spawn(rm+STR_PRXM,OctoA,$1,  $0E<<3,(row0+$10)<<3); // Octorok  1 
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $34<<3,(row0+$0C)<<3); // Myu  1 
 
 
@@ -3047,7 +3048,7 @@ p.dm_scene_palette[?rm+dk_MOB] = _val;
 
 
 row3=row0+$17; y3=row3<<3;
-data_spawn(rm+STR_PRIO,NPC_9,$3,  $0D<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK010D); // Moblin NPC
+data_spawn(rm+STR_PRIO,NPC_9,$3,  $0D<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK010D, STR_Rando+STR_Hint); // Moblin NPC
 
 
                                                               _exit = '6A'+EXM0_;

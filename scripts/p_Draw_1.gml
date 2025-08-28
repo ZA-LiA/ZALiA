@@ -14,7 +14,6 @@ if(!surface_exists(val(global.FallScene_dm[?"1"+STR_Image], -1))
     var _type_; // The type/id of this fall scene. "1": Classic blue vertical fall, "2": Fast travel red horizontal fall
     var _STRIPE_W = val(global.FallScene_dm[?"_Stripe"+STR_Width], 8);
     var _TS = ts_Natural_1a_WRB;
-    var _BACKGROUND_COLOR = C_BLK1;
     var _color;
     var _dl_COLORS = ds_list_create();
     ds_list_add(_dl_COLORS, C_WHT0,C_RED0,C_BLU0);
@@ -31,7 +30,7 @@ if(!surface_exists(val(global.FallScene_dm[?"1"+STR_Image], -1))
         _h1 = val(global.FallScene_dm[?_type_+STR_Image+STR_Height]);
         _surf = surface_create(_w1,_h1);
         surface_set_target(_surf);
-        draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, _BACKGROUND_COLOR);
+        draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, global.FallScene_BACKGROUND_COLOR);
         
         _ts_xl = $D<<3;
         _ts_yt = $F<<3;
@@ -64,7 +63,7 @@ if(!surface_exists(val(global.FallScene_dm[?"1"+STR_Image], -1))
         _h1 = val(global.FallScene_dm[?_type_+STR_Image+STR_Height]);
         _surf = surface_create(_w1,_h1);
         surface_set_target(_surf);
-        draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, _BACKGROUND_COLOR);
+        draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, global.FallScene_BACKGROUND_COLOR);
         
         _ts_xl = $F<<3;
         _ts_yt = $C<<3;

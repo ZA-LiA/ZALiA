@@ -16,6 +16,37 @@ if (surface_exists(val(global.FallScene_dm[?STR_Current+STR_Image],-1)))
     pal_swap_set(global.palette_image, _pi);
     draw_surface(global.FallScene_dm[?STR_Current+STR_Image], _x,_y);
     pal_swap_reset();
+    
+    if (1)
+    {
+        /* Artifact Issue:
+        Because surfaces can have issues with video memory, the horizontal(red stripes) 
+        fall scene sometimes displays a sliver of the red stripes at the bottom of the screen.
+        Doing something like toggling full screen fixes the issue but isn't a good solution.
+        The following is a cheap fix so the user doesn't have to do something like toggle 
+        full screen to fix it.
+        */
+        var _AMT1 = $8;
+        //global.FallScene_dm[?STR_Current+STR_Fall+STR_Direction]
+        switch(val(global.FallScene_dm[?STR_Current+STR_Type]))
+        {
+            case "1":{ // 1: vertical (blue stripes)
+            var _W = _AMT1<<1;
+            var _H = val(global.FallScene_dm[?STR_Current+STR_Image+STR_Height]) + (_AMT1<<1);
+            draw_sprite_(spr_1x1_WHT,0, _x-_AMT1,_y-_AMT1, -1, _W,_H, global.FallScene_BACKGROUND_COLOR);
+            _x +=    val(global.FallScene_dm[?STR_Current+STR_Image+STR_Width]);
+            draw_sprite_(spr_1x1_WHT,0, _x-_AMT1,_y-_AMT1, -1, _W,_H, global.FallScene_BACKGROUND_COLOR);
+            break;}
+            
+            case "2":{ // 2: horizontal (red stripes)
+            var _W = val(global.FallScene_dm[?STR_Current+STR_Image+STR_Width])  + (_AMT1<<1);
+            var _H = _AMT1<<1;
+            draw_sprite_(spr_1x1_WHT,0, _x-_AMT1,_y-_AMT1, -1, _W,_H, global.FallScene_BACKGROUND_COLOR);
+            _y +=    val(global.FallScene_dm[?STR_Current+STR_Image+STR_Height]);
+            draw_sprite_(spr_1x1_WHT,0, _x-_AMT1,_y-_AMT1, -1, _W,_H, global.FallScene_BACKGROUND_COLOR);
+            break;}
+        }
+    }
 }
 
 

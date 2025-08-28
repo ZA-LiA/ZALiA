@@ -132,6 +132,10 @@ for(_i=0; _i<_count; _i++)
             &&  ds_list_find_index(_dl_set,_j)==-1 
             &&  ds_list_find_index(_dl_area_choices,_area)==-1 )
             {
+                // You should not need the hint's item to get to the hint.
+                // Need a system that builds a list of hint locations you can reach without the hint's item. 
+                // The process would probably similar to `Rando_is_qual_location()`.
+                // So, each hint location needs qualification logic.
                 if (0) // make sure hint location isnt locked behind its item
                 {
                     _rm_name=val(g.dm_RandoHints[?hex_str(_j)+STR_Rm+STR_Name]);
@@ -156,13 +160,13 @@ for(_i=0; _i<_count; _i++)
             ds_list_shuffle(_dl_area_choices);
             
             _area=0;
-            if (1) // limit each area to 3 hints to prevent clumping
+            if (1)
             {
                 for(_j=ds_list_size(_dl_area_choices)-1; _j>=0; _j--)
                 {
                     _area1=_dl_area_choices[|_j];
                     if (_area1==STR_Other 
-                    ||  val(_dm_set_area_counts[?_area1])<3 )
+                    ||  val(_dm_set_area_counts[?_area1])<3 ) // limit each area to 3 hints to prevent clumping
                     {
                         _area=_area1;
                         break;//_j

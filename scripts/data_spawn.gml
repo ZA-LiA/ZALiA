@@ -569,6 +569,17 @@ for(_i=_arg; _i<argument_count; _i++)
     
     
     
+    _datakey = STR_Rando+STR_Hint;
+    if (is_string(          _val) 
+    &&  string_pos(_datakey,_val) )
+    {
+        g.dm_spawn[?_SPAWN_DATAKEY+STR_Rando+STR_Hint+STR_Qualified] = true;
+        continue;//_i
+    }
+    
+    
+    
+    
     _datakey = STR_Quest+STR_ID; // The town spell quests
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
