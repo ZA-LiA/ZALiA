@@ -308,7 +308,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($14<<3)
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($6A<<3)+4,y5);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
 data_spawn(rm+STR_PRIO,NPC_4,$2,  $2E<<3,y3,  dk_PI+hex_str(PIa),STR_Dialogue+DK0402,STR_Sprite+STR_Barb); // 
-data_spawn(rm+STR_PRXM,NPC_3,$3,  $3C<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0307,STR_Sprite+STR_Mary, STR_Rando+STR_Hint); // 
+data_spawn(rm+STR_PRXM,NPC_3,$3,  $3C<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0307,STR_Sprite+STR_Mary, STR_Rando+STR_Hint); // ONLY THE HAMMER CAN DESTROY A BOULDER
 data_spawn(rm+STR_PRIO,NPC_4,$1,  $62<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0400,STR_Sprite+STR_Jill); // 
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $6C<<3,y3,  dk_PI+hex_str(Sign_PI),STR_Dialogue+DK0001); // 
 
@@ -788,7 +788,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($0D<<3)
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($2E<<3)+4,y5);
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($6D<<3)+4,y5);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3); // NPC Spawner
-data_spawn(rm+STR_PRXM,NPC_3,$1,  $4E<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0303,STR_Sprite+STR_Bill, STR_Rando+STR_Hint); // Special Walker, Thin man, Red
+data_spawn(rm+STR_PRXM,NPC_3,$1,  $4E<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0303,STR_Sprite+STR_Bill, STR_Rando+STR_Hint); // Special Walker, Thin man, Red. "THE PALACE HAS A FALSE WALL"
 data_spawn(rm+STR_PRIO,NPC_0,$1,  clm4<<3,y3,  STR_Dialogue+DK0009); // Darunia door dlg 
 data_spawn(rm+STR_PRIO,NPC_4,$3,  clm3<<3,y3,  STR_Dialogue+DK0405,STR_Sprite+STR_Zoey); // Save
 
@@ -838,7 +838,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($63<<3)
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
 data_spawn(rm+STR_PRIO,NPC_4,$2,  $12<<3,y3,  dk_PI+hex_str(PIa),STR_Dialogue+DK0403,STR_Sprite+STR_Barb); // Restore MP
 data_spawn(rm+STR_PRIO,NPC_4,$1,  $32<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0401,STR_Sprite+STR_Jill); // Restore HP
-data_spawn(rm+STR_PRXM,NPC_3,$4,  $58<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK030E,STR_Sprite+STR_Mary, STR_Rando+STR_Hint); // Special Walker, Big lady, Purple
+data_spawn(rm+STR_PRXM,NPC_3,$4,  $58<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK030E,STR_Sprite+STR_Mary, STR_Rando+STR_Hint); // Special Walker, Big lady, Purple. "THE HAMMER CAN CLEAR A FOREST"
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $70<<3,y3,  dk_PI+hex_str(Sign_PI),STR_Dialogue+DK0005); // 
 clm3=$4A;
 //data_spawn(rm+STR_PRIO,TorchA,$3,  ((clm3-2)<<3)+4,y3-4,  dk_PI+hex_str(_PI3),STR_Lit); // v3: shorter torch. Fast travel house indicator
@@ -880,8 +880,8 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($48<<3)
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($6D<<3)+4,y5);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);
 data_spawn(rm+STR_PRIO,NPC_0,$2,  $08<<3,y3,  dk_PI+hex_str(global.PI_BGR4),STR_Dialogue+DK0006); // Sign
-data_spawn(rm+STR_PRIO,NPC_1,$1,  $22<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0108,STR_Sprite+STR_Zoey, STR_Rando+STR_Hint); // Idle Simple, Pot lady, Purple
-data_spawn(rm+STR_PRXM,NPC_3,$2,  $58<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0305,STR_Sprite+STR_Bill, STR_Rando+STR_Hint); // Special Walker, Thin man, Red
+data_spawn(rm+STR_PRIO,NPC_1,$1,  $22<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0108,STR_Sprite+STR_Zoey, STR_Rando+STR_Hint); // Idle Simple, Pot lady, Purple. "WE HAD TO FLEE KASUTO"
+data_spawn(rm+STR_PRXM,NPC_3,$2,  $58<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0305,STR_Sprite+STR_Bill, STR_Rando+STR_Hint); // Special Walker, Thin man, Red. "THE OLD MAN WHO REMAINS HAS MAGIC"
 data_spawn(rm+STR_PRIO,NPC_4,$2,  $6A<<3,y3,  dk_PI+hex_str(PIa),STR_Dialogue+DK0406,STR_Sprite+STR_Barb); // Restore MP
 data_spawn(rm+STR_PRIO,NPC_5,$1,  clm4<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0506,STR_Sprite+STR_Barb,STR_Quest+STR_ID+QuestID_NewKasuto_Container); // Quest
 data_spawn(rm+STR_PRIO,NPC_4,$3,  clm3<<3,y3,  STR_Dialogue+DK0405,STR_Sprite+STR_Zoey); // Save
@@ -930,8 +930,8 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Jackolantern1_init, -1, ($54<<3)
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $1766, 1,Fountain_1_init);
 //data_NIAO_1a(rm+STR_NIAO+string(_a++), $1766, 1,Fountain_1_init, global.PI_MOB_BLU,0);
 data_spawn(rm+STR_PRIO,SpNPA,$1,  $1E<<3,y3);                    // NPC Spawner
-data_spawn(rm+STR_PRXM,NPC_3,$3,  $2E<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK030A,STR_Sprite+STR_Bill, STR_Rando+STR_Hint); // 
-data_spawn(rm+STR_PRXM,NPC_3,$1,  $6C<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0304,STR_Sprite+STR_Jack, STR_Rando+STR_Hint); // 
+data_spawn(rm+STR_PRXM,NPC_3,$3,  $2E<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK030A,STR_Sprite+STR_Bill, STR_Rando+STR_Hint); // "THE HOLE IN PALACE IS ENDLESS TRAP"
+data_spawn(rm+STR_PRXM,NPC_3,$1,  $6C<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0304,STR_Sprite+STR_Jack, STR_Rando+STR_Hint); // "CALL FOR HELP AT THE THREE EYE ROCKS"
 data_spawn(rm+STR_PRIO,NPC_4,$1,  $12<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK0401,STR_Sprite+STR_Jill); // 
 
 
@@ -1572,7 +1572,7 @@ g.dm_rm[?rm+STR_Town+STR_House] = true;
 
 clm3=$07; clm4=clm3+$05;
 row3=row0+$17; y3=row3<<3;
-data_spawn(rm+STR_PRIO,NPC_1,$1,  $0A<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0114,STR_Sprite+STR_Jack, STR_Rando+STR_Hint); // Idle Simple, Big man, Purple
+data_spawn(rm+STR_PRIO,NPC_1,$1,  $0A<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK0114,STR_Sprite+STR_Jack, STR_Rando+STR_Hint); // Idle Simple, Big man, Purple. "IF ALL ELSE FAILS, USE FIRE"
 
 
 _exit1=val(g.dm_rm[?_town_name1+"_Backside"+STR_Exit+'A'], Area_TownA+'02'+EXM0_);
@@ -1601,7 +1601,7 @@ g.dm_rm[?rm+STR_Town+STR_House] = true;
 
 
 row3=row0+$17; y3=row3<<3;
-data_spawn(rm+STR_PRIO,NPC_1,$1,  $0C<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK010A,STR_Sprite+STR_Mary, STR_Rando+STR_Hint); // Idle Simple, Big lady, Red
+data_spawn(rm+STR_PRIO,NPC_1,$1,  $0C<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK010A,STR_Sprite+STR_Mary, STR_Rando+STR_Hint); // Idle Simple, Big lady, Red. "LOOK AT YOUR MAP FOR AN AREAS NAME"
 
 
 _exit1=val(g.dm_rm[?_town_name1+"_Backside"+STR_Exit+'A'], Area_TownA+'04'+EXM0_); // 'A': front door outside
@@ -2183,7 +2183,7 @@ row3=row0+$17; y3=row3<<3;
 data_NIAO_1a(rm+STR_NIAO+string(_a++),  $0000,2,Skull1_init,  global.PI_MOB_ORG,  $22<<3,(row0+$16)<<3, DEPTH_BG3+3);
 
 
-data_spawn(rm+STR_PRIO,NPC_1,$1,  $32<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK010B,STR_Sprite+STR_Barb, STR_Rando+STR_Hint); // Idle Simple, Old lady, Red
+data_spawn(rm+STR_PRIO,NPC_1,$1,  $32<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK010B,STR_Sprite+STR_Barb, STR_Rando+STR_Hint); // Idle Simple, Old lady, Red. "THERE IS A SECRET AT EDGE OF TOWN"
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '12'+'00'); // LFT 0, 

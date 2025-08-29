@@ -30,6 +30,7 @@ var _file_name,_file_name1,_file_name2;
 var _chance_a,_chance_b;
 var _qual;
 var _color, _palette;
+var _dialogue;
 
 /*
 var _item_id,_item_id2, _item_type,_item_type2;
@@ -1454,6 +1455,17 @@ for(_i=ds_list_size(dl_SPELLS)-1; _i>=0; _i--)
 // since most keys would need to be placed in their own dungeon.
 if (ItemLocations_WILL_RANDOMIZE)
 {
+    global.RandoHints_enabled = ItemLocations_NPC_GIVE_HINTS || ItemLocations_ZELDA_HINT;
+    save_game_pref();
+    
+    if (global.RandoHints_VER==2)
+    {   // Prepare randomized data for hints
+        Rando_prepare_hints();
+    }
+    
+    
+    
+    
     dl_locnum_that_gave_prog = ds_list_create();
     
     Rando_randomize_items();
@@ -1463,6 +1475,11 @@ if (ItemLocations_WILL_RANDOMIZE)
     // ----------------------------------------------------------------------
     
     ds_list_destroy(dl_locnum_that_gave_prog); dl_locnum_that_gave_prog=undefined;
+    if (global.RandoHints_VER==2)
+    {
+        ds_list_destroy(dl_hint_loc_nums_shuffled); dl_hint_loc_nums_shuffled=undefined;
+        ds_list_destroy(dl_hint_items); dl_hint_items=undefined;
+    }
 }
 
 

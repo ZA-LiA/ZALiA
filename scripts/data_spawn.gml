@@ -557,6 +557,17 @@ for(_i=_arg; _i<argument_count; _i++)
             _datakey1 = hex_str(_num)+STR_Rm+STR_Name;
             g.dm_RandoHints[?_datakey1] = _RM_NAME;
             dm_rando_hints[? _datakey1] = _RM_NAME;
+            
+            
+            _datakey1 = _RM_NAME+STR_Hint+STR_Count;
+            _count = val(g.dm_RandoHints[?_datakey1]) + 1;
+            g.dm_RandoHints[?_datakey1] = _count;
+            dm_rando_hints[? _datakey1] = _count;
+            
+            
+            _datakey1 = hex_str(_num)+STR_Scene+STR_Hint+STR_Num;
+            g.dm_RandoHints[?_datakey1] = _count;
+            dm_rando_hints[? _datakey1] = _count;
             /*
             _val2+=string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_val2));
             _val3=val(g.DIALOGUE_WINDOW.dm_dialogue[?_val1+"A"], _val1+"A");
@@ -568,13 +579,15 @@ for(_i=_arg; _i<argument_count; _i++)
     
     
     
-    
-    _datakey = STR_Rando+STR_Hint;
-    if (is_string(          _val) 
-    &&  string_pos(_datakey,_val) )
+    if (global.RandoHints_VER==2)
     {
-        g.dm_spawn[?_SPAWN_DATAKEY+STR_Rando+STR_Hint+STR_Qualified] = true;
-        continue;//_i
+        _datakey = STR_Rando+STR_Hint;
+        if (is_string(          _val) 
+        &&  string_pos(_datakey,_val) )
+        {
+            g.dm_spawn[?_SPAWN_DATAKEY+STR_Rando+STR_Hint+STR_Qualified] = true;
+            continue;//_i
+        }
     }
     
     

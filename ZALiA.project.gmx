@@ -14060,7 +14060,9 @@
       <script>scripts\Rando_randomize_items_1a.gml</script>
       <script>scripts\Rando_randomize_items_1a_1.gml</script>
       <script>scripts\Rando_randomize_items_2.gml</script>
+      <script>scripts\Rando_prepare_hints.gml</script>
       <script>scripts\Rando_generate_hints.gml</script>
+      <script>scripts\Rando_is_qual_hint_location.gml</script>
       <script>scripts\Rando_randomize_dungeon_tilesets.gml</script>
       <script>scripts\Rando_randomize_overworld_biomes.gml</script>
       <script>scripts\Rando_randomize_scenes.gml</script>
@@ -15020,7 +15022,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="997">
+  <constants number="998">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -16015,6 +16017,7 @@
     <constant name="dk_FullName">"_FullName"</constant>
     <constant name="dk_DialogueDatakey">"_DialogueDatakey"</constant>
     <constant name="dk_UserPreferences">"_UserPreferences"</constant>
+    <constant name="dk_ChosenHintDialogue">"_ChosenHintDialogue"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
     <constant name="UserPrefFileName">"UserPreferences.txt"</constant>

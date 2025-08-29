@@ -292,18 +292,18 @@ if (g.room_type=="A"
 if (room!=rmB_Title 
 &&  room!=rmB_FileSelect )
 {
-    if (g.RandoPalette_state) // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
+    if (g.RandoPalette_state) // 0: Off, 1: Dungeons, PC, 2: Dungeons, 2 background PI of Non-dungeon scenes, PC
     {
         if (g.room_type=="A")
         {
             if (g.dungeon_num 
-            ||  g.RandoPalette_state==2 ) // 0: Off, 1: Dungeons & PC, 2: Dungeons, PC, and 2 BGR PI random palette when enter room
+            ||  g.RandoPalette_state==2 )
             {
                 _pal = f.dm_rando[?STR_Palette+STR_Rando+g.rm_name];
                 if(!is_undefined(_pal))
                 {
                     pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_BGR1), string_length(_pal), _pal);
-                    //sdm(g.rm_name+": "+_pal); sdm("");
+                    
                     if (g.dungeon_num)
                     {
                         var _solid_wall_pi_pos = get_pal_pos(global.PI_BGR1);
@@ -376,7 +376,7 @@ if (room!=rmB_Title
                                             
                                             for(_j=ds_list_size(dl_colors_s)-1; _j>=0; _j--)
                                             {
-                                                var _CURRENT_COLOR = dl_colors_s[|_j]; // all dl_colors_s color's brightness are < $40
+                                                var _CURRENT_COLOR = dl_colors_s[|_j]; // all dl_colors_s colors brightness are < $40
                                                 var _CURRENT_BRIGHTNESS = get_color_brightness(_CURRENT_COLOR);
                                                 if (_CURRENT_BRIGHTNESS<_BASE_BRIGHTNESS 
                                                 ||  (_CURRENT_BRIGHTNESS==_BASE_BRIGHTNESS && _BASE_BRIGHTNESS<$40) )
