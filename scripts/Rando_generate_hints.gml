@@ -7,7 +7,7 @@ var _item_id, _loc_num;
 var _area,_area1, _rm_name;
 var _dialogue=undefined;
 var _pos;
-var _dk_loc, _dk_spawn;
+var _dk_loc, _dk_spawn, _town_name;
 var _dl_choices=ds_list_create();
 
 
@@ -294,6 +294,9 @@ switch(ItemLocations_ZELDA_HINT)
     }
     break;}//case ZELDA_HINT_OPTIONS.FLUTE
     
+    
+    
+    
     // ------------------------------------------------------------------------------
     case ZELDA_HINT_OPTIONS.ALLKEY:{
     _item_id = STR_ALLKEY;
@@ -323,56 +326,79 @@ switch(ItemLocations_ZELDA_HINT)
     }
     break;}//case ZELDA_HINT_OPTIONS.ALLKEY
     
+    
+    
+    
     // ------------------------------------------------------------------------------
     case ZELDA_HINT_OPTIONS.JUMP:{
+    _town_name = string(val(dm_save_data[?STR_JUMP+STR_Location]));
+    var _OVERWORLD_TOWN = val(dm_save_data[?STR_Town+STR_Rando+_town_name+"A"],_town_name);
     _item_id = STR_JUMP;
     //sdm("");sdm("STR_JUMP+STR_Location: "+string(val(dm_save_data[?STR_JUMP+STR_Location])));sdm("");
-    switch(val(dm_save_data[?STR_JUMP+STR_Location]))
+    ds_list_clear(_dl_choices);
+    switch(_town_name)
     {
         case STR_Rauru:{
-        _dialogue=choose("THE JUMP<SPELL IS<IN RAURU.", 
-                         "JUMP SPELL<IS IN A<FOREST<TOWN.", 
-                         "JUMP SPELL<IS IN A<NEARBY<TOWN.");
+        ds_list_add(_dl_choices,"THE JUMP<SPELL IS<IN RAURU.");
+        if (isVal(_OVERWORLD_TOWN,STR_Rauru,STR_Ruto)) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<NEARBY<TOWN.");
+        if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<FOREST<TOWN.");
+        //ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<FOREST<TOWN.");
+        //if (isVal(_OVERWORLD_TOWN,STR_Rauru,STR_New_Kasuto)) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<FOREST<TOWN.");
         break;}
+        
         
         case STR_Ruto:{
-        _dialogue=choose("THE JUMP<SPELL IS<IN RUTO.", 
-                         "JUMP SPELL<IS IN A<MOUNTAIN<TOWN.", 
-                         "YOU NEED<THE TROPHY<FOR THE<JUMP SPELL", 
-                         "JUMP SPELL<IS IN A<NEARBY<TOWN.");
+        ds_list_add(_dl_choices,"THE JUMP<SPELL IS<IN RUTO.");
+        ds_list_add(_dl_choices,"YOU NEED<THE TROPHY<FOR THE<JUMP SPELL");
+        if (isVal(_OVERWORLD_TOWN,STR_Rauru,STR_Ruto)) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<NEARBY<TOWN.");
+        //if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<MOUNTAIN<TOWN.");
         break;}
+        
         
         case STR_Saria:{
-        _dialogue=choose("THE JUMP<SPELL IS<IN SARIA.", 
-                         "JUMP SPELL<IS IN A<WATER TOWN", 
-                         "JUMP SPELL<IS IN A<CURSED<TOWN.", 
-                         "YOU NEED<THE MIRROR<FOR THE<JUMP SPELL");
+        ds_list_add(_dl_choices,"THE JUMP<SPELL IS<IN SARIA.");
+        ds_list_add(_dl_choices,"YOU NEED<THE MIRROR<FOR THE<JUMP SPELL");
+        ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<CURSED<TOWN.");
+        if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<RIVER TOWN");
+        //if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<WATER TOWN");
         break;}
+        
         
         case STR_Mido:{
-        _dialogue=choose("THE JUMP<SPELL IS<IN MIDO.", 
-                         "JUMP SPELL<IS IN A<WATER TOWN", 
-                         "YOU NEED<THE FLOWER<FOR THE<JUMP SPELL");
+        ds_list_add(_dl_choices,"THE JUMP<SPELL IS<IN MIDO.");
+        ds_list_add(_dl_choices,"YOU NEED<THE FLOWER<FOR THE<JUMP SPELL");
+        if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<HARBOR<TOWN.");
+        //if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<WATER TOWN");
         break;}
+        
         
         case STR_Darunia:{
-        _dialogue=choose("THE JUMP<SPELL IS<IN DARUNIA", 
-                         "JUMP SPELL<IS IN A<MOUNTAIN<TOWN.", 
-                         "JUMP SPELL<IS IN A<CURSED<TOWN.", 
-                         "YOU NEED<THE CHILD<FOR THE<JUMP SPELL");
+        ds_list_add(_dl_choices,"THE JUMP<SPELL IS<IN DARUNIA");
+        ds_list_add(_dl_choices,"YOU NEED<THE CHILD<FOR THE<JUMP SPELL");
+        ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<CURSED<TOWN.");
+        if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<MOUNTAIN<TOWN.");
         break;}
+        
         
         case STR_New_Kasuto:{
-        _dialogue=choose("THE JUMP<SPELL IS<IN<NEW KASUTO", 
-                         "JUMP SPELL<IS IN A<KASUTO<TOWN.", 
-                         "YOU NEED<THE HAMMER<FOR THE<JUMP SPELL");
+        ds_list_add(_dl_choices,"THE JUMP<SPELL IS<IN<NEW KASUTO");
+        ds_list_add(_dl_choices,"YOU NEED<THE HAMMER<FOR THE<JUMP SPELL");
+        if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<KASUTO<TOWN.");
+        if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<FOREST<TOWN.");
         break;}
         
+        
         case STR_Old_Kasuto:{
-        _dialogue=choose("THE JUMP<SPELL IS<IN<OLD KASUTO", 
-                         "JUMP SPELL<IS IN A<KASUTO<TOWN.", 
-                         "YOU NEED<THE CROSS<FOR THE<JUMP SPELL");
+        ds_list_add(_dl_choices,"THE JUMP<SPELL IS<IN<OLD KASUTO");
+        ds_list_add(_dl_choices,"YOU NEED<THE CROSS<FOR THE<JUMP SPELL");
+        if(!TownLocations_WILL_RANDOMIZE) ds_list_add(_dl_choices,"JUMP SPELL<IS IN A<KASUTO<TOWN.");
         break;}
+    }
+    
+    if (ds_list_size(   _dl_choices))
+    {
+        ds_list_shuffle(_dl_choices)
+        _dialogue =     _dl_choices[|0];
     }
     break;}//case ZELDA_HINT_OPTIONS.JUMP
 }//switch(ItemLocations_ZELDA_HINT)
