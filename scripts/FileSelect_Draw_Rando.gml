@@ -506,19 +506,44 @@ if (string_length(_text))
     _yt += _DIST1; // Add blank line
 }
 
-
+/*
+RandoOTHER_ITEMS_item_cursor_CANDLE  = _i++;
+RandoOTHER_ITEMS_item_cursor_FLUTE   = _i++;
+RandoOTHER_ITEMS_item_cursor_BAIT    = _i++;
+RandoOTHER_ITEMS_item_cursor_SHIELD  = _i++;
+RandoOTHER_ITEMS_item_cursor_RING    = _i++;
+RandoOTHER_ITEMS_item_cursor_PENDANT = _i++;
+RandoOTHER_ITEMS_item_cursor_SWORD   = _i++;
+RandoOTHER_ITEMS_item_cursor_FEATHER = _i++;
+RandoOTHER_ITEMS_item_cursor_NOTE    = _i++;
+RandoOTHER_ITEMS_item_cursor_MAP1    = _i++;
+RandoOTHER_ITEMS_item_cursor_MAP2    = _i++;
+RandoOTHER_ITEMS_item_cursor_DOLLS   = _i++;
+RandoOTHER_ITEMS_item_cursor_HEART   = _i++; // heart containers
+RandoOTHER_ITEMS_item_cursor_MAGIC   = _i++; // magic containers
+RandoOTHER_ITEMS_item_cursor_COUNT   = _i;
+RandoOTHER_ITEMS_item_cursor         = RandoOTHER_ITEMS_item_cursor_CANDLE;
+*/
 var _IDX0 = 4;
 for(_i=_IDX0; _i<RandoGrid_H; _i++)
 {
-    switch(RandoState){
-    default:                {_text=dg_RandoMAIN_Options[#RandoMAIN_cursor,_i]; break;}
-    case RandoState_MAIN:   {_text=dg_RandoMAIN_Options[#RandoMAIN_cursor,_i]; break;}
-    case RandoState_ITEM:   {_text=dg_RandoITEM_Options[#RandoITEM_cursor,_i]; break;}
-    case RandoState_SPELL:  {_text=dg_RandoSPELL_Options[#RandoSPELL_cursor,_i]; break;}
-    case RandoState_DUNGEON:{_text=dg_RandoDUNGEON_Options[#RandoDUNGEON_cursor,_i]; break;}
-    case RandoState_ENEMY:  {_text=dg_RandoENEMY_Options[#RandoENEMY_cursor,_i]; break;}
-    case RandoState_OTHER:  {_text=dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor,_i]; break;}
-    case RandoState_SEED:   {_text=dg_RandoSEED_Options[#RandoSEED_cursor,_i]; break;}
+    if (RandoState==RandoState_OTHER 
+    &&  RandoOTHER_state==RandoOTHER_state_ITEMS )
+    {
+        _text = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor,_i];
+    }
+    else
+    {
+        switch(RandoState){
+        default:                {_text=dg_RandoMAIN_Options[#RandoMAIN_cursor,_i]; break;}
+        case RandoState_MAIN:   {_text=dg_RandoMAIN_Options[#RandoMAIN_cursor,_i]; break;}
+        case RandoState_ITEM:   {_text=dg_RandoITEM_Options[#RandoITEM_cursor,_i]; break;}
+        case RandoState_SPELL:  {_text=dg_RandoSPELL_Options[#RandoSPELL_cursor,_i]; break;}
+        case RandoState_DUNGEON:{_text=dg_RandoDUNGEON_Options[#RandoDUNGEON_cursor,_i]; break;}
+        case RandoState_ENEMY:  {_text=dg_RandoENEMY_Options[#RandoENEMY_cursor,_i]; break;}
+        case RandoState_OTHER:  {_text=dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor,_i]; break;}
+        case RandoState_SEED:   {_text=dg_RandoSEED_Options[#RandoSEED_cursor,_i]; break;}
+        }
     }
     
     
@@ -533,7 +558,7 @@ for(_i=_IDX0; _i<RandoGrid_H; _i++)
         break;//_i
     }
 }
-
+//RandoOTHER_state RandoOTHER_state_ITEMS
 
 
 

@@ -86,8 +86,9 @@ dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_BACK,   2] = 0;
 
 
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE, 2] = 0;
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD, 2] = 0;
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,  2] = 0;
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_BAIT,   2] = 0;
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD, 2] = 0;
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_RING,   2] = 0;
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_PENDANT,2] = 0;
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,  2] = 0;

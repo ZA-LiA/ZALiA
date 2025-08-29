@@ -268,7 +268,8 @@ if (global.RandoHints_VER==2
         if (QUEST_NUM==2 
         ||  _ITEM_ID!=STR_MASK )
         {
-            if(!ItemLocations_ZELDA_HINT 
+            if ( ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.NONE 
+            ||   ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.JUMP 
             ||  (ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.FLUTE  && _ITEM_ID!=STR_FLUTE) 
             ||  (ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.ALLKEY && _ITEM_ID!=STR_ALLKEY) )
             {
@@ -348,7 +349,6 @@ if (global.RandoHints_VER==2
         }
     }
 }
-//ds_list_add(dl_hint_items,STR_CANDLE,STR_GLOVE,STR_RAFT,STR_BOOTS,STR_FLUTE,STR_CROSS,STR_HAMMER,STR_BRACELET,STR_BOOK,STR_RFAIRY,STR_NOTE,STR_ALLKEY, STR_TROPHY,STR_MIRROR,STR_FLOWER,STR_CHILD,STR_MASK, STR_MEAT,STR_SHIELD,STR_RING,STR_PENDANT,STR_SWORD);
 
 
 

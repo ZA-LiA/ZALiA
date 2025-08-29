@@ -635,6 +635,7 @@ if (_dm_FILE!=-1)
                 switch(_i){
                 default:{continue;}
                 case RandoOTHER_ITEMS_item_cursor_CANDLE: {_dk=STR_CANDLE;  _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_FLUTE:  {_dk=STR_FLUTE;   _pi=global.PI_MOB_ORG; break;}
                 case RandoOTHER_ITEMS_item_cursor_SHIELD: {_dk=STR_SHIELD;  _pi=global.PI_MOB_ORG; break;}
                 case RandoOTHER_ITEMS_item_cursor_BAIT:   {_dk=STR_MEAT;    _pi=global.PI_MOB_ORG; break;}
                 case RandoOTHER_ITEMS_item_cursor_RING:   {_dk=STR_RING;    _pi=global.PI_MOB_ORG; break;}

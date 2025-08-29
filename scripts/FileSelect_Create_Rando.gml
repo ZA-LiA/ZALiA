@@ -238,13 +238,15 @@ dg_RandoITEM_Options[#_idx,4] = "INCLUDE PBAGS IN THE MIX";
 //                                                          //
 RandoITEM_KEYS    = ++_idx;
 ds_grid_resize(dg_RandoITEM_Options, _idx+1,RandoGrid_H);
-dg_RandoITEM_Options[#_idx,0] = _X;       // 0: x
-dg_RandoITEM_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
-dg_RandoITEM_Options[#_idx,2] = 0;        // 2: state
-dg_RandoITEM_Options[#_idx,3] = "KEY-SANITY";  // 3: text
-dg_RandoITEM_Options[#_idx,4] = "INCLUDE KEYS IN THE MIX";
+dg_RandoITEM_Options[#_idx,0]  = _X;       // 0: x
+dg_RandoITEM_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
+dg_RandoITEM_Options[#_idx,2]  = 0;        // 2: state
+dg_RandoITEM_Options[#_idx,3]  = "KEY-SANITY";  // 3: text
+dg_RandoITEM_Options[#_idx,4]  = "INCLUDE KEYS IN THE MIX";
 //dg_RandoITEM_Options[#_idx,4] = "KEYS INCLUDED IN THE LOCATION MIX";
-dg_RandoITEM_Options[#_idx,5] = "NOTE: THIS WILL FORCE THE ALLKEY TO ITS VANILLA LOCATION.";
+dg_RandoITEM_Options[#_idx,5]  = "TO VIEW KEY INFO: OPEN THE SPELL MENU AND HOLD XBOX-Y BUTTON.";
+//dg_RandoITEM_Options[#_idx,5]  = "TO VIEW KEY INFO: OPEN THE SPELL MENU AND HOLD YOUR EQUIVILENT OF XBOX-Y BUTTON.";
+dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: THIS WILL FORCE THE ALLKEY TO ITS VANILLA LOCATION.";
 //dg_RandoITEM_Options[#_idx,5] = "NOTE: THIS WILL FORCE THE ALLKEY TO ITS VANILLA LOCATION, WHICH IS THE BOTTOM LEFT OF THE GREAT PALACE.";
 //                                                          //
 RandoITEM_OBSCURE_LOCS = ++_idx; // 
@@ -290,7 +292,7 @@ dg_RandoITEM_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
 dg_RandoITEM_Options[#_idx,2] = 0;        // 2: state
 dg_RandoITEM_Options[#_idx,3] = "ITEM HINTS"; // 3: text
 dg_RandoITEM_Options[#_idx,4] = "NPCS AND DIALOGUE OBJECTS WITH A '?' ABOVE THEM WILL GIVE A HINT TO THE LOCATION OF AN ITEM";
-dg_RandoITEM_Options[#_idx,5] = "TO VIEW FOUND HINTS: OPEN THE SPELL MENU AND HOLD YOUR EQUIVILENT OF 'XBOX-Y'";
+dg_RandoITEM_Options[#_idx,5] = "TO VIEW FOUND HINTS: OPEN THE SPELL MENU AND HOLD XBOX-B BUTTON.";
 /*
 dg_RandoITEM_Options[#_idx,4] = "SOME NPCS GIVE A HINT TO THE LOCATION OF AN ITEM";
 //dg_RandoITEM_Options[#_idx,4] = "SOME NPCS GIVE A HINT TO THE LOCATION OF A PROGRESSION ITEM";
@@ -316,10 +318,13 @@ dg_RandoITEM_Options[#_idx,0]  = _X;       // 0: x
 dg_RandoITEM_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
 dg_RandoITEM_Options[#_idx,2]  = 0;        // 2: state
 dg_RandoITEM_Options[#_idx,3]  = "ZELDA HINT"; // 3: text
-dg_RandoITEM_Options[#_idx,4]  = "FLUTE: ZELDA GIVES A HINT TO THE LOCATION OF THE FLUTE";
-dg_RandoITEM_Options[#_idx,5]  = "ALLKEY: ZELDA GIVES A HINT TO THE LOCATION OF THE ALLKEY";
+dg_RandoITEM_Options[#_idx,4]  = "FLUTE: ZELDA GIVES A HINT TO THE LOCATION OF THE FLUTE."+g.CHAR_END_LINE3+"NOTE THAT IF YOU START WITH THE FLUTE, THIS HINT WILL BE USELESS.";
+dg_RandoITEM_Options[#_idx,5]  = "ALLKEY: ZELDA GIVES A HINT TO THE LOCATION OF THE ALLKEY."+g.CHAR_END_LINE3+"THIS OPTION IS NOT AVAILABLE WITH KEY-SANITY TURNED ON.";
 dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"JUMP TOWN: ZELDA GIVES A HINT TO WHICH TOWN THE JUMP SPELL IS IN";
-dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: THE ALLKEY OPTION WILL NOT BE AVAILABLE WITH KEY-SANITY TURNED ON BECAUSE THE ALLKEY WILL BE IN ITS VANILLA LOCATION.";
+dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"TO VIEW FOUND HINTS: OPEN THE SPELL MENU AND HOLD XBOX-B BUTTON.";
+//dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: THE ALLKEY HINT WILL NOT BE AVAILABLE WITH KEY-SANITY TURNED ON BECAUSE THE ALLKEY WILL BE IN ITS VANILLA LOCATION.";
+//dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: IF YOU START WITH THE FLUTE, THE FLUTE HINT WILL BE USELESS.";
+//dg_RandoITEM_Options[#_idx,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: IF YOU START WITH THE FLUTE, THE FLUTE HINT WILL BE USELESS AND YOU WILL NEED TO MANUALLY CHANGE ZELDA HINT TO A DIFFERENT OPTION.";
 //                                                          //
 RandoITEM_BACK     = ++_idx;
 ds_grid_resize(dg_RandoITEM_Options, _idx+1,RandoGrid_H);
@@ -839,6 +844,7 @@ RandoOTHER_ITEMS_cursor_BACK_YOFF = $1C;
 
                                        _i=0;
 RandoOTHER_ITEMS_item_cursor_CANDLE  = _i++;
+RandoOTHER_ITEMS_item_cursor_FLUTE   = _i++;
 RandoOTHER_ITEMS_item_cursor_BAIT    = _i++;
 RandoOTHER_ITEMS_item_cursor_SHIELD  = _i++;
 RandoOTHER_ITEMS_item_cursor_RING    = _i++;
@@ -866,7 +872,22 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE,2] = 0;  // 2: state
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE,3] = STR_CANDLE;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE,4] = "START WITH THE CANDLE";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE,4] = "CANDLE";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_CANDLE,5] = "-LIGHTS UP TORCHES AND DARK ROOMS.";
+//                                                          //
+_x+=_dist1;
+ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,0]  = _x; // 0: x
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,1]  = _Y; // 1: y
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,2]  = 0;  // 2: state
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,3]  = STR_FLUTE;  // 3: text
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,4]  = "FLUTE";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,5]  = "-REMOVES OVERWORLD RIVER MONSTERS.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,5] += g.CHAR_END_LINE3+"PRESS ATTACK BUTTON TO USE.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-CAN WARP TO VISITED TOWNS.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,5] += g.CHAR_END_LINE3+"HOLD CAST MAGIC BUTTON AND PRESS ATTACK BUTTON TO SEQUENCE THROUGH TOWNS.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: IF YOU CHOSE FLUTE AS ZELDA'S HINT, THE HINT WILL BE USELESS.";
+//dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FLUTE,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: IF YOU CHOSE FLUTE AS ZELDA'S HINT, THE HINT WILL BE USELESS AND YOU'LL NEED TO MANUALLY CHANGE IT TO A DIFFERENT OPTION.";
 //                                                          //
 _x+=_dist1;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
@@ -874,7 +895,8 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_BAIT,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_BAIT,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_BAIT,2] = 0;  // 2: state
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_BAIT,3] = STR_MEAT;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_BAIT,4] = "START WITH THE BAIT";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_BAIT,4] = "BAIT";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_BAIT,5] = "-DISTRACTS OVERWORLD ENEMIES.";
 //                                                          //
 _x+=_dist1;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
@@ -882,7 +904,8 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD,2] = 0;  // 2: state
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD,3] = STR_SHIELD;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD,4] = "START WITH THE SHIELD";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD,4] = "SHIELD";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SHIELD,5] = "-BLOCKS ALL PROJECTILES.";
 //                                                          //
 _x+=_dist1;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
@@ -890,7 +913,8 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_RING,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_RING,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_RING,2] = 0;  // 2: state
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_RING,3] = STR_RING;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_RING,4] = "START WITH THE RED RING";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_RING,4] = "RING";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_RING,5] = "-REDUCES DAMAGE TAKEN.";
 //                                                          //
 _x+=_dist1;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
@@ -898,23 +922,30 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_PENDANT,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_PENDANT,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_PENDANT,2] = 0;  // 2: state
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_PENDANT,3] = STR_PENDANT;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_PENDANT,4] = "START WITH THE PENDANT";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_PENDANT,4] = "PENDANT";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_PENDANT,5] = "-SLOWLY REGENERATES MAGIC.";
 //                                                          //
 _x+=_dist1;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,0] = _x; // 0: x
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,1] = _Y; // 1: y
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,2] = 0;  // 2: state
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,3] = STR_SWORD;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,4] = "START WITH THE SWORD";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,0]  = _x; // 0: x
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,1]  = _Y; // 1: y
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,2]  = 0;  // 2: state
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,3]  = STR_SWORD;  // 3: text
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,4]  = "SWORD";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,5]  = "-IS +3 PIXELS LONGER.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-CAN DAMAGE ENEMIES WITH HARD SKIN.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-SWORD BEAMS GO FURTHER.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_SWORD,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"-WON'T LOSE SWORD BEAMS UNTIL 1 CONTAINER OF HP IS LOST.";
 //                                                          //
 _x+=_dist1;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,0] = _x; // 0: x
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,1] = _Y; // 1: y
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,2] = 0;  // 2: state
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,3] = STR_FEATHER;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,4] = "START WITH THE FEATHER";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,0]  = _x; // 0: x
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,1]  = _Y; // 1: y
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,2]  = 0;  // 2: state
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,3]  = STR_FEATHER;  // 3: text
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,4]  = "FEATHER";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,5]  = "-THIS IS DOUBLE JUMP AND IS ONLY HERE FOR FUN.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_FEATHER,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: YOU WILL NEED TO ENABLE IT IN THE OPTIONS MENU ONCE IN GAME.";
 //                                                          //
 _x+=_dist1;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
@@ -922,15 +953,20 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_NOTE,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_NOTE,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_NOTE,2] = 0;  // 2: state
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_NOTE,3] = STR_NOTE;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_NOTE,4] = "START WITH THE BAGU NOTE";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_NOTE,4] = "NOTE";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_NOTE,5] = "-BUILDS A BRIDGE ACROSS SARIA RIVER AFTER TALKING TO RIVER MAN.";
+//dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_NOTE,5] = "-AUTHORIZES YOU TO CROSS SARIA RIVER";
 //                                                          //
 _x+=_dist1;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,0] = _x; // 0: x
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,1] = _Y; // 1: y
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,2] = 0;  // 2: state
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,3] = STR_MAP1;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,4] = "START WITH THE WEST TREASURE MAP";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,0]  = _x; // 0: x
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,1]  = _Y; // 1: y
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,2]  = 0;  // 2: state
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,3]  = STR_MAP1;  // 3: text
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,4]  = "WEST TREASURE MAP";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,5]  = "-DISPLAYS THE LOCATIONS OF CONTAINERS, 1UPS, GOLD SLIMES, KEYS.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"ONLY FOR ITEMS WITH VANILLA LOCATIONS IN THE WEST HALF OF THE WORLD.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP1,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: DISPLAYING KEYS ONLY WORKS IN KEY-SANITY AND CAN BE TOGGLED IN THE OPTIONS MENU.";
 //                                                          //
 _x+=_dist1-4;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
@@ -938,7 +974,10 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,2] = 0;  // 2: state
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,3] = STR_MAP2;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,4] = "START WITH THE EAST TREASURE MAP";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,4] = "EAST TREASURE MAP";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,5]  = "-DISPLAYS THE LOCATIONS OF CONTAINERS, 1UPS, GOLD SLIMES, KEYS.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"ONLY FOR ITEMS WITH VANILLA LOCATIONS IN THE EAST HALF OF THE WORLD.";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAP2,5] += g.CHAR_END_LINE3+g.CHAR_END_LINE3+"NOTE: DISPLAYING KEYS ONLY WORKS IN KEY-SANITY AND CAN BE TOGGLED IN THE OPTIONS MENU.";
 //                                                          //
 //                                                          //
 //                                                          //
@@ -948,7 +987,7 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,2] = 0;  // 2: state
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,3] = STR_1UP;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,4] = "HOW MANY EXTRA LIFE DOLLS TO START WITH";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,4] = "NUMBER OF LIFE DOLLS TO START WITH";
 //                                                          //
 _x+=_dist2-4;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
@@ -956,7 +995,7 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,2] = f.CONT_MIN_HP; // 2: container count
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,3] = STR_HEART;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,4] = "HOW MANY HEART CONTAINERS TO START WITH";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_HEART,4] = "NUMBER OF HEART CONTAINERS TO START WITH";
 //                                                          //
 _x+=_dist2-4;
 ds_grid_resize(dg_RandoOTHER_ITEMS, ds_grid_width(dg_RandoOTHER_ITEMS)+1, ds_grid_height(dg_RandoOTHER_ITEMS));
@@ -964,7 +1003,7 @@ dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,0] = _x; // 0: x
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,1] = _Y; // 1: y
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,2] = f.CONT_MIN_MP; // 2: container count
 dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,3] = STR_MAGIC;  // 3: text
-dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,4] = "HOW MANY MAGIC CONTAINERS TO START WITH";
+dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_MAGIC,4] = "NUMBER OF MAGIC CONTAINERS TO START WITH";
 //                                                          //
 RandoContainerHP_MIN = 1;
 //RandoContainerHP_MIN = f.CONT_MIN_HP;

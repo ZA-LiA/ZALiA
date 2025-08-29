@@ -849,55 +849,69 @@ _i=0;
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Rauru;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_RAUR1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_RAURU;
+Warp_dg_DESTINATIONS[#_i,2] = "RAURU WOODS";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_RAURU;
 _i++;
 //                                              //
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Ruto;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_RUTO1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_RUTO;
+Warp_dg_DESTINATIONS[#_i,2] = "RUTO MOUNTAINS";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_RUTO;
 _i++;
 //                                              //
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Saria;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_SARI1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_SARIA;
+Warp_dg_DESTINATIONS[#_i,2] = "SARIA RIVER";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_SARIA;
 _i++;
 //                                              //
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Mido;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_MIDO1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_MIDO;
+Warp_dg_DESTINATIONS[#_i,2] = "MIDO HARBOR";
+//Warp_dg_DESTINATIONS[#_i,2] = "ROYAL CEMETERY";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_MIDO;
 _i++;
 //                                              //
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Nabooru;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_NABO1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_NABOORU;
+Warp_dg_DESTINATIONS[#_i,2] = "NABOORU FIELD";
+//Warp_dg_DESTINATIONS[#_i,2] = "NABOORU BAY";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_NABOORU;
 _i++;
 //                                              //
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Darunia;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_DARU1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_DARUNIA;
+Warp_dg_DESTINATIONS[#_i,2] = "DARUNIA MOUNTAINS";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_DARUNIA;
 _i++;
 //                                              //
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_New_Kasuto;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_NEWK1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_NEW_KASUTO;
+//Warp_dg_DESTINATIONS[#_i,2] = "KASUTO FOREST";
+//Warp_dg_DESTINATIONS[#_i,2] = "NEW KASUTO FOREST";
+Warp_dg_DESTINATIONS[#_i,2] = "HIDDEN TOWN";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_NEW_KASUTO;
 _i++;
 //                                              //
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Old_Kasuto;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_OLDK1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_KASUTO;
+Warp_dg_DESTINATIONS[#_i,2] = "KASUTO RIVER";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_KASUTO;
 _i++;
 //                                              //
 ds_grid_resize(Warp_dg_DESTINATIONS,_i+1,_Warp_dg_DESTINATIONS_ROWS);
 Warp_dg_DESTINATIONS[#_i,0] = STR_Bulblin;
 Warp_dg_DESTINATIONS[#_i,1] = g.OWRC_TOWN_BULB1;
-Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_BULBLIN;
+Warp_dg_DESTINATIONS[#_i,2] = "DRAGMIRE TOWN";
+//Warp_dg_DESTINATIONS[#_i,2] = "MONSTER TOWN";
+//Warp_dg_DESTINATIONS[#_i,2] = MapAreaName_BULBLIN;
 _i++;
 //                                              //
 

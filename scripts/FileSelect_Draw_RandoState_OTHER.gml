@@ -156,6 +156,7 @@ switch(RandoOTHER_state)
                 switch(_j){
                 default:{continue;}
                 case RandoOTHER_ITEMS_item_cursor_CANDLE: {_dk=STR_CANDLE;  _pi=global.PI_MOB_ORG; break;}
+                case RandoOTHER_ITEMS_item_cursor_FLUTE:  {_dk=STR_FLUTE;   _pi=global.PI_MOB_ORG; break;}
                 case RandoOTHER_ITEMS_item_cursor_BAIT:   {_dk=STR_MEAT;    _pi=global.PI_MOB_ORG; break;}
                 case RandoOTHER_ITEMS_item_cursor_SHIELD: {_dk=STR_SHIELD;  _pi=global.PI_MOB_ORG; break;}
                 case RandoOTHER_ITEMS_item_cursor_RING:   {_dk=STR_RING;    _pi=global.PI_MOB_ORG; break;}
@@ -165,7 +166,7 @@ switch(RandoOTHER_state)
                 case RandoOTHER_ITEMS_item_cursor_NOTE:   {_dk=STR_NOTE;    _pi=global.PI_MOB_ORG; break;}
                 case RandoOTHER_ITEMS_item_cursor_MAP1:   {_dk=STR_MAP1;    _pi=global.PI_MOB_ORG; break;}
                 case RandoOTHER_ITEMS_item_cursor_MAP2:   {_dk=STR_MAP2;    _pi=global.PI_MOB_ORG; break;}
-                case RandoOTHER_ITEMS_item_cursor_DOLLS:  {_dk=STR_1UP;     _pi=global.PI_PC1; break;}
+                case RandoOTHER_ITEMS_item_cursor_DOLLS:  {_dk=STR_1UP;     _pi=global.PI_PC1;     break;}
                 case RandoOTHER_ITEMS_item_cursor_HEART:  {_dk=STR_HEART;   _pi=global.PI_MOB_RED; break;}
                 case RandoOTHER_ITEMS_item_cursor_MAGIC:  {_dk=STR_MAGIC;   _pi=global.PI_MOB_ORG; break;}
                 }

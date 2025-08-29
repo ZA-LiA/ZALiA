@@ -94,8 +94,6 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         if(_Z3)sdm(_town_name1+" _owrc1 $"+hex_str(_owrc1)+",  "+_town_name2+" _owrc2 $"+hex_str(_owrc2));
         
         
-        //_map_area_name1 = g.dm_rm[?g.rm_name+MapAreaName_DATAKEY];
-        //MapAreaName = val(g.dm_rm[?g.rm_name+MapAreaName_DATAKEY], MapAreaName_DEF); //_map_area_name1
         _map_area_name1 = val(g.dm_town[?_town_name1+MapAreaName_DATAKEY], MapAreaName_DEF);
         _map_area_name2 = val(g.dm_town[?_town_name2+MapAreaName_DATAKEY], MapAreaName_DEF);
         
@@ -480,7 +478,7 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
                 {
                     dm_save_data[?_rm_name2+STR_OWRC] = _owrc1;
                     dm_save_data[?_rm_name2+STR_Overworld+STR_Town+STR_Name] = _town_name1;
-                    dm_save_data[?_rm_name2+MapAreaName_DATAKEY] = _map_area_name1;
+                    //dm_save_data[?_rm_name2+MapAreaName_DATAKEY] = _map_area_name1;
                 }
             }
         }
@@ -491,7 +489,7 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         // ---------------------------------------------------------------------------
         // ---------------------------------------------------------------------------
         // Change _town_name2 sign dialogue to _town_name1
-        if (1)
+        if (0)
         {
             _datakey  = STR_Town+STR_Sign+STR_Dialogue+STR_Datakey;
             _datakey1 = g.DIALOGUE_WINDOW.dm_dialogue[?_datakey+_town_name1];

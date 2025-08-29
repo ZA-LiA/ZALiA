@@ -77,8 +77,9 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS WHERE<LEEVERS<DA
 _loc_num = Rando_add_location(Area_EastA+'26',$01, LocCatID_Nabo01,0, 'PBag: Forest tile W of Nabooru', STR_PBAG,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS WEST OF<NABOORU.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS NEAR<NABOORU.";
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<NABOORU<FIELD.";
+if(!TownLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS WEST OF<NABOORU.";
+if(!TownLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS NEAR<NABOORU.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -88,7 +89,9 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<CAVE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<DARK CAVE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS NEAR<NABOORU.";
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<NABOORU<FIELD.";
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<A RIVER<MONSTER.";
+if(!TownLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS NEAR<NABOORU.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -97,7 +100,7 @@ _loc_num = Rando_add_location(Area_EastA+'53',$01, LocCatID_Nabo01,1, 'PBag: Nab
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN AN<OLD WELL.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS UNDER<NABOORU.";
+if(!TownLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS UNDER<NABOORU.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -174,7 +177,8 @@ _loc_num = Rando_add_location(Area_MazIs+'0A',$01, LocCatID_Maze01,0, 'Shoals ab
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS<SURROUNDED<BY WATER.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<THE MAZE<PALACE.";
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS NEAR A<MAZE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<THE MAZE<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS CLOSE<TO A<PALACE.";
 //                                                  //
 //                                                  //
@@ -184,7 +188,7 @@ _loc_num = Rando_add_location(Area_MazIs+'04',$01, LocCatID_Maze01,0, 'CHILD loc
 //_loc_num = Rando_add_location(Area_MazIs+'25',$01, LocCatID_Maze01,0, 'CHILD location', STR_CHILD,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<THE MAZE<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<THE MAZE<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS HIDDEN<IN A MAZE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS CLOSE<TO A<PALACE.";
 //                                                  //
@@ -195,7 +199,7 @@ _loc_num = Rando_add_location(Area_MazIs+'03',$01, LocCatID_Maze01,0, 'Maze Isl 
 //_loc_num = Rando_add_location(Area_MazIs+'24',$01, LocCatID_Maze01,0, 'Maze Isl Hole Container Piece location', STR_MAGIC,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<THE MAZE<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<THE MAZE<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "FALL DOWN<A HOLE FOR<THE<&.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS HIDDEN<IN A MAZE.";
 //                                                  //
@@ -351,13 +355,15 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<CAVE NEAR<A
 _loc_num = Rando_add_location(Area_WestA+'2E',$01, LocCatID_West02,0, 'PBag: Forest tile E of Saria', STR_PBAG,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS NEAR<SARIA.";
+if(!TownLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS NEAR<SARIA.";
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS NEAR<SARIA<RIVER.";
 //                                                  //
 //                                                  //
 // Moruge Swamp Container Piece location
 _loc_num = Rando_add_location(Area_WestA+'33',$01, LocCatID_West02,0, 'Moruge Swamp Container Piece location', STR_HEART,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<MORUGE<SWAMP.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<SWAMP.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS RIGHT<NEXT TO A<BOULDER.";
 //                                                  //
@@ -366,6 +372,7 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS RIGHT<NEXT TO A<
 _loc_num = Rando_add_location(Area_WestA+'34',$01, LocCatID_West02,0, 'Midoro Swamp Container Piece location', STR_MAGIC,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<MIDORO<SWAMP.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<SWAMP.";
 //                                                  //
 //                                                  //
@@ -373,6 +380,7 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<SWAMP."
 _loc_num = Rando_add_location(Area_WestA+'36',$01, LocCatID_West01,0, 'TROPHY location', STR_TROPHY,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<TANTARI<DESERT.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<CAVE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<CAVE.";
 //                                                  //
@@ -397,6 +405,7 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PLACE OF<RO
 _loc_num = Rando_add_location(Area_WestA+'3C',$01, LocCatID_West01,0, 'PBag: Upper North Castle Hallway', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS AT<NORTH<CASTLE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PLACE OF<ROYALTY.";
 //                                                  //
 //                                                  //
@@ -412,6 +421,7 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS CLOSE<TO A<PALAC
 _loc_num = Rando_add_location(Area_WestA+'42',$01, LocCatID_West01,0, 'PBag: North Castle vertical climb challenge', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS AT<NORTH<CASTLE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PLACE OF<ROYALTY.";
 //                                                  //
 //                                                  //
@@ -803,7 +813,7 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "PUSH SOME<STATUES<TO 
 _loc_num = Rando_add_location(Area_TownA+'61',$01, LocCatID_Town01,0, 'JUMP spell room', STR_HEART,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<MOUNTAIN<TOWN.";
+if(!TownLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<MOUNTAIN<TOWN.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS WHERE<MAGIC IS<TAUGHT.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<BASEMENT.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<TOWN.";
@@ -838,7 +848,7 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<TOWN.";
 _loc_num = Rando_add_location(Area_TownA+'63',$01, LocCatID_Town01,0, 'PBag: FAIRY spell room', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<A HARBOR<TOWN.";
+if(!TownLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<A HARBOR<TOWN.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS WHERE<MAGIC IS<TAUGHT.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<BASEMENT.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<TOWN.";
@@ -873,9 +883,10 @@ _loc_num = Rando_add_location(Area_TownA+'6F',$01, LocCatID_Town01,0, 'Mido Fair
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDO.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<A HARBOR<TOWN.";
+if(!TownLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<A HARBOR<TOWN.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS GIVEN<TO SAVIORS.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS A<RESCUERS<REWARD.";
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS A<FAIRYS<REWARD.";
+//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS A<RESCUERS<REWARD.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<HOUSE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<TOWN.";
 //                                                  //
@@ -991,10 +1002,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<TOWN.";
 _loc_num = Rando_add_location(Area_PalcA+'00',$01, LocCatID_Dngn01,0, 'P1 Container Piece location', STR_HEART,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PARAPA<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1002,37 +1014,41 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&
 _loc_num = Rando_add_location(Area_PalcA+'08',$01, LocCatID_Dngn01,0, 'P1 Item location', STR_CANDLE,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PARAPA<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
 // P1 Key 1
 _loc_num = Rando_add_location(Area_PalcA+'01',$01, LocCatID_Dngn01,0, 'P1 Key 1', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PARAPA<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
 // P1 Key 2
 _loc_num = Rando_add_location(Area_PalcA+'02',$01, LocCatID_Dngn01,0, 'P1 Key 2', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PARAPA<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
 // P1 Key 3
 _loc_num = Rando_add_location(Area_PalcA+'03',$01, LocCatID_Dngn01,0, 'P1 Key 3', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PARAPA<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<PARAPA<DESERT.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1043,10 +1059,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HORSEHEAD<STOLE THE<&
 _loc_num = Rando_add_location(Area_PalcB+'00',$01, LocCatID_Dngn01,0, 'PBag: P2 entrance', STR_PBAG,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDORO<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<WATERY<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1054,9 +1071,10 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE
 _loc_num = Rando_add_location(Area_PalcB+'15',$01, LocCatID_Dngn01,0, 'P2 Container Piece location', STR_MAGIC,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDORO<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1064,9 +1082,10 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE
 _loc_num = Rando_add_location(Area_PalcB+'06',$01, LocCatID_Dngn01,0, 'P2 Item location', STR_GLOVE,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDORO<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1074,40 +1093,45 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE
 _loc_num = Rando_add_location(Area_PalcB+'16',$01, LocCatID_Dngn01,0, 'P2 1up location', STR_1UP,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDORO<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
 // P2 Key 1
 _loc_num = Rando_add_location(Area_PalcB+'03',$01, LocCatID_Dngn01,0, 'P2 Key 1', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDORO<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
 // P2 Key 2
 _loc_num = Rando_add_location(Area_PalcB+'09',$01, LocCatID_Dngn01,0, 'P2 Key 2', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDORO<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
 // P2 Key 3
 _loc_num = Rando_add_location(Area_PalcB+'0E',$01, LocCatID_Dngn01,0, 'P2 Key 3', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDORO<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
 // P2 Key 4
 _loc_num = Rando_add_location(Area_PalcB+'10',$01, LocCatID_Dngn01,0, 'P2 Key 4', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MIDORO<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<SWAMP<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1118,10 +1142,10 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "HELMETHEAD<GUARDS THE
 _loc_num = Rando_add_location(Area_PalcC+'13',$01, LocCatID_Dngn01,0, 'P3 Container Piece location', STR_HEART,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1129,10 +1153,10 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER 
 _loc_num = Rando_add_location(Area_PalcC+'12',$01, LocCatID_Dngn01,0, 'P3 Item location', STR_RAFT,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1140,10 +1164,10 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER 
 _loc_num = Rando_add_location(Area_PalcC+'04',$02, LocCatID_Dngn01,0, 'PBag: P3 under blocks next to key', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1151,10 +1175,10 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER 
 _loc_num = Rando_add_location(Area_PalcC+'07',$02, LocCatID_Dngn01,0, 'PBag: Mau Spawner room', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1162,10 +1186,10 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER 
 _loc_num = Rando_add_location(Area_PalcC+'08',$01, LocCatID_Dngn01,0, 'PBag: Locked by upthrust', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1173,10 +1197,10 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER 
 _loc_num = Rando_add_location(Area_PalcC+'0C',$01, LocCatID_Dngn01,0, 'PBag: On blocks on top of pillar', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1184,45 +1208,45 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER 
 _loc_num = Rando_add_location(Area_PalcC+'0D',$01, LocCatID_Dngn01,0, 'PBag: Room left of Rebonack', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
 // P3 Key 1
 _loc_num = Rando_add_location(Area_PalcC+'04',$01, LocCatID_Dngn01,0, 'P3 Key 1', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 // P3 Key 2
 _loc_num = Rando_add_location(Area_PalcC+'06',$01, LocCatID_Dngn01,0, 'P3 Key 2', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 // P3 Key 3
 _loc_num = Rando_add_location(Area_PalcC+'07',$01, LocCatID_Dngn01,0, 'P3 Key 3', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 // P3 Key 4
 _loc_num = Rando_add_location(Area_PalcC+'0A',$01, LocCatID_Dngn01,0, 'P3 Key 4', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<ISLAND<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-//dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<ISLAND<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1233,10 +1257,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "REBONACK<HOVERS<OVER 
 _loc_num = Rando_add_location(Area_PalcD+'10',$01, LocCatID_Dngn01,0, 'P4 Item location', STR_BOOTS,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1244,10 +1269,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&."
 _loc_num = Rando_add_location(Area_PalcD+'09',$01, LocCatID_Dngn01,0, 'P4 Container Piece location', STR_MAGIC,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1255,10 +1281,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&."
 _loc_num = Rando_add_location(Area_PalcD+'01',$02, LocCatID_Dngn01,0, 'PBag: 2 Doomknockers and a key', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1266,10 +1293,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&."
 _loc_num = Rando_add_location(Area_PalcD+'04',$01, LocCatID_Dngn01,0, 'PBag: Room with 3 Stalfos and spiketraps', STR_PBAG,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1277,10 +1305,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&."
 _loc_num = Rando_add_location(Area_PalcD+'0B',$01, LocCatID_Dngn01,0, 'PBag: Room with blocks on top of pillars', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1288,61 +1317,68 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&."
 _loc_num = Rando_add_location(Area_PalcD+'0F',$01, LocCatID_Dngn01,0, 'PBag: Pit room left of BOOTS', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
 // P4 Key 1
 _loc_num = Rando_add_location(Area_PalcD+'01',$01, LocCatID_Dngn01,0, 'P4 Key 1', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 // P4 Key 2
 _loc_num = Rando_add_location(Area_PalcD+'02',$01, LocCatID_Dngn01,0, 'P4 Key 2', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 // P4 Key 3
 _loc_num = Rando_add_location(Area_PalcD+'07',$01, LocCatID_Dngn01,0, 'P4 Key 3', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 // P4 Key 4
 _loc_num = Rando_add_location(Area_PalcD+'0A',$01, LocCatID_Dngn01,0, 'P4 Key 4', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 // P4 Key 5
 _loc_num = Rando_add_location(Area_PalcD+'11',$01, LocCatID_Dngn01,0, 'P4 Key 5', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 // P4 Key 6
 _loc_num = Rando_add_location(Area_PalcD+'14',$01, LocCatID_Dngn01,0, 'P4 Key 6', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<MAZE ISL<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<MAZE<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<AN ISLAND.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1353,10 +1389,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "CAROCK<GUARDS THE<&."
 _loc_num = Rando_add_location(Area_PalcE+'0A',$01, LocCatID_Dngn01,0, 'P5 Container Piece location', STR_MAGIC,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1364,10 +1401,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&."
 _loc_num = Rando_add_location(Area_PalcE+'1A',$01, LocCatID_Dngn01,1, 'P5 Item location', STR_FLUTE,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1375,10 +1413,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&."
 _loc_num = Rando_add_location(Area_PalcE+'00',$01, LocCatID_Dngn01,0, 'PBag: P5 Entrance', STR_PBAG,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1386,10 +1425,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&."
 _loc_num = Rando_add_location(Area_PalcE+'0B',$01, LocCatID_Dngn01,0, 'PBag: Locked by upthrust and GLOVE 1', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1397,10 +1437,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&."
 _loc_num = Rando_add_location(Area_PalcE+'0C',$01, LocCatID_Dngn01,0, 'PBag: JUMP locked above elevator', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1408,10 +1449,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&."
 _loc_num = Rando_add_location(Area_PalcE+'12',$01, LocCatID_Dngn01,0, 'PBag: JUMP or STABUP locked on top of blocks', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING3;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1419,53 +1461,59 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&."
 _loc_num = Rando_add_location(Area_PalcE+'13',$02, LocCatID_Dngn01,0, 'PBag: Locked by upthrust and GLOVE 2', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
 // P5 Key 1
 _loc_num = Rando_add_location(Area_PalcE+'02',$01, LocCatID_Dngn01,0, 'P5 Key 1', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 // P5 Key 2
 _loc_num = Rando_add_location(Area_PalcE+'08',$01, LocCatID_Dngn01,0, 'P5 Key 2', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 // P5 Key 3
 _loc_num = Rando_add_location(Area_PalcE+'0F',$01, LocCatID_Dngn01,1, 'P5 Key 3', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 // P5 Key 4
 _loc_num = Rando_add_location(Area_PalcE+'13',$01, LocCatID_Dngn01,0, 'P5 Key 4', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 // P5 Key 5
 _loc_num = Rando_add_location(Area_PalcE+'1D',$01, LocCatID_Dngn01,1, 'P5 Key 5', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<PALACE ON<THE SEA.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE ON<THE SEA.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE IN<THE WATER.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1476,10 +1524,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "GOOMA SITS<ON THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'08',$01, LocCatID_Dngn01,0, 'P6 Item location', STR_CROSS,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1487,10 +1536,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'1A',$01, LocCatID_Dngn01,1, 'PBag: P6 Bottom room of pit to boss', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 // P6 Container Piece location
 //_loc_num = Rando_add_location(Area_PalcF+'1A',$01, LocCatID_Dngn01,0, 'P6 Container Piece location', STR_MAGIC,$01);
 //                                                  //
@@ -1500,10 +1550,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'01',$02, LocCatID_Dngn01,0, 'PBag: GLOVE locked 1', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1511,10 +1562,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'02',$01, LocCatID_Dngn01,0, 'PBag: GLOVE and STABUP locked 1', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1522,10 +1574,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'06',$01, LocCatID_Dngn01,0, 'PBag: GLOVE locked 2', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1533,10 +1586,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'0A',$01, LocCatID_Dngn01,0, 'PBag: Room with Atta', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1544,10 +1598,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'0C',$01, LocCatID_Dngn01,0, 'PBag: Endless pit 3', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1555,10 +1610,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'12',$01, LocCatID_Dngn01,0, 'P6 Container Piece location', STR_MAGIC,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 // PBag: Room with secret ceiling exit to Kakusu
 //_loc_num = Rando_add_location(Area_PalcF+'12',$01, LocCatID_Dngn01,0, 'PBag: Room with secret ceiling exit to Kakusu', STR_PBAG,$01);
 //                                                  //
@@ -1568,10 +1624,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'13',$02, LocCatID_Dngn01,0, 'PBag: Falling key room', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1579,10 +1636,11 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'17',$02, LocCatID_Dngn01,0, 'PBag: Under blocks with Mau Spawner', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING4;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1590,62 +1648,69 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcF+'1C',$01, LocCatID_Dngn01,0, 'PBag: Room below Kakusu room', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING2;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
 // P6 Key 1
 _loc_num = Rando_add_location(Area_PalcF+'01',$01, LocCatID_Dngn01,0, 'P6 Key 1', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 // P6 Key 2
 _loc_num = Rando_add_location(Area_PalcF+'09',$01, LocCatID_Dngn01,0, 'P6 Key 2', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 // P6 Key 3
 _loc_num = Rando_add_location(Area_PalcF+'0B',$01, LocCatID_Dngn01,0, 'P6 Key 3', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 // P6 Key 4 (falling key)
 FallingKey_RM_NAME=Area_PalcF+'13';
 _loc_num = Rando_add_location(FallingKey_RM_NAME,$01, LocCatID_Dngn01,0, 'P6 Key 4 (falling key)', STR_KEY,$01); // falling key
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 // P6 Key 5
 _loc_num = Rando_add_location(Area_PalcF+'17',$01, LocCatID_Dngn01,0, 'P6 Key 5', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 // P6 Key 6
 _loc_num = Rando_add_location(Area_PalcF+'1F',$01, LocCatID_Dngn01,0, 'P6 Key 6', STR_KEY,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN<3 EYE ROCK<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<DESERT<PALACE.";
+if(!DungeonLocations_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<HIDDEN<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<TOOK THE<PLACE OF A<KEY.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
+if(!DungeonBoss_WILL_RANDOMIZE) dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1656,8 +1721,8 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "BARBA<WATCHES<THE<&."
 _loc_num = Rando_add_location(Area_PalcG+'3A',$01, LocCatID_Dngn01,3, 'Great Palace Item location (SKELETON KEY)', STR_ALLKEY,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING1;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<PALACE OF<GREATNESS.";
 //                                                  //
 //                                                  //
@@ -1671,14 +1736,14 @@ _loc_num = Rando_add_location(Area_PalcG+'29',$03, LocCatID_Dngn01,2, 'Great Pal
 break;}
 }
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 // PBag: Room with 1up doll
 _loc_num = Rando_add_location(Area_PalcG+'29',$02, LocCatID_Dngn01,3, 'PBag: Room with 1up doll', STR_PBAG,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1686,8 +1751,8 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALAC
 _loc_num = Rando_add_location(Area_PalcG+'04',$01, LocCatID_Dngn01,1, 'PBag: Dead end room right of 1st elevator', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING5;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1695,40 +1760,40 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALAC
 _loc_num = Rando_add_location(Area_PalcG+'0B',$01, LocCatID_Dngn01,1, 'PBag: Room with 2 Fokkeru and a pit down under block bridge', STR_PBAG,$01);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING5;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
 // PBag: L7 room left side
 _loc_num = Rando_add_location(Area_PalcG+'2D',$01, LocCatID_Dngn01,3, 'PBag: L7 room left side', STR_PBAG,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
 // PBag: L7 room right side
 _loc_num = Rando_add_location(Area_PalcG+'2D',$02, LocCatID_Dngn01,2, 'PBag: Pit down room to Thunderbird path 2', STR_PBAG,$02);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
 // PBag: Location right of L7 room
 _loc_num = Rando_add_location(Area_PalcG+'2F',$01, LocCatID_Dngn01,2, 'PBag: Location right of L7 room', STR_PBAG,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
 // PBag: Room below L7 room
 _loc_num = Rando_add_location(Area_PalcG+'30',$01, LocCatID_Dngn01,2, 'PBag: Room below L7 room', STR_PBAG,$01, true);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
@@ -1736,16 +1801,16 @@ dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALAC
 _loc_num = Rando_add_location(Area_PalcG+'3C',$01, LocCatID_Dngn01,0, 'PBag: Next to fast travel', STR_PBAG,$01, true);
 dm_LOCATIONS[?hex_str(_loc_num)+STR_ALLKEY+STR_Rating]=_ALLKEY_RATING5;
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
 // PBag: Dead end room below top right falling blocks room
 _loc_num = Rando_add_location(Area_PalcG+'42',$01, LocCatID_Dngn01,3, 'PBag: Dead end room below top right falling blocks room', STR_PBAG,$01);
 _a=0;
+dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN THE<GREAT<PALACE.";
 dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "THE<&<IS IN A<PALACE.";
-dm_LOCATIONS[?hex_str(_loc_num)+STR_Hint+hex_str(++_a)] = "&<IS IN A<GREAT<PALACE.";
 //                                                  //
 //                                                  //
 //                                                  //
