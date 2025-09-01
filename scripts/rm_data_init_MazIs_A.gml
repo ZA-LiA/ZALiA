@@ -2832,7 +2832,22 @@ data_exit(EXM0,etB0,0,  clm3,row4,  $02,ROWS2,  clm3-1,row4,  rm_num_+EXM0_); //
 
 
 //   --------------------------  E0  --------------------------- 
-//    Testing: 
+//    Testing: Forest Water Ruins Scene
+rm_num  = $E0;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'215', STR_ow_axis+'00');
+
+
+data_spawn(rm+STR_PRIO,ReFaA,$1,  $3E<<3,(row0+$0D)<<3); // RestoreFairy  1
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,(row0+$14),  rm_num_+EXL0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,(row0+$10),  rm_num_+EXR0_); // RGT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  E1  --------------------------- 
