@@ -40,7 +40,7 @@ I'm still new the world of sharing source code and working with a community on a
 4. ~~In **GameMaker:Studio** > In the assets tree > In the **Scripts** folder > In the **game_object** folder > In the **goa** folder > Open the **PC_init** script > Find the comment `// UNCOMMENT WHICH SKINS YOU WILL USE HERE` > Uncomment which skins you're going to use.~~
 
 # Alternate Audio Sets
-**2025/9/2**: I've decided to keep all the player skins here in the repository.
+**2025/9/2**: I've decided to keep all the audio sets here in the repository.
 
 ~~The largest files are audio, and there are 9 extra audio sets added by the community. Because this can slow down development time, I have removed most of them until a new release.~~
 
