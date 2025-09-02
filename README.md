@@ -31,7 +31,7 @@ I'm still new the world of sharing source code and working with a community on a
 # Player Skins
 **2025/9/2**: I've decided to keep all the player skins here in the repository.
 
-~~There are ~3800 additional sprites due to the player skins. I have removed all but the default skin so that all the extras are not in the way during development.~~
+~~There are about 3800 additional sprites due to the player skins. I have removed all but the default skin so that all the extras are not in the way during development.~~
 
 ~~When it's time to release the project, or if you would like to include any of the extra skins during development:~~
 1. ~~Download [**files_for_importing_player_skins**](https://drive.google.com/file/d/1zvKcnBdjs-6mfKKPTBxRmiQo6pVYciEb/view?usp=sharing) folder and unzip. It contains all the player skin .gmx files and the .png image files that go with them.~~
