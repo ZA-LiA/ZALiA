@@ -54,8 +54,10 @@ for(_i=val(g.dm_RandoHints[?STR_Hint+STR_Count]); _i>=1; _i--) ds_list_add(dl_hi
 ds_list_shuffle(dl_hint_loc_nums_shuffled);
 
 
-dl_hint_items = ds_list_create();
-ds_list_add(dl_hint_items,STR_CANDLE,STR_GLOVE,STR_RAFT,STR_BOOTS,STR_FLUTE,STR_CROSS,STR_HAMMER,STR_BRACELET,STR_BOOK,STR_RFAIRY,STR_NOTE,STR_ALLKEY, STR_TROPHY,STR_MIRROR,STR_FLOWER,STR_CHILD,STR_MASK, STR_MEAT,STR_SHIELD,STR_RING,STR_PENDANT,STR_SWORD);
+            dl_hint_items = ds_list_create();
+ds_list_add(dl_hint_items,STR_CANDLE,STR_GLOVE,STR_RAFT,STR_BOOTS,STR_FLUTE,STR_CROSS,STR_HAMMER,STR_BRACELET,STR_BOOK,STR_RFAIRY,STR_NOTE,STR_ALLKEY);
+ds_list_add(dl_hint_items,STR_TROPHY,STR_MIRROR,STR_FLOWER,STR_CHILD,STR_MASK);
+ds_list_add(dl_hint_items,STR_MEAT,STR_SHIELD,STR_RING,STR_PENDANT,STR_SWORD);
 
 
 

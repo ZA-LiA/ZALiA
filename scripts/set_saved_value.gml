@@ -10,6 +10,7 @@ var _NEW_VALUE =        argument[_arg++];
 
 var                      _WILL_DELETE = false;
 if (argument_count>_arg) _WILL_DELETE = argument[_arg++];
+//var _WILL_DELETE = argument_count>_arg && argument[_arg++];
 
 
 var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
@@ -21,21 +22,19 @@ if (file_exists(_FILE_NAME))
     {
         _file      = file_text_open_read(working_directory+_FILE_NAME);
         _file_data = file_text_read_string(_file);
-                     file_text_close(      _file);
+                     file_text_close(_file);
     }
     
     var _dm_save_data = json_decode(_file_data);
     if (_dm_save_data!=-1)
     {
-        //if (ds_exists(_dm_save_data,ds_type_map))
         if (_WILL_DELETE) ds_map_delete(_dm_save_data, _DATAKEY);
         else _dm_save_data[?_DATAKEY] = _NEW_VALUE;
-        //
         
-        var _dm_save_data_ENCODED = json_encode(_dm_save_data);
+        var  _dm_save_data_ENCODED = json_encode(_dm_save_data);
         _file = file_text_open_write(working_directory+_FILE_NAME);
                 file_text_write_string(_file,_dm_save_data_ENCODED);
-                file_text_close(       _file);
+                file_text_close(_file);
         //
         global.dm_save_file_data[?STR_Save+STR_File+hex_str(_FILE_NUM)+"_Encoded"] = _dm_save_data_ENCODED;
         
