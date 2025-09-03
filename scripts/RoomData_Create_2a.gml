@@ -405,7 +405,7 @@ else
         
         //  ----------------------------  097  ----------------------------
         dm_rm[?STR_Tile+STR_File+'WestA_097'+STR_Width ] = $0200;
-        dm_rm[?STR_Tile+STR_File+'WestA_097'+STR_Height] = $0100;
+        dm_rm[?STR_Tile+STR_File+'WestA_097'+STR_Height] = $0200;
         
         //  ----------------------------  098  ----------------------------
         

@@ -627,21 +627,48 @@ if (_C1 || _C2 || _C3 || _C4)
         }
         
         
-        if (g.Rando_RauruRiverDevil)
+        _owrc = dm[?dk_RauruPass+STR_OWRC];
+        if(!is_undefined(_owrc))
         {
-            _owrc = dm[?STR_Rando+STR_River_Devil+STR_OWRC];
-            if(!is_undefined(_owrc))
+            switch(global.Rando_RauruPass_VER)
             {
+                case 1:{
+                // Vanilla boulder
+                break;}
+                
+                case 2:{
                     dm[?hex_str(_owrc)+STR_River_Devil+STR_State] = 0;
                 if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
                 {
                     dm[?hex_str(_owrc)+STR_River_Devil+STR_State] = 1;
                     dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm[?STR_Rando+STR_River_Devil+STR_TSRC]);
-                    //dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm[?STR_Rando+STR_River_Devil+STR_TSRC], $D8);
                     dg_solid[#byte(_owrc>>0),byte(_owrc>>8)] = 1;
                 }
+                break;}
+                
+                case 3:{
+                if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
+                {
+                    dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = (TILESET1_TS_IDX<<8) | TSRC_PATH03;
+                    dg_solid[#byte(_owrc>>0),byte(_owrc>>8)] = 0;
+                }
+                break;}
             }
         }
+        /*
+        _owrc = dm[?STR_Rando+STR_River_Devil+STR_OWRC];
+        if(!is_undefined(_owrc))
+        {
+                dm[?hex_str(_owrc)+STR_River_Devil+STR_State] = 0;
+            if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
+            {
+                dm[?hex_str(_owrc)+STR_River_Devil+STR_State] = 1;
+                dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm[?STR_Rando+STR_River_Devil+STR_TSRC]);
+                //dg_tsrc[# byte(_owrc>>0),byte(_owrc>>8)] = val(dm[?STR_Rando+STR_River_Devil+STR_TSRC], $D8);
+                dg_solid[#byte(_owrc>>0),byte(_owrc>>8)] = 1;
+            }
+        }
+        */
         
         
         

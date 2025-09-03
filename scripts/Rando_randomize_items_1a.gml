@@ -81,9 +81,25 @@ if(!Rando_is_qual_location(STR_Mido)
     
     //val(g.dm_rm[?STR_Spell+STR_Scene+STR_Name+STR_Ruto],Area_TownA+'61')
     ds_list_clear(_dl_options);
-    ds_list_add(_dl_options,STR_GLOVE);    // Rauru Pass Cave
-    ds_list_add(_dl_options,STR_BRACELET); // Rauru Pass Cave
-    ds_list_add(_dl_options,STR_FLUTE);    // Rauru Pass River Devil
+    switch(global.Rando_RauruPass_VER)
+    {
+        case 1:{
+        ds_list_add(_dl_options,STR_GLOVE);    // Rauru Pass Cave
+        ds_list_add(_dl_options,STR_BRACELET); // Rauru Pass Cave
+        ds_list_add(_dl_options,STR_HAMMER);   // Rauru Pass
+        break;}
+        
+        case 2:{
+        ds_list_add(_dl_options,STR_GLOVE);    // Rauru Pass Cave
+        ds_list_add(_dl_options,STR_BRACELET); // Rauru Pass Cave
+        ds_list_add(_dl_options,STR_FLUTE);    // Rauru Pass River Devil
+        break;}
+        
+        case 3:{
+        ds_list_add(_dl_options,STR_GLOVE);    // Rauru Pass
+        ds_list_add(_dl_options,STR_BRACELET); // Rauru Pass
+        break;}
+    }
     
     ds_list_clear(_dl_town_name);
     ds_list_add(  _dl_town_name,_Town1_NAME,_Town2_NAME);
@@ -167,7 +183,7 @@ if(!Rando_is_qual_location(STR_Mido)
     
     
     ds_list_clear(_dl_1);
-    if(!Rando_are_attainable(STR_JUMP,STR_FAIRY))
+    if(!Rando_are_attainable(STR_JUMP,STR_FAIRY)) // Saria Bridge
     {
         for(_i=ds_list_size(_dl_town_name)-1; _i>=0; _i--)
         {
@@ -187,7 +203,7 @@ if(!Rando_is_qual_location(STR_Mido)
     }
     
     if (ds_list_size(_dl_1)==2 
-    ||  Rando_are_attainable(STR_JUMP,STR_FAIRY) )
+    ||  Rando_are_attainable(STR_JUMP,STR_FAIRY) ) // Saria Bridge
     {
         ds_list_add(_dl_options,STR_JUMP+STR_FAIRY); // Route: Saria Bridge with STR_JUMP+STR_FAIRY
     }
@@ -200,7 +216,7 @@ if(!Rando_is_qual_location(STR_Mido)
         ds_list_shuffle(_dl_options);
         _item_id =      _dl_options[|0];
         
-        if (isVal(_item_id,STR_NOTE,STR_JUMP+STR_FAIRY))
+        if (isVal(_item_id,STR_NOTE,STR_JUMP+STR_FAIRY)) // Saria Bridge
         {   // Route: Over Saria Bridge and through Death Mtn
             if (ItemLocations_DARKROOM_DIFFICULTY<2 
             && !Rando_is_attainable(STR_CANDLE,STR_FIRE) )

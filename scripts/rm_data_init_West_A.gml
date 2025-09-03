@@ -2791,16 +2791,39 @@ data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
 
 
 //   --------------------------  5B  ---------------------------  
-//    (Rando Only) - Shortcut from Rauru Forest to Midoro Field 
+//    Rando Only - Getting from Rauru to Midoro Field
 rm_num  = $5B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_WA+'097', STR_ow_axis+'01');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR2_, STR_Tile+area_WA+'097', STR_ow_axis+'01');
+//STR_View+'00'
 
-
-row3=row0+$16; y3=row3<<3;
-row4=row3+$01; y4=row4<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $35<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  dk_PI+hex_str(global.PI_BGR4)); // Pushable
+switch(global.Rando_RauruPass_VER)
+{
+    case 1:{ // Cave from Rauru Forest to Midoro Field 
+    row3=row0+$16; y3=row3<<3;
+    row4=row3+$01; y4=row4<<3;
+    data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+    data_spawn(rm+STR_PRIO,TorchA,$1,  $35<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+    data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  dk_PI+hex_str(global.PI_BGR4)); // Pushable
+    
+    
+    data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 
+    data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
+    break;}
+    
+    case 2:{ // Cave from Rauru Forest to Midoro Field 
+    row3=row0+$16; y3=row3<<3;
+    row4=row3+$01; y4=row4<<3;
+    data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+    data_spawn(rm+STR_PRIO,TorchA,$1,  $35<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+    data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  dk_PI+hex_str(global.PI_BGR4)); // Pushable
+    break;}
+    
+    case 3:{ // Rauru Pass
+    row3=row0+$14; y3=row3<<3;
+    data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+    data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  dk_PI+hex_str(global.PI_BGR3)); // Pushable
+    break;}
+}
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 

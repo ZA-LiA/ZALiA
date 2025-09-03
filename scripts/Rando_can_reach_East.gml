@@ -1,20 +1,39 @@
 /// Rando_can_reach_East()
 
 
-// Get to Mido through Raftway
-if ( Rando_is_attainable(STR_FIRE)  // Through Fire-Vines Cave
-||  (Rando_is_attainable(STR_RAFT) && Rando_can_traverse_NIslMtnPass()) ) // Whale Isl warp to Mido
+var _can_reach_Midoro_area = false;
+switch(global.Rando_RauruPass_VER)
 {
-    if (Rando_is_attainable(STR_RAFT))
+    case 1:{
+    if (Rando_can_traverse_RauruPass()          // The boulder/RiverDevil next to Rauru
+    ||  Rando_can_traverse_RauruToMidoroCave()  // The cave next to Rauru to Midoro Field that's only in rando
+    ||  Rando_can_traverse_JUMPCave() )
     {
-        return true;
+        _can_reach_Midoro_area = true;
     }
+    break;}
+    
+    case 2:{
+    if (Rando_can_traverse_RauruPass()          // The boulder/RiverDevil next to Rauru
+    ||  Rando_can_traverse_RauruToMidoroCave()  // The cave next to Rauru to Midoro Field that's only in rando
+    ||  Rando_can_traverse_JUMPCave() )
+    {
+        _can_reach_Midoro_area = true;
+    }
+    break;}
+    
+    case 3:{
+    if (Rando_can_traverse_RauruPass()          // The boulder/RiverDevil next to Rauru
+    ||  Rando_can_traverse_JUMPCave() )
+    {
+        _can_reach_Midoro_area = true;
+    }
+    break;}
 }
 
-// Get to Midoro Field
-if (Rando_can_traverse_RauruPass() 
-||  Rando_can_traverse_RauruToMidoroCave() 
-||  Rando_can_traverse_JUMPCave() )
+
+// From Midoro/Morogue area
+if (_can_reach_Midoro_area)
 {
     // Go through Mido Boulder Pass
     if (Rando_is_attainable(STR_HAMMER))
@@ -34,6 +53,17 @@ if (Rando_can_traverse_RauruPass()
         {
             return true;
         }
+    }
+}
+
+
+// Get to Mido through Raftway
+if ( Rando_is_attainable(STR_FIRE)  // Through Fire-Vines Cave
+||  (Rando_is_attainable(STR_RAFT) && Rando_can_traverse_NIslMtnPass()) ) // Whale Isl warp to Mido
+{
+    if (Rando_is_attainable(STR_RAFT))
+    {
+        return true;
     }
 }
 

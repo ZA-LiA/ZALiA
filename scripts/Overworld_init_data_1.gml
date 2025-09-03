@@ -918,14 +918,23 @@ for(_i=0; _i<_layer_count; _i++) // each layer
         
         if (_layer_name==STR_Boulder)
         {
-            if (g.Rando_RauruRiverDevil 
-            &&  string_pos(STR_Rauru+STR_Boulder,_info) )
+            if (string_pos(STR_Rauru+STR_Boulder,_info))
             {
-                dm[?STR_Rando+STR_River_Devil+STR_OWRC] = _owrc;
-                dm[?STR_Rando+STR_River_Devil+STR_TSRC] = (TILESET2_TS_IDX<<8) | $F8;
-                //dm[?STR_Rando+STR_River_Devil+STR_TSRC] = $D8;
-                //dm[?_owrc_+STR_River_Devil+STR_State]   = 1;
-                dm[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = (TILESET1_TS_IDX<<8) | TSRC_PATH02;
+                dm[?dk_RauruPass+STR_OWRC] = _owrc;
+                switch(global.Rando_RauruPass_VER)
+                {
+                    case 2:{
+                    dm[?STR_Rando+STR_River_Devil+STR_OWRC] = _owrc;
+                    dm[?STR_Rando+STR_River_Devil+STR_TSRC] = (TILESET2_TS_IDX<<8) | $F8;
+                    //dm[?STR_Rando+STR_River_Devil+STR_TSRC] = $D8;
+                    //dm[?_owrc_+STR_River_Devil+STR_State]   = 1;
+                    dm[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = (TILESET1_TS_IDX<<8) | TSRC_PATH02;
+                    break;}
+                    
+                    case 3:{
+                    
+                    break;}
+                }
             }
         }
         else if (_layer_name==STR_Monster)

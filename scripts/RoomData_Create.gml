@@ -1651,7 +1651,7 @@ with(g.PAUSE_MENU)
 
 
 
-
+//dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 //if (global.REINITIALIZE_DATA1) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 
 

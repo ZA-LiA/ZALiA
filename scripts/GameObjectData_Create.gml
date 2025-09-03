@@ -2224,6 +2224,17 @@ data_REFLECT_vuln(o_name+"02", object_get_name(Axe)+"01", object_get_name(Bullet
 
 
 // -----------------------------------------------------------------------------
+// Balshot  --------------------------------------------------------
+o_name = object_get_name(Balshot);
+data_go_prop1(Balshot, "Balshot", spr_Balshot);
+data_go_scr(  o_name, Balshot_init1, Balshot_init2, Balshot_update);
+//                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
+data_go_prop2(o_name+"01", PIe, HBa, CSh, $01,  $03,XPa0, RSPd, DRPa,  $00,  $00,  $00,  $00,  $00);
+
+//data_REFLECT_vuln(o_name+"01", object_get_name(Axe)+"01", object_get_name(Bullet1)+"01", object_get_name(Bullet1)+"02", object_get_name(Bullet2)+"01", object_get_name(Fireball1)+"01", object_get_name(Fireball1)+"02", object_get_name(Rock2)+"01", object_get_name(Mace1)+"01", object_get_name(SwordBeam)+"01");
+
+
+// -----------------------------------------------------------------------------
 // Blaze  --------------------------------------------------------
 _PI1 = PIa;
 _SWD = SWDe;

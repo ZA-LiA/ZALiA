@@ -1,11 +1,33 @@
 /// Rando_can_reach_MidoroField()
 
 
-if (Rando_can_traverse_RauruPass()          // The boulder/RiverDevil next to Rauru
-||  Rando_can_traverse_RauruToMidoroCave()  // The cave next to Rauru to Midoro Field that's only in rando
-||  Rando_can_traverse_JUMPCave() )
+switch(global.Rando_RauruPass_VER)
 {
-    return true;
+    case 1:{
+    if (Rando_can_traverse_RauruPass()          // The boulder/RiverDevil next to Rauru
+    ||  Rando_can_traverse_RauruToMidoroCave()  // The cave next to Rauru to Midoro Field that's only in rando
+    ||  Rando_can_traverse_JUMPCave() )
+    {
+        return true;
+    }
+    break;}
+    
+    case 2:{
+    if (Rando_can_traverse_RauruPass()          // The boulder/RiverDevil next to Rauru
+    ||  Rando_can_traverse_RauruToMidoroCave()  // The cave next to Rauru to Midoro Field that's only in rando
+    ||  Rando_can_traverse_JUMPCave() )
+    {
+        return true;
+    }
+    break;}
+    
+    case 3:{
+    if (Rando_can_traverse_RauruPass()          // The boulder/RiverDevil next to Rauru
+    ||  Rando_can_traverse_JUMPCave() )
+    {
+        return true;
+    }
+    break;}
 }
 
 

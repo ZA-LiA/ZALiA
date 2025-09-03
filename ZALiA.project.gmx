@@ -11292,6 +11292,9 @@
         <sprite>sprites\spr_Bago1</sprite>
         <sprite>sprites\spr_Bago2</sprite>
       </sprites>
+      <sprites name="balshot">
+        <sprite>sprites\spr_Balshot</sprite>
+      </sprites>
       <sprites name="blooby">
         <sprite>sprites\spr_Blooby_1a_1</sprite>
         <sprite>sprites\spr_Blooby_1b_1</sprite>
@@ -12713,6 +12716,11 @@
               <script>scripts\Bago_init2.gml</script>
               <script>scripts\Bago_update.gml</script>
               <script>scripts\Bago_udp.gml</script>
+            </scripts>
+            <scripts name="balshot">
+              <script>scripts\Balshot_init1.gml</script>
+              <script>scripts\Balshot_init2.gml</script>
+              <script>scripts\Balshot_update.gml</script>
             </scripts>
             <scripts name="blaze">
               <script>scripts\Blaze_end.gml</script>
@@ -14546,6 +14554,9 @@
             <objects name="bago">
               <object>objects\BagoA</object>
             </objects>
+            <objects name="balshot">
+              <object>objects\Balshot</object>
+            </objects>
             <objects name="blaze">
               <object>objects\BlazA</object>
             </objects>
@@ -15039,7 +15050,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="998">
+  <constants number="999">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -16035,6 +16046,7 @@
     <constant name="dk_DialogueDatakey">"_DialogueDatakey"</constant>
     <constant name="dk_UserPreferences">"_UserPreferences"</constant>
     <constant name="dk_ChosenHintDialogue">"_ChosenHintDialogue"</constant>
+    <constant name="dk_RauruPass">"_RauruPass"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
     <constant name="UserPrefFileName">"UserPreferences.txt"</constant>

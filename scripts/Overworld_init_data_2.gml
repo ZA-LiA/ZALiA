@@ -2500,21 +2500,6 @@ g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04;               // goto ow facing di
 g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
 
 
-_owrc=$6155; _owrc_=hex_str(_owrc);
-_scene_id = '_WestA_5B';
-g.dm_rm[?_scene_id+STR_OWRC]           = _owrc;             // scene owrc
-g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6155;             // goto owrc
-g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04;               // goto ow facing dir
-g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
-_owrc=$5F53; _owrc_=hex_str(_owrc);
-_scene_id = '_WestA_5B';
-g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5F53;             // goto owrc
-g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08;               // goto ow facing dir
-g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
-
-
 _owrc=$6965; _owrc_=hex_str(_owrc);
 _scene_id = '_WestA_5C';
 g.dm_rm[?_scene_id+STR_OWRC]           = _owrc;             // scene owrc
@@ -2540,6 +2525,17 @@ g.dm_rm[?_scene_id+STR_OWRC]           = _owrc;             // scene owrc
 g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $7315;             // goto owrc
 g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $02;               // goto ow facing dir
 g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+
+
+_owrc=$6057; _owrc_=hex_str(_owrc);
+_scene_id = '_WestA_5B';
+g.dm_rm[?_scene_id+STR_OWRC]           = _owrc;             // scene owrc
+g.dm_rm[?_scene_id+'20'+STR_OWRC]      = $5F57;             // goto owrc
+g.dm_rm[?_scene_id+'20'+STR_ow_dir]    = $08;               // goto ow facing dir
+g.dm_rm[?_scene_id+'20'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
+g.dm_rm[?_scene_id+'10'+STR_OWRC]      = $6157;             // goto owrc
+g.dm_rm[?_scene_id+'10'+STR_ow_dir]    = $04;               // goto ow facing dir
+g.dm_rm[?_scene_id+'10'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit
 
 
 

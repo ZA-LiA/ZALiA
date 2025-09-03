@@ -1,10 +1,28 @@
 /// Rando_can_traverse_RauruPass()
 
 
-if ((g.Rando_RauruRiverDevil && Rando_is_attainable(STR_FLUTE))
-|| (!g.Rando_RauruRiverDevil && Rando_is_attainable(STR_HAMMER)) )
+switch(global.Rando_RauruPass_VER)
 {
-    return true;
+    case 1:{
+    if (Rando_is_attainable(STR_HAMMER))
+    {
+        return true;
+    }
+    break;}
+    
+    case 2:{
+    if (Rando_is_attainable(STR_FLUTE))
+    {
+        return true;
+    }
+    break;}
+    
+    case 3:{
+    if (Rando_is_attainable(STR_GLOVE,STR_BRACELET))
+    {
+        return true;
+    }
+    break;}
 }
 
 

@@ -2999,7 +2999,7 @@ rm_num  = $69;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_EA+'139', STR_ow_axis+'01', MapAreaName_DATAKEY+_MapAreaName_SEASHORE, dk_SceneMusicThemeException+"01");
 
 
-data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init); // 
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 data_spawn(rm+STR_PRIO,PushA,$2,  $21<<3,(row0+$0A)<<3,  dk_PI+hex_str(_pi)); // Pushable
 
 

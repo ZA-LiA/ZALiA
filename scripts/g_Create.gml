@@ -475,7 +475,8 @@ dm_RandoHintsRecorder=ds_map_create();
 
 dm_RandoHints=ds_map_create();
 
-Rando_RauruRiverDevil=true;
+// 1: HAMMER locked boulder, 2: FLUTE locked River Devil, 3: GLOVE or BRACELET locked scene
+global.Rando_RauruPass_VER = 3;
 
 
 
