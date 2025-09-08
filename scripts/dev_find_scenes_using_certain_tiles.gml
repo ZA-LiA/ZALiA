@@ -22,8 +22,9 @@ var _RULE = 0;
 
 
 // Looking for anything using ts_Natural_2a_WRB
-var _TS_NAME = "ts_Natural_2a_WRB";
-ds_list_clear(_dl_tsrc); // means any tile from the tileset
+var _TS_NAME = "ts_Man_made_8a_HMS";
+_i = $60;
+repeat($AB-_i) ds_list_add(_dl_tsrc,_i++);
 
 /*
 // Natural tiles in ts_ManMade05

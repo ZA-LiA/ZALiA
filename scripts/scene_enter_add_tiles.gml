@@ -37,6 +37,8 @@ var _PREFIX_LEN = string_length(STR_BREAK_); // Length of the prefix to any dyna
 
 var _data_system_ver = $01;
 
+var _TILE_FILE_NAME = string(val(dm_tile_file[?STR_Tile+STR_File+STR_Name]));
+
 
 var _CLMS = g.dm_tile_file[?"width"];
 var _ROWS = g.dm_tile_file[?"height"];
@@ -197,6 +199,14 @@ with(g.burnable_mgr)
     ds_grid_clear (dg_RmTile_Burnable_def, 0);
     ds_grid_resize(dg_Burnable,0,ds_grid_height(dg_Burnable));
     ds_grid_clear (dg_Burnable,0);
+}
+
+
+var _UniqueRandomTiles_dg = ds_grid_create(_CLMS,_ROWS);
+if (global.UniqueRandomTiles_MAIN)
+{
+    _data = f.dm_rando[?dk_StoneTileset+"01"+_TILE_FILE_NAME];
+    if(!is_undefined(_data)) ds_grid_read(_UniqueRandomTiles_dg, _data);
 }
 
 
@@ -523,6 +533,10 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         }
         
         
+        _clm = _j mod _CLMS;
+        _row = _j div _CLMS;
+        
+        
         if (string_pos("LIQUID_03",_layer_name)) // Vertical movement (like waterfalls)
         {
             if (string_pos("DIR_04",_layer_name))       _tile_data = (_tile_data&$3FFFFFFF) | choose($0,$40000000,$80000000,$C0000000);
@@ -572,7 +586,18 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         */
         
         
-        if (g.dungeon_num 
+        if (global.UniqueRandomTiles_MAIN 
+        &&  global.RandoDungeonTilesets_enabled 
+        && !is_undefined(f.dm_rando[?dk_StoneTileset+"01"+_TILE_FILE_NAME+_layer_name]) 
+        &&  _UniqueRandomTiles_dg[#_clm,_row] )
+        {
+            _data = _UniqueRandomTiles_dg[#_clm,_row];
+            _ts   = g.dl_tileset[|(_data>>8)&$FF];
+            _tsrc = _data&$FF;
+            _scale_x = 1;
+            _scale_y = 1;
+        }
+        else if (g.dungeon_num 
         &&  string_pos(STR_Dungeon,background_get_name(_ts)) )
         {
             if (_IS_RANDOMIZED_SCENE)
@@ -608,16 +633,13 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 _tsrc = _val2;
             }
         }
-        //_RANDOMIZED_TILES_DUNGEON_NAME
         
         
         
         
-        
-        _clm = _j mod _CLMS;
-        _row = _j div _CLMS;
         _x = (_clm+(_scale_x==-1)) <<3;
         _y = (_row+(_scale_y==-1)) <<3;
+        
         
         
         
@@ -1129,6 +1151,15 @@ for(_i=ds_grid_width(g.dg_tile_anim)-1; _i>=0; _i--)
     g.dg_tile_anim[#_i,7] = 1;     // animation dir (1: normal, -1: reverse)
     g.dg_tile_anim[#_i,8] = 0;     // other, special instructions or codes
 }
+
+
+
+
+
+
+
+ds_grid_destroy(_UniqueRandomTiles_dg); _UniqueRandomTiles_dg=undefined;
+//ds_map_destroy(_StoneTileset01_dm); _StoneTileset01_dm=undefined;
 
 
 

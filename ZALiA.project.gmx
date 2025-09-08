@@ -12275,6 +12275,7 @@
       <script>scripts\rm_get_wh.gml</script>
       <script>scripts\rm_is_bottom_page_locked.gml</script>
       <script>scripts\room_is_type.gml</script>
+      <script>scripts\get_scene_tile_file_name.gml</script>
       <script>scripts\get_dk_dungeon_entrance.gml</script>
       <script>scripts\get_dungeon_num.gml</script>
       <script>scripts\area_is_dungeon.gml</script>
@@ -15050,7 +15051,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="999">
+  <constants number="1023">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -15334,6 +15335,12 @@
     <constant name="STR_ScaleY">"_ScaleY"</constant>
     <constant name="STR_ScaleX">"_ScaleX"</constant>
     <constant name="STR_Scale">"_Scale"</constant>
+    <constant name="STR_Bottom">"_Bottom"</constant>
+    <constant name="STR_Top">"_Top"</constant>
+    <constant name="STR_Corner">"_Corner"</constant>
+    <constant name="STR_Vertical">"_Vertical"</constant>
+    <constant name="STR_Horizontal">"_Horizontal"</constant>
+    <constant name="STR_Single">"_Single"</constant>
     <constant name="STR_Window">"_Window"</constant>
     <constant name="STR_Placed">"_Placed"</constant>
     <constant name="STR_Copy">"_Copy"</constant>
@@ -15599,6 +15606,8 @@
     <constant name="STR_Obj_Name">"_Obj_Name"</constant>
     <constant name="STR_obj_idx">"_obj_idx"</constant>
     <constant name="STR_Bottle">"_Bottle"</constant>
+    <constant name="STR_Fill">"_Fill"</constant>
+    <constant name="STR_Wall">"_Wall"</constant>
     <constant name="STR_Sign">"_Sign"</constant>
     <constant name="STR_Bridge">"_Bridge"</constant>
     <constant name="STR_Cloud">"_Cloud"</constant>
@@ -16047,6 +16056,22 @@
     <constant name="dk_UserPreferences">"_UserPreferences"</constant>
     <constant name="dk_ChosenHintDialogue">"_ChosenHintDialogue"</constant>
     <constant name="dk_RauruPass">"_RauruPass"</constant>
+    <constant name="dk_TSTSRC">"_TSTSRC"</constant>
+    <constant name="dk_MID">"_MID"</constant>
+    <constant name="dk_END">"_END"</constant>
+    <constant name="dk_CTR">"_CTR"</constant>
+    <constant name="dk_LFT">"_LFT"</constant>
+    <constant name="dk_RGT">"_RGT"</constant>
+    <constant name="dk_BTM">"_BTM"</constant>
+    <constant name="dk_TOP">"_TOP"</constant>
+    <constant name="dk_SID">"_SID"</constant>
+    <constant name="dk_CRN">"_CRN"</constant>
+    <constant name="dk_VRT">"_VRT"</constant>
+    <constant name="dk_HRZ">"_HRZ"</constant>
+    <constant name="dk_SGL">"_SGL"</constant>
+    <constant name="dk_WallEdge">"_WallEdge"</constant>
+    <constant name="dk_WallFill">"_WallFill"</constant>
+    <constant name="dk_StoneTileset">"_StoneTileset"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
     <constant name="UserPrefFileName">"UserPreferences.txt"</constant>

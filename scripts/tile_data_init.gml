@@ -867,6 +867,81 @@ tile_data_init_1();
 
 
 
+
+// ------------------------------------------------------------------------
+// Random Stone Tileset
+global.StoneTileset01_dm = ds_map_create();
+var _TS01_IDX = ds_list_find_index(dl_tileset,ts_Man_made_8a_HMS);
+// dk_TSTSRC: TileSet + TileSetRowClm. The extra TS in front means the value includes the index of g.dl_tileset containing the tileset that the TSRC value goes to.
+
+//STR_Single, STR_Horizontal, STR_Vertical, STR_Corner, STR_Side, STR_Top, STR_Bottom
+// dk_SGL, dk_HRZ, dk_VRT, dk_CRN, dk_CTR, dk_SID, dk_TOP, dk_BTM, dk_RGT, dk_LFT
+//dk_WallEdge, dk_WallFill
+
+// Wall Corners --------------
+// Right Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Single]            = (_TS01_IDX<<8) | $6A;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Horizontal+dk_RGT] = (_TS01_IDX<<8) | $8C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Vertical  +dk_BTM] = (_TS01_IDX<<8) | $8E;
+// Right Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Single]            = (_TS01_IDX<<8) | $6F;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Horizontal+dk_RGT] = (_TS01_IDX<<8) | $7C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Vertical  +dk_TOP] = (_TS01_IDX<<8) | $7E;
+// Left Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Single]            = (_TS01_IDX<<8) | $6C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Horizontal+dk_LFT] = (_TS01_IDX<<8) | $8B;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Vertical  +dk_BTM] = (_TS01_IDX<<8) | $8D;
+// Left Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Single]            = (_TS01_IDX<<8) | $6E;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Horizontal+dk_LFT] = (_TS01_IDX<<8) | $7B;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Vertical  +dk_TOP] = (_TS01_IDX<<8) | $7D;
+
+
+
+// Wall Sides --------------
+// Right
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Single]            = (_TS01_IDX<<8) | $6B;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Horizontal+dk_RGT] = (_TS01_IDX<<8) | $7C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical  +dk_BTM] = (_TS01_IDX<<8) | $97;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical  +dk_TOP] = (_TS01_IDX<<8) | $7F;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical  +dk_MID] = (_TS01_IDX<<8) | $96;
+// Left
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Single]            = (_TS01_IDX<<8) | $81;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Horizontal+dk_LFT] = (_TS01_IDX<<8) | $7B;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical  +dk_BTM] = (_TS01_IDX<<8) | $77;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical  +dk_TOP] = (_TS01_IDX<<8) | $85;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical  +dk_MID] = (_TS01_IDX<<8) | $76;
+// Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Single]            = (_TS01_IDX<<8) | $6C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_RGT] = (_TS01_IDX<<8) | $94;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_LFT] = (_TS01_IDX<<8) | $A3;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_MID] = (_TS01_IDX<<8) | $93;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Vertical  +dk_BTM] = (_TS01_IDX<<8) | $8D;
+// Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Single]            = (_TS01_IDX<<8) | $6D;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_RGT] = (_TS01_IDX<<8) | $74;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_LFT] = (_TS01_IDX<<8) | $82;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_MID] = (_TS01_IDX<<8) | $73;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Vertical  +dk_TOP] = (_TS01_IDX<<8) | $7D;
+
+
+
+// Wall Fill --------------
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Single]                   = (_TS01_IDX<<8) | $71;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_RGT]        = (_TS01_IDX<<8) | $74;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_LFT]        = (_TS01_IDX<<8) | $72;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_MID]        = (_TS01_IDX<<8) | $73;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical  +dk_BTM]        = (_TS01_IDX<<8) | $77;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical  +dk_TOP]        = (_TS01_IDX<<8) | $75;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical  +dk_MID]        = (_TS01_IDX<<8) | $76;
+
+
+
+
+
+
+
+
 ds_map_destroy(_dm_data); _dm_data=undefined;
 ds_list_destroy(_dl_rc_off); _dl_rc_off=undefined;
 ds_list_destroy(_dl_depth); _dl_depth=undefined;

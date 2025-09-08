@@ -354,6 +354,8 @@ global.SceneRando_enabled = false;
 global.RandoHints_VER = 2; // 1: Old system, 2: Better logic to prevent hints being locked behind the hint's item
 global.RandoHints_enabled = false;
 
+global.UniqueRandomTiles_MAIN = true;
+
 
 use_8x8_ow_menu_map=true;
 

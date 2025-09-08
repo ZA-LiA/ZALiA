@@ -387,6 +387,10 @@ if (_ROOM_A
         room_goto_(rmA_ACTION, rm_get_wh(RM_NAME_NPALACE,0), rm_get_wh(RM_NAME_NPALACE,1));
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
+    else
+    {
+        dm_tile_file[?STR_Tile+STR_File+STR_Name] = get_scene_tile_file_name(rm_name, file_data_quest_num);
+    }
 }
 
 
