@@ -935,6 +935,118 @@ global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical  +dk
 global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical  +dk_TOP]        = (_TS01_IDX<<8) | $75;
 global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical  +dk_MID]        = (_TS01_IDX<<8) | $76;
 
+/*
+// Wall Corners --------------
+// Right Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"05"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $6A;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"05"+STR_Shape+"H"+"01"] = (_TS01_IDX<<8) | $8C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"05"+STR_Shape+"V"+"04"] = (_TS01_IDX<<8) | $8E;
+// Right Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"08"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $6F;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"08"+STR_Shape+"H"+"01"] = (_TS01_IDX<<8) | $7C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"08"+STR_Shape+"V"+"08"] = (_TS01_IDX<<8) | $7E;
+// Left Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"06"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $6C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"06"+STR_Shape+"H"+"02"] = (_TS01_IDX<<8) | $8B;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"06"+STR_Shape+"V"+"04"] = (_TS01_IDX<<8) | $8D;
+// Left Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"0A"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $6E;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"0A"+STR_Shape+"H"+"02"] = (_TS01_IDX<<8) | $7B;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"0A"+STR_Shape+"V"+"08"] = (_TS01_IDX<<8) | $7D;
+
+// Wall Sides --------------
+// Right
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"01"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $6B;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"01"+STR_Shape+"H"+"01"] = (_TS01_IDX<<8) | $7C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"01"+STR_Shape+"V"+"04"] = (_TS01_IDX<<8) | $97;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"01"+STR_Shape+"V"+"08"] = (_TS01_IDX<<8) | $7F;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"01"+STR_Shape+"V"+"00"] = (_TS01_IDX<<8) | $96;
+// Left
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"02"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $81;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"02"+STR_Shape+"H"+"02"] = (_TS01_IDX<<8) | $7B;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"02"+STR_Shape+"V"+"04"] = (_TS01_IDX<<8) | $77;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"02"+STR_Shape+"V"+"08"] = (_TS01_IDX<<8) | $85;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"02"+STR_Shape+"V"+"00"] = (_TS01_IDX<<8) | $76;
+// Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"04"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $6C;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"04"+STR_Shape+"H"+"01"] = (_TS01_IDX<<8) | $94;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"04"+STR_Shape+"H"+"02"] = (_TS01_IDX<<8) | $A3;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"04"+STR_Shape+"H"+"00"] = (_TS01_IDX<<8) | $93;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"04"+STR_Shape+"V"+"04"] = (_TS01_IDX<<8) | $8D;
+// Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"08"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $6D;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"08"+STR_Shape+"H"+"01"] = (_TS01_IDX<<8) | $74;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"08"+STR_Shape+"H"+"02"] = (_TS01_IDX<<8) | $82;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"08"+STR_Shape+"H"+"00"] = (_TS01_IDX<<8) | $73;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"08"+STR_Shape+"V"+"08"] = (_TS01_IDX<<8) | $7D;
+
+// Wall Fill --------------
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"10"+STR_Shape+"S"]      = (_TS01_IDX<<8) | $71;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"10"+STR_Shape+"H"+"01"] = (_TS01_IDX<<8) | $74;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"10"+STR_Shape+"H"+"02"] = (_TS01_IDX<<8) | $72;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"10"+STR_Shape+"H"+"00"] = (_TS01_IDX<<8) | $73;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"10"+STR_Shape+"V"+"04"] = (_TS01_IDX<<8) | $77;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"10"+STR_Shape+"V"+"08"] = (_TS01_IDX<<8) | $75;
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+"10"+STR_Shape+"V"+"00"] = (_TS01_IDX<<8) | $76;
+*/
+
+/*
+// Single --------------
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"05"] = (_TS01_IDX<<8) | $6A; // Wall Corner Right-Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"09"] = (_TS01_IDX<<8) | $6F; // Wall Corner Right-Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"06"] = (_TS01_IDX<<8) | $6C; // Wall Corner Left-Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"0A"] = (_TS01_IDX<<8) | $6E; // Wall Corner Left-Top
+
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"01"] = (_TS01_IDX<<8) | $6B; // Wall Side   Right  
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"02"] = (_TS01_IDX<<8) | $81; // Wall Side   Left   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"04"] = (_TS01_IDX<<8) | $6C; // Wall Side   Bottom 
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"08"] = (_TS01_IDX<<8) | $6D; // Wall Side   Top    
+
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"S"+STR_Tile+"0"+STR_Wall+"10"] = (_TS01_IDX<<8) | $71; // Wall Fill   
+
+
+
+// Horizontal --------------
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"2"+STR_Wall+"05"] = (_TS01_IDX<<8) | $8C; // Wall Corner Right-Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"2"+STR_Wall+"09"] = (_TS01_IDX<<8) | $7C; // Wall Corner Right-Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"0"+STR_Wall+"06"] = (_TS01_IDX<<8) | $8B; // Wall Corner Left-Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"0"+STR_Wall+"0A"] = (_TS01_IDX<<8) | $7B; // Wall Corner Left-Top
+
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"2"+STR_Wall+"01"] = (_TS01_IDX<<8) | $7C; // Wall Side   Right  
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"0"+STR_Wall+"02"] = (_TS01_IDX<<8) | $7B; // Wall Side   Left   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"0"+STR_Wall+"04"] = (_TS01_IDX<<8) | $A3; // Wall Side   Bottom 
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"1"+STR_Wall+"04"] = (_TS01_IDX<<8) | $93; // Wall Side   Bottom 
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"2"+STR_Wall+"04"] = (_TS01_IDX<<8) | $94; // Wall Side   Bottom 
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"0"+STR_Wall+"08"] = (_TS01_IDX<<8) | $82; // Wall Side   Top    
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"1"+STR_Wall+"08"] = (_TS01_IDX<<8) | $73; // Wall Side   Top    
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"2"+STR_Wall+"08"] = (_TS01_IDX<<8) | $74; // Wall Side   Top    
+
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"0"+STR_Wall+"10"] = (_TS01_IDX<<8) | $72; // Wall Fill   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"1"+STR_Wall+"10"] = (_TS01_IDX<<8) | $73; // Wall Fill   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"H"+STR_Tile+"2"+STR_Wall+"10"] = (_TS01_IDX<<8) | $74; // Wall Fill   
+
+
+
+// Vertical --------------
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"2"+STR_Wall+"05"] = (_TS01_IDX<<8) | $8E; // Wall Corner Right-Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"0"+STR_Wall+"09"] = (_TS01_IDX<<8) | $7E; // Wall Corner Right-Top
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"2"+STR_Wall+"06"] = (_TS01_IDX<<8) | $8D; // Wall Corner Left-Bottom
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"0"+STR_Wall+"0A"] = (_TS01_IDX<<8) | $7D; // Wall Corner Left-Top
+
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"0"+STR_Wall+"01"] = (_TS01_IDX<<8) | $7F; // Wall Side   Right  
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"1"+STR_Wall+"01"] = (_TS01_IDX<<8) | $96; // Wall Side   Right  
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"2"+STR_Wall+"01"] = (_TS01_IDX<<8) | $97; // Wall Side   Right  
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"0"+STR_Wall+"02"] = (_TS01_IDX<<8) | $85; // Wall Side   Left   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"1"+STR_Wall+"02"] = (_TS01_IDX<<8) | $76; // Wall Side   Left   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"2"+STR_Wall+"02"] = (_TS01_IDX<<8) | $77; // Wall Side   Left   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"2"+STR_Wall+"04"] = (_TS01_IDX<<8) | $8D; // Wall Side   Bottom 
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"0"+STR_Wall+"08"] = (_TS01_IDX<<8) | $7D; // Wall Side   Top    
+
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"0"+STR_Wall+"10"] = (_TS01_IDX<<8) | $75; // Wall Fill   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"1"+STR_Wall+"10"] = (_TS01_IDX<<8) | $76; // Wall Fill   
+global.StoneTileset01_dm[?dk_TSTSRC+STR_Shape+"V"+STR_Tile+"2"+STR_Wall+"10"] = (_TS01_IDX<<8) | $77; // Wall Fill   
+*/
+
 
 
 

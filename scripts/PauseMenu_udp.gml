@@ -626,15 +626,23 @@ if (LifeDolls_can_draw)
 AllKey_can_draw = f.items&ITM_SKEY!=0;
 if (AllKey_can_draw)
 {
-    if (f.quest_num==1)
-    {
-        AllKey_x = Window_xl0 + $1A;
-        AllKey_y = drawY + dg_items[#$9,$2];
-    }
-    else
+    if (POSITIONING_VER==3)
     {
         AllKey_x = Window_xl0 + AllKey_X;
         AllKey_y = drawY      + AllKey_Y;
+    }
+    else
+    {
+        if (f.quest_num==1)
+        {
+            AllKey_x = Window_xl0 + $1A;
+            AllKey_y = drawY + dg_items[#$9,$2];
+        }
+        else
+        {
+            AllKey_x = Window_xl0 + AllKey_X;
+            AllKey_y = drawY      + AllKey_Y;
+        }
     }
     
     AllKey_can_draw &= AllKey_y+8<Window_yb;

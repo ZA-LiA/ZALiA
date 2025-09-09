@@ -93,7 +93,7 @@ switch(0)
     
     _count = 3+(f.quest_num==1);
     //_count = clamp(5, 1,g.LifeDoll_MAX);
-    _count = 0;
+    //_count = 0;
     for(_i=1; _i<=_count; _i++)
     {
         _item_id = f.dm_1up_doll[?hex_str(_i)+STR_Item+STR_ID];

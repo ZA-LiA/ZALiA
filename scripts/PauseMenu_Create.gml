@@ -25,7 +25,7 @@ mapDelay1_state_Backup = 0;
 mapDelay1_state_dir_Backup = 0;
 
 
-POSITIONING_VER = 2;
+POSITIONING_VER = 3;
 
 PI_MENU1 = global.PI_GUI1;
 
@@ -201,6 +201,7 @@ SPR_ICON_KSU = spr_kakusu_icon_1a;
 switch(POSITIONING_VER){
 case 1:{Icons_Y=$7C; Icons_PAD=$C; break;}
 case 2:{Icons_Y=$78; Icons_PAD=$E; break;}
+case 3:{Icons_Y=$78; Icons_PAD=$E; break;}
 }
 Icons_x = 0;
 Icons_y = 0;
@@ -576,6 +577,19 @@ switch(POSITIONING_VER)
     ITEMS_BAR2_Y = $56;
     ITEMS_BAR3_Y = $6E;
     break;}
+    
+    // -----------------------------------------------------------
+    case 3:{
+    _dist1 = $08 + 4;
+    _dist2 = $10 + $05;
+    _x1    = $0A + 4;
+    _y1    = $0A + 8;
+    _y2    = $47;
+    
+    ITEMS_BAR1_Y = $35;
+    ITEMS_BAR2_Y = $56;
+    ITEMS_BAR3_Y = $6E;
+    break;}
 }
 
 Items_Bar_COLOR1 = p.C_WHT0;
@@ -654,14 +668,41 @@ dg_items[#_i,$2]   = _y2;
 dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
 dg_items[#_i,$4]   = _PI_ITEM;
 //                                                                                              //
-ITM_BTL1_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
-dg_items[#_i,$0]   = ITM_BTL1;
-dg_items[#_i,$1]   = $60;
-dg_items[#_i,$2]   = _y2;
-dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
-dg_items[#_i,$4]   = global.PI_MOB_RED;
-ITM_BTL1_SPR1 = dg_items[#ITM_BTL1_IDX,$03];
-ITM_BTL1_SPR2 = spr_Item_Bottle_8c; // Bottle full
+switch(POSITIONING_VER)
+{
+    case 1:{
+    ITM_BTL1_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
+    dg_items[#_i,$0]   = ITM_BTL1;
+    dg_items[#_i,$1]   = $60;
+    dg_items[#_i,$2]   = _y2;
+    dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+    dg_items[#_i,$4]   = global.PI_MOB_RED;
+    ITM_BTL1_SPR1 = dg_items[#ITM_BTL1_IDX,$03];
+    ITM_BTL1_SPR2 = spr_Item_Bottle_8c; // Bottle full
+    break;}
+    
+    case 2:{
+    ITM_BTL1_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
+    dg_items[#_i,$0]   = ITM_BTL1;
+    dg_items[#_i,$1]   = $60;
+    dg_items[#_i,$2]   = _y2;
+    dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+    dg_items[#_i,$4]   = global.PI_MOB_RED;
+    ITM_BTL1_SPR1 = dg_items[#ITM_BTL1_IDX,$03];
+    ITM_BTL1_SPR2 = spr_Item_Bottle_8c; // Bottle full
+    break;}
+    
+    case 3:{
+    ITM_BTL1_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
+    dg_items[#_i,$0]   = ITM_BTL1;
+    dg_items[#_i,$1]   = $5F;
+    dg_items[#_i,$2]   = $7F;
+    dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
+    dg_items[#_i,$4]   = global.PI_MOB_RED;
+    ITM_BTL1_SPR1 = dg_items[#ITM_BTL1_IDX,$03];
+    ITM_BTL1_SPR2 = spr_Item_Bottle_8c; // Bottle full
+    break;}
+}
 //                                                                      //
 //                                                                                              //
 switch(POSITIONING_VER)
@@ -681,14 +722,21 @@ switch(POSITIONING_VER)
     break;}
     
     
-    
+    // ==================================================================
+    // -----------------------------------------------------------
+    case 2:{
+    dg_items[#(bitNum(ITM_RING))-1,$02] += -3;
+    break;}
     
     
     
     // ==================================================================
     // -----------------------------------------------------------
-    case 2:{
+    case 3:{
     dg_items[#(bitNum(ITM_RING))-1,$02] += -3;
+    
+    dg_items[#(bitNum(ITM_MASK))-1,$01] = $60;
+    dg_items[#(bitNum(ITM_MASK))-1,$02] = $46;
     break;}
 }
 
@@ -718,6 +766,7 @@ Crystals_PAD1 = $2<<3;
 switch(POSITIONING_VER){
 case 1:{Crystals_Y=$65;break;}
 case 2:{Crystals_Y=$64;break;}
+case 3:{Crystals_Y=$64;break;}
 }
 Crystals_x = 0;
 Crystals_y = 0;
@@ -734,6 +783,7 @@ LifeDolls_count = 0;
 switch(POSITIONING_VER){
 case 1:{Dolls_X=$34; Dolls_Y=$81; Dolls_PAD=$0E; break;}
 case 2:{Dolls_X=$34; Dolls_Y=$7F; Dolls_PAD=$0E; break;}
+case 3:{Dolls_X=$34; Dolls_Y=$7F; Dolls_PAD=$0E; break;}
 }
 LifeDolls_x = 0;
 LifeDolls_y = 0;
@@ -744,6 +794,7 @@ LifeDolls_y = 0;
 switch(POSITIONING_VER){
 case 1:{_y1=$95;break;}
 case 2:{_y1=$94;break;}
+case 3:{_y1=$94;break;}
 }
 
 
@@ -754,6 +805,7 @@ AllKey_SPRITE = val(g.dm_ITEM[?hex_str(bitNum(ITM_SKEY))+STR_Sprite], spr_Item_S
 switch(POSITIONING_VER){
 case 1:{AllKey_X=$5F; AllKey_Y=$81;break;}
 case 2:{AllKey_X=$5F; AllKey_Y=$7F;break;}
+case 3:{AllKey_X=$1A; AllKey_Y=$27;break;}
 }
 AllKey_x = 0;
 AllKey_y = 0;
@@ -769,6 +821,7 @@ AllKey_y = 0;
 switch(POSITIONING_VER){
 case 1:{TreasureMap1_XOFF=$34; TreasureMap1_YOFF=_y1; Maps_PAD=$2; break;}
 case 2:{TreasureMap1_XOFF=$34; TreasureMap1_YOFF=_y1; Maps_PAD=$2; break;}
+case 3:{TreasureMap1_XOFF=$34; TreasureMap1_YOFF=_y1; Maps_PAD=$2; break;}
 }
 
 TreasureMap1_can_draw = false;
@@ -795,6 +848,7 @@ TreasureMap2_y = 0;
 switch(POSITIONING_VER){
 case 1:{Containers_X=$4E; Containers_Y=_y1; Containers_PAD=$01; break;}
 case 2:{Containers_X=$4E; Containers_Y=_y1; Containers_PAD=$01; break;}
+case 3:{Containers_X=$4E; Containers_Y=_y1; Containers_PAD=$01; break;}
 }
 ContainerPiece_count_hp = 0;
 ContainerPiece_count_mp = 0;

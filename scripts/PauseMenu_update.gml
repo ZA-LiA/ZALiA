@@ -44,7 +44,7 @@ switch(g.menu_state)
         dg_items[#ITM_TRPH_IDX,$01] = $30;
         dg_items[#ITM_MEDI_IDX,$01] = $41;
         dg_items[#ITM_CHLD_IDX,$01] = $51;
-        dg_items[#ITM_BTL1_IDX,$01] = $60;
+        if(POSITIONING_VER!=3) dg_items[#ITM_BTL1_IDX,$01] = $60;
         
         if (val(f.dm_quests[?STR_Bottle+"01"+STR_State]))
         {    dg_items[#ITM_BTL1_IDX,$03] = ITM_BTL1_SPR2;  } // Bottle full

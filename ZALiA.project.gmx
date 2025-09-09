@@ -15051,7 +15051,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1023">
+  <constants number="1024">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -15403,6 +15403,7 @@
     <constant name="STR_Rating">"_Rating"</constant>
     <constant name="STR_Mark">"_Mark"</constant>
     <constant name="STR_Name">"_Name"</constant>
+    <constant name="STR_Shape">"_Shape"</constant>
     <constant name="STR_Circle">"_Circle"</constant>
     <constant name="STR_Size">"_Size"</constant>
     <constant name="STR_Min">"_Min"</constant>
