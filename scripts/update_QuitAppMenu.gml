@@ -41,6 +41,7 @@ with(g.QUIT_APP_MENU)
                     {
                         //sdm("update_QuitAppMenu() -> case sub_state_IDLE_CLOSED -> game_end()");
                         game_end(); // Quit app
+                        return true;
                     }
                     else
                     {
@@ -84,7 +85,6 @@ with(g.QUIT_APP_MENU)
             timer = 0;
             sub_state = sub_state_OPEN1;
         }
-        
         break;}//case sub_state_OPENING_ANIM
         
         

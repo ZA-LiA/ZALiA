@@ -248,7 +248,96 @@ switch(0)
     // -------------------------------------------------------------------
     // -------------------------------------------------------------------
     case 6:{
-    f.items |= ITM_TRPH;
+    f.quest_num = 1; // 
+    
+    f.items   = 0;
+    
+    f.items  |= ITM_CAND; // 
+    f.items  |= ITM_GLOV; // 
+    f.items  |= ITM_RAFT; // 
+    f.items  |= ITM_BOOT; // 
+    f.items  |= ITM_FLUT; // 
+    f.items  |= ITM_CROS; // 
+    f.items  |= ITM_HAMM; // 
+    f.items  |= ITM_BRAC; // 
+    
+    f.items  |= ITM_FRY1; // 
+    f.items  |= ITM_SKEY; // 
+    f.items  |= ITM_BOOK; // 
+    f.items  |= ITM_MEAT; // 
+    f.items  |= ITM_SHLD; // 
+    f.items  |= ITM_RING; // 
+    f.items  |= ITM_NKLC; // 
+    f.items  |= ITM_SWRD; // 
+    
+    
+    f.items  |= ITM_TRPH; // 
+    f.items  |= ITM_NOTE; // 
+    f.items  |= ITM_MIRR; // 
+    f.items  |= ITM_MEDI; // 
+    f.items  |= ITM_CHLD; // 
+    
+    
+    f.items  |= ITM_MAP1; // 
+    f.items  |= ITM_MAP2; // 
+    
+    
+    
+    f.spells |= SPL_PRTC; // 
+    f.spells |= SPL_JUMP; // 
+    f.spells |= SPL_LIFE; // 
+    f.spells |= SPL_FARY; // 
+    f.spells |= SPL_FIRE; // 
+    f.spells |= SPL_RFLC; // 
+    f.spells |= SPL_SPEL; // 
+    f.spells |= SPL_THUN; // 
+    
+    
+    f.skills |= SKILL_THD; // 
+    f.skills |= SKILL_THU; // 
+    
+    
+    
+    var _i, _val, _count, _dk, _str, _cont_cnt;
+    
+    _cont_cnt = 6;
+    for(_i=cont_piece_cnt_hp()+1; _i<=_cont_cnt*f.CONT_PIECE_PER_HP; _i++)
+    {
+        _str  = hex_str( _i div f.CONT_PIECE_PER_HP);
+        _str += hex_str((_i mod f.CONT_PIECE_PER_HP) + 1);
+        f.cont_pieces_hp += _str;
+    }
+    f.hp = get_stat_max(STR_Heart);
+    
+    _cont_cnt = 9;
+    for(_i=cont_piece_cnt_mp()+1; _i<=_cont_cnt*f.CONT_PIECE_PER_MP; _i++)
+    {
+        _str  = hex_str( _i div f.CONT_PIECE_PER_MP);
+        _str += hex_str((_i mod f.CONT_PIECE_PER_MP) + 1);
+        f.cont_pieces_mp += _str;
+    }
+    f.mp = get_stat_max(STR_Magic);
+    
+    
+    
+    for(_i=0; _i<f.CRYSTAL_MAX; _i++) f.crystals |= ($01<<_i); // ALL crystals
+    
+    f.level_atk = 5; // 
+    f.level_mag = 9; // 
+    f.level_lif = 6; // 
+    
+    
+    _count = 3+(f.quest_num==1);
+    //_count = clamp(5, 1,g.LifeDoll_MAX);
+    //_count = 0;
+    for(_i=1; _i<=_count; _i++)
+    {
+        _item_id = f.dm_1up_doll[?hex_str(_i)+STR_Item+STR_ID];
+        if(!is_undefined(_item_id))
+        {
+            f.dm_1up_doll[?_item_id+STR_Acquired] = 1;
+        }
+    }
     break;}
     
     

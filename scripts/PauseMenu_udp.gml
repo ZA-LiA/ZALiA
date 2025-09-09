@@ -534,8 +534,7 @@ for(_i=ds_grid_width(dg_items)-1; _i>=0; _i--)
     _bit = dg_items[#_i,$0]; // $0: item bit
     if (f.items&_bit)
     {
-        if (_bit!=ITM_MASK 
-        ||  _bit!=ITM_BTL1 
+        if ((_bit!=ITM_MASK && _bit!=ITM_BTL1) 
         ||  f.quest_num>1 )
         {
             _y = drawY + dg_items[#_i,$2];
