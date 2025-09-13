@@ -202,11 +202,11 @@ with(g.burnable_mgr)
 }
 
 
-var _UniqueRandomTiles_dg = ds_grid_create(_CLMS,_ROWS);
-if (global.UniqueRandomTiles_MAIN)
+var _WallStyle01_dg = ds_grid_create(_CLMS,_ROWS);
+if (global.WallStyle01Tiles_MAIN)
 {
-    _data = f.dm_rando[?dk_StoneTileset+"01"+_TILE_FILE_NAME];
-    if(!is_undefined(_data)) ds_grid_read(_UniqueRandomTiles_dg, _data);
+    _data = f.dm_rando[?dk_WallStyle+"01"+_TILE_FILE_NAME];
+    if(!is_undefined(_data)) ds_grid_read(_WallStyle01_dg, _data);
 }
 
 
@@ -586,12 +586,12 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         */
         
         
-        if (global.UniqueRandomTiles_MAIN 
+        if (global.WallStyle01Tiles_MAIN 
         &&  global.RandoDungeonTilesets_enabled 
-        && !is_undefined(f.dm_rando[?dk_StoneTileset+"01"+_TILE_FILE_NAME+_layer_name]) 
-        &&  _UniqueRandomTiles_dg[#_clm,_row] )
+        && !is_undefined(f.dm_rando[?dk_WallStyle+"01"+_TILE_FILE_NAME+_layer_name]) 
+        &&  _WallStyle01_dg[#_clm,_row] )
         {
-            _data = _UniqueRandomTiles_dg[#_clm,_row];
+            _data = _WallStyle01_dg[#_clm,_row];
             _ts   = g.dl_tileset[|(_data>>8)&$FF];
             _tsrc = _data&$FF;
             _scale_x = 1;
@@ -1158,7 +1158,7 @@ for(_i=ds_grid_width(g.dg_tile_anim)-1; _i>=0; _i--)
 
 
 
-ds_grid_destroy(_UniqueRandomTiles_dg); _UniqueRandomTiles_dg=undefined;
+ds_grid_destroy(_WallStyle01_dg); _WallStyle01_dg=undefined;
 //ds_map_destroy(_StoneTileset01_dm); _StoneTileset01_dm=undefined;
 
 

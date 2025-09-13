@@ -10,7 +10,7 @@ var _DATAKEY  = string(argument[_arg++]);
 var _DEFAULT  =        argument[_arg++];
 
 
-var _file_data = global.dm_save_file_data[?STR_Save+STR_File+hex_str(_FILE_NUM)+"_Encoded"];
+var _file_data = global.dm_save_file_data[?STR_Save+STR_File+hex_str(_FILE_NUM)+STR_Encoded];
 if (is_undefined(_file_data))
 {
     var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];

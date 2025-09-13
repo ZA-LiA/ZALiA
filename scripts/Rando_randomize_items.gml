@@ -62,6 +62,180 @@ for(_i=ds_list_size(dl_spell_sequence_spells)-1; _i>=0; _i--)
     {   ds_list_add(       dl_prog_spells,_spell_name);  }
 }
 
+/* Set 0 before everytime `Rando_is_qual_location` is run, then set it in `Rando_is_qual_location` if a spell was required for that location.
+This is to help determine if more magic containers would be needed for progression, or to avoid having to grind for higher magic levels.
+Looks like it'll be pretty complicated to rule out every possibility for every check that DOESN'T require a spell. A different solution may be needed.
+One solution may be to lower the cost of spells for rando.
+*/
+required_spell = 0;
+
+/* In `init_data_spells_1a`
+var                         _DK = STR_Rando+STR_Cost+STR_Max;
+dm_Spell[?hex_str($0)      +_DK] = min(Container_AMT*3, dg_spell_cost[#0,0]);
+dm_Spell[?hex_str(SPL_PRTC)+_DK] = min(Container_AMT*3, dg_spell_cost[#bitNum(SPL_PRTC),0]);
+dm_Spell[?hex_str(SPL_JUMP)+_DK] = min(Container_AMT*3, dg_spell_cost[#bitNum(SPL_JUMP),0]);
+dm_Spell[?hex_str(SPL_LIFE)+_DK] = min(Container_AMT*3, dg_spell_cost[#bitNum(SPL_LIFE),0]);
+dm_Spell[?hex_str(SPL_FARY)+_DK] = min(Container_AMT*4, dg_spell_cost[#bitNum(SPL_FARY),0]);
+dm_Spell[?hex_str(SPL_FIRE)+_DK] = min(Container_AMT*2, dg_spell_cost[#bitNum(SPL_FIRE),0]);
+dm_Spell[?hex_str(SPL_RFLC)+_DK] = min(Container_AMT*3, dg_spell_cost[#bitNum(SPL_RFLC),0]);
+dm_Spell[?hex_str(SPL_SPEL)+_DK] = min(Container_AMT*3, dg_spell_cost[#bitNum(SPL_SPEL),0]);
+dm_Spell[?hex_str(SPL_THUN)+_DK] = min(Container_AMT*5, dg_spell_cost[#bitNum(SPL_THUN),0]);
+dm_Spell[?hex_str(SPL_SUMM)+_DK] = min(Container_AMT*3, dg_spell_cost[#bitNum(SPL_SUMM),0]);
+*/
+
+//dm_save_data[?STR_Spell+STR_Cost+hex_str(_i)+hex_str(_j)] = _val;
+//dm_save_data[?STR_Spell+STR_Cost+spell num+magic level idx] = _val;
+
+/* Proposed required container count for item rando
+   old - new
+JUMP
+  1. 3 - 3
+  2. 3 - 2
+  3. 2 - 2
+  4. 2 - 2
+  5. 2 - 1
+  6. 1
+
+FAIRY
+  1. 5 - 4
+  2. 5 - 3
+  3. 4 - 3
+  4. 4 - 2
+  5. 3 - 2
+  6. 3 - 2
+  7. 3 - 2
+  8. 3 - 2
+  9. 2 - 2
+
+FIRE
+  1. 8 - 4
+  2. 5 - 3
+  3. 4 - 2
+  4. 2 - 2
+  5. 1 - 
+  6. 1 - 
+
+REFLECT
+  1. 8 - 4
+  2. 8 - 3
+  3. 5 - 3
+  4. 3 - 2
+  5. 3 - 2
+  6. 2 - 2
+  7. 2 - 1
+  8. 1
+
+ENIGMA
+  1. 8 - 4
+  2. 7 - 3
+  3. 6 - 3
+  4. 5 - 2
+  5. 3 - 2
+  6. 2 - 2
+  7. 2 - 1
+  8. 1
+
+THUNDER
+  1. 8 - 5
+  2. 8 - 4
+  3. 8 - 4
+  4. 8 - 3
+  5. 8 - 3
+  6. 8 - 3
+  7. 7 - 3
+  8. 4 - 2
+  9. 3 - 2
+*/
+if (0)
+{
+    for(_i=ds_grid_width(g.dg_spell_cost)-1; _i>=1; _i--) // Each spell
+    {
+        var _SPELL_BIT = $1<<(_i-1);
+        for(_j=0; _j<=8; _j++) // Each magic level
+        {
+            var _cost_old = g.dg_spell_cost[#_SPELL_BIT,_j];
+                _cost_old = val(dm_save_data[?STR_Spell+STR_Cost+hex_str(_i)+hex_str(_j)], _cost_old);
+            var _cost_new = _cost_old;
+            switch(_SPELL_BIT)
+            {
+                case SPL_JUMP:{
+                switch(_j){
+                case 0:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 1:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 2:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 3:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 4:{_cost_new=min(Container_AMT*1,_cost_old); break;}
+                }
+                break;}
+                
+                case SPL_FARY:{
+                switch(_j){
+                case 0:{_cost_new=min(Container_AMT*4,_cost_old); break;}
+                case 1:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 2:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 3:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 4:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 5:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 6:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 7:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 8:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                }
+                break;}
+                
+                case SPL_FIRE:{
+                switch(_j){
+                case 0:{_cost_new=min(Container_AMT*4,_cost_old); break;}
+                case 1:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 2:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 3:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                }
+                break;}
+                
+                case SPL_SPEL:{
+                switch(_j){
+                case 0:{_cost_new=min(Container_AMT*4,_cost_old); break;}
+                case 1:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 2:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 3:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 4:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 5:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 5:{_cost_new=min(Container_AMT*1,_cost_old); break;}
+                }
+                break;}
+                
+                case SPL_RFLC:{
+                switch(_j){
+                case 0:{_cost_new=min(Container_AMT*4,_cost_old); break;}
+                case 1:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 2:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 3:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 4:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 5:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 6:{_cost_new=min(Container_AMT*1,_cost_old); break;}
+                }
+                break;}
+                
+                case SPL_THUN:{
+                switch(_j){
+                case 0:{_cost_new=min(Container_AMT*5,_cost_old); break;}
+                case 1:{_cost_new=min(Container_AMT*4,_cost_old); break;}
+                case 2:{_cost_new=min(Container_AMT*4,_cost_old); break;}
+                case 3:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 4:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 5:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 6:{_cost_new=min(Container_AMT*3,_cost_old); break;}
+                case 7:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                case 8:{_cost_new=min(Container_AMT*2,_cost_old); break;}
+                }
+                break;}
+            }
+            
+            dm_save_data[?STR_Spell+STR_Cost+hex_str(_i)+hex_str(_j)] = _cost_new;
+        }
+    }
+}
+
+
 
 
 //sdm("ItemLocations_RANDO_METHOD: "+string(ItemLocations_RANDO_METHOD));
@@ -291,12 +465,16 @@ ds_list_shuffle(dl_locations_remaining);
 
 // -----------------------------------------------------------
 if (DEBUG){
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+debug_str = "--- ITEM LOCATION RANDO ---";
+sdm(debug_str);    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+
 debug_str  =      "Remaining Locations"+" COUNT $"+hex_str(ds_list_size(dl_locations_remaining));
 debug_str += ", "+"Remaining Items"    +" COUNT $"+hex_str(ds_list_size(dl_prog1)+ds_list_size(dl_ItemPool_C));
 debug_str += ", "+"Remaining Keys"     +" COUNT $"+hex_str(ds_list_size(dl_remaining_keys));
 repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
 sdm(debug_str);    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-//repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
 }
 
 

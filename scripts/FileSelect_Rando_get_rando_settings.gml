@@ -3,7 +3,7 @@
 
 var _dm_SETTINGS=ds_map_create();
 _dm_SETTINGS[?dk_LimitObscure]                        = dg_RandoITEM_Options[#RandoITEM_OBSCURE_LOCS,2];
-_dm_SETTINGS[?dk_DarkRoom+STR_Difficulty]           = dg_RandoITEM_Options[#RandoITEM_DARKROOM,2];
+_dm_SETTINGS[?dk_DarkRoom+STR_Difficulty]             = dg_RandoITEM_Options[#RandoITEM_DARKROOM,2];
 _dm_SETTINGS[?STR_Item+STR_Location+STR_Hint]         = dg_RandoITEM_Options[#RandoITEM_HINTS,2];
 _dm_SETTINGS[?STR_Zelda+STR_Hint]                     = dg_RandoITEM_Options[#RandoITEM_ZELDA_HINT,2];
 _dm_SETTINGS[?STR_Randomize+STR_Item+STR_Locations]   = dg_RandoITEM_Options[#RandoITEM_LOCS,2];

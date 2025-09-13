@@ -28,6 +28,7 @@ dl_PAL_POS = ds_list_create();
 dm_scene_palette = ds_map_create();
 dl_various_pals1 = ds_list_create();
 dl_various_pals2 = ds_list_create();
+dl_various_pals3 = ds_list_create();
 dl_BASE_COLORS = ds_list_create();
 
 
@@ -556,169 +557,182 @@ dl_COLOR[| $FF] = C_ERR0; // Error, Missing data, ..
 
 
 
-
+//sdm("");sdm("$5800E4: $"+hex_str(get_color_brightness($5800E4))+", "+"$E40058: $"+hex_str(get_color_brightness($E40058)));sdm("");
 // *** If the color grid changes, look for code near the bottom of `p_Draw_1()` to automate the following, but make sure `ts_SolidColor01` has been updated
             global.dl_COLOR01 = ds_list_create();
 // ROW $00                                                              //
-ds_list_add(global.dl_COLOR01,$2B2749); // Hue-$FA,  Sat-$77,  Bright-$2E
-ds_list_add(global.dl_COLOR01,$1000A8); // Hue-$FB,  Sat-$FF,  Bright-$24
-ds_list_add(global.dl_COLOR01,$5800E4); // Hue-$EF,  Sat-$FF,  Bright-$36
-ds_list_add(global.dl_COLOR01,$B474FC); // Hue-$EB,  Sat-$8A,  Bright-$95
-ds_list_add(global.dl_COLOR01,$DCB6F1); // Hue-$E4,  Sat-$3E,  Bright-$C5
-ds_list_add(global.dl_COLOR01,$5D1C83); // Hue-$E4,  Sat-$C8,  Bright-$36
-ds_list_add(global.dl_COLOR01,$5424C3); // Hue-$F2,  Sat-$D0,  Bright-$49
-ds_list_add(global.dl_COLOR01,$784FF0); // Hue-$F4,  Sat-$AB,  Bright-$74
-ds_list_add(global.dl_COLOR01,$8181F6); // Hue-$00,  Sat-$79,  Bright-$99
-ds_list_add(global.dl_COLOR01,$90A7FC); // Hue-$09,  Sat-$6D,  Bright-$B7
+ds_list_add(global.dl_COLOR01,$2B2749); // Hue-$FA,  Sat-$77,  Val-$49,  Bright-$2E,  Val+Bright Avg-$3B
+ds_list_add(global.dl_COLOR01,$1000A8); // Hue-$FB,  Sat-$FF,  Val-$A8,  Bright-$24,  Val+Bright Avg-$66
+ds_list_add(global.dl_COLOR01,$5800E4); // Hue-$EF,  Sat-$FF,  Val-$E4,  Bright-$36,  Val+Bright Avg-$8D
+ds_list_add(global.dl_COLOR01,$B474FC); // Hue-$EB,  Sat-$8A,  Val-$FC,  Bright-$95,  Val+Bright Avg-$C8
+ds_list_add(global.dl_COLOR01,$DCB6F1); // Hue-$E4,  Sat-$3E,  Val-$F1,  Bright-$C5,  Val+Bright Avg-$DB
+ds_list_add(global.dl_COLOR01,$5D1C83); // Hue-$E4,  Sat-$C8,  Val-$83,  Bright-$36,  Val+Bright Avg-$5C
+ds_list_add(global.dl_COLOR01,$5424C3); // Hue-$F2,  Sat-$D0,  Val-$C3,  Bright-$49,  Val+Bright Avg-$86
+ds_list_add(global.dl_COLOR01,$784FF0); // Hue-$F4,  Sat-$AB,  Val-$F0,  Bright-$74,  Val+Bright Avg-$B2
+ds_list_add(global.dl_COLOR01,$8181F6); // Hue-$00,  Sat-$79,  Val-$F6,  Bright-$99,  Val+Bright Avg-$C7
+ds_list_add(global.dl_COLOR01,$90A7FC); // Hue-$09,  Sat-$6D,  Val-$FC,  Bright-$B7,  Val+Bright Avg-$D9
 // ROW $01                                                              //
-ds_list_add(global.dl_COLOR01,$41184B); // Hue-$DD,  Sat-$AD,  Bright-$25
-ds_list_add(global.dl_COLOR01,$74008C); // Hue-$DC,  Sat-$FF,  Bright-$26
-ds_list_add(global.dl_COLOR01,$AD15B8); // Hue-$D7,  Sat-$E2,  Bright-$42
-ds_list_add(global.dl_COLOR01,$FC78F4); // Hue-$D2,  Sat-$86,  Bright-$9B
-ds_list_add(global.dl_COLOR01,$FCC4FC); // Hue-$D5,  Sat-$39,  Bright-$D3
-ds_list_add(global.dl_COLOR01,$543C75); // Hue-$ED,  Sat-$7C,  Bright-$49
-ds_list_add(global.dl_COLOR01,$6F4BA2); // Hue-$ED,  Sat-$89,  Bright-$60
-ds_list_add(global.dl_COLOR01,$7F65CF); // Hue-$F5,  Sat-$83,  Bright-$7D
-ds_list_add(global.dl_COLOR01,$9980ED); // Hue-$F5,  Sat-$75,  Bright-$98
-ds_list_add(global.dl_COLOR01,$9DA5D6); // Hue-$06,  Sat-$44,  Bright-$AE
+ds_list_add(global.dl_COLOR01,$41184B); // Hue-$DD,  Sat-$AD,  Val-$4B,  Bright-$25,  Val+Bright Avg-$38
+ds_list_add(global.dl_COLOR01,$74008C); // Hue-$DC,  Sat-$FF,  Val-$8C,  Bright-$26,  Val+Bright Avg-$59
+ds_list_add(global.dl_COLOR01,$AD15B8); // Hue-$D7,  Sat-$E2,  Val-$B8,  Bright-$42,  Val+Bright Avg-$7D
+ds_list_add(global.dl_COLOR01,$FC78F4); // Hue-$D2,  Sat-$86,  Val-$FC,  Bright-$9B,  Val+Bright Avg-$CB
+ds_list_add(global.dl_COLOR01,$FCC4FC); // Hue-$D5,  Sat-$39,  Val-$FC,  Bright-$D3,  Val+Bright Avg-$E7
+ds_list_add(global.dl_COLOR01,$543C75); // Hue-$ED,  Sat-$7C,  Val-$75,  Bright-$49,  Val+Bright Avg-$5F
+ds_list_add(global.dl_COLOR01,$6F4BA2); // Hue-$ED,  Sat-$89,  Val-$A2,  Bright-$60,  Val+Bright Avg-$81
+ds_list_add(global.dl_COLOR01,$7F65CF); // Hue-$F5,  Sat-$83,  Val-$CF,  Bright-$7D,  Val+Bright Avg-$A6
+ds_list_add(global.dl_COLOR01,$9980ED); // Hue-$F5,  Sat-$75,  Val-$ED,  Bright-$98,  Val+Bright Avg-$C2
+ds_list_add(global.dl_COLOR01,$9DA5D6); // Hue-$06,  Sat-$44,  Val-$D6,  Bright-$AE,  Val+Bright Avg-$C2
 // ROW $02                                                              //
-ds_list_add(global.dl_COLOR01,$501931); // Hue-$BD,  Sat-$AF,  Bright-$22
-ds_list_add(global.dl_COLOR01,$9C0044); // Hue-$BD,  Sat-$FF,  Bright-$19
-ds_list_add(global.dl_COLOR01,$F00080); // Hue-$C1,  Sat-$FF,  Bright-$2C
-ds_list_add(global.dl_COLOR01,$FC88CC); // Hue-$C3,  Sat-$75,  Bright-$9E
-ds_list_add(global.dl_COLOR01,$F1BADC); // Hue-$C4,  Sat-$3A,  Bright-$C5
-ds_list_add(global.dl_COLOR01,$3F2945); // Hue-$DE,  Sat-$67,  Bright-$30
-ds_list_add(global.dl_COLOR01,$753E6B); // Hue-$CD,  Sat-$78,  Bright-$4B
-ds_list_add(global.dl_COLOR01,$A95E90); // Hue-$C6,  Sat-$71,  Bright-$6E
-ds_list_add(global.dl_COLOR01,$F384A8); // Hue-$B8,  Sat-$74,  Bright-$93
-ds_list_add(global.dl_COLOR01,$EDADEA); // Hue-$D3,  Sat-$45,  Bright-$BE
+ds_list_add(global.dl_COLOR01,$501931); // Hue-$BD,  Sat-$AF,  Val-$50,  Bright-$22,  Val+Bright Avg-$39
+ds_list_add(global.dl_COLOR01,$9C0044); // Hue-$BD,  Sat-$FF,  Val-$9C,  Bright-$19,  Val+Bright Avg-$5A
+ds_list_add(global.dl_COLOR01,$F00080); // Hue-$C1,  Sat-$FF,  Val-$F0,  Bright-$2C,  Val+Bright Avg-$8E
+ds_list_add(global.dl_COLOR01,$FC88CC); // Hue-$C3,  Sat-$75,  Val-$FC,  Bright-$9E,  Val+Bright Avg-$CD
+ds_list_add(global.dl_COLOR01,$F1BADC); // Hue-$C4,  Sat-$3A,  Val-$F1,  Bright-$C5,  Val+Bright Avg-$DB
+ds_list_add(global.dl_COLOR01,$3F2945); // Hue-$DE,  Sat-$67,  Val-$45,  Bright-$30,  Val+Bright Avg-$3A
+ds_list_add(global.dl_COLOR01,$753E6B); // Hue-$CD,  Sat-$78,  Val-$75,  Bright-$4B,  Val+Bright Avg-$60
+ds_list_add(global.dl_COLOR01,$A95E90); // Hue-$C6,  Sat-$71,  Val-$A9,  Bright-$6E,  Val+Bright Avg-$8B
+ds_list_add(global.dl_COLOR01,$F384A8); // Hue-$B8,  Sat-$74,  Val-$F3,  Bright-$93,  Val+Bright Avg-$C3
+ds_list_add(global.dl_COLOR01,$EDADEA); // Hue-$D3,  Sat-$45,  Val-$ED,  Bright-$BE,  Val+Bright Avg-$D5
 // ROW $03                                                              //
-ds_list_add(global.dl_COLOR01,$501919); // Hue-$AA,  Sat-$AF,  Bright-$1C
-ds_list_add(global.dl_COLOR01,$A80000); // Hue-$AA,  Sat-$FF,  Bright-$0C
-ds_list_add(global.dl_COLOR01,$EC3820); // Hue-$A5,  Sat-$DC,  Bright-$3F
-ds_list_add(global.dl_COLOR01,$FC945C); // Hue-$9B,  Sat-$A2,  Bright-$8F
-ds_list_add(global.dl_COLOR01,$FCD4C4); // Hue-$9E,  Sat-$39,  Bright-$D3
-ds_list_add(global.dl_COLOR01,$2F222E); // Hue-$D1,  Sat-$47,  Bright-$25
-ds_list_add(global.dl_COLOR01,$46353E); // Hue-$C1,  Sat-$3E,  Bright-$38
-ds_list_add(global.dl_COLOR01,$655562); // Hue-$CD,  Sat-$28,  Bright-$58
-ds_list_add(global.dl_COLOR01,$6C6C96); // Hue-$00,  Sat-$47,  Bright-$74
-ds_list_add(global.dl_COLOR01,$7A94AB); // Hue-$17,  Sat-$49,  Bright-$97
+ds_list_add(global.dl_COLOR01,$501919); // Hue-$AA,  Sat-$AF,  Val-$50,  Bright-$1C,  Val+Bright Avg-$36
+ds_list_add(global.dl_COLOR01,$A80000); // Hue-$AA,  Sat-$FF,  Val-$A8,  Bright-$0C,  Val+Bright Avg-$5A
+ds_list_add(global.dl_COLOR01,$EC3820); // Hue-$A5,  Sat-$DC,  Val-$EC,  Bright-$3F,  Val+Bright Avg-$95
+ds_list_add(global.dl_COLOR01,$FC945C); // Hue-$9B,  Sat-$A2,  Val-$FC,  Bright-$8F,  Val+Bright Avg-$C5
+ds_list_add(global.dl_COLOR01,$FCD4C4); // Hue-$9E,  Sat-$39,  Val-$FC,  Bright-$D3,  Val+Bright Avg-$E7
+ds_list_add(global.dl_COLOR01,$2F222E); // Hue-$D1,  Sat-$47,  Val-$2F,  Bright-$25,  Val+Bright Avg-$2A
+ds_list_add(global.dl_COLOR01,$46353E); // Hue-$C1,  Sat-$3E,  Val-$46,  Bright-$38,  Val+Bright Avg-$3F
+ds_list_add(global.dl_COLOR01,$655562); // Hue-$CD,  Sat-$28,  Val-$65,  Bright-$58,  Val+Bright Avg-$5E
+ds_list_add(global.dl_COLOR01,$6C6C96); // Hue-$00,  Sat-$47,  Val-$96,  Bright-$74,  Val+Bright Avg-$85
+ds_list_add(global.dl_COLOR01,$7A94AB); // Hue-$17,  Sat-$49,  Val-$AB,  Bright-$97,  Val+Bright Avg-$A1
 // ROW $04                                                              //
-ds_list_add(global.dl_COLOR01,$4B2630); // Hue-$B5,  Sat-$7E,  Bright-$2A
-ds_list_add(global.dl_COLOR01,$8C1824); // Hue-$AE,  Sat-$D3,  Bright-$22
-ds_list_add(global.dl_COLOR01,$EC7000); // Hue-$96,  Sat-$FF,  Bright-$61
-ds_list_add(global.dl_COLOR01,$FCBC3C); // Hue-$8E,  Sat-$C2,  Bright-$A5
-ds_list_add(global.dl_COLOR01,$FCE4A8); // Hue-$8C,  Sat-$55,  Bright-$D8
-ds_list_add(global.dl_COLOR01,$624F69); // Hue-$E0,  Sat-$3F,  Bright-$55
-ds_list_add(global.dl_COLOR01,$8A707F); // Hue-$C3,  Sat-$30,  Bright-$75
-ds_list_add(global.dl_COLOR01,$B2AB9B); // Hue-$8C,  Sat-$21,  Bright-$A8
-ds_list_add(global.dl_COLOR01,$D0DCC7); // Hue-$67,  Sat-$18,  Bright-$D6
-ds_list_add(global.dl_COLOR01,$DDE8DB); // Hue-$5C,  Sat-$0E,  Bright-$E4
+ds_list_add(global.dl_COLOR01,$4B2630); // Hue-$B5,  Sat-$7E,  Val-$4B,  Bright-$2A,  Val+Bright Avg-$3A
+ds_list_add(global.dl_COLOR01,$8C1824); // Hue-$AE,  Sat-$D3,  Val-$8C,  Bright-$22,  Val+Bright Avg-$57
+ds_list_add(global.dl_COLOR01,$EC7000); // Hue-$96,  Sat-$FF,  Val-$EC,  Bright-$61,  Val+Bright Avg-$A6
+ds_list_add(global.dl_COLOR01,$FCBC3C); // Hue-$8E,  Sat-$C2,  Val-$FC,  Bright-$A5,  Val+Bright Avg-$D0
+ds_list_add(global.dl_COLOR01,$FCE4A8); // Hue-$8C,  Sat-$55,  Val-$FC,  Bright-$D8,  Val+Bright Avg-$EA
+ds_list_add(global.dl_COLOR01,$624F69); // Hue-$E0,  Sat-$3F,  Val-$69,  Bright-$55,  Val+Bright Avg-$5F
+ds_list_add(global.dl_COLOR01,$8A707F); // Hue-$C3,  Sat-$30,  Val-$8A,  Bright-$75,  Val+Bright Avg-$7F
+ds_list_add(global.dl_COLOR01,$B2AB9B); // Hue-$8C,  Sat-$21,  Val-$B2,  Bright-$A8,  Val+Bright Avg-$AD
+ds_list_add(global.dl_COLOR01,$D0DCC7); // Hue-$67,  Sat-$18,  Val-$DC,  Bright-$D6,  Val+Bright Avg-$D9
+ds_list_add(global.dl_COLOR01,$DDE8DB); // Hue-$5C,  Sat-$0E,  Val-$E8,  Bright-$E4,  Val+Bright Avg-$E6
 // ROW $05                                                              //
-ds_list_add(global.dl_COLOR01,$382A1A); // Hue-$93,  Sat-$89,  Bright-$27
-ds_list_add(global.dl_COLOR01,$5C3C18); // Hue-$93,  Sat-$BC,  Bright-$36
-ds_list_add(global.dl_COLOR01,$888000); // Hue-$82,  Sat-$FF,  Bright-$65
-ds_list_add(global.dl_COLOR01,$D8E800); // Hue-$7D,  Sat-$FF,  Bright-$B5
-ds_list_add(global.dl_COLOR01,$F0FC9C); // Hue-$7A,  Sat-$61,  Bright-$E6
-ds_list_add(global.dl_COLOR01,$533332); // Hue-$A9,  Sat-$65,  Bright-$35
-ds_list_add(global.dl_COLOR01,$774A48); // Hue-$A8,  Sat-$65,  Bright-$4C
-ds_list_add(global.dl_COLOR01,$B4654D); // Hue-$A0,  Sat-$92,  Bright-$65
-ds_list_add(global.dl_COLOR01,$E69B4D); // Hue-$94,  Sat-$AA,  Bright-$8F
-ds_list_add(global.dl_COLOR01,$FFD38F); // Hue-$90,  Sat-$70,  Bright-$C7
+ds_list_add(global.dl_COLOR01,$382A1A); // Hue-$93,  Sat-$89,  Val-$38,  Bright-$27,  Val+Bright Avg-$2F
+ds_list_add(global.dl_COLOR01,$5C3C18); // Hue-$93,  Sat-$BC,  Val-$5C,  Bright-$36,  Val+Bright Avg-$49
+ds_list_add(global.dl_COLOR01,$888000); // Hue-$82,  Sat-$FF,  Val-$88,  Bright-$65,  Val+Bright Avg-$76
+ds_list_add(global.dl_COLOR01,$D8E800); // Hue-$7D,  Sat-$FF,  Val-$E8,  Bright-$B5,  Val+Bright Avg-$CE
+ds_list_add(global.dl_COLOR01,$F0FC9C); // Hue-$7A,  Sat-$61,  Val-$FC,  Bright-$E6,  Val+Bright Avg-$F1
+ds_list_add(global.dl_COLOR01,$533332); // Hue-$A9,  Sat-$65,  Val-$53,  Bright-$35,  Val+Bright Avg-$44
+ds_list_add(global.dl_COLOR01,$774A48); // Hue-$A8,  Sat-$65,  Val-$77,  Bright-$4C,  Val+Bright Avg-$61
+ds_list_add(global.dl_COLOR01,$B4654D); // Hue-$A0,  Sat-$92,  Val-$B4,  Bright-$65,  Val+Bright Avg-$8C
+ds_list_add(global.dl_COLOR01,$E69B4D); // Hue-$94,  Sat-$AA,  Val-$E6,  Bright-$8F,  Val+Bright Avg-$BA
+ds_list_add(global.dl_COLOR01,$FFD38F); // Hue-$90,  Sat-$70,  Val-$FF,  Bright-$C7,  Val+Bright Avg-$E3
 // ROW $06                                                              //
-ds_list_add(global.dl_COLOR01,$2A331B); // Hue-$70,  Sat-$78,  Bright-$2D
-ds_list_add(global.dl_COLOR01,$003E00); // Hue-$55,  Sat-$FF,  Bright-$2C
-ds_list_add(global.dl_COLOR01,$2A7B00); // Hue-$64,  Sat-$FF,  Bright-$5B
-ds_list_add(global.dl_COLOR01,$70D43A); // Hue-$64,  Sat-$B9,  Bright-$AC
-ds_list_add(global.dl_COLOR01,$BCE89E); // Hue-$66,  Sat-$51,  Bright-$D5
-ds_list_add(global.dl_COLOR01,$655E0B); // Hue-$83,  Sat-$E3,  Bright-$4C
-ds_list_add(global.dl_COLOR01,$8F8A0B); // Hue-$81,  Sat-$EB,  Bright-$6F
-ds_list_add(global.dl_COLOR01,$9BAF0E); // Hue-$7A,  Sat-$EB,  Bright-$8B
-ds_list_add(global.dl_COLOR01,$B9E130); // Hue-$76,  Sat-$C9,  Bright-$B8
-ds_list_add(global.dl_COLOR01,$E2F88F); // Hue-$77,  Sat-$6C,  Bright-$E0
+ds_list_add(global.dl_COLOR01,$2A331B); // Hue-$70,  Sat-$78,  Val-$33,  Bright-$2D,  Val+Bright Avg-$30
+ds_list_add(global.dl_COLOR01,$003E00); // Hue-$55,  Sat-$FF,  Val-$3E,  Bright-$2C,  Val+Bright Avg-$35
+ds_list_add(global.dl_COLOR01,$2A7B00); // Hue-$64,  Sat-$FF,  Val-$7B,  Bright-$5B,  Val+Bright Avg-$6B
+ds_list_add(global.dl_COLOR01,$70D43A); // Hue-$64,  Sat-$B9,  Val-$D4,  Bright-$AC,  Val+Bright Avg-$C0
+ds_list_add(global.dl_COLOR01,$BCE89E); // Hue-$66,  Sat-$51,  Val-$E8,  Bright-$D5,  Val+Bright Avg-$DE
+ds_list_add(global.dl_COLOR01,$655E0B); // Hue-$83,  Sat-$E3,  Val-$65,  Bright-$4C,  Val+Bright Avg-$58
+ds_list_add(global.dl_COLOR01,$8F8A0B); // Hue-$81,  Sat-$EB,  Val-$8F,  Bright-$6F,  Val+Bright Avg-$7F
+ds_list_add(global.dl_COLOR01,$9BAF0E); // Hue-$7A,  Sat-$EB,  Val-$AF,  Bright-$8B,  Val+Bright Avg-$9D
+ds_list_add(global.dl_COLOR01,$B9E130); // Hue-$76,  Sat-$C9,  Val-$E1,  Bright-$B8,  Val+Bright Avg-$CC
+ds_list_add(global.dl_COLOR01,$E2F88F); // Hue-$77,  Sat-$6C,  Val-$F8,  Bright-$E0,  Val+Bright Avg-$EC
 // ROW $07                                                              //
-ds_list_add(global.dl_COLOR01,$133213); // Hue-$55,  Sat-$9E,  Bright-$29
-ds_list_add(global.dl_COLOR01,$005000); // Hue-$55,  Sat-$FF,  Bright-$39
-ds_list_add(global.dl_COLOR01,$00A800); // Hue-$55,  Sat-$FF,  Bright-$78
-ds_list_add(global.dl_COLOR01,$48DC4C); // Hue-$54,  Sat-$AC,  Bright-$B2
-ds_list_add(global.dl_COLOR01,$96E8AF); // Hue-$48,  Sat-$5A,  Bright-$D5
-ds_list_add(global.dl_COLOR01,$383631); // Hue-$8C,  Sat-$20,  Bright-$35
-ds_list_add(global.dl_COLOR01,$4A4E37); // Hue-$78,  Sat-$4B,  Bright-$48
-ds_list_add(global.dl_COLOR01,$647E54); // Hue-$65,  Sat-$55,  Bright-$73
-ds_list_add(global.dl_COLOR01,$84A992); // Hue-$45,  Sat-$38,  Bright-$A1
-ds_list_add(global.dl_COLOR01,$90BAB2); // Hue-$33,  Sat-$3A,  Bright-$B5
+ds_list_add(global.dl_COLOR01,$133213); // Hue-$55,  Sat-$9E,  Val-$32,  Bright-$29,  Val+Bright Avg-$2D
+ds_list_add(global.dl_COLOR01,$005000); // Hue-$55,  Sat-$FF,  Val-$50,  Bright-$39,  Val+Bright Avg-$44
+ds_list_add(global.dl_COLOR01,$00A800); // Hue-$55,  Sat-$FF,  Val-$A8,  Bright-$78,  Val+Bright Avg-$90
+ds_list_add(global.dl_COLOR01,$48DC4C); // Hue-$54,  Sat-$AC,  Val-$DC,  Bright-$B2,  Val+Bright Avg-$C7
+ds_list_add(global.dl_COLOR01,$96E8AF); // Hue-$48,  Sat-$5A,  Val-$E8,  Bright-$D5,  Val+Bright Avg-$DE
+ds_list_add(global.dl_COLOR01,$383631); // Hue-$8C,  Sat-$20,  Val-$38,  Bright-$35,  Val+Bright Avg-$36
+ds_list_add(global.dl_COLOR01,$4A4E37); // Hue-$78,  Sat-$4B,  Val-$4E,  Bright-$48,  Val+Bright Avg-$4B
+ds_list_add(global.dl_COLOR01,$647E54); // Hue-$65,  Sat-$55,  Val-$7E,  Bright-$73,  Val+Bright Avg-$78
+ds_list_add(global.dl_COLOR01,$84A992); // Hue-$45,  Sat-$38,  Val-$A9,  Bright-$A1,  Val+Bright Avg-$A5
+ds_list_add(global.dl_COLOR01,$90BAB2); // Hue-$33,  Sat-$3A,  Val-$BA,  Bright-$B5,  Val+Bright Avg-$B7
 // ROW $08                                                              //
-ds_list_add(global.dl_COLOR01,$1F281F); // Hue-$55,  Sat-$39,  Bright-$25
-ds_list_add(global.dl_COLOR01,$004400); // Hue-$55,  Sat-$FF,  Bright-$30
-ds_list_add(global.dl_COLOR01,$009400); // Hue-$55,  Sat-$FF,  Bright-$69
-ds_list_add(global.dl_COLOR01,$10D080); // Hue-$3C,  Sat-$EB,  Bright-$B1
-ds_list_add(global.dl_COLOR01,$A0FCE0); // Hue-$37,  Sat-$5D,  Bright-$EF
-ds_list_add(global.dl_COLOR01,$4C5A16); // Hue-$77,  Sat-$C1,  Bright-$4A
-ds_list_add(global.dl_COLOR01,$639023); // Hue-$6E,  Sat-$C1,  Bright-$75
-ds_list_add(global.dl_COLOR01,$73BC1E); // Hue-$6C,  Sat-$D6,  Bright-$95
-ds_list_add(global.dl_COLOR01,$69DB91); // Hue-$46,  Sat-$85,  Bright-$C3
-ds_list_add(global.dl_COLOR01,$6CDFCD); // Hue-$31,  Sat-$84,  Bright-$D2
+ds_list_add(global.dl_COLOR01,$1F281F); // Hue-$55,  Sat-$39,  Val-$28,  Bright-$25,  Val+Bright Avg-$26
+ds_list_add(global.dl_COLOR01,$004400); // Hue-$55,  Sat-$FF,  Val-$44,  Bright-$30,  Val+Bright Avg-$3A
+ds_list_add(global.dl_COLOR01,$009400); // Hue-$55,  Sat-$FF,  Val-$94,  Bright-$69,  Val+Bright Avg-$7E
+ds_list_add(global.dl_COLOR01,$10D080); // Hue-$3C,  Sat-$EB,  Val-$D0,  Bright-$B1,  Val+Bright Avg-$C0
+ds_list_add(global.dl_COLOR01,$A0FCE0); // Hue-$37,  Sat-$5D,  Val-$FC,  Bright-$EF,  Val+Bright Avg-$F5
+ds_list_add(global.dl_COLOR01,$4C5A16); // Hue-$77,  Sat-$C1,  Val-$5A,  Bright-$4A,  Val+Bright Avg-$52
+ds_list_add(global.dl_COLOR01,$639023); // Hue-$6E,  Sat-$C1,  Val-$90,  Bright-$75,  Val+Bright Avg-$82
+ds_list_add(global.dl_COLOR01,$73BC1E); // Hue-$6C,  Sat-$D6,  Val-$BC,  Bright-$95,  Val+Bright Avg-$A8
+ds_list_add(global.dl_COLOR01,$69DB91); // Hue-$46,  Sat-$85,  Val-$DB,  Bright-$C3,  Val+Bright Avg-$CF
+ds_list_add(global.dl_COLOR01,$6CDFCD); // Hue-$31,  Sat-$84,  Val-$DF,  Bright-$D2,  Val+Bright Avg-$D8
 // ROW $09                                                              //
-ds_list_add(global.dl_COLOR01,$0F232C); // Hue-$1D,  Sat-$A8,  Bright-$23
-ds_list_add(global.dl_COLOR01,$002C40); // Hue-$1D,  Sat-$FF,  Bright-$2D
-ds_list_add(global.dl_COLOR01,$007088); // Hue-$23,  Sat-$FF,  Bright-$6D
-ds_list_add(global.dl_COLOR01,$3CBCF0); // Hue-$1E,  Sat-$BF,  Bright-$BD
-ds_list_add(global.dl_COLOR01,$7DDAD4); // Hue-$2D,  Sat-$6D,  Bright-$D2
-ds_list_add(global.dl_COLOR01,$243E4C); // Hue-$1C,  Sat-$86,  Bright-$3F
-ds_list_add(global.dl_COLOR01,$336667); // Hue-$2A,  Sat-$81,  Bright-$62
-ds_list_add(global.dl_COLOR01,$47A9A2); // Hue-$2E,  Sat-$94,  Bright-$A0
-ds_list_add(global.dl_COLOR01,$4BE0D5); // Hue-$2E,  Sat-$AA,  Bright-$D2
-ds_list_add(global.dl_COLOR01,$86FFFB); // Hue-$2C,  Sat-$79,  Bright-$F5
+ds_list_add(global.dl_COLOR01,$0F232C); // Hue-$1D,  Sat-$A8,  Val-$2C,  Bright-$23,  Val+Bright Avg-$27
+ds_list_add(global.dl_COLOR01,$002C40); // Hue-$1D,  Sat-$FF,  Val-$40,  Bright-$2D,  Val+Bright Avg-$36
+ds_list_add(global.dl_COLOR01,$007088); // Hue-$23,  Sat-$FF,  Val-$88,  Bright-$6D,  Val+Bright Avg-$7A
+ds_list_add(global.dl_COLOR01,$3CBCF0); // Hue-$1E,  Sat-$BF,  Val-$F0,  Bright-$BD,  Val+Bright Avg-$D6
+ds_list_add(global.dl_COLOR01,$7DDAD4); // Hue-$2D,  Sat-$6D,  Val-$DA,  Bright-$D2,  Val+Bright Avg-$D6
+ds_list_add(global.dl_COLOR01,$243E4C); // Hue-$1C,  Sat-$86,  Val-$4C,  Bright-$3F,  Val+Bright Avg-$45
+ds_list_add(global.dl_COLOR01,$336667); // Hue-$2A,  Sat-$81,  Val-$67,  Bright-$62,  Val+Bright Avg-$64
+ds_list_add(global.dl_COLOR01,$47A9A2); // Hue-$2E,  Sat-$94,  Val-$A9,  Bright-$A0,  Val+Bright Avg-$A4
+ds_list_add(global.dl_COLOR01,$4BE0D5); // Hue-$2E,  Sat-$AA,  Val-$E0,  Bright-$D2,  Val+Bright Avg-$D9
+ds_list_add(global.dl_COLOR01,$86FFFB); // Hue-$2C,  Sat-$79,  Val-$FF,  Bright-$F5,  Val+Bright Avg-$FA
 // ROW $0A                                                              //
-ds_list_add(global.dl_COLOR01,$0F1E36); // Hue-$10,  Sat-$B8,  Bright-$22
-ds_list_add(global.dl_COLOR01,$1A375E); // Hue-$12,  Sat-$B8,  Bright-$3D
-ds_list_add(global.dl_COLOR01,$1B4461); // Hue-$19,  Sat-$B8,  Bright-$47
-ds_list_add(global.dl_COLOR01,$406485); // Hue-$16,  Sat-$84,  Bright-$68
-ds_list_add(global.dl_COLOR01,$5286B1); // Hue-$17,  Sat-$89,  Bright-$8B
-ds_list_add(global.dl_COLOR01,$45307A); // Hue-$F3,  Sat-$9B,  Bright-$41
-ds_list_add(global.dl_COLOR01,$39459E); // Hue-$05,  Sat-$A3,  Bright-$57
-ds_list_add(global.dl_COLOR01,$3D68CD); // Hue-$0D,  Sat-$B3,  Bright-$7A
-ds_list_add(global.dl_COLOR01,$4E90E6); // Hue-$12,  Sat-$A9,  Bright-$9D
-ds_list_add(global.dl_COLOR01,$54B9FB); // Hue-$1A,  Sat-$AA,  Bright-$BF
+ds_list_add(global.dl_COLOR01,$0F1E36); // Hue-$10,  Sat-$B8,  Val-$36,  Bright-$22,  Val+Bright Avg-$2C
+ds_list_add(global.dl_COLOR01,$1A375E); // Hue-$12,  Sat-$B8,  Val-$5E,  Bright-$3D,  Val+Bright Avg-$4D
+ds_list_add(global.dl_COLOR01,$1B4461); // Hue-$19,  Sat-$B8,  Val-$61,  Bright-$47,  Val+Bright Avg-$54
+ds_list_add(global.dl_COLOR01,$406485); // Hue-$16,  Sat-$84,  Val-$85,  Bright-$68,  Val+Bright Avg-$76
+ds_list_add(global.dl_COLOR01,$5286B1); // Hue-$17,  Sat-$89,  Val-$B1,  Bright-$8B,  Val+Bright Avg-$9E
+ds_list_add(global.dl_COLOR01,$45307A); // Hue-$F3,  Sat-$9B,  Val-$7A,  Bright-$41,  Val+Bright Avg-$5D
+ds_list_add(global.dl_COLOR01,$39459E); // Hue-$05,  Sat-$A3,  Val-$9E,  Bright-$57,  Val+Bright Avg-$7A
+ds_list_add(global.dl_COLOR01,$3D68CD); // Hue-$0D,  Sat-$B3,  Val-$CD,  Bright-$7A,  Val+Bright Avg-$A3
+ds_list_add(global.dl_COLOR01,$4E90E6); // Hue-$12,  Sat-$A9,  Val-$E6,  Bright-$9D,  Val+Bright Avg-$C1
+ds_list_add(global.dl_COLOR01,$54B9FB); // Hue-$1A,  Sat-$AA,  Val-$FB,  Bright-$BF,  Val+Bright Avg-$DD
 // ROW $0B                                                              //
-ds_list_add(global.dl_COLOR01,$0F194D); // Hue-$07,  Sat-$CD,  Bright-$23
-ds_list_add(global.dl_COLOR01,$00087C); // Hue-$03,  Sat-$FF,  Bright-$20
-ds_list_add(global.dl_COLOR01,$0C4CC8); // Hue-$0E,  Sat-$F0,  Bright-$61
-ds_list_add(global.dl_COLOR01,$3898FC); // Hue-$15,  Sat-$C6,  Bright-$A6
-ds_list_add(global.dl_COLOR01,$A8D8FC); // Hue-$18,  Sat-$55,  Bright-$DC
-ds_list_add(global.dl_COLOR01,$3423AE); // Hue-$FA,  Sat-$CC,  Bright-$41
-ds_list_add(global.dl_COLOR01,$3B3BE8); // Hue-$00,  Sat-$BE,  Bright-$5F
-ds_list_add(global.dl_COLOR01,$1D6BFB); // Hue-$0F,  Sat-$E2,  Bright-$83
-ds_list_add(global.dl_COLOR01,$17A5F7); // Hue-$1B,  Sat-$E7,  Bright-$AC
-ds_list_add(global.dl_COLOR01,$2BC2F9); // Hue-$1F,  Sat-$D3,  Bright-$C2
+ds_list_add(global.dl_COLOR01,$0F194D); // Hue-$07,  Sat-$CD,  Val-$4D,  Bright-$23,  Val+Bright Avg-$38
+ds_list_add(global.dl_COLOR01,$00087C); // Hue-$03,  Sat-$FF,  Val-$7C,  Bright-$20,  Val+Bright Avg-$4E
+ds_list_add(global.dl_COLOR01,$0C4CC8); // Hue-$0E,  Sat-$F0,  Val-$C8,  Bright-$61,  Val+Bright Avg-$94
+ds_list_add(global.dl_COLOR01,$3898FC); // Hue-$15,  Sat-$C6,  Val-$FC,  Bright-$A6,  Val+Bright Avg-$D1
+ds_list_add(global.dl_COLOR01,$A8D8FC); // Hue-$18,  Sat-$55,  Val-$FC,  Bright-$DC,  Val+Bright Avg-$EC
+ds_list_add(global.dl_COLOR01,$3423AE); // Hue-$FA,  Sat-$CC,  Val-$AE,  Bright-$41,  Val+Bright Avg-$77
+ds_list_add(global.dl_COLOR01,$3B3BE8); // Hue-$00,  Sat-$BE,  Val-$E8,  Bright-$5F,  Val+Bright Avg-$A3
+ds_list_add(global.dl_COLOR01,$1D6BFB); // Hue-$0F,  Sat-$E2,  Val-$FB,  Bright-$83,  Val+Bright Avg-$BF
+ds_list_add(global.dl_COLOR01,$17A5F7); // Hue-$1B,  Sat-$E7,  Val-$F7,  Bright-$AC,  Val+Bright Avg-$D1
+ds_list_add(global.dl_COLOR01,$2BC2F9); // Hue-$1F,  Sat-$D3,  Val-$F9,  Bright-$C2,  Val+Bright Avg-$DD
 // ROW $0C                                                              //
-ds_list_add(global.dl_COLOR01,$0F135A); // Hue-$02,  Sat-$D5,  Bright-$21
-ds_list_add(global.dl_COLOR01,$0000A4); // Hue-$00,  Sat-$FF,  Bright-$22
-ds_list_add(global.dl_COLOR01,$0028D8); // Hue-$08,  Sat-$FF,  Bright-$4A
-ds_list_add(global.dl_COLOR01,$6074FC); // Hue-$05,  Sat-$9E,  Bright-$8F
-ds_list_add(global.dl_COLOR01,$B0BCFC); // Hue-$07,  Sat-$4D,  Bright-$C8
-ds_list_add(global.dl_COLOR01,$27276E); // Hue-$00,  Sat-$A5,  Bright-$36
-ds_list_add(global.dl_COLOR01,$3138B3); // Hue-$02,  Sat-$B9,  Bright-$51
-ds_list_add(global.dl_COLOR01,$364FEA); // Hue-$06,  Sat-$C4,  Bright-$6E
-ds_list_add(global.dl_COLOR01,$4A7DF5); // Hue-$0D,  Sat-$B2,  Bright-$92
-ds_list_add(global.dl_COLOR01,$B0CBFD); // Hue-$0F,  Sat-$4E,  Bright-$D3
+ds_list_add(global.dl_COLOR01,$0F135A); // Hue-$02,  Sat-$D5,  Val-$5A,  Bright-$21,  Val+Bright Avg-$3D
+ds_list_add(global.dl_COLOR01,$0000A4); // Hue-$00,  Sat-$FF,  Val-$A4,  Bright-$22,  Val+Bright Avg-$63
+ds_list_add(global.dl_COLOR01,$0028D8); // Hue-$08,  Sat-$FF,  Val-$D8,  Bright-$4A,  Val+Bright Avg-$91
+ds_list_add(global.dl_COLOR01,$6074FC); // Hue-$05,  Sat-$9E,  Val-$FC,  Bright-$8F,  Val+Bright Avg-$C5
+ds_list_add(global.dl_COLOR01,$B0BCFC); // Hue-$07,  Sat-$4D,  Val-$FC,  Bright-$C8,  Val+Bright Avg-$E2
+ds_list_add(global.dl_COLOR01,$27276E); // Hue-$00,  Sat-$A5,  Val-$6E,  Bright-$36,  Val+Bright Avg-$52
+ds_list_add(global.dl_COLOR01,$3138B3); // Hue-$02,  Sat-$B9,  Val-$B3,  Bright-$51,  Val+Bright Avg-$82
+ds_list_add(global.dl_COLOR01,$364FEA); // Hue-$06,  Sat-$C4,  Val-$EA,  Bright-$6E,  Val+Bright Avg-$AC
+ds_list_add(global.dl_COLOR01,$4A7DF5); // Hue-$0D,  Sat-$B2,  Val-$F5,  Bright-$92,  Val+Bright Avg-$C3
+ds_list_add(global.dl_COLOR01,$B0CBFD); // Hue-$0F,  Sat-$4E,  Val-$FD,  Bright-$D3,  Val+Bright Avg-$E8
 // ROW $0D                                                              //
-ds_list_add(global.dl_COLOR01,$010101); // Hue-$00,  Sat-$00,  Bright-$01. C_BLK1
-ds_list_add(global.dl_COLOR01,$171717); // Hue-$00,  Sat-$00,  Bright-$17
-ds_list_add(global.dl_COLOR01,$2A2A2A); // Hue-$00,  Sat-$00,  Bright-$2A
-ds_list_add(global.dl_COLOR01,$3A3A3A); // Hue-$00,  Sat-$00,  Bright-$3A
-ds_list_add(global.dl_COLOR01,$4C4C4C); // Hue-$00,  Sat-$00,  Bright-$4C
-ds_list_add(global.dl_COLOR01,$646464); // Hue-$00,  Sat-$00,  Bright-$64
-ds_list_add(global.dl_COLOR01,$888888); // Hue-$00,  Sat-$00,  Bright-$88
-ds_list_add(global.dl_COLOR01,$B2B2B2); // Hue-$00,  Sat-$00,  Bright-$B1
-ds_list_add(global.dl_COLOR01,$DCDCDC); // Hue-$00,  Sat-$00,  Bright-$DC
-ds_list_add(global.dl_COLOR01,$FCFCFC); // Hue-$00,  Sat-$00,  Bright-$FB
+ds_list_add(global.dl_COLOR01,$010101); // Hue-$00,  Sat-$00,  Val-$01,  Bright-$01,  Val+Bright Avg-$01,  C_BLK1
+ds_list_add(global.dl_COLOR01,$171717); // Hue-$00,  Sat-$00,  Val-$17,  Bright-$17,  Val+Bright Avg-$17
+ds_list_add(global.dl_COLOR01,$2A2A2A); // Hue-$00,  Sat-$00,  Val-$2A,  Bright-$2A,  Val+Bright Avg-$2A
+ds_list_add(global.dl_COLOR01,$3A3A3A); // Hue-$00,  Sat-$00,  Val-$3A,  Bright-$3A,  Val+Bright Avg-$3A
+ds_list_add(global.dl_COLOR01,$4C4C4C); // Hue-$00,  Sat-$00,  Val-$4C,  Bright-$4C,  Val+Bright Avg-$4C
+ds_list_add(global.dl_COLOR01,$646464); // Hue-$00,  Sat-$00,  Val-$64,  Bright-$64,  Val+Bright Avg-$64
+ds_list_add(global.dl_COLOR01,$888888); // Hue-$00,  Sat-$00,  Val-$88,  Bright-$88,  Val+Bright Avg-$88
+ds_list_add(global.dl_COLOR01,$B2B2B2); // Hue-$00,  Sat-$00,  Val-$B2,  Bright-$B1,  Val+Bright Avg-$B1
+ds_list_add(global.dl_COLOR01,$DCDCDC); // Hue-$00,  Sat-$00,  Val-$DC,  Bright-$DC,  Val+Bright Avg-$DC
+ds_list_add(global.dl_COLOR01,$FCFCFC); // Hue-$00,  Sat-$00,  Val-$FC,  Bright-$FB,  Val+Bright Avg-$FB
 // ROW $0E                                                              //
 // ROW $0F                                                              //
 //                                                                      //
 ColorGrid_CLMS = $A;
 ColorGrid_ROWS = $E;
 //spr_ColorGrid01, ts_SolidColors01_8x8
+/*
+for(_i=0; _i<ds_list_size(global.dl_COLOR01); _i++)
+{
+    if!(_i mod ColorGrid_CLMS) sdm("// ROW $"+hex_str(_i div ColorGrid_CLMS)+"                                                              //");
+    _val  = "ds_list_add(global.dl_COLOR01,$"+hex_str(global.dl_COLOR01[|_i],6)+"); // ";
+    _val += "Hue-$"   +hex_str(colour_get_hue(        global.dl_COLOR01[|_i]))+",  ";
+    _val += "Sat-$"   +hex_str(colour_get_saturation( global.dl_COLOR01[|_i]))+",  ";
+    _val += "Val-$"   +hex_str(colour_get_value(      global.dl_COLOR01[|_i]))+",  ";
+    _val += "Bright-$"+hex_str(get_color_brightness(  global.dl_COLOR01[|_i]))+",  ";
+    _val += "Val+Bright Avg-$"+hex_str((colour_get_value(global.dl_COLOR01[|_i])+get_color_brightness(global.dl_COLOR01[|_i]))>>1);
+    sdm(_val);
+}
+*/
 
 
 
@@ -1621,6 +1635,233 @@ for(_i=val(global.FallScene_dm[?STR_Type+STR_Count])-1; _i>=0; _i--)
 
 
 // ---------------------------------------------------------------------------
+// Build a list of acceptable palettes for Palette Rando
+/*
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$01], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$07], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$03)+$07], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$03)+$08], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$04)+$05], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$05)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$05], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$05], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$05], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+
+
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $01;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$07], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $01;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$0C)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
+
+
+
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $02;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $02;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
+
+
+
+
+_mid_tone_idx = (ColorGrid_CLMS*$00) + $06;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0C)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
+
+
+
+
+_mid_tone_idx = (ColorGrid_CLMS*$01) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+_mid_tone_idx = (ColorGrid_CLMS*$01) + $00;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
+
+
+
+
+_mid_tone_idx = (ColorGrid_CLMS*$01) + $01;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
+
+
+
+
+_mid_tone_idx = (ColorGrid_CLMS*$01) + $02;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
+
+
+
+
+_mid_tone_idx = (ColorGrid_CLMS*$01) + $05;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$08], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$00], C_BLK1, -2,-2,-2,-2));
+
+
+
+
+_mid_tone_idx = (ColorGrid_CLMS*$01) + $05;
+ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$08], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$00], C_BLK1, -2,-2,-2,-2));
+ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$00], C_BLK1, -2,-2,-2,-2));
+*/
+
+
+
+
+// ---------------------------------------------------------------------------
+/*
+_file_name = "other/"+"RandoPalettes03"+".json";
+if (file_exists(_file_name))
+{
+        _data  = "";
+        _file  = file_text_open_read(_file_name);
+    while(      !file_text_eof(   _file)) 
+    {   _data += file_text_readln(_file);  }
+                 file_text_close( _file);
+    //
+    var _dm_data = json_decode(_data);
+    if (_dm_data!=-1)
+    {
+        var _dl_layers = _dm_data[?"layers"];
+        if(!is_undefined(_dl_layers))
+        {
+            var _dm_layers;
+            var _layer_name = "";
+            
+            var          _LAYER_COUNT = ds_list_size(_dl_layers);
+            for(_i=0; _i<_LAYER_COUNT; _i++) // each layer
+            {
+                _dm_layers  =     _dl_layers[|_i];
+                _layer_name = val(_dm_layers[?"name"], "");
+                if (string_pos("palette",_layer_name)) break;//_i
+            }
+            
+            if (string_pos("palette",_layer_name))
+            {
+                var _dl_tiles = _dm_layers[?"data"];
+                var _CLMS = _dm_data[?"width"];
+                var _ROWS = _dm_data[?"height"];
+                if(!is_undefined(_dl_tiles) 
+                && !is_undefined(_CLMS) 
+                && !is_undefined(_ROWS) )
+                {
+                    var          _TILE_COUNT = ds_list_size(_dl_tiles);
+                    for(_i=0; _i<_TILE_COUNT; _i++) // each palette_group(_j)
+                    {
+                        _clm = _i mod _CLMS;
+                        _row = _i div _CLMS;
+                        if (_row+3<_ROWS)
+                        {
+                            var _tsrc = _dl_tiles[|_i];
+                            if (_tsrc!=0) // 0 means no tile here
+                            {
+                                _tsrc--; // because Tiled adds 1
+                                _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
+                                _tsrc &= $FF;
+                                
+                                if ((_tsrc>>4)&$F==$F) // Indicates there is a palette directly under this tile
+                                {
+                                    _c_wht = C_WHT0;
+                                    _c_red = C_RED0;
+                                    _c_blu = C_BLU0;
+                                    _c_grn = C_GRN0;
+                                    _c_ylw = C_YLW0;
+                                    _c_mgn = C_MGN0;
+                                    _c_blk = C_BLK0;
+                                    _c_cyn = C_CYN0;
+                                    
+                                    for(_j=1; _j<=3; _j++) // Each color of the palette
+                                    {
+                                        _idx = ((_row+_j)*_CLMS) + _clm;
+                                        _tsrc = _dl_tiles[|_idx];
+                                        _tsrc--; // because Tiled adds 1
+                                        _tsrc  = abs(_tsrc&$3FFFFFFF); // just incase x or y flipped
+                                        _tsrc &= $FF;
+                                        
+                                        _idx  = (_tsrc>>4)&$F;
+                                        _idx *= ColorGrid_CLMS;
+                                        _idx += _tsrc&$F;
+                                        _color = global.dl_COLOR01[|_idx];
+                                        switch(_j){
+                                        case 1:{_c_wht=_color; break;} // "W"
+                                        case 2:{_c_red=_color; break;} // "R"
+                                        case 3:{_c_blu=_color; break;} // "B"
+                                        case 4:{_c_grn=_color; break;} // "G"
+                                        case 5:{_c_ylw=_color; break;} // "Y"
+                                        case 6:{_c_mgn=_color; break;} // "M"
+                                        case 7:{_c_blk=_color; break;} // "K"
+                                        case 8:{_c_cyn=_color; break;} // "C"
+                                        }
+                                    }//_j
+                                    
+                                    _c_grn = C_BLK1;
+                                    _c_ylw = _c_wht;
+                                    _c_mgn = _c_red;
+                                    _c_blk = _c_blu;
+                                    _c_cyn = _c_grn;
+                                    _palette = build_pal(_c_wht,_c_red,_c_blu,_c_grn, _c_ylw,_c_mgn,_c_blk,_c_cyn);
+                                    ds_list_add(dl_various_pals3, _palette);
+                                }
+                            }
+                        }
+                    }//_i
+                    
+                    ds_map_destroy(_dm_data); _dm_data=undefined;
+                }
+            }
+        }
+    }
+}
+*/
+
+
+
+
 var _layer_name="";
 var _tile_was_found, _tsrc;
 var _CLM_SHIFT = 5; // 32. Palette groups are aligned to left edge of each scene section/map-page
@@ -1752,10 +1993,6 @@ for(_i=1; _i<=_COUNT0; _i++) // each file
                     case 1:{ds_list_add(dl_various_pals1,_palette); break;}
                     case 2:{ds_list_add(dl_various_pals2,_palette); break;}
                     }
-                    /*switch(_i){
-                    case 1:{sdm("dl_various_pals1[|$"+hex_str(ds_list_size(dl_various_pals1)-1)+"] = "+_palette); break;}
-                    case 2:{sdm("dl_various_pals2[|$"+hex_str(ds_list_size(dl_various_pals2)-1)+"] = "+_palette); break;}
-                    }*/
                     //sdm("dl_various_pals[|$"+hex_str(ds_list_size(dl_various_pals)-1)+"] = "+_palette);
                 }
             }//_k
@@ -1765,87 +2002,6 @@ for(_i=1; _i<=_COUNT0; _i++) // each file
     }
 }//_i
 
-//ds_map_destroy(_dm_data); _dm_data=undefined;
-
-
-
-
-/* // *** Turning this off because rando seems to be picking them too often
-// This adds a bunch of extra palettes with a black mid-tone.
-ds_list_clear(_dl);
-
-var _dl_COLORS1=ds_list_create();
-ds_list_add(_dl_COLORS1, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,CI_ORG4_,CI_BLU4_,CI_VLT4_);
-
-var _dl_COLORS2=ds_list_create();
-ds_list_add(_dl_COLORS2, CI_BLK1_,CI_GRY4_,CI_CYN4_,CI_GRB4_,CI_YGR4_,CI_YLW4_,         CI_BLU4_,CI_VLT4_);
-
-for(_i=0; _i<=1; _i++)
-{
-    switch(_i){
-    case 0:{ds_list_copy(_dl,dl_various_pals1); break;}
-    case 1:{ds_list_copy(_dl,dl_various_pals2); break;}
-    }
-    
-    for(_j=ds_list_size(_dl)-1; _j>=0; _j--)
-    {
-        _val  = _dl[|_j];
-        _ci1  = string_copy(_val,1,2);
-        _ci2  = string_copy(_val,3,2);
-        _ci3  = string_copy(_val,5,2);
-        _ci4  = string_copy(_val,7,2);
-        _val1 = _ci1 + _ci2 + _ci4 + _ci3;
-        _val2 = _ci1 + _ci3 + _ci4 + _ci2;
-        _val3 = _ci1 + _ci4 + _ci3 + _ci2;
-        
-        switch(_i)
-        {
-            case 0:{//====================================================
-            if (ds_list_find_index(dl_various_pals1,_val1)==-1)
-            {   ds_list_add(       dl_various_pals1,_val1);  }
-            
-            if (_ci3==CI_BLK1_ 
-            ||  _ci4==CI_BLK1_ )
-            {
-                if (_ci3==CI_BLK1_) _val = _val2;
-                else                _val = _val3;
-                if (ds_list_find_index(dl_various_pals1,_val)==-1)
-                {   ds_list_add(       dl_various_pals1,_val);  }
-            }
-            break;}//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            
-            
-            case 1:{//====================================================
-            var _colors, _pal;
-            var _COLORS = CI_BLK1_ + CI_GRY4_ + CI_CYN4_ + CI_GRB4_ + CI_YGR4_ + CI_YLW4_ + CI_BLU4_ + CI_VLT4_; // darkest colors
-            var         _dl_PALS=ds_list_create();
-            ds_list_add(_dl_PALS, _val1,_val2,_val3);
-            
-            for(_k=ds_list_size(_dl_PALS)-1; _k>=0; _k--)
-            {
-                _pal = _dl_PALS[|_k];
-                    _color1 = string_copy(_pal,5,2); // midtone
-                    _color2 = string_copy(_pal,7,2); // shadow
-                if (_color1==CI_BLK1_ 
-                ||  _color2==CI_BLK1_ )
-                {
-                    if (string_pos(_color1,_COLORS) 
-                    ||  string_pos(_color2,_COLORS) )
-                    {
-                        if (ds_list_find_index(dl_various_pals2,_pal)==-1)
-                        {   ds_list_add(       dl_various_pals2,_pal);  }
-                    }
-                }
-            }
-            
-            ds_list_destroy(_dl_PALS); _dl_PALS=undefined;
-            break;}//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        }//switch(_i)
-    }
-}
-ds_list_destroy(_dl_COLORS1); _dl_COLORS1=undefined;
-ds_list_destroy(_dl_COLORS2); _dl_COLORS2=undefined;
-*/
 
 
 

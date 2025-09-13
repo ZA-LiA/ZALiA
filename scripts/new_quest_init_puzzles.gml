@@ -47,7 +47,7 @@ for(_i=_count-1; _i>=0; _i--)
     _idx = ds_list_find_index(_dl_order,_val);
     f.dm_quests[?_dk] = _idx+1;
     
-    if(_DEBUG1)sdm(_dk+" num $"+hex_str(_idx+1)+",  "+_dk+STR_Dialogue+": "+string(_val));
+    if(_DEBUG1)show_debug_message(_dk+" num $"+hex_str(_idx+1)+",  "+_dk+STR_Dialogue+": "+string(_val));
     //if(_DEBUG1)sdm(_dk+STR_Dialogue+": "+string(_val)+", num $"+hex_str(_idx+1));
 }
 
@@ -59,9 +59,9 @@ for(_i=_count-1; _i>=0; _i--)
 
 // --------------------------------------------------------------------------------------
 // Spell Sequences
-if(_DEBUG1)sdm("");
+if(_DEBUG1)show_debug_message("");
 generate_spell_sequences(_SPELL_SEQUENCE_SPELL_COUNT);
-if(_DEBUG1)sdm("--------------------------------------------------------");
+if(_DEBUG1)show_debug_message("--------------------------------------------------------");
 
 
 

@@ -115,8 +115,10 @@ if (_IS_SPELL)
         dm_save_data[?_DATAKEY+STR_Town+STR_Name] = _TOWN_NAME;
     }
     
+    sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
     debug_str = "SPELL  "+_ITEM_ID+"  PLACED!";
     sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+    sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
     return true;
 }
 
@@ -138,31 +140,134 @@ var _ITEM_BIT = val(g.dm_ITEM[?_ITEM_TYPE+STR_Bit]);
 
 
 
-if (DEBUG){
-var _CAN_PRINT=false;
-if(!isVal(_ITEM_TYPE,STR_PBAG,STR_KEY) 
-||  (_ITEM_TYPE==STR_PBAG && 0) 
-||  (_ITEM_TYPE==STR_KEY  && KeyLocations_WILL_RANDOMIZE) )
+var _CAN_PRINT_DEBUG = _ITEM_TYPE==STR_KEY || KeyLocations_WILL_RANDOMIZE;
+if (DEBUG)
 {
-    _CAN_PRINT=true;
+    debug_str  = "$"+hex_str(placement_num)+". ";
+    debug_str += "loc_num $"+hex_str(_LOC_NUM)+": ";
+    debug_str += "#(";
+    debug_str += _ITEM_ID;
+    debug_str += ")#";
+    debug_str += string_repeat(" ", max(0,$A-string_length(_ITEM_ID)));
+    debug_str += ".  ";
+    debug_str += _RM_NAME;
+    debug_str += " - "+val(dm_LOCATIONS[?hex_str(_LOC_NUM)+STR_Description], "location?");
+    if (_CAN_PRINT_DEBUG) sdm(debug_str);
+    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
 }
-debug_str  = "$"+hex_str(placement_num)+". ";
-debug_str += "loc_num $"+hex_str(_LOC_NUM)+": ";
-debug_str += _ITEM_ID;
-//debug_str += ".  item id: "+_ITEM_ID;
-debug_str += string_repeat(" ", max(0,$A-string_length(_ITEM_ID)));
-debug_str += ".  ";
-debug_str += _RM_NAME;
-debug_str += " - "+val(dm_LOCATIONS[?hex_str(_LOC_NUM)+STR_Description], "location?");
-if (_CAN_PRINT) sdm(debug_str);
-dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-_count = ds_list_size(dl_items_placed)+ds_list_size(dl_keys_placed);
-    if (_count && !(_count&$3))
+
+
+
+
+if (global.RandoHints_VER==2 
+&&  ds_list_find_index(dl_hint_items,_ITEM_ID)!=-1 )
+{
+    if(!KeyLocations_WILL_RANDOMIZE 
+    ||  _ITEM_ID!=STR_ALLKEY )
     {
-        if (_CAN_PRINT) sdm("");
+        if (QUEST_NUM==2 
+        ||  _ITEM_ID!=STR_MASK )
+        {
+            if ( ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.NONE 
+            ||   ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.JUMP 
+            ||  (ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.FLUTE  && _ITEM_ID!=STR_FLUTE) 
+            ||  (ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.ALLKEY && _ITEM_ID!=STR_ALLKEY) )
+            {
+                var _HINT_LOCATION_COUNT = ds_list_size(dl_hint_loc_nums_shuffled);
+                if (_HINT_LOCATION_COUNT)
+                {
+                    var _hint_num, _hint_scene, _scene_hint_num, _normal_dialogue_dk, _hint_dialogue, _hint_was_set;
+                    //var _ITEM_LOC_SPAWN_DK = dm_save_data[?STR_Location+hex_str(_LOC_NUM)+STR_Spawn+STR_Datakey];
+                    _hint_was_set = false;
+                    
+                    for(_i=0; _i<_HINT_LOCATION_COUNT; _i++)
+                    {
+                        _hint_num = dl_hint_loc_nums_shuffled[|_i];
+                        _hint_scene         = g.dm_RandoHints[?hex_str(_hint_num)+STR_Rm+STR_Name];
+                        _scene_hint_num     = g.dm_RandoHints[?hex_str(_hint_num)+STR_Scene+STR_Hint+STR_Num];
+                        _normal_dialogue_dk = g.dm_RandoHints[?hex_str(_hint_num)+STR_Dialogue+STR_Datakey]; // datakey for NPC's normal(non-rando) dialogue
+                        _hint_dialogue = dm_LOCATIONS[?hex_str(_LOC_NUM)+dk_ChosenHintDialogue];
+                        if(!is_undefined(_hint_scene) 
+                        && !is_undefined(_scene_hint_num) 
+                        && !is_undefined(_normal_dialogue_dk) 
+                        && !is_undefined(_hint_dialogue) )
+                        {
+                            // Need to remove `_ITEM_ID` from `dl_items_placed`, otherwise `Rando_is_qual_hint_location()` could lock the hint behind the `_ITEM_ID`
+                            _idx = ds_list_find_index(dl_items_placed,_ITEM_ID);
+                            if (_idx!=-1) ds_list_delete(dl_items_placed,_idx);
+                            
+                            if (Rando_is_qual_hint_location(_hint_scene, _scene_hint_num)) // if the player can reach this hint location with only the items placed so far
+                            {
+                                _pos = string_pos("&",_hint_dialogue); // "&": the indicator for where the item name should go
+                                if (_pos)
+                                {
+                                    _val = string_upper(string_letters(_ITEM_ID));
+                                    _hint_dialogue = string_delete(_hint_dialogue,_pos,1);
+                                    _hint_dialogue = string_insert(_val,_hint_dialogue,_pos);
+                                    //_hint_dialogue = string_replace(_hint_dialogue,_val,_pos);
+                                }
+                                
+                                _count = val(dm_save_data[?STR_Rando+STR_Hint+STR_Count]) + 1;
+                                dm_save_data[?STR_Rando+STR_Hint+STR_Count] = _count;
+                                
+                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count)+STR_Dialogue+STR_Datakey] = _normal_dialogue_dk;
+                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count)+STR_Dialogue]             = _hint_dialogue;
+                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count)+STR_Item]                 = _ITEM_ID;
+                                dm_save_data[?STR_Rando+STR_Hint+_normal_dialogue_dk+STR_Hint+STR_Num]     = _count;
+                                dm_save_data[?STR_Rando+STR_Hint+_normal_dialogue_dk]                      = _hint_dialogue;
+                                
+                                _hint_was_set = true;
+                                ds_list_delete(dl_hint_loc_nums_shuffled,_i);
+                                
+                                debug_str  = _ITEM_ID+string_repeat(" ",string_length(STR_BRACELET)-string_length(_ITEM_ID));
+                                debug_str += " hint dialogue '"+_hint_dialogue+"' set to datakey "+_normal_dialogue_dk+". Hint location id: "+_hint_scene+hex_str(_scene_hint_num);
+                                show_debug_message(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+                                show_debug_message(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
+                            }
+                            
+                            // Add `_ITEM_ID` back to `dl_items_placed`
+                            if (ds_list_find_index(dl_items_placed,_ITEM_ID)==-1) ds_list_add(dl_items_placed,_ITEM_ID);
+                            
+                            if (_hint_was_set)
+                            {
+                                break;//_i
+                            }
+                        }
+                    }
+                    
+                    /* If somehow there was no qualified hint location for the item, 
+                    should an unqualified location be used?
+                    It's possible the player could still reach the hint if they break logic.
+                    */
+                    if(!_hint_was_set)
+                    {
+                        show_debug_message("");
+                        show_debug_message("!!! WARNING !!!  ["+_ITEM_ID+"]  DID NOT GET A HINT !!!");
+                        show_debug_message("");
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+if (DEBUG && DEBUG_extra_line1)
+{
+    _count = ds_list_size(dl_items_placed)+ds_list_size(dl_keys_placed);
+    if (_count 
+    && !(_count&$3) )
+    {
+        if (_CAN_PRINT_DEBUG) sdm("");
         dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
     }
 }
+
+
+
+
 
 
 
@@ -259,96 +364,7 @@ if (ds_list_find_index(dl_ItemPool_A,_ITEM_ID)!=-1)
 
 
 
-if (global.RandoHints_VER==2 
-&&  ds_list_find_index(dl_hint_items,_ITEM_ID)!=-1 )
-{
-    if(!KeyLocations_WILL_RANDOMIZE 
-    ||  _ITEM_ID!=STR_ALLKEY )
-    {
-        if (QUEST_NUM==2 
-        ||  _ITEM_ID!=STR_MASK )
-        {
-            if ( ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.NONE 
-            ||   ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.JUMP 
-            ||  (ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.FLUTE  && _ITEM_ID!=STR_FLUTE) 
-            ||  (ItemLocations_ZELDA_HINT==ZELDA_HINT_OPTIONS.ALLKEY && _ITEM_ID!=STR_ALLKEY) )
-            {
-                var _HINT_LOCATION_COUNT = ds_list_size(dl_hint_loc_nums_shuffled);
-                if (_HINT_LOCATION_COUNT)
-                {
-                    var _hint_num, _hint_scene, _scene_hint_num, _normal_dialogue_dk, _hint_dialogue, _hint_was_set;
-                    //var _ITEM_LOC_SPAWN_DK = dm_save_data[?STR_Location+hex_str(_LOC_NUM)+STR_Spawn+STR_Datakey];
-                    _hint_was_set = false;
-                    
-                    for(_i=0; _i<_HINT_LOCATION_COUNT; _i++)
-                    {
-                        _hint_num = dl_hint_loc_nums_shuffled[|_i];
-                        _hint_scene         = g.dm_RandoHints[?hex_str(_hint_num)+STR_Rm+STR_Name];
-                        _scene_hint_num     = g.dm_RandoHints[?hex_str(_hint_num)+STR_Scene+STR_Hint+STR_Num];
-                        _normal_dialogue_dk = g.dm_RandoHints[?hex_str(_hint_num)+STR_Dialogue+STR_Datakey]; // datakey for NPC's normal(non-rando) dialogue
-                        _hint_dialogue = dm_LOCATIONS[?hex_str(_LOC_NUM)+dk_ChosenHintDialogue];
-                        if(!is_undefined(_hint_scene) 
-                        && !is_undefined(_scene_hint_num) 
-                        && !is_undefined(_normal_dialogue_dk) 
-                        && !is_undefined(_hint_dialogue) )
-                        {
-                            // Need to remove `_ITEM_ID` from `dl_items_placed`, otherwise `Rando_is_qual_hint_location()` could lock the hint behind the `_ITEM_ID`
-                            _idx = ds_list_find_index(dl_items_placed,_ITEM_ID);
-                            if (_idx!=-1) ds_list_delete(dl_items_placed,_idx);
-                            
-                            if (Rando_is_qual_hint_location(_hint_scene, _scene_hint_num)) // if the player can reach this hint location with only the items placed so far
-                            {
-                                _pos = string_pos("&",_hint_dialogue); // "&": the indicator for where the item name should go
-                                if (_pos)
-                                {
-                                    _val = string_upper(string_letters(_ITEM_ID));
-                                    _hint_dialogue = string_delete(_hint_dialogue,_pos,1);
-                                    _hint_dialogue = string_insert(_val,_hint_dialogue,_pos);
-                                    //_hint_dialogue = string_replace(_hint_dialogue,_val,_pos);
-                                }
-                                
-                                _count = val(dm_save_data[?STR_Rando+STR_Hint+STR_Count]) + 1;
-                                dm_save_data[?STR_Rando+STR_Hint+STR_Count] = _count;
-                                
-                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count)+STR_Dialogue+STR_Datakey] = _normal_dialogue_dk;
-                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count)+STR_Dialogue]             = _hint_dialogue;
-                                dm_save_data[?STR_Rando+STR_Hint+hex_str(_count)+STR_Item]                 = _ITEM_ID;
-                                dm_save_data[?STR_Rando+STR_Hint+_normal_dialogue_dk+STR_Hint+STR_Num]     = _count;
-                                dm_save_data[?STR_Rando+STR_Hint+_normal_dialogue_dk]                      = _hint_dialogue;
-                                
-                                _hint_was_set = true;
-                                ds_list_delete(dl_hint_loc_nums_shuffled,_i);
-                                
-                                debug_str  = _ITEM_ID+string_repeat(" ",string_length(STR_BRACELET)-string_length(_ITEM_ID));
-                                debug_str += " hint dialogue '"+_hint_dialogue+"' set to datakey "+_normal_dialogue_dk+". Hint location id: "+_hint_scene+hex_str(_scene_hint_num);
-                                show_debug_message(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-                            }
-                            
-                            // Add `_ITEM_ID` back to `dl_items_placed`
-                            if (ds_list_find_index(dl_items_placed,_ITEM_ID)==-1) ds_list_add(dl_items_placed,_ITEM_ID);
-                            
-                            if (_hint_was_set)
-                            {
-                                break;//_i
-                            }
-                        }
-                    }
-                    
-                    /* If somehow there was no qualified hint location for the item, 
-                    should an unqualified location be used?
-                    It's possible the player could still reach the hint if they break logic.
-                    */
-                    if(!_hint_was_set)
-                    {
-                        show_debug_message("");
-                        show_debug_message("!!! WARNING !!!  ["+_ITEM_ID+"]  DID NOT GET A HINT !!!");
-                        show_debug_message("");
-                    }
-                }
-            }
-        }
-    }
-}
+//if (global.RandoHints_VER==2
 
 
 

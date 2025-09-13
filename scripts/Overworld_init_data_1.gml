@@ -502,8 +502,9 @@ for(_i=0; _i<_layer_count; _i++) // each layer
         _ow_row_ = hex_str(_ow_row);
         
         _owrc  = (_ow_row<<8) | _ow_clm;
-        _owrc_ = hex_str(_owrc);
-        
+        _owrc_ = hex_str(_owrc,4);
+        //_owrc_ = hex_str(_owrc);
+        //if (_owrc_!=_ow_row_+_ow_clm_) sdm(_layer_name+": "+_owrc_+" - "+_ow_row_+_ow_clm_);
         
         
         
@@ -1103,8 +1104,8 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                             if(_C2)sdm( "g.dm_rm[?_scene_id+STR_OWRC]           = _owrc;             // scene owrc");
                         }
                         
-                                    g.dm_rm[?_exit_name               +STR_OWRC]      =            _val   ;             // goto owrc
-                        if(_C2)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_OWRC]      = $"+hex_str(_val)+";             // goto owrc");
+                                    g.dm_rm[?_exit_name               +STR_OWRC]      =            _val     ;             // goto owrc
+                        if(_C2)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_OWRC]      = $"+hex_str(_val,4)+";             // goto owrc");
                         
                                     g.dm_rm[?_exit_name               +STR_ow_dir]    =            str_hex(string_char_at(_str,_pos-1));                  // goto ow facing dir
                         if(_C2)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_ow_dir]    = $"+hex_str(str_hex(string_char_at(_str,_pos-1)))+";               // goto ow facing dir");
@@ -1113,7 +1114,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                         if(_C2)sdm("g.dm_rm[?_scene_id+'"+_exit_num+"'+STR_goto_reen] = Area_OvrwA+_owrc_; // goto ow exit");
                         
                         
-                        if (_DEBUG1){ _db_str  = _str+': '+" goto owrc $"+hex_str(_val)+", ";
+                        if (_DEBUG1){ _db_str  = _str+': '+" goto owrc $"+hex_str(_val,4)+", ";
                             _db_str += "roff "+string(_roff)+" coff "+string(_coff)+", ";
                             _db_str += "goto row:$"+hex_str((_ow_row+_roff)<<8)+" goto clm:$"+hex_str(_ow_clm+_coff)+" ";
                             sdm(_db_str);
@@ -1274,13 +1275,13 @@ if(_C0)
         _owrc = dm[?STR_OWRC+STR_River_Devil+hex_str(_i)];
         if(!is_undefined(_owrc))
         {
-            _owrc_ = hex_str(_owrc);
+            _owrc_ = hex_str(_owrc,4);
             _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
             Overworld_init_data_1a(_owrc);
             sdm("dm[?_owrc_+STR_River_Devil+STR_State] = 1;");
             sdm("dm[?STR_OWRC+STR_River_Devil+'"+hex_str(_i)+"'] = _owrc;");
             sdm("dm[?_owrc_+STR_River_Devil] = $"+hex_str(_i)+";");
-            sdm("dm[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = $"+hex_str(val(dm[?hex_str(_owrc)+STR_TSRC+STR_Under+STR_River_Devil]))+";");
+            sdm("dm[?_owrc_+STR_TSRC+STR_Under+STR_River_Devil] = $"+hex_str(val(dm[?hex_str(_owrc,4)+STR_TSRC+STR_Under+STR_River_Devil]))+";");
             _values_were_set = true;
             if (_values_were_set) repeat($1)sdm("");
         }
@@ -1297,7 +1298,7 @@ if(_C0)
         
         //repeat($1)sdm("");
         _owrc = dm[?STR_Rando+STR_River_Devil+STR_OWRC];
-        _owrc_ = hex_str(_owrc);
+        _owrc_ = hex_str(_owrc,4);
         _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
         Overworld_init_data_1a(_owrc);
         sdm("dm[?STR_Rando+STR_River_Devil+STR_OWRC] = _owrc;");
@@ -1326,7 +1327,7 @@ if(_C0)
             if(!is_undefined(_owrc))
             {
                 repeat($1)sdm("");
-                _owrc_ = hex_str(_owrc);
+                _owrc_ = hex_str(_owrc,4);
                 _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
                 Overworld_init_data_1a(_owrc);
                 sdm("dm[?STR_Rando+STR_Exit+'"+hex_str(_i)+"'+STR_OWRC] = _owrc;");
@@ -1352,7 +1353,7 @@ if(_C0)
         if (_i && !(_i&$F)) repeat($1)sdm("");
         _owrc = _dg_tsrcub[#_i,0];
         _tsrc = _dg_tsrcub[#_i,1];
-        sdm("dm[?'"+hex_str(_owrc)+"'+STR_TSRC+STR_Under+STR_Boulder] = $"+hex_str(_tsrc)+";");
+        sdm("dm[?'"+hex_str(_owrc,4)+"'+STR_TSRC+STR_Under+STR_Boulder] = $"+hex_str(_tsrc)+";");
         _values_were_set = true;
     }
     ds_grid_destroy(_dg_tsrcub); _dg_tsrcub=undefined;
@@ -1398,7 +1399,7 @@ if(_C2)
     
     
     repeat($4)sdm("");
-    sdm("   BoulderCircle_center_OWRC = $"+hex_str(BoulderCircle_center_OWRC)+";");
+    sdm("   BoulderCircle_center_OWRC = $"+hex_str(BoulderCircle_center_OWRC,4)+";");
     if(_C0)repeat($1)sdm("");
     _count1 = ds_list_size(dl_BoulderCircle_OWRC);
     for(_i=0; _i<_count1; _i++)
@@ -1407,7 +1408,7 @@ if(_C2)
         
         if (_i && !(_i&$F)) repeat($1)sdm("");
         _owrc  = dl_BoulderCircle_OWRC[|_i];
-        _owrc_ = hex_str(_owrc);
+        _owrc_ = hex_str(_owrc,4);
         _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
         //sdm("_owrc = $"+_owrc_+";");
         sdm("dl_BoulderCircle_OWRC[|$"+hex_str(_i)+"]  = $"+_owrc_+";");
@@ -1417,7 +1418,7 @@ if(_C2)
         if (_C0 
         && !is_undefined(_owrc) )
         {
-            _owrc_ = hex_str(_owrc);
+            _owrc_ = hex_str(_owrc,4);
             _owrc_ = string_repeat("0", 4-string_length(_owrc_)) + _owrc_;
             sdm("dm[?'"+_datakey+"'] = $"+_owrc_+"; // datakey example: _OWRC_Boulder_Circle_03");
         }

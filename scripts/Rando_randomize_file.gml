@@ -14,7 +14,9 @@ var _SAVE_NAME = f.dl_save_names[|FILE_NUM-1];
 
 if(!file_exists(_FILE_NAME))
 {
+    show_debug_message("");
     show_debug_message("!!! "+"Rando Failed.  File: "+_FILE_NAME+"  does NOT exist."+" !!!");
+    show_debug_message("");
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -23,14 +25,9 @@ if(!file_exists(_FILE_NAME))
 
 
 
-var _i,_j,_k, _a, _idx,_num, _count,_count1, _size, _case;
-var _val,_val0,_val1,_val2;
-var _min,_max;
-var _datakey,_datakey1,_datakey2, _spawn_datakey;
-var _rm_name,_rm_name1, _item_datakey, _loc_num, _town_name, _spell_name, _description;
-var _chance_a,_chance_b;
-var _color;
-var _objver1,_objver2;
+
+
+var _i, _val, _datakey;
 
 dm_save_data = ds_map_create();
 
@@ -44,16 +41,63 @@ dm_debug_data = ds_map_create();
 
 //Rando_SEED = get_saved_value(FILE_NUM, get_file_seed_dk(FILE_NUM,_QUEST_NUM), RUN_RANDOMIZATION_SEED);
 
-dm_save_data[?STR_Rando+STR_Settings] = _RANDO_SETTINGS;
-
 
 
 
 var _dm_SETTINGS = json_decode(_RANDO_SETTINGS);
 if (_dm_SETTINGS==-1) _dm_SETTINGS = ds_map_create(); // So the code below doesn't error when trying to get map data
 
-ContainersHP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+STR_HP]);
-ContainersMP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+STR_MP]);
+
+dm_save_data[?STR_Rando+STR_Settings] = _RANDO_SETTINGS;
+
+
+dm_save_data[?STR_File+STR_Start+STR_Quest] = _QUEST_NUM;
+
+
+_datakey = "_UP_A"+STR_XP+"_Penalty";
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+
+Attack_LEVEL = val(_dm_SETTINGS[?STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Level+STR_Attack], 1);
+dm_save_data[?_datakey] = Attack_LEVEL;
+_datakey = STR_File+STR_Start+STR_Level+STR_Attack;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+Magic_LEVEL  = val(_dm_SETTINGS[?STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Level+STR_Magic],  1);
+dm_save_data[?_datakey] = Magic_LEVEL;
+_datakey = STR_File+STR_Start+STR_Level+STR_Magic;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+Life_LEVEL   = val(_dm_SETTINGS[?STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Level+STR_Life],   1);
+dm_save_data[?_datakey] = Life_LEVEL;
+_datakey = STR_File+STR_Start+STR_Level+STR_Life;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+
+_datakey = STR_File+STR_Start+STR_Items;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+
+ContainersHP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+STR_HP], f.CONT_MIN_HP);
+dm_save_data[?STR_File+STR_Start+STR_Container+STR_HP] = ContainersHP_START_COUNT;
+
+ContainersMP_START_COUNT = val(_dm_SETTINGS[?STR_File+STR_Start+STR_Container+STR_MP], f.CONT_MIN_MP);
+dm_save_data[?STR_File+STR_Start+STR_Container+STR_MP] = ContainersMP_START_COUNT;
+
+
+_datakey = STR_File+STR_Start+STR_Dolls;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+
+_datakey = STR_File+STR_Start+STR_Spells;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+
+_datakey = STR_Kakusu+STR_Required+STR_Count;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+_datakey = STR_Crystal+STR_Required+STR_Count;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
 
 
 
@@ -186,13 +230,6 @@ if (OverworldBiomes_WILL_RANDOMIZE)      dm_save_data[?_datakey] = OverworldBiom
 if (Scenes_WILL_RANDOMIZE)               dm_save_data[?_datakey] = Scenes_WILL_RANDOMIZE;
 
 
-
-
-Attack_LEVEL = val(_dm_SETTINGS[?STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Level+STR_Attack], 1);
-Magic_LEVEL  = val(_dm_SETTINGS[?STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Level+STR_Magic],  1);
-Life_LEVEL   = val(_dm_SETTINGS[?STR_Quest+hex_str(_QUEST_NUM)+STR_Start+STR_Level+STR_Life],   1);
-
-
 ds_map_destroy(_dm_SETTINGS); _dm_SETTINGS=undefined;
 
 
@@ -204,7 +241,6 @@ ds_map_destroy(_dm_SETTINGS); _dm_SETTINGS=undefined;
 
 //==========================================================================
 Rando_generate(_QUEST_NUM, Rando_SEED);
-//Rando_generate(_QUEST_NUM, Rando_SEED, _RANDO_SETTINGS);
 //==========================================================================
 
 
@@ -240,147 +276,16 @@ var _RANDO_DATA = json_encode(dm_save_data);
 _dm_save_data[?_datakey+STR_Rando+STR_Data] = _RANDO_DATA;
 
 
-// ItemLocations_WILL_RANDOMIZE SkillLocations_WILL_RANDOMIZE SpellLocations_WILL_RANDOMIZE SpellCosts_WILL_RANDOMIZE 
-// EnemyChars_WILL_RANDOMIZE EnemyHP_WILL_RANDOMIZE EnemyDamage_WILL_RANDOMIZE 
-// DungeonRooms_WILL_RANDOMIZE DungeonLocations_WILL_RANDOMIZE DungeonBoss_WILL_RANDOMIZE TownLocations_WILL_RANDOMIZE 
-/*
-if (argument[0]<0 
-||  argument[0]==RandoMAIN_ITEMS )
-{
-    if (dg_RandoITEM_Options[#RandoITEM_LOCS,2])
-    {
-        return true;
-    }
-    
-    if (argument[0]==RandoMAIN_ITEMS)
-    {
-        return false;
-    }
-}
-
-
-
-
-if (argument[0]<0 
-||  argument[0]==RandoMAIN_SPELLS )
-{
-    for(_i=0; _i<RandoSPELL_COUNT-1; _i++)
-    {
-        if (dg_RandoSPELL_Options[#_i,2] 
-        &&  _i != RandoSPELL_BACK )
-        {
-            return true;
-        }
-    }
-    
-    if (argument[0]==RandoMAIN_SPELLS)
-    {
-        return false;
-    }
-}
-
-
-
-
-if (argument[0]<0 
-||  argument[0]==RandoMAIN_DUNGEONS )
-{
-    for(_i=0; _i<RandoDUNGEON_COUNT-1; _i++)
-    {
-        if (_i!=RandoDUNGEON_LOCATION 
-        ||  dg_RandoITEM_Options[#RandoITEM_LOCS,2] )
-        {
-            if (dg_RandoDUNGEON_Options[#_i,2] 
-            &&  _i != RandoDUNGEON_BACK )
-            {
-                return true;
-            }
-        }
-    }
-    
-    if (argument[0]==RandoMAIN_DUNGEONS)
-    {
-        return false;
-    }
-}
-
-
-
-
-if (argument[0]<0 
-||  argument[0]==RandoMAIN_ENEMIES )
-{
-    for(_i=0; _i<RandoENEMY_COUNT-1; _i++)
-    {
-        if (dg_RandoENEMY_Options[#_i,2] 
-        &&  _i != RandoENEMY_DIFF 
-        &&  _i != RandoENEMY_BACK )
-        {
-            return true;
-        }
-    }
-
-    
-    if (argument[0]==RandoMAIN_ENEMIES)
-    {
-        return false;
-    }
-}
-
-
-
-
-if (argument[0]<0 
-||  argument[0]==RandoMAIN_LVLCOST )
-{
-    if (dg_RandoMAIN_Options[#RandoMAIN_LVLCOST,2]) return true;
-    if (argument[0]==RandoMAIN_LVLCOST) return false;
-}
-
-
-
-
-if (argument[0]<0 
-||  argument[0]==RandoMAIN_XP )
-{
-    if (dg_RandoMAIN_Options[#RandoMAIN_XP,2]) return true;
-    if (argument[0]==RandoMAIN_XP) return false;
-}
-
-
-
-
-if (argument[0]<0 
-||  argument[0]==RandoMAIN_OTHER )
-{
-    if (dg_RandoOTHER_Options[#RandoOTHER_MAIN_PALETTE,2])    return true;
-    //if (dg_RandoOTHER_Options[#RandoOTHER_MAIN_DUNGEON_TS,2]) return true;
-    if (argument[0]==RandoMAIN_OTHER) return false;
-}
-*/
-
-
-
-
-
-
-
 /*if (DEBUG){ dm_debug_data[?STR_Data+'01'+STR_Count] = debug_data_count;
 var _DEBUG_DATA=json_encode(dm_debug_data);
 _dm_save_data[?_datakey+STR_Rando+STR_Debug+STR_Data] = _DEBUG_DATA;
 }*/
 
 
-
-
 _file_data = json_encode(_dm_save_data);
 _file = file_text_open_write(working_directory+_FILE_NAME);
         file_text_write_string(_file, _file_data);
         file_text_close(       _file);
-//
-
-
-
 // ===============================================================================
 var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|FILE_NUM-1]+STR_Rando+STR_Data+".txt";
 _file = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
@@ -396,19 +301,16 @@ for(_i=0; _i<debug_data_count; _i++)
     }
 }
 file_text_close(_file);
-// ===============================================================================
-
-
-
-
-
-
-
 
 
 show_debug_message("");
 show_debug_message("Save File  '"+_FILE_NAME+"', Save Name  '"+_SAVE_NAME+"',  rando data saved!");
 show_debug_message("");
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
 
 
 

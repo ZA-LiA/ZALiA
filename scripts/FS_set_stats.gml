@@ -15,7 +15,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
     _dm_data   = json_decode(_file_data);
     if (_dm_data!=-1)
     {
-        global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
+        global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+STR_Encoded] = _file_data;
         
         dg_stats[#_i,0] = val(_dm_data[?f.SDNAME_saveCreated]);
         dg_stats[#_i,1] = val(_dm_data[?f.SDNAME_questNum]);

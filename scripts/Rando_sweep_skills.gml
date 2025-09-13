@@ -17,8 +17,11 @@ for(_i=0; _i<_COUNT; _i++)
     {
         ds_list_add(       dl_skills_placed,_skill);
         
-        if (DEBUG){debug_str = "SKILL  '"+_skill+"'  PLACED!";
+        if (DEBUG){
+        sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
+        debug_str = "SKILL  '"+_skill+"'  PLACED!";
         sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+        sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
         }
     }
 }

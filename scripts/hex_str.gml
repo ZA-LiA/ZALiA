@@ -5,9 +5,15 @@
 
 if (is_string(argument[0])) return argument[0];
 
-argument[0]&=$FFFFFFFF; // limit to 32 bits
+argument[0] &= $FFFFFFFF; // limit to 32 bits
 
-if (argument[0]==0) return "00";
+if (argument_count>1) argument[1] = clamp(argument[1],1,8);
+
+if (argument[0]==0)
+{
+    if (argument_count>1) return string_repeat("0", argument[1]);
+    return "00";
+}
 
 
 // ---------------------------------------------------------
@@ -21,7 +27,7 @@ while (argument[0]!=0) //    HEX_CHARS = "0123456789ABCDEF";
 
 if (argument_count>1)
 {
-    argument[1] = clamp(argument[1],1,8);
+    //argument[1] = clamp(argument[1],1,8);
     var _LEN = string_length(_return);
     if (_LEN!=argument[1])
     {

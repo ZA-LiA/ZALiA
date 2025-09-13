@@ -37,6 +37,7 @@ if (input_start_pressed)
         var _FILE_NUM = Eliminate_cursor+1;
         f.dl_save_names[|_FILE_NUM-1] = SAVE_NAME_NULL;
         file_save(_FILE_NUM,true);
+        FileSelect_clear_save_file_rando_info(_FILE_NUM); // clear data in `SaveFileRandoInfo_dm` for this file
         
         var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
         var _FILE = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);

@@ -1271,3 +1271,14 @@ FileRandoData_YPAD = -$02;
 
 
 
+// -------------------------------------------------------------------
+SaveFileRandoInfo_dm = ds_map_create();
+for(_i=0; _i<SAVE_FILE_MAX; _i++)
+{
+    var _FILE_NUM = _i+1;
+    FileSelect_refresh_save_file_rando_info(_FILE_NUM);
+}
+
+
+
+

@@ -720,8 +720,10 @@ if (DungeonRooms_WILL_RANDOMIZE)
 //============================================================================
 if (DungeonLocations_WILL_RANDOMIZE)
 {
-    if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
-    if (DEBUG){debug_str="--- DUNGEON LOCATION RANDO ---"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+    if (DEBUG){
+    repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
+    debug_str="--- DUNGEON LOCATION RANDO ---"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+    }
     
     random_set_seed(Rando_SEED);
     
@@ -873,10 +875,16 @@ if (DungeonLocations_WILL_RANDOMIZE)
             }
         }
         
-        if (DEBUG){debug_str = _area1+" - "+_area2+" : "+_dungeon_name1+" - "+_dungeon_name2;
+        if (DEBUG){
+        debug_str  = _area1+" - "+_area2+" : ";
+        debug_str += _dungeon_name1;
+        debug_str += string_repeat(" ",string_length(STR_Three_Eye_Rock_Palace)-string_length(_dungeon_name1));;
+        debug_str += " - "+_dungeon_name2;
         sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
         }
     }
+    
+    if (DEBUG){repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}}
 }
 ////          owrc + ow move_dir  + "_Exit"
 //dm[?_datakey+hex_str(1<<_k)+STR_Exit] = _exit_name; // goto rm exit
@@ -901,8 +909,11 @@ if (DungeonLocations_WILL_RANDOMIZE)
 //============================================================================
 if (DungeonBoss_WILL_RANDOMIZE)
 {
-    if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
-    if (DEBUG){debug_str="--- BOSS RANDO ---"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+    if (DEBUG){
+    repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
+    debug_str="--- BOSS RANDO ---";
+    sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+    }
     
     random_set_seed(Rando_SEED);
     
@@ -1201,18 +1212,38 @@ if (DungeonBoss_WILL_RANDOMIZE)
             dm_save_data[?_c_scene_name+STR_OWRC] = _a_owrc;
         }
         
-        sdm(" ");
-        sdm("_a_dngn:   "+string_copy(_a_dungeon_name,1,_LEN1)+", _b_dngn:   "+string_copy(_b_dungeon_name,1,_LEN1)+", _c_dngn:   "+string_copy(_c_dungeon_name,1,_LEN1));
-        sdm("_a_scen:   "+_a_scene_name  +",     _b_scen:   "+_b_scene_name  +",     _c_scen:   "+_c_scene_name);
-        sdm("_a_exit1a: "+_a_exit_name1a +",   _b_exit1a: "  +_b_exit_name1a +",   _c_exit1a: "  +_c_exit_name1a);
-        sdm("_a_exit1b: "+_a_exit_name1b +",   _b_exit1b: "  +_b_exit_name1b +",   _c_exit1b: "  +_c_exit_name1b);
-        sdm("_a_exit2a: "+_a_exit_name2a +",   _b_exit2a: "  +_b_exit_name2a +",   _c_exit2a: "  +_c_exit_name2a);
-        sdm("_a_exit2b: "+_a_exit_name2b +",   _b_exit2b: "  +_b_exit_name2b +",   _c_exit2b: "  +_c_exit_name2b);
-        
-        if (DEBUG){debug_str = _b_scene_name+" - "+_c_scene_name;
-        sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+        if (0)
+        {
+            //sdm(" ");
+            sdm("_a_dngn:   "+string_copy(_a_dungeon_name,1,_LEN1)+", _b_dngn:   "+string_copy(_b_dungeon_name,1,_LEN1)+", _c_dngn:   "+string_copy(_c_dungeon_name,1,_LEN1));
+            sdm("_a_scen:   "+_a_scene_name  +",     _b_scen:   "+_b_scene_name  +",     _c_scen:   "+_c_scene_name);
+            sdm("_a_exit1a: "+_a_exit_name1a +",   _b_exit1a: "  +_b_exit_name1a +",   _c_exit1a: "  +_c_exit_name1a);
+            sdm("_a_exit1b: "+_a_exit_name1b +",   _b_exit1b: "  +_b_exit_name1b +",   _c_exit1b: "  +_c_exit_name1b);
+            sdm("_a_exit2a: "+_a_exit_name2a +",   _b_exit2a: "  +_b_exit_name2a +",   _c_exit2a: "  +_c_exit_name2a);
+            sdm("_a_exit2b: "+_a_exit_name2b +",   _b_exit2b: "  +_b_exit_name2b +",   _c_exit2b: "  +_c_exit_name2b);
+            
+            if (DEBUG){debug_str = _b_scene_name+" - "+_c_scene_name;
+            sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+            }
+            sdm(" ");
         }
-    }
+        else
+        {
+            if (DEBUG)
+            {
+                debug_str = "_a_dngn:   "+string_copy(_a_dungeon_name,1,_LEN1)+", _b_dngn:   "+string_copy(_b_dungeon_name,1,_LEN1)+", _c_dngn:   "+string_copy(_c_dungeon_name,1,_LEN1);
+                sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+                if (0)
+                {
+                    debug_str = _b_scene_name+" - "+_c_scene_name;
+                    sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+                }
+            }
+        }
+    }//_i
+    
+    if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = " ";}
+    
     
     
     
@@ -1402,15 +1433,29 @@ if (SpellLocations_WILL_RANDOMIZE)  // Randomize spell locations
     
     
     
-    if (DEBUG) repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
-    if (DEBUG){      _count=ds_list_size(dl_TOWN_NAMES);
-        for(_i=0; _i<_count; _i++){
-        _town_name  = dl_TOWN_NAMES[|_i];
-        _spell_name = dm_save_data[?_town_name+STR_Spell];
-        debug_str  = _town_name + string_repeat(" ", string_length(STR_Old_Kasuto)-string_length(_town_name));
-        debug_str += " - "+_spell_name;
+    if (DEBUG)
+    {
+        repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
+        debug_str = "--- SPELL LOCATION RANDO ---";
         sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+        
+        _count=ds_list_size(dl_TOWN_NAMES);
+        for(_i=0; _i<_count; _i++)
+        {
+            _town_name1 = dl_TOWN_NAMES[|_i];
+            _town_name2 = val(dm_save_data[?STR_Town+STR_Rando+_town_name1+"A"],_town_name1); // get the overworld location of _town_name1
+            _spell_name = dm_save_data[?_town_name1+STR_Spell];
+            debug_str  = _spell_name;
+            debug_str += string_repeat(" ", string_length(STR_THUNDER)-string_length(_spell_name));
+            debug_str += " is in "+_town_name1;
+            debug_str += string_repeat(" ", string_length(STR_Old_Kasuto)-string_length(_town_name1));
+            debug_str += " which is in "+_town_name2;
+            debug_str += string_repeat(" ", string_length(STR_Old_Kasuto)-string_length(_town_name2));
+            debug_str += " vanilla overworld lacation";
+            //debug_str = _town_name+string_repeat(" ", string_length(STR_Old_Kasuto)-string_length(_town_name))+" - "+_spell_name;
+            sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
         }
+        repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
     }
     
     

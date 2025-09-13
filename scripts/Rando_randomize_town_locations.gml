@@ -21,10 +21,10 @@ var _Z2 = false;
 var _Z3 = false;
 
 
-if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
-if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
-if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
-if (DEBUG){debug_str="--- TOWN LOCATION RANDO ---"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+if (DEBUG){
+repeat(3){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
+debug_str="--- TOWN LOCATION RANDO ---"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+}
 
 random_set_seed(Rando_SEED);
 
@@ -500,8 +500,21 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         }
     }
     
-    if (DEBUG){debug_str = _town_name1+string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_town_name1))+" - "+_town_name2;
-    sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+    if (DEBUG)
+    {
+        debug_str  = _town_name1;
+        //debug_str  = "OW "+_town_name1;
+        debug_str += string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_town_name1));
+        debug_str += " - "+_town_name2;
+        debug_str += string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_town_name2));
+        debug_str += " ("+_town_name2;
+        debug_str += string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_town_name2));
+        debug_str += " inhabits ";
+        debug_str += _town_name1;
+        debug_str += string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_town_name1));
+        debug_str += " vanilla overworld location)";
+        sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+        repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
     }
 }
 

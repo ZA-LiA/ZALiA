@@ -8,6 +8,8 @@ if (argument_count>1) _ITEM_ID     = argument[1];
 
 var _RM_NAME = string_copy(_LOCATION_ID,1,RmName_LEN);
 
+required_spell = 0;
+
 
 switch(_LOCATION_ID) // location id = rm name + rm item num
 {

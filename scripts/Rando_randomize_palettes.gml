@@ -9,9 +9,14 @@ save_game_pref();
 
 //if (DEBUG){sdm(" "); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=" ";}
 
-random_set_seed(Rando_SEED);
 
-// Dungeons ------------------------------------------------------------------
+// --------------------------------------------
+random_set_seed(Rando_SEED);
+// --------------------------------------------
+
+
+
+
 var _i,_j,_k, _idx, _count;
 var _val,_val1,_val2;
 var _layer_count, _layer_name, _layer, _layer_data_num, _dl_layer_data, _dm_layer_data;
@@ -24,17 +29,12 @@ var _pi, _color1,_color2,_color3;
 var _C_BLK1_ = color_str(p.C_BLK1);
 
 var _dl_1 = ds_list_create();
-/*
-    _count = val(global.dm_pi[?"BGR"+STR_Count]);
-if (_count>0) ds_list_add(_dl_1,global.PI_BGR1);
-if (_count>1) ds_list_add(_dl_1,global.PI_BGR2);
-if (_count>2) ds_list_add(_dl_1,global.PI_BGR3);
-if (_count>3) ds_list_add(_dl_1,global.PI_BGR4);
-if (_count>4) ds_list_add(_dl_1,global.PI_BGR5);
-*/
 var _dl_2 = ds_list_create();
 
-//                                                      //
+
+
+
+// Dungeons ---------------------------------------------------
 var         _dl_colors1 = ds_list_create();
 ds_list_add(_dl_colors1,color_str(p.C_BLK1));
 ds_list_add(_dl_colors1,color_str(p.C_GRY4));
@@ -76,6 +76,8 @@ var _COLORS2  = p.CI_BLK1_+p.CI_GRY4_;
     _COLORS2 += "01"+"02"+"03"+"04"+"05"+"06"+"07"+"08"+"09"+"0A"+"0B"+"0C";
     _COLORS2 +=      "12"+"13"               +"17"+"18"+"19"     +"1B"+"1C";
 */
+
+
 var         _dl_DUNGEON_AREAS = ds_list_create();
 ds_list_add(_dl_DUNGEON_AREAS,Area_PalcA); // Parapa Palace
 ds_list_add(_dl_DUNGEON_AREAS,Area_PalcB); // Midoro Palace
@@ -96,7 +98,6 @@ ds_list_add(_dl_DUNGEON_TILESETS,ts_DungeonE01); // Palace on the Sea
 ds_list_add(_dl_DUNGEON_TILESETS,ts_DungeonF01); // Hidden Palace
 ds_list_add(_dl_DUNGEON_TILESETS,ts_DungeonG01); // Great Palace
 ds_list_add(_dl_DUNGEON_TILESETS,ts_DungeonH01); // Dragmire Tower
-
 
 
 var          _dl_pals1=ds_list_create();
@@ -239,6 +240,7 @@ ds_list_destroy(_dl_pals2); _dl_pals2=undefined;
 
 
 
+// Non-Dungeon Scenes ------------------------------------------------
 //var _debug1=true;
 var          _AREA_COUNT = ds_list_size(g.dl_AREA_NAME);
 for(_i=0; _i<_AREA_COUNT; _i++) // Each area

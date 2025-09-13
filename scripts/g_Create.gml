@@ -354,7 +354,7 @@ global.SceneRando_enabled = false;
 global.RandoHints_VER = 2; // 1: Old system, 2: Better logic to prevent hints being locked behind the hint's item
 global.RandoHints_enabled = false;
 
-global.UniqueRandomTiles_MAIN = true;
+global.WallStyle01Tiles_MAIN = true;
 
 
 use_8x8_ow_menu_map=true;
@@ -1176,6 +1176,17 @@ dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+S
 dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
 _ts = ts_DungeonAlt06;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+
+_ts = ts_WallStyle01_01;
 ds_list_add(dl_tileset,_ts);
 _name = background_get_name(_ts);
 dm_tileset[?_name] = _ts;

@@ -1,14 +1,12 @@
 /// Rando_randomize_items_1()
 
 
-var _i,_j,_k,_m, _idx, _val,_val1,_val2;
+var _i,_j,_k, _idx, _val,_val1,_val2;
 var _count,_count1,_count2,_count3;
-var _loc_num,_loc_num1,_loc_num2, _loc_cat,_loc_cat1;
-var _qual, _qual_loc_count1,_qual_loc_count2;
-var _is_item, _is_key, _type;
-var _item_id, _item_num, _key_id, _spell_id, _rm_name, _town_name, _dungeon_name, _spell_name;
+var _loc_num;
+var _item_id, _item_num, _rm_name, _town_name, _spell_name;
 var _something_was_placed = false;
-var _rando_step=0;
+var _rando_step = 0;
 
 var _dl_placed_items = ds_list_create();
 var _dl_placed_keys  = ds_list_create();
@@ -16,6 +14,9 @@ var _dl_placed_keys  = ds_list_create();
 
 dl_placed_containers_hp = ds_list_create();
 dl_placed_containers_mp = ds_list_create();
+
+
+DEBUG_extra_line1 = false;
 
 
 
@@ -87,9 +88,12 @@ Rando_sweep_combo(2);
 if(!Rando_is_qual_location(STR_Mido))
 {   // This is about maximizing the number of reachable locations asap to 
     // spread progression items better for more interesting seeds.
-    if (DEBUG) repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
-    if (DEBUG){debug_str="+++++  Step $"+hex_str(++_rando_step)+": Placing the fewest items that adds the most progression."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
-    //if (DEBUG){debug_str="+++++  Step $"+hex_str(++_rando_step)+": Start by placing one of the items that adds the most progression."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+    if (DEBUG){
+    repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+    debug_str="++++++++  STEP $"+hex_str(++_rando_step)+": Placing the fewest items that adds the most progression  ++++++++"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+    repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+    }
+    //if (DEBUG){debug_str="+++++  STEP $"+hex_str(++_rando_step)+": Start by placing one of the items that adds the most progression."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
     
     Rando_randomize_items_1a();
     
@@ -97,9 +101,9 @@ if(!Rando_is_qual_location(STR_Mido))
     debug_str  =      "Remaining Locations"+" COUNT $"+hex_str(ds_list_size(dl_locations_remaining));
     debug_str += ", "+"Remaining Items"    +" COUNT $"+hex_str(ds_list_size(dl_prog1)+ds_list_size(dl_ItemPool_C));
     debug_str += ", "+"Remaining Keys"     +" COUNT $"+hex_str(ds_list_size(dl_remaining_keys));
-    repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+    repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
     sdm(debug_str);    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-    repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+    repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
     }
 }
 
@@ -111,11 +115,18 @@ if(!Rando_is_qual_location(STR_Mido))
 
 
 // TODO: Check if this seed will actually need these pieces placed early
-if (ContainersHP_START_COUNT<f.CONT_MIN_HP 
-||  ContainersMP_START_COUNT<f.CONT_MIN_MP )
+if (0)
 {
-    Rando_randomize_items_2((f.CONT_MIN_HP-ContainersHP_START_COUNT)*f.CONT_PIECE_PER_HP, (f.CONT_MIN_MP-ContainersMP_START_COUNT)*f.CONT_PIECE_PER_MP);
-    //for(_i=ds_list_size(dl_items_placed)-1; _i>=0; _i--) _item_id = dl_items_placed[|_i];
+    //repeat(2)sdm("");
+    //sdm("ContainersHP_START_COUNT $"+hex_str(ContainersHP_START_COUNT)+", f.CONT_MIN_HP $"+hex_str(f.CONT_MIN_HP));
+    //sdm("ContainersMP_START_COUNT $"+hex_str(ContainersMP_START_COUNT)+", f.CONT_MIN_MP $"+hex_str(f.CONT_MIN_MP));
+    //repeat(2)sdm("");
+    if (ContainersHP_START_COUNT<f.CONT_MIN_HP 
+    ||  ContainersMP_START_COUNT<f.CONT_MIN_MP )
+    {
+        Rando_randomize_items_2((f.CONT_MIN_HP-ContainersHP_START_COUNT)*f.CONT_PIECE_PER_HP, (f.CONT_MIN_MP-ContainersMP_START_COUNT)*f.CONT_PIECE_PER_MP);
+        //for(_i=ds_list_size(dl_items_placed)-1; _i>=0; _i--) _item_id = dl_items_placed[|_i];
+    }
 }
 
 
@@ -128,8 +139,11 @@ if (ContainersHP_START_COUNT<f.CONT_MIN_HP
 // ==============================================================================
 // PHASE 2 -----------------------------------
 // Add the rest of the progression items
-if (DEBUG) repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
-if (DEBUG){debug_str="+++++  Step $"+hex_str(++_rando_step)+": Place progression items."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+if (DEBUG){
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+debug_str="++++++++  STEP $"+hex_str(++_rando_step)+": Place progression items  ++++++++"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+}
 
 
 
@@ -152,8 +166,6 @@ for(_i=0; _i<_MAX_COUNT; _i++)
     {
         break;//_i
     }
-    
-    
     
     
     
@@ -272,8 +284,11 @@ sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
 
 // ------------------------------------------------------
 // Since keys can be progression, place all remaining keys
-if (DEBUG) repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
-if (DEBUG){debug_str="+++++  Step $"+hex_str(++_rando_step)+": Since keys can be progression, place all remaining keys."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+if (DEBUG){
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+debug_str="++++++++  STEP $"+hex_str(++_rando_step)+": Since keys can be progression, place all remaining keys  ++++++++"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+}
 
 _count1=ds_list_size(dl_remaining_keys);
 Rando_place_keys(_count1,true);
@@ -283,9 +298,9 @@ debug_str  =      "Remaining Locations"+" COUNT $"+hex_str(ds_list_size(dl_locat
 debug_str += ", "+"Remaining Items"    +" COUNT $"+hex_str(ds_list_size(dl_prog1)+ds_list_size(dl_ItemPool_C));
 debug_str += ", "+"Remaining Keys"     +" COUNT $"+hex_str(ds_list_size(dl_remaining_keys));
 //sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+sdm(debug_str);    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
 }
 
 
@@ -336,7 +351,11 @@ if (CONTROL_ALLKEY==1
 // ------------------------------------------------------
 // Some progression items may have not been able 
 // to give any progression with this seed.
-if (DEBUG){debug_str="+++++  Step $"+hex_str(++_rando_step)+": Place any potential remaining items that are still in the progression pool."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+if (DEBUG){
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+debug_str="++++++++  STEP $"+hex_str(++_rando_step)+": Place any potential remaining items that are still in the progression pool  ++++++++"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+}
 
 _count1=ds_list_size(dl_locations_remaining);
 _count2=ds_list_size(dl_prog1);
@@ -393,9 +412,9 @@ debug_str  =      "Remaining Locations"+" COUNT $"+hex_str(ds_list_size(dl_locat
 debug_str += ", "+"Remaining Items"    +" COUNT $"+hex_str(ds_list_size(dl_prog1)+ds_list_size(dl_ItemPool_C));
 debug_str += ", "+"Remaining Keys"     +" COUNT $"+hex_str(ds_list_size(dl_remaining_keys));
 //sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+sdm(debug_str);    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
 }
 
 
@@ -407,7 +426,7 @@ sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
 // Some progression items may have not been able 
 // to give any progression with this seed.
 // Those items will be moved the the non-progression items pool
-//if (DEBUG){debug_str="+++++  Step $"+hex_str(++_rando_step)+": Add any potential remaining items in the progression pool to the non-progression pool."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+//if (DEBUG){debug_str="+++++  STEP $"+hex_str(++_rando_step)+": Add any potential remaining items in the progression pool to the non-progression pool."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
 
 if (ds_list_size(dl_prog1))
 {
@@ -432,9 +451,9 @@ debug_str  =      "Remaining Locations"+" COUNT $"+hex_str(ds_list_size(dl_locat
 debug_str += ", "+"Remaining Items"    +" COUNT $"+hex_str(ds_list_size(dl_prog1)+ds_list_size(dl_ItemPool_C));
 debug_str += ", "+"Remaining Keys"     +" COUNT $"+hex_str(ds_list_size(dl_remaining_keys));
 //sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
+//repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+sdm(debug_str);    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
 }
 
 
@@ -448,7 +467,14 @@ sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
 // ==============================================================================
 // PHASE 3 -----------------------------------
 // The remaining items, which give NO progression
-if (DEBUG){debug_str="+++++  Step $"+hex_str(++_rando_step)+": Place ALL remaining items."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
+if (DEBUG){
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+debug_str="++++++++  STEP $"+hex_str(++_rando_step)+": Place ALL remaining items  ++++++++"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+}
+DEBUG_extra_line1 = true;
+
+
 var _dl_remaining_items=ds_list_create();
 
 
@@ -466,9 +492,12 @@ _count3=ds_list_size(dl_remaining_keys);
 // This is an attempt to fix that.
 // I'm not sure if adding all the container pieces 
 // before everything else will help.
-if (isVal(CONTAINER_METHOD,3))
-{   // Place pieces equal to X number of containers in beginning areas
-    Rando_randomize_items_2(f.CONT_PIECE_PER_HP*2, f.CONT_PIECE_PER_MP*2);
+if (0)
+{
+    if (isVal(CONTAINER_METHOD,3))
+    {   // Place pieces equal to X number of containers in beginning areas
+        Rando_randomize_items_2(f.CONT_PIECE_PER_HP*2, f.CONT_PIECE_PER_MP*2);
+    }
 }
 //Rando_place_container_pieces(1,1);
 //ds_list_size(dl_placed_containers_hp)
@@ -571,15 +600,15 @@ for(_i=ds_list_size(_dl_remaining_items)-1; _i>=0; _i--)
 
 
 if (DEBUG && (_count1!=ds_list_size(dl_locations_remaining) || _count2!=ds_list_size(dl_prog1)+ds_list_size(dl_ItemPool_C) || _count3!=ds_list_size(dl_remaining_keys))){
-//if (DEBUG){
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
 debug_str="All items should now be placed."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
 debug_str  =      "Remaining Locations"+" COUNT $"+hex_str(ds_list_size(dl_locations_remaining));
 debug_str += ", "+"Remaining Items"    +" COUNT $"+hex_str(ds_list_size(dl_prog1)+ds_list_size(dl_ItemPool_C));
 debug_str += ", "+"Remaining Keys"     +" COUNT $"+hex_str(ds_list_size(dl_remaining_keys));
 //sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
+//sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
+sdm(debug_str);    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
 }
 
 
@@ -633,9 +662,9 @@ debug_str  =      "Remaining Locations"+" COUNT $"+hex_str(ds_list_size(dl_locat
 debug_str += ", "+"Remaining Items"    +" COUNT $"+hex_str(ds_list_size(dl_prog1)+ds_list_size(dl_ItemPool_C));
 debug_str += ", "+"Remaining Keys"     +" COUNT $"+hex_str(ds_list_size(dl_remaining_keys));
 //sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
-sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-sdm("");        dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
+sdm(debug_str);    dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
 }
 
 

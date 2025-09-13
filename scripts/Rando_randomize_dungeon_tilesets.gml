@@ -154,23 +154,28 @@ if (DEV  // TESTING
 
 
 
-
+// random interconnected wall pieces style tileset
+// wall graphics style 01
 // -----------------------------------------------
-if (global.UniqueRandomTiles_MAIN) // testing
-//if (global.UniqueRandomTiles_MAIN 
-//&&  irandom(ds_list_size(dl_list2))<ds_list_size(dl_list1) )
+//if (global.WallStyle01Tiles_MAIN) // testing
+if (global.WallStyle01Tiles_MAIN 
+&&  irandom(ds_list_size(dl_list2))<ds_list_size(dl_list1) )
 {
+    var _p,_q;
     var _file_name, _file_name1, _file, _file_data;
     var _layer_name, _dl_layer_data, _dm_layer_data;
     var _ts_idx, _ts_name, _tsrc, _dl_ts_data, _dm_ts_data, _dl_tile, _tile_data;
     var _wall_type_data_was_set = false;
-    var _tile_type;
-    var _DATAKEY1 = dk_StoneTileset+"01";
-    var _TSTSRC_DEF = (ds_list_find_index(g.dl_tileset,ts_Man_made_8a_HMS)<<8) | $71;
-    //var _TSTSRC_DEF = val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Single]);
+    var _wall_type;
+    var _dk_wall_piece_shape, _dk_wall_piece_section;
+    //var _TEXTURE_IDX = 4; // testing
+    var _TEXTURE_IDX = irandom(4);
+    var _TS_OFFSET = val(global.WallStyle01_dm[?"_Textures"+STR_Offset]) * _TEXTURE_IDX;
+    var _DATAKEY1 = dk_WallStyle+"01";
+    var _TS_IDX = ds_list_find_index(g.dl_tileset,ts_WallStyle01_01)<<8;
+    var _TSRC_DEF = $08;
     var _dg_wall_type = ds_grid_create(0,0);
     var _dg_new_tsrc  = ds_grid_create(0,0);
-    //var _dm_new_tile_data = ds_map_create();
     var _scene_clms,_scene_rows, _clm,_row;
     var _AREA = choose(Area_PalcA,Area_PalcB,Area_PalcC,Area_PalcD,Area_PalcE,Area_PalcF,Area_PalcG);
     //ds_list_clear(dl_list3);
@@ -186,7 +191,7 @@ if (global.UniqueRandomTiles_MAIN) // testing
     }
     
     show_debug_message("");
-    show_debug_message("_StoneTileset01 Dungeon = "+_AREA);
+    show_debug_message(_DATAKEY1+" Dungeon = "+_AREA);
     show_debug_message("");
     
     var _dl_CORNER_TOPLFT = ds_list_create(); // Wall Corner Top-Left
@@ -324,7 +329,6 @@ if (global.UniqueRandomTiles_MAIN) // testing
                                 
                                 if(!_wall_type_data_was_set) _wall_type_data_was_set = _dg_wall_type[#_clm,_row]!=0;
                                 if (_wall_type_data_was_set) dm_save_data[?_DATAKEY1+_file_name1+_layer_name] = true;
-                                //_dm_new_tile_data[?_file_name1+_layer_name] = true;
                             }
                         }
                     }
@@ -339,8 +343,215 @@ if (global.UniqueRandomTiles_MAIN) // testing
                     {
                         for(_k=0; _k<_scene_clms; _k++)
                         {
-                            _tile_type = _dg_wall_type[#_k,_j];
-                            if (_tile_type 
+                            _wall_type = _dg_wall_type[#_k,_j];
+                            if (_wall_type 
+                            && !_dg_new_tsrc[#_k,_j] )
+                            {
+                                _dk_wall_piece_shape = "S"; // Single
+                                if (irandom($F))
+                                {
+                                    if (irandom($1) 
+                                    &&  _scene_clms >  _k+1 
+                                    &&  _dg_wall_type[#_k+1,_j] 
+                                    && !_dg_new_tsrc[# _k+1,_j] )
+                                    {
+                                        _dk_wall_piece_shape = "H"; // Horizontal
+                                    }
+                                    else if (_scene_rows >_j+1 
+                                    &&  _dg_wall_type[#_k,_j+1] 
+                                    && !_dg_new_tsrc[# _k,_j+1] )
+                                    {
+                                        _dk_wall_piece_shape = "V"; // Vertical
+                                    }
+                                }
+                                
+                                switch(_dk_wall_piece_shape)
+                                {
+                                    case "S":{ // Single -----------------------------------------------------
+                                    _val3 = 1;
+                                    _val2 = 0;
+                                    break;}//case "S"
+                                    
+                                    case "H":{ // Horizontal -----------------------------------------------------
+                                    _val3 = 2;
+                                    _val2 = 0;
+                                    for(_m=_val3; _m<_val3+2; _m++)
+                                    {
+                                        if (_scene_clms <= _k+_m 
+                                        || !_dg_wall_type[#_k+_m, _j] 
+                                        ||  _dg_new_tsrc[# _k+_m, _j] )
+                                        {   break;  }//_m
+                                        _val2++;
+                                    }//_m
+                                    break;}//case "H"
+                                    
+                                    case "V":{ // Vertical -----------------------------------------------------
+                                    _val3 = 2;
+                                    _val2 = 0;
+                                    for(_m=_val3; _m<_val3+2; _m++)
+                                    {
+                                        if (_scene_rows <=    _j+_m 
+                                        || !_dg_wall_type[#_k,_j+_m] 
+                                        ||  _dg_new_tsrc[# _k,_j+_m] )
+                                        {   break;  }//_m
+                                        _val2++;
+                                    }//_m
+                                    break;}//case "V"
+                                }//switch(_dk_wall_piece_shape)
+                                
+                                _length = _val3 + irandom(_val2); // 1,2,3,4
+                                for(_m=0; _m<_length; _m++)
+                                {
+                                         if (_m==0)         _dk_wall_piece_section = "0"; // Single, Horizontal Left End, or Vertical Top End
+                                    else if (_m==_length-1) _dk_wall_piece_section = "2"; // Horizontal Right End, or Vertical Bottom End
+                                    else                    _dk_wall_piece_section = "1"; // Horizontal or Vertical Mid Section
+                                    
+                                    _p = 0;
+                                    _q = 0;
+                                    switch(_dk_wall_piece_shape){
+                                    case "H":{_p=_m; break;}
+                                    case "V":{_q=_m; break;}
+                                    }
+                                    _wall_type = _dg_wall_type[#_k+_p, _j+_q];
+                                    
+                                    _tsrc  = val(global.WallStyle01_dm[?STR_TSRC+STR_Shape+_dk_wall_piece_shape+STR_Tile+_dk_wall_piece_section+STR_Wall+hex_str(_wall_type)], _TSRC_DEF);
+                                    _tsrc += _TS_OFFSET;
+                                    _dg_new_tsrc[#_k+_p, _j+_q] = _TS_IDX | _tsrc;
+                                }//_m
+                            }
+                        }//_k
+                    }//_j
+                }
+            }
+            
+            ds_map_destroy(_dm_file_data); _dm_file_data=undefined;
+        }//_i
+        
+        
+        if (_wall_type_data_was_set)
+        {
+            dm_save_data[?_DATAKEY1+_file_name1] = ds_grid_write(_dg_new_tsrc);
+        }
+    }
+    
+    
+    /*
+    for(_i=0; _i<$100; _i++) // Each possible file of area
+    {
+        _wall_type_data_was_set = false;
+        ds_grid_resize(_dg_wall_type,0,0);
+        ds_grid_clear( _dg_wall_type,0);
+        ds_grid_resize(_dg_new_tsrc,0,0);
+        ds_grid_clear( _dg_new_tsrc,0);
+        
+        // file name example:  "rm_tile_data/PalcA/PalcA_003.json"
+        _file_name1  = string_lettersdigits(_AREA);
+        _file_name1 += "_";
+        _file_name1 += string_repeat("0",_i<100);
+        _file_name1 += string_repeat("0",_i<10);
+        _file_name1 += string(_i);
+        
+        _file_name  = "rm_tile_data";
+        _file_name += "/";
+        _file_name += string_lettersdigits(_AREA);
+        _file_name += "/";
+        _file_name += _file_name1;
+        _file_name += ".json";
+        if(!file_exists(_file_name)) continue;//_i. to next file
+        
+        _file_data = "";
+        _file = file_text_open_read(_file_name);
+        while(!file_text_eof(_file)) _file_data += file_text_readln(_file);
+        file_text_close(_file);
+        
+        var _dm_file_data = json_decode(_file_data);
+        if (_dm_file_data!=-1)
+        {
+            _ts_idx = -1;
+            _ts_name = "";
+            
+            _dl_ts_data = _dm_file_data[?"tilesets"];
+            
+            var          _TILESET_COUNT = ds_list_size(_dl_ts_data);
+            for(_j=0; _j<_TILESET_COUNT; _j++) // Each tileset
+            {
+                _dm_ts_data = _dl_ts_data[|_j];
+                _data       = _dm_ts_data[?"source"];
+                // _dm_ts_data[?"source"] Example: "source":"..\/..\/..\/..\/..\/..\/Tiled\/Tilesets\/Z2_Remake_1a\/ts_Natural_1a_WRB.tsx
+                    _pos = string_pos(_TS_NAME,_data);
+                if (_pos)
+                {
+                    _ts_idx = _j;
+                    _ts_name = string_copy(_data, _pos, string_pos(".tsx",_data)-_pos);
+                    break;//_j
+                }
+            }
+            
+            if (_ts_idx!=-1)
+            {
+                _scene_clms = _dm_file_data[?"width"];
+                _scene_rows = _dm_file_data[?"height"];
+                
+                ds_grid_resize(_dg_wall_type, _scene_clms,_scene_rows);
+                ds_grid_clear( _dg_wall_type,0);
+                
+                _dl_layer_data = val(_dm_file_data[?"layers"]);
+                
+                var          _LAYER_COUNT = ds_list_size(_dl_layer_data);
+                for(_j=0; _j<_LAYER_COUNT; _j++) // Each layer
+                {
+                    _dm_layer_data = _dl_layer_data[|_j];
+                    _layer_name    = _dm_layer_data[?"name"];
+                    _layer_name    = string(_layer_name);
+                    
+                    if (string_pos("STRUCTURE_FGWALL01_01",_layer_name))
+                    {
+                        _dl_tile = _dm_layer_data[?"data"];
+                        var          _TILE_COUNT = ds_list_size(_dl_tile);
+                        for(_k=0; _k<_TILE_COUNT; _k++)
+                        {
+                            _clm = _k mod _scene_clms;
+                            _row = _k div _scene_clms;
+                            
+                            _tile_data = _dl_tile[|_k];
+                            if (_tile_data==0) continue; // 0 means no tile
+                            
+                            _tile_data--; // Tiled app adds 1 so it can't be 0
+                            _tile_data &= $3FFFFFFF; // truncate the scale xy data
+                            _tile_data  = abs(_tile_data);
+                            
+                            _tsrc = _tile_data&$FF;
+                            
+                            if ((_tile_data>>8)&$FF==_ts_idx)
+                            {
+                                     if (ds_list_find_index(_dl_CORNER_TOPLFT,_tsrc)!=-1) _dg_wall_type[#_clm,_row] = $8|$2;
+                                else if (ds_list_find_index(_dl_CORNER_TOPRGT,_tsrc)!=-1) _dg_wall_type[#_clm,_row] = $8|$1;
+                                else if (ds_list_find_index(_dl_CORNER_BTMLFT,_tsrc)!=-1) _dg_wall_type[#_clm,_row] = $4|$2;
+                                else if (ds_list_find_index(_dl_CORNER_BTMRGT,_tsrc)!=-1) _dg_wall_type[#_clm,_row] = $4|$1;
+                                else if (ds_list_find_index(_dl_SIDE_TOP,     _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $8;
+                                else if (ds_list_find_index(_dl_SIDE_BTM,     _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $4;
+                                else if (ds_list_find_index(_dl_SIDE_LFT,     _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $2;
+                                else if (ds_list_find_index(_dl_SIDE_RGT,     _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $1;
+                                else if (ds_list_find_index(_dl_FILL,         _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $10;
+                                
+                                if(!_wall_type_data_was_set) _wall_type_data_was_set = _dg_wall_type[#_clm,_row]!=0;
+                                if (_wall_type_data_was_set) dm_save_data[?_DATAKEY1+_file_name1+_layer_name] = true;
+                            }
+                        }
+                    }
+                }
+                
+                
+                if (_wall_type_data_was_set)
+                {
+                    ds_grid_resize(_dg_new_tsrc, _scene_clms,_scene_rows);
+                    ds_grid_clear( _dg_new_tsrc,0);
+                    for(_j=0; _j<_scene_rows; _j++)
+                    {
+                        for(_k=0; _k<_scene_clms; _k++)
+                        {
+                            _wall_type = _dg_wall_type[#_k,_j];
+                            if (_wall_type 
                             && !_dg_new_tsrc[#_k,_j] )
                             {
                                 _val1 = 0;
@@ -364,17 +575,17 @@ if (global.UniqueRandomTiles_MAIN) // testing
                                 switch(_val1)
                                 {
                                     case 0:{ // Single -----------------------------------------------------
-                                        switch(_tile_type){
-                                        case $05:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        case $06:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        case $09:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        case $0A:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        case $01:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        case $02:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        case $04:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        case $08:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        case $10:{_dg_new_tsrc[#_k,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
-                                        break;}//switch(_tile_type)
+                                        switch(_wall_type){
+                                        case $05:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        case $06:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        case $09:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        case $0A:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        case $01:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        case $02:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        case $04:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        case $08:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        case $10:{_dg_new_tsrc[#_k,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Single], _TSTSRC_DEF); break;}
+                                        break;}//switch(_wall_type)
                                     break;}//case 0
                                     
                                     
@@ -393,43 +604,43 @@ if (global.UniqueRandomTiles_MAIN) // testing
                                         _length = _val3 + irandom(_val2); // 2,3,4
                                         for(_m=0; _m<_length; _m++)
                                         {
-                                            _tile_type = _dg_wall_type[#_k+_m, _j];
+                                            _wall_type = _dg_wall_type[#_k+_m, _j];
                                             if (isVal(_m,0,_length-1))
                                             {
-                                                switch(_tile_type){
-                                                case $05:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
-                                                case $06:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
-                                                case $09:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
-                                                case $0A:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
-                                                case $01:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
-                                                case $02:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
+                                                switch(_wall_type){
+                                                case $05:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
+                                                case $06:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
+                                                case $09:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
+                                                case $0A:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
+                                                case $01:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
+                                                case $02:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
                                                 case $04:{
-                                                if (_m)   _dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF);
-                                                else      _dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF);
+                                                if (_m)   _dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF);
+                                                else      _dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF);
                                                 break;}
                                                 case $08:{
-                                                if (_m)   _dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF);
-                                                else      _dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF);
+                                                if (_m)   _dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF);
+                                                else      _dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF);
                                                 break;}
                                                 case $10:{
-                                                if (_m)   _dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF);
-                                                else      _dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF);
+                                                if (_m)   _dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF);
+                                                else      _dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF);
                                                 break;}
-                                                break;}//switch(_tile_type)
+                                                break;}//switch(_wall_type)
                                             }
                                             else
                                             {
-                                                switch(_tile_type){
-                                                case $05:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
-                                                case $06:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
-                                                case $09:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
-                                                case $0A:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
-                                                case $01:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
-                                                case $02:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
-                                                case $04:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_MID], _TSTSRC_DEF); break;}
-                                                case $08:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_MID], _TSTSRC_DEF); break;}
-                                                case $10:{_dg_new_tsrc[#_k+_m,_j]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_MID], _TSTSRC_DEF); break;}
-                                                break;}//switch(_tile_type)
+                                                switch(_wall_type){
+                                                case $05:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
+                                                case $06:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
+                                                case $09:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
+                                                case $0A:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
+                                                case $01:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Horizontal+dk_RGT], _TSTSRC_DEF); break;}
+                                                case $02:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Horizontal+dk_LFT], _TSTSRC_DEF); break;}
+                                                case $04:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Horizontal+dk_MID], _TSTSRC_DEF); break;}
+                                                case $08:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Horizontal+dk_MID], _TSTSRC_DEF); break;}
+                                                case $10:{_dg_new_tsrc[#_k+_m,_j]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Horizontal+dk_MID], _TSTSRC_DEF); break;}
+                                                break;}//switch(_wall_type)
                                             }
                                         }//_m
                                     break;}//case 1
@@ -450,43 +661,43 @@ if (global.UniqueRandomTiles_MAIN) // testing
                                         _length = _val3 + irandom(_val2); // 2,3,4
                                         for(_m=0; _m<_length; _m++)
                                         {
-                                            _tile_type = _dg_wall_type[#_k,_j+_m];
+                                            _wall_type = _dg_wall_type[#_k,_j+_m];
                                             if (isVal(_m,0,_length-1))
                                             {
-                                                switch(_tile_type){
-                                                case $05:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
-                                                case $06:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
-                                                case $09:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
-                                                case $0A:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
+                                                switch(_wall_type){
+                                                case $05:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
+                                                case $06:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
+                                                case $09:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
+                                                case $0A:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
                                                 case $01:{
-                                                if (_m)   _dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF);
-                                                else      _dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF);
+                                                if (_m)   _dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF);
+                                                else      _dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF);
                                                 break;}
                                                 case $02:{
-                                                if (_m)   _dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF);
-                                                else      _dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF);
+                                                if (_m)   _dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF);
+                                                else      _dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF);
                                                 break;}
-                                                case $04:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
-                                                case $08:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
+                                                case $04:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
+                                                case $08:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
                                                 case $10:{
-                                                if (_m)   _dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF);
-                                                else      _dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF);
+                                                if (_m)   _dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF);
+                                                else      _dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF);
                                                 break;}
-                                                break;}//switch(_tile_type)
+                                                break;}//switch(_wall_type)
                                             }
                                             else
                                             {
-                                                switch(_tile_type){
-                                                case $05:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
-                                                case $06:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
-                                                case $09:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
-                                                case $0A:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
-                                                case $01:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical+dk_MID], _TSTSRC_DEF); break;}
-                                                case $02:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical+dk_MID], _TSTSRC_DEF); break;}
-                                                case $04:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
-                                                case $08:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
-                                                case $10:{_dg_new_tsrc[#_k,_j+_m]=val(global.StoneTileset01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical+dk_MID], _TSTSRC_DEF); break;}
-                                                break;}//switch(_tile_type)
+                                                switch(_wall_type){
+                                                case $05:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
+                                                case $06:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
+                                                case $09:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_RGT+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
+                                                case $0A:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Corner+dk_LFT+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
+                                                case $01:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_RGT+STR_Tile+STR_Vertical+dk_MID], _TSTSRC_DEF); break;}
+                                                case $02:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_LFT+STR_Tile+STR_Vertical+dk_MID], _TSTSRC_DEF); break;}
+                                                case $04:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_BTM+STR_Tile+STR_Vertical+dk_BTM], _TSTSRC_DEF); break;}
+                                                case $08:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Side+dk_TOP+STR_Tile+STR_Vertical+dk_TOP], _TSTSRC_DEF); break;}
+                                                case $10:{_dg_new_tsrc[#_k,_j+_m]=val(global.WallStyle01_dm[?dk_TSTSRC+STR_Wall+STR_Fill+STR_Tile+STR_Vertical+dk_MID], _TSTSRC_DEF); break;}
+                                                break;}//switch(_wall_type)
                                             }
                                         }//_m
                                     break;}//case 2
@@ -504,16 +715,11 @@ if (global.UniqueRandomTiles_MAIN) // testing
         if (_wall_type_data_was_set)
         {
             dm_save_data[?_DATAKEY1+_file_name1] = ds_grid_write(_dg_new_tsrc);
-            //_dm_new_tile_data[?_file_name1] = ds_grid_write(_dg_new_tsrc);
         }
     }
+    */
     
     
-    //dm_save_data[?"_StoneTileset01"+"_DataMap"+STR_Area] = _AREA;
-    //dm_save_data[?"_StoneTileset01"+"_DataMap"+_AREA] = ds_map_write(_dm_new_tile_data);
-    
-    
-    //ds_map_destroy(_dm_new_tile_data); _dm_new_tile_data=undefined;
     ds_grid_destroy(_dg_wall_type); _dg_wall_type=undefined;
     ds_grid_destroy(_dg_new_tsrc); _dg_new_tsrc=undefined;
     ds_list_destroy(_dl_CORNER_TOPLFT); _dl_CORNER_TOPLFT=undefined;

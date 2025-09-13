@@ -1,6 +1,6 @@
 /// Overworld_Room_Start()
 
-if (DEV) show_debug_message("Overworld_Room_Start()");
+show_debug_message("Overworld_Room_Start()");
 
 
 if (g.room_type!="C") exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -216,7 +216,6 @@ if (f.items&(ITM_MAP1|ITM_MAP2))
 
 
 
-
 if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
 {
     var _dm1=ds_map_create();
@@ -290,6 +289,7 @@ if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
     
     ds_map_destroy(_dm1); _dm1=undefined;
 }
+
 
 
 

@@ -1,6 +1,8 @@
 /// FileSelect_Room_End()
 
-sdm(""); sdm("FileSelect_Room_End()"); sdm("");
+show_debug_message("");
+show_debug_message("FileSelect_Room_End()");
+show_debug_message("");
 
 
 //ar_FILE_NAMES               = 0;
@@ -23,6 +25,12 @@ if (surface_exists(surf_ELIMINATE))
 //if (surface_exists(surf_RANDO))
 //{   surface_free(  surf_RANDO);  }
 
+for(var _i=0; _i<SAVE_FILE_MAX; _i++)
+{
+    if(!is_undefined(  SaveFileRandoInfo_dm[?STR_Save+STR_File+hex_str(_i+1)+STR_Surface]) 
+    &&  surface_exists(SaveFileRandoInfo_dm[?STR_Save+STR_File+hex_str(_i+1)+STR_Surface]) )
+    {   surface_free(  SaveFileRandoInfo_dm[?STR_Save+STR_File+hex_str(_i+1)+STR_Surface]);  }
+}
 
 
 
@@ -89,6 +97,12 @@ if (_exists) _exists =       ds_exists(      dl_save_file_registered, ds_type_li
 if (_exists)                 ds_list_destroy(dl_save_file_registered);
 if (_exists)                                 dl_save_file_registered=undefined;
 
+    _exists=variable_instance_exists(id,"dl_can_color_file");
+if (_exists) _exists = !is_undefined(    dl_can_color_file);
+if (_exists) _exists = ds_exists(        dl_can_color_file,ds_type_list);
+if (_exists)           ds_list_destroy(  dl_can_color_file);
+if (_exists)                             dl_can_color_file=undefined;
+
 
 
 
@@ -115,6 +129,12 @@ if (_exists) _exists =      !is_undefined(  dm_rando_settings);
 if (_exists) _exists =       ds_exists(     dm_rando_settings, ds_type_map);
 if (_exists)                 ds_map_destroy(dm_rando_settings);
 if (_exists)                                dm_rando_settings=undefined;
+
+    _exists=variable_instance_exists(id,"SaveFileRandoInfo_dm");
+if (_exists) _exists = !is_undefined(    SaveFileRandoInfo_dm);
+if (_exists) _exists = ds_exists(        SaveFileRandoInfo_dm,ds_type_map);
+if (_exists)           ds_map_destroy(   SaveFileRandoInfo_dm);
+if (_exists)                             SaveFileRandoInfo_dm=undefined;
 
 
 

@@ -87,7 +87,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
         _file      = file_text_open_read(working_directory+_file_name);
         _file_data = file_text_read_string(_file);
                      file_text_close(      _file);
-        global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
+        global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+STR_Encoded] = _file_data;
     }
     
     //global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;

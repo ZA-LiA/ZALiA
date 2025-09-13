@@ -79,6 +79,12 @@ if (state==State_NULL
     {
         ds_list_add(  dl_save_file_registered,get_saved_value(_i+1,f.SDNAME_saveCreated,false));
     }
+    
+    
+    if (state==State_REGISTER)
+    {
+        FileSelect_clear_save_file_rando_info(Register_file_num);
+    }
 }
 
 
@@ -265,6 +271,9 @@ if(!covered
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
+FileSelect_udp();
+
+
 if (state)
 {
     if!(timer&$3) sprites_fairy_idx = !sprites_fairy_idx;
@@ -339,7 +348,7 @@ if (state)
         fairy_x  = FAIRY_X2;
         fairy_y  = FAIRY_Y2;
         fairy_y += _CURSOR*SAVE_FILE_PAD;
-        if (_CURSOR>=SAVE_FILE_MAX) fairy_y += $01<<3;
+        //if (_CURSOR>=SAVE_FILE_MAX) fairy_y += $01<<3;
         break;}//case State_ELIMINATE
     }//switch(state)
 }

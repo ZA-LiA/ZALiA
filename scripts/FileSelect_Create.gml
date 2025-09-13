@@ -1,6 +1,6 @@
 /// FileSelect_Create()
 
-if (DEV) sdm(" FileSelect_Create()");
+show_debug_message(" FileSelect_Create()");
 
 
 var _i,_j, _a, _val;
@@ -9,6 +9,9 @@ var _ver, _file_num;
 var _default=0;
 var _datakey1,_datakey2;
 var _file_name, _file, _file_data;
+
+dl_can_color_file = ds_list_create();
+repeat(SAVE_FILE_MAX) ds_list_add(dl_can_color_file, false);
 
 //instance_create(0,0, ValDispaly);
 
@@ -218,6 +221,14 @@ cursor_char_y  = CURSOR_CHAR_Y1;
 
 
 
+
+MenuCursor_sprite = dl_sprites_fairy[|sprites_fairy_idx];;
+MenuCursor_x = 0;
+MenuCursor_y = 0;
+
+
+
+
 // -------------------------------------------------
 Register_file_num = 1;
                        _i=SAVE_FILE_MAX;
@@ -328,6 +339,38 @@ Text_ON  = "ON";
 Text_OFF = "OFF";
 //Text_ON  = "YES";
 //Text_OFF = " NO";
+
+
+// -------------------------------------------------
+/*
+for(_i=0; _i<SAVE_FILE_MAX; _i++)
+{
+    _file_name = f.dl_file_names[|_i];
+    _file      = file_text_open_read(working_directory+_file_name);
+    _file_data = file_text_read_string(_file);
+                 file_text_close(      _file);
+    //
+    _dm_data   = json_decode(_file_data);
+    if (_dm_data!=-1)
+    {
+        global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
+        
+        dg_stats[#_i,0] = val(_dm_data[?f.SDNAME_saveCreated]);
+        dg_stats[#_i,1] = val(_dm_data[?f.SDNAME_questNum]);
+        dg_stats[#_i,2] = val(_dm_data[?f.SDNAME_deathCount]);
+        dg_stats[#_i,3] = val(_dm_data[?f.SDNAME_level_atk]);
+        dg_stats[#_i,4] = val(_dm_data[?f.SDNAME_level_mag]);
+        dg_stats[#_i,5] = val(_dm_data[?f.SDNAME_level_lif]);
+        dg_stats[#_i,6] = val(_dm_data[?f.SDNAME_crystals]);
+        
+        ds_map_destroy(_dm_data); _dm_data=undefined;
+    }
+}
+*/
+
+
+
+
 
 
 // -------------------------------------------------

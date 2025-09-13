@@ -59,6 +59,8 @@ var _SPELL_SEQUENCE_COUNT = _i; // Kings Tomb, Carock 2, Kasuto Cemetery Kakusu
 
 
 
+show_debug_message("");
+
 for(_i=0; _i<_SPELL_SEQUENCE_COUNT; _i++)
 {
     _dk_dialogue = g.DIALOGUE_WINDOW.dm_dialogue[?_dk2+STR_Dialogue+STR_Datakey+hex_str(_i+1)];
@@ -135,15 +137,16 @@ for(_i=0; _i<_SPELL_SEQUENCE_COUNT; _i++)
         g.DIALOGUE_WINDOW.dm_dialogue[?_dk_dialogue+"B"]  = _str;  // Hylian Translated
         g.DIALOGUE_WINDOW.dm_dialogue[?_dk_dialogue+_dk2] = _str2; // string representing spells as spell bits. Example: "01"+"08"+"04"+"40"
         
-        if(1){
+        if(DEV && true){
         //if(_DEBUG1){
         _dbstr  = _dk_dialogue+"A: "+_str1+", ";
         _dbstr += _dk_dialogue+"B: "+_str+", ";
         _dbstr += _dk_dialogue+_dk2+": "+_str2;
-        sdm(_dbstr);
+        show_debug_message(_dbstr);
         }
     }
 }
+show_debug_message("");
 
 
 
@@ -155,9 +158,11 @@ ds_list_destroy(_dl_seq); _dl_seq=undefined;
 
 
 
+
 var                     _return = undefined;
 if (ds_map_size(_dm_1)) _return = json_encode(_dm_1);
 ds_map_destroy( _dm_1); _dm_1=undefined;
+
 
 return _return;
 

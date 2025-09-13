@@ -5,7 +5,7 @@ var                            _arg=0;
 var _FILE_NUM       = argument[_arg++];
 var _WILL_ELIMINATE = argument[_arg++];
 
-var _file, _data;
+var _i, _file, _data;
 var _dm_save_data = ds_map_create();
 
 var _SAVE_IS_CREATED_STATE = !_WILL_ELIMINATE;
@@ -91,7 +91,8 @@ _dm_save_data[?f.SDNAME_quests]                 = json_encode(f.dm_quests);
 _dm_save_data[?f.SDNAME_exploredRooms]          = json_encode(f.dm_explored);
 
 
-if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
+if (val(_dm_save_data[?STR_Randomize+STR_Item+STR_Locations]) 
+//if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
 &&  ds_map_size(g.dm_RandoHintsRecorder) )
 {
     _dm_save_data[?STR_Found+STR_Hint] = json_encode(g.dm_RandoHintsRecorder);
@@ -111,12 +112,59 @@ if (file_exists(_FILE_NAME))
             file_text_write_string(_file,_SAVE_DATA);
             file_text_close(_file);
     //
-    global.dm_save_file_data[?STR_Save+STR_File+hex_str(_FILE_NUM)+"_Encoded"] = _SAVE_DATA;
+    global.dm_save_file_data[?STR_Save+STR_File+hex_str(_FILE_NUM)+STR_Encoded] = _SAVE_DATA;
     
     show_debug_message("");
     show_debug_message("Save File  '"+_FILE_NAME+"', Save Name  '"+_SAVE_NAME+"',   saved!");
     show_debug_message("");
 }
+
+
+
+
+if (val(_dm_save_data[?STR_Randomize+STR_Item+STR_Locations]))
+{
+    var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
+    if (file_exists(_RANDO_DATA_FILE_NAME))
+    {
+        var _line, _pos1,_pos2, _item_id;
+        var _POS_KEY1 = "#(";
+        var _POS_KEY2 = ")#";
+        var _STR_ACQUIRED = "*ACQUIRED*";
+        var _dl_text_lines = ds_list_create();
+        
+        _file = file_text_open_read(working_directory+_RANDO_DATA_FILE_NAME);
+        while(!file_text_eof(_file))
+        {
+            _line = file_text_readln(_file);
+            // Item Data Line Example: "$04. loc_num $2C: #(_CANDLE)#   .  _TownA_5F - Bagu Item location (NOTE)"
+            if (string_pos("loc_num",_line)       // this is an item location line
+            && !string_pos(_STR_ACQUIRED,_line) ) // it's not recorded as acquired yet
+            {
+                _pos1 = string_pos(_POS_KEY1,_line) + string_length(_POS_KEY1);
+                _pos2 = string_pos(_POS_KEY2,_line);
+                _item_id = string_copy(_line, _pos1, _pos2-_pos1);
+                if (item_acquired(_item_id)) _line = string_insert(_STR_ACQUIRED+" ", _line, 1);
+                //if (item_acquired(_item_id)) _line = string_insert(_STR_ACQUIRED, _line, _pos2+string_length(_POS_KEY2)+2);
+            }
+            
+            ds_list_add(_dl_text_lines,_line);
+        }
+        file_text_close(_file);
+        
+        
+        _file = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
+        var          _LINE_COUNT = ds_list_size(_dl_text_lines);
+        for(_i=0; _i<_LINE_COUNT; _i++) file_text_write_string(_file,_dl_text_lines[|_i]);
+        file_text_close(_file);
+        
+        
+        ds_list_destroy(_dl_text_lines); _dl_text_lines=undefined;
+    }
+}
+
+
+
 
 ds_map_destroy(_dm_save_data); _dm_save_data=undefined;
 

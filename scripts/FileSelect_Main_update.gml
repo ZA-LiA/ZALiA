@@ -83,6 +83,8 @@ if (input_start_pressed) // OPTION HAS BEEN SELECTED
         
         Register_cursor  = Register_file_num-1;
         
+        FileSelect_clear_save_file_rando_info(Register_file_num); // clear data in `SaveFileRandoInfo_dm` for this file
+        
         cue_change_state = CUE_CHANGE_STATE_1A;
         cue_cover_start  = CUE_COVER_START_1A;
         cue_cover_stop   = CUE_COVER_STOP_1A;
