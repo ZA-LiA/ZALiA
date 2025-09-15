@@ -2207,7 +2207,8 @@ DEPTH_CLOUD = DEPTH_BG8   + (TILE_DEPTHS_PAD>>1);
 DEPTH_STARS = DEPTH_CLOUD + (TILE_DEPTHS_PAD>>1);
 
 dl_niao = ds_list_create();
-repeat($10) ds_list_add(dl_niao,0);
+repeat($10) ds_list_add(dl_niao,noone);
+//repeat($10) ds_list_add(dl_niao,0);
 
 
 

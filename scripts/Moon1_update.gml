@@ -26,5 +26,8 @@ else
 }
 
 
+can_draw_self = true;
+
+
 
 

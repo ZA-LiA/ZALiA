@@ -39,12 +39,15 @@ for(_i=ds_list_size(g.dl_niao)-1; _i>=0; _i--)
     }
     else
     {
+        continue; //_i
+        /*
         _x     = 0;
         _y     = 0;
         _ver   = 0;
         _init  = 0;
         _pi    = -1;
         _state = 0;
+        */
     }
     
     
