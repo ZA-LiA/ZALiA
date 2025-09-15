@@ -206,7 +206,8 @@ dg_STAR_SKY[#_a,2] = _b;  //
 //                          // 
 
 
-                       dl_STAR_SKY = ds_list_create();
+dl_STAR_SKY = ds_list_create();
+//repeat(4) ds_list_add(dl_STAR_SKY,-1);
 for(_i=3; _i>=0; _i--) dl_STAR_SKY[|_i] = -1;
 
 
@@ -397,11 +398,14 @@ if(!is_undefined(g.dm_tile_file)
             if (string_pos("BG",_layer_name) 
             ||  string_pos("FG",_layer_name) )
             {
+                _terrain_idx = ds_grid_width(dg_terrain);
+                ds_grid_resize(dg_terrain,_terrain_idx+1,dg_terrain_H);
+                
                 if (        string_pos("BG",_layer_name))
                 {    _pos = string_pos("BG",_layer_name);  }
                 else _pos = string_pos("FG",_layer_name);
                 _name  = string_copy(_layer_name,_pos,4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
-                _depth = val(g.dm_TILE_DEPTH[?_name],dg_terrain[#_terrain_idx,2]);
+                //_depth = val(g.dm_TILE_DEPTH[?_name],dg_terrain[#_terrain_idx,2]);
                 //_idx   = ds_list_find_index(g.dl_TILE_DEPTHS, _depth);
                 
                 _pi  = string_copy(_layer_name, _pos+string_length(_name), 2); // bg palette num ('01', '02', '03', '04')
@@ -409,10 +413,9 @@ if(!is_undefined(g.dm_tile_file)
                 _pi -= _pi>5;
                 _pi  = global.PI_BGR1 + (_pi-1);
                 
-                _idx = ds_grid_width(dg_terrain);
-                ds_grid_resize(dg_terrain,_idx+1,dg_terrain_H);
-                dg_terrain[#_idx,1] = _pi;
-                dg_terrain[#_idx,2] = _i;
+                dg_terrain[#_terrain_idx,0] = -1;  // Surface
+                dg_terrain[#_terrain_idx,1] = _pi;
+                dg_terrain[#_terrain_idx,2] = _i;
             }
         }
     }

@@ -38,7 +38,7 @@ switch(state)
         case 2:{
             _cursor_dir = bit_dir(gui_tmr_cursor_v());
         if (_cursor_dir==0)
-        {   _cursor_dir = Input.Magic_pressed;  }
+        {   _cursor_dir = sign(Input.Magic_pressed);  }
         //{   _cursor_dir = Input.GP_Select_pressed || Input.Magic_pressed;  }
         break;}//case 2
     }//switch(global.GUI_NAV1_VER)

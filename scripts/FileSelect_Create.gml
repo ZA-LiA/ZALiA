@@ -3,38 +3,18 @@
 show_debug_message(" FileSelect_Create()");
 
 
-var _i,_j, _a, _val;
+var _i,_j, _a, _val, _dist;
 var _X,_Y;
 var _ver, _file_num;
 var _default=0;
 var _datakey1,_datakey2;
 var _file_name, _file, _file_data;
 
-dl_can_color_file = ds_list_create();
-repeat(SAVE_FILE_MAX) ds_list_add(dl_can_color_file, false);
-
 //instance_create(0,0, ValDispaly);
 
 
-/*
-SPR_MAIN = spr_File_Select_Bare;
-SPR_REGI = spr_File_Select_Register_1;
-//SPR_RAND = spr_File_Select_Rando;
-SPR_ELIM = spr_File_Select_Elimination;
+var _len;
 
-dl_sprites=ds_list_create();
-dl_sprites[|0] = SPR_MAIN;
-dl_sprites[|1] = SPR_REGI;
-dl_sprites[|2] = SPR_ELIM;
-sprite_index   = SPR_MAIN;
-
-// x is xl
-//x = viewXC() - (sprite_get_width( sprite_index)>>1); // centered
-x = viewXC() - $80;
-// y is yt
-//y = viewYC() - (sprite_get_height(sprite_index)>>1); // centered
-y = viewYC() - $70;
-*/
 
 depth       = DEPTH_FILE_SELECT;
 DEPTH_PIECE = depth-1;
@@ -46,6 +26,10 @@ PI_DARK0 = global.PI_GUI2;
 PI_DARK1 = add_pi_permut(global.PI_GUI2, "WBRGYKMC", "OptionsMenu dark text 1");
 PI_DARK2 = add_pi_permut(global.PI_GUI2, "RWBGMKYC", "OptionsMenu dark text 2");
 PI_DARK3 = add_pi_permut(global.PI_GUI2, "RBWGMKYC", "OptionsMenu dark text 3");
+
+
+dl_can_color_file = ds_list_create();
+repeat(SAVE_FILE_MAX) ds_list_add(dl_can_color_file, false);
 
 
 //FONT_SPRITE1=spr_Font3_1;
@@ -65,6 +49,20 @@ State_ELIMINATE = _i++;
 state           = State_NULL;
 state_pending   = State_MAIN;
 state_previous  = state;
+
+
+
+
+            CharTable_dl=ds_list_create();
+ds_list_add(CharTable_dl,"A B C D E F G H I J K");
+ds_list_add(CharTable_dl,"L M N O P Q R S T U V");
+ds_list_add(CharTable_dl,"W X Y Z - .");
+ds_list_add(CharTable_dl,"0 1 2 3 4 5 6 7 8 9");
+
+_len = string_length(CharTable_dl[|0]);
+CharTable_CLMS  = _len; // text
+CharTable_CLMS += $02;  // + left & right text padding
+CharTable_CLMS += $02;  // + left & right window borders
 
 
 
@@ -109,21 +107,49 @@ yt += $02<<3; // Truncate top padding. YT of "S E L E C T"
 y  = yt;
 
 
-surf_MAIN_CLMS  = Main_CLMS;
-surf_MAIN_ROWS  = Frame_ROWS;
-surf_MAIN_ROWS += $01; // S E L E C T
-surf_MAIN       = surface_create(1,surf_MAIN_ROWS<<3);
-surf_MAIN_XL    = viewXC() - ((surf_MAIN_CLMS<<3)>>1);
-surf_MAIN_YT    = yt;
 
 
-surf_REGISTER  = surface_create(1,1);
-//surf_REGISTER_XL = 0;
-surf_REGISTER_YT = 0;
+MAIN_surf_CLMS  = Main_CLMS;
+MAIN_surf_ROWS  = Frame_ROWS;
+MAIN_surf_ROWS += $01; // S E L E C T
+MAIN_surf_W     = viewW();
+MAIN_surf_H     = viewH();
+MAIN_surf       = -1;
+MAIN_surf_XL    = viewXC() - (MAIN_surf_W>>1);
+MAIN_surf_YT    = viewYC() - (MAIN_surf_H>>1);
+MAIN_surf_DrawArea_XL = (MAIN_surf_XL + (MAIN_surf_W>>1)) - ((MAIN_surf_CLMS<<3)>>1);
+MAIN_surf_DrawArea_YT = yt;
 
-surf_ELIMINATE = surface_create(1,1);
 
-Frame_YT  = surf_MAIN_YT;
+
+
+REGISTER_surf    = -1;
+REGISTER_surf_CLMS = CharTable_CLMS + (CharTable_CLMS&$1);
+REGISTER_surf_W  = viewW();
+REGISTER_surf_H  = viewH();
+REGISTER_surf_XL = viewXC() - (REGISTER_surf_W>>1);
+REGISTER_surf_YT = viewYC() - (REGISTER_surf_H>>1);
+_dist = max(Area1_W, REGISTER_surf_CLMS<<3);
+REGISTER_surf_DrawArea_XL = (REGISTER_surf_XL + (REGISTER_surf_W>>1)) - (_dist>>1);
+REGISTER_surf_DrawArea_YT = yt;
+
+
+
+
+ELIMINATE_surf    = -1;
+ELIMINATE_surf_CLMS = REGISTER_surf_CLMS;
+ELIMINATE_surf_W  = viewW();
+ELIMINATE_surf_H  = viewH();
+ELIMINATE_surf_XL = viewXC() - (ELIMINATE_surf_W>>1);
+ELIMINATE_surf_YT = viewYC() - (ELIMINATE_surf_H>>1);
+_dist = max(Area1_W, ELIMINATE_surf_CLMS<<3);
+ELIMINATE_surf_DrawArea_XL = (ELIMINATE_surf_XL + (ELIMINATE_surf_W>>1)) - (_dist>>1);
+ELIMINATE_surf_DrawArea_YT = yt;
+
+
+
+
+Frame_YT  = MAIN_surf_DrawArea_YT;
 Frame_YT += $01<<3; // S E L E C T
 
 
@@ -266,6 +292,9 @@ FileSelectWindow_ROWS = $14;
 f.quest_num = 1;
 g.game_end_state = 0;
 
+
+
+
 // -------------------------------------------------
 g.counter1 = 0;
 timer = $FF;
@@ -297,6 +326,9 @@ CUE_CHANGE_ROOM  = 8;
 
 covered = true;
 save_num_selected = 0;
+
+
+
 
 // -------------------------------------------------
 input_start_pressed  = false;
@@ -341,36 +373,6 @@ Text_OFF = "OFF";
 //Text_OFF = " NO";
 
 
-// -------------------------------------------------
-/*
-for(_i=0; _i<SAVE_FILE_MAX; _i++)
-{
-    _file_name = f.dl_file_names[|_i];
-    _file      = file_text_open_read(working_directory+_file_name);
-    _file_data = file_text_read_string(_file);
-                 file_text_close(      _file);
-    //
-    _dm_data   = json_decode(_file_data);
-    if (_dm_data!=-1)
-    {
-        global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
-        
-        dg_stats[#_i,0] = val(_dm_data[?f.SDNAME_saveCreated]);
-        dg_stats[#_i,1] = val(_dm_data[?f.SDNAME_questNum]);
-        dg_stats[#_i,2] = val(_dm_data[?f.SDNAME_deathCount]);
-        dg_stats[#_i,3] = val(_dm_data[?f.SDNAME_level_atk]);
-        dg_stats[#_i,4] = val(_dm_data[?f.SDNAME_level_mag]);
-        dg_stats[#_i,5] = val(_dm_data[?f.SDNAME_level_lif]);
-        dg_stats[#_i,6] = val(_dm_data[?f.SDNAME_crystals]);
-        
-        ds_map_destroy(_dm_data); _dm_data=undefined;
-    }
-}
-*/
-
-
-
-
 
 
 // -------------------------------------------------
@@ -384,13 +386,9 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++)
 
 
 
-
-
-
-
-
 // -------------------------------------------------
 FileSelect_Create_Rando();
+
 
 var _seed=0;
 dm_RandoSeeds = ds_map_create();
@@ -432,10 +430,12 @@ dg_stats = ds_grid_create(SAVE_FILE_MAX,7);
 FS_set_stats();
 
 
-dl_spr_statIcon = ds_list_create();
+            dl_spr_statIcon = ds_list_create();
 ds_list_add(dl_spr_statIcon,global.SPR_ICON_ATK);
 ds_list_add(dl_spr_statIcon,global.SPR_ICON_MAG);
 ds_list_add(dl_spr_statIcon,global.SPR_ICON_LIF);
+
+
 
 
 // -------------------------------------------------
@@ -451,6 +451,7 @@ cursor_name = 0;
 
 ROW_COUNT = $04;
 CLM_COUNT = $0B;
+
 
 
 

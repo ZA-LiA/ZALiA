@@ -355,7 +355,7 @@ _Y  = RandoOptions_Y;
 _Y += $00<<3;
 //_Y  =($11<<3) - $01;
 
-RandoITEM_FONT_SPRITE=spr_Font2;
+RandoITEM_FONT_SPRITE = spr_Font2;
 //_font_sprite = spr_Font2;
 _char_size = sprite_get_width(RandoITEM_FONT_SPRITE);
 _dist1 = _char_size<<1;

@@ -28,8 +28,7 @@ if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
         
         for(_j=0; _j<4; _j++) // each color/anim_frame
         {
-            if(!surface_exists(dl_STAR_SKY[|_j]))
-            {   dl_STAR_SKY[|_j] = surface_create(g.rm_w,g.rm_h);  }
+            if(!surface_exists(dl_STAR_SKY[|_j])) dl_STAR_SKY[|_j] = surface_create(g.rm_w,g.rm_h);
             
             surface_set_target(dl_STAR_SKY[|_j]);
             _idx = (dg_STAR_SKY[#_i,2]+_j) &$3;
@@ -71,7 +70,7 @@ if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
 
 
 if (surface_exists(dl_STAR_SKY[|_IDX1]))
-{     draw_surface(dl_STAR_SKY[|_IDX1], 0,0);  }
+{   draw_surface(  dl_STAR_SKY[|_IDX1], 0,0);  }
 
 
 
@@ -106,7 +105,9 @@ if (rectInView(x, title_y, TITLE_SPR_W, TITLE_SPR_H))
 
 //  --------------------------------------------------------------------------------
 // STORY -----------------------------------------------------
-if(!surface_exists(Story_srf))
+if (string_length(p.pal_rm_curr)  // otherwise some things will be wrong color until the surface is redrawn due to something like toggling fullscreen
+&& !surface_exists(Story_srf) )
+//if(!surface_exists(Story_srf))
 {
     var _XL0 = $18;
     var _XL1 = _XL0+($7<<3);
@@ -229,18 +230,19 @@ if (dl_tile_layer_data!=0)
     }
     
     if (_dm_ts_info!=-1){ds_map_destroy(_dm_ts_info); _dm_ts_info=undefined;}
-    
-    
-    for(_i=0; _i<dg_terrain_W; _i++)
+}
+
+
+for(_i=0; _i<dg_terrain_W; _i++)
+{
+    if (surface_exists(dg_terrain[#_i,0]))
     {
-        if (surface_exists(dg_terrain[#_i,0]))
-        {
-            pal_swap_set(global.palette_image, dg_terrain[#_i,1]);
-            draw_surface(dg_terrain[#_i,0],0,0);
-            pal_swap_reset();
-        }
+        pal_swap_set(global.palette_image, dg_terrain[#_i,1]);
+        draw_surface(dg_terrain[#_i,0],0,0);
+        pal_swap_reset();
     }
 }
+
 
 
 

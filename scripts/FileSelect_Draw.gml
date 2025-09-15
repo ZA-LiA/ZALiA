@@ -20,9 +20,9 @@ FileSelect_build_surfaces();
 
 pal_swap_set(global.palette_image, global.PI_GUI1);
 switch(state){
-case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      viewXC()-(surface_get_width(surf_MAIN)>>1),     surf_MAIN_YT); break;}//case State_MAIN
-case State_REGISTER: {if (surface_exists(surf_REGISTER))  draw_surface(surf_REGISTER,  viewXC()-(surface_get_width(surf_REGISTER)>>1), surf_MAIN_YT); break;}//case State_REGISTER
-case State_ELIMINATE:{if (surface_exists(surf_ELIMINATE)) draw_surface(surf_ELIMINATE, viewXC()-(surface_get_width(surf_ELIMINATE)>>1),surf_MAIN_YT); break;}//case State_ELIMINATE
+case State_MAIN:     {if (surface_exists(MAIN_surf))      draw_surface(MAIN_surf,      MAIN_surf_XL,     MAIN_surf_YT);      break;}//case State_MAIN
+case State_REGISTER: {if (surface_exists(REGISTER_surf))  draw_surface(REGISTER_surf,  REGISTER_surf_XL, REGISTER_surf_YT);  break;}//case State_REGISTER
+case State_ELIMINATE:{if (surface_exists(ELIMINATE_surf)) draw_surface(ELIMINATE_surf, ELIMINATE_surf_XL,ELIMINATE_surf_YT); break;}//case State_ELIMINATE
 }//switch(state)
 pal_swap_reset();
 

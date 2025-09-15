@@ -21,21 +21,29 @@ if (argument[0]==-2)
 else
 {
     _low  = $30;
-    _mid  = $48;
-    _high = $60;
-    _min  = choose(_low,_low, _mid,_mid,_mid,_mid, _high,_high,_high,_high);
+    _mid  = $50;
+    _high = $70;
+    _min  = choose(_low,_low, _mid,_mid,_mid,_mid,_mid, _high,_high,_high,_high,_high,_high,_high);
+    //_mid  = $48;
+    //_high = $60;
+    //_min  = choose(_low,_low, _mid,_mid,_mid,_mid, _high,_high,_high,_high);
     _max  = $E8;
     _sat  = _min + irandom(_max-_min);
 }
 
-_low  = $17;
-_mid  = $27;
-_high = $37;
+_low  = $1B;
+_mid  = $30;
+_high = $43;
+//_low  = $17;
+//_mid  = $27;
+//_high = $37;
 //_low  = $17;
 //_mid  = $23;
 //_high = $2F;
-_min  = choose(_low,_low,_low, _mid,_mid,_mid,_mid,_mid,_mid, _high,_high);
-_max  = $6F;
+_min  = choose(_low,_low, _mid,_mid,_mid,_mid,_mid,_mid, _high,_high,_high,_high,_high);
+//_min  = choose(_low,_low,_low, _mid,_mid,_mid,_mid,_mid,_mid, _high,_high);
+_max  = $77;
+//_max  = $6F;
 _lum  = _min + irandom(_max-_min);
 
 _color_mid = make_colour_hsv(_hue, _sat, _lum);
