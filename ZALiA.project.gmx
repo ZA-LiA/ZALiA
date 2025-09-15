@@ -14183,6 +14183,7 @@
       <script>scripts\p_init_palette_data.gml</script>
       <script>scripts\update_Pallete_1a.gml</script>
       <script>scripts\update_Pallete_1b.gml</script>
+      <script>scripts\p_Room_Start_palette_rando.gml</script>
       <script>scripts\p_update_pal_seq.gml</script>
       <script>scripts\color_tiles.gml</script>
       <script>scripts\dev_tile_highlighting.gml</script>
@@ -14212,6 +14213,7 @@
       <script>scripts\get_random_color_highlight.gml</script>
       <script>scripts\get_random_color_midtone.gml</script>
       <script>scripts\get_random_color_shadow.gml</script>
+      <script>scripts\get_random_palette1.gml</script>
       <script>scripts\randomize_palette.gml</script>
       <scripts name="palette_swap">
         <script>scripts\pal_swap_draw_palette.gml</script>

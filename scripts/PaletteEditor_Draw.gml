@@ -180,12 +180,14 @@ if (state==state_EDIT1A
     var _W2 = PalEdit_SCALE;
     var _H2 = PalEdit_SCALE;
     var _DIST1 = Font1_H * 2; // distance between text lines
+    var _DIST2 = _W2 + (PalEdit_Outline_W<<1);
     
     var _XL0  = PalEdit_xl;
         _XL0 += _PAD1;
     var _YT0  = max(PalEdit_yt+PalEdit_PALS_H, ColorGrid_yt+ColorGrid_H);
         _YT0 += $4; // pad
         //_YT0 += $8 + _PAD1; // pad
+    var _xl1;
     var _yt1  = _YT0;
     
     
@@ -261,6 +263,47 @@ if (Info1_can_draw)
                 draw_sprite_(_sprite,0, _x,_y);
             }
         }
+    }
+}
+//*/
+
+
+
+
+///*
+if (state==state_EDIT1A)
+{
+    var _AREA_XL0 = PalEdit_xl;
+    var _AREA_YT0 = max(PalEdit_yt+PalEdit_PALS_H, ColorGrid_yt+ColorGrid_H) + 4 + (_DIST1<<2);
+    var _TEXT_XL0 = _AREA_XL0 + _DIST2 + Font1_W;
+    var _PI = val(PalEdit_dm[?STR_Palette+hex_str(PalEdit_Cursor_clm+1)+STR_Palette+STR_Index]);
+    //var _PI = global.PI_BGR1;
+    
+    for(_i=0; _i<global.COLORS_PER_PALETTE; _i++)
+    {
+        var _COLOR_BASE_CHAR = string_char_at(global.PAL_BASE_COLOR_ORDER,_i+1);
+        _color = get_pal_color(pal_during_edit, _PI, _COLOR_BASE_CHAR);
+        
+        _xl1 = _AREA_XL0;               // color square outline xl
+        _yt1 = _AREA_YT0 + (_DIST1*_i); // color square outline yt
+        
+        _xl = _xl1;
+        _yt = _yt1;
+        draw_surface(ColorOutline1_surf, _xl,_yt); // color square outline
+        _xl += PalEdit_Outline_W;
+        _yt += PalEdit_Outline_W;
+        draw_sprite_(spr_1x1_WHT,0, _xl,_yt, -1, _W2,_H2, _color); // color square
+        
+        _text  = _COLOR_BASE_CHAR+": "+color_str(_color)+".";
+        _text += " H-"+hex_str(colour_get_hue(_color));
+        _text += " S-"+hex_str(colour_get_saturation(_color));
+        _text += " L-"+hex_str(colour_get_value(_color));
+        _text += " B-"+hex_str(get_color_brightness(_color));
+        
+        _xl  = _TEXT_XL0;
+        _yt  = _yt1 + PalEdit_Outline_W + (_H2>>1);
+        _yt -= Font1_H>>1;
+        draw_text_(_xl,_yt, _text, Font1_sprite);
     }
 }
 //*/

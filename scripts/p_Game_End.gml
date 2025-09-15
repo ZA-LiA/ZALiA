@@ -120,7 +120,7 @@ if (_exists) _exists = ds_exists(      dl_FS_PI,ds_type_list);
 if (_exists)           ds_list_destroy(dl_FS_PI);
 if (_exists)                                          dl_FS_PI=undefined;
 */
-
+/*
     _exists=variable_instance_exists(id,"dl_various_pals1");
 if (_exists) _exists = !is_undefined(    dl_various_pals1);
 if (_exists) _exists = ds_exists(        dl_various_pals1,ds_type_list);
@@ -138,7 +138,7 @@ if (_exists) _exists = !is_undefined(    dl_various_pals3);
 if (_exists) _exists = ds_exists(        dl_various_pals3,ds_type_list);
 if (_exists)           ds_list_destroy(  dl_various_pals3);
 if (_exists)                             dl_various_pals3=undefined;
-
+*/
     _exists=variable_instance_exists(id,"dl_BackgroundFlash_COLORS");
 if (_exists) _exists = !is_undefined(    dl_BackgroundFlash_COLORS);
 if (_exists) _exists = ds_exists(        dl_BackgroundFlash_COLORS,ds_type_list);

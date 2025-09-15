@@ -26,12 +26,33 @@ dm = ds_map_create();
 dm_pal_data = ds_map_create();
 dl_PAL_POS = ds_list_create();
 dm_scene_palette = ds_map_create();
-dl_various_pals1 = ds_list_create();
-dl_various_pals2 = ds_list_create();
-dl_various_pals3 = ds_list_create();
+//dl_various_pals1 = ds_list_create();
+//dl_various_pals2 = ds_list_create();
+//dl_various_pals3 = ds_list_create();
 dl_BASE_COLORS = ds_list_create();
 
 
+
+//ds_list_add(_dl,$0000FF,$0048FF,$007FFF,$00C0FF,$00FFFF,$00FFAA,$00FF00,$AAFF00,$FFFF00,$FF8000,$FF0000,$FF0066,$FF00AA,$FF00FF,$7F00FF);
+//for(_i=0; _i<ds_list_size(_dl); _i++) sdm(color_str(_dl[|_i])+" - "+hex_str(colour_get_hue(_dl[|_i])));
+/*
+color  - hue
+0000FF - 00  RED
+0048FF - 0C  RED-ORANGE
+007FFF - 15  ORANGE
+00C0FF - 20  ORANGE-YELLOW
+00FFFF - 2B  YELLOW
+00FFAA - 39  YELLOW-GREEN
+00FF00 - 55  GREEN
+AAFF00 - 71  GREEN-CYAN
+FFFF00 - 80  CYAN
+FF8000 - 95  CYAN-BLUE
+FF0000 - AA  BLUE
+FF0066 - BB  BLUE-PURPLE
+FF00AA - C6  PURPLE
+FF00FF - D5  MAGENTA
+7F00FF - EA  MAGENTA-RED
+*/
 
 
 depth = DEPTH_p;
@@ -1638,116 +1659,8 @@ for(_i=val(global.FallScene_dm[?STR_Type+STR_Count])-1; _i>=0; _i--)
 // Build a list of acceptable palettes for Palette Rando
 /*
 _mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$01], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
 ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
 ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$07], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$03)+$07], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$03)+$08], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$04)+$05], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$05)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$05], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$05], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$05], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-
-
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $01;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$07], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $01;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$0C)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
-
-
-
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $02;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $02;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
-
-
-
-
-_mid_tone_idx = (ColorGrid_CLMS*$00) + $06;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0C)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0B)+$00], C_BLK1, -2,-2,-2,-2));
-
-
-
-
-_mid_tone_idx = (ColorGrid_CLMS*$01) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-_mid_tone_idx = (ColorGrid_CLMS*$01) + $00;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$06], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$0D)+$01], C_BLK1, -2,-2,-2,-2));
-
-
-
-
-_mid_tone_idx = (ColorGrid_CLMS*$01) + $01;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
-
-
-
-
-_mid_tone_idx = (ColorGrid_CLMS*$01) + $02;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$02)+$03], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$00], C_BLK1, -2,-2,-2,-2));
-
-
-
-
-_mid_tone_idx = (ColorGrid_CLMS*$01) + $05;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$08], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$00], C_BLK1, -2,-2,-2,-2));
-
-
-
-
-_mid_tone_idx = (ColorGrid_CLMS*$01) + $05;
-ds_list_add(dl_various_pals1A, build_pal(global.dl_COLOR01[|(ColorGrid_CLMS*$01)+$08], global.dl_COLOR01[|_mid_tone_idx], global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$00], C_BLK1, -2,-2,-2,-2));
-ds_list_add(dl_various_pals1B, build_pal(                                      C_BLK1,                            C_BLK1, global.dl_COLOR01[|(ColorGrid_CLMS*$00)+$00], C_BLK1, -2,-2,-2,-2));
 */
 
 
@@ -1861,7 +1774,7 @@ if (file_exists(_file_name))
 
 
 
-
+/*
 var _layer_name="";
 var _tile_was_found, _tsrc;
 var _CLM_SHIFT = 5; // 32. Palette groups are aligned to left edge of each scene section/map-page
@@ -2001,7 +1914,7 @@ for(_i=1; _i<=_COUNT0; _i++) // each file
         ds_map_destroy(_dm_data); _dm_data=undefined;
     }
 }//_i
-
+*/
 
 
 
