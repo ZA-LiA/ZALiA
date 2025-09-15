@@ -137,10 +137,10 @@ GP_attack_DEFAULT   = gp_face3; // Xbox X button
 GP_other2_DEFAULT   = gp_face4; // Xbox Y button
 GP_pause_DEFAULT    = gp_start;
 GP_magic_DEFAULT    = gp_select;
-GP_other3_DEFAULT   = gp_shoulderl;
-GP_other4_DEFAULT   = gp_shoulderr;
-GP_other5_DEFAULT   = gp_shoulderlb;
-GP_other6_DEFAULT   = gp_shoulderrb;
+GP_other3_DEFAULT   = gp_shoulderl;   // Bumper Left
+GP_other4_DEFAULT   = gp_shoulderr;   // Bumper Right
+GP_other5_DEFAULT   = gp_shoulderlb;  // Trigger Left
+GP_other6_DEFAULT   = gp_shoulderrb;  // Trigger Right
 
 GP_right    = GP_right_DEFAULT;
 GP_left     = GP_left_DEFAULT;
@@ -152,10 +152,10 @@ GP_jump     = GP_jump_DEFAULT;   // Xbox A button
 GP_attack   = GP_attack_DEFAULT; // Xbox X button
 GP_other1   = GP_other1_DEFAULT; // Xbox B button
 GP_other2   = GP_other2_DEFAULT; // Xbox Y button
-GP_other3   = GP_other3_DEFAULT;
-GP_other4   = GP_other4_DEFAULT;
-GP_other5   = GP_other5_DEFAULT;
-GP_other6   = GP_other6_DEFAULT;
+GP_other3   = GP_other3_DEFAULT; // Bumper Left
+GP_other4   = GP_other4_DEFAULT; // Bumper Right
+GP_other5   = GP_other5_DEFAULT; // Trigger Left
+GP_other6   = GP_other6_DEFAULT; // Trigger Right
 
 gamepad_set_default();
 

@@ -57,54 +57,54 @@ PAL_MOBS_LEN = string_length(PAL_MOBS);
 
 
 // 8x8 tiles
-CLMS_WIN_DEF = g.GUI_WIN_CLMS1; // $0E. 8x8
-ROWS_WIN_DEF = $17;             // $17. 8x8
+Window_CLMS_DEF = g.GUI_WIN_CLMS1; // $0E. 8x8
+Window_ROWS_DEF = $17;             // $17. 8x8
 
 
 // 8x8 tiles
-CLMS_WIN_SPL = CLMS_WIN_DEF;
-ROWS_WIN_SPL = ROWS_WIN_DEF;
+SpellWindow_CLMS = Window_CLMS_DEF;
+SpellWindow_ROWS = Window_ROWS_DEF;
 
 // 8x8 tiles
-CLMS_WIN_ITM = CLMS_WIN_DEF;
-ROWS_WIN_ITM = ROWS_WIN_DEF;
+ItemWindow_CLMS = Window_CLMS_DEF;
+ItemWindow_ROWS = Window_ROWS_DEF;
 
 
 // 8x8 tiles. FOR THE AREA OF MAP PAPER!!!
-CLMS_MAP_PAPER = $16 + $0A; // $16==22
-ROWS_MAP_PAPER = ROWS_WIN_DEF - 2 - 2; // - 2 for bottom info, - 2 for border
+MapPaper_CLMS = $16 + $0A; // $16==22
+MapPaper_ROWS = Window_ROWS_DEF - 2 - 2; // - 2 for bottom info, - 2 for border
 
 // These are variable because some dungeons will need 
 // to be scrolled if big enough.
-clms_map_paper = CLMS_MAP_PAPER;
-rows_map_paper = ROWS_MAP_PAPER;
+MapPaper_clms = MapPaper_CLMS;
+MapPaper_rows = MapPaper_ROWS;
 
 paper_drawn_clms = 0;
 paper_drawn_rows = 0;
 
 // 8x8 tiles
-CLMS_WIN_MAP = CLMS_MAP_PAPER + 2; // map paper area. + 2 for border
-ROWS_WIN_MAP = ROWS_WIN_DEF;
+MapWindow_CLMS = MapPaper_CLMS + 2; // map paper area. + 2 for border
+MapWindow_ROWS = Window_ROWS_DEF;
 
 // 4x4. max rows/clms of map terrain to draw
-CLMS_MAP_TERRA = (CLMS_MAP_PAPER - 2) <<1;
-ROWS_MAP_TERRA = (ROWS_MAP_PAPER - 2) <<1;
+MapTerrain_CLMS = (MapPaper_CLMS - 2) <<1;
+MapTerrain_ROWS = (MapPaper_ROWS - 2) <<1;
 
 // max clms & rows that can be viewed at one time.
-CLMS_MAP_DNGN  = CLMS_MAP_PAPER - 2;
-ROWS_MAP_DNGN  = ROWS_MAP_PAPER - 2;
-DUNGEON_MAP_PAD1 = 1;
+MapDungeon_CLMS = MapPaper_CLMS - 2;
+MapDungeon_ROWS = MapPaper_ROWS - 2;
+MapDungeon_PAD1 = 1;
 
 
 
-ANIM_FRAMES_DEF = ROWS_WIN_DEF>>1; // 11
-ANIM_FRAMES_MAP = ANIM_FRAMES_DEF + ((CLMS_WIN_MAP-CLMS_WIN_DEF)>>1);
+ANIM_FRAMES_DEF = Window_ROWS_DEF>>1; // 11
+ANIM_FRAMES_MAP = ANIM_FRAMES_DEF + ((MapWindow_CLMS-Window_CLMS_DEF)>>1);
 anim_frame      = 0;
 
 
 
 //Window_spell_menu_window_xl = 0; // xl for Spell & Item only
-Window_W0  = CLMS_WIN_DEF<<3;
+Window_W0  = Window_CLMS_DEF<<3;
 Window_xl0 = 0; // what `get_menu_x()` returns
 Window_xl  = 0; // same as drawX
 Window_xr  = 0;
@@ -346,8 +346,8 @@ TSRC_HORZ = g.dl_MenuFrame_TSRC[|0];
 TSRC_VERT = g.dl_MenuFrame_TSRC[|1];
 TSRC_CORN = g.dl_MenuFrame_TSRC[|2];
 
-// CLMS_WIN_DEF==$E
-var _CLMS = CLMS_WIN_DEF - 2;
+// Window_CLMS_DEF==$E
+var _CLMS = Window_CLMS_DEF - 2;
 
 // strings of indices for array Menu.sprPieces
 sprDataStr1 =         _C + string_repeat(_H,_CLMS) + _C; // Top & Bottom
@@ -368,7 +368,7 @@ sprDataStr8 = _C+_H + _C + string_repeat(_H,_CLMS) + _C; // (ST_MAP) Bottom
 
 
 
-var _WIN_MID_SECTION_COUNT  = ROWS_WIN_DEF;
+var _WIN_MID_SECTION_COUNT  = Window_ROWS_DEF;
     _WIN_MID_SECTION_COUNT -= $4; // top & bottom sections, 2 rows each
     _WIN_MID_SECTION_COUNT  = _WIN_MID_SECTION_COUNT>>1; // each section is 2 rows
 //
@@ -400,7 +400,7 @@ dg_win_tdata_spl[#_idx,2] = sprDataStr1; // Bottom
 
 
 MenuFrame_srf_SPELL   = 0;
-MenuFrame_srf_SPELL_W = CLMS_WIN_SPL<<3;
+MenuFrame_srf_SPELL_W = SpellWindow_CLMS<<3;
 _count = 0;
 for(_i=ds_grid_width(dg_win_tdata_spl)-1; _i>=0; _i--){
     for(_j=0; _j<dg_tdata_H; _j++) _count += dg_win_tdata_spl[#_i,_j]!=0;
@@ -419,7 +419,7 @@ dg_win_tdata_itm = ds_grid_create(0,dg_tdata_H);
 ds_grid_copy(dg_win_tdata_itm, dg_win_tdata_spl);
 
 MenuFrame_srf_ITEM   = 0;
-MenuFrame_srf_ITEM_W = CLMS_WIN_ITM<<3;
+MenuFrame_srf_ITEM_W = ItemWindow_CLMS<<3;
 _count = 0;
 for(_i=ds_grid_width(dg_win_tdata_itm)-1; _i>=0; _i--){
     for(_j=0; _j<dg_tdata_H; _j++) _count += dg_win_tdata_itm[#_i,_j]!=0;
@@ -471,7 +471,7 @@ for(_i=ds_grid_width(dg_win_tdata_map)-1; _i>=0; _i--)
 
 
 MenuFrame_srf_MAP   = 0;
-MenuFrame_srf_MAP_W = CLMS_WIN_MAP<<3;
+MenuFrame_srf_MAP_W = MapWindow_CLMS<<3;
 _count = 0;
 for(_i=ds_grid_width(dg_win_tdata_map)-1; _i>=0; _i--){
     for(_j=0; _j<dg_tdata_H; _j++) _count += dg_win_tdata_map[#_i,_j]!=0;
@@ -596,7 +596,7 @@ Items_Bar_COLOR1 = p.C_WHT0;
 Items_Bar_COLOR2 = p.C_BLU0;
 //Items_Bar_COLOR1 = p.C_WHT1;
 //Items_Bar_COLOR2 = p.C_VLT3;
-Items_Bar_W = (CLMS_WIN_DEF-2)<<3;
+Items_Bar_W = (Window_CLMS_DEF-2)<<3;
 
 Items_Bar1_can_draw = false; // Main & Quest items separator
 Items_Bar1_XOFF = 8;
@@ -649,21 +649,21 @@ dg_items[#_i,$4]   = _PI_ITEM;
 //                                                                                              //
 ITM_TRPH_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
 dg_items[#_i,$0]   = ITM_TRPH;
-dg_items[#_i,$1]   = (CLMS_WIN_DEF>>1)<<3;
+dg_items[#_i,$1]   = (Window_CLMS_DEF>>1)<<3;
 dg_items[#_i,$2]   = _y2;
 dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
 dg_items[#_i,$4]   = _PI_ITEM;
 //                                                                                              //
 ITM_MEDI_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
 dg_items[#_i,$0]   = ITM_MEDI;
-dg_items[#_i,$1]   =(($02<<3)+4) + ((CLMS_WIN_DEF>>1)<<3);
+dg_items[#_i,$1]   =(($02<<3)+4) + ((Window_CLMS_DEF>>1)<<3);
 dg_items[#_i,$2]   = _y2;
 dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
 dg_items[#_i,$4]   = val(g.dm_ITEM[?hex_str(ITM_MEDI)+STR_pal_idx],global.PI_MOB_ORG);
 //                                                                                              //
 ITM_CHLD_IDX = ++_i; ds_grid_resize(dg_items, _i+1,_GRID_HEIGHT); // 
 dg_items[#_i,$0]   = ITM_CHLD;
-dg_items[#_i,$1]   =(($04<<3)+4) + ((CLMS_WIN_DEF>>1)<<3) + 1;
+dg_items[#_i,$1]   =(($04<<3)+4) + ((Window_CLMS_DEF>>1)<<3) + 1;
 dg_items[#_i,$2]   = _y2;
 dg_items[#_i,$3]   = val(g.dm_ITEM[?hex_str(bitNum(dg_items[#_i,$0]))+STR_Sprite], _SPR_ERROR);
 dg_items[#_i,$4]   = _PI_ITEM;
@@ -870,21 +870,29 @@ ContainerMP_y = 0;
 
 
 // --------------------------------------------------------
-MapArea_W  = CLMS_MAP_PAPER<<3;
-MapArea_H  = ROWS_MAP_PAPER<<3;
+MapArea_W  = MapPaper_CLMS<<3;
+MapArea_H  = MapPaper_ROWS<<3;
 MapArea_w  = 0;
 MapArea_h  = 0;
 MapArea_xl = 0;
 MapArea_yt = 0;
 
-MapPaper_USE_SURFACE = true;
+
 MapPaper_PAD1 = $2;
 MapPaper_w  = 0;
 MapPaper_h  = 0;
 MapPaper_xl = 0;
 MapPaper_yt = 0;
 
+
 MapTears_srf = 0;
+MapTearsSurf_xl = 0;
+MapTearsSurf_yt = 0;
+MapTearsDraw_xl = 0;
+MapTearsDraw_yt = 0;
+
+
+
 
 map_anim_idx = 0;
 
@@ -957,8 +965,8 @@ $C0 bits:
   $40: Flip hor
   $80: Flip ver
 */
-_clms = CLMS_MAP_PAPER;
-_rows = ROWS_MAP_PAPER;
+_clms = MapPaper_CLMS;
+_rows = MapPaper_ROWS;
 dg_map_edge = ds_grid_create(_clms,_rows);
 ds_grid_clear(dg_map_edge, -1);
 
@@ -1188,11 +1196,26 @@ dg_dngn_map_8_DEFAULT = ds_grid_create(0,DUNGEON_MAP_ROWS_DEFAULT); // Dragmire 
 Overworld8x8_USE_TILES = true;
 map_is_opening = false;
 
-TerrainDraw_CLMS = CLMS_MAP_PAPER - 2;
-TerrainDraw_CLMS++; // Because grid is centered on paper. Left & Right most tiles will be half drawn
+TerrainDrawArea_CLMS = MapPaper_CLMS - 2;
+TerrainDrawArea_ROWS = MapPaper_ROWS - 2;
 
-TerrainDraw_ROWS = ROWS_MAP_PAPER - 2;
-TerrainDraw_ROWS++; // Because grid is centered on paper. Top & Bottom most tiles will be half drawn
+TerrainDrawArea_W = TerrainDrawArea_CLMS<<3;
+TerrainDrawArea_H = TerrainDrawArea_ROWS<<3;
+
+TerrainTile_CLMS = TerrainDrawArea_CLMS;
+TerrainTile_CLMS++; // Because grid is centered on paper. Left & Right most tiles will be half drawn
+
+TerrainTile_ROWS = TerrainDrawArea_ROWS;
+TerrainTile_ROWS++; // Because grid is centered on paper. Top & Bottom most tiles will be half drawn
+
+TerrainSurf_W = TerrainTile_CLMS<<3;
+TerrainSurf_H = TerrainTile_ROWS<<3;
+
+// `TerrainSurfDraw_...` are local to the surface's 0,0
+TerrainSurfDraw_X_MIN = (TerrainSurf_W-TerrainDrawArea_W) >>1;
+TerrainSurfDraw_X_MAX = TerrainSurfDraw_X_MIN + TerrainDrawArea_W;
+TerrainSurfDraw_Y_MIN = (TerrainSurf_H-TerrainDrawArea_H) >>1;
+TerrainSurfDraw_Y_MAX = TerrainSurfDraw_Y_MIN + TerrainDrawArea_H;
 
 terrain_tile_xl_base = 0;
 terrain_tile_yt_base = 0;
@@ -1204,8 +1227,19 @@ terrain_draw_area_yb = 0;
 tsrc_grid_clm_base = 0;
 tsrc_grid_row_base = 0;
 
-// Will update each frame with the info needed for the draw
-dg_terrain_draw = ds_grid_create(TerrainDraw_CLMS*TerrainDraw_ROWS,$C);
+
+dg_terrain_surf = ds_grid_create($2,$8);
+//dg_terrain_surf[#anim frame,$0] // $0: surface image
+//dg_terrain_surf[#anim frame,$1] // $1: draw xl
+//dg_terrain_surf[#anim frame,$2] // $2: draw yt
+//dg_terrain_surf[#anim frame,$3] // $3: current frame's surface part xl (relative to surface left edge)
+//dg_terrain_surf[#anim frame,$4] // $4: current frame's surface part yt (relative to surface top  edge)
+//dg_terrain_surf[#anim frame,$5] // $5: current frame's surface part width
+//dg_terrain_surf[#anim frame,$6] // $6: current frame's surface part height
+//dg_terrain_surf[#anim frame,$7] // $7: encoded grid of terrain tile data for this anim frame surface
+//draw_surface_part(id, surface xl,surface yt, part width,part height, draw xl,draw yt)
+
+current_terrain_surf_idx = 0;
 
 
 
@@ -1467,9 +1501,25 @@ dm_terrain[?_dk+_TS1_IDX_+hex_str(TSRC_BOUL02+6)] = _TSRC_BOULDER1; // Boulder
 
 dm_terrain[?_dk+_TS2_IDX_+hex_str($F8)]         = _TSRC_MONSTER1; // River Devil
 dm_terrain[?_dk+_TS2_IDX_+hex_str($F9)]         = _TSRC_MONSTER1; // River Devil
-//dm_terrain[?_dk+_TS1_IDX_+hex_str($D8)]         = _TSRC_MONSTER1; // River Devil
-//dm_terrain[?_dk+_TS1_IDX_+hex_str($D9)]         = _TSRC_MONSTER1; // River Devil
 
+
+
+
+
+
+
+
+MenuMapPC_can_draw = false;
+MenuMapPC_use_sprite_sheet = false;
+MenuMapPC_OW_sprite = 0;
+MenuMapPC_OW_sprite_image_idx = 0;
+MenuMapPC_DUNGEON_SPRITE = spr_Lives_icon;
+MenuMapPC_sprite_w = 0;
+MenuMapPC_sprite_h = 0;
+MenuMapPC_sheet_x = 0;
+MenuMapPC_sheet_y = 0;
+MenuMapPC_x = 0;
+MenuMapPC_y = 0;
 
 
 

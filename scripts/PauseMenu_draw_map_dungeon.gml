@@ -43,6 +43,9 @@ if (_Entrance_COUNT)
 
 
 
+_x_base = 0;
+_y_base = 0;
+/*
 if (MapPaper_USE_SURFACE)
 {
     _x_base = 0;
@@ -53,6 +56,7 @@ else
     _x_base = MapArea_xl;
     _y_base = MapArea_yt;
 }
+*/
 _x_base += $1<<3;
 _y_base += $1<<3;
 
@@ -60,7 +64,7 @@ var _DRAW_CLM_LFT  = _x_base>>3;        // 1st rm draw clm
 
 var _DNGN_CLM_LFT  = _DRAW_CLM_LFT-1;   // 1st clm of drawn paper
     _DNGN_CLM_LFT += paper_drawn_clms;  // 1st clm after rgt of paper
-    _DNGN_CLM_LFT -= CLMS_MAP_PAPER;    // 1st clm of paper (drawn or not)
+    _DNGN_CLM_LFT -= MapPaper_CLMS;     // 1st clm of paper (drawn or not)
     _DNGN_CLM_LFT += 1;                 // 1st clm of rm draw area (drawn or not)
     _DNGN_CLM_LFT += map_clm_off;       // lft most clm of dungeon (drawn or not)
 //
@@ -69,7 +73,7 @@ var _DRAW_ROW_TOP  = _y_base>>3;        // 1st rm draw row
 
 var _DNGN_ROW_TOP  = _DRAW_ROW_TOP-1;   // 1st row of drawn paper
     _DNGN_ROW_TOP += paper_drawn_rows;  // 1st row after btm of paper
-    _DNGN_ROW_TOP -= ROWS_MAP_PAPER;    // 1st row of paper (drawn or not)
+    _DNGN_ROW_TOP -= MapPaper_ROWS;    // 1st row of paper (drawn or not)
     _DNGN_ROW_TOP += 1;                 // 1st row of rm draw area (drawn or not)
     _DNGN_ROW_TOP += map_row_off;       // top most row of dungeon (drawn or not)
 //

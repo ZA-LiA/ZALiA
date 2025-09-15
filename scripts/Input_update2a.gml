@@ -78,29 +78,30 @@ Jump_held   = A * _A_NEW; // $80
 //                                                              // 
 //                                                              // 
 //                                                              // 
-Other1_pressed  =  GP_Other1_held && !Other1_held;
-Other1_released = !GP_Other1_held &&  Other1_held;
-Other1_held     =  GP_Other1_held;
-//                                                              // 
-Other2_pressed  =  GP_Other2_held && !Other2_held;
-Other2_released = !GP_Other2_held &&  Other2_held;
-Other2_held     =  GP_Other2_held;
-//                                                              // 
-Other3_pressed  =  GP_Other3_held && !Other3_held;
-Other3_released = !GP_Other3_held &&  Other3_held;
-Other3_held     =  GP_Other3_held;
-//                                                              // 
-Other4_pressed  =  GP_Other4_held && !Other4_held;
-Other4_released = !GP_Other4_held &&  Other4_held;
-Other4_held     =  GP_Other4_held;
-//                                                              // 
-Other5_pressed  =  GP_Other5_held && !Other5_held;
-Other5_released = !GP_Other5_held &&  Other5_held;
-Other5_held     =  GP_Other5_held;
-//                                                              // 
-Other6_pressed  =  GP_Other6_held && !Other6_held;
-Other6_released = !GP_Other6_held &&  Other6_held;
-Other6_held     =  GP_Other6_held;
+// Xbox B button, PS CIRCLE button
+Other1_pressed  =  GP_Other1_held && !Other1_held; // 
+Other1_released = !GP_Other1_held &&  Other1_held; // 
+Other1_held     =  GP_Other1_held;                 // 
+// Xbox Y button, PS TRIANGLE button
+Other2_pressed  =  GP_Other2_held && !Other2_held; // 
+Other2_released = !GP_Other2_held &&  Other2_held; // 
+Other2_held     =  GP_Other2_held;                 // 
+// LEFT  bumper
+Other3_pressed  =  GP_Other3_held && !Other3_held; // 
+Other3_released = !GP_Other3_held &&  Other3_held; // 
+Other3_held     =  GP_Other3_held;                 // 
+// RIGHT bumper
+Other4_pressed  =  GP_Other4_held && !Other4_held; // 
+Other4_released = !GP_Other4_held &&  Other4_held; // 
+Other4_held     =  GP_Other4_held;                 // 
+// LEFT  trigger
+Other5_pressed  =  GP_Other5_held && !Other5_held; // 
+Other5_released = !GP_Other5_held &&  Other5_held; // 
+Other5_held     =  GP_Other5_held;                 // 
+// RIGHT trigger
+Other6_pressed  =  GP_Other6_held && !Other6_held; // 
+Other6_released = !GP_Other6_held &&  Other6_held; // 
+Other6_held     =  GP_Other6_held;                 // 
 //                                                              // 
 
 

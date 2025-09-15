@@ -1092,7 +1092,7 @@ ScrollArea_Y_MAX -= _PAD; // frame padding
 ScrollArea_H = ScrollArea_Y_MAX-ScrollArea_Y_MIN;
 
 
-ANIM_FRAMES_DEF = g.PAUSE_MENU.ROWS_WIN_DEF>>1; // 11
+ANIM_FRAMES_DEF = g.PAUSE_MENU.Window_ROWS_DEF>>1; // 11
 anim_frame      = 0;
 
 

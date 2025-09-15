@@ -22,10 +22,9 @@ with(g.QUIT_APP_MENU)
             if (room==rmB_Title 
             ||  room==rmB_FileSelect 
             ||  (g.room_type=="A" && isVal(g.gui_state, g.gui_state_NONE,g.gui_state_PAUSE,g.gui_state_LEVEL_UP,g.gui_state_DIALOGUE1,g.gui_state_DIALOGUE2,g.gui_state_DIALOGUE3)) )
-            //||  (g.room_type=="A" && g.gui_state==g.gui_state_NONE) )
             //||  (g.room_type=="C" && !g.overworld.dest_dist) 
             {
-                var _qual = Input.GP_Other5_held && Input.GP_Other6_held && Input.Magic_held && Input.Pause_held; // hold RT + hold LT + hold Select + hold Start
+                var _qual = Input.GP_Other5_held && Input.GP_Other6_held && Input.GP_Magic_held; // hold RT + hold LT + hold Select
                 if(!_qual 
                 &&  keyboard_check_pressed(vk_escape) 
                 && !g.Fullscreen_toggled ) // toggling fullscreen can happen earlier in the frame, window_get_fullscreen() will not be accurate here

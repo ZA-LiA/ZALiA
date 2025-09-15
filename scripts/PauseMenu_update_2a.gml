@@ -130,8 +130,8 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
     
     if (g.dungeon_num)
     {
-        var _CAN_MOVE_X = dungeon_clms_visited >= CLMS_MAP_DNGN;
-        var _CAN_MOVE_Y = dungeon_rows_visited >= ROWS_MAP_DNGN;
+        var _CAN_MOVE_X = dungeon_clms_visited >= MapDungeon_CLMS;
+        var _CAN_MOVE_Y = dungeon_rows_visited >= MapDungeon_ROWS;
         if (_CAN_MOVE_X 
         ||  _CAN_MOVE_Y )
         //if (dungeon_clms_visited > CLMS_MAP_DNGN 
@@ -139,20 +139,20 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
         //if (dungeon_clms > CLMS_MAP_DNGN 
         //||  dungeon_rows > ROWS_MAP_DNGN )
         {
-            //var _DIFF_X  = (dungeon_clms_visited+DUNGEON_MAP_PAD1) - CLMS_MAP_DNGN;
-            //var _DIFF_Y  = (dungeon_rows_visited+DUNGEON_MAP_PAD1) - ROWS_MAP_DNGN;
-            //var _DIFF_X  = (_CLMS+DUNGEON_MAP_PAD1) - CLMS_MAP_DNGN;
-            //var _DIFF_Y  = (_ROWS+DUNGEON_MAP_PAD1) - ROWS_MAP_DNGN;
+            //var _DIFF_X  = (dungeon_clms_visited+MapDungeon_PAD1) - CLMS_MAP_DNGN;
+            //var _DIFF_Y  = (dungeon_rows_visited+MapDungeon_PAD1) - ROWS_MAP_DNGN;
+            //var _DIFF_X  = (_CLMS+MapDungeon_PAD1) - CLMS_MAP_DNGN;
+            //var _DIFF_Y  = (_ROWS+MapDungeon_PAD1) - ROWS_MAP_DNGN;
             
-            //var _DIFF_X  = (dungeon_clms+DUNGEON_MAP_PAD1) - CLMS_MAP_DNGN;
-            //var _DIFF_Y  = (dungeon_rows+DUNGEON_MAP_PAD1) - ROWS_MAP_DNGN;
+            //var _DIFF_X  = (dungeon_clms+MapDungeon_PAD1) - CLMS_MAP_DNGN;
+            //var _DIFF_Y  = (dungeon_rows+MapDungeon_PAD1) - ROWS_MAP_DNGN;
             
             
             var     _MOVE_X  = -bit_dir(gui_tmr_cursor_h()); // 0,1,-1
-                    //_MOVE_X *=  abs(_MOVE_X) && inRange(map_clm_off+_MOVE_X, -_DIFF_X, DUNGEON_MAP_PAD1);
+                    //_MOVE_X *=  abs(_MOVE_X) && inRange(map_clm_off+_MOVE_X, -_DIFF_X, MapDungeon_PAD1);
             //
             var     _MOVE_Y  = -bit_dir(gui_tmr_cursor_v()); // 0,1,-1
-                    //_MOVE_Y *=  abs(_MOVE_Y) && inRange(map_row_off+_MOVE_Y, -_DIFF_Y, DUNGEON_MAP_PAD1);
+                    //_MOVE_Y *=  abs(_MOVE_Y) && inRange(map_row_off+_MOVE_Y, -_DIFF_Y, MapDungeon_PAD1);
             //
             if (abs(_MOVE_X)    // 0,1,-1
             ||  abs(_MOVE_Y) )  // 0,1,-1
@@ -162,8 +162,8 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
                 if (_CAN_MOVE_X)
                 {
                     map_clm_off += _MOVE_X;
-                    _low  = CLMS_MAP_DNGN - (dungeon_clms+DUNGEON_MAP_PAD1);
-                    _high = DUNGEON_MAP_PAD1;
+                    _low  = MapDungeon_CLMS - (dungeon_clms+MapDungeon_PAD1);
+                    _high = MapDungeon_PAD1;
                     map_clm_off  = clamp(map_clm_off, _low, _high);
                 }
                 
@@ -171,8 +171,8 @@ switch(state&$3) // 1: ST_SPL, 2: ST_ITM, 3: ST_MAP
                 if (_CAN_MOVE_Y)
                 {
                     map_row_off += _MOVE_Y;
-                    _low  = ROWS_MAP_DNGN - (dungeon_rows+DUNGEON_MAP_PAD1);
-                    _high = DUNGEON_MAP_PAD1;
+                    _low  = MapDungeon_ROWS - (dungeon_rows+MapDungeon_PAD1);
+                    _high = MapDungeon_PAD1;
                     map_row_off  = clamp(map_row_off, _low, _high);
                 }
                 

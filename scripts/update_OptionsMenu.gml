@@ -26,6 +26,7 @@ with(global.OPTIONS_MENU)
     down_input_pressed    = Input.Down_pressed;
     up_input_pressed      = Input.Up_pressed;
     
+    //OpenClose_Key_pressed = keyboard_check_pressed(OpenClose_Key_KEY) || (Input.GP_Shoulder1L_held && Input.GP_Shoulder1R_held && Input.GP_Face4_pressed); // Other3: BumperL, Other4: BumperR, Other2: xbox-Y
     OpenClose_Key_pressed = keyboard_check_pressed(OpenClose_Key_KEY) || (Input.GP_Other3_held && Input.GP_Other4_held && Input.GP_Other2_pressed); // Other3: BumperL, Other4: BumperR, Other2: xbox-Y
     //OpenClose_Key_pressed = keyboard_check_pressed(OpenClose_Key_KEY);
     Backout_requested     = b_button_pressed || keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace);

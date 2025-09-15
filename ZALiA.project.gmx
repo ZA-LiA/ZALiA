@@ -15893,7 +15893,7 @@
     <constant name="TSRC_PATH01">$F0</constant>
     <constant name="TSRC_PATH02">$D4</constant>
     <constant name="TSRC_PATH03">$D5</constant>
-    <constant name="TSRC_MONS01">$D8</constant>
+    <constant name="TSRC_MONS01">$F8</constant>
     <constant name="TSRC_BRDG1A">$B2</constant>
     <constant name="TSRC_BRDG1B">(TSRC_BRDG1A + 1)</constant>
     <constant name="TSRC_HOLE01">$C8</constant>

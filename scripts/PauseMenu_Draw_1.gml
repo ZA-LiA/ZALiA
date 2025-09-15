@@ -62,7 +62,7 @@ if (_type&$1)
     _tsrc  = TSRC_HORZ;
     _ts_xl = ((_tsrc>>0)&$F) <<3;
     _ts_yt = ((_tsrc>>4)&$F) <<3;
-    for(_i=1; _i<CLMS_WIN_SPL-1; _i++)
+    for(_i=1; _i<SpellWindow_CLMS-1; _i++)
     {
         _xl = _xl0 + (_i<<3);
         draw_background_part(g.TS_MENU, _ts_xl,_ts_yt, 8,8, _xl,_yt);

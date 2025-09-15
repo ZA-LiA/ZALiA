@@ -87,6 +87,10 @@ switch(g.menu_state)
         MapAreaName = val(f.dm_rando[?g.rm_name+MapAreaName_DATAKEY], MapAreaName);
     }
     
+    
+    PauseMenu_udp();
+    
+    
     aud_play_sound(get_audio_theme_track(dk_OpenGUI));
     timer0 = 0;
     g.menu_state++;
@@ -104,6 +108,9 @@ switch(g.menu_state)
     // A148, A267
     // g.spell_ready = SPL_NONE;
     // g.spell_cast = SPL_NONE;
+    
+    PauseMenu_udp();
+    
     timer0 = 0;
     g.menu_state++;
     break;}
@@ -122,6 +129,8 @@ switch(g.menu_state)
     
     rm_pal_on_open = p.pal_rm_curr;
     change_pal(strReplaceAt(rm_pal_on_open, p.PAL_POS_MOB1, PAL_MOBS_LEN, PAL_MOBS));
+    
+    PauseMenu_udp();
     
     timer0 = 0;
     g.menu_state++;

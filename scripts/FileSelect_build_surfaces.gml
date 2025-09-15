@@ -363,7 +363,7 @@ if (state==State_REGISTER
 
 // -------------------------------------------------------
 // Save File Rando Info
-if (string_length(p.pal_rm_curr)) // otherwise some text will be wrong color until the surface is redrawn
+if (string_length(p.pal_rm_curr)) // otherwise some text will be wrong color until the surface is redrawn due to something like toggling fullscreen
 {
     for(var _i=0; _i<SAVE_FILE_MAX; _i++)
     {

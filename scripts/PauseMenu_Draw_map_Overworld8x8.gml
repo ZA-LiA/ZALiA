@@ -1,36 +1,26 @@
 /// PauseMenu_Draw_map_Overworld8x8()
 
 
-var _i;
-var _xl,_yt;
-var _ts, _ts_xl,_ts_yt, _tile_w,_tile_h;
-
-
-var          _TILE_COUNT = ds_grid_width(dg_terrain_draw);
-for(_i=0; _i<_TILE_COUNT; _i++)
+if (surface_exists(dg_terrain_surf[#current_terrain_surf_idx,$0]))
 {
-    if (dg_terrain_draw[#_i,$4]) // can draw
-    {
-        _xl     = dg_terrain_draw[#_i,$0];
-        _yt     = dg_terrain_draw[#_i,$1];
-        _tile_w = dg_terrain_draw[#_i,$2];
-        _tile_h = dg_terrain_draw[#_i,$3];
-        
-        
-        _ts    = dg_terrain_draw[#_i,$5];
-        _ts_xl = dg_terrain_draw[#_i,$6];
-        _ts_yt = dg_terrain_draw[#_i,$7];
-        draw_background_part(_ts, _ts_xl,_ts_yt, _tile_w,_tile_h, _xl,_yt);
-        
-        if (dg_terrain_draw[#_i,$8]) // can draw
-        {
-            _ts    = dg_terrain_draw[#_i,$9];
-            _ts_xl = dg_terrain_draw[#_i,$A];
-            _ts_yt = dg_terrain_draw[#_i,$B];
-            draw_background_part(_ts, _ts_xl,_ts_yt, _tile_w,_tile_h, _xl,_yt);
-        }
-    }
+    var _SURF    = dg_terrain_surf[#current_terrain_surf_idx,$0];
+    var _XL      = dg_terrain_surf[#current_terrain_surf_idx,$1];
+    var _YT      = dg_terrain_surf[#current_terrain_surf_idx,$2];
+    var _W       = dg_terrain_surf[#current_terrain_surf_idx,$3];
+    var _H       = dg_terrain_surf[#current_terrain_surf_idx,$4];
+    var _SURF_XL = dg_terrain_surf[#current_terrain_surf_idx,$5];
+    var _SURF_YT = dg_terrain_surf[#current_terrain_surf_idx,$6];
+    draw_surface_part(_SURF, _SURF_XL,_SURF_YT, _W,_H, _XL,_YT);
 }
+//dg_terrain_surf[#anim frame,$0] // $0: surface image
+//dg_terrain_surf[#anim frame,$1] // $1: draw xl
+//dg_terrain_surf[#anim frame,$2] // $2: draw yt
+//dg_terrain_surf[#anim frame,$3] // $3: current frame's surface part width
+//dg_terrain_surf[#anim frame,$4] // $4: current frame's surface part height
+//dg_terrain_surf[#anim frame,$5] // $5: current frame's surface part xl (relative to surface left edge)
+//dg_terrain_surf[#anim frame,$6] // $6: current frame's surface part yt (relative to surface top  edge)
+//dg_terrain_surf[#anim frame,$7] // $7: encoded grid of terrain tile data for this anim frame surface
+//draw_surface_part(surf id, surface xl,surface yt, part width,part height, draw xl,draw yt)
 
 
 //draw_line_colour(terrain_tile_xl_base,viewYT(),terrain_tile_xl_base,viewYB(), c_green,c_green);

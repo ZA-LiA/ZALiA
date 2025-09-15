@@ -1,8 +1,8 @@
 /// PauseMenu_udp()
 
 
-var _i, _bit, _amt;
-var _x,_y, _x0,_y0, _xl,_yt, _dist_x, _w0;
+var _i,_j, _idx, _bit, _amt;
+var _x,_y, _x0,_y0, _xl,_yt, _dist_x, _w,_h, _w0;
 var _clm,_row;
 var _grid_clm,_grid_row;
 var _ts, _tsrc1,_tsrc2,_tsrc3,_tsrc4, _tsrcA,_tsrcB, _ts_x,_ts_y, _ts_xoff,_ts_yoff, _tile_data, _tile_w,_tile_h;
@@ -10,6 +10,7 @@ var _is_treeA,_is_treeB;
 var _owrc;
 var _dk;
 
+var _TERRAIN_SURF_COUNT = ds_grid_width(dg_terrain_surf);
 
 drawX = get_menu_x();
 drawY = viewYT() + Y_BASE;
@@ -53,7 +54,7 @@ MapPaper_w  = 0;
 MapPaper_h  = 0;
 
 
-// g.menu_state==4: constructing menu, deconstructing menu from map to spell/item
+// g.menu_state==4: constructing menu on menu open, deconstructing menu from map to spell/item
 // g.menu_state==5: idle, user input
                                                              Window_draw_data_state = _ST_CURR;
      if (_ST_CURR==state_MAP             && g.menu_state>=5) Window_draw_data_state =  state_MAP;
@@ -75,11 +76,11 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
     
     
     paper_drawn_clms = dl_map_anim_data[|map_anim_idx];
-    paper_drawn_rows = ROWS_MAP_PAPER;
+    paper_drawn_rows = MapPaper_ROWS;
     
     
     MapArea_w = paper_drawn_clms<<3;
-    MapArea_h = ROWS_MAP_PAPER  <<3;
+    MapArea_h = MapPaper_ROWS   <<3;
     
     MapArea_xl  = drawX; // menu window draw xl
     MapArea_xl += 8;     // +8(win border, drawn paper xl)
@@ -91,24 +92,38 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
     MapPaper_w = MapArea_w - (MapPaper_PAD1<<1);
     MapPaper_h = MapArea_h - (MapPaper_PAD1<<1);
     
-    MapPaper_xl = MapArea_xl + MapPaper_PAD1;
-    MapPaper_yt = MapArea_yt + MapPaper_PAD1;
+    // This xl,yt are relative to 0,0 when drawing onto `MenuMap_srf`
+    MapPaper_xl = MapPaper_PAD1;
+    MapPaper_yt = MapPaper_PAD1;
     
     
-    map_is_opening = paper_drawn_clms && paper_drawn_clms<CLMS_MAP_PAPER;
+    MapTearsSurf_xl  = MapArea_W;     // MapArea xr
+    MapTearsSurf_xl -= MapPaper_PAD1; // paper xr
+    MapTearsSurf_xl -= MapPaper_w;    // draw paper xl
+    
+    MapTearsSurf_yt  = MapArea_H;     // MapArea yb
+    MapTearsSurf_yt -= MapPaper_PAD1; // paper yb
+    MapTearsSurf_yt -= MapPaper_h;    // draw paper yt
+    
+    MapTearsDraw_xl = MapPaper_xl;
+    MapTearsDraw_yt = MapPaper_yt;
     
     
-    // The xl of the left most tile of a fully drawn map, even if only part of that tile may draw.
+    map_is_opening = paper_drawn_clms && paper_drawn_clms<MapPaper_CLMS;
+    current_terrain_surf_idx = !(g.counter0&$40);
+    
+    
+    // The draw xl of the left most tile of a fully drawn map, even if only part of that tile may draw.
     terrain_tile_xl_base  = MapArea_xl;
     terrain_tile_xl_base += paper_drawn_clms<<3; // drawn paper xr
-    terrain_tile_xl_base -= CLMS_MAP_PAPER<<3;   // paper xl, whether drawn yet or not
+    terrain_tile_xl_base -= MapPaper_CLMS<<3;   // paper xl, whether drawn yet or not
     terrain_tile_xl_base += 8;     // +8(terrain pad)
     terrain_tile_xl_base -= 4;     // offset 1/2 a tile because pc centered on map
     
-    // The yt of the top most tile of a fully drawn map, even if only part of that tile may draw.
+    // The draw yt of the top most tile of a fully drawn map, even if only part of that tile may draw.
     terrain_tile_yt_base  = MapArea_yt;
     terrain_tile_yt_base += paper_drawn_rows<<3; // drawn paper yb
-    terrain_tile_yt_base -= ROWS_MAP_PAPER<<3;   // paper yt, whether drawn yet or not
+    terrain_tile_yt_base -= MapPaper_ROWS<<3;   // paper yt, whether drawn yet or not
     terrain_tile_yt_base += 8;     // +8(terrain pad)
     terrain_tile_yt_base -= 4;     // offset 1/2 a tile because pc centered on map
     
@@ -132,209 +147,218 @@ if (canDrawSections>ANIM_FRAMES_DEF) // Map
     terrain_draw_area_yb -= 8;     // -8(terrain pad)
     
     
-    _owrc = val(g.dm_rm[?   g.rm_name+STR_OWRC], global.OVERWORLD.pcrc_map);
-    _owrc = val(f.dm_rando[?g.rm_name+STR_OWRC], _owrc);
-    tsrc_grid_clm_base = ((_owrc>>0)&$FF) - (TerrainDraw_CLMS>>1);
-    tsrc_grid_row_base = ((_owrc>>8)&$FF) - (TerrainDraw_ROWS>>1);
+    for(_i=0; _i<_TERRAIN_SURF_COUNT; _i++)
+    {
+        dg_terrain_surf[#_i,$1] = terrain_draw_area_xl - MapArea_xl;
+        dg_terrain_surf[#_i,$2] = terrain_draw_area_yt - MapArea_yt;
+        dg_terrain_surf[#_i,$3] = terrain_draw_area_xr - terrain_draw_area_xl;
+        dg_terrain_surf[#_i,$4] = terrain_draw_area_yb - terrain_draw_area_yt;
+        dg_terrain_surf[#_i,$5] = TerrainSurfDraw_X_MAX - dg_terrain_surf[#_i,$3];
+        dg_terrain_surf[#_i,$6] = TerrainSurfDraw_Y_MAX - dg_terrain_surf[#_i,$4];
+    }
+}
+//dg_terrain_surf[#anim frame,$0] // $0: surface image
+//dg_terrain_surf[#anim frame,$1] // $1: draw xl
+//dg_terrain_surf[#anim frame,$2] // $2: draw yt
+//dg_terrain_surf[#anim frame,$3] // $3: current frame's surface part width
+//dg_terrain_surf[#anim frame,$4] // $4: current frame's surface part height
+//dg_terrain_surf[#anim frame,$5] // $5: current frame's surface part xl (relative to surface left edge)
+//dg_terrain_surf[#anim frame,$6] // $6: current frame's surface part yt (relative to surface top  edge)
+//dg_terrain_surf[#anim frame,$7] // $7: encoded grid of terrain tile data for this anim frame surface
+//draw_surface_part(id, surface xl,surface yt, part width,part height, draw xl,draw yt)
+
+
+
+
+var _will_refresh_terrain_data = false;
+
+if (g.menu_state==1)
+{
+    _will_refresh_terrain_data = true;
+}
+else
+{
+    for(_i=0; _i<_TERRAIN_SURF_COUNT; _i++)
+    {
+        if(!surface_exists(dg_terrain_surf[#_i,$0]))
+        {
+            _will_refresh_terrain_data = true;
+            break;//_i
+        }
+    }
+}
+
+
+if (_will_refresh_terrain_data)
+{
+    for(_i=0; _i<_TERRAIN_SURF_COUNT; _i++)
+    {
+        if (surface_exists(dg_terrain_surf[#_i,$0]))
+        {   surface_free(  dg_terrain_surf[#_i,$0]);  }
+    }//_i
     
     
     var _TSRC_ERROR = $FF;
+    var _TILE_COUNT = TerrainTile_CLMS * TerrainTile_ROWS;
+    var _dg_tile_data = ds_grid_create(_TILE_COUNT,$8);
     
-    ds_grid_clear(dg_terrain_draw,0);
+    _owrc = val(g.dm_rm[?   g.rm_name+STR_OWRC], global.OVERWORLD.pcrc_map);
+    _owrc = val(f.dm_rando[?g.rm_name+STR_OWRC], _owrc);
+    tsrc_grid_clm_base = ((_owrc>>0)&$FF) - (TerrainTile_CLMS>>1);
+    tsrc_grid_row_base = ((_owrc>>8)&$FF) - (TerrainTile_ROWS>>1);
     
-    var          _TILE_COUNT = ds_grid_width(dg_terrain_draw);
-    for(_i=0; _i<_TILE_COUNT; _i++)
+    for(_i=0; _i<_TERRAIN_SURF_COUNT; _i++)
     {
-        _clm = _i div TerrainDraw_ROWS;
-        _row = _i mod TerrainDraw_ROWS;
+        ds_grid_clear(_dg_tile_data,0);
         
-        _xl = terrain_tile_xl_base + (_clm<<3);
-        _yt = terrain_tile_yt_base + (_row<<3);
-        
-        if (_xl  >=terrain_draw_area_xr) break;//_i
-        if (_xl+8<=terrain_draw_area_xl) continue;//_i
-        if (_yt  >=terrain_draw_area_yb) continue;//_i
-        if (_yt+8<=terrain_draw_area_yt) continue;//_i
-        
-        
-        
-        
-             if (_xl  <terrain_draw_area_xl) _tile_w = (_xl+8) - terrain_draw_area_xl;
-        else if (_xl+8>terrain_draw_area_xr) _tile_w = terrain_draw_area_xr - _xl;
-        else                                 _tile_w = 8;
-        
-        if (_xl<terrain_draw_area_xl) _ts_xoff = 8 - _tile_w;
-        else                          _ts_xoff = 0;
-        _xl += _ts_xoff;
-        
-        
-             if (_yt  <terrain_draw_area_yt) _tile_h = (_yt+8) - terrain_draw_area_yt;
-        else if (_yt+8>terrain_draw_area_yb) _tile_h = terrain_draw_area_yb - _yt;
-        else                                 _tile_h = 8;
-        
-        if (_yt<terrain_draw_area_yt) _ts_yoff = 8 - _tile_h;
-        else                          _ts_yoff = 0;
-        _yt += _ts_yoff;
-        
-        dg_terrain_draw[#_i,$2] = _tile_w; // $2: tile width
-        dg_terrain_draw[#_i,$3] = _tile_h; // $3: tile height
-        
-        dg_terrain_draw[#_i,$0] = _xl;     // $0: xl
-        dg_terrain_draw[#_i,$1] = _yt;     // $1: yt
-        if (MapPaper_USE_SURFACE)
+        for(_j=0; _j<_TILE_COUNT; _j++)
         {
-            dg_terrain_draw[#_i,$0] -= MapArea_xl;
-            dg_terrain_draw[#_i,$1] -= MapArea_yt;
-        }
-        
-        
-        
-        _grid_clm = tsrc_grid_clm_base + _clm;
-        _grid_row = tsrc_grid_row_base + _row;
-        _owrc = (_grid_row<<8) | _grid_clm;
-        
-        _tile_data = global.OVERWORLD.dg_tsrc[#_grid_clm,_grid_row];
-        _tsrc1 = _tile_data&$FF;
-        
-        _tsrc2 = -1;
-        _tsrc3 = -1;
-        
-        if (_tile_data==global.OVERWORLD.TSRC_WATER01   // Water - deep
-        ||  _tile_data==global.OVERWORLD.TSRC_WATER02 ) // Water - shallow
-        //if (_tsrc1==$00   // Water - deep
-        //||  _tsrc1==$04   // Water - shallow
-        //||  _tsrc1==$06 ) // Water - shallow
-        {
-            if (_tile_data==global.OVERWORLD.TSRC_WATER01) _tsrc2 = $82; // Water - deep
-            else                                           _tsrc2 = $86; // Water - shallow
-            _tsrc2 += _grid_clm&$1;
-            _tsrc2 += (!(g.counter0&$40))<<1;
-            _tsrc2 +=(_grid_row&$1)<<4;
-        }
-        else
-        {
-            _tsrc2 = val(dm_terrain[?STR_TSRC+"_16x16_to_8x8_"+"_Layer1"+hex_str(_tile_data)], -1);
-        }
-        
-        
-        
-        if (_tsrc2!=-1)
-        {
-            _tsrc3 = val(dm_terrain[?STR_TSRC+"_16x16_to_8x8_"+"_Layer2"+hex_str(_tile_data)], -1);
+            _clm = _j div TerrainTile_ROWS;
+            _row = _j mod TerrainTile_ROWS;
             
-            if (_tsrc3==$E8) // River Devil
+            _dg_tile_data[#_j,$0] = _clm<<3; // tile surface draw xl (relative to 0,0 while surface is being drawn)
+            _dg_tile_data[#_j,$1] = _row<<3; // tile surface draw yt (relative to 0,0 while surface is being drawn)
+            
+            _grid_clm = tsrc_grid_clm_base + _clm;
+            _grid_row = tsrc_grid_row_base + _row;
+            _owrc = (_grid_row<<8) | _grid_clm;
+            
+            _tile_data = global.OVERWORLD.dg_tsrc[#_grid_clm,_grid_row];
+            _tsrc1 = _tile_data&$FF;
+            
+            _tsrc2 = -1;
+            _tsrc3 = -1;
+            
+            if (_tile_data==global.OVERWORLD.TSRC_WATER01   // Water - deep
+            ||  _tile_data==global.OVERWORLD.TSRC_WATER02 ) // Water - shallow
+            //if (_tsrc1==$00   // Water - deep
+            //||  _tsrc1==$04   // Water - shallow
+            //||  _tsrc1==$06 ) // Water - shallow
             {
-                _tsrc3 += sign(g.counter0&$40);
+                if (_tile_data==global.OVERWORLD.TSRC_WATER01) _tsrc2 = $82; // Water - deep
+                else                                           _tsrc2 = $86; // Water - shallow
+                _tsrc2 += _grid_clm&$1;
+                _tsrc2 += (!(_i&$1))<<1;
+                _tsrc2 +=(_grid_row&$1)<<4;
             }
-            else if (_tsrc3==-1)
+            else
             {
-                _tsrc4 = -1;
+                _tsrc2 = val(dm_terrain[?STR_TSRC+"_16x16_to_8x8_"+"_Layer1"+hex_str(_tile_data)], -1);
+            }
+            
+            
+            
+            if (_tsrc2!=-1)
+            {
+                _tsrc3 = val(dm_terrain[?STR_TSRC+"_16x16_to_8x8_"+"_Layer2"+hex_str(_tile_data)], -1);
                 
-                if (_tsrc1==TSRC_TREE01 
-                ||  _tsrc1==TSRC_TREE02 
-                ||  _tsrc1==TSRC_TREE03 
-                ||  _tsrc1==TSRC_TREE04 
-                ||  _tsrc1==TSRC_TREE04+1 
-                ||  _tsrc1==TSRC_TREE04+2 )
+                if (_tsrc3==$E8) // River Devil
                 {
-                    _tsrc4 = _tsrc1;
-                    _tsrcA = global.OVERWORLD.dg_tsrc[#_grid_clm-1,_grid_row]&$FF; // Left of _owrc
-                    if (_tsrcA==TSRC_TREE01 
-                    ||  _tsrcA==TSRC_TREE02 
-                    ||  _tsrcA==TSRC_TREE03 
-                    ||  _tsrcA==TSRC_TREE04 
-                    ||  _tsrcA==TSRC_TREE04+1 
-                    ||  _tsrcA==TSRC_TREE04+2 )
+                    _tsrc3 += _i&$1;
+                    //_tsrc3 += sign(g.counter0&$40);
+                }
+                else if (_tsrc3==-1)
+                {
+                    _tsrc4 = -1;
+                    
+                    if (_tsrc1==TSRC_TREE01 
+                    ||  _tsrc1==TSRC_TREE02 
+                    ||  _tsrc1==TSRC_TREE03 
+                    ||  _tsrc1==TSRC_TREE04 
+                    ||  _tsrc1==TSRC_TREE04+1 
+                    ||  _tsrc1==TSRC_TREE04+2 )
                     {
-                        _tsrc3 = $00;
+                        _tsrc4 = _tsrc1;
+                        _tsrcA = global.OVERWORLD.dg_tsrc[#_grid_clm-1,_grid_row]&$FF; // Left of _owrc
+                        if (_tsrcA==TSRC_TREE01 
+                        ||  _tsrcA==TSRC_TREE02 
+                        ||  _tsrcA==TSRC_TREE03 
+                        ||  _tsrcA==TSRC_TREE04 
+                        ||  _tsrcA==TSRC_TREE04+1 
+                        ||  _tsrcA==TSRC_TREE04+2 )
+                        {
+                            _tsrc3 = $00;
+                        }
+                        else
+                        {
+                            _tsrc3 = $01;
+                        }
                     }
                     else
                     {
-                        _tsrc3 = $01;
+                        _tsrcA = global.OVERWORLD.dg_tsrc[#_grid_clm-1,_grid_row]&$FF; // Left of _owrc
+                        _is_treeA = isVal(_tsrcA,TSRC_TREE01,TSRC_TREE02,TSRC_TREE03,TSRC_TREE04,TSRC_TREE04+1,TSRC_TREE04+2); // Left of _owrc
+                        _tsrcB = global.OVERWORLD.dg_tsrc[#_grid_clm,_grid_row+1]&$FF; // Under _owrc
+                        _is_treeB = isVal(_tsrcB,TSRC_TREE01,TSRC_TREE02,TSRC_TREE03,TSRC_TREE04,TSRC_TREE04+1,TSRC_TREE04+2); // Under _owrc
+                        
+                        if (_is_treeA   // Left of _owrc
+                        ||  _is_treeB ) // Under _owrc
+                        {
+                            if (_is_treeA 
+                            &&  _is_treeB )
+                            {
+                                _tsrc4 = _tsrcA;
+                                _tsrc3 = $07; // Tree top + right tree edge for upper left tree
+                            }
+                            else if (_is_treeA)
+                            {
+                                _tsrc4 = _tsrcA;
+                                _tsrc3 = $06; // Right tree edge
+                            }
+                            else
+                            {
+                                _tsrc4 = _tsrcB;
+                                _tsrc3 = $05; // Right tree edge
+                            }
+                        }
                     }
-                }
-                else
-                {
-                    _tsrcA = global.OVERWORLD.dg_tsrc[#_grid_clm-1,_grid_row]&$FF; // Left of _owrc
-                    _is_treeA = isVal(_tsrcA,TSRC_TREE01,TSRC_TREE02,TSRC_TREE03,TSRC_TREE04,TSRC_TREE04+1,TSRC_TREE04+2); // Left of _owrc
-                    _tsrcB = global.OVERWORLD.dg_tsrc[#_grid_clm,_grid_row+1]&$FF; // Under _owrc
-                    _is_treeB = isVal(_tsrcB,TSRC_TREE01,TSRC_TREE02,TSRC_TREE03,TSRC_TREE04,TSRC_TREE04+1,TSRC_TREE04+2); // Under _owrc
                     
-                    if (_is_treeA   // Left of _owrc
-                    ||  _is_treeB ) // Under _owrc
-                    {
-                        if (_is_treeA 
-                        &&  _is_treeB )
-                        {
-                            _tsrc4 = _tsrcA;
-                            _tsrc3 = $07; // Tree top + right tree edge for upper left tree
-                        }
-                        else if (_is_treeA)
-                        {
-                            _tsrc4 = _tsrcA;
-                            _tsrc3 = $06; // Right tree edge
-                        }
-                        else
-                        {
-                            _tsrc4 = _tsrcB;
-                            _tsrc3 = $05; // Right tree edge
-                        }
-                    }
-                }
-                
-                if (_tsrc3!=-1 
-                &&  _tsrc4!=-1 )
-                {
-                    if (_tsrc4==TSRC_TREE02     // $31 orange - reg
-                    ||  _tsrc4==TSRC_TREE04+2   // $35 orange - water
-                    ||  _tsrc4==TSRC_TREE03     // $32 dark green - bright grass
-                    ||  _tsrc4==TSRC_TREE04 )   // $33 dark green - mid grass
+                    if (_tsrc3!=-1 
+                    &&  _tsrc4!=-1 )
                     {
                         if (_tsrc4==TSRC_TREE02     // $31 orange - reg
-                        ||  _tsrc4==TSRC_TREE04+2 ) // $35 orange - water
+                        ||  _tsrc4==TSRC_TREE04+2   // $35 orange - water
+                        ||  _tsrc4==TSRC_TREE03     // $32 dark green - bright grass
+                        ||  _tsrc4==TSRC_TREE04 )   // $33 dark green - mid grass
                         {
-                            _tsrc3 += $10; // Orange tree
-                        }
-                        else
-                        {
-                            _tsrc3 += $08; // Dark green tree
+                            if (_tsrc4==TSRC_TREE02     // $31 orange - reg
+                            ||  _tsrc4==TSRC_TREE04+2 ) // $35 orange - water
+                            {
+                                _tsrc3 += $10; // Orange tree
+                            }
+                            else
+                            {
+                                _tsrc3 += $08; // Dark green tree
+                            }
                         }
                     }
                 }
             }
-        }
-        
-        
-        
-        if (_tsrc2!=-1)
-        {
-            _ts_x  = ((_tsrc2>>0)&$F) <<3; // Tileset's 8x8 tile's left
-            _ts_x += _ts_xoff;
             
-            _ts_y  = ((_tsrc2>>4)&$F) <<3; // Tileset's 8x8 tile's top
-            _ts_y += _ts_yoff;
             
-            dg_terrain_draw[#_i,$4] = true; // $5: can draw
-            dg_terrain_draw[#_i,$5] = ts_Overworld_8x8_01; // $6: Layer 1 tileset
-            dg_terrain_draw[#_i,$6] = _ts_x; // $6: Layer 1 _ts_x
-            dg_terrain_draw[#_i,$7] = _ts_y; // $7: Layer 1 _ts_y
-        }
+            
+            if (_tsrc2!=-1)
+            {
+                _dg_tile_data[#_j,$2] = ts_Overworld_8x8_01;  // $2: Layer 1 tileset
+                _dg_tile_data[#_j,$3] = ((_tsrc2>>0)&$F) <<3; // $3: Layer 1 _ts_x
+                _dg_tile_data[#_j,$4] = ((_tsrc2>>4)&$F) <<3; // $4: Layer 1 _ts_y
+            }
+            
+            
+            if (_tsrc3!=-1)
+            {
+                _dg_tile_data[#_j,$5] = ts_Overworld_8x8_01;  // $5: Layer 2 tileset
+                _dg_tile_data[#_j,$6] = ((_tsrc3>>0)&$F) <<3; // $6: Layer 2 _ts_x
+                _dg_tile_data[#_j,$7] = ((_tsrc3>>4)&$F) <<3; // $7: Layer 2 _ts_y
+            }
+        }//_j
         
         
-        if (_tsrc3!=-1)
-        {
-            _ts_x  = ((_tsrc3>>0)&$F) <<3; // Tileset's 8x8 tile's left
-            _ts_x += _ts_xoff;
-            
-            _ts_y  = ((_tsrc3>>4)&$F) <<3; // Tileset's 8x8 tile's top
-            _ts_y += _ts_yoff;
-            
-            dg_terrain_draw[#_i,$8] = true; // $8: can draw
-            dg_terrain_draw[#_i,$9] = ts_Overworld_8x8_01; // $9: Layer 2 tileset
-            dg_terrain_draw[#_i,$A] = _ts_x; // $A: Layer 2 _ts_x
-            dg_terrain_draw[#_i,$B] = _ts_y; // $B: Layer 2 _ts_y
-        }
-    }
+        dg_terrain_surf[#_i,$7] = ds_grid_write(_dg_tile_data);
+    }//_i
+    
+    
+    ds_grid_destroy(_dg_tile_data); _dg_tile_data=undefined;
 }
 
 
@@ -685,12 +709,82 @@ ContainerMP_can_draw = ContainerMP_y+8<Window_yb;
 
 
 
+
+
+
+
+MenuMapPC_can_draw = false;
+MenuMapPC_use_sprite_sheet = false;
+
+if (canDrawSections>ANIM_FRAMES_DEF  // Map
+&&  map_anim_idx+1==ds_list_size(dl_map_anim_data) )
+{
+    if(!g.dungeon_num)
+    {   // PC OW FIGURE -------------------------
+        _w = MapPaper_CLMS<<3;
+        _h = MapArea_h;
+        MenuMapPC_x = MapArea_xl + (_w>>1) + global.OVERWORLD.PC_draw_XOFF;
+        MenuMapPC_y = MapArea_yt + (_h>>1) + global.OVERWORLD.PC_draw_YOFF;
+        MenuMapPC_y += 1; // micro adjustment
+        //MenuMapPC_y -= 2; // micro adjustment
+        
+        // g.rm_ow_dir: $0: horizontal axis, $1: vertical axis, bit $2: flip x/y scale
+        var _frame_index  = (g.rm_ow_dir&$1)<<2; // 0,4. 0,1: right, 2,3: left, 4,5: down, 6,7: up
+            _frame_index += (!g.pc.xScale)<<1;   // +=0,2. Flips x/y scale
+            _frame_index += (g.rm_ow_dir&$2) * g.pc.xScale; // flips x/y scale
+            //_frame_index += (g.rm_ow_dir&$2) * sign(!g.pc.xScale); // flips x/y scale
+            //_frame_index +=  g.rm_ow_dir&$2; // flips x/y scale
+            _frame_index += sign(g.counter0&$1F>$11); // anim timing
+        //
+        MenuMapPC_OW_sprite = g.pc.Skin_image;
+        MenuMapPC_OW_sprite_image_idx = $60|_frame_index;
+        
+        _idx = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
+        if (val(g.pc.dm_skins[?hex_str(_idx)+"_source_is_file"]))
+        {
+            MenuMapPC_use_sprite_sheet = true;
+            
+            MenuMapPC_sprite_w = g.pc.Spritesheet_W;
+            MenuMapPC_sprite_h = g.pc.Spritesheet_H;
+            MenuMapPC_x -= MenuMapPC_sprite_w>>1;
+            MenuMapPC_y -= MenuMapPC_sprite_h>>1;
+            MenuMapPC_sheet_x = MenuMapPC_sprite_w * _frame_index;
+            //if (global.OVERWORLD.mot==global.OVERWORLD.MOT_RAFT) MenuMapPC_sheet_x += 8; // 8-F: Raft
+            MenuMapPC_sheet_y = MenuMapPC_sprite_h * $E;
+        }
+        
+        MenuMapPC_can_draw = true;
+    }
+    else if (g.counter0&$20) // $20: on for .5s, then off for .5s
+    {   // PC DUNGEON ICON --------------------------------
+        _x0 = MapArea_xl + 8;
+        MenuMapPC_x  = _x0;
+        MenuMapPC_x +=(((dngn_map_pc_rc>>0)&$FF) + map_clm_off) <<3;
+        MenuMapPC_x += DNGN_MAP_PC_SPR_WW_;
+        
+        _y0 = MapArea_yt + 8;
+        MenuMapPC_y  = _y0;
+        MenuMapPC_y +=(((dngn_map_pc_rc>>8)&$FF) + map_row_off) <<3;
+        MenuMapPC_y += DNGN_MAP_PC_SPR_HH_;
+        
+        _clm = (MenuMapPC_x-_x0)>>3;
+        _row = (MenuMapPC_y-_y0)>>3;
+        if (is_in_grid(_clm,_row, MapDungeon_CLMS,MapDungeon_ROWS))
+        {
+            MenuMapPC_can_draw = true;
+        }
+    }
+}
+
+
+
+
 /*
 if(keyboard_check_pressed(vk_f7)){
 sdm("drawX $"+hex_str(drawX)+", drawY $"+hex_str(drawY)+", terrain_tile_xl_base $"+hex_str(terrain_tile_xl_base)+", terrain_tile_yt_base $"+hex_str(terrain_tile_yt_base)+", terrain_draw_area_xl $"+hex_str(terrain_draw_area_xl)+", terrain_draw_area_yt $"+hex_str(terrain_draw_area_yt));
 sdm("is_undefined(paper_drawn_clms) "+string(is_undefined(paper_drawn_clms))+", is_undefined(paper_drawn_rows) "+string(is_undefined(paper_drawn_rows)));
 //sdm("paper_drawn_clms $"+hex_str(paper_drawn_clms)+", paper_drawn_rows $"+hex_str(paper_drawn_rows));
-sdm("CLMS_MAP_PAPER $"+hex_str(CLMS_MAP_PAPER)+", ROWS_MAP_PAPER $"+hex_str(ROWS_MAP_PAPER)+", canDrawSections $"+hex_str(canDrawSections)+", Window_extra_draw_clms $"+hex_str(Window_extra_draw_clms)+", Window_vertical_draw_section_count $"+hex_str(Window_vertical_draw_section_count)+", Window_filler_clms $"+hex_str(Window_filler_clms));
+sdm("MapPaper_CLMS $"+hex_str(MapPaper_CLMS)+", MapPaper_ROWS $"+hex_str(MapPaper_ROWS)+", canDrawSections $"+hex_str(canDrawSections)+", Window_extra_draw_clms $"+hex_str(Window_extra_draw_clms)+", Window_vertical_draw_section_count $"+hex_str(Window_vertical_draw_section_count)+", Window_filler_clms $"+hex_str(Window_filler_clms));
 }
 */
 

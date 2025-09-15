@@ -137,8 +137,14 @@ switch(InputConfigState)
                 case Input.GP_up:    {Input.GP_up    =_option_val; break;}
                 case Input.GP_magic: {Input.GP_magic =_option_val; break;}
                 case Input.GP_pause: {Input.GP_pause =_option_val; break;}
-                case Input.GP_attack:{Input.GP_attack=_option_val; break;}
-                case Input.GP_jump:  {Input.GP_jump  =_option_val; break;}
+                case Input.GP_attack:{Input.GP_attack=_option_val; break;} // XBox X
+                case Input.GP_jump:  {Input.GP_jump  =_option_val; break;} // XBox A
+                case Input.GP_other1:{Input.GP_other1=_option_val; break;} // XBox B
+                case Input.GP_other2:{Input.GP_other2=_option_val; break;} // XBox Y
+                case Input.GP_other3:{Input.GP_other3=_option_val; break;} // Bumper L
+                case Input.GP_other4:{Input.GP_other4=_option_val; break;} // Bumper R
+                case Input.GP_other5:{Input.GP_other5=_option_val; break;} // Trigger L
+                case Input.GP_other6:{Input.GP_other6=_option_val; break;} // Trigger R
                 }
                 
                 // Set action to button pressed

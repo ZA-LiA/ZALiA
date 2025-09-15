@@ -39,8 +39,8 @@ var _QUAL_STATE = isVal(state, STATE_AREA,STATE_RM1,STATE_EXIT);
 var _xbox_ap = Input.Jump_pressed;
 var _xbox_bp = Input.GP_Other1_pressed;
 //var _xbox_xp = Input.GP_Attack_pressed;
-var _xbox_yp = Input.GP_Face4_pressed;
-//var _xbox_yp = Input.GP_Other2_pressed;
+//var _xbox_yp = Input.GP_Face4_pressed;
+var _xbox_yp = Input.GP_Other2_pressed;
 
 
 // Held
@@ -63,7 +63,8 @@ if (_QUAL_STATE         // if is a qualified state
 
 
 //                      Hold SELECT                    &&  Press xbox Y
-var _RQST_OPEN_APP   = (Input.Magic_held || Input.GP_Select_held)  && _xbox_yp; // Hold SELECT  &&  Press xbox Y
+var _RQST_OPEN_APP   = Input.GP_Select_held && Input.GP_Face4_pressed; // Hold SELECT  &&  Press xbox Y
+//var _RQST_OPEN_APP   = (Input.Magic_held || Input.GP_Select_held)  && _xbox_yp; // Hold SELECT  &&  Press xbox Y
 
 
 // FWRD: FORWARD (RIGHT. state += 1)

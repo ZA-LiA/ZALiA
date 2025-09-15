@@ -7,6 +7,12 @@ if (variable_instance_exists(id,"MenuFrame_srf_MAP")   && surface_exists(MenuFra
 if (variable_instance_exists(id,"MapTears_srf")        && surface_exists(MapTears_srf))        surface_free(MapTears_srf);
 if (variable_instance_exists(id,"MenuMap_srf")         && surface_exists(MenuMap_srf))         surface_free(MenuMap_srf);
 
+for(var _i=ds_grid_width(dg_terrain_surf)-1; _i>=0; _i--)
+{
+    if (surface_exists(  dg_terrain_surf[#_i,$0]))
+    {   surface_free(    dg_terrain_surf[#_i,$0]);  }
+}
+
 
 
 
@@ -38,8 +44,6 @@ if (_exists) _exists = ds_exists(        ds_,ds_type_stack);
 if (_exists)           ds_stack_destroy( ds_);
 if (_exists)                             ds_=undefined;
 */
-
-
 
 
 
@@ -215,11 +219,11 @@ if (_exists) _exists = ds_exists(        dg_icons1,ds_type_grid);
 if (_exists)           ds_grid_destroy(  dg_icons1);
 if (_exists)                             dg_icons1=undefined;
 
-    _exists=variable_instance_exists(id,"dg_terrain_draw");
-if (_exists) _exists = !is_undefined(    dg_terrain_draw);
-if (_exists) _exists = ds_exists(        dg_terrain_draw,ds_type_grid);
-if (_exists)           ds_grid_destroy(  dg_terrain_draw);
-if (_exists)                             dg_terrain_draw=undefined;
+    _exists=variable_instance_exists(id,"dg_terrain_surf");
+if (_exists) _exists = !is_undefined(    dg_terrain_surf);
+if (_exists) _exists = ds_exists(        dg_terrain_surf,ds_type_grid);
+if (_exists)           ds_grid_destroy(  dg_terrain_surf);
+if (_exists)                             dg_terrain_surf=undefined;
 
 
 

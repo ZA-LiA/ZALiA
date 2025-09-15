@@ -12,17 +12,6 @@ if(!canDrawSections)
 
 
 
-
-
-
-
-// ----------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------
-//var _xl,_yt, _xl1, _w;
-
-
-
-
 // ----------------------------------------------------------------------------------
 // Draw bg color of menu
 if (WindowBackground_can_draw)
@@ -52,20 +41,12 @@ pal_swap_reset();
 
 
 
-
-
-
-
 // SPELL MENU  ----------------------------------------------------------------------
-if (canDrawSpells)          PauseMenu_draw_spell_menu();
+if (canDrawSpells) PauseMenu_draw_spell_menu();
 // INVENTORY  -----------------------------------------------------------------------
-if (canDrawItems)           PauseMenu_draw_inventory();
+if (canDrawItems)  PauseMenu_draw_inventory();
 // MAP  -----------------------------------------------------------------------------
-if (Window_extra_draw_clms) PauseMenu_draw_map();
-
-
-
-
+PauseMenu_draw_map();
 
 
 
@@ -92,10 +73,6 @@ pal_swap_reset();
 
 
 
-
-
-
-
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------
 canDrawSections = 0;
@@ -105,80 +82,3 @@ canDrawSpells   = 0;
 
 
 
-
-
-
-/*
-var _i,_j,_k;
-var _x,_y, _xl,_yt, _xl1,_yt1, _w,_w0;
-var _tsrc, _ts_x,_ts_y;
-var _data1,_data2;
-
-_xl1 = drawX;
-for(_i=0; _i<Window_vertical_draw_section_count; _i++) // Each vertical section
-{
-    _yt1 = drawY + (_i<<4);
-    
-    for(_j=0; _j<dg_tdata_H; _j++) // (Window_w x 8). Each row of this section
-    {
-        switch(Window_draw_data_state){
-        default:        {_data1=dg_win_tdata_spl[#_i,_j]; break;}
-        case state_ITEM:{_data1=dg_win_tdata_itm[#_i,_j]; break;}
-        case state_MAP: {_data1=dg_win_tdata_map[#_i,_j]; break;}
-        }
-        
-        if (_data1!=0)
-        {
-            if (Window_extra_draw_clms) // map
-            {
-                _data2  = string_copy(   dg_win_tdata_map[#_i,_j],1,2); // First 2 8x8 clms from left edge
-                _data2 += string_repeat(string_char_at(_data2,2), Window_filler_clms);
-                _data2 += string_char_at(dg_win_tdata_map[#_i,_j],3);
-                _w = string_length(_data1) - (CLMS_WIN_DEF-1);
-                _data1 = _data2 + strR(_data1, _w+1);
-            }
-            
-            for(_k=string_length(_data1)-1; _k>=0; _k--) // 8x8. each column of the row
-            {
-                    _tsrc = string_char_at(_data1,_k+1);
-                if (_tsrc=="0" 
-                ||  _tsrc=="1" 
-                ||  _tsrc=="2" )
-                {
-                    _tsrc = g.dl_MenuFrame_TSRC[|real(_tsrc)];
-                    _ts_x = ((_tsrc>>0)&$F)<<3;
-                    _ts_y = ((_tsrc>>4)&$F)<<3;
-                    _x    = _xl1 + (_k<<3);
-                    _y    = _yt1 + (_j<<3);
-                    draw_background_part(g.TS_MENU, _ts_x,_ts_y, 8,8, _x,_y);
-                }
-            }//for(_k
-        }
-    }//for(_j
-}//for(_i
-*/
-
-
-/*
-// Draw sectional bar for inventory
-if (Window_draw_data_state==state_ITEM)
-{
-    if (Items_Bar1_can_draw)
-    {   // Main & Quest items separator
-        draw_sprite_(spr_1x1_WHT,0, Items_Bar1_x,Items_Bar1_y+0, -1, Items_Bar_W,4, Items_Bar_COLOR1);
-        draw_sprite_(spr_1x1_WHT,0, Items_Bar1_x,Items_Bar1_y+1, -1, Items_Bar_W,2, Items_Bar_COLOR2);
-    }
-    
-    if (Items_Bar2_can_draw)
-    {   // Crystals top bar
-        draw_sprite_(spr_1x1_WHT,0, Items_Bar2_x,Items_Bar2_y+0, -1, Items_Bar_W,1, Items_Bar_COLOR1);
-        draw_sprite_(spr_1x1_WHT,0, Items_Bar2_x,Items_Bar2_y+1, -1, Items_Bar_W,2, Items_Bar_COLOR2);
-    }
-    
-    if (Items_Bar3_can_draw)
-    {   // Crystals bottom bar
-        draw_sprite_(spr_1x1_WHT,0, Items_Bar3_x,Items_Bar3_y+0, -1, Items_Bar_W,2, Items_Bar_COLOR2);
-        draw_sprite_(spr_1x1_WHT,0, Items_Bar3_x,Items_Bar3_y+2, -1, Items_Bar_W,1, Items_Bar_COLOR1);
-    }
-}
-*/

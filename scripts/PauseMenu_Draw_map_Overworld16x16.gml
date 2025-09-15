@@ -9,10 +9,10 @@ var _tile_data, _tsrc, _ts_x,_ts_y;
 
 
 // Calculate 4x4 cell grid
-_clm  = (CLMS_MAP_PAPER - paper_drawn_clms) <<1; // 4x4. Convert 8x8 to 4x4
-_clms =  CLMS_MAP_TERRA - _clm; // num of 4x4 clms to draw
+_clm  = (MapPaper_CLMS - paper_drawn_clms) <<1; // 4x4. Convert 8x8 to 4x4
+_clms =  MapTerrain_CLMS - _clm; // num of 4x4 clms to draw
 _row  =  0;                                       // 4x4
-_rows =  ROWS_MAP_TERRA - _row; // num of 4x4 rows to draw
+_rows =  MapTerrain_ROWS - _row; // num of 4x4 rows to draw
 //sdm("_clms "+string(_clms)+", _rows "+string(_rows)+", _clm "+string(_clm)+", _row "+string(_row));
 
 
@@ -20,12 +20,12 @@ _rows =  ROWS_MAP_TERRA - _row; // num of 4x4 rows to draw
 // find 4x4 owrc for terrain draw start
 _grid_x2_base  = ((global.OVERWORLD.pcrc_map>>0)&$FF) <<2; // 4x4 owrc. Convert 16x16 to 4x4
 _grid_x2_base +=  2;                       // 4x4 owrc. center of overworld pcrc
-_grid_x2_base -= (CLMS_MAP_TERRA>>1);      // 4x4 owrc. clm-0 of CLMS_MAP_TERRA
+_grid_x2_base -= (MapTerrain_CLMS>>1);     // 4x4 owrc. clm-0 of CLMS_MAP_TERRA
 _grid_x2_base += _clm;                     // 4x4 owrc. 1st draw clm of this frame
 
 _grid_y2_base  = ((global.OVERWORLD.pcrc_map>>8)&$FF) <<2; // 4x4 owrc. Convert 16x16 to 4x4
 _grid_y2_base +=  2;                       // 4x4 owrc. center of overworld pcrc
-_grid_y2_base -= (ROWS_MAP_TERRA>>1);      // 4x4 owrc. row-0 of ROWS_MAP_TERRA
+_grid_y2_base -= (MapTerrain_ROWS>>1);     // 4x4 owrc. row-0 of ROWS_MAP_TERRA
 _grid_y2_base += _row;                     // 4x4 owrc. 1st draw row of this frame
 
 
@@ -36,7 +36,7 @@ _y_base = drawY + 8 + 8;
 
 
 if (paper_drawn_clms 
-&&  paper_drawn_clms < CLMS_MAP_PAPER )
+&&  paper_drawn_clms < MapPaper_CLMS )
 {
     // Adding 1 extra 4x4 column to far left during opening anim.
     // This is to fill some of the blank hard edge on the left 

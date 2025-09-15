@@ -20,10 +20,8 @@ FileSelect_build_surfaces();
 
 pal_swap_set(global.palette_image, global.PI_GUI1);
 switch(state){
-case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      viewXC()-(surface_get_width(surf_MAIN)>>1),surf_MAIN_YT); break;}//case State_MAIN
-//case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      surf_MAIN_XL,surf_MAIN_YT); break;}//case State_MAIN
-case State_REGISTER: {if (surface_exists(surf_REGISTER))  draw_surface(surf_REGISTER,  viewXC()-(surface_get_width(surf_REGISTER)>>1),surf_MAIN_YT); break;}//case State_REGISTER
-//case State_RANDO:    {if (surface_exists(surf_RANDO))     draw_surface(surf_RANDO,     surf_MAIN_XL,surf_MAIN_YT); break;}//case State_RANDO
+case State_MAIN:     {if (surface_exists(surf_MAIN))      draw_surface(surf_MAIN,      viewXC()-(surface_get_width(surf_MAIN)>>1),     surf_MAIN_YT); break;}//case State_MAIN
+case State_REGISTER: {if (surface_exists(surf_REGISTER))  draw_surface(surf_REGISTER,  viewXC()-(surface_get_width(surf_REGISTER)>>1), surf_MAIN_YT); break;}//case State_REGISTER
 case State_ELIMINATE:{if (surface_exists(surf_ELIMINATE)) draw_surface(surf_ELIMINATE, viewXC()-(surface_get_width(surf_ELIMINATE)>>1),surf_MAIN_YT); break;}//case State_ELIMINATE
 }//switch(state)
 pal_swap_reset();
@@ -55,10 +53,8 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
         
         
         // Death count
-            _text = string(dg_stats[#_i,2]);
-        repeat(3-string_length(_text))
-        {   _text = '0'+_text;  }
-        
+        _text = string(dg_stats[#_i,2]);
+        repeat(3-string_length(_text)) _text = '0'+_text;
         _x  = DEATHS_X;
         _y  = DEATHS_Y + (SAVE_FILE_PAD*_i);
         _y += 1; // save file name pad

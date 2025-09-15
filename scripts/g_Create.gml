@@ -357,9 +357,6 @@ global.RandoHints_enabled = false;
 global.WallStyle01Tiles_MAIN = true;
 
 
-use_8x8_ow_menu_map=true;
-
-
 //dm_PC_sprite_sets = ds_map_create();
 //_name=STR_Default;
 //dm_PC_sprite_sets[?STR_Current]=_name;
