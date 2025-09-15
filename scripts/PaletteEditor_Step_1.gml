@@ -35,7 +35,7 @@ else if (state==state_IDLE)
         for(_i=0; _i<PalEdit_PAL_COUNT; _i++)
         {
             _pi = val(PalEdit_dm[?STR_Palette+hex_str(_i+1)+STR_Palette+STR_Index]);
-            _palette = strReplaceAt(_palette, get_pal_pos(_pi), global.PAL_CHAR_PER_PAL, randomize_palette(1,true));
+            _palette = strReplaceAt(_palette, get_pal_pos(_pi), global.PAL_CHAR_PER_PAL, get_random_palette1(1,true));
         }
         
         change_pal(_palette);

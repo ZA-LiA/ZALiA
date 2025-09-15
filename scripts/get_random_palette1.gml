@@ -1,131 +1,31 @@
-/// get_random_palette1(base hue)
+/// get_random_palette1(palette count, *use game colors)
 
 
-var _base_hue = argument[0];
-if (_base_hue<0) _base_hue = irandom($FF);
-_base_hue &= $FF;
+var _PALETTE_COUNT = max(1,argument[0]);
 
+var                   _USE_GAME_COLORS = true;
+if (argument_count>1) _USE_GAME_COLORS = argument[1];
 
-var _hue, _sat, _lum, _color_hgh, _color_mid, _color_shd, _low, _mid, _high, _min,_max, _val;
+var _i,_j;
+var _color_char;
+var _palette = "";
 
-
-
-
-// MID-TONE -----------------------------------------------------
-_hue  = _base_hue;
-
-if (argument[0]==-2)
+for(_i=0; _i<_PALETTE_COUNT; _i++)
 {
-    _sat  = $00;
-}
-else
-{
-    _min  = $30;
-    _max  = $E8;
-    _sat  = _min + irandom(_max-_min);
-}
-
-_low  = $17;
-_mid  = $23;
-_high = $2F;
-_min  = choose(_low,_low,_low, _mid,_mid,_mid,_mid,_mid,_mid, _high,_high);
-_max  = $6F;
-_lum  = _min + irandom(_max-_min);
-_lum  = clamp(_lum, $00,$FF);
-
-_color_mid = make_colour_hsv(_hue, _sat, _lum);
-switch(_color_mid){
-case        p.C_WHT0:{_color_mid=global.dl_COLOR01[|($D*p.ColorGrid_CLMS)+$04]; break;}
-case        p.C_RED0:{_color_mid=global.dl_COLOR01[|($C*p.ColorGrid_CLMS)+$01]; break;}
-case        p.C_BLU0:{_color_mid=global.dl_COLOR01[|($3*p.ColorGrid_CLMS)+$02]; break;}
-case        p.C_GRN0:{_color_mid=global.dl_COLOR01[|($7*p.ColorGrid_CLMS)+$01]; break;}
-case        p.C_YLW0:{_color_mid=global.dl_COLOR01[|($9*p.ColorGrid_CLMS)+$02]; break;}
-case        p.C_MGN0:{_color_mid=global.dl_COLOR01[|($0*p.ColorGrid_CLMS)+$01]; break;}
-case        p.C_BLK0:{_color_mid=global.dl_COLOR01[|($D*p.ColorGrid_CLMS)+$02]; break;}
-case        p.C_CYN0:{_color_mid=global.dl_COLOR01[|($5*p.ColorGrid_CLMS)+$02]; break;}
-case global.C_ALPHA0:{_color_mid=global.dl_COLOR01[|($D*p.ColorGrid_CLMS)+$05]; break;}
+    for(_j=0; _j<global.COLORS_PER_PALETTE; _j++)
+    {
+        _color_char = string_char_at(global.PAL_BASE_COLOR_ORDER, _j+1);
+        
+             if (_color_char=="W" || _color_char=="Y") _palette += color_str(get_random_color(_USE_GAME_COLORS,"H"));
+        else if (_color_char=="R" || _color_char=="M") _palette += color_str(get_random_color(_USE_GAME_COLORS,"M"));
+        else if (_color_char=="B" || _color_char=="K") _palette += color_str(get_random_color(_USE_GAME_COLORS,"S"));
+        else if (_color_char=="G" || _color_char=="C") _palette += color_str(get_random_color(_USE_GAME_COLORS,"S"));
+        else                                           _palette += color_str(get_random_color(_USE_GAME_COLORS));
+    }
 }
 
 
-
-
-// HIGHLIGHT -----------------------------------------------------
-_hue  = _base_hue + (irandom($1F)*choose(1,-1));
-_hue  = clamp(_hue, $00,$FF);
-
-if (argument[0]==-2)
-{
-    _sat  = $00;
-}
-else
-{
-    _val  = $A0;
-    _min  = max($00, colour_get_saturation(_color_mid)-_val);
-    _max  = min($FF, colour_get_saturation(_color_mid)+_val);
-    _sat  = _min + irandom(_max-_min);
-    _sat  = clamp(_sat, $00,$FF);
-}
-
-_lum  = colour_get_value(_color_mid);
-_lum += $30 + irandom($30);
-_lum  = clamp(_lum, $00,$FF);
-
-_color_hgh = make_colour_hsv(_hue, _sat, _lum);
-switch(_color_hgh){
-case        p.C_WHT0:{_color_hgh=global.dl_COLOR01[|($D*p.ColorGrid_CLMS)+$09]; break;}
-case        p.C_RED0:{_color_hgh=global.dl_COLOR01[|($C*p.ColorGrid_CLMS)+$03]; break;}
-case        p.C_BLU0:{_color_hgh=global.dl_COLOR01[|($3*p.ColorGrid_CLMS)+$03]; break;}
-case        p.C_GRN0:{_color_hgh=global.dl_COLOR01[|($7*p.ColorGrid_CLMS)+$02]; break;}
-case        p.C_YLW0:{_color_hgh=global.dl_COLOR01[|($9*p.ColorGrid_CLMS)+$03]; break;}
-case        p.C_MGN0:{_color_hgh=global.dl_COLOR01[|($0*p.ColorGrid_CLMS)+$03]; break;}
-case        p.C_BLK0:{_color_hgh=global.dl_COLOR01[|($D*p.ColorGrid_CLMS)+$07]; break;}
-case        p.C_CYN0:{_color_hgh=global.dl_COLOR01[|($5*p.ColorGrid_CLMS)+$03]; break;}
-case global.C_ALPHA0:{_color_hgh=global.dl_COLOR01[|($D*p.ColorGrid_CLMS)+$07]; break;}
-}
-
-
-
-
-// SHADE -----------------------------------------------------
-_hue  = _base_hue + (irandom($1F)*choose(1,-1));
-_hue  = clamp(_hue, $00,$FF);
-
-if (argument[0]==-2)
-{
-    _sat  = $00;
-}
-else
-{
-    _val  = $A0;
-    _min  = max($00, colour_get_saturation(_color_mid)-_val);
-    _max  = min($FF, colour_get_saturation(_color_mid)+_val);
-    _sat  = _min + irandom(_max-_min);
-    _sat  = clamp(_sat, $00,$FF);
-}
-
-_lum  = colour_get_value(_color_mid);
-_lum  = floor(_lum*0.33);
-//_lum -= $30 + irandom($28);
-_lum  = clamp(_lum, $00,$FF);
-
-_color_shd = make_colour_hsv(_hue, _sat, _lum);
-switch(_color_shd){
-case        p.C_WHT0:{_color_shd=p.C_BLK1; break;}
-case        p.C_RED0:{_color_shd=p.C_BLK1; break;}
-case        p.C_BLU0:{_color_shd=p.C_BLK1; break;}
-case        p.C_GRN0:{_color_shd=p.C_BLK1; break;}
-case        p.C_YLW0:{_color_shd=p.C_BLK1; break;}
-case        p.C_MGN0:{_color_shd=p.C_BLK1; break;}
-case        p.C_BLK0:{_color_shd=p.C_BLK1; break;}
-case        p.C_CYN0:{_color_shd=p.C_BLK1; break;}
-case global.C_ALPHA0:{_color_shd=p.C_BLK1; break;}
-}
-
-
-
-
-// ----------------------------------------------------------------------------------------------
-return build_pal(_color_hgh,_color_mid,_color_shd,p.C_BLK1, _color_hgh,_color_mid,_color_shd,p.C_BLK1);
+return _palette;
 
 
 

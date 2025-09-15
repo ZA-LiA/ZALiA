@@ -81,10 +81,10 @@ var           _dl_DUNGEON_AREAS_COUNT = ds_list_size(_dl_DUNGEON_AREAS);
 for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
 {
     // The main color scheme palette of the dungeon
-    _palette1 = get_random_palette1(_dl_base_hues[|_i]);
+    _palette1 = get_random_palette2(_dl_base_hues[|_i]);
     
     // Dungeon secondary palette (the palette curtains,crystal-holder,etc.. use)
-    _palette2 = get_random_palette1(_dl_base_hues[|(_i+1) mod ds_list_size(_dl_base_hues)]);
+    _palette2 = get_random_palette2(_dl_base_hues[|(_i+1) mod ds_list_size(_dl_base_hues)]);
     
     
     for(_j=0; _j<$100; _j++) // Each dungeon scene
@@ -239,7 +239,7 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
                 _pos -= global.PI_BGR1;
                 _pos *= global.PAL_CHAR_PER_PAL;
                 _pos++;
-                _palette1 = get_random_palette1(-1);
+                _palette1 = get_random_palette2(-1);
                 dm_save_data[?STR_Palette+STR_Rando+_scene_name] = strReplaceAt(_palette, _pos, string_length(_palette1), _palette1);
                 //if (_debug1){_debug1=false; sdm(_scene_name+": "+_palette);}
             }

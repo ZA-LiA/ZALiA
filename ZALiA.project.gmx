@@ -14214,7 +14214,7 @@
       <script>scripts\get_random_color_midtone.gml</script>
       <script>scripts\get_random_color_shadow.gml</script>
       <script>scripts\get_random_palette1.gml</script>
-      <script>scripts\randomize_palette.gml</script>
+      <script>scripts\get_random_palette2.gml</script>
       <scripts name="palette_swap">
         <script>scripts\pal_swap_draw_palette.gml</script>
         <script>scripts\pal_swap_enable_override.gml</script>
