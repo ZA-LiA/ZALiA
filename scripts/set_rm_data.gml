@@ -422,6 +422,34 @@ y2          =  row2<<3;
 //                              // 
 
 
+
+
+exit_name_m0 = _RM_NAME+"00";
+exit_name_m1 = _RM_NAME+"01";
+exit_name_m2 = _RM_NAME+"02";
+exit_name_m3 = _RM_NAME+"03";
+//                  //
+exit_name_r0 = _RM_NAME+"10";
+exit_name_r1 = _RM_NAME+"11";
+exit_name_r2 = _RM_NAME+"12";
+exit_name_r3 = _RM_NAME+"13";
+//                  //
+exit_name_l0 = _RM_NAME+"20";
+exit_name_l1 = _RM_NAME+"21";
+exit_name_l2 = _RM_NAME+"22";
+exit_name_l3 = _RM_NAME+"23";
+//                  //
+exit_name_d0 = _RM_NAME+"40";
+exit_name_d1 = _RM_NAME+"41";
+exit_name_d2 = _RM_NAME+"42";
+exit_name_d3 = _RM_NAME+"43";
+//                  //
+exit_name_u0 = _RM_NAME+"80";
+exit_name_u1 = _RM_NAME+"81";
+exit_name_u2 = _RM_NAME+"82";
+exit_name_u3 = _RM_NAME+"83";
+//                  //
+/*
 // get this ready for data_exit() for this rm
                _val = REEN_DEFAULT;
 exit_name_m0 = _val;
@@ -449,6 +477,7 @@ exit_name_u1 = _val;
 exit_name_u2 = _val;
 exit_name_u3 = _val;
 //                  //
+*/
 
 
 // get this ready for data_exit() for this rm

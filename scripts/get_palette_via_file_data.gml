@@ -52,7 +52,8 @@ if (_dm_FILE!=-1)
             _dm_layer = _dl_layer[|_i];
             _layer_name = val(_dm_layer[?"name"], "");
             
-            if (string_pos("tile_data_system", _layer_name))
+            if (string_pos("tile_data_system", _layer_name) 
+            ||  string_pos("palette-v.", _layer_name) )
             {
                 _data_system_ver = str_hex(string_copy(_layer_name, string_pos("v.", _layer_name)+2, 2));
                 //if (_data_system_ver==4){var _FILE_NAME = argument[1]; sdm("tile_data_system 4:  "+_FILE_NAME);}

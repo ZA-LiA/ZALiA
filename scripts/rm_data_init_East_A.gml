@@ -13,6 +13,7 @@ var _exit;
 //var _exit_name = REEN_DEFAULT;
 var _DEPTH1 = DEPTH_NPC2;
 var _WHALE_ISL_OUTSIDE_RM_NAME = undefined;
+var _dk_spawn_item0, _dk_spawn_item1, _dk_spawn_item2, _dk_spawn_item3, _dk_spawn_item4;
 
 
 
@@ -70,7 +71,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$0E,  0);   // LFT 0
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$0E,  0);   // RGT 0, to Overworld   
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -95,7 +100,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$0E,  0);   // LFT 0
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$0E,  0);   // RGT 0, to Overworld   
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -121,7 +130,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -148,7 +161,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -175,7 +192,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -205,7 +226,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_CROSS);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_CROSS);
+
+data_scene_rando(rm);
 
 
 
@@ -233,7 +258,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$09,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -255,10 +284,18 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$18,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$18,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($39<<3)+$5,(row0+$10)<<3,  STR_Treasure+STR_Map+"02"); // HEART PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($39<<3)+$5,(row0+$10)<<3,  STR_Treasure+STR_Map+"02"); // HEART PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_JUMP);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_l0, _dk_spawn_item0, STR_JUMP);
+
+data_scene_rando(rm);
+
 
 
 
@@ -285,7 +322,12 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0);   // LFT 0, to
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0);   // RGT 0, to Overworld   
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
 
 
 
@@ -310,7 +352,12 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$0A,  0);   // LFT 0
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$0A,  '0A'+'20');        // RGT 0,   
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
 
 
 
@@ -333,14 +380,14 @@ data_spawn(rm+STR_PRXM,ArurA,$1,  $290,y3); // $8A: Aruroda  1
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '09'+'10');        // LFT 0,   
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $370,y3); // PBag 500 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $370,y3); // PBag 500 
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
-
-
-
+data_scene_rando(rm);
 
 
 
@@ -368,7 +415,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0);   // LFT 0, to
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '0C'+'20');        // RGT 0,   
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -392,12 +443,14 @@ data_spawn(rm+STR_PRXM,ArurA,$1,  $290,y3); // $8A: Aruroda  1
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '0B'+'10');        // LFT 0,   
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $350,y3); // PBag 500 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $350,y3); // PBag 500 
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
-
+data_scene_rando(rm);
 
 
 
@@ -424,7 +477,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0);   // LFT 0, to
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '0E'+'20');        // RGT 0,   
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -440,7 +497,6 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+hex_str(dark_id), STR_Ti
 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$0B<<3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,$0B<<3); // v1: Light w/ CANDLE or FIRE
-
 data_spawn(rm+STR_PRXM,GeruA,$1,  $110,$40); // $97: Geru  1 
 data_spawn(rm+STR_PRXM,GeruA,$2,  $340,$90); // $97: Geru  2 
 
@@ -449,7 +505,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$0A,  '0D'+'10');   
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$0A,  0);   // RGT 0, to Overworld   
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -471,6 +531,12 @@ data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init);
 clm3=clm0-1;
 data_exit(EXM0,etB2,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  area_WA+'41'+EXM0_); // MID 0, to North of Mido
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld
+
+
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_m0);
+
+data_scene_rando(rm);
 
 
 
@@ -497,7 +563,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -524,11 +594,15 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $2A<<3,y3); // Octorok  1
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $2C<<3,y3); // PBag 500 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $2C<<3,y3); // PBag 500 
 //data_spawn(rm+STR_PRIO,ItmE0,$1,  $2C<<3,y3); // Magic Jar (Full)
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -551,10 +625,14 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $13<<3,y4); // Octorok  1
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($0B<<3)+6,y4,  STR_Treasure+STR_Map+"02"); // HEART PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($0B<<3)+6,y4,  STR_Treasure+STR_Map+"02"); // HEART PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_r0, exit_name_r0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -582,7 +660,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '14'+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -601,7 +683,6 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+hex_str(dark_id), STR_Ti
 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$0B<<3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,$0B<<3); // v1: Light w/ CANDLE or FIRE
-
 data_spawn(rm+STR_PRXM,GiruA,$1,  $70,$70); // $99: Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $C0,$60); // $99: Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $1A0,$70); // $99: Girubokku  1 
@@ -615,7 +696,12 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$0A,  '13'+'10');   
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$0A,  0);   // RGT 0, to Overworld   
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_CROSS);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_CROSS);
+
+data_scene_rando(rm);
+
 
 
 
@@ -643,10 +729,19 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$18,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$18,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $50<<3,y3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $50<<3,y3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -669,10 +764,16 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $1A<<3,y4); // $A8: Octorok  1
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$18,  0); // LFT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $2C<<3,(row0+$0E)<<3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $2C<<3,(row0+$0E)<<3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -700,7 +801,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$09,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -728,7 +833,12 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS+STR_JUMP);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS+STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_CROSS+"+"+STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_CROSS+"+"+STR_JUMP);
+
+data_scene_rando(rm);
+
 
 
 
@@ -755,7 +865,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS+STR_JUMP);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS+STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_CROSS+"+"+STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_CROSS+"+"+STR_JUMP);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -781,7 +897,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS+STR_JUMP);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS+STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_CROSS+"+"+STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_CROSS+"+"+STR_JUMP);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -789,7 +911,7 @@ data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_CROSS+STR_JUMP);
 
 
 //   --------------------------  1B  ---------------------------  
-//    
+//    Fast Travel at Great Palace
 rm_num  = $1B;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'015', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH, dk_SceneMusicThemeException+"01");
 
@@ -801,6 +923,12 @@ row4=row0+$14; y4=row4<<3;
 clm3=$1F; clms3=$03;
 data_exit(EXM0,etB3,1,  clm3,row4,  clms3,ROWS2,  clm3-1,row4,  area_TA+'54'+EXM1_); // MID 0, Fast-travel to Town
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 
+
+
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_m0);
+
+data_scene_rando(rm);
 
 
 
@@ -824,10 +952,15 @@ data_spawn(rm+STR_PRXM,BoonA,$1,  $28<<3,(row0+$08)<<3); // $8D: Boon  1
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$17,  0); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$7,  $15<<3,(row0+$19)<<3); // PBag $7: 400
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$7,  $15<<3,(row0+$19)<<3); // PBag $7: 400
 
 
-data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_r0, exit_name_r0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
 
 
 
@@ -865,6 +998,14 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$16,  0);  // LFT 0,
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$16,  0);  // RGT 0, to Overworld   
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -888,9 +1029,16 @@ data_spawn(rm+STR_PRXM,ArurA,$1,  $260,$B0,STR_Strong+STR_Encounter); // $8A: Ar
 
 
 data_exit(EXM0,etB0,0,  $30,row0+$16,  CLMS2,ROWS2,  CLM5,row0+$16,  0);  // MID 0, to Overworld   
-
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$16,  0);  // LFT 0, to Overworld   
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$16,  0);  // RGT 0, to Overworld   
+
+
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -911,10 +1059,14 @@ row3=row0+$14; y3=row3<<3;
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($0E<<3)-3,y3,  STR_Treasure+STR_Map+"02"); // HEART PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($0E<<3)-3,y3,  STR_Treasure+STR_Map+"02"); // HEART PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_r0, exit_name_r0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -943,10 +1095,19 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row4,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$18,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $65<<3,row4<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $65<<3,row4<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -973,10 +1134,22 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $50<<3,$12<<3); // PBag 500 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $50<<3,$12<<3); // PBag 500 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+data_path_conditions(exit_name_m0, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, _dk_spawn_item0, STR_JUMP);
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_JUMP);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_l0, _dk_spawn_item0, STR_JUMP);
+
+data_scene_rando(rm);
+
 
 
 
@@ -1003,6 +1176,14 @@ data_spawn(rm+STR_PRXM,TektA,$1,  $260,$B0,STR_Strong+STR_Encounter); // $AB: Te
 data_exit(EXM0,etB0,0,  $30,row0+$16,  CLMS2,ROWS2,  CLM5,row0+$16,  0);  // MID 0, to Overworld   
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$16,  0);  // LFT 0, to Overworld   
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$16,  0);  // RGT 0, to Overworld   
+
+
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -1038,6 +1219,14 @@ data_exit(EXR0,etA0,1,  clm2,row5,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 data_spawn(rm+STR_PRIO,Kakusu008,$1,  $50<<3,(row0+$1A)<<3,  STR_Treasure+STR_Map+"02"); // 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1060,7 +1249,17 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$18,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$18,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+
+data_path_conditions(exit_name_r0, exit_name_m0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_m0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -1080,6 +1279,9 @@ data_spawn(rm+STR_PRIO,NPC_9,$A,  $16<<3,y3,  dk_PI+hex_str(PIc), STR_Palette+p.
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '24'+EXM0_); // LFT 0, 
+
+
+//data_path_conditions(exit_name_l0, exit_name_l0);
 
 
 
@@ -1108,10 +1310,21 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$4,  $54<<3,(row0+$0A)<<3); // PBag v4:200 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$4,  $54<<3,(row0+$0A)<<3); // PBag v4:200 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -1153,6 +1366,14 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1180,6 +1401,14 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1205,7 +1434,19 @@ data_exit(EXR0,etA0,1,  clm2,-PAGE_ROWS,  CLMS2,rows3,  clmA,row3,  '2A'+EXL0_);
 data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,rows4,  clmA,row0+$18,  '2A'+EXL1_); // RGT 1, 
 
 
-//data_rando_scene01("_00"+"_02"+"_01"+"_00"+"_00",rm);
+////data_rando_scene01("_00"+"_02"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_r1);
+data_path_conditions(exit_name_r0, exit_name_l0);
+
+data_path_conditions(exit_name_r1, exit_name_r0);
+data_path_conditions(exit_name_r1, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_r1);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1240,7 +1481,22 @@ data_exit(EXL1,etA0,1,  CLM2,row5,  CLMS2,rows4,  CLM3,row4,  '29'+EXR1_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$2,  $3A<<3,(row0+$0C)<<3); // v2: Magic Jar, Blue(1 container, $10 mp)
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$2,  $3A<<3,(row0+$0C)<<3); // v2: Magic Jar, Blue(1 container, $10 mp)
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l1);
+data_path_conditions(exit_name_r0, exit_name_d0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_l1);
+data_path_conditions(exit_name_l0, exit_name_d0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+//data_path_conditions(exit_name_l1, exit_name_l1);
+
+//data_scene_rando(rm);
 
 
 
@@ -1275,7 +1531,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '41'+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+
+data_scene_rando(rm);
 
 
 
@@ -1298,10 +1558,21 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $4A<<3,y3); // PBag v8: 500 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $4A<<3,y3); // PBag v8: 500 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -1327,7 +1598,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -1355,7 +1632,17 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row4,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+
+data_path_conditions(exit_name_r0, exit_name_m0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_m0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -1367,8 +1654,6 @@ data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
 //   --------------------------  2F  ---------------------------  
 //    
 rm_num  = $2F;
-
-
 
 
 
@@ -1399,6 +1684,14 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$18,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$18,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1422,7 +1715,17 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row4,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+
+data_path_conditions(exit_name_r0, exit_name_m0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_m0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -1465,6 +1768,16 @@ data_exit(EXL0,etA0,1,  CLM2,row4,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,row4,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
 
 
 
@@ -1486,10 +1799,24 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$9,  $32<<3,(row2-2)<<3); // PBag $9: 700
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$9,  $32<<3,(row2-2)<<3); // PBag $9: 700
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
+
 
 
 
@@ -1509,10 +1836,16 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($27<<3)+4,y3); // v1: Light w/ CANDLE or FIR
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '2E'+EXM0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($32<<3)+2,(row3+$02)<<3,  STR_Treasure+STR_Map+"02"); // HEART PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($32<<3)+2,(row3+$02)<<3,  STR_Treasure+STR_Map+"02"); // HEART PIECE
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1547,6 +1880,17 @@ row3 = row2-8;
 data_exit(EXM0,etB0,0,  clm1,row2-2,  CLMS2,ROWS2,  clm1+1,row2-2,  0); // MID 0, to Overworld 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0);  // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0);  // RGT 0, to Overworld 
+
+
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
 
 
 
@@ -1584,6 +1928,16 @@ data_spawn(rm+STR_PRIO,Kakusu011,$1,  x3,row4<<3,  STR_Treasure+STR_Map+"02"); /
 data_spawn(rm+STR_PRIO,NPC_C,$3,  x3,row3<<3,  STR_Dialogue+DK0C02); // Spell combo text
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
+
+
+
 
 
 
@@ -1613,6 +1967,12 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 data_spawn(rm+STR_PRIO,Kakusu012,$1,  $6C<<3,(row0+$04)<<3,  STR_Treasure+STR_Map+"02"); // Out of reach, need THUNDER
+
+
+//data_path_conditions(exit_name_r0, exit_name_r0);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP, STR_FAIRY);
+
+//data_scene_rando(rm);
 
 
 
@@ -1651,6 +2011,14 @@ data_exit(EXL0,etA0,1,  CLM2,row4,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,row4,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1668,6 +2036,17 @@ row3 = row2-2;
 data_exit(EXM0,etB0,0,  clm1,row3,  CLMS2,ROWS2,  clm1+1,row3,  0); // MID 0, to Overworld 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
+
+
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
 
 
 
@@ -1690,12 +2069,23 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 x3=$0F<<3; x4=x3+($04<<3);
-data_spawn(rm+STR_PRIO,ItmF0,$4,  x3,y3); // PBag v4: 200
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$4,  x3,y3); // PBag v4: 200
 //data_spawn(rm+STR_PRIO,ItmG0,$1,  x3,y3,  STR_Qualified+STR_Quest+STR_Nums+"01"); // 1UP DOLL
 //data_spawn(rm+STR_PRIO,ItmF0,$4,  x4,y3,  STR_Qualified+STR_Quest+STR_Nums+"02"); // PBag v4: 200
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -1723,10 +2113,22 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$1,  x3,y3); // Magic Jar (Full)
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  x3,y3); // Magic Jar (Full)
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+STR_JAR,rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
 
 
 
@@ -1764,6 +2166,14 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3+$02,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3-$02,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1779,13 +2189,11 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_
 row3=row0+$14; y3=row3<<3;
 row4=row3+$02; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-
 data_spawn(rm+STR_PRXM,LeevA,$1,  $0C<<3,y4); // Leever  1 
 data_spawn(rm+STR_PRXM,LeevA,$1,  $3E<<3,y4); // Leever  1 
 data_spawn(rm+STR_PRXM,ZoraA,$1,  $3A<<3,y3); // Zora  1 
 data_spawn(rm+STR_PRXM,ArurA,$1,  $10<<3,y3); // Aruroda  1 
 data_spawn(rm+STR_PRXM,ArurA,$1,  $4E<<3,y3); // Aruroda  1 
-
 data_spawn(rm+STR_PRXM,ZoraA,$1,  $3A<<3,y3,STR_Strong+STR_Encounter); // Zora  1 
 data_spawn(rm+STR_PRXM,ZoraA,$1,  $18<<3,y3,STR_Strong+STR_Encounter); // Zora  1 
 data_spawn(rm+STR_PRXM,ArurA,$1,  $10<<3,y3,STR_Strong+STR_Encounter); // Aruroda  1 
@@ -1795,6 +2203,16 @@ data_spawn(rm+STR_PRXM,ArurA,$1,  $4C<<3,y3,STR_Strong+STR_Encounter); // Arurod
 data_exit(EXM0,etB0,0,  clm1,row3,  CLMS2,ROWS2,  clm1,row3,  0); // MID 0, to Overworld 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
+
+
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1813,10 +2231,24 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$1,  $40,$B0); // Magic Jar (Full)
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  $40,$B0); // Magic Jar (Full)
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+STR_JAR,rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
+
 
 
 
@@ -1834,10 +2266,22 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $60,$B0); // PBag 500 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $60,$B0); // PBag 500 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
 
 
 
@@ -1882,6 +2326,14 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -1915,7 +2367,12 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  '2B'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$17,  0);          // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
 
 
 
@@ -1942,7 +2399,11 @@ data_exit(EXM0,etB3,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  area_WA+'49'+EXM0_
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld
 
 
-data_rando_scene01("_01"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_01"+"_00"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_m0);
+
+data_scene_rando(rm);
 
 
 
@@ -1980,6 +2441,16 @@ data_spawn(rm+STR_PRXM,GiruA,$1,  $52<<3,(row0+$12)<<3,STR_Strong+STR_Encounter)
 data_exit(EXM0,etB0,0,  clm1,row3,  CLMS2,ROWS2,  clm1,row3,  0); // MID 0, to Overworld 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
+
+
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2023,6 +2494,16 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
 
 
 
@@ -2056,6 +2537,16 @@ data_spawn(rm+STR_PRXM,Moa_A,$2,  $53<<3,(row0+$12)<<3,STR_Strong+STR_Encounter)
 data_exit(EXM0,etB0,0,  clm1,row3,  CLMS2,ROWS2,  clm1,row3,  0); // MID 0, to Overworld 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
+
+
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2145,10 +2636,19 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '4F'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmA7,$1,  ($1F<<3)+4,(row0+$15)<<3); // SWORD
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmA7,$1,  ($1F<<3)+4,(row0+$15)<<3); // SWORD
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2177,7 +2677,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2201,10 +2707,16 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $2A<<3,y3); // Octorok  1
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to Overworld 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $2E<<3,y3); // PBag v8: 500 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $2E<<3,y3); // PBag v8: 500 
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2277,7 +2789,15 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2300,6 +2820,14 @@ data_spawn(rm+STR_PRXM,BagiA,$1,  $6A<<3,y3); // Bagin
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  0); // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0C,  0); // RGT 0, to Overworld 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP+"|"+STR_FAIRY);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2326,7 +2854,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '48'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to Overworld 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -2351,10 +2883,17 @@ data_exit(EXU0,etA0,0,  $2A,row_e0,  $0A,ROWS5,  $2D,row_e4,  '2A'+EXD0_); // UP
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  '51'+EXR0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$1,  $25<<3,(row0+$0D)<<3); // Magic Jar (Full)
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  $25<<3,(row0+$0D)<<3); // Magic Jar (Full)
 
 
 //data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01"+STR_Pit+"8"+STR_JAR,rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_u0, exit_name_l0);
+data_path_conditions(exit_name_u0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -2383,7 +2922,16 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$04,  '52'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0C,  '50'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmAC,$1,  x4-4,(row0+$00)<<3); // PENDANT
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmAC,$1,  x4-4,(row0+$00)<<3); // PENDANT
+
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_REFLECT);
+data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_REFLECT);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_REFLECT);
+data_path_conditions(exit_name_l0, _dk_spawn_item0, STR_REFLECT);
+
+data_scene_rando(rm);
 
 
 
@@ -2408,7 +2956,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$00,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$10,  '51'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2433,10 +2987,14 @@ data_spawn(rm+STR_PRXM,GoriA,$3,  $24<<3,y3); // Goriya  3
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '56'+EXR0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$6,  $28<<3,y3); // PBag v6: 300 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$6,  $28<<3,y3); // PBag v6: 300 
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -2482,6 +3040,21 @@ data_exit(EXR0,etA0,1,  clm2,row3,  CLMS2,rows3,  clmA,$3C,  '5C'+EXL0_); // RGT
 data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,rows4,  clmA,$73,  '5C'+EXL1_); // RGT 1, 
 
 
+data_path_conditions(exit_name_r0, exit_name_r1, STR_GLOVE);
+data_path_conditions(exit_name_r0, exit_name_l1, STR_GLOVE);
+
+data_path_conditions(exit_name_r1, exit_name_l1, STR_GLOVE);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE+"+"+STR_JUMP+"+"+STR_STABDOWN);
+data_path_conditions(exit_name_l0, exit_name_r1, STR_GLOVE);
+data_path_conditions(exit_name_l0, exit_name_l1, STR_GLOVE);
+
+data_path_conditions(exit_name_l1, exit_name_r1, STR_GLOVE);
+
+data_path_conditions(exit_name_u0, exit_name_r1, STR_GLOVE);
+data_path_conditions(exit_name_u0, exit_name_l1, STR_GLOVE);
+
+data_scene_rando(rm);
 
 
 
@@ -2520,7 +3093,14 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0C,  '5C'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$10,  '53'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00"+STR_Pit+"4",rm);
+////data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00"+STR_Pit+"4",rm);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_FAIRY);
+data_path_conditions(exit_name_r0, exit_name_d0);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"|"+STR_FAIRY);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_scene_rando(rm);
 
 
 
@@ -2556,7 +3136,10 @@ clm3 = -PAGE_CLMS;
 data_exit(EXD0,etA0,1,  clm3,row0+$1F,  clms1,ROWS5,  $1F,row_e3,  '58'+EXU0_); // DWN 0, Pit down 
 
 
-data_rando_scene01("_00"+"_00"+"_00"+"_01"+"_01"+STR_Pit+"C",rm);
+//data_rando_scene01("_00"+"_00"+"_00"+"_01"+"_01"+STR_Pit+"C",rm);
+data_path_conditions(exit_name_u0, exit_name_d0);
+
+data_scene_rando(rm);
 
 
 
@@ -2587,10 +3170,17 @@ data_exit(EXU0,etA0,0,  $08,row_e0,  $6C,ROWS5,  $25,row_e4,  '57'+EXD0_); // UP
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$09,  '59'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$1,  $09<<3,(row0+$0C)<<3); // Magic Jar (Full)
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  $09<<3,(row0+$0C)<<3); // Magic Jar (Full)
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_01"+STR_Pit+"C"+STR_JAR,rm);
+//data_path_conditions(exit_name_r0, exit_name_r0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_u0, exit_name_r0);
+data_path_conditions(exit_name_u0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -2648,6 +3238,10 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '58'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '5A'+EXL0_); // RGT 0, 
 
 
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+
 
 
 
@@ -2675,7 +3269,11 @@ data_Elev(EXU0_, clm3,row0+$0E);                                                
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0D,  '59'+EXR0_); // LFT 0, 
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
+data_path_conditions(exit_name_l0, exit_name_u0);
+data_path_conditions(exit_name_u0, exit_name_l0);
+
+data_scene_rando(rm);
 
 
 
@@ -2708,7 +3306,19 @@ _exit=data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0
 g.dm_rm[?STR_Nabooru+STR_Quest+STR_Exit+"0102"] = _exit;
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2740,10 +3350,18 @@ row3  = -PAGE_ROWS;
 data_exit(EXR0,etA0,1,  clm2,row3,  CLMS2,rows1,  clmA,row0+$04,  '56'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$4,  $56<<3,(row0+$18)<<3); // PBag v4: 200 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$4,  $56<<3,(row0+$18)<<3); // PBag v4: 200 
 
 
 //data_rando_scene01("_00"+"_01"+"_02"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_path_conditions(exit_name_l1, exit_name_l1);
+data_path_conditions(exit_name_l1, _dk_spawn_item0, STR_GLOVE);
+
+data_scene_rando(rm);
 
 
 
@@ -2759,16 +3377,9 @@ rm_num  = $5D;
 
 
 
-
-
-
 //   --------------------------  5E  ---------------------------  
 //    
 rm_num  = $5E;
-
-
-
-
 
 
 
@@ -2799,8 +3410,17 @@ data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,rows4,  clmA,row0+$15,  '54'+EXL1_); /
 //data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,rows4,  clmA,row0+$15,  '5E'+EXL0_); // RGT 1, 
 
 
-//data_rando_scene01("_00"+"_02"+"_01"+"_00"+"_00",rm);
+////data_rando_scene01("_00"+"_02"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_r1);
+data_path_conditions(exit_name_r0, exit_name_l0);
 
+data_path_conditions(exit_name_r1, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_r1, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r1);
+
+data_scene_rando(rm);
 
 
 
@@ -2812,10 +3432,6 @@ data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,rows4,  clmA,row0+$15,  '54'+EXL1_); /
 //   --------------------------  60  ---------------------------  
 //    
 rm_num  = $60;
-
-
-
-
 
 
 
@@ -2842,10 +3458,19 @@ data_Elev(EXU0_, clm3,row0+$14);                                               /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '5F'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$1,  $09<<3,y3); // Magic Jar (Full)
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  $09<<3,y3); // Magic Jar (Full)
 
 
 //data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01"+STR_JAR,rm);
+data_path_conditions(exit_name_r0, exit_name_u0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_u0, exit_name_r0);
+data_path_conditions(exit_name_u0, _dk_spawn_item0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2875,8 +3500,17 @@ _exit=data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0
 g.dm_rm[?STR_Nabooru+STR_Quest+STR_Exit+"0202"] = _exit;
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
 
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+
+data_scene_rando(rm);
 
 
 
@@ -2902,7 +3536,13 @@ data_spawn(rm+STR_PRIO,NPC_9,$C,  $0F<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+DK
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  _WHALE_ISL_OUTSIDE_RM_NAME+EXM0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmAA,$1,  $15<<3,(row3-$02)<<3); // BOOK
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmAA,$1,  $15<<3,(row3-$02)<<3); // BOOK
+
+
+//data_path_conditions(exit_name_l0, exit_name_l0);
+//data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+//data_scene_rando(rm);
 
 
 
@@ -2930,6 +3570,18 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '65'+EXL0_); // RGT 0, 
 
 
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+
+data_path_conditions(exit_name_r0, exit_name_m0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_m0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -2950,6 +3602,12 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $0C<<3,y4,  STR_Lit,STR_Brightness+'2'); // v
 clm3=$13; // clm3: left most clm of mid exit
 data_exit(EXM0,etB2,1,  clm3,row3,  $03,ROWS2,  clm3-1,row3,  area_PH+'06'+EXM0_); // MID 0, to Dragmire Tower
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '64'+EXR0_); // LFT 0, 
+
+
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_m0);
+
+data_scene_rando(rm);
 
 
 
@@ -2988,6 +3646,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$08,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0E,  0); // RGT 0, to Overworld 
 
 
+data_path_conditions(exit_name_r0, exit_name_l0, STR_BRACELET);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_BRACELET);
+
+data_scene_rando(rm);
+
+
+
 
 
 
@@ -3005,6 +3670,12 @@ data_spawn(rm+STR_PRIO,PushA,$2,  $21<<3,(row0+$0A)<<3,  dk_PI+hex_str(_pi)); //
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0C,  0); // LFT 0, to Overworld 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$12,  0); // RGT 0, to Overworld 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_BRACELET);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_BRACELET);
+
+data_scene_rando(rm);
 
 
 
@@ -3029,7 +3700,17 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+
+data_path_conditions(exit_name_r0, exit_name_m0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_m0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3053,10 +3734,16 @@ data_spawn(rm+STR_PRIO,NPC_9,$3,  $0D<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK
 
                                                               _exit = '6A'+EXM0_;
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  _exit); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  _exit); // RGT 0, 
+//data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  _exit); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $14<<3,y3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $14<<3,y3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
+
+
+//data_path_conditions(exit_name_l0, exit_name_l0);
+//data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+//data_scene_rando(rm);
 
 
 
@@ -3106,7 +3793,13 @@ data_exit(EXM0,etB0,1,  clm3,row4,  CLMS2,ROWS2,  clm3-1,row4,  '71'+EXL0_); // 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld 
 
 
-data_rando_scene01("_01"+"_00"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_01"+"_00"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_m0);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -3126,7 +3819,13 @@ data_spawn(rm+STR_PRIO,NPC_7,$2,  $17<<3,y3,  STR_Dialogue+DK0708, STR_Sprite+ST
 
                                                               _exit='70'+EXM0_;
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  _exit); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  _exit); // RGT 0, 
+//data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  _exit); // RGT 0, 
+
+
+//data_path_conditions(exit_name_l0, exit_name_l0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -3166,7 +3865,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$05,  '78'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row5,  '75'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_RAFT);
+////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_RAFT);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_RAFT);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_RAFT);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -3191,7 +3896,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row5,  '74'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row5,  '76'+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_RAFT);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_RAFT);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_RAFT);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_RAFT);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -3216,10 +3927,19 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row5,  '75'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row5,  '77'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$7,  $59<<3,(row0+$07)<<3); // PBag 7: 500
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$7,  $59<<3,(row0+$07)<<3); // PBag 7: 500
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_RAFT);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_RAFT);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_RAFT+"+"+STR_JUMP);
+data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_RAFT+"+"+STR_JUMP);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_RAFT+"+"+STR_JUMP);
+data_path_conditions(exit_name_l0, _dk_spawn_item0, STR_RAFT+"+"+STR_JUMP);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -3241,7 +3961,13 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row5,  '76'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$10,  0); // RGT 0, to Overworld
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_RAFT);
+////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_RAFT);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_RAFT);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_RAFT);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -3263,6 +3989,12 @@ g.dm_rm[?"TriforceBarrier1"+dk_SceneName] = rm;
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$18,  0); // LFT 0, to Overworld
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$10,  '74'+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
 
 
 
@@ -3321,7 +4053,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$16,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$08,  '82'+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3353,7 +4089,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$08,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$16,  '82'+EXL1_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3387,7 +4127,22 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows5,  clmA,row0-$04,  '83'+EXL0_); /
 data_exit(EXR1,etA0,1,  clm2,row5,  CLMS2,ROWS1,  clmA,row0+$12,  '84'+EXL0_); // RGT 1, 
 
 
-//data_rando_scene01("_00"+"_02"+"_02"+"_00"+"_00",rm);
+////data_rando_scene01("_00"+"_02"+"_02"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_r1);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l1);
+
+data_path_conditions(exit_name_r1, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_r1, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_r1, exit_name_l1);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r1, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_l1);
+
+//data_path_conditions(exit_name_l1, exit_name_l1);
+
+data_scene_rando(rm);
 
 
 
@@ -3414,10 +4169,14 @@ data_spawn(rm+STR_PRXM,MegmA,$1,  $30<<3,(row0+$12)<<3); // Megmat  1
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '82'+EXR0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$1,  $34<<3,(row0+$16)<<3); // Magic Jar (Full)
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  $34<<3,(row0+$16)<<3); // Magic Jar (Full)
 
 
 //data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00"+STR_JAR,rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -3448,7 +4207,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  '82'+EXR1_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$14,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3475,7 +4238,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0C,  '87'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$16,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3502,7 +4269,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$16,  '87'+EXR1_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0C,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3535,6 +4306,18 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows4,  clmA,row0+$08,  '85'+EXL0_); /
 data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,ROWS1,  clmA,row0+$14,  '86'+EXL0_); // RGT 1, 
 
 
+data_path_conditions(exit_name_r0, exit_name_r1);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+
+data_path_conditions(exit_name_r1, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_r1, exit_name_l0, STR_JUMP);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_r1);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -3561,7 +4344,20 @@ data_exit(EXL1,etA0,1,  CLM2,row4,  CLMS2,ROWS1,  CLM3,row0+$12,  '89'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$06,  0); // RGT 0, to Overworld
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$3,  $33<<3,(row0+$18)<<3); // Magic Jar v3 (1 container) Refresh area to respawn
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$3,  $33<<3,(row0+$18)<<3); // Magic Jar v3 (1 container) Refresh area to respawn
+
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l1);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_l1);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l1, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_l1, _dk_spawn_item0);
+
+data_scene_rando(rm);
 
 
 
@@ -3587,7 +4383,10 @@ data_spawn(rm+STR_PRXM,MegmA,$1,  $26<<3,(row0+$12)<<3); // Megmat  1
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$16,  '88'+EXL1_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_r0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3620,7 +4419,20 @@ data_exit(EXL1,etA0,1,  CLM2,row4,  CLMS2,ROWS1,  CLM3,row3,  '8B'+EXR1_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$08,  '88'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$3,  $33<<3,y3); // Magic Jar v3 (1 container) Refresh area to respawn
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$3,  $33<<3,y3); // Magic Jar v3 (1 container) Refresh area to respawn
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l1);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_l1);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+//data_path_conditions(exit_name_l1, exit_name_l1);
+
+data_scene_rando(rm);
 
 
 
@@ -3656,6 +4468,20 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows5,  clmA,row0+$08,  '8A'+EXL0_); /
 data_exit(EXR1,etA0,1,  clm2,row5,  CLMS2,ROWS1,  clmA,row0+$15,  '8A'+EXL1_); // RGT 1, 
 
 
+//data_path_conditions(exit_name_r0, exit_name_r1);
+//data_path_conditions(exit_name_r0, exit_name_l1);
+
+//data_path_conditions(exit_name_r1, exit_name_l1);
+
+//data_path_conditions(exit_name_l0, exit_name_r1);
+//data_path_conditions(exit_name_l0, exit_name_l1);
+
+//data_path_conditions(exit_name_l1, exit_name_r1);
+
+//data_scene_rando(rm);
+
+
+
 
 
 
@@ -3681,7 +4507,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$16,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0C,  '8B'+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3691,7 +4521,7 @@ data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 //   --------------------------  8D  ---------------------------  
-//     
+//     Dragmire. Basic cave, mostly walkable water floor
 rm_num  = $8D;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+hex_str(dark_id), STR_Tile+area_EA+'125', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_DRAGMIRE, dk_SceneMusicThemeException+"01");
 
@@ -3715,7 +4545,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$18,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$12,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3725,7 +4559,7 @@ data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 //   --------------------------  8E  ---------------------------  
-//     
+//     Cave, high right exit decending to low left exit
 rm_num  = $8E;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+hex_str(dark_id), STR_Tile+area_EA+'113', STR_View+'00', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_DRAGMIRE, dk_SceneMusicThemeException+"01");
 
@@ -3742,7 +4576,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,$36,  '8F'+EXR0_); // LFT
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,$1C,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -3752,7 +4590,7 @@ data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 
 
 //   --------------------------  8F  ---------------------------  
-//     
+//     Cave, low right exit with climb to high left exit
 rm_num  = $8F;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+hex_str(dark_id), STR_Tile+area_EA+'112', STR_View+'00', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_DRAGMIRE, dk_SceneMusicThemeException+"01");
 
@@ -3775,6 +4613,11 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,$34,  '8E'+EXL0_); // RGT
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
 
 
 
@@ -3800,11 +4643,21 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$1,  $53<<3,(row0+$08)<<3); // Magic Jar v1: Red(Full) Refresh area to respawn
-data_spawn(rm+STR_PRIO,ItmF0,$A,  $3B<<3,(row0+$06)<<3); // PBag vA: 1000 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  $53<<3,(row0+$08)<<3); // Magic Jar v1: Red(Full) Refresh area to respawn
+_dk_spawn_item1 = data_spawn(rm+STR_PRIO,ItmF0,$A,  $3B<<3,(row0+$06)<<3); // PBag vA: 1000 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+data_path_conditions(exit_name_r0, _dk_spawn_item1);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+data_path_conditions(exit_name_l0, _dk_spawn_item1);
+
+data_scene_rando(rm);
+
 
 
 
@@ -3837,6 +4690,12 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
 
 
 
@@ -3870,6 +4729,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -3902,6 +4768,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -3934,6 +4807,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -3966,6 +4846,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -3998,6 +4885,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4030,6 +4924,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4062,6 +4963,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4094,6 +5002,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4126,6 +5041,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4158,6 +5080,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4190,6 +5119,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4222,6 +5158,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4254,6 +5197,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4286,6 +5236,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+//data_scene_rando(rm);
+
 
 
 
@@ -4312,6 +5269,13 @@ data_spawn(rm+STR_PRXM,MegmA,$1,  $28<<3,(row0+$0B)<<3); // Megmat  1
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$12,  0); // LFT 0, to Overworld
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$02,  'A3'+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+
+data_scene_rando(rm);
+
 
 
 
@@ -4342,7 +5306,11 @@ data_exit(EXU0,etA0,0,  $0C,row_e0,  $08,ROWS5,  $0F,row_e4,  0); // UP  0, Pit 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  'A2'+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01"+STR_Pit+"8",rm);
+//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01"+STR_Pit+"8",rm);
+//data_path_conditions(exit_name_r0, exit_name_r0);
+data_path_conditions(exit_name_u0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -4373,7 +5341,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  'A1'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$14,  'A3'+EXL1_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -4410,6 +5382,16 @@ data_exit(EXL1,etA0,1,  CLM2,row4,  CLMS2,rows1-row4,  CLM3,row0+$16,  'A2'+EXR0
 
 
 //data_rando_scene01("_00"+"_00"+"_02"+"_01"+"_00",rm);
+data_path_conditions(exit_name_l0, exit_name_l1);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_path_conditions(exit_name_l1, exit_name_l0);
+data_path_conditions(exit_name_l1, exit_name_d0);
+
+data_path_conditions(exit_name_d0, exit_name_l0);
+data_path_conditions(exit_name_d0, exit_name_l1);
+
+data_scene_rando(rm);
 
 
 
@@ -4449,7 +5431,17 @@ data_Elev(EXD0_+EXU0_, clm3,row0+$0D);                                          
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0F,  'AA'+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_01",rm);
+//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_01",rm);
+data_path_conditions(exit_name_r0, exit_name_d0);
+data_path_conditions(exit_name_r0, exit_name_u0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_u0);
+
+data_path_conditions(exit_name_u0, exit_name_r0);
+data_path_conditions(exit_name_u0, exit_name_d0);
+
+data_scene_rando(rm);
 
 
 
@@ -4478,7 +5470,17 @@ data_Elev(EXD0_+EXU0_, clm3,row0+$0D);                                          
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  'A7'+EXR0_); // LFT 0, 
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_01",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_01",rm);
+data_path_conditions(exit_name_l0, exit_name_d0);
+data_path_conditions(exit_name_l0, exit_name_u0);
+
+data_path_conditions(exit_name_d0, exit_name_l0);
+data_path_conditions(exit_name_d0, exit_name_u0);
+
+data_path_conditions(exit_name_u0, exit_name_l0);
+data_path_conditions(exit_name_u0, exit_name_d0);
+
+data_scene_rando(rm);
 
 
 
@@ -4506,7 +5508,11 @@ data_Elev(EXU0_, clm3,row0+$16);                                                
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$17,  'A7'+EXR1_); // LFT 0, 
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
+data_path_conditions(exit_name_l0, exit_name_u0);
+data_path_conditions(exit_name_u0, exit_name_l0);
+
+data_scene_rando(rm);
 
 
 
@@ -4547,6 +5553,17 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows4,  clmA,$2C,  'A5'+EXL0_); // RGT
 data_exit(EXR1,etA0,1,  clm2,row5,  CLMS2,rows5,  clmA,row3,  'A6'+EXL0_); // RGT 1, 
 
 
+data_path_conditions(exit_name_r0, exit_name_r1);
+data_path_conditions(exit_name_r0, exit_name_l0);
+
+data_path_conditions(exit_name_r1, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_r1, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r1);
+
+data_scene_rando(rm);
+
 
 
 
@@ -4567,13 +5584,20 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,(row3+$01)<<3); // v1: Light w/ CANDLE
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'A7'+EXL0_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmE0,$1,  $22<<3,y3); // v1 Magic Jar(Full)
-data_spawn(rm+STR_PRIO,ItmAD,$1,  ($18<<3)+4,y3); // MASK
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $0E<<3,y3); // PBag v8 500 
-data_spawn(rm+STR_PRIO,ItmF0,$8,  $2C<<3,y3); // PBag v8 500 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  $22<<3,y3); // v1 Magic Jar(Full)
+_dk_spawn_item1 = data_spawn(rm+STR_PRIO,ItmAD,$1,  ($18<<3)+4,y3); // MASK
+_dk_spawn_item2 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $0E<<3,y3); // PBag v8 500 
+_dk_spawn_item3 = data_spawn(rm+STR_PRIO,ItmF0,$8,  $2C<<3,y3); // PBag v8 500 
 
 
 //data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
+//data_path_conditions(exit_name_r0, exit_name_r0);
+data_path_conditions(exit_name_r0, _dk_spawn_item0);
+data_path_conditions(exit_name_r0, _dk_spawn_item1);
+data_path_conditions(exit_name_r0, _dk_spawn_item2);
+data_path_conditions(exit_name_r0, _dk_spawn_item3);
+
+data_scene_rando(rm);
 
 
 
@@ -4607,7 +5631,11 @@ data_exit(EXU0,etA4,0,  $0C,row_e0,  $28,ROWS_E0,  clm1-$01,row_e4,  'A7'+EXD0_)
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  'A4'+EXR0_); // LFT 0, 
 
 
-data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01"+STR_Pit+"8",rm);
+//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01"+STR_Pit+"8",rm);
+//data_path_conditions(exit_name_l0, exit_name_l0);
+data_path_conditions(exit_name_u0, exit_name_l0);
+
+//data_scene_rando(rm);
 
 
 
@@ -4657,7 +5685,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$12,  area_TB+'64'+E
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$06,  'B1'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+
+data_scene_rando(rm);
 
 
 
@@ -4687,6 +5719,10 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$13,  'B2'+EXL0_); /
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+object_get_name(Challenge_IntermittentPlatformSequence),rm);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+
+data_scene_rando(rm);
 
 
 
@@ -4717,7 +5753,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$12,  'B1'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$08,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -4747,6 +5787,12 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$15,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$02,  0); // RGT 0, to Overworld
 
 
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"+"+STR_STABDOWN);
+
+data_scene_rando(rm);
+
+
 
 
 
@@ -4768,6 +5814,12 @@ data_spawn(rm+STR_PRXM,Myu_A,$1,  $58<<3,(row0+$0C)<<3); // Myu  1
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$11,  0); // LFT 0, to Overworld
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$00,  0); // RGT 0, to Overworld
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"+"+STR_STABDOWN);
+
+data_scene_rando(rm);
 
 
 
@@ -4795,7 +5847,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -4819,6 +5875,12 @@ data_spawn(rm+STR_PRXM,Blooby,$1,  $2C<<3,(row0+$0D)<<3,  1,$00); // Blooby 1
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to Overworld
+
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_STABDOWN);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"+"+STR_STABDOWN);
+
+data_scene_rando(rm);
 
 
 
@@ -4872,14 +5934,14 @@ dark_id     = 0;
 //   --------------------------  C0  ---------------------------  
 //     Cave, route from Dark Link to bottom of Death Valley
 rm_num  = $C0;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Dark+hex_str(dark_id), STR_Tile+area_EA+'160', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_EA+'160', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
 
 
 y3 = (row0+$13)<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($05<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($0C<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($13<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($64<<3)+4,(row0+$0B)<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($05<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($0C<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($13<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($64<<3)+4,(row0+$0B)<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 y3 = (row0+$0C)<<3;
 data_spawn(rm+STR_PRXM,GeruA,$1,  $2E<<3,(row0+$12)<<3); // Geru  3 
 data_spawn(rm+STR_PRXM,LowdA,$1,  $3A<<3,y3); // Lowder  1 
@@ -4894,7 +5956,11 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0A,  "C1"+EXL0_); /
 //data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0C,  "C1"+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -4906,13 +5972,13 @@ data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 //   --------------------------  C1  ---------------------------  
 //     Cave, route from Dark Link to bottom of Death Valley
 rm_num  = $C1;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Dark+hex_str(dark_id), STR_Tile+area_EA+'164', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_EA+'164', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
 
 
 y3 = (row0+$15)<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($26<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($38<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($56<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($26<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($38<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($56<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 y3 = (row0+$1A)<<3;
 y4 = (row0+$08)<<3;
 data_spawn(rm+STR_PRIO,SpPoA,$1,  $00<<3,(row0+$00)<<3); // BubbleSpawner  1 
@@ -4929,7 +5995,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$06,  "C0"+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$14,  "C2"+EXL0_); // RGT 0, 
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -4941,12 +6011,12 @@ data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 //   --------------------------  C2  ---------------------------  
 //     Cave, route from Dark Link to bottom of Death Valley
 rm_num  = $C2;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Dark+hex_str(dark_id), STR_Tile+area_EA+'161', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_EA+'161', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
 
 
 
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($0B<<3)+4,(row0+$13)<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($50<<3)+4,(row0+$15)<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($0B<<3)+4,(row0+$13)<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($50<<3)+4,(row0+$15)<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,Blooby,$1,  $4D<<3,(row0+$0F)<<3,  1,$00); // Blooby 1
 data_spawn(rm+STR_PRXM,BagiA,$1,  $2A<<3,(row0+$1A)<<3); // Bagin
 data_spawn(rm+STR_PRXM,DairA,$1,  $1E<<3,(row0+$0E)<<3); // Daira  1 
@@ -4957,6 +6027,10 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$02,  "C3"+EXL0_); /
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"+"+STR_STABDOWN);
+
+data_scene_rando(rm);
 
 
 
@@ -4968,13 +6042,13 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$02,  "C3"+EXL0_); /
 //   --------------------------  C3  ---------------------------  
 //     Cave, route from Dark Link to bottom of Death Valley
 rm_num  = $C3;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Dark+hex_str(dark_id), STR_Tile+area_EA+'162', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_EA+'162', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
 
 
 y3=(row0+$15)<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($22<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($32<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($49<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($22<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($32<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($49<<3)+4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,GumaA,$1,  $1E<<3,(row0+$14)<<3); // Guma  1
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $30<<3,(row0+$10)<<3); // Moa  2 
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $0C<<3,(row0+$12)<<3); // Bot  1
@@ -4987,6 +6061,10 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$11,  "C6"+EXL0_); /
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+
+data_scene_rando(rm);
 
 
 
@@ -5006,7 +6084,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$11,  "C6"+EXL0_); /
 //   --------------------------  C6  ---------------------------  
 //     Cave, route from Dark Link to bottom of Death Valley
 rm_num  = $C6;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Dark+hex_str(dark_id), STR_Tile+area_EA+'166', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
+set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_EA+'166', STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00', MapAreaName_DATAKEY+_MapAreaName_VALLEY_OF_DEATH);
 
 
 data_spawn(rm+STR_PRIO,SpPoA,$1,  $00<<3,(row0+$00)<<3); // BubbleSpawner  1 
@@ -5020,7 +6098,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  "C3"+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$08,  0); // RGT 0, to Overworld
 
 
-data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 

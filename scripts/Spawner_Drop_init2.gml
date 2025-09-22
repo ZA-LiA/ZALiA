@@ -1,34 +1,41 @@
 /// Spawner_Drop_init2()
 
 
-var _i, _val, _len, _pos, _dk;
+var _i, _val, _len, _pos, _dk, _tsrc;
 
 
-var _TYPE = 0;
+var _type = 0;
 var _ts_nums = 0;
 
-/*
-TILESET = ts_Man_made_2a_WRB; // TileSet
+dg_XY_TS = ds_grid_create(4,2);
 
-if (g.dungeon_num 
-&&  g.dungeon_num<8 )
+
+
+
+_dk = STR_Drop+STR_Spawner+g.rm_name;
+var _tileset = global.DropSpawner_dm[?_dk+STR_Tileset];
+if(!is_undefined(_tileset))
 {
-    var    _DUNGEON_NUM = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
-    switch(_DUNGEON_NUM){
-    case  1:{TILESET=ts_DungeonA01; break;}
-    case  2:{TILESET=ts_DungeonB01; break;}
-    case  3:{TILESET=ts_DungeonC01; break;}
-    case  4:{TILESET=ts_DungeonD01; break;}
-    case  5:{TILESET=ts_DungeonE01; break;}
-    case  6:{TILESET=ts_DungeonF01; break;}
-    case  7:{TILESET=ts_DungeonG01; break;}
-    }//switch(_DUNGEON_NUM)
-    
-    if (val(f.dm_rando[?STR_Randomize+STR_Dungeon+STR_Tileset]))
-    {
-        TILESET = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(TILESET)], TILESET)
-    }
-    
+    TILESET = _tileset;
+    // top left
+    _tsrc = val(global.DropSpawner_dm[?_dk+STR_TSRC+"A"]);
+    dg_XY_TS[#0,0] = ((_tsrc>>0)&$F) <<3; // ts x
+    dg_XY_TS[#0,1] = ((_tsrc>>4)&$F) <<3; // ts y
+    // top right
+    _tsrc = val(global.DropSpawner_dm[?_dk+STR_TSRC+"9"]);
+    dg_XY_TS[#1,0] = ((_tsrc>>0)&$F) <<3; // ts x
+    dg_XY_TS[#1,1] = ((_tsrc>>4)&$F) <<3; // ts y
+    // bottom left
+    _tsrc = val(global.DropSpawner_dm[?_dk+STR_TSRC+"6"]);
+    dg_XY_TS[#2,0] = ((_tsrc>>0)&$F) <<3; // ts x
+    dg_XY_TS[#2,1] = ((_tsrc>>4)&$F) <<3; // ts y
+    // bottom right
+    _tsrc = val(global.DropSpawner_dm[?_dk+STR_TSRC+"5"]);
+    dg_XY_TS[#3,0] = ((_tsrc>>0)&$F) <<3; // ts x
+    dg_XY_TS[#3,1] = ((_tsrc>>4)&$F) <<3; // ts y
+}
+else
+{
     _ts_nums = $E0E1F0F1;
     
     if (g.dg_RmTile_solid[# xl>>3   ,(yt>>3)-1] 
@@ -37,131 +44,84 @@ if (g.dungeon_num
         _ts_nums &= $0000FFFF;
         _ts_nums |= $E2E30000;
     }
-}
-else
-{
-    if(!is_undefined(dk_spawn))
+    
+    
+    if (g.dungeon_num 
+    &&  g.dungeon_num<8 )
     {
-        for(_i=$1; _i<=$F; _i++)
+        var    _DUNGEON_NUM = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
+        switch(_DUNGEON_NUM){
+        default:{_tileset=ts_DungeonA01; break;}
+        case  1:{_tileset=ts_DungeonA01; break;}
+        case  2:{_tileset=ts_DungeonB01; break;}
+        case  3:{_tileset=ts_DungeonC01; break;}
+        case  4:{_tileset=ts_DungeonD01; break;}
+        case  5:{_tileset=ts_DungeonE01; break;}
+        case  6:{_tileset=ts_DungeonF01; break;}
+        case  7:{_tileset=ts_DungeonG01; break;}
+        }//switch(_DUNGEON_NUM)
+        
+        if (global.RandoDungeonTilesets_enabled)
         {
-            _val=val(g.dm_spawn[?dk_spawn+STR_Data+hex_str(_i)]);
-            if (is_string(_val))
+            _tileset = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(_tileset)], _tileset)
+        }
+    }
+    else
+    {
+        _type = undefined;
+        
+        if(!is_undefined(dk_spawn))
+        {
+            for(_i=$1; _i<=$F; _i++)
             {
-                    _pos =string_pos(   STR_Type,_val);
-                if (_pos)
-                {   _pos+=string_length(STR_Type);
-                    _val =string_copy(_val, _pos, string_length(_val)-(_pos-1));
-                    _TYPE=str_hex(_val);
-                    continue;//_i
+                _val = g.dm_spawn[?dk_spawn+STR_Data+hex_str(_i)];
+                if(!is_undefined(_val))
+                {
+                        _pos =string_pos(   STR_Type,_val);
+                    if (_pos)
+                    {   _pos+=string_length(STR_Type);
+                        _val =string_copy(_val, _pos, string_length(_val)-(_pos-1));
+                        _type = str_hex(_val);
+                        continue;//_i
+                    }
                 }
+            }
+        }
+        
+        if(!is_undefined(_type))
+        {
+            _type = clamp(_type,0,4);
+            
+            switch(_type){
+            default:{_tileset=ts_DungeonA01; break;}
+            case  0:{_tileset=ts_DungeonG01; break;}
+            case  1:{_tileset=ts_DungeonA01; break;}
+            case  2:{_tileset=ts_DungeonB01; break;}
+            case  3:{_tileset=ts_DungeonC01; break;}
+            case  4:{_tileset=ts_DungeonH01; break;}
             }
         }
     }
     
-    _TYPE = clamp(_TYPE, 0,4);
+    
+    TILESET = val(_tileset,ts_DungeonA01);
     
     
-    var                                              _ADD  = $0000;
-    if!(yt>>3)                                       _ADD += $0202;
-    else{
-        if (g.dg_RmTile_solid[# xl>>3   ,(yt>>3)-1]) _ADD += $0200;
-        if (g.dg_RmTile_solid[#(xl>>3)+1,(yt>>3)-1]) _ADD += $0002;
-    }
-    var _TOP = $0001; // Area_PalcG
-    var _BTM =  _TOP+$0404;
-        _TOP = (_TOP+_ADD) <<$10;
-    //
-            _ts_nums = _TOP|_BTM;
-    switch(_TYPE){
-    case 1:{_ts_nums+=$10101010; break;}
-    case 2:{_ts_nums+=$20202020; break;}
-    case 3:{_ts_nums+=$30303030; break;}
-    case 4:{_ts_nums+=$40404040; break;}
-    }
+    
+    
+    //               $(FF)FFFFFF >>$18    top left
+    dg_XY_TS[#0,0] = ((_ts_nums>>$18)&$0F) <<3; // ts x
+    dg_XY_TS[#0,1] = ((_ts_nums>>$18)&$F0) >>1; // ts y
+    //               $FF(FF)FFFF >>$10    top right
+    dg_XY_TS[#1,0] = ((_ts_nums>>$10)&$0F) <<3; // ts x
+    dg_XY_TS[#1,1] = ((_ts_nums>>$10)&$F0) >>1; // ts y
+    //               $FFFF(FF)FF >>$08    btm left
+    dg_XY_TS[#2,0] = ((_ts_nums>>$08)&$0F) <<3; // ts x
+    dg_XY_TS[#2,1] = ((_ts_nums>>$08)&$F0) >>1; // ts y
+    //               $FFFFFF(FF) >>$00    btm right
+    dg_XY_TS[#3,0] = ((_ts_nums>>$00)&$0F) <<3; // ts x
+    dg_XY_TS[#3,1] = ((_ts_nums>>$00)&$F0) >>1; // ts y
 }
-*/
-
-
-TILESET = ts_DungeonA01;
-
-
-_ts_nums = $E0E1F0F1;
-
-if (g.dg_RmTile_solid[# xl>>3   ,(yt>>3)-1] 
-||  g.dg_RmTile_solid[#(xl>>3)+1,(yt>>3)-1] )
-{
-    _ts_nums &= $0000FFFF;
-    _ts_nums |= $E2E30000;
-}
-
-
-if (g.dungeon_num 
-&&  g.dungeon_num<8 )
-{
-    var    _DUNGEON_NUM = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
-    switch(_DUNGEON_NUM){
-    default:{TILESET=ts_DungeonA01; break;}
-    case  1:{TILESET=ts_DungeonA01; break;}
-    case  2:{TILESET=ts_DungeonB01; break;}
-    case  3:{TILESET=ts_DungeonC01; break;}
-    case  4:{TILESET=ts_DungeonD01; break;}
-    case  5:{TILESET=ts_DungeonE01; break;}
-    case  6:{TILESET=ts_DungeonF01; break;}
-    case  7:{TILESET=ts_DungeonG01; break;}
-    }//switch(_DUNGEON_NUM)
-    
-    if (global.RandoDungeonTilesets_enabled)
-    {
-        TILESET = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(TILESET)], TILESET)
-    }
-}
-else
-{
-    if(!is_undefined(dk_spawn))
-    {
-        for(_i=$1; _i<=$F; _i++)
-        {
-            _val=val(g.dm_spawn[?dk_spawn+STR_Data+hex_str(_i)]);
-            if (is_string(_val))
-            {
-                    _pos =string_pos(   STR_Type,_val);
-                if (_pos)
-                {   _pos+=string_length(STR_Type);
-                    _val =string_copy(_val, _pos, string_length(_val)-(_pos-1));
-                    _TYPE=str_hex(_val);
-                    continue;//_i
-                }
-            }
-        }
-    }
-    
-    _TYPE = clamp(_TYPE,0,4);
-    
-    switch(_TYPE){
-    default:{TILESET=ts_DungeonA01; break;}
-    case  0:{TILESET=ts_DungeonG01; break;}
-    case  1:{TILESET=ts_DungeonA01; break;}
-    case  2:{TILESET=ts_DungeonB01; break;}
-    case  3:{TILESET=ts_DungeonC01; break;}
-    case  4:{TILESET=ts_DungeonH01; break;}
-    }
-}
-
-
-
-dg_XY_TS = ds_grid_create(4,2);
-//               $(FF)FFFFFF >>$18    top left
-dg_XY_TS[#0,0] = ((_ts_nums>>$18)&$0F) <<3; // ts x
-dg_XY_TS[#0,1] = ((_ts_nums>>$18)&$F0) >>1; // ts y
-//               $FF(FF)FFFF >>$10    top right
-dg_XY_TS[#1,0] = ((_ts_nums>>$10)&$0F) <<3; // ts x
-dg_XY_TS[#1,1] = ((_ts_nums>>$10)&$F0) >>1; // ts y
-//               $FFFF(FF)FF >>$08    btm left
-dg_XY_TS[#2,0] = ((_ts_nums>>$08)&$0F) <<3; // ts x
-dg_XY_TS[#2,1] = ((_ts_nums>>$08)&$F0) >>1; // ts y
-//               $FFFFFF(FF) >>$00    btm right
-dg_XY_TS[#3,0] = ((_ts_nums>>$00)&$0F) <<3; // ts x
-dg_XY_TS[#3,1] = ((_ts_nums>>$00)&$F0) >>1; // ts y
 
 
 
@@ -209,7 +169,7 @@ GO_init_palidx(palidx);
 GO_depth_init(DEPTH_ENEMY_PROJECTILE);
 Projectile_DEPTH  = depth;
 Projectile_DEPTH -= 1;
-//Projectile_DEPTH += sign_(_TYPE==3); // _TYPE 3's graphic doesn't have a spout so draw projectile behind instead of infront.
+//Projectile_DEPTH += sign_(_type==3); // _type 3's graphic doesn't have a spout so draw projectile behind instead of infront.
 
 
 switch(ver){

@@ -116,6 +116,11 @@ cp1Y        = _CS_COORD_DEF; //
 cp1_xoff    = 0; // 
 cp1_yoff    = 0; // 
 
+cp2X        = _CS_COORD_DEF; // 
+cp2Y        = _CS_COORD_DEF; // 
+cp2_xoff    = 0; // 
+cp2_yoff    = 0; // 
+
 
 
 

@@ -33,8 +33,11 @@ csLft2Y = yt + csLft2_yoff; // Bottom
 
 if (id==g.pc)
 {
-    // cp: Colliding Point 1
-    cp1X    = xl + cp1_xoff; // 
-    cp1Y    = yt + cp1_yoff; // 
+    // cp: Colliding Point
+    cp1X = xl + cp1_xoff; // 
+    cp1Y = yt + cp1_yoff; // 
+    
+    cp2X = xl + cp2_xoff; // 
+    cp2Y = yt + cp2_yoff; // 
 }
 

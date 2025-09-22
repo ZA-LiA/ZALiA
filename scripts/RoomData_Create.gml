@@ -45,9 +45,11 @@ if(!_REINITIALIZING)
 // -------------------------------------------------------------------------
 // -------------------------------------------------------------------------
 // -------------------------------------------------------------------------
-var _i,_j, _idx, _num, _val, _len, _count;
+var _i,_j,_k,_m, _idx, _num, _val, _len, _count;
 var _clms,_rows, _clm,_row;
 var _str, _dk;
+var _scene_name;
+var _debug_str;
 
 
 dl_used_tiled_files = ds_list_create();
@@ -633,6 +635,7 @@ exit_name_u1 = _val;
 exit_name_u2 = _val;
 exit_name_u3 = _val;
 //                  //
+
 
 
 
@@ -1537,9 +1540,20 @@ ds_list_destroy(_dl_id_key);       _dl_id_key      =undefined;
 
 
 // --------------------------------------------------------------------------------------------
-if (DEV)
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------
+if (DEV) // Because this will save to local dir which needs to be moved to included files during development
 {
     var _dm_save_data = ds_map_create();
+    _dm_save_data[?STR_Tile+STR_File+"_Dimensions"] = ds_map_write(global.dm_scene_wh);
     _dm_save_data[?"scene_data"]       = ds_map_write(g.dm_rm);
     _dm_save_data[?"spawn_data"]       = ds_map_write(g.dm_spawn);
     _dm_save_data[?"dungeon_data"]     = ds_map_write(g.dm_dungeon);
@@ -1612,24 +1626,54 @@ ds_grid_clear( g.PAUSE_MENU.dg_dngn_map, 0);
 // --------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------
 /*
-with(g.ow)
+// Scene Rando Debug
+repeat(4) show_debug_message("");
+show_debug_message("// ----------------------------------------------------------");
+var _dl_group_ids = ds_list_create();
+var _dl_group_scenes = ds_list_create();
+var _DATAKEY0 = STR_Group+STR_ID+STR_List;
+var _DATAKEY1 = STR_Group+STR_ID+STR_Index;
+var _data = global.dm_scene_rando[?_DATAKEY0];
+if(!is_undefined(_data))
 {
-    sdm(""); sdm("");
-    _count = ds_grid_width(dg_map);
-    for(_i=0; _i<_count; _i++)
+    ds_list_read(_dl_group_ids, _data);
+    var          _GROUP_COUNT = ds_list_size(_dl_group_ids);
+    for(_i=0; _i<_GROUP_COUNT; _i++)
     {
-        sdm("$"+hex_str(_i)+" ----------------------------------------------------");
-        sdm("spawn_datakey '"+dg_map[#_i,$00]+"'");
-        sdm("owrc $"+hex_str(dg_map[#_i,$01]));
-        //sdm("owx $" +hex_str(dg_map[#_i,$02]));
-        //sdm("owy $" +hex_str(dg_map[#_i,$03]));
-        sdm("obj '"+obj_name(dg_map[#_i,$04])+"'");
-        sdm("map_num "+string(dg_map[#_i,$06]));
-        sdm("data $"+hex_str(dg_map[#_i,$07]));
-        sdm(""); sdm("");
+        show_debug_message("GROUP ID $"+hex_str(_i)+":  "+_dl_group_ids[|_i]);
+        
+        ds_list_clear(_dl_group_scenes);
+        _data = global.dm_scene_rando[?_DATAKEY1+hex_str(_i)+STR_Scene+STR_List];
+        if(!is_undefined(_data))
+        {
+            ds_list_read(_dl_group_scenes, _data);
+            show_debug_message("GROUP ID $"+hex_str(_i)+" "+STR_Scene+STR_Count+":  $"+hex_str(ds_list_size(_dl_group_scenes)));
+        }
+        else
+        {
+            show_debug_message("!!! "+_DATAKEY1+hex_str(_i)+STR_Scene+STR_List+" is undefined !!!");
+        }
+        
+        show_debug_message("");
     }
 }
+else
+{
+    show_debug_message("!!! "+_DATAKEY0+" is undefined !!!");
+    show_debug_message("");
+}
+
+repeat(4) show_debug_message("");
+
+ds_list_destroy(_dl_group_ids); _dl_group_ids=undefined;
+ds_list_destroy(_dl_group_scenes); _dl_group_scenes=undefined;
 */
+
+
+
+
+
+
 
 
 /*
@@ -1683,9 +1727,75 @@ for(_i=0; _i<ds_list_size(g.dl_AREA_NAME); _i++)
 
 
 
+
+
+
+
+
+/* // Find out which scenes have more than one exit that goes to the same reen
+var _exit_name, _same_goto_reen, _goto_reen;
+var _dl_goto_reen = ds_list_create();
+//var _dl_goto_owrc = ds_list_create();
+for(_i=0; _i<ds_list_size(g.dl_AREA_NAME); _i++) // each area
+{
+    for(_j=0; _j<$100; _j++) // each scene of area _i
+    {
+        _scene_name = g.dl_AREA_NAME[|_i]+hex_str(_j);
+        if(!is_undefined(g.dm_rm[?_scene_name+dk_BackgroundColor]))
+        {
+            _same_goto_reen = false;
+            ds_list_clear(_dl_goto_reen);
+            //ds_list_clear(_dl_goto_owrc);
+            _num = 1;
+            while (true)
+            {
+                _exit_name = g.dm_rm[?_scene_name+STR_Exit+hex_str(_num++)+STR_Name];
+                if (is_undefined(_exit_name)) break;//while (true)
+                _goto_reen = g.dm_rm[?string(_exit_name)+STR_goto_reen];
+                if(!is_undefined(_goto_reen))
+                {
+                    if (ds_list_find_index(_dl_goto_reen,_goto_reen)!=-1)
+                    {
+                        _same_goto_reen = true;
+                        break;//while (true)
+                    }
+                    else
+                    {
+                        ds_list_add(_dl_goto_reen,_goto_reen);
+                    }
+                }
+            }
+            
+            if (_same_goto_reen)
+            {
+                _num = 1;
+                show_debug_message("=================================");
+                while (true)
+                {
+                    _exit_name = g.dm_rm[?_scene_name+STR_Exit+hex_str(_num++)+STR_Name];
+                    if (is_undefined(_exit_name)) break;//while (true)
+                    _goto_reen = g.dm_rm[?string(_exit_name)+STR_goto_reen];
+                    if(!is_undefined(_goto_reen)) show_debug_message("Exit: "+_exit_name+", GotoReen: "+_goto_reen);
+                }
+            }
+            //if (is_undefined(g.dm_rm[?_scene_name+STR_OWRC]))
+        }
+    }
+}
+ds_list_destroy(_dl_goto_reen); _dl_goto_reen=undefined;
+//ds_list_destroy(_dl_goto_owrc); _dl_goto_owrc=undefined;
+//g.dm_rm[?_EXIT_NAME+STR_goto_reen]  g.dm_rm[?_EXIT_NAME+STR_OWRC]  g.dm_rm[?_RM_NAME+STR_Exit+hex_str(_count)+STR_Name]  val(g.dm_rm[?_RM_NAME+STR_Exit+STR_Count])
+*/
+
+
+
+
+
+
+
+/*
 // Output which Tiled files aren't used
-if (DEV 
-&&  g.FileCleaning01_STATE )
+if (g.FileCleaning01_STATE)
 {
     var _dk1,_dk2;
     var _file_name1,_file_name2;
@@ -1716,40 +1826,13 @@ if (DEV
                 g.FileCleaning01_dm[?_file_name1+STR_Tile+STR_File+STR_Num] = _num;
                 //sdm(_file_name2);
             }
-            /*
-            _num = string(_j);
-            _num = string_repeat("0",3-string_length(_num)) + _num;
-            
-            // _file_name2 example: "PalcA_003"
-            _file_name2  = string_letters(g.dl_AREA_NAME[|_i])+"_"+_num;
-            
-            // _file_name1 example: "rm_tile_data/PalcA/PalcA_003.json"
-            _file_name1  = "rm_tile_data";
-            _file_name1 += "/";
-            _file_name1 += string_letters(g.dl_AREA_NAME[|_i]);
-            _file_name1 += "/";
-            _file_name1 += _file_name2;
-            _file_name1 += ".json";
-            
-            if (file_exists(_file_name1) 
-            &&  ds_list_find_index(dl_used_tiled_files,_file_name2)==-1)
-            {
-                _dk = STR_Tile+STR_File+STR_Count;
-                       g.FileCleaning01_dm[?_dk] = val(g.FileCleaning01_dm[?_dk])+1;
-                _num = g.FileCleaning01_dm[?_dk];
-                
-                g.FileCleaning01_dm[?STR_Tile+STR_File+hex_str(_num)+STR_Name] = _file_name2;
-                //g.FileCleaning01_dm[?STR_Tile+STR_File+hex_str(_num)+STR_Area+STR_Pre] = _file_name2;
-                g.FileCleaning01_dm[?_file_name2+STR_Tile+STR_File+STR_Num] = _num;
-                //sdm(_file_name2);
-            }
-            */
         }
         sdm("");
     }
     ds_list_destroy(dl_used_tiled_files); dl_used_tiled_files=undefined;
     sdm(""); sdm(""); sdm("");
 }
+*/
 
 
 

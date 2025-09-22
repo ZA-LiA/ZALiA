@@ -31,6 +31,7 @@ if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
             if(!surface_exists(dl_STAR_SKY[|_j])) dl_STAR_SKY[|_j] = surface_create(g.rm_w,g.rm_h);
             
             surface_set_target(dl_STAR_SKY[|_j]);
+            draw_clear_alpha(c_black,0);
             _idx = (dg_STAR_SKY[#_i,2]+_j) &$3;
             draw_point_colour(_x,_y, p.dg_color_seq[#1,_idx]);
             surface_reset_target();
@@ -52,6 +53,7 @@ if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
         surface_copy_part(_surf, 0,0, dl_STAR_SKY[|_i], _X1,_Y1,_W,_H);
         
         surface_set_target(dl_STAR_SKY[|_i]);
+        draw_clear_alpha(c_black,0);
         
         draw_surface_ext(_surf, _X0,    _Y0,  1, 1, 0,c_white,1); // row 1
         draw_surface_ext(_surf, _X0+_W, _Y0,  1, 1, 0,c_white,1); // row 1

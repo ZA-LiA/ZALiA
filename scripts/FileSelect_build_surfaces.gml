@@ -8,6 +8,7 @@ switch(state)
     {
         MAIN_surf = surface_create(MAIN_surf_W,MAIN_surf_H);
         surface_set_target(MAIN_surf);
+        draw_clear_alpha(c_black,0);
         
         var _i,_j, _idx, _val;
         var _x,_y, _x1,_y1;
@@ -199,11 +200,13 @@ if ((state==State_REGISTER  && !surface_exists(REGISTER_surf))
         case State_REGISTER:{
         REGISTER_surf = surface_create(REGISTER_surf_W,REGISTER_surf_H);
         surface_set_target(REGISTER_surf);
+        draw_clear_alpha(c_black,0);
         break;}
         
         case State_ELIMINATE:{
         ELIMINATE_surf = surface_create(ELIMINATE_surf_W,ELIMINATE_surf_H);
         surface_set_target(ELIMINATE_surf);
+        draw_clear_alpha(c_black,0);
         break;}
     }
     
@@ -360,6 +363,7 @@ if (string_length(p.pal_rm_curr)) // otherwise some text will be wrong color unt
                     var _SURF_H = viewH();
                     var _SURF = surface_create(_SURF_W,_SURF_H);
                     surface_set_target(_SURF);
+                    draw_clear_alpha(c_black,0);
                     
                     var _DIST1 = sprite_get_width(FONT_SPRITE1);
                     var _DIST2 = _DIST1+$1;

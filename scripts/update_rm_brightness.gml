@@ -4,9 +4,9 @@
 var _BRIGHTNESS_PREV = g.rm_brightness;
 
 
+var _SCENE_IS_RANDO = global.SceneRando_enabled && g.rm_name!=val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
 if (pal_rm_dark_idx<0 
-||  (global.SceneRando_enabled && g.rm_name!=val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name)) )
-//||  (global.SceneRando_enabled && g.rm_name!=val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name) && g.rm_brightness>=g.RM_BRIGHTNESS_MAX) )
+||  (_SCENE_IS_RANDO && global.SceneRando_scene_brightness_control==1) )
 {
     set_rm_brightness(g.RM_BRIGHTNESS_MAX);
 }

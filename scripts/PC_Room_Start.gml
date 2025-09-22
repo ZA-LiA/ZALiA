@@ -1,6 +1,6 @@
 /// PC_Room_Start()
 
-if (DEV) sdm(" PC_Room_Start()");
+show_debug_message(" PC_Room_Start()");
 dev_start_pc_with(); // Add items, spells, etc..
 
 

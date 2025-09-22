@@ -31,6 +31,7 @@ if (g.gui_window_can_draw)
                 if(!surface_exists(WINDOW_FRAME1_SRF)) WINDOW_FRAME1_SRF = surface_create(1,1);
                 surface_resize(    WINDOW_FRAME1_SRF, CLMS<<3, ROWS_DEF<<3);
                 surface_set_target(WINDOW_FRAME1_SRF);
+                draw_clear_alpha(c_black,0);
             }
             else
             {
@@ -47,6 +48,7 @@ if (g.gui_window_can_draw)
                 if(!surface_exists(WINDOW_FRAME2_SRF)) WINDOW_FRAME2_SRF = surface_create(1,1);
                 surface_resize(    WINDOW_FRAME2_SRF, CLMS<<3, ROWS_SHOP<<3);
                 surface_set_target(WINDOW_FRAME2_SRF);
+                draw_clear_alpha(c_black,0);
             }
             else
             {

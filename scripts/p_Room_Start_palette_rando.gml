@@ -34,7 +34,8 @@ if (room!=rmB_Title
                         _layer_name = g.dm_tile_file[? _dk+STR_Depth+STR_Layer+STR_Name];
                         if(!is_undefined(_depth) 
                         && !is_undefined(_layer_name) 
-                        &&  string_pos("STRUCTURE_FGWALL01_01",_layer_name) ) // use "STRUCTURE_FGWALL01_02" in the layer name so this doesn't run
+                        &&  string_pos("FGWALL01_01",_layer_name) ) // use "STRUCTURE_FGWALL01_02" in the layer name so this doesn't run
+                        //&&  string_pos("STRUCTURE_FGWALL01_01",_layer_name) ) // use "STRUCTURE_FGWALL01_02" in the layer name so this doesn't run
                         {
                             _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
                             if (_idx!=-1)
@@ -77,7 +78,8 @@ if (room!=rmB_Title
                         if(!is_undefined(_depth) 
                         && !is_undefined(_layer_name) )
                         {
-                            if (string_pos("STRUCTURE_BGWALL01_01",_layer_name)   // use "STRUCTURE_BGWALL01_02" in the layer name if you dont want this to run
+                            if (string_pos("BGWALL01_01",_layer_name)   // use "STRUCTURE_BGWALL01_02" in the layer name if you dont want this to run
+                            //if (string_pos("STRUCTURE_BGWALL01_01",_layer_name)   // use "STRUCTURE_BGWALL01_02" in the layer name if you dont want this to run
                             ||  string_pos("WINDOW01",_layer_name) )
                             {
                                 _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);

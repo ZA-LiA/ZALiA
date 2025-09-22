@@ -18,7 +18,8 @@ if(!ds_map_exists(Pal_Map,argument[0]))
     {
         var _num = sprite_get_width(_spr);
         var _surface = surface_create(_num,_colors);
-        surface_set_target(_surface)
+        surface_set_target(_surface);
+        draw_clear_alpha(c_black,0);
         draw_sprite(_spr,0,0,0);
     }
     

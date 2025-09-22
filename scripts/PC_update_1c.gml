@@ -9,6 +9,7 @@ GO_update_cs();
 // --------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------
 var _i,_j, _idx;
+var _clm,_row;
 
 control = 0;
 
@@ -20,7 +21,7 @@ var _row  = cp1Y>>3;
 if (is_in_grid(_clm,_row, _CLMS,_ROWS))
 {
     // E098. INSTA-KILL LIQUID ---------------------------------------------
-    if (g.dg_RmTile_Liquid[#_clm,_row]&$FF == TID_LQUID1 
+    if (g.dg_RmTile_Liquid[#_clm,_row]&$FF==TID_LQUID1 
     && !(cs&$4) )
     {   // E0A4
         aud_play_sound(get_audio_theme_track(STR_PC+STR_Damage));
@@ -33,7 +34,11 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
         }
         
         
-        if (g.DevTools_state && g.dev_invState&$3) _damage = 0; // g.dev_invState. 2: skip all, 1 skip dmg, 0 regular
+        if (g.DevTools_state 
+        &&  g.dev_invState&$3 )
+        {
+            _damage = 0; // g.dev_invState. 2: skip all, 1 skip dmg, 0 regular
+        }
         
         
         adjust_stat(-_damage, 0);
@@ -58,15 +63,22 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
     
     
     // SPIKES ----------------------------------------------------------
-    if (g.dg_RmTile_Spike[#_clm,_row]&$FF == TID_SPIKE1 
-    ||  g.dg_RmTile_Spike[#_clm,_row]&$FF == TID_SPIKE2 )
+    if(!iframes_timer)
     {
-        if(!iframes_timer 
-        && !ogr 
-        &&  cs&$4 )
+        if(!g.DevTools_state 
+        ||  g.dev_invState&$3!=2 )
         {
-            if(!g.DevTools_state 
-            ||  g.dev_invState&$3!=2 )
+            var _CLM1 = (xc-4)>>3;
+            var _CLM2 = (xc+3)>>3;
+            var _ROW1 = cp1Y>>3; // pc bottom
+            var _ROW2 = cp2Y>>3; // pc top
+            // Floor spikes
+            //if (cs&$4 && !ogr)
+            if ((is_in_grid(_CLM1,_ROW1, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM1,_ROW1]&$FF, TID_SPIKE1,TID_SPIKE2)) 
+            ||  (is_in_grid(_CLM2,_ROW1, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM2,_ROW1]&$FF, TID_SPIKE1,TID_SPIKE2)) 
+            // Ceiling spikes
+            ||  (is_in_grid(_CLM1,_ROW2, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM1,_ROW2]&$FF, TID_SPIKE1,TID_SPIKE2)) 
+            ||  (is_in_grid(_CLM2,_ROW2, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM2,_ROW2]&$FF, TID_SPIKE1,TID_SPIKE2)) )
             {
                 PC_take_damage(noone,$10); // Spike Damage
                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -86,7 +98,8 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
             _clm = csBtm1X>>3;
             _row = csBtm1Y>>3;
         if(!is_in_grid(_clm,_row, _CLMS,_ROWS) 
-        || !isVal(g.dg_RmTile_Break[#_clm,_row]&$FF, TID_BREAK2,TID_BREAK4) ){
+        || !isVal(g.dg_RmTile_Break[#_clm,_row]&$FF, TID_BREAK2,TID_BREAK4) )
+        {
             _clm = csBtm2X>>3;
             _row = csBtm2Y>>3;
         }
@@ -144,8 +157,8 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
                 // remove unique right away
                 for(_j=0; _j<4; _j++)
                 {
-                    _clm2 = _clm+(_j&1);
-                    _row2 = _row+(_j>1);
+                    _clm2 = _clm + (_j&1);
+                    _row2 = _row + (_j>1);
                     if (is_in_grid(_clm2,_row2, g.rm_clms,g.rm_rows))
                     {   // E105
                         g.dg_RmTile_Break[#_clm2,_row2] = 0;
@@ -168,7 +181,7 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
     _clm =  cp1X    >>3;
     _row = (cp1Y-4) >>3;
     if (is_in_grid(_clm,_row, _CLMS,_ROWS) 
-    &&  g.dg_RmTile_Liquid[#_clm,_row]&$FF == TID_LQUID2 )
+    &&  g.dg_RmTile_Liquid[#_clm,_row]&$FF==TID_LQUID2 )
     {
         control |= (control_MOVE1 | control_DRAW1 | control_SOUND1);
     }
@@ -195,22 +208,22 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
 
 // --------------------------------------------------------------------
 // ----------------------------  EXIT CHECKS  ------------------------------
-if (state != state_NORMAL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if (g.exit_leave)          exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if (state!=state_NORMAL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if (g.exit_leave)        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 var _exit = noone;
 var _CARRY = is_undefined(colliding_elevator) || !instance_exists(colliding_elevator);
 var _W  = $10;
 var _H  = hh+_CARRY;
-var _XL = x-(_W>>1);
+var _XL = x - (_W>>1);
 var _YT = yt;
 with(Exit)
 {
     if (open 
     &&  rectInRect(BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h, _XL,_YT,_W,_H) )
     {
-        _exit=id;
+        _exit = id;
         break;//with(Exit)
     }
 }
@@ -226,11 +239,11 @@ if (_exit)
 
 if(!_exit 
 &&  g.in_safe_encounter 
-&&  g.exit_enter.exitNum&$F0 == g.EXIT_DIR_MID )
+&&  g.exit_enter.exitNum&$F0==g.EXIT_DIR_MID )
 {   // Shorter walk distance to get back to ow
-    var                      _DIST = $A0;
-    if (x <  g.exit_enter.xc-_DIST 
-    ||  x >= g.exit_enter.xc+_DIST )
+    var                    _DIST = $A0;
+    if (x< g.exit_enter.xc-_DIST 
+    ||  x>=g.exit_enter.xc+_DIST )
     {
         with(Exit)
         {
@@ -244,7 +257,7 @@ if(!_exit
         {
             hspd = 0;
             g.exit_leave = _exit;
-            sdm("exit side");
+            show_debug_message("exit side");
             exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
@@ -258,7 +271,7 @@ if(!_exit
 &&  g.exit_leave_pending.open 
 &&  g.exit_leave_pending.side&$4 )
 {
-    if (yb < cam_yb_max()-$08)
+    if (yb<cam_yb_max()-$08)
     {   // Just in case player somehow moves back upward before getting low enough
         g.exit_leave_pending = noone;
     }
@@ -269,7 +282,7 @@ if(!_exit
         {
             _exit = g.exit_leave_pending;
             g.exit_leave = _exit;
-            sdm("exit down");
+            show_debug_message("exit down");
             exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
@@ -284,13 +297,11 @@ if (_exit)
     updateCSPoints();
     
     
-    
     switch(_exit.exit_type&$F0)
     {
         // --------------------------------------------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------------------------------------------
         case g.EXIT_TYPE_ELEVATOR:{ //  ELEVATOR -------------------------------------------------------------------------
-        
         if (colliding_elevator 
         && !g.EnterRoom_control_timer )
         {
@@ -300,12 +311,10 @@ if (_exit)
             ||  (_exit.side&Input.hHeld && !ocsH4(id)) )
             {   // D901
                 set_xy(id, $78, y);
-                
                 g.exit_leave = _exit;
-                sdm("exit elevator");
+                show_debug_message("exit elevator");
             }
         }
-        
         break;}//case g.EXIT_TYPE_ELEVATOR:{
         
         
@@ -314,19 +323,16 @@ if (_exit)
         // --------------------------------------------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------------------------------------------
         case g.EXIT_TYPE_PIPE:{ // E0C5.  PIPE -----------------------------------------------------------------------
-        
         // Darunia roof chimney exit. 
         if ( Input.dHeld 
-        && !(Input.held_0 & Input.D)                // Has released 'up' since spawning
-        && !ogr                                     // is on ground
-        &&  wINwAll(x-8,$10, _exit.xl,_exit.ww) )   // MOD. So spr won't stick out sides of chimney
+        && !(Input.held_0&Input.D)                // Has released 'up' since spawning
+        && !ogr                                   // is on ground
+        &&  wINwAll(x-8,$10, _exit.xl,_exit.ww) ) // MOD. So spr won't stick out sides of chimney
         {   // E0E2
             pipe_sink_timer = 37; // timer. Will exit rm at 0
-            
             g.exit_leave = _exit;
-            sdm("exit pipe");
+            show_debug_message("exit pipe");
         }
-        
         break;}//case g.EXIT_TYPE_PIPE:{
         
         
@@ -336,25 +342,17 @@ if (_exit)
         // --------------------------------------------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------------------------------------------
         case g.EXIT_TYPE_DOOR:{ //  DOORWAY -------------------------------------------------------------------------
-        
         if (Input.Up_held                                 // is holding up
         && !ogr                                           // is on ground
-        && !(Input.held_0 & Input.U)                      // Has released 'up' since spawning
-        &&  (cp1Y>>3) == ((_exit.yt+_exit.hh)>>3)         // PC level with door bottom
+        && !(Input.held_0&Input.U)                        // Has released 'up' since spawning
+        &&  (cp1Y>>3)==((_exit.yt+_exit.hh)>>3)           // PC level with door bottom
         &&  inRange(x, _exit.xl+3, _exit.xl+_exit.ww-3) ) // PC center x enough inside door
         {
-            if (_exit.exit_type & g.EXIT_BIT_TELEPORT)
-            {
-                g.exit_leave = _exit;
-                sdm("exit door");
-            }
-            else
-            {
-                g.exit_leave = _exit;
-                sdm("exit door");
-            }
+            //if (_exit.exit_type&g.EXIT_BIT_TELEPORT) g.exit_leave = _exit;
+            //else                                     g.exit_leave = _exit;
+            g.exit_leave = _exit;
+            show_debug_message("exit door");
         }
-        
         break;}//case g.EXIT_TYPE_DOOR:{
         
         
@@ -364,19 +362,18 @@ if (_exit)
         // --------------------------------------------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------------------------------------------
         case g.EXIT_TYPE_STANDARD:{ // E14A.  EXIT_TYPE_STANDARD=$0000; // Standard. No condition to use exit
-        // sdm("_exit.side $"+hex_str(_exit.side)+", g.view_lock $"+hex_str(g.view_lock));
+        // show_debug_message("_exit.side $"+hex_str(_exit.side)+", g.view_lock $"+hex_str(g.view_lock));
         if (_exit.side&$3) // SIDE (RIGHT & LEFT) ---------------------------
         {
-            if(!(g.view_lock_boss & (_exit.side&$3)) 
+            if(!(g.view_lock_boss&(_exit.side&$3)) 
             && !g.EnterRoom_control_timer )
             {
                 if(!ocsH4(id)  // !ocsH4: x is outside ocs area width
                 || !inRange(x, 0,g.rm_w-1) )
                 {   // E173
                     hspd = 0;
-                    
                     g.exit_leave = _exit;
-                    sdm("exit side");
+                    show_debug_message("exit side");
                 }
             }
             
@@ -394,20 +391,14 @@ if (_exit)
             {
                 if (g.exit_leave_pending) g.exit_leave = g.exit_leave_pending;
                 else                      g.exit_leave = _exit;
-                sdm("exit down");
+                show_debug_message("exit down");
             }
             
             break;//case g.EXIT_TYPE_STANDARD:{
         }
-        
         break;}//case g.EXIT_TYPE_STANDARD:{
     }//switch(_exit.exit_type & $F0)
 }
-
-
-
-
-
 
 
 

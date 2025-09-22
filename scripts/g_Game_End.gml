@@ -512,6 +512,8 @@ if (ds_exists(global.dm_scene_rando,ds_type_map)){ds_map_destroy(global.dm_scene
 if (ds_exists(global.dm_tile_layer_data,ds_type_map)){ds_map_destroy(global.dm_tile_layer_data); global.dm_tile_layer_data=undefined;}
 if (ds_exists(global.dm_scene_wh,ds_type_map)){ds_map_destroy(global.dm_scene_wh); global.dm_scene_wh=undefined;}
 
+if (ds_exists(global.DropSpawner_dm,ds_type_map)){ds_map_destroy(global.DropSpawner_dm); global.DropSpawner_dm=undefined;}
+
 if (FileCleaning01_STATE)
 {
         _exists=variable_instance_exists(id,"FileCleaning01_dm");

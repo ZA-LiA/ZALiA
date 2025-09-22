@@ -16,5 +16,5 @@ if (surface_exists(SaveFileRandoInfo_dm[?_DATAKEY1+STR_Surface]))
 }
 
 
-
+//State_MAIN
 

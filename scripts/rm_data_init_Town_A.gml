@@ -82,6 +82,7 @@ var _town_name1,_town_name2;
 var _town_num=0;
 var _ow_axis=0;
 var _dark_idx = -1;
+var _dk_spawn_item0, _dk_spawn_item1, _dk_spawn_item2, _dk_spawn_item3, _dk_spawn_item4, _dk_spawn_item5;
 
 
 
@@ -2281,7 +2282,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '16'+EXM0_); // LF
 
 x3=(clms0-$09)<<3;
 row3=row0+$17; y3=row3<<3;
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  x3,y3,  STR_Treasure+STR_Map+"02"); // HEART PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  x3,y3,  STR_Treasure+STR_Map+"02"); // HEART PIECE
 //data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  x3,y3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
 
 
@@ -2347,7 +2348,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  _exit); // LFT 0,
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  _exit); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmC1,$1,  (clm3+$04)<<3,(row3+$02)<<3); // NOTE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmC1,$1,  (clm3+$04)<<3,(row3+$02)<<3); // NOTE
 
 g.dm_rm[?rm+STR_Rando+dk_LandLocked] = true;
 
@@ -2394,7 +2395,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  '51'+EXR0_); /
 
 x3=$49<<3; x4=x3-($04<<3);
 y4=(row0<<3)-($02<<3)
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  x3,y4,  STR_Treasure+STR_Map+"01"); // HEART PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  x3,y4,  STR_Treasure+STR_Map+"01"); // HEART PIECE
 
 g.dm_rm[?STR_Spell+STR_Scene+STR_Name+STR_Ruto] = rm;
 
@@ -2439,7 +2440,7 @@ data_spawn(rm+STR_PRIO,NPC_7,$1,  $38<<3,y3,  STR_Dialogue+DK0703, STR_Sprite+ST
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$08,  '53'+EXR0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$4,  $75<<3,(row0+$16)<<3); // PBag v4: 200
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$4,  $75<<3,(row0+$16)<<3); // PBag v4: 200
 
 g.dm_rm[?STR_Spell+STR_Scene+STR_Name+STR_Mido] = rm;
 
@@ -2484,7 +2485,7 @@ data_spawn(rm+STR_PRIO,NPC_7,$1,  $38<<3,y3,  STR_Dialogue+DK0704, STR_Sprite+ST
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  '55'+EXR0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$6,  $6C<<3,(row0+$18)<<3); // PBag v6: 300
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$6,  $6C<<3,(row0+$18)<<3); // PBag v6: 300
 
 g.dm_rm[?STR_Spell+STR_Scene+STR_Name+STR_Nabooru] = rm;
 
@@ -2546,7 +2547,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0B,  '58'+EXR0_); /
 
 
 clm3=$30; y3=(row0+$19)<<3;
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  (clm3+6)<<3,y3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  (clm3+6)<<3,y3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
 
 
 
@@ -2589,8 +2590,8 @@ data_spawn(rm+STR_PRIO,PushA,$1,  $59<<3,(row0+$10)<<3,  dk_PI+hex_str(global.PI
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$06,  '14'+EXM0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmA9,$1,  ($4A<<3)+3,(row0+$12)<<3); // POWER BRACELET
-data_spawn(rm+STR_PRIO,ItmF0,$7,  $78<<3,(row0+$13)<<3); // PBag v7: 400
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmA9,$1,  ($4A<<3)+3,(row0+$12)<<3); // POWER BRACELET
+_dk_spawn_item1 = data_spawn(rm+STR_PRIO,ItmF0,$7,  $78<<3,(row0+$13)<<3); // PBag v7: 400
 
 
 
@@ -2648,7 +2649,7 @@ data_exit(EXM0,etB0,0,  clm3-1,row3,  CLMS2,ROWS2,  clm3,row4,  '0C'+EXM1_); // 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0C'+EXM0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmF0,$7,  ($30<<3)+4,(row3-$02)<<3); // PBag v7: 400
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$7,  ($30<<3)+4,(row3-$02)<<3); // PBag v7: 400
 
 
 
@@ -2682,7 +2683,7 @@ g.dm_rm[?_town_name1+"_Backside"+STR_Exit+'C'] = _exit;
 g.dm_rm[?_town_name1+"_Backside"+STR_Exit+'D'] = _exit2;
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  clm3<<3,row4<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  clm3<<3,row4<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE
 
 
 
@@ -2882,12 +2883,12 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0A,  '7C'+EXR0_); /
 
 
 clm3=$06; y3=$1C<<3;
-data_spawn(rm+STR_PRIO,ItmF0,$4,  (clm3+(0<<3))<<3,y3); // PBag v4: 200 
-data_spawn(rm+STR_PRIO,ItmF0,$6,  (clm3+(1<<3))<<3,y3); // PBag v6: 300 
-data_spawn(rm+STR_PRIO,ItmF0,$4,  (clm3+(2<<3))<<3,y3); // PBag v4: 200 
-data_spawn(rm+STR_PRIO,ItmF0,$6,  (clm3+(3<<3))<<3,y3); // PBag v6: 300 
-data_spawn(rm+STR_PRIO,ItmF0,$4,  (clm3+(4<<3))<<3,y3); // PBag v4: 200 
-data_spawn(rm+STR_PRIO,ItmF0,$6,  (clm3+(5<<3))<<3,y3); // PBag v6: 300 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$4,  (clm3+(0<<3))<<3,y3); // PBag v4: 200 
+_dk_spawn_item1 = data_spawn(rm+STR_PRIO,ItmF0,$6,  (clm3+(1<<3))<<3,y3); // PBag v6: 300 
+_dk_spawn_item2 = data_spawn(rm+STR_PRIO,ItmF0,$4,  (clm3+(2<<3))<<3,y3); // PBag v4: 200 
+_dk_spawn_item3 = data_spawn(rm+STR_PRIO,ItmF0,$6,  (clm3+(3<<3))<<3,y3); // PBag v6: 300 
+_dk_spawn_item4 = data_spawn(rm+STR_PRIO,ItmF0,$4,  (clm3+(4<<3))<<3,y3); // PBag v4: 200 
+_dk_spawn_item5 = data_spawn(rm+STR_PRIO,ItmF0,$6,  (clm3+(5<<3))<<3,y3); // PBag v6: 300 
 
 _data  = "7827"+"781D"+"6C15"+"6415"+"5C2B"+"4C2B"+"3C15"+"3427"+"4415"+"5415"+"782B";
 _data += "7815"+"5C15"+"4C2B"+"4C15"+"3C15"+"3419"+"3427"+"5415"+"6C15"+"781D"+"782B";
@@ -2950,7 +2951,7 @@ data_spawn(rm+STR_PRIO,NPC_D,$1,  clm6<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+D
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '13'+EXM1_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmK9,$1,  _x1,(row3-$02)<<3); // ITM_MAP2
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmK9,$1,  _x1,(row3-$02)<<3); // ITM_MAP2
 
 
 
@@ -2971,7 +2972,7 @@ data_spawn(rm+STR_PRIO,NPC_D,$2,  clm6<<3,y3,  dk_PI+hex_str(PIb),STR_Dialogue+D
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0D'+EXM1_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,ItmK8,$1,  _x1,(row3-$02)<<3); // ITM_MAP1
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmK8,$1,  _x1,(row3-$02)<<3); // ITM_MAP1
 
 
 
@@ -3018,7 +3019,7 @@ data_spawn(rm+STR_PRIO,NPC_B,$1,  $14<<3,y3,  dk_PI+hex_str(PId),STR_Dialogue+DK
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '07'+EXM0_); // LFT 0, 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $07<<3,(row0+$08)<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE v2: win Minigame to acquire
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $07<<3,(row0+$08)<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE v2: win Minigame to acquire
 
 
 
@@ -3040,7 +3041,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,$74,  '10'+EXM2_); // LFT
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,$08,  '10'+EXM3_); // RGT 0, 
 
 
-data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $37<<3,$0E<<3,  STR_Treasure+STR_Map+"02"); // HEART PIECE 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $37<<3,$0E<<3,  STR_Treasure+STR_Map+"02"); // HEART PIECE 
 
 
 

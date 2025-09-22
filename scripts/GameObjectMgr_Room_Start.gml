@@ -2,7 +2,7 @@
 
 // For NPC, Enemy, Item, Spawner, Projectile
 
-if (DEV) sdm(" GameObjectMgr_Room_Start()");
+show_debug_message(" GameObjectMgr_Room_Start()");
 
 
 var _i;

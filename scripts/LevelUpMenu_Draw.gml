@@ -13,6 +13,7 @@ if(!surface_exists(srf_FRAME))
     if(!surface_exists(srf_FRAME)) srf_FRAME = surface_create(CLMS<<3, ROWS<<3);
     
     surface_set_target(srf_FRAME);
+    draw_clear_alpha(c_black,0);
     
     for(_i=0; _i<ROWS; _i++) // each row
     {

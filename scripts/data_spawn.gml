@@ -265,6 +265,23 @@ if (_IS_ITEM)
     g.dm_spawn[?_datakey+STR_Item+STR_ID]     = _ITEM_ID;
     
     
+    
+    
+    _datakey = _RM_NAME+STR_Item+STR_Count;
+    g.dm_spawn[?_datakey] = val(g.dm_spawn[?_datakey])+1;
+    _num  =                 val(g.dm_spawn[?_datakey]);
+    
+    g.dm_spawn[?_SPAWN_DATAKEY+_RM_NAME+STR_Item+STR_Num] = _num;
+    
+    _datakey = _RM_NAME+STR_Item+hex_str(_num);
+    g.dm_spawn[?_datakey+dk_SpawnDatakey]     = _SPAWN_DATAKEY;
+    g.dm_spawn[?_datakey+STR_Dungeon+STR_Num] = _DUNGEON_NUM;
+    g.dm_spawn[?_datakey+STR_Item+STR_Type]   = _ITEM_TYPE;
+    g.dm_spawn[?_datakey+STR_Item+STR_ID]     = _ITEM_ID;
+    
+    
+    
+    
     _datakey = STR_Dungeon+hex_str(_DUNGEON_NUM)+STR_Item+STR_Count;
     g.dm_spawn[?_datakey] = val(g.dm_spawn[?_datakey])+1;
     _num  =                 val(g.dm_spawn[?_datakey]);
@@ -274,7 +291,7 @@ if (_IS_ITEM)
     g.dm_spawn[?_datakey+STR_Dungeon+STR_Num] = _DUNGEON_NUM;
     g.dm_spawn[?_datakey+STR_Item+STR_Type]   = _ITEM_TYPE;
     g.dm_spawn[?_datakey+STR_Item+STR_ID]     = _ITEM_ID;
-    //sdm("Item. "+_SPAWN_DATAKEY+", _ITEM_TYPE '"+_ITEM_TYPE+"'"+string_repeat(" ",8-string_length(_ITEM_TYPE))+", _ITEM_ID '"+_ITEM_ID+"'");
+    //sdm(_RM_NAME+"("+string(val(g.dm_rm[?_RM_NAME+dk_FileName+STR_Quest+"01"]))+")  Item. "+_SPAWN_DATAKEY+", _ITEM_TYPE '"+_ITEM_TYPE+"'"+string_repeat(" ",8-string_length(_ITEM_TYPE))+", _ITEM_ID '"+_ITEM_ID+"'");
 }
 else if (is_ancestor(_OBJECT,Kakusu))
 {
@@ -657,6 +674,8 @@ for(_i=_arg; _i<argument_count; _i++)
         continue;
     }
 }
+
+
 
 
 

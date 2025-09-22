@@ -24,12 +24,15 @@ csLft2_yoff = g.dg_CS_OFF[#  cs_off_idx, 15]; // CS_LFT Bottom y
 
 
 if (id==g.pc)
-{
-    // Same values for fairy.
+{   // Same values for fairy.
                             cp1_xoff =  7;
          if (pc_is_cucco()) cp1_yoff = hh;
     else if (pc_is_fairy()) cp1_yoff = 23; // MOD
     else                    cp1_yoff = hh;
+    
+    // Top center x collision point
+    cp2_xoff = cp1_xoff;
+    cp2_yoff = 0;
 }
 
 

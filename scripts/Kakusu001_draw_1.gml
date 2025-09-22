@@ -13,6 +13,7 @@ if (USE_SURF)
         {
                                dg_platform[#_i,SURF_IDX] = surface_create($10,$10);
             surface_set_target(dg_platform[#_i,SURF_IDX]);
+            draw_clear_alpha(c_black,0);
             
             for(_j=0; _j<4; _j++)
             {
@@ -45,6 +46,7 @@ else if(!dg_platform[#0,SPR_IDX]) // First frame. Sprites NOT created yet.
 {
     var _surf = surface_create($10,$10);
     surface_set_target(_surf);
+    draw_clear_alpha(c_black,0);
     
     for(_i=0; _i<Platform_COUNT; _i++)
     {

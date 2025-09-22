@@ -30,6 +30,7 @@ if(!surface_exists(val(global.FallScene_dm[?"1"+STR_Image], -1))
         _h1 = val(global.FallScene_dm[?_type_+STR_Image+STR_Height]);
         _surf = surface_create(_w1,_h1);
         surface_set_target(_surf);
+        draw_clear_alpha(c_black,0);
         draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, global.FallScene_BACKGROUND_COLOR);
         
         _ts_xl = $D<<3;
@@ -63,6 +64,7 @@ if(!surface_exists(val(global.FallScene_dm[?"1"+STR_Image], -1))
         _h1 = val(global.FallScene_dm[?_type_+STR_Image+STR_Height]);
         _surf = surface_create(_w1,_h1);
         surface_set_target(_surf);
+        draw_clear_alpha(c_black,0);
         draw_sprite_(spr_1x1_WHT,0, 0,0, -1, _w1,_h1, global.FallScene_BACKGROUND_COLOR);
         
         _ts_xl = $F<<3;
@@ -118,7 +120,7 @@ if(!global.App_frame_count)
         var _c_blu = p.C_BLU0_;
         _surf = surface_create(Spritesheet_W,Spritesheet_H);
         surface_set_target(_surf);
-        
+        draw_clear_alpha(c_black,0);
         //sdm("");
                      _count = val(dm_skins[?STR_Set+STR_Count]);
         for(_i=0; _i<_count; _i++)
@@ -191,6 +193,7 @@ if(!global.palette_image_IS_SURFACE
     _h1 = global.COLORS_PER_PALETTE;
     _surf = surface_create(_w1,_h1);
     surface_set_target(_surf);
+    draw_clear_alpha(c_black,0);
     draw_clear(C_BLK1);
     
     global.palette_image = sprite_create_from_surface(_surf, 0,0, _w1,_h1, 0,0, 0,0);

@@ -678,6 +678,7 @@ FileSelect_Rando_cursor_reset(RandoState_ENEMY);
 RandoOTHER_state_MAIN    = _i++;
 RandoOTHER_state_ITEMS   = _i++;
 RandoOTHER_state_SPELLS  = _i++;
+//RandoOTHER_state_SKILLS  = _i++;
 RandoOTHER_state_REQUIRE = _i++; // Requirements
 RandoOTHER_state         = RandoOTHER_state_MAIN;
 
@@ -800,6 +801,17 @@ dg_RandoOTHER_Options[#_idx,3] = "START SPELLS";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "WHICH SPELLS TO START WITH";
 dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
+/*
+RandoOTHER_MAIN_cursor_SKILLS = ++_idx;
+ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
+dg_RandoOTHER_Options[#_idx,0] = _X;       // 0: x
+dg_RandoOTHER_Options[#_idx,1] = _Y+(_idx*_dist1); // 1: y
+dg_RandoOTHER_Options[#_idx,2] = 0;        // 2: state
+dg_RandoOTHER_Options[#_idx,3] = "START SKILLS";  // 3: text
+dg_RandoOTHER_Options[#_idx,4] = "WHICH SKILLS TO START WITH";
+dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
+//                                                          //
+*/
 RandoOTHER_MAIN_cursor_REQUIRE = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
 dg_RandoOTHER_Options[#_idx,0] = _X;       // 0: x

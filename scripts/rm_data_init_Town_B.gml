@@ -85,6 +85,7 @@ var _Save_NPC       = STR_Aneru;
 //var _Recover_NPC_MP = STR_Goriya;
 //var _Save_NPC       = STR_Geru;
 */
+var _dk_spawn_item0, _dk_spawn_item1, _dk_spawn_item2, _dk_spawn_item3, _dk_spawn_item4;
 
 
 

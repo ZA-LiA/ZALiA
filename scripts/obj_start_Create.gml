@@ -194,6 +194,77 @@ sdm("DEPTH_SURFACE "+string_repeat(" ",DEPTH_SURFACE>=0)+string(DEPTH_SURFACE)+"
 
 
 
+
+
+/* // List all Scene Rando scenes that are unique
+repeat(4) show_debug_message("");
+var _dl_group_scenes1 = ds_list_create();
+var _GROUP_COUNT = val(global.dm_scene_rando[?STR_Group+STR_Count]);
+for(var _group_idx=0; _group_idx<_GROUP_COUNT; _group_idx++)
+{
+    ds_list_clear(_dl_group_scenes1);
+    _data = global.dm_scene_rando[?STR_Group+STR_ID+STR_Index+hex_str(_group_idx)+STR_Scene+STR_List];
+    if(!is_undefined(_data))
+    {
+        ds_list_read(_dl_group_scenes1, _data);
+        if (ds_list_size(_dl_group_scenes1)==1)
+        {
+            show_debug_message(_dl_group_scenes1[|0]+", Items "+string(val(g.dm_spawn[?_dl_group_scenes1[|0]+STR_Item+STR_Count])));
+        }
+    }
+}
+ds_list_destroy(_dl_group_scenes1); _dl_group_scenes1=undefined;
+repeat(4) show_debug_message("");
+*/
+
+
+
+
+/* // List all Scene Rando scene exits that don't have paths to other exits
+var _exit_name, _exit_num, _exit_type, _scene_name;
+var _EXIT_DIR_COUNT = ds_list_size(g.dl_exit_dirs);
+var _SCENE_COUNT = val(global.dm_scene_rando[?STR_Scene+STR_Count]);
+for(var _i=1; _i<=_SCENE_COUNT; _i++)
+{
+    _scene_name = global.dm_scene_rando[?STR_Scene+hex_str(_i)+STR_Scene+STR_Name];
+    if (is_undefined(_scene_name))
+    {
+        show_debug_message("!!!!  global.dm_scene_rando[?STR_Scene+"+hex_str(_i)+"STR_Scene+STR_Name]  is undefined  !!!!");
+    }
+    else if (val(g.dm_rm[?_scene_name+STR_Exit+STR_Count])>1)
+    {
+        for(var _j=0; _j<_EXIT_DIR_COUNT; _j++) // each exit dir: $00 mid, $10 right, $20 left, $40 down, $80 up
+        {
+            for(var _k=0; _k<$10; _k++) // each number ($0-$F) of the exit dir
+            {
+                _exit_num  = g.dl_exit_dirs[|_j];
+                _exit_num |= _k;
+                _exit_name = _scene_name + hex_str(_exit_num);
+                _exit_type = g.dm_rm[?_exit_name+STR_Type];
+                
+                if (is_undefined(_exit_type))
+                {   // no more exits for this exit dir _i
+                    break;//_j
+                }
+                
+                if (_exit_num&$40 
+                && !(_exit_type&g.EXIT_TYPE_ELEVATOR) )
+                {   // Pit down won't have any path desinations
+                    continue;//_j
+                }
+                
+                
+                if(!val(g.dm_rm[?_exit_name+STR_Exit+STR_Path+STR_Count])) show_debug_message(_exit_name+" does not have any paths to any exits");
+                //if(!val(g.dm_rm[?_exit_name+STR_Path+STR_Count])) show_debug_message(_exit_name+" does not have any paths");
+            }
+        }
+    }
+}
+*/
+
+
+
+
 if (DEV)
 {
     var _DURATION = current_time - _START_TIME;

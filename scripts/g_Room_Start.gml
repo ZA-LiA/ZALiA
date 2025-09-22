@@ -12,20 +12,17 @@ if (DEV)
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
-var _i,_j,_k, _idx, _a, _qual;
-var _num, _val,_val1,_val2, _count, _len;
-var _dir, _dir1,_dir2;
+var _i,_j, _idx;
+var _num, _val,_val1,_val2, _count,_count1, _len;
 var _x,_xl,_xl1,_xl2, _y,_yt,_yt1,_yt2, _w,_w_, _h,_h_;
-var _clm,_clm1,_clm2, _row,_row1,_row2, _clms1,_clms2, _rows1,_rows2, _rc,_rc1,_rc2, _owrc;
+var _clm,_clm1, _row,_row1, _owrc;
 var _depth, _tile_id, _layer_name;
 var _file_name, _data;
-var _dk, _datakey,_datakey1,_datakey2;
-var _obj,_ver, _obj_name, _spr,_pi, _inst;
-var _rm,_rm_name, _scene_name, _scene_name1,_scene_name2;
-var _exit, _exit_num, _exit_name, _exit_name1,_exit_name2, _exit_sides;
+var _dk, _datakey,_datakey0;
+var _obj,_ver, _obj_name, _pi;
+var _scene_name, _scene_used;
+var _exit, _exit_num, _exit_name,_exit_name1, _exit_sides;
 var _spawn_datakey,_spawn_datakey1,_spawn_datakey2;
-var _dl1 = ds_list_create();
-var _dl2 = ds_list_create();
 
 
 //g.game_end_state = 1; // Testing wake Zelda cutscene
@@ -118,16 +115,19 @@ else if (_ROOM_B1)
 }
 
 
-var                            _SceneRando_scene = rm_name;
-if (global.SceneRando_enabled) _SceneRando_scene = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+rm_name],rm_name);
+_scene_used = rm_name;
+if (global.SceneRando_enabled)
+{
+    _SceneRando_scene = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+rm_name], _scene_used);
+    _scene_used = _SceneRando_scene;
+}
 
 var _SCENE_IS_RANDOMIZED = global.SceneRando_enabled && _SceneRando_scene!=rm_name;
-var _SceneRando_DEBUG1 = 0 && val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+rm_name],rm_name)!=rm_name;
+var _SceneRando_DEBUG1 = false && val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+rm_name], rm_name) != rm_name;
 
 
 // For boss/scene rando
-var _DUNGEON_NUM = dungeon_num;
-    _DUNGEON_NUM = val(f.dm_rando[?rm_name+STR_Dungeon+STR_Num], _DUNGEON_NUM);
+var _DUNGEON_NUM = val(f.dm_rando[?rm_name+STR_Dungeon+STR_Num], dungeon_num);
 //
 //scene_data_scene_name = rm_name;
 //scene_data_scene_name = val(f.dm_rando[?rm_name+STR_Scene+STR_Name], rm_name);
@@ -139,8 +139,8 @@ if (_ROOM_A)
     && !is_undefined(town_name) )
     {
         var _TOWN_NAME = val(f.dm_rando[?rm_name+STR_Overworld+STR_Town+STR_Name], town_name);
-        f.dm_quests[?STR_Warp+STR_Qualified]=1;
-        f.dm_quests[?STR_Warp+STR_Qualified+_TOWN_NAME]=1;
+        f.dm_quests[?STR_Warp+STR_Qualified] = 1;
+        f.dm_quests[?STR_Warp+STR_Qualified+_TOWN_NAME] = 1;
     }
 }
 
@@ -334,7 +334,7 @@ file_data_quest_num = 1;
 if (_ROOM_A 
 &&  f.quest_num>1 )
 {
-    _datakey = _SceneRando_scene+dk_FileName+STR_Quest+"02";
+    _datakey = _scene_used+dk_FileName+STR_Quest+"02";
     if(!is_undefined(dm_rm[?_datakey]) 
     || !is_undefined(f.dm_rando[?_datakey]) )
     {
@@ -369,9 +369,9 @@ else
     if (_ROOM_A 
     ||  _ROOM_B1 ) // Title-Screen
     {
-        var                      _DATA = rm_get_file_data(_SceneRando_scene, file_data_quest_num); // _SceneRando_scene==rm_name here if this scene isn't rando'd
-        if (is_undefined(_DATA)) _DATA = rm_get_file_data(_rm_name_PREV,     file_data_quest_num);
-        if (is_undefined(_DATA)) _DATA = rm_get_file_data(RM_NAME_NPALACE,   file_data_quest_num);
+        var                      _DATA = rm_get_file_data(_scene_used,   file_data_quest_num);
+        if (is_undefined(_DATA)) _DATA = rm_get_file_data(_rm_name_PREV,   file_data_quest_num);
+        if (is_undefined(_DATA)) _DATA = rm_get_file_data(RM_NAME_NPALACE, file_data_quest_num);
         if(!is_undefined(_DATA)) dm_tile_file = json_decode(_DATA);
     }
 }
@@ -436,13 +436,12 @@ if (_ROOM_A
     view_x_page_max = rm_pages_x-1;
     view_y_page_min = 0;
     view_y_page_max = rm_pages_y-1;
-    if (rm_is_bottom_page_locked(_SceneRando_scene)) view_y_page_min = view_y_page_max;
+    if (rm_is_bottom_page_locked(_scene_used)) view_y_page_min = view_y_page_max;
     //if (rm_is_bottom_page_locked(scene_data_scene_name)) view_y_page_min = view_y_page_max;
     
-    _datakey = _SceneRando_scene+dk_FileName+STR_Quest+hex_str(file_data_quest_num);
+    _datakey = _scene_used+dk_FileName+STR_Quest+hex_str(file_data_quest_num);
     //_datakey = scene_data_scene_name+STR_file_name+STR_Quest+hex_str(file_data_quest_num);
-    var _FILE_NAME = val(dm_rm[?_datakey]);
-        _FILE_NAME = val(f.dm_rando[?_datakey], _FILE_NAME);
+    var _FILE_NAME = val(f.dm_rando[?_datakey], val(dm_rm[?_datakey]));
     db_rm_data_Room_Start(_FILE_NAME);
 }
 
@@ -464,11 +463,8 @@ if (_ROOM_A)
     var _item_type = undefined;
     var _objver1   = undefined;
     var _objver2   = undefined;
-    
-    var _PRXM_COUNT = val(dm_spawn[?get_spawn_datakey(_SceneRando_scene,STR_PRXM,-1)]);
-    var _PRIO_COUNT = val(dm_spawn[?get_spawn_datakey(_SceneRando_scene,STR_PRIO,-1)]);
-    //var _PRXM_COUNT = val(dm_spawn[?get_spawn_datakey(scene_data_scene_name,STR_PRXM,-1)]);
-    //var _PRIO_COUNT = val(dm_spawn[?get_spawn_datakey(scene_data_scene_name,STR_PRIO,-1)]);
+    var _PRXM_COUNT = val(dm_spawn[?get_spawn_datakey(_scene_used,STR_PRXM,-1)]);
+    var _PRIO_COUNT = val(dm_spawn[?get_spawn_datakey(_scene_used,STR_PRIO,-1)]);
 }
 
 
@@ -493,7 +489,7 @@ if (room==rmB_NextLife)
     {
         f.hp = get_stat_max(STR_Heart);
         f.mp = get_stat_max(STR_Magic);
-        //sdm("f.hp $"+hex_str(f.hp)+", f.mp $"+hex_str(f.mp));
+        //show_debug_message("f.hp $"+hex_str(f.hp)+", f.mp $"+hex_str(f.mp));
         
         if (coming_from==coming_from_FILE) f.xpPending = 0;
         //f.xpPending = 0;
@@ -516,13 +512,11 @@ if (room==rmB_NextLife)
             else                     lives = STARTING_LIVES;
             //show_debug_message("g_Room_Start(). lives = "+string(lives)+", get_life_doll_count() = "+string(get_life_doll_count()));
             
-            f.xpNext=0;
+            f.xpNext = 0;
             if (f.xp)
             {
                 var          _dl_NEXT = ds_list_create();
-                ds_list_add( _dl_NEXT, get_xp_next(STAT_ATK));
-                ds_list_add( _dl_NEXT, get_xp_next(STAT_MAG));
-                ds_list_add( _dl_NEXT, get_xp_next(STAT_LIF));
+                ds_list_add( _dl_NEXT, get_xp_next(STAT_ATK),get_xp_next(STAT_MAG),get_xp_next(STAT_LIF));
                 ds_list_sort(_dl_NEXT,true);
                 
                 for(_i=0; _i<3; _i++)
@@ -758,10 +752,9 @@ if (_ROOM_A
     {
         with(global.OVERWORLD)
         {
-            var _clm,_row;
-            var _COUNT = val(dm[?STR_Rando+STR_Exit+STR_Count]);
-            //sdm("g_Room_Start(). val(dm[?STR_Rando+STR_Exit+STR_Count])="+string(_COUNT));
-            for(_i=1; _i<=_COUNT; _i++)
+            var _RANDO_EXIT_COUNT = val(dm[?STR_Rando+STR_Exit+STR_Count]);
+            //show_debug_message("g_Room_Start(). val(dm[?STR_Rando+STR_Exit+STR_Count])="+string(_RANDO_EXIT_COUNT));
+            for(_i=1; _i<=_RANDO_EXIT_COUNT; _i++)
             {
                 _owrc = dm[?STR_Rando+STR_Exit+hex_str(_i)+STR_OWRC];
                 if(!is_undefined(_owrc))
@@ -827,18 +820,15 @@ if (_ROOM_A)
         // This is checking if this particular encounter rm allows the encounter type that triggered the encounter.
         // I'm not sure if it even matters.
         if (rm_get_encounter_types(rm_name)&encounter_type)
-        //if (rm_get_encounter_types(scene_data_scene_name)&encounter_type)
         {
             // New encounter gaurantees all enemy spawns.
             for(_i=max(_PRIO_COUNT,_PRXM_COUNT)-1; _i>=0; _i--)
             {
                                            _spawn_datakey = get_spawn_datakey(rm_name,STR_PRIO,_i);
-                                           //_spawn_datakey = get_spawn_datakey(scene_data_scene_name,STR_PRIO,_i);
                 if(!is_undefined(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]))
                 {                dm_spawn[?_spawn_datakey+STR_Spawn_Permission] = 1;  }
                 
                                            _spawn_datakey = get_spawn_datakey(rm_name,STR_PRXM,_i);
-                                           //_spawn_datakey = get_spawn_datakey(scene_data_scene_name,STR_PRXM,_i);
                 if(!is_undefined(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]))
                 {                dm_spawn[?_spawn_datakey+STR_Spawn_Permission] = 1;  }
             }
@@ -891,11 +881,11 @@ if (_ROOM_A)
             
             if (_SCENE_IS_RANDOMIZED)
             {
-                _exit_name2 = _SceneRando_scene+hex_str(_exit_num);
+                _exit_name1 = _scene_used+hex_str(_exit_num);
                 with(_exit)
                 {
-                    ww  = val(g.dm_rm[?_exit_name2+STR_Width], 2) <<3;
-                    hh  = val(g.dm_rm[?_exit_name2+STR_Height],2) <<3;
+                    ww  = val(g.dm_rm[?_exit_name1+STR_Width], 2) <<3;
+                    hh  = val(g.dm_rm[?_exit_name1+STR_Height],2) <<3;
                     hh += sign(exit_type&g.EXIT_TYPE_DOOR); // EXIT_TYPE_DR y scale down 1 extra pixel so GO csMid can detect
                     
                     ww_ = ww>>1;
@@ -904,12 +894,12 @@ if (_ROOM_A)
                     image_xscale = ww;
                     image_yscale = hh;
                     
-                    xl = val(g.dm_rm[?_exit_name2+STR_Exit_x]) <<3;
+                    xl = val(g.dm_rm[?_exit_name1+STR_Exit_x]) <<3;
                     xr = xl + ww;
                     xc = xl + ww_;
                     x  = xl;
                     
-                    yt = val(g.dm_rm[?_exit_name2+STR_Exit_y]) <<3;
+                    yt = val(g.dm_rm[?_exit_name1+STR_Exit_y]) <<3;
                     yb = yt + hh;
                     yc = yt + hh_;
                     y  = yt;
@@ -955,39 +945,6 @@ if (_ROOM_A)
             exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
-    else
-    {
-        if (_SCENE_IS_RANDOMIZED 
-        &&  exit_enter.exitName==f.reen 
-        &&  exit_enter.exit_type&g.EXIT_TYPE_DOOR 
-        && !exit_enter.open 
-        &&  coming_from=coming_from_RM_C )
-        {
-            _exit = exit_enter;
-            with(Exit)
-            {
-                if (id!=_exit 
-                &&  side&$3 )
-                {
-                    if ((global.OVERWORLD.pc_dir&$A && side&$1) 
-                    ||  (global.OVERWORLD.pc_dir&$5 && side&$2) )
-                    {
-                        _exit = id;
-                        break;//with(Exit)
-                    }
-                    
-                    if (_exit==g.exit_enter 
-                    ||  abs(xc-g.exit_enter.xc)<=abs(_exit.xc-g.exit_enter.xc) )
-                    {
-                        _exit = id;
-                    }
-                }
-            }
-            
-            exit_enter = _exit;
-            f.reen = exit_enter.exitName;
-        }
-    }
 }    
 
 
@@ -1010,7 +967,9 @@ if (_ROOM_C)
     &&  CuccoSpell2_Acquired 
     &&  CuccoSpell2_Active 
     &&  CuccoSpell2_Option )
-    {   spells_active |= SPL_FARY;  }
+    {
+        spells_active |= SPL_FARY;
+    }
 }
 else if (_ROOM_A)
 {
@@ -1027,9 +986,11 @@ else if (_ROOM_A)
         &&  CuccoSpell2_Acquired 
         &&  CuccoSpell2_Active 
         &&  CuccoSpell2_Option )
-        {   spells_active |= SPL_FARY;  }
+        {
+            spells_active |= SPL_FARY;
+        }
         
-        //sdm("CuccoSpell2_Acquired "+string(CuccoSpell2_Acquired)+", CuccoSpell2_Option "+string(CuccoSpell2_Option)+", CuccoSpell2_Active "+string(CuccoSpell2_Active));
+        //show_debug_message("CuccoSpell2_Acquired "+string(CuccoSpell2_Acquired)+", CuccoSpell2_Option "+string(CuccoSpell2_Option)+", CuccoSpell2_Active "+string(CuccoSpell2_Active));
         if(!mod_CAST_SPELL_CONDITION 
         &&  f.spells    & spell_selected )
         {
@@ -1093,14 +1054,12 @@ if (_ROOM_A)
             {
                 case 0:{
                 if (_i>=_PRIO_COUNT) continue;//_j
-                _spawn_datakey = get_spawn_datakey(_SceneRando_scene,STR_PRIO,_i);
-                //_spawn_datakey = get_spawn_datakey(scene_data_scene_name,STR_PRIO,_i);
+                _spawn_datakey = get_spawn_datakey(_scene_used,STR_PRIO,_i);
                 break;}
                 
                 case 1:{
                 if (_i>=_PRXM_COUNT) continue;//_j
-                _spawn_datakey = get_spawn_datakey(_SceneRando_scene,STR_PRXM,_i);
-                //_spawn_datakey = get_spawn_datakey(scene_data_scene_name,STR_PRXM,_i);
+                _spawn_datakey = get_spawn_datakey(_scene_used,STR_PRXM,_i);
                 break;}
             }
             
@@ -1129,7 +1088,9 @@ if (_ROOM_A)
                 _spawn_permission1 = val(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]);
             if (_respawn_type==3 
             &&  _spawn_permission1!=-1 ) // -1 never spawn again
-            {   dm_spawn[?_spawn_datakey+STR_Spawn_Permission] = 1;  }
+            {
+                dm_spawn[?_spawn_datakey+STR_Spawn_Permission] = 1;
+            }
             
             _spawn_permission = val(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]);
             
@@ -1178,8 +1139,7 @@ if (_ROOM_A)
                         if(!is_undefined(_val2))
                         {
                             // *** Cutscene_CreateWaterfall_update() checks for any hard skin enemies and if PC can defeat them
-                            if (_SceneRando_scene!=val(g.dm_rm[?"NabooruQuest_RM_NAME"])  // All enemies must be defeated in this rm
-                            //if (_SceneRando_scene!=NabooruQuest_RM_NAME  // All enemies must be defeated in this rm
+                            if (_scene_used!=val(g.dm_rm[?"NabooruQuest_RM_NAME"])  // All enemies must be defeated in this rm
                             || !isVal(_val2,GeldA,GlzmA,LeevA) )         // these enemies draw behind the wall so restrict them for now
                             {
                                 if (cam_xl_range() 
@@ -1222,53 +1182,50 @@ if (_ROOM_A)
             }
             
             
-            
-            
-            
             // --------------------------------------------------------------
             if (_j) // PRXM (proximity-to-view spawns)
-            {                     _a=0;
-                dg_spawn_prxm[#_i,_a++] = _spawn_datakey;   // 
-                dg_spawn_prxm[#_i,_a++] = _obj;             // 
-                dg_spawn_prxm[#_i,_a++] = _obj_name;        // 
-                dg_spawn_prxm[#_i,_a++] = _ver;             // 
+            {                     _idx=0;
+                dg_spawn_prxm[#_i,_idx++] = _spawn_datakey;   // 
+                dg_spawn_prxm[#_i,_idx++] = _obj;             // 
+                dg_spawn_prxm[#_i,_idx++] = _obj_name;        // 
+                dg_spawn_prxm[#_i,_idx++] = _ver;             // 
                 //                                          //
-                dg_spawn_prxm[#_i,_a++] = _spawn_xl;        // 
-                dg_spawn_prxm[#_i,_a++] = _spawn_xc;        // 
-                dg_spawn_prxm[#_i,_a++] = _spawn_yt;        // 
-                dg_spawn_prxm[#_i,_a++] = _spawn_yc;        // 
+                dg_spawn_prxm[#_i,_idx++] = _spawn_xl;        // 
+                dg_spawn_prxm[#_i,_idx++] = _spawn_xc;        // 
+                dg_spawn_prxm[#_i,_idx++] = _spawn_yt;        // 
+                dg_spawn_prxm[#_i,_idx++] = _spawn_yc;        // 
                 //                                          //
-                dg_spawn_prxm[#_i,_a++] = _w;               // 
-                dg_spawn_prxm[#_i,_a++] = _w_;              // 
-                dg_spawn_prxm[#_i,_a++] = _h;               // 
-                dg_spawn_prxm[#_i,_a++] = _h_;              // 
+                dg_spawn_prxm[#_i,_idx++] = _w;               // 
+                dg_spawn_prxm[#_i,_idx++] = _w_;              // 
+                dg_spawn_prxm[#_i,_idx++] = _h;               // 
+                dg_spawn_prxm[#_i,_idx++] = _h_;              // 
                 //                                          //
-                dg_spawn_prxm[#_i,_a++] = _respawn_type;    // 
-                dg_spawn_prxm[#_i,_a++] = _defeated_count;  // 
-                dg_spawn_prxm[#_i,_a++] = _spawn_permission;// 
+                dg_spawn_prxm[#_i,_idx++] = _respawn_type;    // 
+                dg_spawn_prxm[#_i,_idx++] = _defeated_count;  // 
+                dg_spawn_prxm[#_i,_idx++] = _spawn_permission;// 
             }
             else // PRIO (priority spawns)
-            {                     _a=0;
-                dg_spawn_prio[#_i,_a++] = _spawn_datakey;   // 
-                dg_spawn_prio[#_i,_a++] = _obj;             // 
-                dg_spawn_prio[#_i,_a++] = _obj_name;        // 
-                dg_spawn_prio[#_i,_a++] = _ver;             // 
+            {                     _idx=0;
+                dg_spawn_prio[#_i,_idx++] = _spawn_datakey;   // 
+                dg_spawn_prio[#_i,_idx++] = _obj;             // 
+                dg_spawn_prio[#_i,_idx++] = _obj_name;        // 
+                dg_spawn_prio[#_i,_idx++] = _ver;             // 
                 //                                          //
-                dg_spawn_prio[#_i,_a++] = _spawn_xl;        // 
-                dg_spawn_prio[#_i,_a++] = _spawn_xc;        // 
-                dg_spawn_prio[#_i,_a++] = _spawn_yt;        // 
-                dg_spawn_prio[#_i,_a++] = _spawn_yc;        // 
+                dg_spawn_prio[#_i,_idx++] = _spawn_xl;        // 
+                dg_spawn_prio[#_i,_idx++] = _spawn_xc;        // 
+                dg_spawn_prio[#_i,_idx++] = _spawn_yt;        // 
+                dg_spawn_prio[#_i,_idx++] = _spawn_yc;        // 
                 //                                          //
-                dg_spawn_prio[#_i,_a++] = _w;               // 
-                dg_spawn_prio[#_i,_a++] = _w_;              // 
-                dg_spawn_prio[#_i,_a++] = _h;               // 
-                dg_spawn_prio[#_i,_a++] = _h_;              // 
+                dg_spawn_prio[#_i,_idx++] = _w;               // 
+                dg_spawn_prio[#_i,_idx++] = _w_;              // 
+                dg_spawn_prio[#_i,_idx++] = _h;               // 
+                dg_spawn_prio[#_i,_idx++] = _h_;              // 
                 //                                          //
-                dg_spawn_prio[#_i,_a++] = _respawn_type;    // 
-                dg_spawn_prio[#_i,_a++] = _defeated_count;  // 
-                dg_spawn_prio[#_i,_a++] = _spawn_permission;// 
-                //sdm(_spawn_datakey+", "+_obj_name+"-"+string(_ver)+", xl $"+hex_str(_spawn_xl)+" yt $"+hex_str(_spawn_yt)+", _w $"+hex_str(_w)+" _h $"+hex_str(_h)+", _respawn_type "+string(_respawn_type)+", _spawn_permission"+string(_spawn_permission));
-                if (_SceneRando_DEBUG1 && is_ancestor(_obj,Item)) sdm("SceneRando Item-A. _SceneRando_scene '"+_SceneRando_scene+"', rm_name '"+rm_name+"', _spawn_datakey '"+_spawn_datakey+"', _obj_name '"+_obj_name+"', ");
+                dg_spawn_prio[#_i,_idx++] = _respawn_type;    // 
+                dg_spawn_prio[#_i,_idx++] = _defeated_count;  // 
+                dg_spawn_prio[#_i,_idx++] = _spawn_permission;// 
+                //show_debug_message(_spawn_datakey+", "+_obj_name+"-"+string(_ver)+", xl $"+hex_str(_spawn_xl)+" yt $"+hex_str(_spawn_yt)+", _w $"+hex_str(_w)+" _h $"+hex_str(_h)+", _respawn_type "+string(_respawn_type)+", _spawn_permission"+string(_spawn_permission));
+                if (_SceneRando_DEBUG1 && is_ancestor(_obj,Item)) show_debug_message("SceneRando Item-A. _scene_used '"+_scene_used+"', rm_name '"+rm_name+"', _spawn_datakey '"+_spawn_datakey+"', _obj_name '"+_obj_name+"', ");
             }
         }
     }
@@ -1277,111 +1234,158 @@ if (_ROOM_A)
 
 
 
+
+
+
+
 if (_ROOM_A 
 &&  _SCENE_IS_RANDOMIZED )
 {
-    //global.dm_scene_rando[?dk_SceneRando+STR_Scene+STR_Type+hex_str(_num2)] = _RANDO_SCENE_TYPE
-    //global.dm_scene_rando[?dk_SceneRando+STR_Scene+STR_Type+_SCENE_NAME] = _RANDO_SCENE_TYPE;
-    _val1 = global.dm_scene_rando[?dk_SceneRando+STR_Scene+STR_Type+rm_name];
-    //var _SceneRando_HAS_ITEM = !is_undefined(_val1) && string_pos(STR_Item,_val1);
-    if(!is_undefined(_val1) 
-    && string_pos(STR_Item,_val1) )
+    var _spawn_idx = -1;
+    var _is_replacing_item = false;
+    
+    var           _ITEM_COUNT = val(dm_spawn[?rm_name+STR_Item+STR_Count]);
+    for(_i=1; _i<=_ITEM_COUNT; _i++)
     {
-        for(_i=0; _i<_PRIO_COUNT; _i++)
+        _is_replacing_item = false;
+        _spawn_datakey1 = dm_spawn[?rm_name    +STR_Item+hex_str(_i)+dk_SpawnDatakey];
+        _spawn_datakey2 = dm_spawn[?_scene_used+STR_Item+hex_str(_i)+dk_SpawnDatakey];
+        if(!is_undefined(_spawn_datakey1))
         {
-            _obj = dg_spawn_prio[#_i,1];
-            if (is_ancestor(_obj,Item))
-            {
-                if (_SceneRando_DEBUG1) sdm("SceneRando Item-B. _SceneRando_scene '"+_SceneRando_scene+"', rm_name '"+rm_name+"', _spawn_datakey '"+dg_spawn_prio[#_i,0]+"', _obj_name '"+object_get_name(_obj)+"', ");
-                _count2 = val(dm_spawn[?get_spawn_datakey(rm_name,STR_PRIO,-1)]);
-                for(_j=0; _j<_count2; _j++)
+            _spawn_idx = -1;
+            if(!is_undefined(_spawn_datakey2))
+            {   // `_scene_used` also has an item
+                _is_replacing_item = true;
+                for(_j=0; _j<_PRIO_COUNT; _j++)
                 {
-                    _spawn_datakey = get_spawn_datakey(rm_name,STR_PRIO,_j);
-                    _obj = val(dm_spawn[?_spawn_datakey+STR_obj_idx]);
-                    //sdm("_obj "+object_get_name(_obj)+", is_ancestor(_obj,Item) "+string(is_ancestor(_obj,Item))+", val(dm_ITEM[?object_get_name(_obj)+STR_Item+STR_Type]) "+string(val(dm_ITEM[?object_get_name(_obj)+STR_Item+STR_Type])));
-                    if (_obj 
-                    &&  is_ancestor(_obj,Item) )
-                    //&&  val(dm_ITEM[?object_get_name(_obj)+STR_Item+STR_Type])!=STR_JAR )
+                    if (_spawn_datakey2==dg_spawn_prio[#_j,0])
                     {
-                        _obj_name = object_get_name(_obj);
-                        _ver      = val(dm_spawn[?_spawn_datakey+STR_Version]);
-                        _objver1  = _obj_name+hex_str(_ver);
-                        
-                        _w        = val(dm_go_prop[?_obj_name+STR_Width],  $10);
-                        _h        = val(dm_go_prop[?_obj_name+STR_Height], $10);
-                        _w_       = _w>>1;
-                        _h_       = _h>>1;
-                        
-                        _spawn_xl = dg_spawn_prio[#_i,4]; // spawn x
-                        _spawn_yt = dg_spawn_prio[#_i,6]; // spawn y
-                        _spawn_xc = _spawn_xl + _w_;
-                        _spawn_yc = _spawn_yt + _h_;
-                        if (_SceneRando_DEBUG1) sdm("SceneRando Item-C. _SceneRando_scene '"+_SceneRando_scene+"', rm_name '"+rm_name+"', _spawn_datakey '"+_spawn_datakey+"', _obj_name '"+_obj_name+"', ");
-                        
-                        _item_id = val(g.dm_spawn[?_spawn_datakey+STR_Item+STR_ID+STR_Randomized]);
-                        if (is_string(_item_id))
-                        {
-                            _item_type = val(g.dm_spawn[?_item_id+STR_Item+STR_Type]);
-                            if (is_string(_item_type))
-                            {
-                                _obj = val(g.dm_ITEM[?_item_type+STR_Object]);
-                                _ver = val(g.dm_spawn[?_item_id+STR_Version],1);
-                                _obj_name = object_get_name(_obj);
-                                _objver2  = _obj_name+hex_str(_ver);
-                                
-                                _val = val(dm_go_prop[?_obj_name+STR_Width],  $10);
-                                _w   = _val;
-                                _w_  = _w>>1;
-                                _spawn_xl = _spawn_xc - _w_;
-                                
-                                _val = val(dm_go_prop[?_obj_name+STR_Height], $10);
-                                _spawn_yt = (_spawn_yt+_h) - _val;
-                                _h   = _val;
-                                _h_  = _h>>1;
-                                _spawn_yc  = _spawn_yt + _h_;
-                                if (_SceneRando_DEBUG1) sdm("SceneRando Item-D. _SceneRando_scene '"+_SceneRando_scene+"', rm_name '"+rm_name+"', _spawn_datakey '"+_spawn_datakey+"', _obj_name '"+_obj_name+"', _item_id '"+_item_id+"', _item_type '"+_item_type+"'");
-                            }
-                        }
-                        
-                        _defeated_count = val(f.dm_quests[?get_defeated_dk()+_spawn_datakey]);
-                        
-                        // respawn_type: Value representing if and when GO can respawn.
-                        // 0: never, 1: off screen, 2: refresh area, 3: refresh rm, 4: 30 seconds (on or off screen)
-                            _respawn_type      = val(dm_go_prop[?_objver1+STR_Respawn]);
-                            _spawn_permission1 = val(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]);
-                        if (_respawn_type==3 
-                        &&  _spawn_permission1!=-1 ) // -1 never spawn again
-                        {   dm_spawn[?_spawn_datakey+STR_Spawn_Permission] = 1;  }
-                        
-                        _spawn_permission = val(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]);
-                        
-                        
-                                          _a=0;
-                        dg_spawn_prio[#_i,_a++] = _spawn_datakey;   // 
-                        dg_spawn_prio[#_i,_a++] = _obj;             // 
-                        dg_spawn_prio[#_i,_a++] = _obj_name;        // 
-                        dg_spawn_prio[#_i,_a++] = _ver;             // 
-                        //                                          //
-                        dg_spawn_prio[#_i,_a++] = _spawn_xl;        // 
-                        dg_spawn_prio[#_i,_a++] = _spawn_xc;        // 
-                        dg_spawn_prio[#_i,_a++] = _spawn_yt;        // 
-                        dg_spawn_prio[#_i,_a++] = _spawn_yc;        // 
-                        //                                          //
-                        dg_spawn_prio[#_i,_a++] = _w;               // 
-                        dg_spawn_prio[#_i,_a++] = _w_;              // 
-                        dg_spawn_prio[#_i,_a++] = _h;               // 
-                        dg_spawn_prio[#_i,_a++] = _h_;              // 
-                        //                                          //
-                        dg_spawn_prio[#_i,_a++] = _respawn_type;    // 
-                        dg_spawn_prio[#_i,_a++] = _defeated_count;  // 
-                        dg_spawn_prio[#_i,_a++] = _spawn_permission;// 
+                        _spawn_idx = _j;
                         break;//_j
                     }
+                }//_j
+            }
+            else
+            {   // `_scene_used` does not have an item, so a safe position needs to be found to place the item.
+                _spawn_idx = ds_grid_width(dg_spawn_prio);
+            }
+            
+            if (_spawn_idx!=-1)
+            {
+                _obj = dm_spawn[?_spawn_datakey1+STR_obj_idx];
+                if(!is_undefined(_obj))
+                {
+                    if(!_is_replacing_item) ds_grid_resize(dg_spawn_prio, ds_grid_width(dg_spawn_prio)+1, ds_grid_height(dg_spawn_prio));
+                    
+                    _obj_name = object_get_name(_obj);
+                    _ver      = val(dm_spawn[?_spawn_datakey1+STR_Version]);
+                    _objver1  = _obj_name+hex_str(_ver);
+                    _w        = val(dm_go_prop[?_obj_name+STR_Width],  $10);
+                    _h        = val(dm_go_prop[?_obj_name+STR_Height], $10);
+                    _w_       = _w>>1;
+                    _h_       = _h>>1;
+                    _spawn_xl = 0;
+                    _spawn_yt = 0;
+                    
+                    if (_is_replacing_item)
+                    {
+                        _spawn_xl = dg_spawn_prio[#_spawn_idx,4]; // spawn x
+                        _spawn_yt = dg_spawn_prio[#_spawn_idx,6]; // spawn y
+                    }
+                    else
+                    {   // This scene does not have an item, so a safe position needs to be found to place the item.
+                        var _condition_type1,_condition_type2, _path_name, _item_path_name, _scene_item_num;
+                        _datakey0 = _scene_used+"_Safe"+STR_Item+STR_Position;
+                        var           _POSITION_COUNT = val(global.dm_scene_rando[?_datakey0+STR_Count]);
+                        for(_j=1; _j<=_POSITION_COUNT; _j++)
+                        {
+                            _condition_type2 = global.dm_scene_rando[?_datakey0+hex_str(_j)+STR_Conditions+STR_Type];
+                            _scene_item_num = val(g.dm_spawn[?_spawn_datakey1+rm_name+STR_Item+STR_Num]);
+                            if(!is_undefined(_condition_type2) 
+                            &&  _scene_item_num )
+                            {
+                                _item_path_name = STR_Item+hex_str(_scene_item_num);
+                                _condition_type1 = g.dm_rm[?rm_name+_item_path_name+STR_Conditions+STR_Type];
+                                if(!is_undefined(_condition_type1) 
+                                &&  _condition_type1==_condition_type2 )
+                                {   // TODO: What if there are multiple items and they end up in the same place?
+                                    _x = val(global.dm_scene_rando[?_scene_used+"_Safe"+STR_Item+STR_Position+hex_str(_j)+"_XC"]);
+                                    _y = val(global.dm_scene_rando[?_scene_used+"_Safe"+STR_Item+STR_Position+hex_str(_j)+"_YC"]);
+                                    _spawn_xl = _x - _w_;
+                                    _spawn_yt = _y - _h_;
+                                    break;//_j
+                                }
+                            }
+                        }//_j
+                    }
+                    
+                    
+                    
+                    
+                    _spawn_xc = _spawn_xl + _w_;
+                    _spawn_yc = _spawn_yt + _h_;
+                    if (_SceneRando_DEBUG1) show_debug_message("SceneRando Item-C. _scene_used '"+_scene_used+"', rm_name '"+rm_name+"', _spawn_datakey1 '"+_spawn_datakey1+"', _obj_name '"+_obj_name+"', ");
+                    
+                    _item_id = dm_spawn[?_spawn_datakey1+STR_Item+STR_ID+STR_Randomized];
+                    if(!is_undefined(_item_id))
+                    {
+                        _item_type = dm_spawn[?_item_id+STR_Item+STR_Type];
+                        if(!is_undefined(_item_type))
+                        {
+                            _obj = val(dm_ITEM[?_item_type+STR_Object]);
+                            _ver = val(dm_spawn[?_item_id+STR_Version],1);
+                            _obj_name = object_get_name(_obj);
+                            _objver2  = _obj_name+hex_str(_ver);
+                            
+                            _val = val(dm_go_prop[?_obj_name+STR_Width],  $10);
+                            _w   = _val;
+                            _w_  = _w>>1;
+                            _spawn_xl = _spawn_xc - _w_;
+                            
+                            _val = val(dm_go_prop[?_obj_name+STR_Height], $10);
+                            _spawn_yt = (_spawn_yt+_h) - _val;
+                            _h   = _val;
+                            _h_  = _h>>1;
+                            _spawn_yc  = _spawn_yt + _h_;
+                            if (_SceneRando_DEBUG1) show_debug_message("SceneRando Item-D. _scene_used '"+_scene_used+"', rm_name '"+rm_name+"', _spawn_datakey1 '"+_spawn_datakey1+"', _obj_name '"+_obj_name+"', _item_id '"+_item_id+"', _item_type '"+_item_type+"'");
+                        }
+                    }
+                    
+                    _defeated_count = val(f.dm_quests[?get_defeated_dk()+_spawn_datakey1]);
+                    
+                    // respawn_type: Value representing if and when GO can respawn.
+                    // 0: never, 1: off screen, 2: refresh area, 3: refresh rm, 4: 30 seconds (on or off screen)
+                        _respawn_type      = val(dm_go_prop[?_objver1+STR_Respawn]);
+                        _spawn_permission1 = val(dm_spawn[?_spawn_datakey1+STR_Spawn_Permission]);
+                    if (_respawn_type==3 
+                    &&  _spawn_permission1!=-1 ) // -1 never spawn again
+                    {   dm_spawn[?_spawn_datakey1+STR_Spawn_Permission] = 1;  }
+                    
+                    _spawn_permission = val(dm_spawn[?_spawn_datakey1+STR_Spawn_Permission]);
+                    
+                                              _j=0;
+                    dg_spawn_prio[#_spawn_idx,_j++] = _spawn_datakey1;  // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _obj;             // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _obj_name;        // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _ver;             // 
+                    //                                                  //
+                    dg_spawn_prio[#_spawn_idx,_j++] = _spawn_xl;        // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _spawn_xc;        // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _spawn_yt;        // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _spawn_yc;        // 
+                    //                                                  //
+                    dg_spawn_prio[#_spawn_idx,_j++] = _w;               // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _w_;              // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _h;               // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _h_;              // 
+                    //                                                  //
+                    dg_spawn_prio[#_spawn_idx,_j++] = _respawn_type;    // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _defeated_count;  // 
+                    dg_spawn_prio[#_spawn_idx,_j++] = _spawn_permission;// 
                 }
-                break;//_i
             }
         }
-    }
+    }//_i
 }
 
 
@@ -1397,13 +1401,13 @@ if (_ROOM_A
 
 if (_ROOM_A)
 {
-    var _X = pc.x;
-    var _Y = pc.y;
+    _x = pc.x;
+    _y = pc.y;
     set_pc_spawn_xy(); // update_explored_data() && rm_set_cam_1a() need this
     set_xy(pc, pc.spawn_x+PC_W_,pc.spawn_y+PC_H_);
     
     update_explored_data();
-    set_xy(pc, _X,_Y); // idk if this is necessary.
+    set_xy(pc, _x,_y); // idk if this is necessary.
 }
 
 
@@ -1432,10 +1436,8 @@ if (_ROOM_A)
         
         
         _val = dm_rm[?rm_name+dk_DarkRoom];
-        //_val = dm_rm[?scene_data_scene_name+STR_Dark_Room];
         if (is_undefined(_val) 
-        ||  _val==-1 
-        ||  _SCENE_IS_RANDOMIZED )
+        ||  _val==-1 )
         {
             set_rm_brightness(RM_BRIGHTNESS_MAX);
         }
@@ -1443,6 +1445,8 @@ if (_ROOM_A)
         
         if (rm_brightness<RM_BRIGHTNESS_MAX)
         {
+            var _used_scene_has_torches = false;
+            
             for(_i=_PRIO_COUNT-1; _i>=0; _i--)
             {
                 _spawn_datakey    = dg_spawn_prio[#_i,$0];
@@ -1450,7 +1454,7 @@ if (_ROOM_A)
                 _obj_name         = dg_spawn_prio[#_i,$2];
                 _ver              = dg_spawn_prio[#_i,$3];
                 _spawn_permission = dg_spawn_prio[#_i,$E];
-                //if (is_ancestor(_obj,Torch)) sdm(_spawn_datakey+", _spawn_permission "+string(_spawn_permission)+":"+string(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]));
+                //if (is_ancestor(_obj,Torch)) show_debug_message(_spawn_datakey+", _spawn_permission "+string(_spawn_permission)+":"+string(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]));
                 if (is_undefined(_spawn_datakey) 
                 || !_spawn_permission )
                 {
@@ -1459,7 +1463,7 @@ if (_ROOM_A)
                 
                 // ------------------------------------------------
                 _val = dm_spawn[?_spawn_datakey+STR_Qualified+STR_Quest+STR_Nums];
-                if (is_undefined(_val)  // This inst is qualified for any quest if there's no data
+                if (is_undefined(_val)  // This inst is qualified for any quest if there's no data ???
                 || !is_string(   _val)  // Should this be:  (!is_string(_val) && _val==f.quest_num) ??
                 ||  string_pos(hex_str(f.quest_num),_val) )
                 {
@@ -1469,6 +1473,12 @@ if (_ROOM_A)
                     _val  = val(_val2,_val1); // if _val2 is undefined, use _val1
                     if (_val)
                     {
+                        if(!_used_scene_has_torches 
+                        &&  is_ancestor(_obj,Torch) )
+                        {
+                            _used_scene_has_torches = true;
+                        }
+                        
                         if(!is_ancestor(_obj,Torch) 
                         ||  val(dm_spawn[?_spawn_datakey+STR_Lit]) ) // Torch spawn locations must specify if they're already lit
                         {
@@ -1484,6 +1494,83 @@ if (_ROOM_A)
                     }
                 }
             }//for(_i=_PRIO_COUNT-1; _i>=0; _i--)
+            
+            
+            if (_SCENE_IS_RANDOMIZED 
+            &&  rm_brightness<RM_BRIGHTNESS_MAX 
+            && !_used_scene_has_torches )
+            {
+                // Check if the vanilla scene has torches and use them
+                var _extra_torches_count = 0;
+                
+                var    _PRIO_COUNT0 = val(dm_spawn[?get_spawn_datakey(rm_name,STR_PRIO,-1)]);
+                for(_i=_PRIO_COUNT0-1; _i>=0; _i--)
+                {
+                    _spawn_datakey = get_spawn_datakey(rm_name,STR_PRIO,_i);
+                    _obj =     dm_spawn[?_spawn_datakey+STR_obj_idx];
+                    _ver =     dm_spawn[?_spawn_datakey+STR_Version];
+                    _val = val(dm_spawn[?_spawn_datakey+STR_Qualified+STR_Quest+STR_Nums], "0102");
+                    _spawn_permission = val(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]);
+                    if(!is_undefined(_obj) 
+                    && !is_undefined(_ver) 
+                    &&  is_ancestor(_obj,Torch) 
+                    &&  string_pos(hex_str(f.quest_num),hex_str(_val)) 
+                    &&  _spawn_permission )
+                    {
+                        _extra_torches_count++;
+                        
+                        _obj_name = object_get_name(_obj);
+                        _objver1  = _obj_name+hex_str(_ver);
+                        _val1 = val(dm_go_prop[?_objver1+STR_Brightness]); // brightness specific to this object
+                        _val2 = dm_spawn[?_spawn_datakey+STR_Brightness];  // brightness specific to this spawn location
+                        _val  = val(_val2,_val1); // if _val2 is undefined, use _val1
+                        
+                        // if the randomized scene doesn't have torches but the vanilla scene does, spawn some torches
+                        _idx = ds_grid_width(dg_spawn_prio);
+                        ds_grid_resize(dg_spawn_prio, _idx+1, ds_grid_height(dg_spawn_prio));
+                        dg_spawn_prio[#_idx,$0] = _spawn_datakey;
+                        dg_spawn_prio[#_idx,$1] = _obj;
+                        dg_spawn_prio[#_idx,$2] = _obj_name;
+                        dg_spawn_prio[#_idx,$3] = _ver;
+                        
+                        dg_spawn_prio[#_idx,$8] = val(dm_go_prop[?_obj_name+STR_Width],  $10);
+                        dg_spawn_prio[#_idx,$9] = val(dm_go_prop[?_obj_name+STR_Height], $10);
+                        dg_spawn_prio[#_idx,$A] = dg_spawn_prio[#_idx,$8]>>1;
+                        dg_spawn_prio[#_idx,$B] = dg_spawn_prio[#_idx,$9]>>1;
+                        
+                        dg_spawn_prio[#_idx,$C] = val(dm_go_prop[?_objver1+STR_Respawn]);
+                        dg_spawn_prio[#_idx,$D] = val(f.dm_quests[?get_defeated_dk()+_spawn_datakey]);
+                        dg_spawn_prio[#_idx,$E] = _spawn_permission;
+                        
+                        // Trying to set it close to where pc spawns
+                        _exit_name = _scene_used+strR(f.reen,RmName_LEN+1);
+                        _xl = val(dm_rm[?_exit_name+STR_Spawn_x]) <<3;
+                        _yt = val(dm_rm[?_exit_name+STR_Spawn_y]) <<3;
+                        switch(exit_enter.side){
+                        case $0:{_xl-=$0C*_extra_torches_count; _yt+=$08; break;}
+                        case $1:{_xl-=$1C*_extra_torches_count; _yt+=$08; break;}
+                        case $2:{_xl+=$1C*_extra_torches_count; _yt+=$08; break;}
+                        case $4:{_xl+=$04;                      _yt-=$20*_extra_torches_count; break;}
+                        case $8:{_xl+=$04;                      _yt+=$20*_extra_torches_count; break;}
+                        }
+                        
+                        dg_spawn_prio[#_idx,$4] = _xl;
+                        dg_spawn_prio[#_idx,$5] = _xl+dg_spawn_prio[#_idx,$8];
+                        dg_spawn_prio[#_idx,$6] = _yt;
+                        dg_spawn_prio[#_idx,$7] = _yt+dg_spawn_prio[#_idx,$9];
+                        
+                        if (_val) // if the torch is lit upon spawn
+                        {
+                            set_rm_brightness(rm_brightness+_val);
+                            
+                            if (rm_brightness>=RM_BRIGHTNESS_MAX)
+                            {
+                                break;//_i
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     else
@@ -1495,7 +1582,6 @@ if (_ROOM_A)
         }
     }
 }
-
 
 
 
@@ -1522,9 +1608,8 @@ if (_ROOM_A
     
     
     // Default $1(set in set_rm_data()) unless specified. Most rms do not scroll vertically.
-    var _LOCK = val(dm_rm[?_SceneRando_scene+STR_View+STR_Data]);
-    //var _LOCK = val(dm_rm[?scene_data_scene_name+STR_View+STR_Data]);
-        _LOCK = clamp(_LOCK,$0,$3);
+    var _LOCK = clamp(val(dm_rm[?_scene_used+STR_View+STR_Data]), $0,$3);
+    
     // This is to prevent vertical scroll.
     // Because wide view 480x270 is taller than 1 page, 
     // some rms need graphics above the normal 1 page height 
@@ -1723,7 +1808,8 @@ if (_ROOM_A
             if(!is_undefined(_depth) 
             && !is_undefined(_layer_name) )
             {
-                if (string_pos("STRUCTURE_BGWALL01_01",_layer_name))
+                if (string_pos("BGWALL01",_layer_name))
+                //if (string_pos("STRUCTURE_BGWALL01_01",_layer_name))
                 {
                     _BG_depth = _depth;
                     continue;//_i
@@ -1745,7 +1831,7 @@ if (_ROOM_A
             for(_i=0; _i<_count1; _i++)
             {
                 _tile_id = dl_ceiling_bottom_rc[|_i];
-                //if (_i==0) sdm("tile_get_depth(_tile_id) "+string(tile_get_depth(_tile_id))+", _FG_depth "+string(_FG_depth));
+                //if (_i==0) show_debug_message("tile_get_depth(_tile_id) "+string(tile_get_depth(_tile_id))+", _FG_depth "+string(_FG_depth));
                 if (tile_exists(_tile_id))
                 {
                     _depth = tile_get_depth(_tile_id);
@@ -1776,7 +1862,7 @@ if (_ROOM_A
                     }
                 }
                 /*
-                _rc = dl_ceiling_bottom_rc[|_i];
+                var _rc = dl_ceiling_bottom_rc[|_i];
                 _clm = (_rc>>0)&$FF;
                 _row = (_rc>>8)&$FF;
                 for(_j=0; _j<dg_RmTile_solid_h; _j++) // each row
@@ -1802,6 +1888,8 @@ if (_ROOM_A
                 */
             }
             /*
+            var _clms1,_rows1, _rc1, _dir1,_dir2;
+            var _dl1 = ds_list_create();
             ds_list_clear(_dl1);
             while (true)
             {
@@ -1854,6 +1942,8 @@ if (_ROOM_A
                 }
                 break;//while (true)
             }
+            
+            ds_list_destroy(_dl1); _dl1=undefined;
             */
         }
     }
@@ -1988,16 +2078,6 @@ if (_ROOM_A)
         }
     }
 }
-
-
-
-
-
-
-
-
-ds_list_destroy(_dl1); _dl1=undefined;
-ds_list_destroy(_dl2); _dl2=undefined;
 
 
 

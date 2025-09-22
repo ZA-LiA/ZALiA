@@ -15,7 +15,7 @@ if (is_undefined(g.dm_tile_file)
 
 // ---------------------------------------------------------------------------------
 var _i,_j, _k,_m;
-var _x,_y, _w,_h, _idx, _val,_val1,_val2, _num, _dir, _type, _count;
+var _x,_y, _w,_h, _idx, _val,_val1,_val2, _num, _dir, _type, _count,_count1,_count2;
 var _scale_x,_scale_y;
 var _clms,_rows, _clm,_row, _clm1,_row1;
 var _area_name1,_area_name2, _rm_name1,_rm_name2;
@@ -75,6 +75,30 @@ _CAN_USE_RANDOMIZED_TILES = false; // 2025/08/11. Turning this off for now. Does
 
 if(!is_undefined(_rm_name1)) _area_name1 = string_copy(_rm_name1,1,AreaID_LEN);
 else                         _area_name1 = g.area_name;
+
+
+
+
+var _has_drop_spawner = false;
+_count1 = ds_grid_width(g.dg_spawn_prio);
+_count2 = ds_grid_width(g.dg_spawn_prxm);
+_count = max(_count1,_count2);
+for(_i=0; _i<_count; _i++)
+{
+    if (_i<_count1 
+    &&  is_ancestor(g.dg_spawn_prio[#_i,$1],SpDrA) )
+    {
+        _has_drop_spawner = true;
+        break;//_i
+    }
+    
+    if (_i<_count2 
+    &&  is_ancestor(g.dg_spawn_prxm[#_i,$1],SpDrA) )
+    {
+        _has_drop_spawner = true;
+        break;//_i
+    }
+}
 
 
 
@@ -645,13 +669,15 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         
         if (string_pos("SOLIDS",_layer_name))
         {
-            g.dg_RmTile_solid    [#_clm,_row] = _tsrc;
-            g.dg_RmTile_solid_def[#_clm,_row] = _tsrc;
+            _clm1 = _clm;
+            _row1 = _row;
+            g.dg_RmTile_solid    [#_clm1,_row1] = _tsrc;
+            g.dg_RmTile_solid_def[#_clm1,_row1] = _tsrc;
             
             if (g.dev_use_tile_markers 
             &&  _tsrc )
             {
-                tile_add(g.ts_TILE_MARKER, ((_tsrc>>0)&$F)<<3,((_tsrc>>4)&$F)<<3, 8,8, _x,_y, DEPTH_SOLIDS);
+                tile_add(g.ts_TILE_MARKER, ((_tsrc>>0)&$F)<<3,((_tsrc>>4)&$F)<<3, 8,8, _clm1<<3,_row1<<3, DEPTH_SOLIDS);
             }
             
             continue;//_j.  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -727,6 +753,73 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 }
             }
         }
+        
+        
+        if (_has_drop_spawner)
+        {
+            _dk = STR_Drop+STR_Spawner+g.rm_name;
+            if (is_undefined(global.DropSpawner_dm[?_dk+STR_Tileset]))
+            {
+                if (_ts==ts_DungeonA01 
+                ||  _ts==ts_DungeonB01 
+                ||  _ts==ts_DungeonC01 
+                ||  _ts==ts_DungeonD01 
+                ||  _ts==ts_DungeonE01 
+                ||  _ts==ts_DungeonF01 
+                ||  _ts==ts_DungeonG01 
+                ||  _ts==ts_DungeonAlt01 
+                ||  _ts==ts_DungeonAlt02 
+                ||  _ts==ts_DungeonAlt03 
+                ||  _ts==ts_DungeonAlt04 
+                ||  _ts==ts_DungeonAlt05 
+                ||  _ts==ts_DungeonAlt06 
+                ||  _ts==ts_Cave01 )
+                {
+                    if (_tsrc==$E0   // uncovered
+                    ||  _tsrc==$E1   // uncovered
+                    ||  _tsrc==$E2   // covered
+                    ||  _tsrc==$E3 ) // covered
+                    {
+                        global.DropSpawner_dm[?_dk+STR_Tileset] = _ts;
+                        if (_tsrc==$E2   // covered
+                        ||  _tsrc==$E3 ) // covered
+                        {
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"A"] = $E2; // top left graphic
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"9"] = $E3; // top right graphic
+                        }
+                        else // uncovered
+                        {
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"A"] = $E0; // top left graphic
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"9"] = $E1; // top right graphic
+                        }
+                        global.DropSpawner_dm[?_dk+STR_TSRC+"6"] = $F0; // bottom left graphic
+                        global.DropSpawner_dm[?_dk+STR_TSRC+"5"] = $F1; // bottom right graphic
+                    }
+                }
+                else if (_ts==ts_Man_made_2a_WRB)
+                {
+                    if ((_tsrc>>4)&$F>=$0 
+                    &&  (_tsrc>>4)&$F<=$4 
+                    &&  _tsrc&$F>=$0 
+                    &&  _tsrc&$F<=$3 )
+                    {
+                        global.DropSpawner_dm[?_dk+STR_Tileset] = _ts;
+                        if (_tsrc&$F>=$2) // covered
+                        {
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"A"] = (_tsrc&$F0) | $2; // top left graphic
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"9"] = (_tsrc&$F0) | $3; // top right graphic
+                        }
+                        else // uncovered
+                        {
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"A"] = (_tsrc&$F0) | $0; // top left graphic
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"9"] = (_tsrc&$F0) | $1; // top right graphic
+                        }
+                        global.DropSpawner_dm[?_dk+STR_TSRC+"6"] = (_tsrc&$F0) | $4; // bottom left graphic
+                        global.DropSpawner_dm[?_dk+STR_TSRC+"5"] = (_tsrc&$F0) | $5; // bottom right graphic
+                    }
+                }
+            }
+        }
         // ----------------------------------------------------------------------
         // ----------------------------------------------------------------------
         
@@ -759,8 +852,15 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (_val)
             {
-                dg_RmTile_Spike    [#_clm,_row] = (_depth_idx<<8) | _val;
-                dg_RmTile_Spike_def[#_clm,_row] = dg_RmTile_Spike[#_clm,_row];
+                _clm1 = _clm;
+                _row1 = _row;
+                dg_RmTile_Spike    [#_clm1,_row1] = (_depth_idx<<8) | _val;
+                dg_RmTile_Spike_def[#_clm1,_row1] = dg_RmTile_Spike[#_clm1,_row1];
+                
+                if (g.dev_use_tile_markers)
+                {
+                    tile_add(g.ts_TILE_MARKER, ((_val>>0)&$F)<<3,((_val>>4)&$F)<<3, 8,8, _clm1<<3,_row1<<3, DEPTH_UNIQUE);
+                }
             }
         }
         
@@ -840,12 +940,14 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (_val)
             {
-                g.dg_RmTile_Break    [#_clm,_row] = (_depth_idx<<8) | _val;
-                g.dg_RmTile_Break_def[#_clm,_row] = g.dg_RmTile_Break[#_clm,_row];
+                _clm1 = _clm;
+                _row1 = _row;
+                g.dg_RmTile_Break    [#_clm1,_row1] = (_depth_idx<<8) | _val;
+                g.dg_RmTile_Break_def[#_clm1,_row1] = g.dg_RmTile_Break[#_clm1,_row1];
                 
                 if (g.dev_use_tile_markers)
                 {
-                    tile_add(g.ts_TILE_MARKER, ((_val>>0)&$F)<<3,((_val>>4)&$F)<<3, 8,8, _x,_y, DEPTH_UNIQUE);
+                    tile_add(g.ts_TILE_MARKER, ((_val>>0)&$F)<<3,((_val>>4)&$F)<<3, 8,8, _clm1<<3,_row1<<3, DEPTH_UNIQUE);
                 }
             }
         }
@@ -863,12 +965,14 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (_val)
             {
-                g.dg_RmTile_Liquid    [#_clm,_row] = (_depth_idx<<8) | _val;
-                g.dg_RmTile_Liquid_def[#_clm,_row] = g.dg_RmTile_Liquid[#_clm,_row];
+                _clm1 = _clm;
+                _row1 = _row;
+                g.dg_RmTile_Liquid    [#_clm1,_row1] = (_depth_idx<<8) | _val;
+                g.dg_RmTile_Liquid_def[#_clm1,_row1] = g.dg_RmTile_Liquid[#_clm1,_row1];
                 
                 if (g.dev_use_tile_markers)
                 {
-                    tile_add(g.ts_TILE_MARKER, ((_val>>0)&$F)<<3,((_val>>4)&$F)<<3, 8,8, _x,_y, DEPTH_UNIQUE);
+                    tile_add(g.ts_TILE_MARKER, ((_val>>0)&$F)<<3,((_val>>4)&$F)<<3, 8,8, _clm1<<3,_row1<<3, DEPTH_UNIQUE);
                 }
             }
         }
@@ -1000,27 +1104,25 @@ if (_rm_has_burnables)
         _rows=ds_grid_height(dg_RmTile_Burnable);
         for(_i=(_clms*_rows)-1; _i>=0; _i--)
         {
-            _clm = _i mod _clms;
-            _row = _i div _clms;
-            _val = dg_RmTile_Burnable[#_clm,_row];
+            _clm1 = _i mod _clms;
+            _row1 = _i div _clms;
+            _val = dg_RmTile_Burnable[#_clm1,_row1];
             if (_val&$FF==BURNABLE_A)
             {
-                if(!g.dg_RmTile_solid    [#_clm,_row])
+                if(!g.dg_RmTile_solid    [#_clm1,_row1])
                 {
-                    g.dg_RmTile_solid    [#_clm,_row] = TID_SOLID1;
-                    g.dg_RmTile_solid_def[#_clm,_row] = TID_SOLID1;
+                    g.dg_RmTile_solid    [#_clm1,_row1] = TID_SOLID1;
+                    g.dg_RmTile_solid_def[#_clm1,_row1] = TID_SOLID1;
                     
                     if (g.dev_use_tile_markers)
                     {
-                        _x=_clm<<3;
-                        _y=_row<<3;
-                        tile_add(g.ts_TILE_MARKER, ((TID_SOLID1>>0)&$F)<<3,((TID_SOLID1>>4)&$F)<<3, 8,8, _x,_y, DEPTH_SOLIDS);
+                        tile_add(g.ts_TILE_MARKER, ((TID_SOLID1>>0)&$F)<<3,((TID_SOLID1>>4)&$F)<<3, 8,8, _clm1<<3,_row1<<3, DEPTH_SOLIDS);
                     }
                 }
                 else
                 {
-                    dg_RmTile_Burnable    [#_clm,_row] = (_val&$FF00) | BURNABLE_B; // BURNABLE_B when removing a burnable tile, do not change the solid value
-                    dg_RmTile_Burnable_def[#_clm,_row] = dg_RmTile_Burnable[#_clm,_row];
+                    dg_RmTile_Burnable    [#_clm1,_row1] = (_val&$FF00) | BURNABLE_B; // BURNABLE_B when removing a burnable tile, do not change the solid value
+                    dg_RmTile_Burnable_def[#_clm1,_row1] = dg_RmTile_Burnable[#_clm1,_row1];
                 }
             }
         }

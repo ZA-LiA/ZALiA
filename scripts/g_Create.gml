@@ -349,7 +349,12 @@ Rando_FLUTE_WARPING=true;
 
 global.Rando_SpellSequence_SPELL_COUNT = 3;
 global.RandoDungeonTilesets_enabled = false;
+
 global.SceneRando_enabled = false;
+// 1: Vanilla scene and rando'd scene must have all same item conditions. 2: Rando'd scene doesnt have to have items. Item position is determined by a tile layer in the Tiled file
+global.SceneRando_ItemPositioning_METHOD = 2;
+// 1: All dark scenes during scene rando are max brightness. 2: Use dark scene setting of vanilla scene
+global.SceneRando_scene_brightness_control = 2;
 
 global.RandoHints_VER = 2; // 1: Old system, 2: Better logic to prevent hints being locked behind the hint's item
 global.RandoHints_enabled = false;
@@ -3085,6 +3090,11 @@ Ganon1_SPRITE1 = spr_Moai_1a;
 Ganon2_SPRITE1 = spr_Ganon_Form2_1a;
 Ganon3_SPRITE1 = spr_Slime_Body1_Large1a;
 Ganon3_SPRITE2 = spr_Slime_Body1_Large1b;
+
+
+
+
+global.DropSpawner_dm = ds_map_create();
 
 
 

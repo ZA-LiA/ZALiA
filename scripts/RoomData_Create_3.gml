@@ -30,6 +30,16 @@ var _dm = ds_map_create();
 
 
 
+_val = _dm_file_data[?STR_Tile+STR_File+"_Dimensions"];
+if(!is_undefined(_val))
+{
+    ds_map_read(global.dm_scene_wh, _val);
+}
+
+
+
+
+
 _val = _dm_file_data[?"scene_data"];
 if(!is_undefined(_val))
 {
