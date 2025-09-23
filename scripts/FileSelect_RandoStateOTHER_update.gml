@@ -25,6 +25,7 @@ switch(RandoOTHER_state){
 case   RandoOTHER_state_MAIN:   {FileSelect_RandoOTHER_MAIN_update(); break;}//case RandoOTHER_state_MAIN:
 case   RandoOTHER_state_ITEMS:  {FileSelect_RandoOTHER_ITEMS_update(); break;}//case RandoOTHER_state_ITEMS:
 case   RandoOTHER_state_SPELLS: {FileSelect_RandoOTHER_SPELLS_update(); break;}//case RandoOTHER_state_SPELLS:
+case   RandoOTHER_state_SKILLS: {FileSelect_RandoOTHER_SKILLS_update(); break;}//case RandoOTHER_state_SKILLS:
 case   RandoOTHER_state_REQUIRE:{FileSelect_RandoOTHER_REQUIRE_update(); break;}//case RandoOTHER_state_REQUIRE:
 }//switch(RandoOTHER_state)
 

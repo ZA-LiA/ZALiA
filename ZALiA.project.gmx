@@ -14393,6 +14393,7 @@
         <script>scripts\FileSelect_RandoOTHER_MAIN_update.gml</script>
         <script>scripts\FileSelect_RandoOTHER_ITEMS_update.gml</script>
         <script>scripts\FileSelect_RandoOTHER_SPELLS_update.gml</script>
+        <script>scripts\FileSelect_RandoOTHER_SKILLS_update.gml</script>
         <script>scripts\FileSelect_RandoOTHER_REQUIRE_update.gml</script>
         <script>scripts\FileSelect_init_rando_settings.gml</script>
         <script>scripts\FileSelect_Rando_get_rando_settings.gml</script>
@@ -15212,7 +15213,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1033">
+  <constants number="1034">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -15832,6 +15833,7 @@
     <constant name="STR_Arena">"_Arena"</constant>
     <constant name="STR_Dripper">"_Dripper"</constant>
     <constant name="STR_Fairy">"_Fairy"</constant>
+    <constant name="STR_Skills">"_Skills"</constant>
     <constant name="STR_Spells">"_Spells"</constant>
     <constant name="STR_Spell">"_Spell"</constant>
     <constant name="STR_Cast">"_Cast"</constant>

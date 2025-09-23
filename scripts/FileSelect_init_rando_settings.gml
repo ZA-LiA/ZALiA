@@ -81,6 +81,7 @@ dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_MAGIC,  2] = 1;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_LIFE,   2] = 1;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_ITEMS,  2] = 0;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_SPELLS, 2] = 0;
+dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_SKILLS, 2] = 0;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_REQUIRE,2] = 0;
 dg_RandoOTHER_Options[#RandoOTHER_MAIN_cursor_BACK,   2] = 0;
 
@@ -110,6 +111,10 @@ dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_REFLECT,2] = 0;
 dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_ENIGMA, 2] = 0;
 dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_THUNDER,2] = 0;
 //dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_SUMMON, 2] = 0;
+
+
+dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABDOWN,2] = 0;
+dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,  2] = 0;
 
 
 dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,2] = f.CRYSTAL_MAX;

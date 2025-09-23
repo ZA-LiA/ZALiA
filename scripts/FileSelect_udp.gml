@@ -111,6 +111,17 @@ switch(state)
             break;}//case RandoOTHER_state_SPELLS
             
             // ---------------------------------------------
+            case RandoOTHER_state_SKILLS:{
+            MenuCursor_x = dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor,0] - _val;
+            MenuCursor_y = dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor,1] + 1;
+            if (RandoOTHER_SKILLS_cursor==RandoOTHER_SKILLS_cursor_STABDOWN 
+            ||  RandoOTHER_SKILLS_cursor==RandoOTHER_SKILLS_cursor_STABUP )
+            {
+                MenuCursor_y += PC_H_;
+            }
+            break;}//case RandoOTHER_state_SKILLS
+            
+            // ---------------------------------------------
             case RandoOTHER_state_REQUIRE:{
             MenuCursor_x  = dg_RandoOTHER_REQUIRE[#0,0] - _val;
             MenuCursor_x -= $3; // micro adj

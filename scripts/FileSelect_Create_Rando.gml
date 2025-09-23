@@ -678,7 +678,7 @@ FileSelect_Rando_cursor_reset(RandoState_ENEMY);
 RandoOTHER_state_MAIN    = _i++;
 RandoOTHER_state_ITEMS   = _i++;
 RandoOTHER_state_SPELLS  = _i++;
-//RandoOTHER_state_SKILLS  = _i++;
+RandoOTHER_state_SKILLS  = _i++;
 RandoOTHER_state_REQUIRE = _i++; // Requirements
 RandoOTHER_state         = RandoOTHER_state_MAIN;
 
@@ -801,7 +801,6 @@ dg_RandoOTHER_Options[#_idx,3] = "START SPELLS";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "WHICH SPELLS TO START WITH";
 dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
-/*
 RandoOTHER_MAIN_cursor_SKILLS = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
 dg_RandoOTHER_Options[#_idx,0] = _X;       // 0: x
@@ -811,7 +810,6 @@ dg_RandoOTHER_Options[#_idx,3] = "START SKILLS";  // 3: text
 dg_RandoOTHER_Options[#_idx,4] = "WHICH SKILLS TO START WITH";
 dg_RandoOTHER_Options[#_idx,5] = _HANDICAP_TEXT;
 //                                                          //
-*/
 RandoOTHER_MAIN_cursor_REQUIRE = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
 dg_RandoOTHER_Options[#_idx,0] = _X;       // 0: x
@@ -825,7 +823,8 @@ RandoOTHER_MAIN_cursor_BACK = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
 dg_RandoOTHER_Options[#_idx,0]  = _X;       // 0: x
 dg_RandoOTHER_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
-dg_RandoOTHER_Options[#_idx,1] += BACK_PAD1;
+dg_RandoOTHER_Options[#_idx,1] += 2;
+//dg_RandoOTHER_Options[#_idx,1] += BACK_PAD1;
 dg_RandoOTHER_Options[#_idx,2]  = 0;        // 2: state
 dg_RandoOTHER_Options[#_idx,3]  = "BACK";   // 3: text
 dg_RandoOTHER_Options[#_idx,4]  = 0;
@@ -1133,6 +1132,60 @@ dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,3]  = "BACK";  // 3: text
 dg_RandoOTHER_SPELLS[#RandoOTHER_SPELLS_cursor_BACK,4]  = "";
 //                                                          //
 
+
+
+
+
+
+
+
+
+
+
+
+_x = RandoOptions_X;
+_Y = RandoOptions_Y;
+
+
+RandoOTHER_SKILLS_FONT_SPRITE = spr_Font2;
+_char_size = sprite_get_width(RandoOTHER_SKILLS_FONT_SPRITE);
+_dist1 = _char_size<<1;
+_dist2 = PC_H + 8;
+
+
+dg_RandoOTHER_SKILLS = ds_grid_create(0,RandoGrid_H);
+
+_idx = -1;
+RandoOTHER_SKILLS_cursor_STABDOWN = ++_idx;
+ds_grid_resize(dg_RandoOTHER_SKILLS, _idx+1, RandoGrid_H);
+dg_RandoOTHER_SKILLS[#_idx,0] = _X;       // 0: x
+dg_RandoOTHER_SKILLS[#_idx,1] = _Y+(_idx*_dist2); // 1: y
+dg_RandoOTHER_SKILLS[#_idx,2] = 0;        // 2: state
+dg_RandoOTHER_SKILLS[#_idx,3] = "DOWNTHRUST";  // 3: text
+dg_RandoOTHER_SKILLS[#_idx,4] = "START WITH DOWNTHRUST";
+dg_RandoOTHER_SKILLS[#_idx,5] = _HANDICAP_TEXT;
+//                                                          //
+RandoOTHER_SKILLS_cursor_STABUP = ++_idx;
+ds_grid_resize(dg_RandoOTHER_SKILLS, _idx+1, RandoGrid_H);
+dg_RandoOTHER_SKILLS[#_idx,0] = _X;       // 0: x
+dg_RandoOTHER_SKILLS[#_idx,1] = _Y+(_idx*_dist2); // 1: y
+dg_RandoOTHER_SKILLS[#_idx,2] = 0;        // 2: state
+dg_RandoOTHER_SKILLS[#_idx,3] = "UPTHRUST";  // 3: text
+dg_RandoOTHER_SKILLS[#_idx,4] = "START WITH UPTHRUST";
+dg_RandoOTHER_SKILLS[#_idx,5] = _HANDICAP_TEXT;
+//                                                          //
+RandoOTHER_SKILLS_cursor_BACK = ++_idx;
+ds_grid_resize(dg_RandoOTHER_SKILLS, _idx+1, RandoGrid_H);
+dg_RandoOTHER_SKILLS[#_idx,0] = _X;       // 0: x
+dg_RandoOTHER_SKILLS[#_idx,1] = _Y+(_idx*_dist2); // 1: y
+dg_RandoOTHER_SKILLS[#_idx,2] = 1;        // 2: state
+dg_RandoOTHER_SKILLS[#_idx,3] = "BACK";  // 3: text
+dg_RandoOTHER_SKILLS[#_idx,4] = "";
+//                                                          //
+
+
+RandoOTHER_SKILLS_cursor_COUNT = _idx + 1;
+RandoOTHER_SKILLS_cursor = 0;
 
 
 

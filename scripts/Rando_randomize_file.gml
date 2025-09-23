@@ -93,6 +93,13 @@ _datakey = STR_File+STR_Start+STR_Spells;
 dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
 
 
+_datakey = STR_File+STR_Start+STR_Skill+STR_STABDOWN;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+_datakey = STR_File+STR_Start+STR_Skill+STR_STABUP;
+dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
+
+
 _datakey = STR_Kakusu+STR_Required+STR_Count;
 dm_save_data[?_datakey] = val(_dm_SETTINGS[?_datakey]);
 

@@ -210,6 +210,21 @@ if (file_exists(_FILE_NAME))
         
         
         
+        var _START_STABDOWN = dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABDOWN,2];
+        if (_START_STABDOWN) _dm_save_data[?f.SDNAME_skills] = val(_dm_save_data[?f.SDNAME_skills]) | SKILL_THD;
+        _dm_rando_settings[?STR_File      +STR_Start+STR_Skill+STR_STABDOWN] = _START_STABDOWN;
+        _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Skill+STR_STABDOWN] = _START_STABDOWN;
+        _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Skill+STR_STABDOWN] = _START_STABDOWN;
+        
+        var _START_STABUP = dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,2];
+        if (_START_STABUP) _dm_save_data[?f.SDNAME_skills] = val(_dm_save_data[?f.SDNAME_skills]) | SKILL_THU;
+        _dm_rando_settings[?STR_File      +STR_Start+STR_Skill+STR_STABUP] = _START_STABUP;
+        _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Skill+STR_STABUP] = _START_STABUP;
+        _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Skill+STR_STABUP] = _START_STABUP;
+        
+        
+        
+        
         // Start-With 1-Up Dolls -------------------------------------------------------
         var _DOLL_COUNT = dg_RandoOTHER_ITEMS[#RandoOTHER_ITEMS_item_cursor_DOLLS,2];
             _DOLL_COUNT = clamp(_DOLL_COUNT, 0,val(f.dm_1up_doll[?STR_Count])-(_QUEST_NUM==2));
@@ -271,58 +286,9 @@ if (file_exists(_FILE_NAME))
     
     
     
+    
     // Prepare Rando Settings for Randomizing Process ----------------------------
     var _SEED = FileSelect_get_file_seed(_FILE_NUM,_QUEST_NUM);
-    
-    /*
-    _rando_settings = "";
-    if (_RANDO_ON)
-    {
-        _rando_settings = FileSelect_Rando_get_rando_settings();
-        var _dm_rando_settings = json_decode(_rando_settings);
-        if (_dm_rando_settings!=-1)
-        {
-            _dm_rando_settings[?STR_File      +STR_Start+STR_Level+STR_Attack] = _LEVEL_ATK;
-            _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Level+STR_Attack] = _LEVEL_ATK;
-            _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Level+STR_Attack] = _LEVEL_ATK;
-            
-            _dm_rando_settings[?STR_File      +STR_Start+STR_Level+STR_Magic]  = _LEVEL_MAG;
-            _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Level+STR_Magic]  = _LEVEL_MAG;
-            _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Level+STR_Magic]  = _LEVEL_MAG;
-            
-            _dm_rando_settings[?STR_File      +STR_Start+STR_Level+STR_Life]   = _LEVEL_LIF;
-            _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Level+STR_Life]   = _LEVEL_LIF;
-            _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Level+STR_Life]   = _LEVEL_LIF;
-            
-            
-            _dm_rando_settings[?STR_File      +STR_Start+STR_Items] = _START_ITEMS;
-            _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Items] = _START_ITEMS;
-            _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Items] = _START_ITEMS;
-            
-            
-            _dm_rando_settings[?STR_File      +STR_Start+STR_Container+STR_HP] = _START_CONT_HP;
-            _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Container+STR_HP] = _START_CONT_HP;
-            _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Container+STR_HP] = _START_CONT_HP;
-            
-            _dm_rando_settings[?STR_File      +STR_Start+STR_Container+STR_MP] = _START_CONT_MP;
-            _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Container+STR_MP] = _START_CONT_MP;
-            _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Container+STR_MP] = _START_CONT_MP;
-            
-            
-            _dm_rando_settings[?STR_File      +STR_Start+STR_Spells] = _START_SPELLS;
-            _dm_rando_settings[?STR_Quest+"01"+STR_Start+STR_Spells] = _START_SPELLS;
-            _dm_rando_settings[?STR_Quest+"02"+STR_Start+STR_Spells] = _START_SPELLS;
-            
-            
-            _dm_rando_settings[?"_UP_A"+STR_XP+"_Penalty"] = dg_RandoOTHER_Options[#RandoOTHER_MAIN_WARP_PENALTY,2];
-            
-            
-            _rando_settings = json_encode(_dm_rando_settings);
-            ds_map_destroy(_dm_rando_settings); _dm_rando_settings=undefined;
-        }
-    }
-    */
-    
     _rando_settings = json_encode(_dm_rando_settings);
     
     

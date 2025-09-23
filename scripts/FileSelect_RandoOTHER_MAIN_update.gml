@@ -127,6 +127,17 @@ switch(RandoOTHER_MAIN_cursor)
     
     // ============================================================================
     // -------------------------------------------------------------------
+    case RandoOTHER_MAIN_cursor_SKILLS:{
+    if (InputConfirm_pressed)
+    {
+        RandoOTHER_SKILLS_cursor = 0;
+        aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
+        RandoOTHER_state = RandoOTHER_state_SKILLS;
+    }
+    break;}//case RandoOTHER_MAIN_cursor_SKILLS:
+    
+    // ============================================================================
+    // -------------------------------------------------------------------
     case RandoOTHER_MAIN_cursor_REQUIRE:{
     if (InputConfirm_pressed)
     {

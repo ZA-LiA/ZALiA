@@ -1132,6 +1132,33 @@ if (string_length(p.pal_rm_curr)) // otherwise some text will be wrong color unt
                     }
                     
                     
+                    
+                    
+                    // =================================================================
+                    // Start Skills --------------------------------------
+                    _y += _DIST2;
+                    
+                    _y += _DIST4;
+                    _y += -1;
+                    _x  = _xl0;
+                    _text = "START SKILLS:";
+                    _font_sprite = FONT_SPRITE1;
+                    draw_text_(_x,_y, _text, _font_sprite);
+                    _y += _DIST2;
+                    
+                    _y += PC_H_;
+                    _x += PC_W_;
+                    if (val(_dm_Rando[?STR_File+STR_Start+STR_Skill+STR_STABDOWN])) _pi = global.PI_PC1;
+                    else                                                            _pi = global.PI_GUI2;
+                    draw_pc_skin(_x,_y, 1,1, g.pc.behavior_STAB_DOWN, false, -1,-1, _pi);
+                    
+                    _x += PC_W;
+                    _x += $10;
+                    if (val(_dm_Rando[?STR_File+STR_Start+STR_Skill+STR_STABUP])) _pi = global.PI_PC1;
+                    else                                                          _pi = global.PI_GUI2;
+                    draw_pc_skin(_x,_y, 1,1, g.pc.behavior_STAB_UP, false, -1,-1, _pi);
+                    
+                    
                     pal_swap_reset();
                     
                     

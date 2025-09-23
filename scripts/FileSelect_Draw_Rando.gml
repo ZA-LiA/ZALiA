@@ -506,24 +506,9 @@ if (string_length(_text))
     _yt += _DIST1; // Add blank line
 }
 
-/*
-RandoOTHER_ITEMS_item_cursor_CANDLE  = _i++;
-RandoOTHER_ITEMS_item_cursor_FLUTE   = _i++;
-RandoOTHER_ITEMS_item_cursor_BAIT    = _i++;
-RandoOTHER_ITEMS_item_cursor_SHIELD  = _i++;
-RandoOTHER_ITEMS_item_cursor_RING    = _i++;
-RandoOTHER_ITEMS_item_cursor_PENDANT = _i++;
-RandoOTHER_ITEMS_item_cursor_SWORD   = _i++;
-RandoOTHER_ITEMS_item_cursor_FEATHER = _i++;
-RandoOTHER_ITEMS_item_cursor_NOTE    = _i++;
-RandoOTHER_ITEMS_item_cursor_MAP1    = _i++;
-RandoOTHER_ITEMS_item_cursor_MAP2    = _i++;
-RandoOTHER_ITEMS_item_cursor_DOLLS   = _i++;
-RandoOTHER_ITEMS_item_cursor_HEART   = _i++; // heart containers
-RandoOTHER_ITEMS_item_cursor_MAGIC   = _i++; // magic containers
-RandoOTHER_ITEMS_item_cursor_COUNT   = _i;
-RandoOTHER_ITEMS_item_cursor         = RandoOTHER_ITEMS_item_cursor_CANDLE;
-*/
+
+
+
 var _IDX0 = 4;
 for(_i=_IDX0; _i<RandoGrid_H; _i++)
 {

@@ -118,6 +118,11 @@ switch(RandoOTHER_state)
             break;}
             
             // ----------------------------------------------------
+            case RandoOTHER_MAIN_cursor_SKILLS:{
+            draw_text_(_x,_y, _text, _FONT_SPRITE, _pi2);
+            break;}
+            
+            // ----------------------------------------------------
             case RandoOTHER_MAIN_cursor_REQUIRE:{
             draw_text_(_x,_y, _text, _FONT_SPRITE, _pi2);
             break;}
@@ -269,6 +274,33 @@ switch(RandoOTHER_state)
             break;}
         }
     }
+    break;}
+    
+    
+    
+    
+    // --------------------------------------------
+    case RandoOTHER_state_SKILLS:{
+    _x =dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABDOWN,0] + PC_W_;
+    _y =dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABDOWN,1] + PC_H_;
+    if (dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABDOWN,2]) _pi = global.PI_PC1;
+    else                                                            _pi = PI_DARK1;
+    draw_pc_skin(_x,_y, 1,1, g.pc.behavior_STAB_DOWN, false, -1,-1, _pi);
+    
+    
+    _x =dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,0] + PC_W_;
+    _y =dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,1] + PC_H_;
+    if (dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,2]) _pi = global.PI_PC1;
+    else                                                          _pi = PI_DARK1;
+    draw_pc_skin(_x,_y, 1,1, g.pc.behavior_STAB_UP, false, -1,-1, _pi);
+    
+    
+    _x = dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_BACK,0];
+    _y = dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_BACK,1];
+    _text = string_letters(dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_BACK,3]);
+    if (RandoOTHER_SKILLS_cursor==RandoOTHER_SKILLS_cursor_BACK) _pi = PI_MENU1;
+    else                                                         _pi = PI_MENU2;
+    draw_text_(_x,_y, _text, RandoOTHER_SKILLS_FONT_SPRITE, _pi);
     break;}
     
     
