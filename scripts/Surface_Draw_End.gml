@@ -122,6 +122,28 @@ if (AppVersion_can_draw)
 
 
 // ------------------------------------------------------------------------------------
+/*
+var _xl0, _text;
+var _W0 = viewW() - ($6<<3);
+var _xl = viewXL() + ($2<<3);
+var _yt = viewYT() + ($8<<3);;
+for(var _i=0; _i<g.dl_RandomOG_SIZE; _i++)
+{
+    _text = hex_str(_i)+":"+hex_str(g.dl_RandomOG[|_i]);
+    draw_text_(_xl,_yt, _text);
+    
+    _xl0 = viewXL() + ($2<<3);
+    _xl += (string_length(_text)+1)<<3;
+    if (_xl+(string_length(_text)<<3)>_xl0+_W0)
+    {
+        _xl  = _xl0;
+        _yt += $3<<3;
+    }
+}
+*/
+
+
+
 //can_update_frame_ = can_update_frame();
 
 

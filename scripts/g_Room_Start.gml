@@ -1601,6 +1601,7 @@ if (_ROOM_A
             set_xy(id, spawn_x+PC_W_,spawn_y+PC_H_); // rm_set_cam_1a() needs this
             update_view_og();
             rm_set_cam_1a(x,y);
+            //show_debug_message("g_Room_Start(). "+"pc x "+hex_str(x)+", pc y "+hex_str(y)+", pc spawn_x "+hex_str(spawn_x)+", pc spawn_y "+hex_str(spawn_y)+",  view_yview[0] $"+hex_str(view_yview[0])+", cam_yt_min() "+hex_str(cam_yt_min())+", cam_yt_max() "+hex_str(cam_yt_max()));
         }
     }
     

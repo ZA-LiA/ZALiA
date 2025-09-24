@@ -2,7 +2,7 @@
 
 
 //sdm("set spawn defaults");
-var _i,_j,_k,_m, _num,_val, _count;
+var _i,_j,_k,_m, _count;
 var _dk, _rm_name, _spawn_trigger;
 
 
@@ -34,8 +34,8 @@ for(_i=ds_list_size(g.dl_AREA_NAME)-1; _i>=0; _i--) // Each area
         
         
         
-                                                 _count = 1;
-            _dk = _rm_name+STR_Challenge+hex_str(_count++);
+                                             _count = 1;
+        _dk = _rm_name+STR_Challenge+hex_str(_count++);
         while(!is_undefined(g.dm_spawn[?_dk+STR_obj_idx]))
         {
             if (is_ancestor(g.dm_spawn[?_dk+STR_obj_idx], TogglingPathDirection))

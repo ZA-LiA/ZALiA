@@ -508,7 +508,7 @@ data_spawn(rm+STR_PRXM,Moa_B,$1,  $22<<3,(row0+$11)<<3); // FieryMoa  1
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '08'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                                 // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                                 // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0C'+EXL0_); // RGT 0, 
 
 
@@ -682,7 +682,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $5A<<3,y3-$20); // Bot  1
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '0A'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0B,  '10'+EXL0_); // RGT 0, 
 
 
@@ -756,7 +756,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $58<<3,(row0+$13)<<3); // Bot  1
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '0D'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0B,  '12'+EXL0_); // RGT 0, 
 
 

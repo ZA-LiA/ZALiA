@@ -1,18 +1,19 @@
 /// go_spawn_enter_room()
 
-if (DEV){
-var _str  = "go_spawn_enter_room(),  ";
-    _str += "gob spawn count: "+STR_PRXM+" $";
-    _str += hex_str(val(g.dm_spawn[?get_spawn_datakey(g.rm_name,STR_PRXM,-1)]));
-    _str += ", "+STR_PRIO+" $";
-    _str += hex_str(val(g.dm_spawn[?get_spawn_datakey(g.rm_name,STR_PRIO,-1)]));
-sdm(_str);
+if (DEV)
+{
+    var _str  = "go_spawn_enter_room(),  ";
+        _str += "gob spawn count: "+STR_PRXM+" $";
+        _str += hex_str(val(g.dm_spawn[?get_spawn_datakey(g.rm_name,STR_PRXM,-1)]));
+        _str += ", "+STR_PRIO+" $";
+        _str += hex_str(val(g.dm_spawn[?get_spawn_datakey(g.rm_name,STR_PRIO,-1)]));
+    show_debug_message(_str);
 }
 
 
 
 g.pc.state = g.pc.state_SPAWN;
-//sdm("g.pc.x: $"+hex_str(g.pc.x)+", g.pc.y: $"+hex_str(g.pc.y));
+//show_debug_message("g.pc.x: $"+hex_str(g.pc.x)+", g.pc.y: $"+hex_str(g.pc.y));
 
 // ** this has been moved to g_Room_Start()
 //NIAO_Room_Start();

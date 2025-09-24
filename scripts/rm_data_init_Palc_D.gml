@@ -1,13 +1,12 @@
 /// rm_data_init_Palc_D()
 
 
-var _i, _a, _val,_val1,_val2, _dist;
-var _x,_x1,_x2,_y,_yt, _w,_w2,_w3, _h,_h2,_h3;
-var _clm,_clm2, _row,_row2, _clms,_rows;
-var _pi, _obj;
-var _rm, _file, _data, _exit, _owrc;
+var _a, _val1;
+var _x;
+var _pi;
+var _exit;
 var _datakey;
-var _dk_spawn_item0, _dk_spawn_item1, _dk_spawn_item2, _dk_spawn_item3, _dk_spawn_item4;
+var _dk_spawn_item0, _dk_spawn_item1;
 
 
 
@@ -27,7 +26,7 @@ mus0 = STR_Dungeon+_DUNGEON_NUM_;
 //mus0 = MUS_DUNGEON1;
 
 var _DARK_DATA=STR_Dark+"01";
-ow_axis =  0; // 0:horizontal, 1:vertical
+ow_axis = 0; // 0:horizontal, 1:vertical
 
 
 var _DUNGEON_NAME = STR_Maze_Island_Palace;
@@ -182,7 +181,7 @@ data_spawn(rm+STR_PRXM,WizaA,$1,  $6A<<3,y3); // Wizard  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '00'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '02'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '04'+EXL0_); // RGT 0, 
 
@@ -309,7 +308,7 @@ data_spawn(rm+STR_PRXM,WizaA,$1,  $64<<3,y3); // Wizard  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '02'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '05'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '07'+EXL0_); // RGT 0, 
 
@@ -345,7 +344,7 @@ data_spawn(rm+STR_PRIO,BlazA,$1,  ($300)+4,$60); // $8C: Blaze  1
 data_spawn(rm+STR_PRXM,Ra__A,$2,  $1B0,$60); // $A9: Ra  2
 data_spawn(rm+STR_PRXM,Ra__A,$2,  $240,$60); // $A9: Ra  2
 data_spawn(rm+STR_PRIO,SpStA,$2,  $76<<3,(row0+$0E)<<3); // SpawnByStab  2
-//data_spawn_PRIO(_rm, SpStA,  2,  $3B0,   $70); // $09: SpawnByStab  2
+//data_spawn_PRIO(rm, SpStA,  2,  $3B0,   $70); // $09: SpawnByStab  2
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$12,  '06'+'10');   // LFT 0,  
@@ -505,7 +504,7 @@ data_spawn(rm+STR_PRXM,StalA,$2,  $4E<<3,y4); // Stalfos  2
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '05'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5, "03");                                    // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15, "03");                                    // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0C'+EXL0_); // RGT 0, 
 
 
@@ -820,7 +819,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $6A<<3,y3); // Bot  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '0E'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5, "03");                                    // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15, "03");                                    // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '11'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '13'+EXL0_); // RGT 0, 
 

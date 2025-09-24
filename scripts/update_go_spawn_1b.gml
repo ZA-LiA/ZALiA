@@ -1,7 +1,7 @@
 /// update_go_spawn_1b(enter room spawning)
 
 
-if (g.encounter_type & g.ENC_FARY)
+if (g.encounter_type&g.ENC_FARY)
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -29,7 +29,7 @@ var _ENTER_RM_SPAWN = argument0;
 
 
 var  _i, _a, _val, _w,_w_, _h,_h_;
-var _obj,_ver, _obj_name, _spr, _spawn_tile;;
+var _obj, _ver, _obj_name;
 var _inst;
 var _spawn_xl,_spawn_xc, _spawn_yt,_spawn_yc;
 var _spawn_dk;
@@ -72,7 +72,7 @@ for(_i=0; _i<_GO_COUNT; _i++)
     
     
     // 1: avail to spawn, 0: spawned/can't respawn, -1: can't spawn again
-    if (val(g.dm_spawn[?_spawn_dk+STR_Spawn_Permission]) != 1)
+    if (val(g.dm_spawn[?_spawn_dk+STR_Spawn_Permission])!=1)
     {
         continue; // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     }

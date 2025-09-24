@@ -1,5 +1,12 @@
 /// scene_enter_add_tiles()
 
+if (DEV)
+{
+    var _START_TIME = current_time;
+    show_debug_message("");
+    show_debug_message("scene_enter_add_tiles() START");
+}
+
 
 // TODO: Optimize tile add system. `tile_add()` by far takes up the most time.
 
@@ -1262,6 +1269,15 @@ for(_i=ds_grid_width(g.dg_tile_anim)-1; _i>=0; _i--)
 
 ds_grid_destroy(_WallStyle01_dg); _WallStyle01_dg=undefined;
 //ds_map_destroy(_StoneTileset01_dm); _StoneTileset01_dm=undefined;
+
+
+
+
+if (DEV)
+{
+    show_debug_message("scene_enter_add_tiles() END. "+string(current_time-_START_TIME));
+    show_debug_message("");
+}
 
 
 

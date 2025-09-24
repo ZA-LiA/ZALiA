@@ -10,14 +10,11 @@ if (DEV)
 }
 
 
-var _i;
-
-
 g.go_mgr = id;
 
 
 update_idx   =  0;
-UPDATE_CNT   =  max(MAX_GOB1, MAX_GOC1);
+UPDATE_COUNT =  max(MAX_GOB1, MAX_GOC1);
 counter      =  0; // 0485
 uIdxSwap_gob = -1; // if != -1, addToEntityList() will use eIndexSwap value
 uIdxSwap_goc = -1; // if != -1, addToProjectileList() will use pIndexSwap value

@@ -61,7 +61,7 @@ data_spawn(rm+STR_PRIO,SpStA,$1,  $34<<3,(row0+$11)<<3); // SpawnByStab  2
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '04'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_,  clm3,row_e5, "04");                                    // Elevator DW $40, 
+data_Elev(EXD0_, clm3,row_e5, "04");                                           // Elevator DW $40, 
 _exit=data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$17,  0); // LFT 0, to Overworld  
 g.dm_rm[?get_dk_dungeon_entrance(_DUNGEON_NUM)] = _exit;
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$01,  'FD'+EXL0_); // RGT 0, 
@@ -229,7 +229,8 @@ data_spawn(rm+STR_PRXM,WosuA,$1,  $72<<3,y5,  STR_Direction+string(-1)); // Wosu
 
 clm3=$50; // elevator center clm
 data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  '00'+EXD0_); // UP  0, Elevator up 
-data_Elev(EXU0_, clm3,row0+$14);                                             // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                             // Elevator UP $80, 
+//data_Elev(EXU0_, clm3,row0+$14);                                             // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '03'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '05'+EXL0_); // RGT 0, 
 
@@ -497,7 +498,7 @@ data_spawn(rm+STR_PRXM,BubbA,$1,  $4C<<3,y4); // Bubble  1
 
 clm3=$70; // elevator center clm
 data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  '06'+EXD0_); // UP  0, Elevator up 
-data_Elev(EXU0_, clm3,row0+$14);                                             // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                             // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$17,  '09'+EXR0_); // LFT 0, 
 
 
@@ -531,7 +532,7 @@ data_spawn(rm+STR_PRXM,StalA,$1,  $6C<<3,y3); // Stalfos  1
 
 clm3=$10; // elevator center clm
 data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  '07'+EXD0_); // UP  0, Elevator up 
-data_Elev(EXU0_, clm3,row0+$14);                                             // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                             // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0B,  '0C'+EXL0_); // RGT 0, 
 
 

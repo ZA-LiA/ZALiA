@@ -223,7 +223,7 @@ data_spawn(rm+STR_PRXM,WizaA,$1,  $50<<3,y3); // Wizard  1
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '02'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '04'+EXL0_); // RGT 0, 
 
 
@@ -514,7 +514,7 @@ data_spawn(rm+STR_PRXM,AttaA,$1,  $70<<3,y3); // Atta  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '06'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$13,  '0B'+EXL0_); // RGT 0, 
 
 
@@ -1071,7 +1071,7 @@ data_spawn(rm+STR_PRXM,WosuA,$1,  $44<<3,y3); // Wosu  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '14'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '17'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '19'+EXL0_); // RGT 0, 
 

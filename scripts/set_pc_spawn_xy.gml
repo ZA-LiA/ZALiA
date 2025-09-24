@@ -25,12 +25,11 @@ with(g.pc)
         spawn_y += $10;
     }
     
-    
     spawn_x = clamp(spawn_x, cam_xl_min()-$28,cam_xr_max()+$18);
     spawn_y = clamp(spawn_y, cam_yt_min()-$18,cam_yb_max()-$18);
     
     // set spawn_x based off last x of prev room
-    if (g.exit_enter.exit_type & g.EXIT_BIT_VERT1)
+    if (g.exit_enter.exit_type&g.EXIT_BIT_VERT1)
     {
         spawn_x = (g.leave_rm_x>>4)<<4;
         spawn_x = clamp(spawn_x, g.exit_enter.xl, g.exit_enter.xr-min(ww,PC_W));

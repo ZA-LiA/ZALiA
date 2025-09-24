@@ -93,7 +93,7 @@ data_spawn(rm+STR_PRXM,StalA,$2,  $5E<<3,(row0+$0B)<<3); // Stalfos  2
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '00'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '02'+EXL0_); // RGT 0, 
 
 
@@ -409,7 +409,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $5E<<3,y3); // Bot  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '05'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                                 // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                                 // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '08'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RGT 0, 
 
@@ -497,7 +497,7 @@ data_spawn(rm+STR_PRXM,StalA,$1,  $3C<<3,(row0+$0B)<<3); // Stalfos  1
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '08'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0D'+EXL0_); // RGT 0, 
 
 
@@ -629,7 +629,7 @@ data_spawn(rm+STR_PRXM,BubbA,$1,  $2C<<3,(row0+$16)<<3,  STR_Direction+hex_str($
 
 clm3=$30; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '11'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0A'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '10'+EXL0_); // RGT 0, 
 

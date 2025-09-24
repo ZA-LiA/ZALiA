@@ -2471,40 +2471,76 @@ global.dm_scene_wh[?'MazIs_119'+STR_Width ] = $0300;
 global.dm_scene_wh[?'MazIs_119'+STR_Height] = $0100;
 
 //  ----------------------------  120  ----------------------------
+global.dm_scene_wh[?'MazIs_120'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_120'+STR_Height] = $0100;
 
 //  ----------------------------  121  ----------------------------
+global.dm_scene_wh[?'MazIs_121'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_121'+STR_Height] = $0100;
 
 //  ----------------------------  122  ----------------------------
+global.dm_scene_wh[?'MazIs_122'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_122'+STR_Height] = $0200;
 
 //  ----------------------------  123  ----------------------------
+global.dm_scene_wh[?'MazIs_123'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_123'+STR_Height] = $0200;
 
 //  ----------------------------  124  ----------------------------
+global.dm_scene_wh[?'MazIs_124'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_124'+STR_Height] = $0200;
 
 //  ----------------------------  125  ----------------------------
+global.dm_scene_wh[?'MazIs_125'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_125'+STR_Height] = $0200;
 
 //  ----------------------------  126  ----------------------------
+global.dm_scene_wh[?'MazIs_126'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_126'+STR_Height] = $0100;
 
 //  ----------------------------  127  ----------------------------
+global.dm_scene_wh[?'MazIs_127'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_127'+STR_Height] = $0100;
 
 //  ----------------------------  128  ----------------------------
+global.dm_scene_wh[?'MazIs_128'+STR_Width ] = $0200;
+global.dm_scene_wh[?'MazIs_128'+STR_Height] = $0100;
 
 //  ----------------------------  129  ----------------------------
+global.dm_scene_wh[?'MazIs_129'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_129'+STR_Height] = $0100;
 
 //  ----------------------------  130  ----------------------------
+global.dm_scene_wh[?'MazIs_130'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_130'+STR_Height] = $0200;
 
 //  ----------------------------  131  ----------------------------
+global.dm_scene_wh[?'MazIs_131'+STR_Width ] = $0200;
+global.dm_scene_wh[?'MazIs_131'+STR_Height] = $0400;
 
 //  ----------------------------  132  ----------------------------
+global.dm_scene_wh[?'MazIs_132'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_132'+STR_Height] = $0200;
 
 //  ----------------------------  133  ----------------------------
+global.dm_scene_wh[?'MazIs_133'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_133'+STR_Height] = $0200;
 
 //  ----------------------------  134  ----------------------------
+global.dm_scene_wh[?'MazIs_134'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_134'+STR_Height] = $0200;
 
 //  ----------------------------  135  ----------------------------
+global.dm_scene_wh[?'MazIs_135'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_135'+STR_Height] = $0100;
 
 //  ----------------------------  136  ----------------------------
+global.dm_scene_wh[?'MazIs_136'+STR_Width ] = $0100;
+global.dm_scene_wh[?'MazIs_136'+STR_Height] = $0300;
 
 //  ----------------------------  137  ----------------------------
+global.dm_scene_wh[?'MazIs_137'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_137'+STR_Height] = $0200;
 
 //  ----------------------------  138  ----------------------------
 

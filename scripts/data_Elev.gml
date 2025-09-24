@@ -28,7 +28,7 @@ var                      _SHAFT_ROWS = string_repeat("01",_COUNT);
 if (argument_count>_arg) _SHAFT_ROWS = argument[_arg++];
 
 if (_SHAFT_ROWS!=0)
-{
+{   // data for dungeon map
     var _dk, _exit_num, _exit_name, _diff;
     
     if (string_length(_SHAFT_ROWS)&$1)          _SHAFT_ROWS  = "0"+_SHAFT_ROWS;

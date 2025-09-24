@@ -4,7 +4,7 @@ show_debug_message(" FileSelect_Create()");
 
 
 var _i,_j, _a, _val, _dist;
-var _X,_Y;
+var _X,_Y, _x,_y;
 var _ver, _file_num;
 var _default=0;
 var _datakey1,_datakey2;
@@ -149,6 +149,11 @@ ELIMINATE_surf_DrawArea_YT = yt;
 
 
 
+RANDO_YOFF1 = -($02<<3);
+
+
+
+
 Frame_YT  = MAIN_surf_DrawArea_YT;
 Frame_YT += $01<<3; // S E L E C T
 
@@ -202,6 +207,7 @@ SAVE_NAME_Y1 = yt + ($05<<3); // State_MAIN
 SAVE_NAME_X2 = QUEST_X2 + ($01<<3); // State_REGISTER, State_ELIMINATE
 //SAVE_NAME_X2 = SAVE_NAME_X1 + ($07<<3); // State_REGISTER, State_ELIMINATE
 SAVE_NAME_Y2 = yt + ($03<<3); // State_REGISTER, State_ELIMINATE
+//SAVE_NAME_Y3 = SAVE_NAME_Y2 - ($02<<3); // State_RANDO
 saveNameX    = SAVE_NAME_X1;
 saveNameY    = SAVE_NAME_Y1;
 
@@ -451,6 +457,16 @@ cursor_name = 0;
 
 ROW_COUNT = $04;
 CLM_COUNT = $0B;
+
+
+
+
+_y  = $03<<3; // YT of save files
+_y +=($03<<3)*SAVE_FILE_MAX; // + total height of save files for YT of "RANDO"/"END"
+_y += $01<<3; // + extra "RANDO"/"END" pad
+_y += REGISTER_surf_DrawArea_YT;
+_y += RandoOptions_YOFF1;
+REGISTER_RANDO_TEXT_YT = _y;
 
 
 

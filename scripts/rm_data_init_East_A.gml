@@ -3265,7 +3265,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $29<<3,y4); // Bot  1
 
 clm3=$30; // clm3: Elevator center clm
 data_exit(EXU0,etC0,1,  clm3-$04,row_e0,  CLMS4,ROWS5,  clm3-$01,row_e1,  '5B'+EXD0_); // UP  0, Elevator up 
-data_Elev(EXU0_, clm3,row0+$0E);                                                 // Elevator UP $80,  
+data_Elev(EXU0_, clm3,row0+$0D);                                                 // Elevator UP $80,  
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0D,  '59'+EXR0_); // LFT 0, 
 
 

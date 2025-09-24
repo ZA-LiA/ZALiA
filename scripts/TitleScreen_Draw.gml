@@ -19,21 +19,24 @@ if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
     var _X1 = g.rm_w_ - VIEW_W_OG_;
     var _Y1 = g.rm_h  - VIEW_H_OG;
     _Y1 += $10; // Because VIEW_H_OG used to erronously be 224 instead of 240
+    var _STAR_COUNT = ds_grid_width(dg_STAR_SKY);
     
-                 _count = ds_grid_width(dg_STAR_SKY);
-    for(_i=0; _i<_count; _i++) // each star
+    for(_i=0; _i<4; _i++) // each color/anim_frame
     {
-        _x  = _X1 + dg_STAR_SKY[#_i,0] + 3;
-        _y  = _Y1 + dg_STAR_SKY[#_i,1] + 3;
-        
-        for(_j=0; _j<4; _j++) // each color/anim_frame
+        if(!surface_exists(dl_STAR_SKY[|_i]))
         {
-            if(!surface_exists(dl_STAR_SKY[|_j])) dl_STAR_SKY[|_j] = surface_create(g.rm_w,g.rm_h);
-            
-            surface_set_target(dl_STAR_SKY[|_j]);
+            dl_STAR_SKY[|_i] = surface_create(g.rm_w,g.rm_h);
+            surface_set_target(dl_STAR_SKY[|_i]);
             draw_clear_alpha(c_black,0);
-            _idx = (dg_STAR_SKY[#_i,2]+_j) &$3;
-            draw_point_colour(_x,_y, p.dg_color_seq[#1,_idx]);
+            
+            for(_j=0; _j<_STAR_COUNT; _j++) // each star
+            {
+                _x = _X1 + dg_STAR_SKY[#_j,0] + 3;
+                _y = _Y1 + dg_STAR_SKY[#_j,1] + 3;
+                _idx = (dg_STAR_SKY[#_j,2]+_i)&$3;
+                draw_point_colour(_x,_y, p.dg_color_seq[#1,_idx]);
+            }
+            
             surface_reset_target();
         }
     }
@@ -53,7 +56,7 @@ if(!surface_exists(dl_STAR_SKY[|0])) // 1st frame only
         surface_copy_part(_surf, 0,0, dl_STAR_SKY[|_i], _X1,_Y1,_W,_H);
         
         surface_set_target(dl_STAR_SKY[|_i]);
-        draw_clear_alpha(c_black,0);
+        //draw_clear_alpha(c_black,0);
         
         draw_surface_ext(_surf, _X0,    _Y0,  1, 1, 0,c_white,1); // row 1
         draw_surface_ext(_surf, _X0+_W, _Y0,  1, 1, 0,c_white,1); // row 1

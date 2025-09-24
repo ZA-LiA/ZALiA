@@ -5,7 +5,7 @@
 if(!Boss_update_1()) // check battle start/end/qualify
 {
     update_EF11();
-    g.go_mgr.update_idx = g.go_mgr.UPDATE_CNT;
+    g.go_mgr.update_idx = g.go_mgr.UPDATE_COUNT;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 

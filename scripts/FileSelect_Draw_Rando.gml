@@ -33,6 +33,7 @@ var _ITEM_LOC_STATE = dg_RandoITEM_Options[#RandoITEM_LOCS,2];
 
 var _YT0  = Area1_YT;
     _YT0 -= $6;
+    _YT0 += RANDO_YOFF1;
 // Title Text
 _text = "RANDO SETTINGS";
 _len = string_length(_text);

@@ -2,22 +2,34 @@
 
 
 var _i,_j, _val;
+
+
+
+var _exit_data = 0;
+if(!is_undefined(dk_spawn))
+{
+    spawn_x = (val(g.dm_spawn[?dk_spawn+"_x"], g.rm_clms>>1) <<3) - ww_;
+    spawn_y =  val(g.dm_spawn[?dk_spawn+"_y"], g.rm_rows>>1) <<3;
+    set_xlyt(id, spawn_x,spawn_y);
+    
+    _exit_data = val(g.dm_spawn[?dk_spawn+STR_ExitData]);
+}
+/*
 var _exit_data = -1;
-
-
-facingDir = 1;
-
-
-
 if(!is_undefined(dk_spawn))
 {
     spawn_x = (val(g.dm_spawn[?dk_spawn+"_x"], g.rm_clms>>1) <<3) - ww_;
     spawn_y =  val(g.dm_spawn[?dk_spawn+"_y"], g.rm_rows>>1) <<3;
     set_xlyt(id, spawn_x, spawn_y);
     
-    
     _exit_data = val(g.dm_spawn[?dk_spawn+STR_ExitData], "");
 }
+*/
+
+
+
+
+facingDir = 1;
 
 
 
@@ -26,7 +38,7 @@ dl_exit = ds_list_create();
 ds_list_add(dl_exit, 0);
 
 
-exit_dirs  = $0;
+exit_dirs = $0;
 
 if(!is_undefined(dk_spawn) 
 && !is_undefined(g.dm_spawn[?dk_spawn+STR_ExitData]) )
@@ -49,7 +61,7 @@ if(!is_undefined(dk_spawn)
         }
         
         spawn_y = _yt;
-        set_xlyt(id, spawn_x, spawn_y);
+        set_xlyt(id, spawn_x,spawn_y);
     }
     else
     {
@@ -61,8 +73,10 @@ if(!is_undefined(dk_spawn)
             _exit_num = str_hex(string_copy(_exit_data, (_i<<1)+1, 2));
             with(Exit)
             {
-                if (exitNum != _exit_num)
-                {   continue;  }//with(Exit)
+                if (exitNum!=_exit_num)
+                {
+                    continue;//with(Exit)
+                }
                 
                 
                 _exit = id;
@@ -71,14 +85,16 @@ if(!is_undefined(dk_spawn)
             
             
             if(!_exit)
-            {   continue;  }//_i
+            {
+                continue;//_i
+            }
             
             
             exit_dirs |= _exit.side&$F;
             ds_list_add(dl_exit, _exit);
             
             
-            if (_exit == g.exit_enter)
+            if (_exit==g.exit_enter)
             {
                 _xl = xl;
                 _yt = yt;
@@ -94,16 +110,17 @@ if(!is_undefined(dk_spawn)
                 
                 spawn_x = _xl;
                 spawn_y = _yt;
-                set_xlyt(id, spawn_x, spawn_y);
+                set_xlyt(id, spawn_x,spawn_y);
             }
         }
     }
 }
 
 
-
-    GROUND_Y = get_ground_y(x, yb, 1, y);
-if (GROUND_Y != y)
+/*
+    GROUND_Y = get_ground_y(x, yc, 1, y);
+    //GROUND_Y = get_ground_y(x, yb, 1, y);
+if (GROUND_Y!=y)
 {   // MOD.  Move elevator to sitting on the ground.
     set_xy(id, x, GROUND_Y-hh_);
 }
@@ -111,9 +128,11 @@ else
 {
     GROUND_Y = -1;
 }
+*/
 
 
 
+/*
 if (g.exit_enter 
 && !is_undefined(dk_spawn) 
 &&  _exit_data!=0 ) // 0 means the elevator is confined w/in the scene and doesn't go to an exit
@@ -136,6 +155,38 @@ if (g.exit_enter
                 set_xlyt(id, xl, _val<<3);
                 _i=_COUNT1;
                 break;//_j
+            }
+        }
+    }
+}
+*/
+
+
+
+
+// Trying different method for positioning
+if (g.exit_enter 
+&& !is_undefined(dk_spawn) 
+&&  _exit_data==0 ) // 0 means the elevator is confined w/in the scene and doesn't go to an exit
+{
+    var _exit_num_, _spawn_row;
+    _i = 1;
+    while (true)
+    {
+        _exit_num_ = g.dm_spawn[?dk_spawn+STR_Elevator+STR_Spawn+STR_Row+STR_Exit+hex_str(_i++)];
+        if (is_undefined(_exit_num_))
+        {
+            break;//while (true)
+        }
+        
+        if (hex_str(g.exit_enter.exitNum)==_exit_num_)
+        {
+            _spawn_row = g.dm_spawn[?dk_spawn+STR_Elevator+STR_Spawn+STR_Row+_exit_num_];
+            if(!is_undefined(_spawn_row))
+            {
+                spawn_y = _spawn_row<<3;
+                set_xlyt(id, xl, spawn_y);
+                break;//while (true)
             }
         }
     }

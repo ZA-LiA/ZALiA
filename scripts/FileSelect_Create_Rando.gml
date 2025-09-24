@@ -16,6 +16,7 @@ RandoOptions_YOFF1  = -$6;
 RandoOptions_Y      = $11<<3;
 RandoOptions_Y     += -g.VIEW_Y_TILE_OFF; // VIEW_Y_TILE_OFF=2
 RandoOptions_Y     += RandoOptions_YOFF1; // micro adj
+RandoOptions_Y     += RANDO_YOFF1;
 
 RandoDescription_XL  = $04<<3;
 RandoDescription_YT  = viewH();
@@ -823,8 +824,7 @@ RandoOTHER_MAIN_cursor_BACK = ++_idx;
 ds_grid_resize(dg_RandoOTHER_Options, _idx+1, RandoGrid_H);
 dg_RandoOTHER_Options[#_idx,0]  = _X;       // 0: x
 dg_RandoOTHER_Options[#_idx,1]  = _Y+(_idx*_dist1); // 1: y
-dg_RandoOTHER_Options[#_idx,1] += 2;
-//dg_RandoOTHER_Options[#_idx,1] += BACK_PAD1;
+dg_RandoOTHER_Options[#_idx,1] += BACK_PAD1;
 dg_RandoOTHER_Options[#_idx,2]  = 0;        // 2: state
 dg_RandoOTHER_Options[#_idx,3]  = "BACK";   // 3: text
 dg_RandoOTHER_Options[#_idx,4]  = 0;
@@ -872,9 +872,10 @@ RandoOTHER_ITEMS_item_cursor_COUNT   = _i;
 RandoOTHER_ITEMS_item_cursor         = RandoOTHER_ITEMS_item_cursor_CANDLE;
 
 
-_x=RandoOptions_X+4; // x center of left-most item
-_Y=RandoOptions_Y+$10;
-_dist1=$10; _dist2=_dist1+$08;
+_x = RandoOptions_X+4; // x center of left-most item
+_Y = RandoOptions_Y+$10;
+_dist1 = $10;
+_dist2 = _dist1+$08;
 //                                                          //
 dg_RandoOTHER_ITEMS = ds_grid_create(0,RandoGrid_H);
 //                                                          //
@@ -1045,8 +1046,8 @@ RandoOTHER_SPELLS_cursor         = RandoOTHER_SPELLS_cursor_PROTECT;
 
 
 
-_x=RandoOptions_X;
-_Y=RandoOptions_Y;
+_x = RandoOptions_X;
+_Y = RandoOptions_Y;
 
 
 RandoOTHER_SPELLS_FONT_SPRITE=spr_Font2;
@@ -1206,10 +1207,10 @@ RandoOTHER_REQUIRE_cursor          = RandoOTHER_REQUIRE_cursor_CRYSTALS;
 
 
 
-_x=RandoOptions_X;
-_Y=RandoOptions_Y;
-_dist1=$10;
-//_dist1=RandoOptions_Y_DIST;
+_x = RandoOptions_X;
+_Y = RandoOptions_Y;
+_dist1 = $10;
+//_dist1 = RandoOptions_Y_DIST;
 //                                                          //
 dg_RandoOTHER_REQUIRE = ds_grid_create(0,RandoGrid_H);
 //                                                          //

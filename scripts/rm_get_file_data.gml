@@ -19,7 +19,8 @@ var _file_name = g.dm_rm[?_DATAKEY];
 
 if (is_undefined(_file_name))
 {
-    show_debug_message("!!!! WARNING. rm_get_file_data(). _file_name is undefined because `g.dm_rm[?'"+_DATAKEY+"']` is undefined !!!!");
+    show_debug_message("!!!! WARNING. rm_get_file_data(). _file_name is undefined because `get_scene_tile_file_name('"+_RM_NAME+"', "+string(_QUEST_NUM)+")` returned undefined !!!!");
+    //show_debug_message("!!!! WARNING. rm_get_file_data(). _file_name is undefined because `g.dm_rm[?'"+_DATAKEY+"']` is undefined !!!!");
     return undefined;
 }
 

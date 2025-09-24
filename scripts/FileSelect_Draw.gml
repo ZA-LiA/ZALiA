@@ -7,6 +7,7 @@ var _text;
 var _spr = 0;
 var _x = 0;
 var _y = 0;
+//var _yoff = 0;
 
 //var _PI_CRYSTAL = get_pi(p.dg_PI_SEQ[#0, (g.counter0>>1)&$3]); // Placed crystals will flash.
 
@@ -94,8 +95,9 @@ switch(state)
     // "OFF"/"ON" text after "RANDO" text
     _x  = saveNameX;
     _x += (string_length("RANDO")+1)<<3;
-    _y  = RandoOptions_Y;
-    _y += $2; // micro adj
+    _y  = REGISTER_RANDO_TEXT_YT;
+    //_y  = RandoOptions_Y;
+    //_y += $2; // micro adj
     if (_STATE) _text = Text_ON;
     else        _text = Text_OFF;
     var _len = string_length(_text);

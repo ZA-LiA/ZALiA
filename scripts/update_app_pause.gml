@@ -44,10 +44,10 @@ with(Input)
     }
     
     if(!g.app_paused 
-    &&  GP_Other5_held      // TL held
-    &&  GP_Other6_held      // TR held
-    &&  GP_Other4_held      // BR held
-    &&  GP_Other3_pressed ) // BL pressed
+    &&  GP_Shoulder2L_held      // TL held
+    &&  GP_Shoulder2R_held      // TR held
+    &&  GP_Shoulder1R_held      // BR held
+    &&  GP_Shoulder1L_pressed ) // BL pressed
     {
         g.app_paused = true;
     }

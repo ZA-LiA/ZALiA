@@ -1,10 +1,10 @@
 /// go_spawn_priorities()
 
 
-var _i, _val, _count,_count1,_count2, _num, _len;
-var _xl,_yt, _vspd;
-var _str, _datakey,_datakey1,_datakey2, _dk_spawn, _dk_spawn1,_dk_spawn2;
-var _obj,_obj1,_obj2,_ver, _obj_name,_objver,_obj_prefix;
+var _i, _val, _count,_count1,_count2;
+var _xl,_yt;
+var _str, _datakey1, _dk_spawn,_dk_spawn1,_dk_spawn2;
+var _obj,_obj1,_obj2, _ver, _obj_name, _objver, _obj_prefix;
 var _item_id, _item_type;
 var _scene_name, _qual;
 var _RM_SPAWN_COUNT_PRIO = ds_grid_width(g.dg_spawn_prio);

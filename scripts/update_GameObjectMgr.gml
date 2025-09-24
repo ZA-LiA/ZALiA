@@ -26,7 +26,7 @@ for(_i=ds_list_size(dl_gob2)-1; _i>=0; _i--)
     if (is_undefined(   dl_gob2[|_i]) 
     || !instance_exists(dl_gob2[|_i]) )
     {
-        continue;
+        continue;//_i
     }
     
     with(dl_gob2[|_i])
@@ -51,7 +51,7 @@ for(_i=ds_list_size(dl_gob2)-1; _i>=0; _i--)
 
 
 
-for(update_idx=0; update_idx<UPDATE_CNT; update_idx++)
+for(update_idx=0; update_idx<UPDATE_COUNT; update_idx++)
 {
     // GOB1 (Enemy, Boss) ---------------------------------
     if (update_idx >= 0 
@@ -96,6 +96,7 @@ for(update_idx=0; update_idx<UPDATE_CNT; update_idx++)
     }
 }
 
+
 update_go_spawn_1b(false);
 
 
@@ -123,8 +124,7 @@ if!(g.counter1&$3) // limit frequency of this for better performance?
     {
         if(!state 
         ||  ds_list_find_index(other.dl_gob1,id)==-1 )
-        //if(!state 
-        //&&  ds_list_find_index(other.dl_gob1,id) == -1 )
+        //&&  ds_list_find_index(other.dl_gob1,id)==-1 )
         {
             instance_destroy();
         }
@@ -135,8 +135,7 @@ if!(g.counter1&$3) // limit frequency of this for better performance?
     {
         if(!state 
         ||  ds_list_find_index(other.dl_goc1,id)==-1 )
-        //if(!state 
-        //&&  ds_list_find_index(other.dl_goc1,id) == -1 )
+        //&&  ds_list_find_index(other.dl_goc1,id)==-1 )
         {
             instance_destroy();
         }
@@ -153,7 +152,9 @@ if!(g.counter1&$3) // limit frequency of this for better performance?
         if(!is_undefined(   dl_gob2[|_i]) 
         &&  instance_exists(dl_gob2[|_i]) 
         &&                  dl_gob2[|_i].state )
-        {   break;  } // Only remove ones beyond the furthest alive one.
+        {   // Only remove ones beyond the furthest alive one.
+            break;//_i
+        }
         
         ds_list_delete(dl_gob2,_i);
     }

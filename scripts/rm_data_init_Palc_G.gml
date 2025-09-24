@@ -183,7 +183,7 @@ data_spawn(rm+STR_PRXM,FokuA,$1,  $1A<<3,(row0+$11)<<3); // Fokkeru  1
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '3B'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                                 // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                                 // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '01'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '03'+EXL0_); // RGT 0, 
 
@@ -325,7 +325,7 @@ data_spawn(rm+STR_PRIO,SpDrA,$2,  $67<<3,y4); // Drop spawner v2. Drops Flame1
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '01'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                                 // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                                 // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0F,  '05'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$13,  '07'+EXL0_); // RGT 0, 
 
@@ -457,7 +457,7 @@ data_spawn(rm+STR_PRXM,AnerA,$3,  $68<<3,y4); // Aneru  3
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '05'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row0+$12);                                               // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$13);                                               // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RGT 0, 
 
 
@@ -580,7 +580,7 @@ data_spawn(rm+STR_PRXM,Ra__A,$3,  $48<<3,y4); // Ra  3
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '08'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row0+$12);                                         // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$13);                                         // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0D'+EXL0_); // RGT 0, 
 
 
@@ -696,7 +696,7 @@ data_spawn(rm+STR_PRXM,AnerA,$3,  $60<<3,(row0+$16)<<3); // Aneru  3
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '0A'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row0+$12);// Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$14);// Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0A,  '0E'+EXR0_); // LFT 0, 
 
 
@@ -859,7 +859,7 @@ data_spawn(rm+STR_PRXM,Myu_A,$1,  $240,y3); // Myu  1
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '11'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '14'+EXL0_); // RGT 0, 
 
 
@@ -987,7 +987,7 @@ data_spawn(rm+STR_PRXM,FokuA,$1,  $74<<3,(row0+$13)<<3); // Fokkeru  1
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '12'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);  // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);  // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$0F,  '15'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$13,  '17'+EXL0_); // RGT 0, 
 
@@ -1123,7 +1123,7 @@ data_spawn(rm+STR_PRXM,FokkA,$2,  $4A<<3,y3); // Fokka  2
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '15'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row0+$12);   // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$13);   // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '1A'+EXL0_); // RGT 0, 
 
 
@@ -1197,7 +1197,7 @@ data_spawn(rm+STR_PRXM,FokkA,$2,  $4A<<3,y3); // Fokka  2
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '17'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row0+$12); // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$13); // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '1C'+EXL0_); // RGT 0, 
 
 
@@ -1306,7 +1306,7 @@ data_spawn(rm+STR_PRXM,BubbA,$1,  $300,y5); // Bubble  1
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '1A'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);  // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);  // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '1E'+EXL0_); // RGT 0, 
 
 
@@ -1529,7 +1529,7 @@ data_spawn(rm+STR_PRXM,BubbA,$1,  $68<<3,y4); // Bubble  1
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '18'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row0+$12); // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$13); // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '24'+EXL0_); // RGT 0, 
 
 
@@ -1760,7 +1760,7 @@ data_spawn(rm+STR_PRXM,Myu_A,$1,  $220,y3); // Myu  1
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '21'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);  // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);  // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '29'+EXL0_); // RGT 0, 
 
 
@@ -1889,7 +1889,7 @@ data_spawn(rm+STR_PRXM,FokuA,$1,  $1A<<3,(row0+$11)<<3); // Fokkeru  1
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '27'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);  // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);  // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row4,  '50'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row5,  '39'+EXL0_); // RGT 0, 
 
@@ -2032,7 +2032,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $22<<3,(row0+$15)<<3); // Bot  1
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '2A'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);  // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);  // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row4,  '2D'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row5,  '2F'+EXL0_); // RGT 0, 
 

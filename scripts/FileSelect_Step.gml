@@ -326,14 +326,13 @@ if (state)
         // ---------------------------------------------------------------
         case State_RANDO:{
         saveNameX = SAVE_NAME_X2;
-        saveNameY = SAVE_NAME_Y2;
+        saveNameY = SAVE_NAME_Y2 + RANDO_YOFF1;
         
         doll_x = DOLL_X2;
-        doll_y = DOLL_Y2;
+        doll_y = DOLL_Y2 + RANDO_YOFF1;
         
         fairy_x  = FAIRY_X2;
-        fairy_y  = FAIRY_Y2;
-        //fairy_y += _CURSOR*SAVE_FILE_PAD;
+        fairy_y  = FAIRY_Y2 + RANDO_YOFF1;
         break;}//case State_RANDO
         
         

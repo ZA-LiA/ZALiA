@@ -256,8 +256,9 @@ if ((state==State_REGISTER  && !surface_exists(REGISTER_surf))
     
     // "RANDO" & "END" =======================
     _x  = SAVE_NAME_X2;
-    _y  = _Y1;
-    _y += RandoOptions_YOFF1;
+    _y  = REGISTER_RANDO_TEXT_YT;
+    //_y  = _Y1;
+    //_y += RandoOptions_YOFF1;
     if (state==State_REGISTER) draw_text_(_x,_y, "RANDO");
     _y  = _Y2;
     _y += RandoOptions_YOFF1;

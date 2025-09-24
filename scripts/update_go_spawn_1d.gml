@@ -1,9 +1,9 @@
 /// update_go_spawn_1d(object_index, version, inst spawn datakey)
 
 
-var _OBJ        = argument0;
-var _VER        = argument1;
-var _SPAWN_DK   = argument2;
+var _OBJ      = argument0;
+var _VER      = argument1;
+var _SPAWN_DK = argument2;
 
 var _datakey  = get_defeated_dk()+_SPAWN_DK;
 var _DEFEATED_COUNT = val(f.dm_quests[?_datakey]); // num of times defeated boss in this rm

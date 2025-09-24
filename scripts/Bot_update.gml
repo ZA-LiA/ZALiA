@@ -24,7 +24,7 @@ if (abilities&ABL_JUMP
     {
         _C1 =   _RAND&$8 
            &&  abs(x-g.pc.x) <= $18+irandom($C) 
-           &&  inRange(y, viewYT(),g.pc.yb+(3<<3));
+           &&  inRange(y, viewYT(),g.pc.yb+($3<<3));
     }
     
     if (_C1)
@@ -43,32 +43,6 @@ if (abilities&ABL_JUMP
         }
     }
 }
-/*
-if (abilities&ABL_JUMP 
-&&  cs&$4 )
-{
-    var _C1 = !(_RAND&$7F);
-    if (_VER3)
-    {
-        _C1 =   _RAND&$8 
-           &&  abs(x-g.pc.x) <= $18+irandom($C) 
-           &&  inRange(y, viewYT(),g.pc.yb+(3<<3));
-    }
-    
-    if (_C1)
-    {
-        facingDir = dir_to_pc(id);
-        
-        hspd = (hspd_jump*facingDir) &$FF;
-        vspd = INIT_VEL_DEF; // Jump!
-        
-        ogr  = OGR_JUMP;
-        
-        if (_VER3) abilities |= ABL_WALK;
-    }
-}
-*/
-
 
 
 

@@ -121,7 +121,7 @@ data_spawn(rm+STR_PRXM,AnerA,$1,  $6E<<3,(row0+$0F)<<3); // Aneru  1
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '00'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0B,  '02'+EXL0_); // RGT 0, 
 
 
@@ -430,7 +430,7 @@ data_spawn(rm+STR_PRXM,MagoA,$1,  $68<<3,y3); // Mago  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '04'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '08'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RGT 0, 
 
@@ -624,7 +624,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $74<<3,y3); // Bot  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '07'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0C'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0E'+EXL0_); // RGT 0, 
 
@@ -844,7 +844,7 @@ data_spawn(rm+STR_PRXM,BubbA,$1,  $52<<3,y4); // Bubble  1
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '0B'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '11'+EXR0_); // LFT 0, 
 
 
@@ -1075,7 +1075,7 @@ data_spawn(rm+STR_PRXM,WosuA,$1,  $48<<3,(row0+$0F)<<3); // Wosu  1
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '10'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$17,  '16'+EXR0_); // LFT 0, 
 
 
@@ -1150,7 +1150,7 @@ data_spawn(rm+STR_PRXM,BubbA,$1,  $38<<3,y4); // Bubble  1
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '13'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                           // Elevator UP $80, 
+data_Elev(EXU0_, clm3,row0+$15);                                           // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '18'+EXR0_); // LFT 0, 
 
 
@@ -1232,7 +1232,7 @@ data_spawn(rm+STR_PRXM,MagoA,$1,  $54<<3,y3); // Mago  1
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '16'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row_e5);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '1A'+EXR0_); // LFT 0, 
 
 

@@ -627,9 +627,9 @@ data_spawn(rm+STR_PRXM,Bot_A,$2,  $17<<3,y3); // Bot  2
 
 
 clm3=$1F;
-data_exit(EXM0,etB0,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  0); // MID 0, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXM0,etB0,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  rm_num_+EXM0_); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  rm_num_+EXL0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
@@ -666,9 +666,9 @@ data_spawn(rm+STR_PRXM,MoblA,$2,  $67<<3,y3); // Moblin  2
 
 
 clm3=$3F;
-data_exit(EXM0,etB0,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  0); // MID 0, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXM0,etB0,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  rm_num_+EXM0_); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
@@ -707,9 +707,9 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $2F<<3,y3+$10); // Bot  1
 
 
 clm3=$1F;
-data_exit(EXM0,etB0,1,  clm3,row5,  $03,ROWS2,  clm3-1,row5,  0); // MID 0, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row4,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXM0,etB0,1,  clm3,row5,  $03,ROWS2,  clm3-1,row5,  rm_num_+EXM0_); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row4,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
@@ -746,9 +746,9 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $0F<<3,(row0+$16)<<3); // Bot  1
 
 
 clm3=$1F;
-data_exit(EXM0,etB0,1,  clm3,row4,  $02,ROWS2,  clm3-1,row4,  0); // MID 0, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXM0,etB0,1,  clm3,row4,  $02,ROWS2,  clm3-1,row4,  rm_num_+EXM0_); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
@@ -796,8 +796,8 @@ data_spawn(rm+STR_PRXM,GoriA,$2,  $3F<<3,y3); // Goriya  2
 data_spawn(rm+STR_PRXM,GoriA,$2,  $5F<<3,y3); // Goriya  2 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXD0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -825,9 +825,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($35<<3)+4,y4,  STR_Lit); // v1: Light w/ CAN
 
 
 clm3=$2E; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  0); // DWN 0, Elevator down 
+data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num-1)+EXR0_); // DWN 0, Elevator down 
 data_Elev(EXD0_, clm3,row0+$13);                                          // Elevator DW $40, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_00",rm);
@@ -855,9 +855,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CAN
 
 
 clm3=$12; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  0); // DWN 0, Elevator down 
+data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num+1)+EXU0_); // DWN 0, Elevator down 
 data_Elev(EXD0_, clm3,row0+$13);                                          // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
 
 
 //data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
@@ -885,9 +885,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($35<<3)+4,y4,  STR_Lit); // v1: Light w/ CAN
 
 
 clm3=$2E; // Elevator center clm
-data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  0); // UP  0, Elevator up 
+data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  hex_str(rm_num-1)+EXD0_); // UP  0, Elevator up 
 data_Elev(EXU0_, clm3,row0+$08);                                          // Elevator UP $80, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm);
@@ -915,9 +915,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CAN
 
 
 clm3=$12; // Elevator center clm
-data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  0); // UP  0, Elevator up 
+data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  hex_str(rm_num+1)+EXR0_); // UP  0, Elevator up 
 data_Elev(EXU0_, clm3,row0+$08);                                          // Elevator UP $80, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
 
 
 //data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
@@ -947,9 +947,9 @@ data_spawn(rm+STR_PRXM,MegmA,$1,  $25<<3,(row0+$10)<<3); // Megmat  1
 
 
 clm3=$10; // Elevator center clm
-data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  0); // UP  0, Elevator up 
+data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  hex_str(rm_num+1)+EXL0_); // UP  0, Elevator up 
 data_Elev(EXU0_, clm3,row0+$12);                                          // Elevator UP $80, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num-1)+EXU0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm);
@@ -982,9 +982,9 @@ data_spawn(rm+STR_PRXM,AcheA,$1,  $58<<3,y6); // Ache  1
 
 
 clm3=$70; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  0); // DWN 0, Elevator down 
+data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num+1)+EXU0_); // DWN 0, Elevator down 
 data_Elev(EXD0_, clm3,row0+$14);                                          // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXU0_); // LFT 0, 
 
 
 //data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
@@ -1016,9 +1016,9 @@ data_spawn(rm+STR_PRXM,BagiA,$1,  $2A<<3,y5); // Bagin
 
 
 clm3=$50; // Elevator center clm
-data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  0); // UP  0, Elevator up 
+data_exit(EXU0,etC0,1,  clm3-4,row_e0,  CLMS4,ROWS5,  clm3-1,row_e1,  hex_str(rm_num-1)+EXD0_); // UP  0, Elevator up 
 data_Elev(EXU0_, clm3,row0+$10);                                          // Elevator UP $80, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+EXD0_); // LFT 0, 
 
 
 //data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
@@ -1056,9 +1056,9 @@ data_spawn(rm+STR_PRXM,LowdA,$1,  $64<<3,y6); // Lowder  1
 
 
 clm3=$50; // Elevator center clm
-data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  0); // DWN 0, Elevator down 
+data_exit(EXD0,etC0,1,  clm3-4,row_e2,  CLMS4,ROWS5,  clm3-1,row_e3,  hex_str(rm_num-1)+EXL0_); // DWN 0, Elevator down 
 data_Elev(EXD0_, clm3,row0+$13);                                          // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+EXU0_); // LFT 0, 
 
 
 //data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
@@ -1088,8 +1088,8 @@ data_spawn(rm+STR_PRIO,SpDrA,$1,  $0C<<3,$30<<3); // DropSpawner  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $2D<<3,$36<<3); // Myu  1 
 
 
-data_exit(EXU0,etA0,0,  $20,row_e0,  $10,ROWS5,  $27,row_e4,  0); // UP  0, Pit up 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXU0,etA0,0,  $20,row_e0,  $10,ROWS5,  $27,row_e4,  hex_str(rm_num-1)+EXL0_); // UP  0, Pit up 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+EXL0_); // LFT 0, 
 
 
 //data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01"+STR_Pit+"8",rm);
@@ -1123,8 +1123,8 @@ data_spawn(rm+STR_PRXM,GeldA,$1,  $22<<3,y6); // Geldarm  1
 data_spawn(rm+STR_PRXM,GeldA,$1,  $32<<3,y6); // Geldarm  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXL0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1161,8 +1161,8 @@ data_spawn(rm+STR_PRXM,MegmA,$1,  $44<<3,y3); // Megmat  1
 data_spawn(rm+STR_PRXM,MegmA,$1,  $5E<<3,y3); // Megmat  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1191,8 +1191,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $36<<3,y4,  STR_Lit); // v1: Light w/ CANDLE 
 data_spawn(rm+STR_PRXM,DairA,$1,  $1F<<3,y3); // Daira  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1224,8 +1224,8 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $38<<3,(row0+$0E)<<3); // Octorok  1
 data_spawn(rm+STR_PRXM,BagiA,$1,  $1E<<3,y5); // Bagin
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1257,8 +1257,8 @@ data_spawn(rm+STR_PRXM,BagiA,$1,  $1E<<3,y5); // Bagin
 data_spawn(rm+STR_PRXM,BagiA,$1,  $2C<<3,y5); // Bagin
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1294,8 +1294,8 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $39<<3,(row0+$10)<<3); // Octorok  1
 data_spawn(rm+STR_PRXM,OctoA,$1,  $59<<3,(row0+$0C)<<3); // Octorok  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1341,8 +1341,8 @@ data_spawn(rm+STR_PRXM,Moa_B,$1,  $1F<<3,(row0+$0B)<<3); // FieryMoa  1
 data_spawn(rm+STR_PRXM,Moa_B,$1,  $3F<<3,(row0+$0B)<<3); // FieryMoa  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1379,8 +1379,8 @@ data_spawn(rm+STR_PRXM,IrKnA,$2,  $3F<<3,y3); // IronKnuckle  2
 data_spawn(rm+STR_PRXM,IrKnA,$1,  $57<<3,y3); // IronKnuckle  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1413,8 +1413,8 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $21<<3,(row0+$09)<<3); // Octorok  1
 data_spawn(rm+STR_PRXM,OctoA,$1,  $25<<3,(row0+$05)<<3); // Octorok  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1449,8 +1449,8 @@ data_spawn(rm+STR_PRXM,Myu_A,$1,  $1D<<3,(row0+$0D)<<3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $61<<3,(row0+$0D)<<3); // Myu  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1489,8 +1489,8 @@ data_spawn(rm+STR_PRXM,GeldA,$1,  $53<<3,y6); // Geldarm  1
 data_spawn(rm+STR_PRXM,GeldA,$1,  $60<<3,y6); // Geldarm  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1525,8 +1525,8 @@ data_spawn(rm+STR_PRXM,Ra__A,$1,  $2F<<3,y5); // Ra  1
 data_spawn(rm+STR_PRXM,Ra__A,$1,  $4F<<3,y5); // Ra  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1556,8 +1556,8 @@ data_spawn(rm+STR_PRXM,TektA,$1,  $5F<<3,y3); // Tektite  1
 data_spawn(rm+STR_PRXM,BoonA,$1,  $3F<<3,(row0+$08)<<3); // Boon  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1590,8 +1590,8 @@ data_spawn(rm+STR_PRXM,MegmA,$1,  $2E<<3,(row0+$0B)<<3); // Megmat  1
 data_spawn(rm+STR_PRXM,MegmA,$1,  $58<<3,(row0+$07)<<3); // Megmat  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1626,8 +1626,8 @@ data_spawn(rm+STR_PRXM,LowdA,$1,  $55<<3,(row0+$09)<<3); // Lowder  1
 data_spawn(rm+STR_PRXM,LowdA,$1,  $6A<<3,(row0+$09)<<3); // Lowder  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1661,8 +1661,8 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $3F<<3,y4); // Octorok  1
 data_spawn(rm+STR_PRXM,OctoA,$1,  $5B<<3,y4); // Octorok  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1697,8 +1697,8 @@ data_spawn(rm+STR_PRXM,GeldA,$1,  $45<<3,y3); // Geldarm  1
 data_spawn(rm+STR_PRXM,GeldA,$1,  $4D<<3,y3); // Geldarm  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1729,8 +1729,8 @@ data_spawn(rm+STR_PRXM,OctoA,$1,  $4C<<3,(row0+$1A)<<3); // Octorok  1
 data_spawn(rm+STR_PRXM,GeldA,$1,  $29<<3,(row0+$15)<<3); // Geldarm  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1764,8 +1764,8 @@ data_spawn(rm+STR_PRXM,MegmA,$1,  $4F<<3,y4); // Megmat  1
 data_spawn(rm+STR_PRXM,MegmA,$1,  $67<<3,y4); // Megmat  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1796,8 +1796,8 @@ data_spawn(rm+STR_PRXM,GoriA,$2,  $47<<3,y4); // Goriya  2
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $34<<3,(row0+$13)<<3); // Bot  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1829,8 +1829,8 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $32<<3,(row0+$18)<<3); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$2,  $23<<3,(row0+$18)<<3); // Bot  2
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1854,14 +1854,14 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_
 row3=row0+$10; y3=row3<<3;
 row4=row0+$18; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init);
-data_spawn(rm+STR_PRXM,BagiA,$1,  $1D<<3,y4); // Bagin
+data_spawn(rm+STR_PRXM,BagiA,$1,  $1B<<3,y4); // Bagin
 data_spawn(rm+STR_PRXM,BagiA,$1,  $2E<<3,y4); // Bagin
 data_spawn(rm+STR_PRXM,BagiA,$1,  $41<<3,y4); // Bagin
 data_spawn(rm+STR_PRXM,LowdA,$1,  $38<<3,(row0+$0C)<<3); // Lowder  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1891,8 +1891,8 @@ data_spawn(rm+STR_PRXM,LowdA,$1,  $17<<3,(row0+$12)<<3); // Lowder  1
 data_spawn(rm+STR_PRXM,BagiA,$1,  $2A<<3,y5); // Bagin
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1922,8 +1922,8 @@ data_spawn(rm+STR_PRXM,GiruA,$1,  $3B<<3,(row0+$0A)<<3); // Girubokku  1
 data_spawn(rm+STR_PRXM,GiruA,$1,  $53<<3,y4); // Girubokku  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1951,8 +1951,8 @@ data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init);
 data_spawn(rm+STR_PRIO,SpRoA,$1,  0,0); // RockSpawner  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
@@ -1984,11 +1984,10 @@ data_spawn(rm+STR_PRXM,BagiA,$1,  $2E<<3,y5); // Bagin
 data_spawn(rm+STR_PRXM,BagiA,$1,  $41<<3,y5); // Bagin
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -2010,13 +2009,15 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_
 row3=row0+$12; y3=row3<<3;
 row4=row0+$14; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init);
+data_spawn(rm+STR_PRIO,SpMoA,$1,  0,0); // MobySpawner  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $1E<<3,(row0+$10)<<3); // Myu  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $29<<3,(row0+$14)<<3); // Myu  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -2041,15 +2042,14 @@ row4=row3+$01; y4=row4<<3;
 row5=row0+$07; y5=row5<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $0E<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $71<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-//data_spawn(rm+STR_PRXM,Ra__A,$1,  $3E<<3,y5); // Ra  1
-//data_spawn(rm+STR_PRXM,Ra__A,$1,  $44<<3,y5); // Ra  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $3E<<3,y5); // Ra  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $44<<3,y5); // Ra  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
 data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
 
@@ -2080,8 +2080,8 @@ data_spawn(rm+STR_PRXM,GumaA,$1,  $46<<3,y3); // Guma  1
 //data_spawn(rm+STR_PRXM,IrKnA,$3,  $46<<3,y3); // IronKnuckle  3
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_FAIRY);
@@ -2110,8 +2110,8 @@ data_spawn(rm+STR_PRXM,DairA,$1,  $1F<<3,y3); // Daira  1
 data_spawn(rm+STR_PRXM,DairA,$2,  $4E<<3,y3); // Daira  2 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_FAIRY);
@@ -2139,8 +2139,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $0E<<3,y4,  STR_Lit); // v1: Light w/ CANDLE 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $71<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP+STR_FAIRY);
@@ -2169,9 +2169,9 @@ data_spawn(rm+STR_PRXM,Myu_A,$1,  $22<<3,(row0+$14)<<3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $2E<<3,(row0+$16)<<3); // Myu  1 
 
 
-data_exit(EXD0,etA1,1,  $1C,row_e2,  $04,ROWS5,  $33,row_e3,  0); // DWN 0, Pit down 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXD0,etA1,1,  $1C,row_e2,  $04,ROWS5,  $33,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Pit down 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00"+STR_Pit+"4",rm);
@@ -2206,8 +2206,8 @@ clm3=$20; // Elevator center clm
 data_exit(EXU0,etC0,1,  clm3-$04,row_e0,  CLMS4,ROWS5,  clm3-$01,row_e1,  0); // UP  0, Elevator up  
 data_exit(EXD0,etC0,1,  clm3-$04,row_e2,  CLMS4,ROWS5,  clm3-$01,row_e3,  0); // DWN 0, Elevator down 
 data_Elev(EXD0_+EXU0_,  clm3,row0+$0D);                                       // Elevator DW $40, UP $80, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXU0_); // RGT 0, 
 
 
 //data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_01",rm);
@@ -2252,9 +2252,9 @@ data_spawn(rm+STR_PRXM,DoomA,$1,  $1F<<3,y3); // Doomknocker  1
 
 
 clm3=$0A; clm4=$36; // Elevator center clm
-data_exit(EXU0,etC0,1,  clm4-$04,row_e0,  CLMS4,ROWS5,  clm4-$01,row_e1,  0); // UP  0, Elevator up  
+data_exit(EXU0,etC0,1,  clm4-$04,row_e0,  CLMS4,ROWS5,  clm4-$01,row_e1,  hex_str(rm_num-1)+EXR0_); // UP  0, Elevator up  
 data_Elev(EXU0_, clm4,row0+$0C);                                              // Elevator UP $80, 
-data_exit(EXD0,etC0,1,  clm3-$04,row_e2,  CLMS4,ROWS5,  clm3-$01,row_e3,  0); // DWN 0, Elevator down 
+data_exit(EXD0,etC0,1,  clm3-$04,row_e2,  CLMS4,ROWS5,  clm3-$01,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Elevator down 
 data_Elev(EXD0_, clm3,row0+$0F);                                              // Elevator DW $40, UP $80, 
 
 
@@ -2282,7 +2282,7 @@ row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($0E<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+EXL0_); // LFT 0, 
 
 
 data_scene_rando(rm);
@@ -2305,10 +2305,10 @@ row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($0E<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+EXR0_); // LFT 0, 
 
 
-data_scene_rando(rm);
+//data_scene_rando(rm);
 
 
 
@@ -2329,7 +2329,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $1D<<3,y4,  STR_Lit); // v1: Light w/ CANDLE 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $33<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 data_scene_rando(rm);
@@ -2353,8 +2353,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,(row0+$0F)<<3,  STR_Lit); // v1: Light
 data_spawn(rm+STR_PRIO,TorchA,$1,  $53<<3,(row0+$17)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 data_path_conditions(exit_name_l0, exit_name_r0);
@@ -2375,13 +2375,16 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'116');
 
 
 row3=row0+$0E; y3=row3<<3;
+row4=row0+$04; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $17<<3,y4); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $27<<3,y4); // DropSpawner  1
 
 
-data_exit(EXD0,etA1,1,  $00,row_e2,  clms0,ROWS5,  clms1-$01,row_e3,  0); // DWN 0, Pit down 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXD0,etA1,1,  $00,row_e2,  clms0,ROWS5,  clms1-$01,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Pit down 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 data_path_conditions(exit_name_r0, exit_name_l0);
@@ -2407,7 +2410,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'117');
 
 row3=row0+$0C; y3=row3<<3;
 row4=row0+$00; y4=row4<<3;
-row4=row0+$18; y5=row4<<3;
+row5=row0+$18; y5=row5<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
 data_spawn(rm+STR_PRXM,BagiA,$1,  $0F<<3,y5); // Bagin
@@ -2415,8 +2418,8 @@ data_spawn(rm+STR_PRXM,BagiA,$1,  $1F<<3,y5); // Bagin
 data_spawn(rm+STR_PRXM,BagiA,$1,  $2F<<3,y5); // Bagin
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 data_path_conditions(exit_name_r0, exit_name_l0);
@@ -2446,8 +2449,8 @@ data_spawn(rm+STR_PRIO,SpDrA,$1,  $13<<3,y5); // DropSpawner  1
 data_spawn(rm+STR_PRIO,SpDrA,$1,  $2B<<3,y5); // DropSpawner  1
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 data_path_conditions(exit_name_r0, exit_name_l0);
@@ -2482,8 +2485,8 @@ data_spawn(rm+STR_PRXM,LowdA,$1,  $29<<3,y6); // Lowder  1
 data_spawn(rm+STR_PRXM,LowdA,$1,  $4B<<3,y6); // Lowder  1 
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  0); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  0); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 data_path_conditions(exit_name_r0, exit_name_l0);
@@ -2499,71 +2502,393 @@ data_scene_rando(rm);
 
 
 //   --------------------------  78  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance.
+rm_num  = $78;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'120');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0+$13; y4=row4<<3;
+row5=row0+$12; y5=row5<<3;
+row6=row0+$07; y6=row6<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $34<<3,(row0+$11)<<3); // SpawnByStab  2
+data_spawn(rm+STR_PRIO,SpRoA,$1,  0,0); // RockSpawner  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $3B<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $49<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $57<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $64<<3,y6); // Ache  1 
+
+
+clm3=$60; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row5);                                          // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  79  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance.
+rm_num  = $79;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'121');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0+$13; y4=row4<<3;
+row5=row0+$10; y5=row5<<3;
+row6=row0+$07; y6=row6<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $3C<<3,(row0+$11)<<3); // SpawnByStab  2
+data_spawn(rm+STR_PRXM,AcheA,$1,  $40<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $4F<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $5B<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $66<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $6D<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,MegmA,$1,  $30<<3,y5); // Megmat  1 
+data_spawn(rm+STR_PRXM,MegmA,$1,  $4F<<3,y5); // Megmat  1 
+data_spawn(rm+STR_PRXM,MegmA,$1,  $58<<3,y5); // Megmat  1 
+data_spawn(rm+STR_PRXM,MegmA,$1,  $61<<3,y5); // Megmat  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  7A  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance.
+rm_num  = $7A;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'122');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0+$12; y4=row4<<3;
+row5=row0+$13; y5=row5<<3;
+row6=row0+$09; y6=row6<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $34<<3,(row0+$11)<<3); // SpawnByStab  2
+data_spawn(rm+STR_PRXM,GoriA,$1,  $50<<3,y5); // Goriya  1 
+data_spawn(rm+STR_PRXM,DeelA,$1,  $46<<3,y6); // Deeler  1 
+data_spawn(rm+STR_PRXM,DeelA,$1,  $56<<3,y6); // Deeler  1 
+
+
+clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  hex_str(rm_num+1)+EXL0_); // UP  0, Elevator up  
+data_Elev(EXU0_, clm3,row4);                                          // Elevator UP $80, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+
+
+data_path_conditions(exit_name_l0, exit_name_u0);
+data_path_conditions(exit_name_u0, exit_name_l0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  7B  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance.
+rm_num  = $7B;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'123');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0+$13; y4=row4<<3;
+row5=row0+$12; y5=row5<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $34<<3,(row0+$11)<<3); // SpawnByStab  2
+data_spawn(rm+STR_PRXM,MoblA,$2,  $48<<3,y4); // Moblin  2 
+data_spawn(rm+STR_PRXM,MoblA,$2,  $68<<3,y4); // Moblin  2 
+data_spawn(rm+STR_PRXM,OctoA,$1,  $28<<3,(row0+$19)<<3); // Octorok  1 
+
+
+clm3=$60; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  hex_str(rm_num-1)+EXL0_); // UP  0, Elevator up  
+data_Elev(EXU0_, clm3,row5);                                          // Elevator UP $80, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXU0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_u0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_u0);
+
+data_path_conditions(exit_name_u0, exit_name_r0);
+data_path_conditions(exit_name_u0, exit_name_l0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  7C  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance.
+rm_num  = $7C;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'124');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0+$13; y4=row4<<3;
+row5=row0+$12; y5=row5<<3;
+row6=row0+$15; y6=row6<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $34<<3,(row0+$11)<<3); // SpawnByStab  2
+data_spawn(rm+STR_PRIO,BlazA,$2,  $37<<3,(row0+$01)<<3); // Blaze v2
+data_spawn(rm+STR_PRXM,OctoA,$1,  $25<<3,(row0+$19)<<3); // Octorok  1 
+data_spawn(rm+STR_PRXM,OctoA,$1,  $40<<3,y6); // Octorok  1 
+data_spawn(rm+STR_PRXM,OctoA,$1,  $4F<<3,y6); // Octorok  1 
+data_spawn(rm+STR_PRXM,OctoA,$1,  $6E<<3,y6); // Octorok  1 
+
+
+clm3=$60; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  hex_str(rm_num-1)+EXR0_); // UP  0, Elevator up  
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Elevator down 
+data_Elev(EXD0_+EXU0_,  clm3,row5);                                   // Elevator DW $40, UP $80, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
+data_path_conditions(exit_name_r0, exit_name_u0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+data_path_conditions(exit_name_l0, exit_name_u0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+data_path_conditions(exit_name_d0, exit_name_u0);
+
+data_path_conditions(exit_name_u0, exit_name_r0);
+data_path_conditions(exit_name_u0, exit_name_l0);
+data_path_conditions(exit_name_u0, exit_name_d0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  7D  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance.
+rm_num  = $7D;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'125');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0+$12; y4=row4<<3;
+row5=row0+$11; y5=row5<<3;
+row6=row0+$13; y6=row6<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $34<<3,y5); // SpawnByStab  2
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $4C<<3,(row0+$09)<<3); // DropSpawner  1
+data_spawn(rm+STR_PRXM,GumaA,$1,  $3F<<3,y6); // Guma  1
+data_spawn(rm+STR_PRIO,SpBuA,$2,  $62<<3,(row0+$0D)<<3); // BulletSpawner  2
+
+
+clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  hex_str(rm_num+1)+EXL0_); // UP  0, Elevator up  
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Elevator down 
+data_Elev(EXD0_+EXU0_,  clm3,row4);                                   // Elevator DW $40, UP $80, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+
+
+data_path_conditions(exit_name_l0, exit_name_d0);
+data_path_conditions(exit_name_l0, exit_name_u0);
+
+data_path_conditions(exit_name_d0, exit_name_l0);
+data_path_conditions(exit_name_d0, exit_name_u0);
+
+data_path_conditions(exit_name_u0, exit_name_l0);
+data_path_conditions(exit_name_u0, exit_name_d0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  7E  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance.
+rm_num  = $7E;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'126');
+
+
+row3=row0+$17; y3=row3<<3;
+row4=row0+$12; y4=row4<<3;
+row5=row0+$11; y5=row5<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $18<<3,y5); // SpawnByStab  2
+data_spawn(rm+STR_PRIO,SpStA,$2,  $66<<3,y5); // SpawnByStab  2
+data_spawn(rm+STR_PRIO,Moa_B,$1,  $3F<<3,(row0+$0F)<<3); // FieryMoa  1
+data_spawn(rm+STR_PRXM,Moa_A,$1,  $18<<3,(row0+$15)<<3); // Moa  1 
+data_spawn(rm+STR_PRXM,Moa_A,$1,  $2F<<3,(row0+$13)<<3); // Moa  1 
+data_spawn(rm+STR_PRXM,Moa_A,$1,  $4F<<3,(row0+$13)<<3); // Moa  1 
+data_spawn(rm+STR_PRXM,Moa_A,$1,  $66<<3,(row0+$15)<<3); // Moa  1 
+
+
+clm3=$40; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  hex_str(rm_num-1)+EXU0_); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row4);                                          // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXD0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  7F  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance.
+rm_num  = $7F;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'127');
 
 
-//   -----------------------------------------------------------
-mus0 = STR_Dungeon+'01';
-//mus0 = MUS_DUNGEON1;
-var _DARK_DATA=STR_Dark+"01";
-ow_axis =  0; // 0:horizontal, 1:vertical
-_ow_axis = STR_ow_axis+'00';
-var _Pushable_PI = global.PI_BGR4;
-var _COLUMN_TYPE='02'; // 2: Midoro Palace
+row3=row0+$17; y3=row3<<3;
+row4=row0+$12; y4=row4<<3;
+row5=row0+$11; y5=row5<<3;
+row6=row3-$06; y6=row6<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $2E<<3,y5); // SpawnByStab  2
+data_spawn(rm+STR_PRIO,SpStA,$2,  $50<<3,y5); // SpawnByStab  2
+data_spawn(rm+STR_PRXM,Moa_A,$1,  $18<<3,(row0+$15)<<3); // Moa  1 
+data_spawn(rm+STR_PRXM,Moa_A,$1,  $66<<3,(row0+$15)<<3); // Moa  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $10<<3,y6); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $18<<3,y6); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $1D<<3,y6); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $60<<3,y6); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $6A<<3,y6); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $71<<3,y6); // Geldarm  1 
+
+
+clm3=$40; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row4);                                          // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
+
 
 //   --------------------------  80  --------------------------- 
-//    PalcZ. Entrance
+//    Extra scene rando scene. Dungeon entrance.
 rm_num  = $80;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, _DARK_DATA, STR_Tile+area_PZ+'000', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'128');
 
 
-row3=row0+$14; y3=row3<<3; // PC spawn row Left exit
-row4=row0+$16; y4=row4<<3; // PC spawn row Right exit
-row5=row0+$17; y5=row5<<3;
-
-x3=$57<<3;
-y3=((row0+$18)<<3)+3;
-_data = hex_str((x3>>8)&$FF)+hex_str((x3>>0)&$FF) + hex_str((y3>>8)&$FF)+hex_str((y3>>0)&$FF);
-data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
-
-_pi=global.PI_BGR4;
-data_spawn(rm+STR_PRIO,TorchA,$3,  $58<<3,y5,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$3,  $69<<3,y5,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+row3=row0+$17; y3=row3<<3;
+row4=row0+$12; y4=row4<<3;
+row5=row0+$05; y5=row5<<3;
+row6=row0+$19; y6=row6<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $1A<<3,y5); // Bot  1 
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $25<<3,y5); // Bot  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $0E<<3,y6); // Myu  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $31<<3,y6); // Myu  1 
 
 
-clm3=$61; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
-data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '83'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_, clm3,row0+$14);                                               // Elevator DW $40, 
-_exit1=data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXL0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '81'+EXL0_); // RGT 0, 
+clm3=$20; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row4);                                          // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+
+data_scene_rando(rm);
 
 
 
@@ -2573,22 +2898,35 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '81'+EXL0_); // RG
 
 
 //   --------------------------  81  --------------------------- 
-//    PalcZ. Right of entrance scene. Cave scene w/ large pit down
+//    Dungeon Scene. Horizontal moving platform with lava below
 rm_num  = $81;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, _DARK_DATA, STR_Tile+area_PZ+'007', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'129');
 
 
-row3=row0+$0C; y3=row3<<3; // PC spawn row Left+Right exit
-//row4=row0+$16; y4=row4<<3;
-//row5=row0+$17; y5=row5<<3;
-//
+row3=row0+$08; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+row5=row0+$16; y5=row5<<3;
+row6=row0+$0A; y6=row6<<3;
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($75<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRXM,BubbA,$2,  $3F<<3,(row0+$06)<<3,  STR_Direction+hex_str($2|$4)); // Bubble  2
+data_spawn(rm+STR_PRXM,AnerA,$1,  $14<<3,y6); // Aneru  1
+data_spawn(rm+STR_PRXM,AnerA,$1,  $27<<3,y6); // Aneru  1
+data_spawn(rm+STR_PRXM,AnerA,$1,  $57<<3,y6); // Aneru  1
+data_spawn(rm+STR_PRXM,AnerA,$1,  $6C<<3,y6); // Aneru  1
+clm3=$35; clm4=$48;
+_data=hex_str(row5)+hex_str(clm3) + hex_str(row5)+hex_str(clm4);
+data_Platform(PlatformA,$1,  clm3<<3,(row0+$16)<<3,  global.PI_MOB_ORG, 1, 0, _data);
 
 
-clms3=clms0+(PAGE_CLMS<<1); clm3=-PAGE_CLMS;
-_exit=data_exit(EXD0,etA1,1,  clm3,row_e2,  clms3,ROWS5,  clms1,row_e3,  _exit1); // DWN 0, Pit down 
-//data_pit(_exit, 0,8);
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '80'+EXR0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '82'+EXL0_); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+
+data_scene_rando(rm);
 
 
 
@@ -2598,20 +2936,49 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '82'+EXL0_); // RG
 
 
 //   --------------------------  82  --------------------------- 
-//    PalcZ. Right of entrance scene. 
+//    Dungeon Scene. Full lava floor with minimal platforms across supported by pillars
 rm_num  = $82;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, _DARK_DATA, STR_Tile+area_PZ+'002', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'130');
 
 
-row3=row0+$14; y3=row3<<3; // PC spawn row Left exit
-row4=row3+$03; y4=row4<<3;
-//row5=row0+$17; y5=row5<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  $0D<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,SpDrA,$1,  $54 <<3,(row0+$0B)<<3,  STR_Type+_COLUMN_TYPE); // DropSpawner  1
-//data_spawn(rm+STR_PRIO,SpDrA,$1,  $5E<<3,(row0+$0B)<<3,  STR_Type+_COLUMN_TYPE); // DropSpawner  1
+row3=row0+$0A; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+row5=row0+$10; y5=row5<<3;
+row6=row0+$01; y6=row6<<3;
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($75<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $1E<<3,y6); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $32<<3,y6); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $4D<<3,y6); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $60<<3,y6); // DropSpawner  1
+var _DUR = 4; // SpTrC revolution duration
+var _PI1 = global.PI_MOB_BLU; // To contrast w/ red walls
+_dist=$0A<<3; 
+x3=($0F<<3)+4; _a=0;
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  8, 1,_DUR,2*90); // SpTrC: spins on chain
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  8, 1,_DUR,2*90); // SpTrC: spins on chain
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
+//                                                                          //
+data_spin_trap(SpTrC,$1,  x0,               y5,  _PI1,  8, 1,_DUR-1,2*90); // SpTrC: spins on chain
+//                                                                          //
+x3=($48<<3)+4; _a=0;
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  8, 1,_DUR,2*90); // SpTrC: spins on chain
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  8, 1,_DUR,2*90); // SpTrC: spins on chain
+data_spin_trap(SpTrC,$1,  x3+(_dist*(_a++)),y5,  _PI1,  7,-1,_DUR,3*90); // SpTrC: spins on chain
 
 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '81'+EXR0_); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  hex_str(rm_num+1)+EXU0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -2621,55 +2988,66 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '81'+EXR0_); // LF
 
 
 //   --------------------------  83  --------------------------- 
-//    PalcZ. Elevator shaft to entrance.
+//    Dungeon Scene. Tall vertical scene. Zigzag through with several elevators.
 rm_num  = $83;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'001', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'131', STR_Dark+'00', STR_View+'02');
 
 
-row3=row0+$14; y3=row3<<3;
-//row4=row0+$16; y4=row4<<3;
-//row5=row0+$17; y5=row5<<3;
-
-clm3=$20; // clm3: elevator center clm
-rows3=$0C;
-x4 = (clm3-$07)<<3;
-x5 = (clm3+$06)<<3;
-y3 = $0A<<3;
-y4 = y3+(rows3<<3);
-y5 = y4+(rows3<<3);
-y6 = y5+(rows3<<3);
-y7 = y6+(rows3<<3);
-_pi=global.PI_BGR4;
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y4,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y5,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y5,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y6,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y6,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y7,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y7,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
-_dist=($01<<3)+2;
-x4-=$01<<3;  x4 = hex_str((x4>>8)&$FF)+hex_str((x4>>0)&$FF);
-x5+=$02<<3;  x5 = hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF);
-y3+=_dist;   y3 = hex_str((y3>>8)&$FF)+hex_str((y3>>0)&$FF);
-y4+=_dist;   y4 = hex_str((y4>>8)&$FF)+hex_str((y4>>0)&$FF);
-y5+=_dist;   y5 = hex_str((y5>>8)&$FF)+hex_str((y5>>0)&$FF);
-y6+=_dist;   y6 = hex_str((y6>>8)&$FF)+hex_str((y6>>0)&$FF);
-y7+=_dist;   y7 = hex_str((y7>>8)&$FF)+hex_str((y7>>0)&$FF);
-_data  = x4+y3 + x5+y3;
-_data += x4+y4 + x5+y4;
-_data += x4+y5 + x5+y5;
-_data += x4+y6 + x5+y6;
-_data += x4+y7 + x5+y7;
-data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+clm6=$19; x6=clm6<<3;
+clm7=$26; x7=clm7<<3;
+clm8=$1F; x8=clm8<<3;
+row3=$1C; y3=row3<<3;
+row4=$40; y4=row4<<3;
+row5=$64; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRXM,DoomA,$1,  x8,y3); // Doomknocker  1
+data_spawn(rm+STR_PRXM,DoomA,$1,  x8,y4); // Doomknocker  1
+data_spawn(rm+STR_PRXM,DoomA,$1,  x8,y5); // Doomknocker  1
+data_spawn(rm+STR_PRIO,BlazA,$2,  $28<<3,$2E<<3); // Blaze v2
+data_spawn(rm+STR_PRIO,BlazA,$2,  $16<<3,$52<<3); // Blaze v2
+//data_spawn(rm+STR_PRXM,BubbA,$22,  $28<<3,$2E<<3,  STR_Direction+hex_str($2)); // v$20: Bubble-cling
+//data_spawn(rm+STR_PRXM,BubbA,$22,  $16<<3,$52<<3,  STR_Direction+hex_str($1)); // v$20: Bubble-cling
+//data_spawn(rm+STR_PRXM,BubbA,$2,  $3F<<3,(row0+$06)<<3,  STR_Direction+hex_str($2|$4)); // Bubble  2
 
 
-clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
-data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '80'+EXD0_); // UP  0, Elevator up  
-data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '84'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_+EXU0_,  clm3,row0+$15);                                        // Elevator DW $40, UP $80, 
+clm3=$0A; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm left  side
+clm6=$36; clm7=clm6-$04; clm8=clm6-$01; // clm6: elevator center clm right side
+data_exit(EXU0,etC0,1,  clm7,  -$0F,  CLMS4,ROWS5,  clm8,   $05,  hex_str(rm_num-1)+EXR0_); // UP  0, Elevator up  
+data_Elev(EXU0_, clm6,$18);                                           // Elevator UP $80, 
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,$63);                                           // Elevator DW $40, 
+//data_Elev(0, clm3,$2B); // Elevator confined w/in scene. Doesn't go to an exit.
+//data_Elev(0, clm6,$4F); // Elevator confined w/in scene. Doesn't go to an exit.
+
+// Elevators that don't go to exits:
+row5=$60;
+_dk = data_spawn(rm+STR_PRIO,ElevA,1, clm6,row5);
+_val=EXU0_;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+STR_Exit+"01"] = _val;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+_val] = $3F;
+_val=EXD0_;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+STR_Exit+"02"] = _val;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+_val] = row5;
+
+row5=$3C;
+_dk = data_spawn(rm+STR_PRIO,ElevA,1, clm3,row5);
+_val=EXU0_;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+STR_Exit+"01"] = _val;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+_val] = $1B;
+_val=EXD0_;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+STR_Exit+"02"] = _val;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+_val] = row5;
+
+
+data_path_conditions(exit_name_d0, exit_name_u0);
+data_path_conditions(exit_name_u0, exit_name_d0);
+
+data_scene_rando(rm);
 
 
 
@@ -2679,26 +3057,48 @@ data_Elev(EXD0_+EXU0_,  clm3,row0+$15);                                        /
 
 
 //   --------------------------  84  --------------------------- 
-//    PalcZ. Bottom of elevator shaft to entrance.
+//    Extra scene rando scene. Cave. 'Lost Dungeon' entrance
 rm_num  = $84;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'003', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'132', STR_Dark+'00');
 
 
-row3=row0+$16; y3=row3<<3; // PC spawn row Right exit
-row4=row3+$01; y4=row4<<3;
-row5=row0+$0A; y5=row5<<3;
+x3=$57<<3; y3=((row0+$18)<<3)+3;
+_data = hex_str((x3>>8)&$FF)+hex_str((x3>>0)&$FF) + hex_str((y3>>8)&$FF)+hex_str((y3>>0)&$FF);
+data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
 
-clm3=$10; x3=clm3<<3; clms3=$03; // clm3: elevator center clm
-data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3-clms3)<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+clms3)<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,SpDrA,$1,  $2B<<3,y5,  STR_Type+_COLUMN_TYPE); // DropSpawner  1
-data_spawn(rm+STR_PRIO,SpDrA,$1,  $4B<<3,y5,  STR_Type+_COLUMN_TYPE); // DropSpawner  1
+row3=row0+$17; y3=row3<<3;
+_pi=global.PI_BGR4;
+//data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,row0+$15,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$3,  $58<<3,y3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$3,  $69<<3,y3,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+
+row3=row0+$14; y3=row3<<3;
+row4=row0+$16; y4=row4<<3;
+row5=row0+$18; y5=row5<<3;
+//row6=row0+$19; y6=row6<<3;
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $1C<<3,y5); // Myu  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $3C<<3,y5); // Myu  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $44<<3,y5); // Myu  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $54<<3,y5); // Myu  1 
 
 
-clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
-data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '83'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_, clm3,row_e5);                                                 // Elevator UP $80, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '85'+EXL0_); // RGT 0, 
+clm3=$61; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  hex_str(rm_num+1)+EXL0_); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row3);                                          // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXD0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_path_conditions(exit_name_d0, exit_name_r0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+
+data_scene_rando(rm);
 
 
 
@@ -2708,32 +3108,21 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '85'+EXL0_); // RG
 
 
 //   --------------------------  85  --------------------------- 
-//    PalcZ. Depress switches to unlock door challenge.
+//    Extra scene rando scene. Cave. Dead end ruins at far right
 rm_num  = $85;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'004', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'133', STR_Dark+'00');
 
 
-row3=row0+$14; y3=row3<<3; // PC spawn row Left+Right exit
-row4=row3+$01; y4=row4<<3;
-row5=row0+$1B; y5=row5<<3;
-row6=row0+$12; y6=row6<<3;
-row7=row0+$13; y7=row7<<3;
-_dist=($0B<<3)+4;
-data_spawn(rm+STR_PRIO,TorchA,$1,       _dist-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  rm_w-_dist-8,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($26<<3)+4,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($38<<3)+4,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,PushA,$3,  $22<<3,(row0+$16)<<3,  dk_PI+hex_str(_Pushable_PI)); // Pushable
-data_spawn(rm+STR_PRIO,SwchB,$1,  $22<<3,y5,  dk_PI+hex_str(global.PI_BGR2)); // 
-data_spawn(rm+STR_PRIO,SwchB,$1,  $3C<<3,y5,  dk_PI+hex_str(global.PI_BGR2)); // 
-data_spawn_2a(STR_Challenge,Challenge_SwitchB,$3,  $00<<3,(row0+$00)<<3,  -1);
+row3=row0+$14; y3=row3<<3; // PC spawn row Left exit
+row4=row0+$17; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0D<<3,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $54<<3,(row0+$0B)<<3,  STR_Type+"02"); // DropSpawner  1
 
 
-clms4=$02; clm4=clm1-(clms4>>1);
-data_exit(EXU0,etA4,0,  $00,row_e0,  clms0,ROWS5,  $20,row_e4,  '86'+EXD0_); // UP  0, Pit up 
-data_exit(EXM0,etB0,0,  clm4,row6,  clms4,ROWS2,  clm4-1,row6,  '88'+EXM0_, 1); // MID 0, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '84'+EXR0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '87'+EXL1_); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  hex_str(rm_num+1)+EXU0_); // LFT 0, 
+
+
+data_scene_rando(rm);
 
 
 
@@ -2743,26 +3132,30 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '87'+EXL1_); // RG
 
 
 //   --------------------------  86  --------------------------- 
-//    PalcZ. Pushable origin scene
+//    Extra scene rando scene. Scene at bottom of 'Lost Dungeon' elevator entrance
 rm_num  = $86;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'005', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'134', STR_Dark+'00');
 
 
-row3=row0+$16; y3=row3<<3; // PC spawn row Right exit
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
-//row5=row0+$17; y5=row5<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($10<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($20<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($40<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($50<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+row5=row0+$14; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($0B<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($13<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($2B<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($4B<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
 
-_dk=data_spawn(rm+STR_PRIO,PushA,$3,  $17<<3,(row0+$12)<<3,  dk_PI+hex_str(_Pushable_PI)); // Pushable
-data_spawn(rm+STR_PRIO,PushableRefresher,$1,  $06<<3,(row0+$14)<<3,  dk_PI+hex_str(global.PI_BGR1),  object_get_name(PushA)+dk_SpawnDatakey+_dk);
 
-clms3=clms0; clm3=$00;
-_exit=data_exit(EXD0,etA1,1,  clm3,row_e2,  clms3,ROWS5,  clms1,row_e3,  '85'+EXU0_); // DWN 0, Pit down 
-//data_pit(_exit, 0,8);
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '87'+EXL0_); // RGT 0, 
+clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  hex_str(rm_num-1)+EXL0_); // UP  0, Elevator up  
+data_Elev(EXU0_, clm3,row5);                                          // Elevator UP $80, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXM0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_u0);
+data_path_conditions(exit_name_u0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -2772,59 +3165,18 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '87'+EXL0_); // RG
 
 
 //   --------------------------  87  --------------------------- 
-//    PalcZ. Elevator shaft
+//    Extra scene rando scene. Dungeon room, both exits are doors
 rm_num  = $87;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'006', STR_View+'02', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'135', STR_Dark+'00');
 
 
-row3=$0A; y3=row3<<3; // PC spawn row Left0 exit
-row4=$54; y4=row4<<3; // PC spawn row Left1 exit
-row5=$52; y5=row5<<3;
-row6=row4+$01; y6=row6<<3;
-clm3=$10; clms3=$03; // clm3: elevator center clm
-data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3-clms3)<<3)-4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3-clms3)<<3)-4,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+clms3)<<3)-4,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
-_dk=data_spawn(rm+STR_PRIO,ElevA,1,  clm3,row5);
-g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+EXL0_] = $07;
-g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+EXL1_] = row5;
-
-
-//data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  0); // UP  0, Elevator up  
-//data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  0); // DWN 0, Elevator down 
-//data_Elev(EXD0_+EXU0_,  clm3,row0+$15);                                        // Elevator DW $40, UP $80, 
-rows3=$08; rows4=rows3<<1;
-data_exit(EXL0,etA0,1,  CLM2,row3-rows3,  CLMS2,rows4,  CLM3,row3,  '86'+EXR0_); // LFT 0, 
-data_exit(EXL1,etA0,1,  CLM2,row4-rows3,  CLMS2,rows4,  CLM3,row4,  '85'+EXR0_); // LFT 1, 
-
-
-
-
-
-
-
-
-//   --------------------------  88  --------------------------- 
-//    
-rm_num  = $88;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'009', _ow_axis);
-
-
-row3=row0+$13; y3=row3<<3; // PC spawn row
-row4=row0+$0F; y4=row4<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($17<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($27<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($37<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($47<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-/* // Next to doors
-data_spawn(rm+STR_PRIO,TorchA,$1,  $0E<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $13<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $4C<<3,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $51<<3,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-*/
-
+row3=row0+$0E; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+//row5=row0+$14; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($04<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($4A<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($21<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($3D<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 clm3=clm1-1; x3=clm3<<3;
 y5=row4<<3;
 y6=y5-($03<<3);
@@ -2837,9 +3189,57 @@ data_spawn(rm+STR_PRIO,SpTrA,$1,  x3,y5,  STR_Speed+_val1,STR_Direction+_val2,ST
 data_spawn(rm+STR_PRIO,SpTrA,$1,  x3,y6,  STR_Speed+_val1,STR_Direction+_val2,STR_Duration+_val3, "_Skull"); // SpikeTrapA $1
 
 
-clm3=$0D; clm4=$51; clms3=$02;
-data_exit(EXM0,etB0,1,  clm3,row3,  clms3,ROWS2,  clm3+1,row3,  rm_num_+EXM1_, 0); // MID 0, 
-data_exit(EXM1,etB0,1,  clm4,row3,  clms3,ROWS2,  clm4-1,row3,  '89'+EXR0_, 0); // MID 1, 
+clm3=$10; clm4=$4E;
+data_exit(EXM0,etB0,1,  clm3,row3,  $02,ROWS2,  clm3+3,row3,  hex_str(rm_num-1)+EXR0_); // MID 0, 
+data_exit(EXM1,etB0,1,  clm4,row3,  $02,ROWS2,  clm4-1,row3,  hex_str(rm_num+1)+EXL0_); // MID 1, 
+
+
+data_path_conditions(exit_name_m0, exit_name_m1);
+data_path_conditions(exit_name_m1, exit_name_m0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
+
+
+//   --------------------------  88  --------------------------- 
+//    Extra scene rando scene. Dungeon room, tall room with 2 left exit and non-exit elevator
+rm_num  = $88;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'136', STR_Dark+'00', STR_View+'02');
+
+
+row3=$0A; y3=row3<<3; // PC spawn row Left0 exit
+row4=$54; y4=row4<<3; // PC spawn row Left1 exit
+row5=$52; y5=row5<<3;
+row6=row4+$01; y6=row6<<3;
+clm3=$10; clms3=$03; // clm3: elevator center clm
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3-clms3)<<3)-4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3-clms3)<<3)-4,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+clms3)<<3)-4,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+_dk = data_spawn(rm+STR_PRIO,ElevA,1,  clm3,row5);
+_val=EXL0_;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+STR_Exit+"01"] = _val;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+_val] = $07;
+
+_val=EXL1_;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+STR_Exit+"02"] = _val;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+_val] = row5;
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  hex_str(rm_num-1)+EXM1_); // LFT 0, 
+data_exit(EXL1,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row4,  hex_str(rm_num+1)+EXL0_); // LFT 1, 
+
+
+data_path_conditions(exit_name_l0, exit_name_l1);
+data_path_conditions(exit_name_l1, exit_name_l0);
+
+data_scene_rando(rm);
 
 
 
@@ -2849,22 +3249,32 @@ data_exit(EXM1,etB0,1,  clm4,row3,  clms3,ROWS2,  clm4-1,row3,  '89'+EXR0_, 0); 
 
 
 //   --------------------------  89  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon entrance forest scene
 rm_num  = $89;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'010', STR_View+'02', _ow_axis);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'137');
 
 
-row3=$08; y3=row3<<3; // PC spawn row Right exit
-row4=row3+$01; y4=row4<<3;
-row5=$74; y5=row5<<3; // PC spawn row Mid exit
-data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($20<<3)-4,$77<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+row3=row0+$14; y3=row3<<3;
+row4=row0+$10; y4=row4<<3;
+row5=row0+$16; y5=row5<<3;
+row6=row0+$06; y6=row6<<3;
+//data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+//data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpStA,$2,  $3A<<3,y5); // SpawnByStab  2
+data_spawn(rm+STR_PRXM,AcheA,$1,  $28<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $40<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $50<<3,y6); // Ache  1 
+data_spawn(rm+STR_PRXM,AcheA,$1,  $67<<3,y6); // Ache  1 
 
 
-clms4=$02; clm4=$2A;
-//clms4=$02; clm4=clm1-(clms4>>1);
-data_exit(EXM0,etB0,1,  clm4,row5,  clms4,ROWS2,  clm4-1,row5,  '8A'+EXM0_, 0); // MID 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '88'+EXM1_); // RGT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXL1_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  rm_num_+EXR0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 
@@ -2875,98 +3285,14 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '88'+EXM1_); // RG
 
 //   --------------------------  8A  --------------------------- 
 //    
-rm_num  = $8A;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'011', STR_View+'02', _ow_axis);
-
-
-row3=$08; y3=row3<<3; // PC spawn row Right exit
-row4=row3+$01; y4=row4<<3;
-row5=$6E; y5=row5<<3; // PC spawn row Mid exit
-data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-//data_spawn(rm+STR_PRIO,TorchA,$1,  ($20<<3)-4,$77<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,Backwall,$1,  $00<<3,$7A<<3,  STR_Depth+string(DEPTH_FG2-1), STR_Min+'_Y'+hex_str($0D<<3), STR_Direction+'08', STR_Speed+'08', STR_Delay+'80'); // Backwall $1
-
-
-clms4=$02; clm4=clm1-$01;
-//clms4=$02; clm4=clm1-(clms4>>1);
-data_exit(EXM0,etB0,0,  clm4,row6,  clms4,ROWS2,  clm4-1,row5,  '89'+EXM0_, 1); // MID 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '8B'+EXL0_); // RGT 0, 
-
-
-
-
-
-
 
 
 //   --------------------------  8B  --------------------------- 
 //    
-rm_num  = $8B;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'016', _ow_axis);
-
-
-row3=row0+$0E; y3=row3<<3; // PC spawn row Right,Left exit
-row4=row3+$02; y4=row4<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($1C<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($22<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-
-clm3=clm1; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
-data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  rm_num_+EXD0_); // UP  0, Elevator up  
-data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  rm_num_+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_+EXU0_,  clm3,row0+$0D);                               // Elevator DW $40, UP $80, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '8A'+EXR0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  rm_num_+EXL0_); // RGT 0, 
-
-_dk=rm+STR_Exit+STR_Sequence; _a=0;
-g.dm_rm[?_dk+hex_str(++_a)] = rm+EXD0_;
-g.dm_rm[?_dk+hex_str(++_a)] = rm+EXR0_;
-g.dm_rm[?_dk+hex_str(++_a)] = rm+EXR0_;
-g.dm_rm[?_dk+hex_str(++_a)] = rm+EXU0_;
-g.dm_rm[?_dk+STR_Count] = _a;
-g.dm_rm[?_dk+STR_Complete+STR_Exit+STR_Name] = Area_MazIs+hex_str(rm_num+1)+EXD0_;
-
-
-
-
-
-
 
 
 //   --------------------------  8C  --------------------------- 
 //    
-rm_num  = $8C;
-set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'020', STR_View+'02', _ow_axis);
-
-
-clm6=$19; x6=clm6<<3;
-clm7=$26; x7=clm7<<3;
-row3=$1C; y3=row3<<3;
-row4=$40; y4=row4<<3;
-row5=$64; y5=row5<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-
-
-clm3=$0A; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm left  side
-clm6=$36; clm7=clm6-$04; clm8=clm6-$01; // clm6: elevator center clm right side
-data_exit(EXU0,etC0,1,  clm7,row_e0,  CLMS4,ROWS5,  clm8,row_e1,  rm_num_+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm6,$18); // Elevator UP $80, 
-data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '8B'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_,  clm3,$63); // Elevator DW $40, 
-
-data_Elev(0,  clm3,$2B); // Elevator confined w/in scene. Doesn't go to an exit.
-data_Elev(0,  clm6,$4F); // Elevator confined w/in scene. Doesn't go to an exit.
-
-
-
-
-
-
 
 
 //   --------------------------  8D  --------------------------- 
@@ -3109,55 +3435,439 @@ data_Elev(0,  clm6,$4F); // Elevator confined w/in scene. Doesn't go to an exit.
 //    
 
 
+//   -----------------------------------------------------------
+mus0 = STR_Dungeon+'01';
+//mus0 = MUS_DUNGEON1;
+var _DARK_DATA=STR_Dark+"01";
+ow_axis =  0; // 0:horizontal, 1:vertical
+_ow_axis = STR_ow_axis+'00';
+var _Pushable_PI = global.PI_BGR4;
+var _COLUMN_TYPE='02'; // 2: Midoro Palace
+
 //   --------------------------  B0  --------------------------- 
-//    
+//    PalcZ. Entrance
+rm_num  = $B0;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, _DARK_DATA, STR_Tile+area_PZ+'000', _ow_axis);
+
+
+row3=row0+$14; y3=row3<<3; // PC spawn row Left exit
+row4=row0+$16; y4=row4<<3; // PC spawn row Right exit
+row5=row0+$17; y5=row5<<3;
+
+x3=$57<<3;
+y3=((row0+$18)<<3)+3;
+_data = hex_str((x3>>8)&$FF)+hex_str((x3>>0)&$FF) + hex_str((y3>>8)&$FF)+hex_str((y3>>0)&$FF);
+data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+
+_pi=global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$3,  $58<<3,y5,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$3,  $69<<3,y5,  dk_PI+hex_str(_pi)); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$61; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  'B3'+EXU0_); // DWN 0, Elevator down 
+data_Elev(EXD0_, clm3,row0+$14);                                               // Elevator DW $40, 
+_exit1=data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  rm_num_+EXL0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  'B1'+EXL0_); // RGT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  B1  --------------------------- 
-//    
+//    PalcZ. Right of entrance scene. Cave scene w/ large pit down
+rm_num  = $B1;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, _DARK_DATA, STR_Tile+area_PZ+'007', _ow_axis);
+
+
+row3=row0+$0C; y3=row3<<3; // PC spawn row Left+Right exit
+//row4=row0+$16; y4=row4<<3;
+//row5=row0+$17; y5=row5<<3;
+//
+
+
+clms3=clms0+(PAGE_CLMS<<1); clm3=-PAGE_CLMS;
+_exit=data_exit(EXD0,etA1,1,  clm3,row_e2,  clms3,ROWS5,  clms1,row_e3,  _exit1); // DWN 0, Pit down 
+//data_pit(_exit, 0,8);
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  'B0'+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'B2'+EXL0_); // RGT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  B2  --------------------------- 
-//    
+//    PalcZ. Right of entrance scene. 
+rm_num  = $B2;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, _DARK_DATA, STR_Tile+area_PZ+'002', _ow_axis);
+
+
+row3=row0+$14; y3=row3<<3; // PC spawn row Left exit
+row4=row3+$03; y4=row4<<3;
+//row5=row0+$17; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0D<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $54 <<3,(row0+$0B)<<3,  STR_Type+_COLUMN_TYPE); // DropSpawner  1
+//data_spawn(rm+STR_PRIO,SpDrA,$1,  $5E<<3,(row0+$0B)<<3,  STR_Type+_COLUMN_TYPE); // DropSpawner  1
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  'B1'+EXR0_); // LFT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  B3  --------------------------- 
-//    
+//    PalcZ. Elevator shaft to entrance.
+rm_num  = $B3;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'001', _ow_axis);
+
+
+row3=row0+$14; y3=row3<<3;
+//row4=row0+$16; y4=row4<<3;
+//row5=row0+$17; y5=row5<<3;
+
+clm3=$20; // clm3: elevator center clm
+rows3=$0C;
+x4 = (clm3-$07)<<3;
+x5 = (clm3+$06)<<3;
+y3 = $0A<<3;
+y4 = y3+(rows3<<3);
+y5 = y4+(rows3<<3);
+y6 = y5+(rows3<<3);
+y7 = y6+(rows3<<3);
+_pi=global.PI_BGR4;
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y3,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y4,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y4,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y5,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y5,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y6,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y6,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x4,y7,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+data_spawn(rm+STR_PRIO,TorchA,$3,  x5,y7,  dk_PI+hex_str(_pi),STR_Lit); // v3: Short sprite
+_dist=($01<<3)+2;
+x4-=$01<<3;  x4 = hex_str((x4>>8)&$FF)+hex_str((x4>>0)&$FF);
+x5+=$02<<3;  x5 = hex_str((x5>>8)&$FF)+hex_str((x5>>0)&$FF);
+y3+=_dist;   y3 = hex_str((y3>>8)&$FF)+hex_str((y3>>0)&$FF);
+y4+=_dist;   y4 = hex_str((y4>>8)&$FF)+hex_str((y4>>0)&$FF);
+y5+=_dist;   y5 = hex_str((y5>>8)&$FF)+hex_str((y5>>0)&$FF);
+y6+=_dist;   y6 = hex_str((y6>>8)&$FF)+hex_str((y6>>0)&$FF);
+y7+=_dist;   y7 = hex_str((y7>>8)&$FF)+hex_str((y7>>0)&$FF);
+_data  = x4+y3 + x5+y3;
+_data += x4+y4 + x5+y4;
+_data += x4+y5 + x5+y5;
+_data += x4+y6 + x5+y6;
+_data += x4+y7 + x5+y7;
+data_NIAO_1a(rm+STR_NIAO+"0",  $0000,1,AdditionalBGGraphics_init,  global.PI_BGR3,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+
+
+clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  'B0'+EXD0_); // UP  0, Elevator up  
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  'B4'+EXU0_); // DWN 0, Elevator down 
+data_Elev(EXD0_+EXU0_,  clm3,row0+$15);                                        // Elevator DW $40, UP $80, 
+
+
+
+
+
+
 
 
 //   --------------------------  B4  --------------------------- 
-//    
+//    PalcZ. Bottom of elevator shaft to entrance.
+rm_num  = $B4;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'003', _ow_axis);
+
+
+row3=row0+$16; y3=row3<<3; // PC spawn row Right exit
+row4=row3+$01; y4=row4<<3;
+row5=row0+$0A; y5=row5<<3;
+
+clm3=$10; x3=clm3<<3; clms3=$03; // clm3: elevator center clm
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3-clms3)<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+clms3)<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $2B<<3,y5,  STR_Type+_COLUMN_TYPE); // DropSpawner  1
+data_spawn(rm+STR_PRIO,SpDrA,$1,  $4B<<3,y5,  STR_Type+_COLUMN_TYPE); // DropSpawner  1
+
+
+clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  'B3'+EXD0_); // UP  0, Elevator up  
+data_Elev(EXU0_, clm3,row_e5);                                                 // Elevator UP $80, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'B5'+EXL0_); // RGT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  B5  --------------------------- 
-//    
+//    PalcZ. Depress switches to unlock door challenge.
+rm_num  = $B5;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'004', _ow_axis);
+
+
+row3=row0+$14; y3=row3<<3; // PC spawn row Left+Right exit
+row4=row3+$01; y4=row4<<3;
+row5=row0+$1B; y5=row5<<3;
+row6=row0+$12; y6=row6<<3;
+row7=row0+$13; y7=row7<<3;
+_dist=($0B<<3)+4;
+data_spawn(rm+STR_PRIO,TorchA,$1,       _dist-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  rm_w-_dist-8,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($26<<3)+4,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($38<<3)+4,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,PushA,$3,  $22<<3,(row0+$16)<<3,  dk_PI+hex_str(_Pushable_PI)); // Pushable
+data_spawn(rm+STR_PRIO,SwchB,$1,  $22<<3,y5,  dk_PI+hex_str(global.PI_BGR2)); // 
+data_spawn(rm+STR_PRIO,SwchB,$1,  $3C<<3,y5,  dk_PI+hex_str(global.PI_BGR2)); // 
+data_spawn_2a(STR_Challenge,Challenge_SwitchB,$3,  $00<<3,(row0+$00)<<3,  -1);
+
+
+clms4=$02; clm4=clm1-(clms4>>1);
+data_exit(EXU0,etA4,0,  $00,row_e0,  clms0,ROWS5,  $20,row_e4,  'B6'+EXD0_); // UP  0, Pit up 
+data_exit(EXM0,etB0,0,  clm4,row6,  clms4,ROWS2,  clm4-1,row6,  'B8'+EXM0_, 1); // MID 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  'B4'+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'B7'+EXL1_); // RGT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  B6  --------------------------- 
-//    
+//    PalcZ. Pushable origin scene
+rm_num  = $B6;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'005', _ow_axis);
+
+
+row3=row0+$16; y3=row3<<3; // PC spawn row Right exit
+row4=row3+$01; y4=row4<<3;
+//row5=row0+$17; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($10<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($20<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($40<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($50<<3)-4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+_dk=data_spawn(rm+STR_PRIO,PushA,$3,  $17<<3,(row0+$12)<<3,  dk_PI+hex_str(_Pushable_PI)); // Pushable
+data_spawn(rm+STR_PRIO,PushableRefresher,$1,  $06<<3,(row0+$14)<<3,  dk_PI+hex_str(global.PI_BGR1),  object_get_name(PushA)+dk_SpawnDatakey+_dk);
+
+clms3=clms0; clm3=$00;
+_exit=data_exit(EXD0,etA1,1,  clm3,row_e2,  clms3,ROWS5,  clms1,row_e3,  'B5'+EXU0_); // DWN 0, Pit down 
+//data_pit(_exit, 0,8);
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'B7'+EXL0_); // RGT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  B7  --------------------------- 
-//    
+//    PalcZ. Elevator shaft
+/*
+rm_num  = $B7;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'006', STR_View+'02', _ow_axis);
+
+
+row3=$0A; y3=row3<<3; // PC spawn row Left0 exit
+row4=$54; y4=row4<<3; // PC spawn row Left1 exit
+row5=$52; y5=row5<<3;
+row6=row4+$01; y6=row6<<3;
+clm3=$10; clms3=$03; // clm3: elevator center clm
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3-clms3)<<3)-4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3-clms3)<<3)-4,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm3+clms3)<<3)-4,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+_dk=data_spawn(rm+STR_PRIO,ElevA,1,  clm3,row5);
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+EXL0_] = $07;
+g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+EXL1_] = row5;
+
+
+//data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  0); // UP  0, Elevator up  
+//data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  0); // DWN 0, Elevator down 
+//data_Elev(EXD0_+EXU0_,  clm3,row0+$15);                                        // Elevator DW $40, UP $80, 
+rows3=$08; rows4=rows3<<1;
+data_exit(EXL0,etA0,1,  CLM2,row3-rows3,  CLMS2,rows4,  CLM3,row3,  'B6'+EXR0_); // LFT 0, 
+data_exit(EXL1,etA0,1,  CLM2,row4-rows3,  CLMS2,rows4,  CLM3,row4,  'B5'+EXR0_); // LFT 1, 
+*/
+
+
+
+
+
+
 
 
 //   --------------------------  B8  --------------------------- 
 //    
+rm_num  = $B8;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'009', _ow_axis);
+
+
+row3=row0+$13; y3=row3<<3; // PC spawn row
+row4=row0+$0F; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($17<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($27<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($37<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($47<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+/* // Next to doors
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0E<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $13<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $4C<<3,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $51<<3,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+*/
+
+clm3=clm1-1; x3=clm3<<3;
+y5=row4<<3;
+y6=y5-($03<<3);
+//y5=(row3+$02)<<3; y5-=2;
+//y6=y5-$10; y6-=4;
+_val1=hex_str($28); // Speed
+_val2=hex_str($3);  // Movement Direction. $1,2 bits: Horizontal, $4,8 bits: Vertical. Include both bits so first movement is towards pc
+_val3=hex_str($28); // Idle Duration after hitting solid
+data_spawn(rm+STR_PRIO,SpTrA,$1,  x3,y5,  STR_Speed+_val1,STR_Direction+_val2,STR_Duration+_val3, "_Skull"); // SpikeTrapA $1
+data_spawn(rm+STR_PRIO,SpTrA,$1,  x3,y6,  STR_Speed+_val1,STR_Direction+_val2,STR_Duration+_val3, "_Skull"); // SpikeTrapA $1
+
+
+clm3=$0D; clm4=$51; clms3=$02;
+data_exit(EXM0,etB0,1,  clm3,row3,  clms3,ROWS2,  clm3+1,row3,  rm_num_+EXM1_, 0); // MID 0, 
+data_exit(EXM1,etB0,1,  clm4,row3,  clms3,ROWS2,  clm4-1,row3,  'B9'+EXR0_, 0); // MID 1, 
+
+
+
+
+
+
 
 
 //   --------------------------  B9  --------------------------- 
 //    
+rm_num  = $B9;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'010', STR_View+'02', _ow_axis);
+
+
+row3=$08; y3=row3<<3; // PC spawn row Right exit
+row4=row3+$01; y4=row4<<3;
+row5=$74; y5=row5<<3; // PC spawn row Mid exit
+data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($20<<3)-4,$77<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clms4=$02; clm4=$2A;
+//clms4=$02; clm4=clm1-(clms4>>1);
+data_exit(EXM0,etB0,1,  clm4,row5,  clms4,ROWS2,  clm4-1,row5,  'BA'+EXM0_, 0); // MID 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'B8'+EXM1_); // RGT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  BA  --------------------------- 
 //    
+rm_num  = $BA;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'011', STR_View+'02', _ow_axis);
+
+
+row3=$08; y3=row3<<3; // PC spawn row Right exit
+row4=row3+$01; y4=row4<<3;
+row5=$6E; y5=row5<<3; // PC spawn row Mid exit
+data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,TorchA,$1,  ($20<<3)-4,$77<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,Backwall,$1,  $00<<3,$7A<<3,  STR_Depth+string(DEPTH_FG2-1), STR_Min+'_Y'+hex_str($0D<<3), STR_Direction+'08', STR_Speed+'08', STR_Delay+'80'); // Backwall $1
+
+
+clms4=$02; clm4=clm1-$01;
+//clms4=$02; clm4=clm1-(clms4>>1);
+data_exit(EXM0,etB0,0,  clm4,row6,  clms4,ROWS2,  clm4-1,row5,  'B9'+EXM0_, 1); // MID 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  'BB'+EXL0_); // RGT 0, 
+
+
+
+
+
+
 
 
 //   --------------------------  BB  --------------------------- 
 //    
+rm_num  = $BB;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'016', _ow_axis);
+
+
+row3=row0+$0E; y3=row3<<3; // PC spawn row Right,Left exit
+row4=row3+$02; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($1C<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($22<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=clm1; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  rm_num_+EXD0_); // UP  0, Elevator up  
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  rm_num_+EXU0_); // DWN 0, Elevator down 
+data_Elev(EXD0_+EXU0_,  clm3,row0+$0D);                               // Elevator DW $40, UP $80, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  'BA'+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  rm_num_+EXL0_); // RGT 0, 
+
+_dk=rm+STR_Exit+STR_Sequence; _a=0;
+g.dm_rm[?_dk+hex_str(++_a)] = rm+EXD0_;
+g.dm_rm[?_dk+hex_str(++_a)] = rm+EXR0_;
+g.dm_rm[?_dk+hex_str(++_a)] = rm+EXR0_;
+g.dm_rm[?_dk+hex_str(++_a)] = rm+EXU0_;
+g.dm_rm[?_dk+STR_Count] = _a;
+g.dm_rm[?_dk+STR_Complete+STR_Exit+STR_Name] = Area_MazIs+hex_str(rm_num+1)+EXD0_;
+
+
+
+
+
+
 
 
 //   --------------------------  BC  --------------------------- 
+//    
+rm_num  = $BC;
+set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PZ+'020', STR_View+'02', _ow_axis);
+
+
+clm6=$19; x6=clm6<<3;
+clm7=$26; x7=clm7<<3;
+row3=$1C; y3=row3<<3;
+row4=$40; y4=row4<<3;
+row5=$64; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x6,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  x7,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+
+
+clm3=$0A; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm left  side
+clm6=$36; clm7=clm6-$04; clm8=clm6-$01; // clm6: elevator center clm right side
+data_exit(EXU0,etC0,1,  clm7,row_e0,  CLMS4,ROWS5,  clm8,row_e1,  rm_num_+EXD0_); // UP  0, Elevator up  
+data_Elev(EXU0_,  clm6,$18); // Elevator UP $80, 
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  'BB'+EXU0_); // DWN 0, Elevator down 
+data_Elev(EXD0_,  clm3,$63); // Elevator DW $40, 
+
+data_Elev(0,  clm3,$2B); // Elevator confined w/in scene. Doesn't go to an exit.
+data_Elev(0,  clm6,$4F); // Elevator confined w/in scene. Doesn't go to an exit.
 //    
 
 
