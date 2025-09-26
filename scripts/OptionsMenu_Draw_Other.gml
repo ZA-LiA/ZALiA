@@ -159,6 +159,14 @@ for(_i=0; _i<_COUNT0; _i++)
         else if(!global.Halloween1_enabled) _pi = PI_DARK1;
         else                                _pi = PI_MENU2;
         break;}
+        
+        // --------------------------------------------------------------------
+        case Other_DOUBLE_JUMP:{
+        _text = val(dm_options[?_dk+hex_str(g.DoubleJump_state)+STR_Text],_STR_UNDEFINED);
+             if (_i==Other_cursor)   _pi = PI_MENU1;
+        else if(!g.DoubleJump_state) _pi = PI_DARK1;
+        else                         _pi = PI_MENU2;
+        break;}
         /*
         // --------------------------------------------------------------------
         case Other_SHOW_ACTIVE_SPELLS:{

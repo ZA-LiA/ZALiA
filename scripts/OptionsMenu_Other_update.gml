@@ -280,6 +280,20 @@ switch(Other_cursor)
     */
     
     // -------------------------------------------------
+    case Other_DOUBLE_JUMP:{
+    if (timer) break;
+    
+    if (_InputConfirm_pressed2 
+    &&  f.items&ITM_FTHR )
+    {
+        g.DoubleJump_state = !g.DoubleJump_state;
+        save_game_pref();
+        aud_play_sound(_SOUND2);
+        timer = DURATION1;
+    }
+    break;}
+    
+    // -------------------------------------------------
     case Other_GEE:{
     if (timer) break;
     

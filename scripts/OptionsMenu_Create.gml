@@ -923,6 +923,15 @@ dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "OPEN A TOOL THAT ALLOWS YO
 //                                                                          //
 */
 _j=0; _k=0;
+Other_DOUBLE_JUMP = ++_i;
+_dk2 = _dk0+hex_str(_i);
+dm_options[?_dk2+STR_Font]                         = FONT2;
+dm_options[?_dk2+STR_Option+STR_Text]              = "FEATHER ITEM(DOUBLE JUMP)";
+dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "OFF";
+dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "ON";
+dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "TURNING THIS ON GIVES THE PLAYER DOUBLE JUMP.";
+//                                                                          //
+_j=0; _k=0;
 Other_GEE = ++_i; // GEE: Graphics Effects Editor
 _dk2 = _dk0+hex_str(_i);
 dm_options[?_dk2+STR_Font]                         = FONT2;

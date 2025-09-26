@@ -101,6 +101,7 @@ switch(argument0)
         //case Other_SHOW_ACTIVE_SPELLS:{return false; break;}
         //case Other_SCENE_COLORS_EDITOR:{return true;  break;}
         //case Other_BGR_COLOR_EDITOR:   {return true;  break;}
+        case Other_DOUBLE_JUMP:        {return f.items&ITM_FTHR; break;}
         case Other_GEE:                {return true;  break;}
         case Other_BACK:               {return true;  break;}
     }//switch(argument1)

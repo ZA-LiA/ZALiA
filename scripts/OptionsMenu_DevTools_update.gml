@@ -108,7 +108,7 @@ switch(DevTools_cursor)
         if (g.dungeon_num) DungeonMapVisible_refresh(g.dungeon_num);
         
         g.use_StabToCheat  = false;
-        g.DoubleJump_state = false;
+        //g.DoubleJump_state = false;
         //f.items           &= ~ITM_FTHR;
         g.DevDash_state    = 0; // 0: Off, 1: On, 2: On and dash input held
         g.dev_invState     = 0;
