@@ -24,8 +24,16 @@ if (counter) // Opening
         
         g.pc_lock = 0;
         
-        if(!is_undefined(     dk_spawn))
-        {   f.dm_openedLocks[?dk_spawn] = 1;  }
+        switch(respawn_type)
+        {
+            default:{
+            if(!is_undefined(dk_spawn)) f.dm_openedLocks[?dk_spawn] = 1;
+            break;}
+            
+            case 1:{ // respawns with room refresh
+            if(!is_undefined(dk_spawn)) g.dm_spawn[?dk_spawn+STR_Spawn_Permission] = 1;
+            break;}
+        }
         
         
         state = 0;
@@ -36,9 +44,10 @@ if (counter) // Opening
 
 
 
+
 // ------------------------------------------------------------------
 // D9BA
-                  g.pc.colliding_locked_door = 0; // 05E7
+                  g.pc.colliding_locked_door = $0; // 05E7
 if (cs&CS_BD1)
 {   // D9C3
     if(!pc_is_fairy()) pushback_pc_and_go(id);
@@ -52,6 +61,8 @@ else if (isVal(ver,1,2))
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
+
+
 
 
 
@@ -132,6 +143,9 @@ switch(ver)
 
 
 
+
+
+
 if(!counter) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -143,9 +157,18 @@ if (cs&CS_BD1)
     g.pc_lock = PC_LOCK_ALL; // Lock all
 }
 
-// TODO: Create data & build logic that allows certain locks to respawn when refreshing rm.
-if(!is_undefined(     dk_spawn))
-{   f.dm_openedLocks[?dk_spawn] = 1;  }
+
+switch(respawn_type)
+{
+    default:{
+    if(!is_undefined(dk_spawn)) f.dm_openedLocks[?dk_spawn] = 1;
+    break;}
+    
+    case 1:{ // respawns with room refresh
+    if(!is_undefined(dk_spawn)) g.dm_spawn[?dk_spawn+STR_Spawn_Permission] = 1;
+    break;}
+}
+
 
 aud_play_sound(get_audio_theme_track(STR_Open+STR_LockedDoor));
 

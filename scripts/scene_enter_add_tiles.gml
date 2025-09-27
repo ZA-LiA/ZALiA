@@ -215,11 +215,16 @@ ds_grid_clear (g.dg_RmTile_Current_def, 0);
 ds_grid_resize(g.dg_RmTile_TempSolid,   _CLMS, _ROWS); // unit8
 ds_grid_clear (g.dg_RmTile_TempSolid,   0);
 
+ds_grid_resize(g.dg_RmTile_Spike,       0,0); // unit8
+ds_grid_clear (g.dg_RmTile_Spike,       0);
+ds_grid_resize(g.dg_RmTile_Spike_def,   0,0); // unit8
+ds_grid_clear (g.dg_RmTile_Spike_def,   0);
+/*
 ds_grid_resize(g.dg_RmTile_Spike,       _CLMS, _ROWS); // unit8
 ds_grid_clear (g.dg_RmTile_Spike,       0);
 ds_grid_resize(g.dg_RmTile_Spike_def,   _CLMS, _ROWS); // unit8
 ds_grid_clear (g.dg_RmTile_Spike_def,   0);
-
+*/
 ds_list_clear(g.dl_ceiling_bottom_rc);
 
 with(g.burnable_mgr)
@@ -859,6 +864,14 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (_val)
             {
+                if(!ds_grid_width(g.dg_RmTile_Spike))
+                {
+                    ds_grid_resize(g.dg_RmTile_Spike,       _CLMS, _ROWS); // unit8
+                    ds_grid_clear (g.dg_RmTile_Spike,       0);
+                    ds_grid_resize(g.dg_RmTile_Spike_def,   _CLMS, _ROWS); // unit8
+                    ds_grid_clear (g.dg_RmTile_Spike_def,   0);
+                }
+                
                 _clm1 = _clm;
                 _row1 = _row;
                 dg_RmTile_Spike    [#_clm1,_row1] = (_depth_idx<<8) | _val;

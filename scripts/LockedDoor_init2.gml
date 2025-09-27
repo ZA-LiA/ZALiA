@@ -34,11 +34,14 @@ set_xy(id, x, spawn_y+8);
 
 switch_side = 0;
 
+// 0: does not respawn. 1: respawns with room refresh
+respawn_type = 0;
+
 if(!is_undefined(dk_spawn))
 {
     for(_i=$1; _i<=$F; _i++)
     {
-        _val=val(g.dm_spawn[?dk_spawn+STR_Data+hex_str(_i)]);
+        _val = val(g.dm_spawn[?dk_spawn+STR_Data+hex_str(_i)]);
         if (is_string(_val))
         {
                 _pos =string_pos(   STR_Side,_val);
@@ -46,11 +49,20 @@ if(!is_undefined(dk_spawn))
             {   _pos+=string_length(STR_Side);
                 _val =string_copy(_val, _pos, string_length(_val)-(_pos-1));
                 switch_side = str_hex(_val);
-                break;//_i
+                //break;//_i
+            }
+            
+                _pos =string_pos(   STR_Respawn,_val);
+            if (_pos)
+            {   _pos+=string_length(STR_Respawn);
+                _val =string_copy(_val, _pos, string_length(_val)-(_pos-1));
+                respawn_type = str_hex(_val);
+                //break;//_i
             }
         }
     }
 }
+show_debug_message("LockedDoor_init2(). respawn_type "+hex_str(respawn_type));
 
 
 // 0: neither, 1: right, 2: left, 3: both

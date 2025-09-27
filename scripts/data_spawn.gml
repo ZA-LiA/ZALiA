@@ -664,7 +664,7 @@ for(_i=_arg; _i<argument_count; _i++)
     
     
     
-    _datakey = object_get_name(Eyenocc)+"_"+STR_Sequence;
+    _datakey = object_get_name(Eyenocc)+STR_Sequence;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
     {

@@ -63,14 +63,17 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
     
     
     // SPIKES ----------------------------------------------------------
-    if(!iframes_timer)
+    if(!iframes_timer 
+    &&  ds_grid_width(g.dg_RmTile_Spike) )
     {
         if(!g.DevTools_state 
         ||  g.dev_invState&$3!=2 )
         {
+            /*
             var _CLM1 = (xc-4)>>3;
             var _CLM2 = (xc+3)>>3;
-            var _ROW1 = cp1Y>>3; // pc bottom
+            var _ROW1 = (cp1Y-1)>>3; // pc bottom
+            //var _ROW1 = cp1Y>>3; // pc bottom
             var _ROW2 = cp2Y>>3; // pc top
             // Floor spikes
             //if (cs&$4 && !ogr)
@@ -79,9 +82,23 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
             // Ceiling spikes
             ||  (is_in_grid(_CLM1,_ROW2, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM1,_ROW2]&$FF, TID_SPIKE1,TID_SPIKE2)) 
             ||  (is_in_grid(_CLM2,_ROW2, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM2,_ROW2]&$FF, TID_SPIKE1,TID_SPIKE2)) )
+            */
+            if (rectInRect(csTop1X,csTop1Y,csTop2X-csTop1X,(csBtm1Y-1)-csTop1Y, 0,0,_CLMS<<3,_ROWS<<3))
             {
-                PC_take_damage(noone,$10); // Spike Damage
-                exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                var _VAL = ds_grid_get_max(g.dg_RmTile_Spike,max(csTop1X,0)>>3,max(csTop1Y,0)>>3,min(csBtm2X>>3,_CLMS-1),min((csBtm2Y-1)>>3,_ROWS-1)) &$FF;
+                if (_VAL==TID_SPIKE1 
+                ||  _VAL==TID_SPIKE2 )
+                {
+                    var _damage = $10;
+                    if (g.DevTools_state 
+                    &&  g.dev_invState&$3 )
+                    {
+                        _damage = 0; // g.dev_invState. 2: skip all, 1 skip dmg, 0 regular
+                    }
+                    
+                    PC_take_damage(noone,_damage); // Spike Damage
+                    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                }
             }
         }
     }

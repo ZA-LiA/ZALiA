@@ -1695,9 +1695,6 @@ with(g.PAUSE_MENU)
 
 
 
-//dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
-//if (global.REINITIALIZE_DATA1) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
-
 
 //dev_rmdata_cleanup_data_check();
 //dev_automateRoomData1();
@@ -1849,6 +1846,16 @@ for(_i=1; _i<=_count; _i++)
 }
 repeat(8) sdm("");
 */
+
+
+
+
+
+
+
+
+//dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
+//if (global.REINITIALIZE_DATA1) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 
 
 

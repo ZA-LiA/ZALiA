@@ -3512,10 +3512,6 @@ ds_list_add(dl_rando_seed_SPRITES, val(dm_ITEM[?STR_SWORD   +STR_Sprite], _defau
   dg_CS_OFF:               25
 */
 
-//db_spawnData_Automate_code_1a();
-
-//dev_automate_tile_layer_data();
-
 
 
 
@@ -3543,6 +3539,13 @@ ds_list_destroy(_dl2); _dl2=undefined;
 ds_list_destroy(_dl3); _dl3=undefined;
 repeat(4) sdm("");
 */
+
+
+
+
+//db_spawnData_Automate_code_1a();
+
+//dev_automate_tile_layer_data();
 
 
 
