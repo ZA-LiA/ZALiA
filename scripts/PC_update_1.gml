@@ -42,7 +42,7 @@ if (RescueFairy_sprite) aud_play_fairy1();
 // ==========================================================================
 // =========================  SPAWN  ===============================
 // 903A
-if (state == state_SPAWN) // 0: ST_SPWN. first frame of spawnning when entering a scene
+if (state==state_SPAWN) // 0: ST_SPWN. first frame of spawnning when entering a scene
 {
     PC_spawn();
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -54,7 +54,7 @@ if (state == state_SPAWN) // 0: ST_SPWN. first frame of spawnning when entering 
 
 // ==========================================================================
 // =========================  DROWN  ===============================
-if (state == state_DROWN) // OG state 2. Drowning
+if (state==state_DROWN) // OG state 2. Drowning
 {
     var _x = x;
     var _y = y+1;
@@ -91,7 +91,7 @@ if (state == state_DROWN) // OG state 2. Drowning
                     _x  = RescueDropOff_solid_inst.xl + (((RescueDropOff_rc>>0)&$FF)<<3);
                     _x  = clamp(_x, RescueDropOff_solid_inst.xl+8, RescueDropOff_solid_inst.xr-8);
                     _y  = RescueDropOff_solid_inst.yt - hh_;
-                    _y -= 4;
+                    //_y -= 4; // Don't remember the reason for this line, but on a narrow moving platform, like in MazIs_8E, the platform will move away before PC lands on it.
                     set_xy(id, _x,_y);
                     
                     set_view_xy_on_pc();
@@ -214,7 +214,7 @@ if (state == state_DROWN) // OG state 2. Drowning
 // -----------------------------------------------------------------------------------------
 
 
-if (state != state_NORMAL)
+if (state!=state_NORMAL)
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
