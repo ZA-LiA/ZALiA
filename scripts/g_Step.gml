@@ -93,6 +93,11 @@ if (room_type=="C"
 
 
 
+
+
+
+
+
 // --------------------------------------------------------------------
 // --------------------------------------------------------------------
 if(!update_change_room()) // if not changing rm
@@ -120,40 +125,47 @@ if(!update_change_room()) // if not changing rm
     d_l0__oo__0l_b();
     
     
-    // --------------------------------------------------------------------
-    // C14E
-    var _GUI_CONDITION =  gui_state==gui_state_NONE 
-                      ||  gui_state==gui_state_DIALOGUE1 
-                      ||  gui_state==gui_state_DIALOGUE2 
-                      ||  gui_state==gui_state_DIALOGUE3;
-    //
-    if (_GUI_CONDITION  // g.gui_state is 0 or dialogue
-    && !global.OVERWORLD.flute_timer )
-    {   // C169  - Timers
-        update_game_timers();
-        // C185  - Random numbers
-        update_og_rand();
-    }
-    
-    
-    // --------------------------------------------------------------------
-    if (    EnterRoom_SpawnGO_timer)
+    if (global.ViewCatchUp_state)
     {
-            EnterRoom_SpawnGO_timer--;
-        if(!EnterRoom_SpawnGO_timer)
-        {
-            go_spawn_enter_room();
+        update_view_1();
+    }
+    else
+    {
+        // --------------------------------------------------------------------
+        // C14E
+        var _GUI_CONDITION =  gui_state==gui_state_NONE 
+                          ||  gui_state==gui_state_DIALOGUE1 
+                          ||  gui_state==gui_state_DIALOGUE2 
+                          ||  gui_state==gui_state_DIALOGUE3;
+        //
+        if (_GUI_CONDITION  // g.gui_state is 0 or dialogue
+        && !global.OVERWORLD.flute_timer )
+        {   // C169  - Timers
+            update_game_timers();
+            // C185  - Random numbers
+            update_og_rand();
         }
-    }
-    
-    
-    // --------------------------------------------------------------------
-    // Main update
-    if (room_type=="A" 
-    && !EnterRoom_SpawnGO_timer 
-    &&  _GUI_CONDITION ) // g.gui_state is 0 or dialogue
-    {
-        g_Step_A2();
+        
+        
+        // --------------------------------------------------------------------
+        if (    EnterRoom_SpawnGO_timer)
+        {
+                EnterRoom_SpawnGO_timer--;
+            if(!EnterRoom_SpawnGO_timer)
+            {
+                go_spawn_enter_room();
+            }
+        }
+        
+        
+        // --------------------------------------------------------------------
+        // Main update
+        if (room_type=="A" 
+        && !EnterRoom_SpawnGO_timer 
+        &&  _GUI_CONDITION ) // g.gui_state is 0 or dialogue
+        {
+            g_Step_A2();
+        }
     }
 }
 

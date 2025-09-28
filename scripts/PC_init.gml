@@ -474,6 +474,13 @@ RescueFairy_draw_y = 0;
 RescueDropOff_rc         = -1;
 RescueDropOff_elevator   = noone;
 RescueDropOff_solid_inst = noone;
+RescueDropOff_x = 0;
+RescueDropOff_y = 0;
+Rescue_SPEED_X = 8.00;
+Rescue_SPEED_Y = 8.00;
+Rescue_move_x  = 0;
+Rescue_move_y  = 0;
+Rescue_DIST1   = PC_W * 2;
 
 //  The elevator instance pc entered the rm on.
 RmEnter_elevator = noone;
@@ -496,6 +503,7 @@ Shadow_xoff     = 8;
 state_NULL   =  -1; // Not spawned
 state_SPAWN  = $00; // 1st frame of PC spawn = 0
 state_NORMAL = $01; // 
+state_RESCUE = $10; // Being moved to safety by Rescue Fairy
 state_DROWN  = $E0; // Collided insta-death liquid
 state_DEAD   = $FF; // 
 state        = state_NULL; // 00B5

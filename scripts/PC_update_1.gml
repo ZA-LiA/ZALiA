@@ -39,6 +39,8 @@ if (RescueFairy_sprite) aud_play_fairy1();
 
 
 
+
+
 // ==========================================================================
 // =========================  SPAWN  ===============================
 // 903A
@@ -52,10 +54,14 @@ if (state==state_SPAWN) // 0: ST_SPWN. first frame of spawnning when entering a 
 
 
 
+
+
+
 // ==========================================================================
 // =========================  DROWN  ===============================
 if (state==state_DROWN) // OG state 2. Drowning
 {
+    var _VIEW_CATCH_UP_TESTING = true;
     var _x = x;
     var _y = y+1;
     
@@ -69,6 +75,8 @@ if (state==state_DROWN) // OG state 2. Drowning
         if (f.items&ITM_FRY1 
         &&  f.hp )
         {
+            var _PREV_X = x;
+            var _PREV_Y = y;
             var _INV_DUR = 2;
             
             /*
@@ -91,22 +99,32 @@ if (state==state_DROWN) // OG state 2. Drowning
                     _x  = RescueDropOff_solid_inst.xl + (((RescueDropOff_rc>>0)&$FF)<<3);
                     _x  = clamp(_x, RescueDropOff_solid_inst.xl+8, RescueDropOff_solid_inst.xr-8);
                     _y  = RescueDropOff_solid_inst.yt - hh_;
-                    //_y -= 4; // Don't remember the reason for this line, but on a narrow moving platform, like in MazIs_8E, the platform will move away before PC lands on it.
-                    set_xy(id, _x,_y);
+                    //_y -= 4; // 2025/09/27. Don't remember the reason for this line, but on a narrow moving platform, like in MazIs_8E, the platform will move away before PC lands on it.
                     
-                    set_view_xy_on_pc();
+                    RescueDropOff_x = _x;
+                    RescueDropOff_y = _y;
                     
-                    PC_set_behavior(behavior_IDLE);
                     hspd = 0;
                     vspd = 0;
                     iframes_timer = _INV_DUR;
-                    state = state_NORMAL;
+                    
+                    if (_VIEW_CATCH_UP_TESTING)
+                    {
+                        set_xy(id, _PREV_X,_PREV_Y);
+                        state = state_RESCUE;
+                        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    }
+                    else
+                    {
+                        PC_set_behavior(behavior_IDLE);
+                        set_xy(id, _x,_y);
+                        set_view_xy_on_pc();
+                        state = state_NORMAL;
+                    }
                 }
             }
             else if (RescueDropOff_rc+1)
             {
-                var _PREV_X = x;
-                var _PREV_Y = y;
                 _x  = ((RescueDropOff_rc>>0)&$FF)<<3;
                 _x  = (_x>>3)<<3;
                 _y  =(((RescueDropOff_rc>>8)&$FF)<<3) - hh_;
@@ -121,28 +139,32 @@ if (state==state_DROWN) // OG state 2. Drowning
                 }
                 else
                 {
-                    if(!collide_solid_grid(x-7,yb))
-                    {   set_xy(id, x+8,y);  }
-                    
-                    if(!collide_solid_grid(x+7,yb))
-                    {   set_xy(id, x-8,y);  }
-                    
-                    if (collide_solid_grid(x-7, yt+csLft2_yoff))
-                    {   set_xy(id, x+8,y);  }
-                    
-                    if (collide_solid_grid(x+7, yt+csRgt2_yoff))
-                    {   set_xy(id, x-8,y);  }
+                    if(!collide_solid_grid(x-7,yb))              set_xy(id, x+8,y);
+                    if(!collide_solid_grid(x+7,yb))              set_xy(id, x-8,y);
+                    if (collide_solid_grid(x-7, yt+csLft2_yoff)) set_xy(id, x+8,y);
+                    if (collide_solid_grid(x+7, yt+csRgt2_yoff)) set_xy(id, x-8,y);
                 }
                 
                 RescueDropOff_rc = ((yb>>3)<<8) | (x>>3);
                 
-                if(!g.ViewCatchUp_STATE) set_view_xy_on_pc();
+                RescueDropOff_x = x;
+                RescueDropOff_y = y;
                 
-                PC_set_behavior(behavior_IDLE);
                 hspd = 0;
                 vspd = 0;
                 iframes_timer = _INV_DUR;
-                state = state_NORMAL;
+                
+                if (_VIEW_CATCH_UP_TESTING)
+                {
+                    set_xy(id, _PREV_X,_PREV_Y);
+                    state = state_RESCUE;
+                }
+                else
+                {
+                    PC_set_behavior(behavior_IDLE);
+                    set_view_xy_on_pc();
+                    state = state_NORMAL;
+                }
                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
             else
@@ -159,15 +181,25 @@ if (state==state_DROWN) // OG state 2. Drowning
                      _y  = (_y>>3)<<3;
                      _y += sprite_index_yoff;
                 //
-                set_xy(id, _x,_y);
+                RescueDropOff_x = _x;
+                RescueDropOff_y = _y;
                 
-                set_view_xy_on_pc();
-                
-                PC_set_behavior(behavior_IDLE);
                 hspd = 0;
                 vspd = 0;
                 iframes_timer = _INV_DUR;
-                state = state_NORMAL;
+                
+                if (_VIEW_CATCH_UP_TESTING)
+                {
+                    set_xy(id, _PREV_X,_PREV_Y);
+                    state = state_RESCUE;
+                }
+                else
+                {
+                    PC_set_behavior(behavior_IDLE);
+                    set_xy(id, _x,_y);
+                    set_view_xy_on_pc();
+                    state = state_NORMAL;
+                }
                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
@@ -177,11 +209,81 @@ if (state==state_DROWN) // OG state 2. Drowning
         }
     }
     
-    set_xy(id, _x,_y);
-    
     // 91A1: JMP EBF0
     PC_update_2a(); // GO_update_cam_vars(), usd_pc_1a(), update_swrdXY()
     PC_update_1e(); // update g.lastX, g.lastY, g.lastXScale
+    set_xy(id, _x,_y);
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ==========================================================================
+if (state==state_RESCUE)
+{
+    iframes_timer = 2;
+    
+    var _diff = 0;
+    
+    if (RescueDropOff_solid_inst!=noone 
+    &&  instance_exists(RescueDropOff_solid_inst) )
+    {   // coords are followed here because this could be a moving object/platform
+        RescueDropOff_x = RescueDropOff_solid_inst.xl + (((RescueDropOff_rc>>0)&$FF)<<3);
+        RescueDropOff_x = clamp(RescueDropOff_x, RescueDropOff_solid_inst.xl+8, RescueDropOff_solid_inst.xr-8);
+        RescueDropOff_y = RescueDropOff_solid_inst.yt - hh_;
+        //RescueDropOff_solid_inst.x_change
+    }
+    
+    var _DIST_X = abs(x-RescueDropOff_x);
+    if (_DIST_X)
+    {
+        Rescue_move_x += Rescue_SPEED_X * min((_DIST_X/Rescue_DIST1),1.00);
+        _diff  = min(floor(Rescue_move_x), _DIST_X);
+        _diff *= sign_(x<RescueDropOff_x);
+        set_xy(id, x+_diff, y);
+        x_change += _diff;
+        Rescue_move_x = frac(Rescue_move_x);
+    }
+    
+    var _DIST_Y = abs(y-RescueDropOff_y);
+    if (_DIST_Y)
+    {
+        Rescue_move_y += Rescue_SPEED_Y * min((_DIST_Y/Rescue_DIST1),1.00);
+        _diff  = min(floor(Rescue_move_y), _DIST_Y);
+        _diff *= sign_(y<RescueDropOff_y);
+        set_xy(id, x, y+_diff);
+        y_change += _diff;
+        Rescue_move_y = frac(Rescue_move_y);
+    }
+    
+    if (x==RescueDropOff_x 
+    &&  y==RescueDropOff_y )
+    {
+        Rescue_move_x = 0;
+        Rescue_move_y = 0;
+        PC_set_behavior(behavior_IDLE);
+        state = state_NORMAL;
+    }
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 

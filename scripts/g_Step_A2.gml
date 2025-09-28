@@ -2,6 +2,7 @@
 
 
 // --------------------------------------------------------------------
+//var _PC_CAN_DRAW_SELF = pc.can_draw_self;
 // C1A2: JSR D250       - set all GO.canDrawSelf = false
 set_go_can_draw_self(false);
 
@@ -78,7 +79,10 @@ update_pc_proj_2a();
 // --------------------------------------------------------------------
 // --------------------------------------------------------------------
 // D504: JSR D5A7       - Entities & projectiles
-if (pc.state){with(go_mgr) update_GameObjectMgr();}
+if (pc.state)
+{
+    with(go_mgr) update_GameObjectMgr();
+}
 
 
 // --------------------------------------------------------------------

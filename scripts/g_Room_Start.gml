@@ -39,6 +39,9 @@ for(_i=ds_grid_width(dg_YxY_)-1; _i>=0; _i--)
 room_speed = ROOM_SPEED_BASE;
 global.Room_frame_count = 0;
 global.OverworldSoftlock_timer = 0;
+global.ViewCatchUp_state  = 0;
+global.ViewCatchUp_move_x = 0;
+global.ViewCatchUp_move_y = 0;
 
 
 _val = room_get_name(room);

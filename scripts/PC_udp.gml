@@ -128,15 +128,22 @@ update_draw_xy();
 
 
 
-if(!(f.items&ITM_FRY1) 
-||  (state==state_DROWN && !f.hp) 
-||  (state!=state_DROWN && !iframes_timer) )
-{
-    RescueFairy_sprite = 0;
-}
-else if (RescueFairy_sprite)
+if (state==state_RESCUE)
 {
     RescueFairy_sprite = g.dl_Fairy_SPRITES[|sign(g.counter1&$4)];
+}
+else
+{
+    if(!(f.items&ITM_FRY1) 
+    ||  (state==state_DROWN && !f.hp) 
+    ||  (state!=state_DROWN && !iframes_timer) )
+    {
+        RescueFairy_sprite = 0;
+    }
+    else if (RescueFairy_sprite)
+    {
+        RescueFairy_sprite = g.dl_Fairy_SPRITES[|sign(g.counter1&$4)];
+    }
 }
 
 
@@ -158,6 +165,8 @@ if (RescueFairy_sprite
         RescueFairy_draw_y += 8;
     }
 }
+
+
 
 
 

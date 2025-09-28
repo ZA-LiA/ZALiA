@@ -106,6 +106,10 @@ dg_Cucco_DISGUISE_SPRITES_idx1 = irandom(ds_grid_width(dg_Cucco_DISGUISE_SPRITES
 dg_Cucco_DISGUISE_SPRITES_idx2 = irandom(1);
 
 RescueFairy_sprite = 0;
+RescueDropOff_x = 0;
+RescueDropOff_y = 0;
+Rescue_move_x = 0;
+Rescue_move_y = 0;
 
 
 PC_set_behavior(behavior_IDLE); // 0080

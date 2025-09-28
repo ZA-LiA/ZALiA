@@ -596,10 +596,20 @@ use_smooth_cam_x = 0;
 use_smooth_cam_y = 1;
 
 // 0: off, $1: horizontal, $2: vertical, $3: horizontal and vertical
-ViewCatchUp_STATE   = $0;
+//global.ViewCatchUp_STATE   = $0;
 //ViewCatchUp_STATE   = $3;
-ViewCatchUp_SPEED_X = .25;
-ViewCatchUp_SPEED_Y = .25;
+global.ViewCatchUp_state   = $0;
+global.ViewCatchUp_SPEED_X = 6.00;
+global.ViewCatchUp_SPEED_Y = 6.00;
+global.ViewCatchUp_move_x  = 0;
+global.ViewCatchUp_move_y  = 0;
+global.ViewCatchUp_DIST1   = PC_W * 2;
+/*
+global.ViewCatchUp_SPEED_X = .25;
+global.ViewCatchUp_speed_x = global.ViewCatchUp_SPEED_X;
+global.ViewCatchUp_SPEED_Y = .25;
+global.ViewCatchUp_speed_y = global.ViewCatchUp_SPEED_Y;
+*/
 
 
 
