@@ -28,8 +28,8 @@ with(GameObject_create(_X,_Y, BagoA,_VER, -1, palidx))
 {
     is_from_spawner = true;
     
-    facingDir = _DIR;
-    hspd      = (HSPD2*facingDir) &$FF; // $20: Launch speed
+    facing_dir = _DIR;
+    hspd      = (HSPD2*facing_dir) &$FF; // $20: Launch speed
     vspd      =  VSPD1; // $C0: Launch speed
     
     // D7CE
@@ -45,9 +45,9 @@ with(GameObject_create(_X,_Y, BagoA,_VER, -1, palidx))
     &&  viewXL()>0 
     &&  viewXR()<g.rm_w )
     {
-        if (facingDir==PlatformRaft.hspd_dir)
-        {   set_xy(id, PlatformRaft.x + ($80*-facingDir), y);  }
-        else hspd = ($18*facingDir) &$FF;
+        if (facing_dir==PlatformRaft.hspd_dir)
+        {   set_xy(id, PlatformRaft.x + ($80*-facing_dir), y);  }
+        else hspd = ($18*facing_dir) &$FF;
     }
 }
 

@@ -90,8 +90,8 @@ with(instance_create(_XL,_YT, _OBJECT))
     
     
     // --------------------------------------------------------------------------------------
-    facingDir = dir_to_pc_1();
-    hspd = ($08*facingDir) &$FF; // OG
+    facing_dir = dir_to_pc_1();
+    hspd = ($08*facing_dir) &$FF; // OG
     
     
     
@@ -99,8 +99,8 @@ with(instance_create(_XL,_YT, _OBJECT))
     {
         scr_step  = scr_update;
         
-        facingDir = 1;
-        xScale    = facingDir;
+        facing_dir = 1;
+        xScale    = facing_dir;
         hspd      = 0;
         vspd      = 0;
     }
@@ -110,8 +110,8 @@ with(instance_create(_XL,_YT, _OBJECT))
         
         challenge_id = _OBJVER;
         
-        facingDir = 1;
-        xScale    = facingDir;
+        facing_dir = 1;
+        xScale    = facing_dir;
         hspd      = 0;
     }
     else if (is_ancestor(object_index,Item))
@@ -124,15 +124,15 @@ with(instance_create(_XL,_YT, _OBJECT))
         ITEM_TYPE    = val(g.dm_ITEM[?object_get_name(object_index)+STR_Item+STR_Type], "undefined");
         IS_HOLD_ITEM = val(g.dm_ITEM[?_OBJ_NAME+STR_Hold+STR_Item]);
         
-        facingDir = 1;
-        xScale    = facingDir;
+        facing_dir = 1;
+        xScale    = facing_dir;
         hspd      = 0;
         
         if(!IS_HOLD_ITEM) g.pc.Disguise_enabled = false; // So pc can stab item.
     }
     else if (is_ancestor(object_index,Boss))
     {
-        facingDir = dir_to_pc_(id);
+        facing_dir = dir_to_pc_(id);
     }
     
     

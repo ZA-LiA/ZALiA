@@ -55,8 +55,8 @@ change_pal(strReplaceAt(p.pal_rm_new, get_pal_col_pos(global.PI_MOB_PUR,"K"), gl
 
 
 
-facingDir = 1;
-xScale    = facingDir;
+facing_dir = 1;
+xScale    = facing_dir;
 
 
 set_xy(id, x, GROUND_Y-hh_);

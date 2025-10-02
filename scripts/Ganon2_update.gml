@@ -145,7 +145,7 @@ switch(sub_state)
             _y += -2; // dont remember why i did this
             _y += -6; // trying to better center explosions around crystal
             _y -=  8; // yt
-        GOC1_create(_x,_y, facingDir, BossExplosion,1, id);
+        GOC1_create(_x,_y, facing_dir, BossExplosion,1, id);
     }
     
     
@@ -221,7 +221,7 @@ switch(sub_state)
             _y  = clamp(_y, yt+abs(_off),yb-abs(_off));
             _x -= 8; // xl
             _y -= 7; // yt
-            GOC1_create(_x,_y, facingDir, BossExplosion,1, id);
+            GOC1_create(_x,_y, facing_dir, BossExplosion,1, id);
         }
     }
     

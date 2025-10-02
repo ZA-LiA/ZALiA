@@ -8,7 +8,7 @@ GO_init_palidx(global.PI_BGR4);
 GO_depth_init(DEPTH_BG1-1); // -1 so tile pal swap can work
 //GO_depth_init(DEPTH_BG4+1); // +1 so tile pal swap can work
 
-facingDir = 1;
+facing_dir = 1;
 
 
 hspd        = 0;

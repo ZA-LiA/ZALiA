@@ -38,7 +38,7 @@ if(!ocs) GOB_update_2();
 Boss_update_5(); // check for and set pending death
 
 // B12A: JSR DC91
-facingDir = dir_to_pc_(id);
+facing_dir = dir_to_pc_(id);
 
 
 // B12D
@@ -136,7 +136,7 @@ switch(sub_state)
                 
                 
                 // B195: JSR 9BE5, 9BE5: JSR DBCE
-                with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id))
+                with(GOC1_create(xl,yt, facing_dir, projectile,projectile_ver, id))
                 {   // 9C10
                     if (_C1)
                     {
@@ -146,7 +146,7 @@ switch(sub_state)
                             var _idx = (ds_grid_width(other.dg_PROJ_SPEED)-3) - irandom(2);
                             hspd  = other.dg_PROJ_SPEED[#_idx,0];
                             vspd  = other.dg_PROJ_SPEED[#_idx,1];
-                            if(!facingDir) hspd ^= $FF;
+                            if(!facing_dir) hspd ^= $FF;
                             vspd ^= $FF; // shoot at ceiling
                             break;}
                             
@@ -161,7 +161,7 @@ switch(sub_state)
                             //vspd  = other.dg_PROJ_SPEED[#_v,1];
                             vspd ^= $FF;
                             //if (irandom(1)) vspd ^= $FF;
-                            if(!facingDir) hspd = byte_negate(hspd);
+                            if(!facing_dir) hspd = byte_negate(hspd);
                             break;}
                             
                             
@@ -169,7 +169,7 @@ switch(sub_state)
                             hspd = $0D;
                             vspd = $10;
                             if (irandom(1)) vspd -= $04;
-                            if(!facingDir) hspd = byte_negate(hspd);
+                            if(!facing_dir) hspd = byte_negate(hspd);
                             if(!other.BounceAttack_y_dir) vspd = byte_negate(vspd);
                             break;}
                         }
@@ -178,7 +178,7 @@ switch(sub_state)
                     {
                         hspd  = other.dg_PROJ_SPEED[#_DIST1,0];
                         vspd  = other.dg_PROJ_SPEED[#_DIST1,1];
-                        if(!facingDir) hspd ^= $FF;
+                        if(!facing_dir) hspd ^= $FF;
                     }
                     
                     
@@ -187,7 +187,7 @@ switch(sub_state)
                     vspd = (vspd<<2)&$FF;
                     
                     
-                    var _X  = other.x + ((other.ww_+ww_) * facingDir);
+                    var _X  = other.x + ((other.ww_+ww_) * facing_dir);
                         _X += other.dl_xoff[|0]; // head xOff
                     var _Y  = other.y + 2;
                     
@@ -276,12 +276,12 @@ switch(sub_state)
             //sdm("arena_xl $"+hex_str(arena_xl)+", _xl $"+hex_str(_xl)+", _yt $"+hex_str(_yt));
             with(GOC1_create(_xl,_yt, _dir, Flame2,2, id))
             {
-                HSPD1 = ($0E*facingDir) &$FF;
+                HSPD1 = ($0E*facing_dir) &$FF;
                 VSPD1 = $D4;
                 vspd  = 0;
                 hspd  = 0;
                 //vspd = $D6;
-                //hspd =($10*facingDir) &$FF;
+                //hspd =($10*facing_dir) &$FF;
             }
             
             ds_list_destroy(_dl_pit_idx); _dl_pit_idx=undefined;

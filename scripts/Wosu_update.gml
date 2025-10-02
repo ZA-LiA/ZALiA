@@ -27,7 +27,7 @@ updateY();
 
 if (cs&$3)
 {
-    facingDir = -facingDir;
+    facing_dir = -facing_dir;
     hspd      = byte_negate(hspd);
 }
 
@@ -38,7 +38,7 @@ updateX();
 if (ver==2 
 &&  state==state_EXPLODE )
 {
-    with(GOC1_create(x-4,yt, facingDir, projectile,projectile_ver))
+    with(GOC1_create(x-4,yt, facing_dir, projectile,projectile_ver))
     {
         hspd = 0;
     }

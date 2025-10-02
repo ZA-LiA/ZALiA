@@ -28,8 +28,8 @@ else
     spear_xoff2 = -12;
 }
 
-    spear_xoff1 *= facingDir;
-    spear_xoff2 *= facingDir;
+    spear_xoff1 *= facing_dir;
+    spear_xoff2 *= facing_dir;
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // -----------------------------------------------
 

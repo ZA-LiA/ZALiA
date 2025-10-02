@@ -60,7 +60,7 @@ if (_can_expl)
 else
 {
     // pID 4: ADBF,  pID 8: 9C45, 9C48 
-    Projectile_update_3a(true); // pID 1D: vspd_adj == 1;
+    Projectile_update_3a(despawn_offscreen_hor); // pID 1D: vspd_adj == 1;
     // Projectile_update_1a(pID != 8); // pID 4
     // Projectile_update_1a(pID != 7); // pID 8
 }

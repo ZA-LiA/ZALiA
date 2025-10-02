@@ -16,7 +16,7 @@ if (GOB_is_out_of_bounds_y(id)) // Same as OG: if (yy > $FF)
 if (sub_state==sub_state_ATTACK)
 {
     SwordHB_xoff  = x;
-    SwordHB_xoff += (SwordHB_w>>1)*facingDir;
+    SwordHB_xoff += (SwordHB_w>>1)*facing_dir;
     SwordHB_xoff -=  SwordHB_w>>1
     SwordHB_xoff -= xl;
     SwordHB_yoff  = SwordHB_YOFF;
@@ -56,7 +56,7 @@ if (sub_state==sub_state_IDLE1
     var _C1 =  cs&(CS_SW1|CS_PR1);
     if(!_C1)
     {
-        _C1 =  facingDir==dir_to_pc_(id) 
+        _C1 =  facing_dir==dir_to_pc_(id) 
            &&  abs(x-g.pc.x)<=Attack_DIST 
            &&  hINh(yt,hh, g.pc.yt-$04,g.pc.hh+$08);
     }
@@ -79,7 +79,7 @@ switch(sub_state)
     hspd = 0;
     
     if (timer==$08)
-    {   facingDir = -facingDir;  }
+    {   facing_dir = -facing_dir;  }
     
     if (timer) break;
     if!(cs&$4) break;
@@ -95,7 +95,7 @@ switch(sub_state)
     // ==============================================================
     // --------------------------------------------------------
     case sub_state_IDLE2:{ // Walk/Pace
-    hspd = (Idle_HSPD*facingDir) &$FF;
+    hspd = (Idle_HSPD*facing_dir) &$FF;
     
     if (timer) break;
     if!(cs&$4) break;
@@ -114,7 +114,7 @@ switch(sub_state)
     // --------------------------------------------------------
     case sub_state_ATTACK0:{ // attack delay
     if (timer) break;
-    facingDir  = dir_to_pc_(id);
+    facing_dir  = dir_to_pc_(id);
     if!(cs&$4) break;
     
     timer      = 0;
@@ -130,9 +130,9 @@ switch(sub_state)
     case sub_state_ATTACK:{
     if (timer) break;
     
-    if!(g.counter1&$3F) facingDir  = dir_to_pc_(id);
+    if!(g.counter1&$3F) facing_dir  = dir_to_pc_(id);
     
-    hspd = (Attack_HSPD*facingDir) &$FF;
+    hspd = (Attack_HSPD*facing_dir) &$FF;
     break;}
 }
 

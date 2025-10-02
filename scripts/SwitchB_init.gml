@@ -10,7 +10,7 @@ if(!is_undefined(         dk_spawn))
 GO_init_palidx(_PI);
 
 
-facingDir = 1;
+facing_dir = 1;
 
 SPR_UP = spr_SwitchB_1a;
 SPR_DW = spr_SwitchB_1b;

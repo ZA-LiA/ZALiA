@@ -12,7 +12,7 @@ GO_update_cs();
 // 9E38
 if!(cs&$3) updateX();
 
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 counter = (counter+1)&$FF;
@@ -20,10 +20,10 @@ counter = (counter+1)&$FF;
 if(!(counter&$3F) 
 &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
 {
-    with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver))
+    with(GOC1_create(xl,yt, facing_dir, projectile,projectile_ver))
     {
         vspd =  $E0;
-        hspd = ($10*facingDir) &$FF;
+        hspd = ($10*facing_dir) &$FF;
     }
 }
 

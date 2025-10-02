@@ -15,7 +15,7 @@ if ( counter == DUR_COOLDOWN)
         with(GOC1_create(x-4, yt-4, sign_(_i), projectile,projectile_ver))
         {
             vspd = $E0;
-            hspd = ($10*facingDir) &$FF;
+            hspd = ($10*facing_dir) &$FF;
         }
     }
 }

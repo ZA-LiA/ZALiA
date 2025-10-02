@@ -67,7 +67,7 @@ if (_p.type_bits & (_p.BIT_BEM1 | _p.BIT_FIR1))
 
 if (_can_push_back)
 {
-    set_go_hspd_pushbback(id, ($C*_p.facingDir)&$FF);
+    set_go_hspd_pushbback(id, ($C*_p.facing_dir)&$FF);
 }
 
 

@@ -3,7 +3,7 @@
 
 DRAW_YOFF = 0;
 
-facingDir = 1;
+facing_dir = 1;
 
 
 

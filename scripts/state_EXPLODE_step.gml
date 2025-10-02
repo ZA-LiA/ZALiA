@@ -61,7 +61,7 @@ with(argument0)
             {   // 9A4B: JSR DBCE
                 var _XL = (x-$08) + (g.dl_RandomOG[|2+update_idx]&$0F) - 8; // range $0F
                 var _YT = (y-$10) + (g.dl_RandomOG[|1+update_idx]&$1F) - 7; // range $20
-                GOC1_create(_XL,_YT, facingDir, BossExplosion,1, id);
+                GOC1_create(_XL,_YT, facing_dir, BossExplosion,1, id);
             }
         }
         else // OG. explosions centered around upper left of boss
@@ -71,7 +71,7 @@ with(argument0)
             {   // 9A4B: JSR DBCE
                 var _XL = xl + (g.dl_RandomOG[|2+update_idx]&$0F) - 8; // range $0F
                 var _YT = yt + (g.dl_RandomOG[|1+update_idx]&$1F) - 7; // range $20
-                GOC1_create(_XL,_YT, facingDir, BossExplosion,1, id);
+                GOC1_create(_XL,_YT, facing_dir, BossExplosion,1, id);
             }
         }
         

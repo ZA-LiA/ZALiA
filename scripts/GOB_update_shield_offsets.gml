@@ -17,7 +17,7 @@ if (ShieldHB_idx == $FF) // $FF means use body hb
 }
 else
 {
-    ShieldHB_xoff = g.dg_ShieldHB[#ShieldHB_idx, !facingDir]; // xoff RGT(0), LFT(1)
+    ShieldHB_xoff = g.dg_ShieldHB[#ShieldHB_idx, !facing_dir]; // xoff RGT(0), LFT(1)
     ShieldHB_yoff = g.dg_ShieldHB[#ShieldHB_idx, 2]; // yoff
     ShieldHB_w    = g.dg_ShieldHB[#ShieldHB_idx, 3]; // w
     ShieldHB_h    = g.dg_ShieldHB[#ShieldHB_idx, 4]; // h

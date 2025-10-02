@@ -39,7 +39,7 @@ switch(state)
     Projectile_udd();
     
     if (isProjSprAdjFrame()) xScale = 1;
-    else                     xScale = facingDir;
+    else                     xScale = facing_dir;
     yScale = 1;
     
     if (disintegrate_counter&8) sprite = spr_Projectile_Disintegrate2;

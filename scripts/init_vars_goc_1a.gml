@@ -18,8 +18,8 @@ source_inst   = noone;// source instance that created the projectile
 source_object = 0;    // object_index of source instance
 
 
-despawn_offscreen_hor = false;
-despawn_offscreen_ver = false;
+despawn_offscreen_hor = true;
+despawn_offscreen_ver = true;
 
 
 

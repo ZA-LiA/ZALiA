@@ -253,8 +253,8 @@ else if (object_index==NPC_3) // walker special. old $53-56, $1D-20
         _PC_X += PC_W>>1;
     //
     if (abs(_PC_X-x) >= $D0)
-    {    facingDir = sign_(x<_PC_X);  } // Face trwd PC
-    else facingDir = sign_(x<g.rm_w_);  // Face trwd rm center
+    {    facing_dir = sign_(x<_PC_X);  } // Face trwd PC
+    else facing_dir = sign_(x<g.rm_w_);  // Face trwd rm center
     
     //  data: 10081800001810081800103C1800A5C9F0034C3DDD4C53DBA005C410F00CB9B600F007B9A100D5A1F0048810ED6098AA203DDDA61060191A1B1C10F00CF408F80CF4E008FF01F6AF
     //  $00 - 1008180000181008 1800103C1800A5C9
@@ -267,7 +267,7 @@ else if (object_index==NPC_3) // walker special. old $53-56, $1D-20
     //  $3A-41: 10,F0, 0C,F4, 08,F8, 0C,F4  
     if!(ver&$1) hspd = $C;
     else        hspd = $8 <<(ver==1);
-                hspd = (hspd*facingDir) &$FF;
+                hspd = (hspd*facing_dir) &$FF;
     //
     // Just in case. Sprite might be short.
     var _Y  = yt;
@@ -448,7 +448,7 @@ else if (is_ver(id,NPC_A,1))
 if (sprite_datakey==STR_Girubokku 
 &&  isVal(object_index,NPC_2,NPC_3)  // NPC_2: Traffic, NPC_3: Special Walker
 &&  hspd )
-{   hspd = ($10*facingDir) &$FF;  }
+{   hspd = ($10*facing_dir) &$FF;  }
 
 
 

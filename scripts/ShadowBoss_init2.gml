@@ -33,7 +33,7 @@ hp = g.dl_HP_DEFAULT[|HP_IDX];
 
 to_pc_dir_x = -1; // 0060
 to_pc_dir_y = -1;
-facingDir   = to_pc_dir_x;
+facing_dir  = to_pc_dir_x;
 
 //image_xscale    = -1; // 00A0
 xScale       = to_pc_dir_x; // 00A0

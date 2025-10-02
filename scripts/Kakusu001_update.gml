@@ -112,8 +112,8 @@ switch(sub_state)
                     
                     if (_i+1 == Platform_COUNT)
                     {
-                        facingDir = -1;
-                        hspd = (hspd_jump*facingDir) &$FF;
+                        facing_dir = -1;
+                        hspd = (hspd_jump*facing_dir) &$FF;
                         vspd = VSPD_REVEAL; // Jump!
                         
                         ogr  = OGR_JUMP;

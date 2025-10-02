@@ -22,7 +22,7 @@ if (cs&$8)
 // 988C
 if (cs&$3)
 {
-    facingDir = -facingDir;
+    facing_dir = -facing_dir;
     hspd      = (-hspd)&$FF;
 }
 
@@ -32,9 +32,9 @@ updateX();
 // 9898
 if (cs&$4)
 {
-    facingDir = dir_to_pc(id);
+    facing_dir = dir_to_pc(id);
     
-    hspd = ($8*facingDir) &$FF;
+    hspd = ($8*facing_dir) &$FF;
     vspd = $FB + (rand()&$1);
 }
 

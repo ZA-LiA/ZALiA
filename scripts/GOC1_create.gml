@@ -54,8 +54,8 @@ with(instance_create(_XL,_YT, _OBJ))
     spawn_y = _YT;
     set_xlyt(id, _XL,_YT);
     
-    facingDir = _FACING;
-    hspd = ($20*facingDir) &$FF;
+    facing_dir = _FACING;
+    hspd = ($20*facing_dir) &$FF;
     vspd = 0;
     
     

@@ -10,8 +10,8 @@ GO_init_palidx(PALIDX2);
 
 DRAW_YOFF = 0;
 
-facingDir = 1;
-xScale    = facingDir;
+facing_dir = 1;
+xScale    = facing_dir;
 
 GROUND_Y  = get_ground_y(g.rm_w_, (g.rm_row0<<3)+$80,1, (g.rm_row0+$1B)<<3);
 set_xy(id, g.rm_w+8+ww_, GROUND_Y-hh_);

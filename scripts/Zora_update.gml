@@ -34,10 +34,10 @@ Enemy_update_3(); // update vertical
 if (COLLISION_VER==2)
 {
     var _OCS  = ocs;
-    var _BITS = $3 <<(3 * !facingDir); // $03: 0000 0011  OR  $18: 0001 1000
+    var _BITS = $3 <<(3 * !facing_dir); // $03: 0000 0011  OR  $18: 0001 1000
     
-    var           _DIST = (ww_-4) * facingDir;
-    if (timer)    _DIST =      4  * facingDir;
+    var           _DIST = (ww_-4) * facing_dir;
+    if (timer)    _DIST =      4  * facing_dir;
     
     if (wINwAll(x+_DIST-4,8, viewXL(),viewW())) // if head is in view
     {    ocs &= ~_BITS;  } // guarantee bits clear to allow   collision checking
@@ -62,7 +62,7 @@ if!(cs&$3) updateX();
 
 
 // 9A52
-if!(g.counter1&$3F) facingDir = dir_to_pc(id);
+if!(g.counter1&$3F) facing_dir = dir_to_pc(id);
 
 
 hspd = 0;
@@ -92,13 +92,13 @@ if (    shoot_timer)
             var _YOFF = 4;
             if (timer) // if standing
             {
-                if (facingDir) _xl = x;
+                if (facing_dir) _xl = x;
                 else           _xl = x-8;
                 _yt = yt + _YOFF;
             }
             else
             {
-                if (facingDir) _xl = x+8;
+                if (facing_dir) _xl = x+8;
                 else           _xl = xl;
                 _yt = y;
                 //_yt = y+_YOFF;
@@ -108,7 +108,7 @@ if (    shoot_timer)
         {
             if (timer) // if standing
             {
-                if (facingDir) _xl += 14;
+                if (facing_dir) _xl += 14;
                 else           _xl += -8;
             }
             
@@ -117,7 +117,7 @@ if (    shoot_timer)
         }
         
         // Bullet2, pID $11. PI_MOB2: red
-        GOC1_create(_xl,_yt, facingDir, projectile,projectile_ver, id, global.PI_MOB_RED);
+        GOC1_create(_xl,_yt, facing_dir, projectile,projectile_ver, id, global.PI_MOB_RED);
     }
 }
 

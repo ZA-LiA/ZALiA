@@ -41,9 +41,9 @@ if (behavior  // if attacking
             var _XL = xl + (ver==3);
             var _YT = yt + 5;
             
-            with(GOC1_create(_XL,_YT, facingDir, projectile,projectile_ver, id, palidx_def))
+            with(GOC1_create(_XL,_YT, facing_dir, projectile,projectile_ver, id, palidx_def))
             {
-                hspd =($28*facingDir) &$FF;
+                hspd =($28*facing_dir) &$FF;
                 vspd = $E8;
             }
         }
@@ -127,9 +127,9 @@ if (behavior && !timer)
                 var _X = xx + (ver == 3);
                 var _Y = yy + 5;
                 
-                with Projectile_create(_X, _Y, facingDir, Spear,1, id, palIndex)
+                with Projectile_create(_X, _Y, facing_dir, Spear,1, id, palIndex)
                 {
-                    hspd = byte($28 * facingDir);
+                    hspd = byte($28 * facing_dir);
                     vspd = $E8;
                 }
             }

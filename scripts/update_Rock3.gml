@@ -2,7 +2,7 @@
 // 965B
 if(!collisionProjCS(0,0)) // 0
 {   // 9662, 9665
-    Projectile_update_3a(true);
+    Projectile_update_3a(despawn_offscreen_hor);
 }
 else
 {   // 9670

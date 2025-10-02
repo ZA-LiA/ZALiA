@@ -26,7 +26,7 @@ DUR_ATK_DRAW = $18;
 
 HSPD_PACE  =   2;
 HSPD_CHASE = $10;
-hspd       = (8 * facingDir)&$FF; // $0071,X
+hspd       = (8 * facing_dir)&$FF; // $0071,X
 
 VSPD_GRAV   = 2;
 vspd_grav   = VSPD_GRAV;
@@ -69,7 +69,7 @@ SwordHB_XOFF2 =   8 + g.HB_ADJ_X; //
 SwordHB_YOFF  =   9 + g.HB_ADJ_Y; // 
 SwordHB_W     =  14 + g.HB_ADJ_W; // 
 SwordHB_H     =   1 + g.HB_ADJ_H; // 
-SwordHB_xoff  = SwordHB_XOFF1 * facingDir;
+SwordHB_xoff  = SwordHB_XOFF1 * facing_dir;
 SwordHB_yoff  = SwordHB_YOFF;
 SwordHB_w     = SwordHB_W;
 SwordHB_h     = SwordHB_H;

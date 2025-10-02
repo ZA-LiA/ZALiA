@@ -8,7 +8,7 @@ dl_sprites[|1] = g.dl_Fairy_SPRITES[|1]; // spr_FairyB
 dl_sprites[|0] = g.dl_Fairy_SPRITES[|0]; // spr_FairyA
 GO_init_palidx(global.PI_MOB_ORG);
 
-facingDir = 1;
+facing_dir = 1;
 
 
 

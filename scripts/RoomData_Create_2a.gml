@@ -2571,22 +2571,40 @@ global.dm_scene_wh[?'MazIs_144'+STR_Width ] = $0200;
 global.dm_scene_wh[?'MazIs_144'+STR_Height] = $0200;
 
 //  ----------------------------  145  ----------------------------
+global.dm_scene_wh[?'MazIs_145'+STR_Width ] = $0200;
+global.dm_scene_wh[?'MazIs_145'+STR_Height] = $0200;
 
 //  ----------------------------  146  ----------------------------
+global.dm_scene_wh[?'MazIs_146'+STR_Width ] = $0200;
+global.dm_scene_wh[?'MazIs_146'+STR_Height] = $0200;
 
 //  ----------------------------  147  ----------------------------
+global.dm_scene_wh[?'MazIs_147'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_147'+STR_Height] = $0100;
 
 //  ----------------------------  148  ----------------------------
+global.dm_scene_wh[?'MazIs_148'+STR_Width ] = $0200;
+global.dm_scene_wh[?'MazIs_148'+STR_Height] = $0100;
 
 //  ----------------------------  149  ----------------------------
+global.dm_scene_wh[?'MazIs_149'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_149'+STR_Height] = $0100;
 
 //  ----------------------------  150  ----------------------------
+global.dm_scene_wh[?'MazIs_150'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_150'+STR_Height] = $0100;
 
 //  ----------------------------  151  ----------------------------
+global.dm_scene_wh[?'MazIs_151'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_151'+STR_Height] = $0100;
 
 //  ----------------------------  152  ----------------------------
+global.dm_scene_wh[?'MazIs_152'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_152'+STR_Height] = $0100;
 
 //  ----------------------------  153  ----------------------------
+global.dm_scene_wh[?'MazIs_153'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_153'+STR_Height] = $0100;
 
 //  ----------------------------  154  ----------------------------
 

@@ -28,7 +28,7 @@ if (behavior) // if attacking
         {
             var _XL = xl;
             var _YT = yt + ($A * (behavior==BVR_ATKL));
-            GOC1_create(_XL,_YT, facingDir, projectile,projectile_ver);
+            GOC1_create(_XL,_YT, facing_dir, projectile,projectile_ver);
             behavior = 0;
         }
         
@@ -143,7 +143,7 @@ else if (Input.Attack_pressed)
 
 
 // 9DE6
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 
@@ -151,7 +151,7 @@ if (cs&$4
 && !(_RAND&$1F) ) // 1 in 32 chance (3.125%)
 {   // 9DF8. -------------  JUMP! ---------------
     set_xy(id, x, y-1);
-    hspd = (HSPD_JUMP*facingDir) &$FF; // $18, $E8
+    hspd = (HSPD_JUMP*facing_dir) &$FF; // $18, $E8
     vspd = JUMP_VEL; // JUMP_VEL=$C8
 }
 else

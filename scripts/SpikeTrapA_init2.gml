@@ -63,7 +63,7 @@ ds_list_add(dl_sprites,SPR_C);
 
 GO_init_palidx(global.PI_MOB_BLU);
 
-facingDir = 1;
+facing_dir = 1;
 
 
 

@@ -26,8 +26,8 @@ with(enemy_spawn_1(WosuA,1))
     set_xlyt(id, xl, _YT-hh-$08);
     //set_xlyt(id, xl, viewYT() + $A8); // OG reference
     
-    if (_RAND&$2) hspd = ($14*facingDir) &$FF;
-    else          hspd = ($0C*facingDir) &$FF;
+    if (_RAND&$2) hspd = ($14*facing_dir) &$FF;
+    else          hspd = ($0C*facing_dir) &$FF;
 }
 
 

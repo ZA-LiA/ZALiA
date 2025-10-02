@@ -25,7 +25,7 @@ counter = 1; // Signafies Stalfos has detached from chain
 
 
 // ---------------------------------------------------------------------------
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 update_EF11();
 
 
@@ -77,7 +77,7 @@ if(!_timer_COPY)
     
     if (_behavior_COPY&$1) // Last frame of   1:drawback OR 3:downstab
     {   // 968F, BDEF
-        facingDir = dir_to_pc(id);
+        facing_dir = dir_to_pc(id);
         update_EF11();
         
         // 9692: JSR E563: JSR E5F3
@@ -162,7 +162,7 @@ if (cs&CS_BD1) enemy_collide_pc_body();
 
 
 // -------------------------------------------------------------------
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 
@@ -214,7 +214,7 @@ if (_cs4_COPY)
     
     if ((_val+_DIST)&$FF >= _DIST<<1)
     {   // 96F9.  WHY IS LEFT FASTER THAN RIGHT???
-        if (facingDir) hspd = $0A; //  10
+        if (facing_dir) hspd = $0A; //  10
         else           hspd = $F2; // -14
     }
     else
@@ -235,7 +235,7 @@ if (_cs4_COPY)
                 vspd = $CD; // JUMP!!
                 
                 // 96F9
-                if (facingDir) hspd = $0A;
+                if (facing_dir) hspd = $0A;
                 else           hspd = $F2;
             }
         }

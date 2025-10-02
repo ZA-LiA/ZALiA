@@ -5,7 +5,7 @@
 // if havn't bounced off shield
 if(!collided_shield) vspd = (-vspd_adj)&$FF;
 
-Projectile_update_3a(true); // vspd_adj == 2;
+Projectile_update_3a(despawn_offscreen_hor); // vspd_adj == 2;
 
 
 

@@ -18,7 +18,7 @@ if (timer==1
 {
     behavior = 1;
     
-    with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver)) // Bolo
+    with(GOC1_create(xl,yt, facing_dir, projectile,projectile_ver)) // Bolo
     {
         hspd = (hspd>>1) | (hspd&$80);
         vspd = $D5;
@@ -60,7 +60,7 @@ GO_update_cs();
 GOB_update_2();
 if (cs&CS_BD1) enemy_collide_pc_body();
 
-if!(g.counter1&$F) facingDir = dir_to_pc(id);
+if!(g.counter1&$F) facing_dir = dir_to_pc(id);
 
 
 

@@ -64,7 +64,7 @@ if (pending_death)
 
 
 // ------------------------------------------------------------
-// BB74.  facingDir,hspd,counter,behavior
+// BB74.  facing_dir,hspd,counter,behavior
 Boss_update_3();
 Boss_Roar_update();
 
@@ -77,7 +77,7 @@ else var        _TIMING = $7F;
 if(!(g.counter1&_TIMING) 
 &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
 {   // BAE3: JSR DBCE
-    with(GOC1_create(xl,yt-9, facingDir, projectile,projectile_ver, id, global.PI_MOB_RED))
+    with(GOC1_create(xl,yt-9, facing_dir, projectile,projectile_ver, id, global.PI_MOB_RED))
     {
         vspd = 2;
         pal_flash_time = 1;
@@ -125,7 +125,7 @@ else
         {
             state      = state_NORMAL;
             
-            facingDir  = other.facingDir;
+            facing_dir  = other.facing_dir;
             GO_set_sprite(id, other.dl_Head_SPRITES[|other.Head_num-1]);
             
             HP_IDX     = $1C; // g.dl_HP[|$1C] = $D8
@@ -133,7 +133,7 @@ else
             stun_timer = 0;
             counter    = 0;
             
-            hspd       =($10 * -facingDir) &$FF;
+            hspd       =($10 * -facing_dir) &$FF;
             hspd_dir   = sign_(hspd<$80);
             
             vspd       = $D0;

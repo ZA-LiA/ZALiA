@@ -3,7 +3,7 @@
 
 drawX  = x;
 drawY  = y;
-xScale = facingDir;
+xScale = facing_dir;
 
 
 

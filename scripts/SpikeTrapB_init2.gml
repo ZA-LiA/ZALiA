@@ -5,7 +5,7 @@ var _i, _val, _len, _pos;
 
 
 DRAW_YOFF = 0;
-facingDir = 1;
+facing_dir = 1;
 
 ds_list_add(dl_sprites,spr_Myu_2a);
 ds_list_add(dl_sprites,spr_Myu_2b);

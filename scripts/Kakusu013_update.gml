@@ -18,8 +18,8 @@ switch(sub_state)
     case SUB_STATE_REVL:{
     if ( sub_state_timer){sub_state_timer--; break;}
     
-    facingDir = 1;
-    hspd = (hspd_jump*facingDir) &$FF;
+    facing_dir = 1;
+    hspd = (hspd_jump*facing_dir) &$FF;
     vspd = VSPD_REVEAL; // Jump!
     ogr  = OGR_JUMP;
     

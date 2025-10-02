@@ -36,7 +36,7 @@ switch(counter&$3)
     hspd           = ($20 * -sign_(g.pc.hspd_dir)) &$FF;
     set_hspd_dir();
     hspd_dir_reset = hspd_dir;
-    facingDir      = hspd_dir;
+    facing_dir      = hspd_dir;
     
     
     var                 _X  = viewXR()-ww_;
@@ -128,7 +128,7 @@ switch(counter&$3)
     && !(cs&$4)              // Prevent spawn proj in solid. This might work better
     &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
     {
-        with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver))
+        with(GOC1_create(xl,yt, facing_dir, projectile,projectile_ver))
         {
             hspd = 0;
         }

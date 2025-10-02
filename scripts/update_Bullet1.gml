@@ -12,7 +12,7 @@ if (collisionProjCS(0,0)
 }
 else
 {   // 9759
-    Projectile_update_1a(true); // Projectile_update_1a(!isVal(pID, 6, 8));
+    Projectile_update_1a(despawn_offscreen_hor); // Projectile_update_1a(!isVal(pID, 6, 8));
 }
 
 

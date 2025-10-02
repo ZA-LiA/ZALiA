@@ -24,7 +24,7 @@ Anim_VER  = 1; // 0: OG, 1: Vertical Movement 1, 2: Vertical Movement 2
 Anim_yoff = 0;
 
 
-facingDir = -1;
+facing_dir = -1;
 
 
 

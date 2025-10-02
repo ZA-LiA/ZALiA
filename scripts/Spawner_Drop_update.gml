@@ -61,7 +61,7 @@ if (ver==3)
 
 
 g.go_mgr.uIdxSwap_goc = _UIDX;
-with(GOC1_create(_XX,_YY, facingDir, projectile,projectile_ver))
+with(GOC1_create(_XX,_YY, facing_dir, projectile,projectile_ver))
 {
     is_from_spawner = true;
     

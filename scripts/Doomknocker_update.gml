@@ -9,7 +9,7 @@ if!(counter&$7F) timer = $10;
 if (timer==1 
 &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
 {
-    with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id))
+    with(GOC1_create(xl,yt, facing_dir, projectile,projectile_ver, id))
     {
         counter = $40;
     }
@@ -49,7 +49,7 @@ if (cs&$4)
 GO_vspd_update1(); // if (cs8() && vspd&$80) vspd=$0;
 
 // B0FB
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 

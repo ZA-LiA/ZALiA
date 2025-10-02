@@ -914,7 +914,7 @@ switch(g.menu_state)
                     switch(object_index)
                     {   // ------------------------------
                         case AcheA:{
-                        facingDir = g.dialogue_source.facingDir;
+                        facing_dir = g.dialogue_source.facing_dir;
                         behavior  = 3;
                         vspd      = 0;
                         hspd      = 0;
@@ -924,9 +924,9 @@ switch(g.menu_state)
                         
                         // ------------------------------
                         case Bot_A:{
-                        facingDir = -sign_(rand()&$1);
+                        facing_dir = -sign_(rand()&$1);
                         vspd      = INIT_VEL_DEF;
-                        hspd      = (hspd_jump*facingDir) &$FF;
+                        hspd      = (hspd_jump*facing_dir) &$FF;
                         hp        = 0;
                         break;}//case Bot_A
                     }//switch(object_index)

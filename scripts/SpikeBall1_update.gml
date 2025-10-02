@@ -45,7 +45,7 @@ if (_can_explode)
 }
 else
 {
-    Projectile_update_3a(true); // 
+    Projectile_update_3a(despawn_offscreen_hor); // 
 }
 
 

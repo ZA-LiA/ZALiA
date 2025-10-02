@@ -89,9 +89,9 @@ with(_projectile)
     }
     set_xlyt(id, g.pc.x+_XOFF, g.pc.yt+_YOFF);
     
-    facingDir = g.pc.xScale;
-    xScale    = facingDir;
-    hspd      = ($20*facingDir) &$FF;
+    facing_dir = g.pc.xScale;
+    xScale    = facing_dir;
+    hspd      = ($20*facing_dir) &$FF;
     
     update_body_hb();
     update_draw_xy();

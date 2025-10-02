@@ -29,7 +29,7 @@ if(!is_undefined(_val))
 */
 
 
-facingDir = 1;
+facing_dir = 1;
 can_draw_self = false;
 
 canDrawCrystal = 0; // 0081[eIndex]

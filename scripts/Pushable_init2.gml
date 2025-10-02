@@ -103,7 +103,7 @@ cs_off_idx=CS_OFF_IDX;
 
 
 
-facingDir = 1;
+facing_dir = 1;
 
 
 BodyHB_w    =  ww;

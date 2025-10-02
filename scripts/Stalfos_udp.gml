@@ -17,7 +17,7 @@ var _legs_idx = 0; // 0: legs open
 if(!vspd 
 &&  hasDroppedFromSpawn )
 {
-    Arm_xoff = 16 * facingDir;
+    Arm_xoff = 16 * facing_dir;
     if (behavior >= 2) Arm_sprite = spr_Piece_Sword1;
     
     if (behavior <  2 && g.counter1&$8)

@@ -62,7 +62,7 @@ updateY();
 
 
 
-facingDir = hspd_impel;
+facing_dir = hspd_impel;
 
 
 

@@ -1,7 +1,7 @@
 /// update_Boomerang()
 
 
-var _COLLIDED_SHIELD = byte_dir(hspd) != facingDir;
+var _COLLIDED_SHIELD = byte_dir(hspd) != facing_dir;
 
 if(!_COLLIDED_SHIELD) // if havn't bounced off shield
 {   // 9667
@@ -23,7 +23,7 @@ if(!_COLLIDED_SHIELD) // if havn't bounced off shield
             
             hspd = (hspd + -facing_dir_spawn)&$FF;
             
-            facingDir = byte_dir(hspd);
+            facing_dir = byte_dir(hspd);
             
             // 96A4
             if (hspd&$3F == $20) counter = $FF; // Finished reversing dir
@@ -40,7 +40,7 @@ if(!_COLLIDED_SHIELD) // if havn't bounced off shield
 
 // 96F9, 96FF: JSR DED4, 9702
 if(!_COLLIDED_SHIELD) vspd = (vspd-vspd_adj)&$FF; // vspd_adj == 2;
-Projectile_update_3a(true);
+Projectile_update_3a(despawn_offscreen_hor);
 
 
 if(!_COLLIDED_SHIELD)  // if havn't bounced off shield

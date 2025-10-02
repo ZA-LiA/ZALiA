@@ -50,8 +50,8 @@ switch(sub_state)
         
         set_xy(id, _X,_Y);
         
-        facingDir = dir_to_pc(id);
-        hspd_dir  = facingDir;
+        facing_dir = dir_to_pc(id);
+        hspd_dir  = facing_dir;
         hspd      = ($10*hspd_dir)&$FF;
         
         
@@ -210,8 +210,8 @@ switch (counter & 3)
             var _YY = LeevA_in_ground_y(_XX>>3, IN_GROUND_ROW_MIN);
             setXY(id, _XX, _YY);
             
-            facingDir = dir_to_pc(id);
-            hspd = ($10 * facingDir)&$FF;
+            facing_dir = dir_to_pc(id);
+            hspd = ($10 * facing_dir)&$FF;
             
             timer = $50; // 1.333s
             

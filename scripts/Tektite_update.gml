@@ -69,10 +69,10 @@ GO_vspd_update1(); // if (cs8() && vspd&$80) vspd=$0;
 
 
 // 983A
-var _facingDir_COPY = facingDir;
+var _facingDir_COPY = facing_dir;
 if(!vspd)
 {
-    facingDir = dir_to_pc( id);
+    facing_dir = dir_to_pc( id);
     _carry    = DC91_carry(id);
 }
 
@@ -80,7 +80,7 @@ if (vspd
 || !(cs&$4) )
 {
     if (vspd) hspd = ($10 * _facingDir_COPY) &$FF;
-    else      hspd = ($10 *  facingDir)      &$FF;
+    else      hspd = ($10 *  facing_dir)      &$FF;
     
     _carry = updateX();
 }
@@ -96,7 +96,7 @@ if(!(g.counter1&$3F)
 {   // 9869
     if (avail_uidx_goc(MAX_GOC1)!=UIDX_NULL)
     {   // Create Bullet2, pID $11
-        GOC1_create(xl,_yt_PREV, facingDir, projectile,projectile_ver, id, global.PI_MOB_RED); // PI_MOB2: red
+        GOC1_create(xl,_yt_PREV, facing_dir, projectile,projectile_ver, id, global.PI_MOB_RED); // PI_MOB2: red
     }
     else
     {

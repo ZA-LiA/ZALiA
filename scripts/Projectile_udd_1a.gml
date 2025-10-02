@@ -23,7 +23,7 @@ if (g.counter1&$4)
 }
 
 
-xScale *= facingDir; // If facing left, xScale need to flip
+xScale *= facing_dir; // If facing left, xScale need to flip
 
 
 

@@ -2,7 +2,7 @@
 
 
 // B7C5
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 
@@ -76,11 +76,11 @@ else if (inRange(counter, $C0,$DF)) // ---  $DF-C0:  0.533s
     if (counter == ATK_CUE-2  // ---------  ATK_CUE: $D2
     &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
     {
-        with(GOC1_create(x,y, facingDir, projectile,projectile_ver)) // Flame1
+        with(GOC1_create(x,y, facing_dir, projectile,projectile_ver)) // Flame1
         {
-            spawn_x  = other.xl + (8*facingDir); // OG: Gives right a +4 advantage
+            spawn_x  = other.xl + (8*facing_dir); // OG: Gives right a +4 advantage
             if (g.mod_MAGO_ADJ1){
-            spawn_x  = other.x  + (4*facingDir); // 4 off from mago center
+            spawn_x  = other.x  + (4*facing_dir); // 4 off from mago center
             spawn_x -= ww_; // bc spawn_x is considered xl position
             }
             
@@ -90,7 +90,7 @@ else if (inRange(counter, $C0,$DF)) // ---  $DF-C0:  0.533s
             
             
             
-            hspd = ($C*facingDir) &$FF;
+            hspd = ($C*facing_dir) &$FF;
         }
     }
     
@@ -203,7 +203,7 @@ else if (inRange(counter, $00,$9F)) // ---  $9F-00:  2.667s
 
 
 // B7C5
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 
@@ -229,14 +229,14 @@ else if (inRange(counter, $C0,$DF)) // ---  $DF-C0:  0.533s
     if (counter == ATK_CUE-2  // ---------  ATK_CUE: $D2
     &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
     {
-        var _XX = x + (4 * facingDir); // MOD. Start +4 towards from Mago center
-        // var _XX = xl + (4 * facingDir); // MOD. Center on Mago.
-        // var _XX = xl + (8 * facingDir); // OG: Gives right a +4 advantage
+        var _XX = x + (4 * facing_dir); // MOD. Start +4 towards from Mago center
+        // var _XX = xl + (4 * facing_dir); // MOD. Center on Mago.
+        // var _XX = xl + (8 * facing_dir); // OG: Gives right a +4 advantage
         var _YY = yt + hh - $10;
         
-        with (GOC1_create(_XX,_YY, facingDir, projectile)) // Flame1
+        with (GOC1_create(_XX,_YY, facing_dir, projectile)) // Flame1
         {
-            hspd = ($C * facingDir)&$FF;
+            hspd = ($C * facing_dir)&$FF;
         }
     }
     
@@ -284,7 +284,7 @@ else if (inRange(counter, $00,$9F)) // ---  $9F-00:  2.667s
 
 /*
 // B7C5
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 // setFacingDir();
 
 // B7C8
@@ -304,11 +304,11 @@ if (counter < $E0 || counter & 1)
             if (avail_uidx_goc(MAX_GOC) != UIDX_NULL)
             {
                 var _p, _x, _y;
-                _x = xl + (8 * facingDir);
+                _x = xl + (8 * facing_dir);
                 _y = yt + $10;
                 
-                _p = Projectile_create(_x, _y, facingDir, Flame1);
-                _p.hspd = byte($C * facingDir);
+                _p = Projectile_create(_x, _y, facing_dir, Flame1);
+                _p.hspd = byte($C * facing_dir);
             }
         }
         

@@ -32,9 +32,9 @@ if (abilities&ABL_JUMP
         if (is_hostile 
         ||  g.counter1&$40 )
         {
-            facingDir = dir_to_pc(id);
+            facing_dir = dir_to_pc(id);
             
-            hspd = (hspd_jump*facingDir) &$FF;
+            hspd = (hspd_jump*facing_dir) &$FF;
             vspd = INIT_VEL_DEF; // Jump!
             
             ogr  = OGR_JUMP;

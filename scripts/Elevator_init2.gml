@@ -29,7 +29,7 @@ if(!is_undefined(dk_spawn))
 
 
 
-facingDir = 1;
+facing_dir = 1;
 
 
 

@@ -18,6 +18,13 @@ if (is_undefined(g.dm_tile_file)
 }
 
 
+var _dl_layer_data = g.dm_tile_file[?"layers"];
+if (is_undefined(_dl_layer_data))
+{
+    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+
+
 
 
 // ---------------------------------------------------------------------------------
@@ -42,13 +49,9 @@ var _STR_DIR_   = string_copy(STR_DIR,   2,string_length(STR_DIR)  -1)+"_";
 
 var _PREFIX_LEN = string_length(STR_BREAK_); // Length of the prefix to any dynamic layer name
 
-var _data_system_ver = $01;
+var _data_system_ver = $04;
 
 var _TILE_FILE_NAME = string(val(dm_tile_file[?STR_Tile+STR_File+STR_Name]));
-
-
-var _CLMS = g.dm_tile_file[?"width"];
-var _ROWS = g.dm_tile_file[?"height"];
 
 var _TSRC_A1 = $48;
 var _TSRC_B1 = $A8;
@@ -190,29 +193,29 @@ if(!is_undefined(_dl_ts_data))
 
 
 // --------------------------------------------------------------
-ds_grid_resize(g.dg_RmTile_solid,       _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_solid,       _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_solid,       0);
-ds_grid_resize(g.dg_RmTile_solid_def,   _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_solid_def,   _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_solid_def,   0);
 g.dg_RmTile_solid_w = ds_grid_width( g.dg_RmTile_solid);
 g.dg_RmTile_solid_h = ds_grid_height(g.dg_RmTile_solid);
 
-ds_grid_resize(g.dg_RmTile_Break,       _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_Break,       _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Break,       0);
-ds_grid_resize(g.dg_RmTile_Break_def,   _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_Break_def,   _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Break_def,   0);
 
-ds_grid_resize(g.dg_RmTile_Liquid,      _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_Liquid,      _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Liquid,      0);
-ds_grid_resize(g.dg_RmTile_Liquid_def,  _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_Liquid_def,  _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Liquid_def,  0);
 
-ds_grid_resize(g.dg_RmTile_Current,     _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_Current,     _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Current,     0);
-ds_grid_resize(g.dg_RmTile_Current_def, _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_Current_def, _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Current_def, 0);
 
-ds_grid_resize(g.dg_RmTile_TempSolid,   _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_TempSolid,   _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_TempSolid,   0);
 
 ds_grid_resize(g.dg_RmTile_Spike,       0,0); // unit8
@@ -220,29 +223,44 @@ ds_grid_clear (g.dg_RmTile_Spike,       0);
 ds_grid_resize(g.dg_RmTile_Spike_def,   0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Spike_def,   0);
 /*
-ds_grid_resize(g.dg_RmTile_Spike,       _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_Spike,       _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Spike,       0);
-ds_grid_resize(g.dg_RmTile_Spike_def,   _CLMS, _ROWS); // unit8
+ds_grid_resize(g.dg_RmTile_Spike_def,   _TMX_W, _TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Spike_def,   0);
 */
 ds_list_clear(g.dl_ceiling_bottom_rc);
 
 with(g.burnable_mgr)
 {
-    ds_grid_resize(dg_RmTile_Burnable,     _CLMS, _ROWS); // unit8
+    ds_grid_resize(dg_RmTile_Burnable,     _TMX_W, _TMX_H); // unit8
     ds_grid_clear (dg_RmTile_Burnable,     0);
-    ds_grid_resize(dg_RmTile_Burnable_def, _CLMS, _ROWS); // unit8
+    ds_grid_resize(dg_RmTile_Burnable_def, _TMX_W, _TMX_H); // unit8
     ds_grid_clear (dg_RmTile_Burnable_def, 0);
     ds_grid_resize(dg_Burnable,0,ds_grid_height(dg_Burnable));
     ds_grid_clear (dg_Burnable,0);
 }
 
 
-var _WallStyle01_dg = ds_grid_create(_CLMS,_ROWS);
+var _WallStyle01_dg = ds_grid_create(0,0);
 if (global.WallStyle01Tiles_MAIN)
 {
     _data = f.dm_rando[?dk_WallStyle+"01"+_TILE_FILE_NAME];
-    if(!is_undefined(_data)) ds_grid_read(_WallStyle01_dg, _data);
+    if(!is_undefined(_data))
+    {
+        //ds_grid_resize(_WallStyle01_dg, _TMX_W,_TMX_H);
+        ds_grid_read(_WallStyle01_dg, _data);
+    }
+}
+
+var _WallStyle02_dg = ds_grid_create(0,0);
+if (global.WallStyle02Tiles_MAIN)
+{
+    _data = f.dm_rando[?dk_WallStyle+"02"+_TILE_FILE_NAME];
+    if(!is_undefined(_data))
+    {
+        //ds_grid_resize(_WallStyle02_dg, _TMX_W,_TMX_H);
+        ds_grid_read(_WallStyle02_dg, _data);
+    }
 }
 
 
@@ -256,12 +274,6 @@ var _dl_layer_prop_data, _dm_depth_prop_data;
 var _dl_rm_depth = ds_list_create();
 
 var _dm_layer_data;
-
-var _dl_layer_data = val(g.dm_tile_file[?"layers"]);
-if(!_dl_layer_data) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
 
 var _LAYER_COUNT = ds_list_size(_dl_layer_data);
 
@@ -356,9 +368,10 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
         //_pi  = global.PI_BGR1 + (_pi-1);
         _permut = 1;
         
+        _pos = string_pos(_STR_PERMUT,_layer_name);
+        
         if (_data_system_ver<4)
         {
-                _pos = string_pos(_STR_PERMUT,_layer_name);
             if (_pos) _permut = str_hex(string_copy(_layer_name, _pos+string_length(_STR_PERMUT), 2)); // 01-06
             else      _permut = 1;
                       _permut--; // (01 through 06)-1 = (00 through 05)
@@ -371,29 +384,25 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
             case 5:{_pi=add_pi_permut(_pi, "BRWGKMYC", _name+" permut "+"BRWGKMYC"); break;}
             }
         }
-        else
-        {
-            _pos = string_pos(_STR_PERMUT,_layer_name);
-            if (_pos)
-            {   // _layer_name example: "BG0302, PERMUT_RWBGYMKC"
-                _pos += string_length(_STR_PERMUT);
-                _data = strR(_layer_name,_pos);
-                _data = string_copy(_data, 1, min(global.COLORS_PER_PALETTE,string_length(_data)));
-                _permut = "";
-                _count1 = string_length(_data);
-                for(_j=0; _j<_count1; _j++)
+        else if (_pos)
+        {   // _layer_name example: "BG0302, PERMUT_RWBGYMKC"
+            _pos += string_length(_STR_PERMUT);
+            _data = strR(_layer_name,_pos);
+            _data = string_copy(_data, 1, min(global.COLORS_PER_PALETTE,string_length(_data)));
+            _permut = "";
+            _count1 = string_length(_data);
+            for(_j=0; _j<_count1; _j++)
+            {
+                _char = string_char_at(_data,_j+1);
+                if(!string_pos(_char,global.PAL_BASE_COLOR_ORDER))
                 {
-                    _char = string_char_at(_data,_j+1);
-                    if(!string_pos(_char,global.PAL_BASE_COLOR_ORDER))
-                    {
-                        //break;//_j
-                    }
-                    
-                    _permut += _char;
+                    //break;//_j
                 }
                 
-                _pi = add_pi_permut(_pi, _permut, _name+" permut "+_permut);
+                _permut += _char;
             }
+            
+            _pi = add_pi_permut(_pi, _permut, _name+" permut "+_permut);
         }
         
         
@@ -483,8 +492,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             _tsrc = _tile_data&$FF;
             
             
-            _clm = _j mod _CLMS;
-            _row = _j div _CLMS;
+            _clm = _j mod _TMX_W;
+            _row = _j div _TMX_W;
             _x = (_clm+(_scale_x==-1)) <<3;
             _y = (_row+(_scale_y==-1)) <<3;
             
@@ -569,8 +578,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         }
         
         
-        _clm = _j mod _CLMS;
-        _row = _j div _CLMS;
+        _clm = _j mod _TMX_W;
+        _row = _j div _TMX_W;
         
         
         if (string_pos("LIQUID_03",_layer_name)) // Vertical movement (like waterfalls)
@@ -628,6 +637,17 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         &&  _WallStyle01_dg[#_clm,_row] )
         {
             _data = _WallStyle01_dg[#_clm,_row];
+            _ts   = g.dl_tileset[|(_data>>8)&$FF];
+            _tsrc = _data&$FF;
+            _scale_x = 1;
+            _scale_y = 1;
+        }
+        else if (global.WallStyle02Tiles_MAIN 
+        &&  global.RandoDungeonTilesets_enabled 
+        && !is_undefined(f.dm_rando[?dk_WallStyle+"02"+_TILE_FILE_NAME+_layer_name]) 
+        &&  _WallStyle02_dg[#_clm,_row] )
+        {
+            _data = _WallStyle02_dg[#_clm,_row];
             _ts   = g.dl_tileset[|(_data>>8)&$FF];
             _tsrc = _data&$FF;
             _scale_x = 1;
@@ -772,7 +792,30 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             _dk = STR_Drop+STR_Spawner+g.rm_name;
             if (is_undefined(global.DropSpawner_dm[?_dk+STR_Tileset]))
             {
-                if (_ts==ts_DungeonA01 
+                if (_ts==ts_Man_made_2a_WRB)
+                {
+                    if ((_tsrc>>4)&$F>=$0 
+                    &&  (_tsrc>>4)&$F<=$4 
+                    &&  _tsrc&$F>=$0 
+                    &&  _tsrc&$F<=$3 )
+                    {
+                        global.DropSpawner_dm[?_dk+STR_Tileset] = _ts;
+                        if (_tsrc&$F>=$2) // covered
+                        {
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"A"] = (_tsrc&$F0) | $2; // top left graphic
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"9"] = (_tsrc&$F0) | $3; // top right graphic
+                        }
+                        else // uncovered
+                        {
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"A"] = (_tsrc&$F0) | $0; // top left graphic
+                            global.DropSpawner_dm[?_dk+STR_TSRC+"9"] = (_tsrc&$F0) | $1; // top right graphic
+                        }
+                        global.DropSpawner_dm[?_dk+STR_TSRC+"6"] = (_tsrc&$F0) | $4; // bottom left graphic
+                        global.DropSpawner_dm[?_dk+STR_TSRC+"5"] = (_tsrc&$F0) | $5; // bottom right graphic
+                    }
+                }
+                else if (_ts==ts_Cave01 
+                ||  _ts==ts_DungeonA01 
                 ||  _ts==ts_DungeonB01 
                 ||  _ts==ts_DungeonC01 
                 ||  _ts==ts_DungeonD01 
@@ -784,8 +827,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 ||  _ts==ts_DungeonAlt03 
                 ||  _ts==ts_DungeonAlt04 
                 ||  _ts==ts_DungeonAlt05 
-                ||  _ts==ts_DungeonAlt06 
-                ||  _ts==ts_Cave01 )
+                ||  _ts==ts_DungeonAlt06 )
                 {
                     if (_tsrc==$E0   // uncovered
                     ||  _tsrc==$E1   // uncovered
@@ -806,28 +848,6 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                         }
                         global.DropSpawner_dm[?_dk+STR_TSRC+"6"] = $F0; // bottom left graphic
                         global.DropSpawner_dm[?_dk+STR_TSRC+"5"] = $F1; // bottom right graphic
-                    }
-                }
-                else if (_ts==ts_Man_made_2a_WRB)
-                {
-                    if ((_tsrc>>4)&$F>=$0 
-                    &&  (_tsrc>>4)&$F<=$4 
-                    &&  _tsrc&$F>=$0 
-                    &&  _tsrc&$F<=$3 )
-                    {
-                        global.DropSpawner_dm[?_dk+STR_Tileset] = _ts;
-                        if (_tsrc&$F>=$2) // covered
-                        {
-                            global.DropSpawner_dm[?_dk+STR_TSRC+"A"] = (_tsrc&$F0) | $2; // top left graphic
-                            global.DropSpawner_dm[?_dk+STR_TSRC+"9"] = (_tsrc&$F0) | $3; // top right graphic
-                        }
-                        else // uncovered
-                        {
-                            global.DropSpawner_dm[?_dk+STR_TSRC+"A"] = (_tsrc&$F0) | $0; // top left graphic
-                            global.DropSpawner_dm[?_dk+STR_TSRC+"9"] = (_tsrc&$F0) | $1; // top right graphic
-                        }
-                        global.DropSpawner_dm[?_dk+STR_TSRC+"6"] = (_tsrc&$F0) | $4; // bottom left graphic
-                        global.DropSpawner_dm[?_dk+STR_TSRC+"5"] = (_tsrc&$F0) | $5; // bottom right graphic
                     }
                 }
             }
@@ -866,10 +886,10 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             {
                 if(!ds_grid_width(g.dg_RmTile_Spike))
                 {
-                    ds_grid_resize(g.dg_RmTile_Spike,       _CLMS, _ROWS); // unit8
-                    ds_grid_clear (g.dg_RmTile_Spike,       0);
-                    ds_grid_resize(g.dg_RmTile_Spike_def,   _CLMS, _ROWS); // unit8
-                    ds_grid_clear (g.dg_RmTile_Spike_def,   0);
+                    ds_grid_resize(g.dg_RmTile_Spike,     _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (g.dg_RmTile_Spike,     0);
+                    ds_grid_resize(g.dg_RmTile_Spike_def, _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (g.dg_RmTile_Spike_def, 0);
                 }
                 
                 _clm1 = _clm;
@@ -1059,10 +1079,10 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                              _dir = bit_dir(_dl_liquid_dir[|_idx]);
                                       _clm = tile_get_x(_tile_id)>>3;
                         if ((_dir && !_clm) 
-                        || (!_dir &&  _clm==_CLMS-1) )
+                        || (!_dir &&  _clm==_TMX_W-1) )
                         {
                             if (_dir) _x = -8;
-                            else      _x = _CLMS<<3;
+                            else      _x = _TMX_W<<3;
                                       _y = tile_get_y(_tile_id);
                             tile_add(tile_get_background(_tile_id), tile_get_left(_tile_id),tile_get_top(_tile_id), 8,8, _x,_y, _depth);
                         }
@@ -1120,8 +1140,8 @@ if (_rm_has_burnables)
 {
     with(g.burnable_mgr)
     {
-        _clms=ds_grid_width( dg_RmTile_Burnable);
-        _rows=ds_grid_height(dg_RmTile_Burnable);
+        _clms = ds_grid_width( dg_RmTile_Burnable);
+        _rows = ds_grid_height(dg_RmTile_Burnable);
         for(_i=(_clms*_rows)-1; _i>=0; _i--)
         {
             _clm1 = _i mod _clms;
@@ -1281,7 +1301,7 @@ for(_i=ds_grid_width(g.dg_tile_anim)-1; _i>=0; _i--)
 
 
 ds_grid_destroy(_WallStyle01_dg); _WallStyle01_dg=undefined;
-//ds_map_destroy(_StoneTileset01_dm); _StoneTileset01_dm=undefined;
+ds_grid_destroy(_WallStyle02_dg); _WallStyle02_dg=undefined;
 
 
 

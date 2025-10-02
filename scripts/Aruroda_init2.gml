@@ -32,7 +32,7 @@ DUR_TAIL_FORWARD = $10;
 tmr_tail_forward =   0;
 
 
-frwd_bkwd = facingDir;
+frwd_bkwd = facing_dir;
 
 
 // For Rando

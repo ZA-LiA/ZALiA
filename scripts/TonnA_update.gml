@@ -5,7 +5,7 @@ if (abilities & ABL_WALK)
 {
     if (cs&$3)
     {
-        facingDir = -facingDir;
+        facing_dir = -facing_dir;
         hspd      = byte_negate(hspd);
     }
     

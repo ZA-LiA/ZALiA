@@ -54,8 +54,8 @@ if (behavior) // if attacking
     }
     
     
-    Arm_xoff  *= facingDir;
-    armXScale *= facingDir;
+    Arm_xoff  *= facing_dir;
+    armXScale *= facing_dir;
     
     
     if (ver==1)

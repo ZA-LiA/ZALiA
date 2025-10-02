@@ -284,7 +284,7 @@ switch(BattleState)
                 {
                     GO_depth_init(other.depth+1);
                     hspd = $10 + (irandom(1)<<3);
-                    hspd =(hspd*facingDir) &$FF;
+                    hspd =(hspd*facing_dir) &$FF;
                     vspd = $E0 + (irandom(1)<<3);
                 }
             }

@@ -76,9 +76,9 @@ if (behavior) // if attacking
                 ||  abs(x-g.pc.x) < attack_dist )
                 {
                     var            _XL  = xl;
-                    if (facingDir) _XL += $10;
+                    if (facing_dir) _XL += $10;
                     else           _XL +=  -8;
-                    GOC1_create(   _XL,yt, facingDir, projectile,projectile_ver, id, palidx_def);
+                    GOC1_create(   _XL,yt, facing_dir, projectile,projectile_ver, id, palidx_def);
                 }
                 
                 behavior = 0;
@@ -177,7 +177,7 @@ if (_hspdPB_COPY)
 // ---------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------
 // 9BF8
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 // 9B96
@@ -247,8 +247,8 @@ if (_IN_DIST_ATCK
 
 if(!_IN_DIST_ATCK)
 {   // 9C0F
-    if (_IN_DIST_AGRO) facingDir = dir_to_pc(id);
-    hspd = ($10*facingDir)&$FF;
+    if (_IN_DIST_AGRO) facing_dir = dir_to_pc(id);
+    hspd = ($10*facing_dir)&$FF;
 }
 
 

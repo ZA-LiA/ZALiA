@@ -9,8 +9,8 @@ if (is_talking)
     }
     else
     {   // 9AA0
-        facingDir   = dir_to_pc(id);
-        g.pc.xScale = -facingDir;
+        facing_dir   = dir_to_pc(id);
+        g.pc.xScale = -facing_dir;
         update_EF11();
         return true;
     }

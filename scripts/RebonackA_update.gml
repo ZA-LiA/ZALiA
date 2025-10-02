@@ -115,7 +115,7 @@ if (phase==1)
     
     if (g.mod_RebonackA_HBBalance)
     {   // MOD: hb xoff balance.  $D Left, $2 Right ----------
-        if (facingDir) BodyHB_idx = BodyHB_IDX_RGT; // xoff  2, yoff 3, wdth 12, hght 23
+        if (facing_dir) BodyHB_idx = BodyHB_IDX_RGT; // xoff  2, yoff 3, wdth 12, hght 23
         else           BodyHB_idx = BodyHB_IDX_LFT; // xoff 18, yoff 3, wdth 12, hght 23
     }
     else               BodyHB_idx = BodyHB_IDX_RGT; // OG
@@ -134,18 +134,18 @@ if (phase==1)
     // B04D -------------------------------------------
     if (hp >= HP_CUE) // HP_CUE=$24
     {
-        // Change facingDir once half-way turned around
+        // Change facing_dir once half-way turned around
         if (Turn_timer == Turn_DURATION>>1)
         {
             target_side = -target_side;
-            facingDir   =  target_side;
+            facing_dir   =  target_side;
         }
         
         if (Turn_timer) Turn_timer--;
         
         // B05A
         if(!Turn_timer                     // If NOT in process of turning around
-        &&  facingDir != dir_to_pc(id) 
+        &&  facing_dir != dir_to_pc(id) 
         &&  (hspd+8)&$FF < $11 )        // If slowed down enough
         {   // Start turning around once slowed down enough after passing PC.
             // Timer for turning around and determining sprite.
@@ -207,7 +207,7 @@ if (phase==1)
                     set_xy(id, x-ww_, y);
                     vspd =  $FC;
                     hspd = round(2.6*_DIST); // This aims really well!
-                    hspd = (hspd*facingDir) &$FF;
+                    hspd = (hspd*facing_dir) &$FF;
                 }
             }
         }
@@ -225,7 +225,7 @@ if (phase==1)
                   reboA = other;
             //
             vspd  = $EA;
-            hspd  = ($10*other.facingDir) &$FF;
+            hspd  = ($10*other.facing_dir) &$FF;
             hspd ^= $FF;
             hspd  = (hspd<<1) &$FF;
             
@@ -253,7 +253,7 @@ if (phase==1)
         }
         
         
-        hspd     = ($10*facingDir) &$FF;
+        hspd     = ($10*facing_dir) &$FF;
         behavior = 1;
         phase    = 2; // 2: Horse leaving battle & waiting for battle end
         

@@ -7,6 +7,9 @@ GO_sprite_init(SPR_BALL);
 GO_init_palidx(global.PI_MOB_RED);
 
 
+despawn_offscreen_hor = false;
+
+
 vspd_adj = 1; // 
 has_landed = false; // 045E[pIndex]
 
@@ -18,7 +21,7 @@ BOUNCE_REQ = $20;
 
 FADE_CUE = $20;
 
-HSPD1 = ($10*facingDir) &$FF;
+HSPD1 = ($10*facing_dir) &$FF;
 VSPD1 = $E0;
 
 Launch_timer = 0;
@@ -37,7 +40,7 @@ switch(ver)
     will_slide = !irandom(9);
     Launch_timer = $10;
     
-    HSPD1 = ($0E*facingDir) &$FF;
+    HSPD1 = ($0E*facing_dir) &$FF;
     VSPD1 = $D4;
     hspd  = 0;
     vspd  = 0;

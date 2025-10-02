@@ -87,9 +87,9 @@ if(!pending_death)
                 if (is_facing_pc_(id) 
                 &&  abs(x-g.pc.x)>=DISTANCE2 ) // DISTANCE2=DISTANCE1($20)+$10
                 {
-                    with(GOC1_create(x,y, facingDir, projectile,projectile_ver, id, palidx_def))
+                    with(GOC1_create(x,y, facing_dir, projectile,projectile_ver, id, palidx_def))
                     {
-                        set_xy(id, other.x+($A*facingDir), other.yb-$16);
+                        set_xy(id, other.x+($A*facing_dir), other.yb-$16);
                     }
                 }
                 
@@ -105,7 +105,7 @@ if(!pending_death)
     
     
     // BB74
-    Boss_update_3(); // facingDir, hspd, counter, attack_state (start atk)
+    Boss_update_3(); // facing_dir, hspd, counter, attack_state (start atk)
     Boss_Roar_update();
 }
 

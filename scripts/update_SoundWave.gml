@@ -36,7 +36,7 @@ if (reflected
 
 if(!_collided_src)
 {   // ADB4, ADBF
-    Projectile_update_3a(true); // Projectile_update_1a(pID != 8);
+    Projectile_update_3a(despawn_offscreen_hor); // Projectile_update_1a(pID != 8);
 }
 
 

@@ -22,7 +22,7 @@ if (is_talking)
                         timer_a1--;
                     if(!timer_a1)
                     {
-                        facingDir = sign_(DOOR_XC-x); // face torwards door
+                        facing_dir = sign_(DOOR_XC-x); // face torwards door
                         counter = -1; // Indicates move torwards door to enter house
                     }
                 }
@@ -77,8 +77,8 @@ if (is_talking)
 // MOVING TORWARDS DOOR to enter house ----------------------------------------
 if (counter==-1)
 {   
-    facingDir = sign_(DOOR_XC-x);    // face door
-    hspd = (hspd_PACE*facingDir) &$FF; // set hspd toward door
+    facing_dir = sign_(DOOR_XC-x);    // face door
+    hspd = (hspd_PACE*facing_dir) &$FF; // set hspd toward door
     updateX();
     
     update_EF11();
@@ -121,7 +121,7 @@ if (counter
     
     
     // Making sure facing the correct dir
-    if (_C0) facingDir = sign_(DOOR_XC-x); // face door
+    if (_C0) facing_dir = sign_(DOOR_XC-x); // face door
     
     if(!_C3) hspd = 0; // So walk spr doesn't draw while not moving
     
@@ -136,7 +136,7 @@ if (counter
         {   set_xy(id, x,y-4);  } // Take 1 step
         
         
-        hspd = (hspd_PACE*facingDir) &$FF; // set hspd toward door
+        hspd = (hspd_PACE*facing_dir) &$FF; // set hspd toward door
         updateX();
     }
     else if (_C4)   // $40. INSIDE HOUSE
@@ -201,7 +201,7 @@ if (counter==$80)
         
         //sdm(sprite_datakey+" hh $"+hex_str(hh)+", GROUND_Y $"+hex_str(GROUND_Y>>3)+", DOOR_YB $"+hex_str(DOOR_YB>>3));
         
-        if (object_index==NPC_5) facingDir = dir_to_pc(id);
+        if (object_index==NPC_5) facing_dir = dir_to_pc(id);
         hspd = 0;
         
         door_draw_state = door_draw_state_OPEN1; // OPENING. Half open
@@ -233,7 +233,7 @@ if (counter>$80)
     if (counter>$B0) 
     {
         // NPC doesn't start moving until frame after door fully closed
-        if (counter==$B1) hspd = (hspd_PACE*facingDir) &$FF; // set hspd toward(away from?) door
+        if (counter==$B1) hspd = (hspd_PACE*facing_dir) &$FF; // set hspd toward(away from?) door
         
         updateX();
         
@@ -279,7 +279,7 @@ if (counter==0)
     // 9851
     var _DIFF = x - DOOR_XC;
     var _C1  = abs( _DIFF) >= $28;
-        _C1 &= sign(_DIFF) == facingDir; // if facing away from door
+        _C1 &= sign(_DIFF) == facing_dir; // if facing away from door
     
     if (_C1 
     && !timer_a1 )
@@ -287,12 +287,12 @@ if (counter==0)
     
     
     if (timer_a1) hspd = 0;
-    else          hspd = (hspd_PACE*facingDir) &$FF; // set hspd toward door
+    else          hspd = (hspd_PACE*facing_dir) &$FF; // set hspd toward door
     
     if (timer_a1) // Stand still, waiting to turn around.
     {
             timer_a1--;
-        if(!timer_a1) facingDir = sign_(DOOR_XC-x); // face door
+        if(!timer_a1) facing_dir = sign_(DOOR_XC-x); // face door
     }
     
     updateX();

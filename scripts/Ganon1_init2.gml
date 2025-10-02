@@ -14,8 +14,8 @@ GO_sprite_init(g.Ganon1_SPRITE1);
 GO_init_palidx(PALIDX1);
 set_xy(id, x, g.rm_h-hh_);
 
-facingDir   = 1;
-xScale      = facingDir;
+facing_dir   = 1;
+xScale      = facing_dir;
 GROUND_Y    = get_ground_y(x,yt,1, (g.rm_row0+$1A)<<3);
 Ground_y    = GROUND_Y;
 

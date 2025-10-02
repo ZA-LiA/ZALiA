@@ -37,7 +37,7 @@ if (!g.pc.is_dead
                 enemy_collide_pc_body();
                 
                 // PC damage bounce AWAY from barrier.
-                g.pc.hspd = (abs8b(g.pc.hspd)*facingDir) &$FF;
+                g.pc.hspd = (abs8b(g.pc.hspd)*facing_dir) &$FF;
                 break; // _i
             }
         }

@@ -2033,8 +2033,9 @@ _dm[?'MazIs_124'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, S
 _dm[?'MazIs_124'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  125  ----------------------------
 _dm[?'MazIs_125'+STR_Layer+'01'+STR_Name] = 'FG0303, GROUND01_01';
-_dm[?'MazIs_125'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
-_dm[?'MazIs_125'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'MazIs_125'+STR_Layer+'02'+STR_Name] = 'FG0204, FENCE01_01';
+_dm[?'MazIs_125'+STR_Layer+'03'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
+_dm[?'MazIs_125'+STR_Layer+'04'+STR_Name] = 'BG0402';
 //  ----------------------------  126  ----------------------------
 _dm[?'MazIs_126'+STR_Layer+'01'+STR_Name] = 'FG0303, GROUND01_01';
 _dm[?'MazIs_126'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
@@ -2118,14 +2119,39 @@ _dm[?'MazIs_144'+STR_Layer+'01'+STR_Name] = 'FG0203, BURNABLE_01';
 _dm[?'MazIs_144'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01';
 _dm[?'MazIs_144'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  145  ----------------------------
+_dm[?'MazIs_145'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_145'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01';
+_dm[?'MazIs_145'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  146  ----------------------------
+_dm[?'MazIs_146'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_146'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01';
+_dm[?'MazIs_146'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  147  ----------------------------
+_dm[?'MazIs_147'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
+_dm[?'MazIs_147'+STR_Layer+'02'+STR_Name] = 'BG0604, FENCE01_01';
 //  ----------------------------  148  ----------------------------
+_dm[?'MazIs_148'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_148'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'MazIs_148'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__02';
+_dm[?'MazIs_148'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  149  ----------------------------
+_dm[?'MazIs_149'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
+_dm[?'MazIs_149'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  150  ----------------------------
+_dm[?'MazIs_150'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
+_dm[?'MazIs_150'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  151  ----------------------------
+_dm[?'MazIs_151'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
+_dm[?'MazIs_151'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  152  ----------------------------
+_dm[?'MazIs_152'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_152'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'MazIs_152'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
+_dm[?'MazIs_152'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  153  ----------------------------
+_dm[?'MazIs_153'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_153'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'MazIs_153'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  154  ----------------------------
 //  ----------------------------  155  ----------------------------
 //  ----------------------------  156  ----------------------------

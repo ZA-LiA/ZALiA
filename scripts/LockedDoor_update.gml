@@ -55,7 +55,7 @@ if (cs&CS_BD1)
     if (x<g.pc.x) g.pc.colliding_locked_door = $2;
     else          g.pc.colliding_locked_door = $1;
     
-    facingDir = dir_to_pc(id);
+    facing_dir = dir_to_pc(id);
 }
 else if (isVal(ver,1,2))
 {

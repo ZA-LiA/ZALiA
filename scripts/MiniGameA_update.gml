@@ -170,7 +170,7 @@ switch(sub_state)
                 set_hspd_dir();
                 hspd_dir_spawn  = hspd_dir;
                 
-                facingDir = hspd_dir;
+                facing_dir = hspd_dir;
                 
                 if(!ds_list_size(dl_sprites)){
                     ds_list_add( dl_sprites,spr_Moby1);
@@ -213,7 +213,7 @@ switch(sub_state)
                 set_hspd_dir();
                 hspd_dir_spawn  = hspd_dir;
                 
-                facingDir = hspd_dir;
+                facing_dir = hspd_dir;
                 dl_sprites[|1] = spr_Bagin_1b;
                 dl_sprites[|0] = spr_Bagin_1a;
                 

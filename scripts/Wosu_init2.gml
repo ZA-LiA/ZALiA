@@ -14,7 +14,7 @@ if(!is_undefined(dk_spawn)) // if not from a spawner
         var _PC_X  = val(g.dm_rm[?f.reen+STR_Spawn_x]) <<3;
             _PC_X += PC_W_;
         //
-        facingDir = sign_(x<_PC_X);
+        facing_dir = sign_(x<_PC_X);
     }
     
     var _spawn_datakey = dk_spawn;
@@ -28,18 +28,18 @@ if(!is_undefined(dk_spawn)) // if not from a spawner
         if(!is_string(_val) 
         &&  _val!=0 )
         {
-            facingDir=_val;
+            facing_dir=_val;
         }
     }
 }
 
 
-facingDir = sign_(facingDir);
+facing_dir = sign_(facing_dir);
 
 
 
 HSPD1 = $10;
-hspd  = (HSPD1*facingDir) &$FF;
+hspd  = (HSPD1*facing_dir) &$FF;
 
 VSPD_GRAV   = 2;
 vspd_grav   = VSPD_GRAV;

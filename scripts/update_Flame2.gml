@@ -88,9 +88,9 @@ else if (collisionProjCS(0,hh_))
         
         if (ver==1) will_slide = !(rand()&$3);
         
-        if (will_slide) facingDir = sign_(xl<g.pc.xl-8);
+        if (will_slide) facing_dir = sign_(xl<g.pc.xl-8);
         
-        if (will_slide) hspd = ($10*facingDir) &$FF;
+        if (will_slide) hspd = ($10*facing_dir) &$FF;
         else            hspd = 0;
         
         
@@ -132,7 +132,7 @@ else if (collisionProjCS(0,hh_))
 // 9C45
 if (state)
 {
-    Projectile_update_3a(false); // Projectile_update_1a(pID != 7);
+    Projectile_update_3a(despawn_offscreen_hor); // Projectile_update_1a(pID != 7);
 }
 
 

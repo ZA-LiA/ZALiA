@@ -58,7 +58,7 @@ if (cs&$3
 || (_C2a && !_C1b)  // is at edge of ground && NOT qualify walk off edge
 ||  _C3a )          // is past edge of room
 {   // 9921
-    facingDir = -facingDir;
+    facing_dir = -facing_dir;
     hspd      = byte_negate(hspd);
     
     // update x twice
@@ -72,8 +72,8 @@ else
     && !timer 
     &&  cs&$4 )
     {   // 98F4
-        facingDir = dir_to_pc(id);
-        hspd      = (8*facingDir) &$FF;
+        facing_dir = dir_to_pc(id);
+        hspd      = (8*facing_dir) &$FF;
         
         timer = $A0; // $A0 = 160 = 2.667s
     }

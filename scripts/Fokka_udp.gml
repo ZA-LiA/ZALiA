@@ -34,7 +34,7 @@ if (behavior)
 {
     var                        _idx1  = 0;
     if (behavior > BVR_ATKH)   _idx1  = 1;
-    if (facingDir == -1)       _idx1 += 2;
+    if (facing_dir == -1)       _idx1 += 2;
     
     var                        _idx2  = 0;
     if!(behavior&$1)           _idx2 += 3;

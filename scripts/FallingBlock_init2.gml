@@ -4,7 +4,7 @@
 GO_init_palidx(global.PI_BGR1);
 LAND_DEPTH = DEPTH_BG1;
 
-facingDir = 1;
+facing_dir = 1;
 
 
 vspd_grav = 2;

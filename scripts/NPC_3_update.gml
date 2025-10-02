@@ -10,7 +10,7 @@ if (NPC_update_1()) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // --------------------------------------------------------------------
-facingDir = hspd_dir_spawn; // MOD. Maintains spawned dir
+facing_dir = hspd_dir_spawn; // MOD. Maintains spawned dir
 
 // 987B: JSR 99B9
 NPC_update_2(); // collision, enter restore house, start dlg

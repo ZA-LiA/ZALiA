@@ -14,12 +14,12 @@ if (behavior  // 1,3. if attacking
         {
             var _YT = yt + ($11*(behavior==BVR_ATK1)); // 1 attack low
             
-            var _P = GOC1_create(xl,_YT, facingDir, projectile,projectile_ver, id);
+            var _P = GOC1_create(xl,_YT, facing_dir, projectile,projectile_ver, id);
             
             if (behavior==BVR_ATK2) _P.vspd = $F0; // attack high
             else                    _P.vspd = rand()&$10;
             
-            _P.facing_dir_spawn = facingDir;
+            _P.facing_dir_spawn = facing_dir;
             _P.isHighAttack     = behavior==BVR_ATK2;
         }
     }

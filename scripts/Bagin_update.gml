@@ -34,7 +34,7 @@ switch(sub_state)
     if (atk_cooldown_timer)
     {   atk_cooldown_timer--;  }
     
-    if(!atk_cooldown_timer) facingDir = dir_to_pc(id);
+    if(!atk_cooldown_timer) facing_dir = dir_to_pc(id);
     
     if(!atk_cooldown_timer 
     // &&  y_off_float == 0 
@@ -64,7 +64,7 @@ switch(sub_state)
         &&  vspd==0   // jump peak
         &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
         {
-            GOC1_create(x-4,yt, facingDir, projectile,projectile_ver);
+            GOC1_create(x-4,yt, facing_dir, projectile,projectile_ver);
         }
     }
     else

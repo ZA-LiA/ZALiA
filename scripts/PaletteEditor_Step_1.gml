@@ -27,7 +27,7 @@ else if (state==state_IDLE)
     
     // Randomize palette right now
     if ((PP && CTL && SHF) 
-    || (Input.GP_Other6_held && Input.GP_Other1_held && Input.GP_Other2_pressed) ) // Hold trigR + B, press Y
+    || (Input.GP_Other6_held && Input.GP_Other1_held && Input.GP_Other2_pressed) ) // hold(TrigR + XBox-B), press(XBox-Y)
     {
         var _i, _pi, _palette;
         _palette = p.pal_rm_curr;
@@ -35,7 +35,8 @@ else if (state==state_IDLE)
         for(_i=0; _i<PalEdit_PAL_COUNT; _i++)
         {
             _pi = val(PalEdit_dm[?STR_Palette+hex_str(_i+1)+STR_Palette+STR_Index]);
-            _palette = strReplaceAt(_palette, get_pal_pos(_pi), global.PAL_CHAR_PER_PAL, get_random_palette1(1,true));
+            _palette = strReplaceAt(_palette, get_pal_pos(_pi), global.PAL_CHAR_PER_PAL, get_random_palette2(-1));
+            //_palette = strReplaceAt(_palette, get_pal_pos(_pi), global.PAL_CHAR_PER_PAL, get_random_palette1(1,true));
         }
         
         change_pal(_palette);

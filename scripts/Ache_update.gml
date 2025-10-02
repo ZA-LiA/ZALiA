@@ -20,18 +20,18 @@ if (ver==2
     if (acheManTimer == ACHEMAN_DUR>>1  // if (acheManTimer == $18)
     &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
     {
-        GOC1_create(xl, yt + 2, facingDir, projectile,projectile_ver);
+        GOC1_create(xl, yt + 2, facing_dir, projectile,projectile_ver);
     }
     
     // DB73
-    facingDir = dir_to_pc(id);
+    facing_dir = dir_to_pc(id);
 }
 else
 {   // --------------------------------------------------------------------
     // if idle.    DB8B
     if(!behavior) 
     {
-        facingDir = dir_to_pc(id);
+        facing_dir = dir_to_pc(id);
         
         // Map Page (rm section)
         var _page_COUNT = cam_x_range()>>8;

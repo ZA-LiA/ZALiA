@@ -43,7 +43,7 @@ if (start_timer)
 // AE7E: JSR B1E9 --------------------------------------------------------
 Boss_update_5(); // check for and set pending death
 behavior  = 0; // for SoundWave
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 //if(!pending_death) Boss_Roar_update();
@@ -64,7 +64,7 @@ if (ver==2
             if (dg_Attack3[#_i,1]) continue;
             
             
-            with(GOC1_create(dg_Attack3[#_i,0]-4,Attack3_Y-8, facingDir, Attack3_PROJECTILE, -1, id))
+            with(GOC1_create(dg_Attack3[#_i,0]-4,Attack3_Y-8, facing_dir, Attack3_PROJECTILE, -1, id))
             {
                 hspd = 0;
                 vspd = 0;
@@ -145,8 +145,8 @@ switch(sub_state)
             }
             
             
-            var _DIST = $0D + (!!facingDir);
-            var _XL   = x + (_DIST*facingDir); // SoundWave x
+            var _DIST = $0D + (!!facing_dir);
+            var _XL   = x + (_DIST*facing_dir); // SoundWave x
                 _XL  -= $04; // SoundWave xl
             //
             
@@ -155,9 +155,9 @@ switch(sub_state)
             {    var _YT = yb-$20;  }
             else var _YT = yb-$10;
             
-            with(GOC1_create(_XL,_YT, facingDir, projectile,projectile_ver, id))
+            with(GOC1_create(_XL,_YT, facing_dir, projectile,projectile_ver, id))
             {
-                if (object_index==SoundWave) counter = 3 + !facingDir;
+                if (object_index==SoundWave) counter = 3 + !facing_dir;
             }
         }
         
@@ -301,7 +301,7 @@ switch(sub_state)
             if (wINwAll(Attack2_xl,8, arena_xl,arena_w) 
             &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
             {
-                with(GOC1_create(Attack2_xl,Attack2_YT, facingDir, Attack2_PROJECTILE, -1, id))
+                with(GOC1_create(Attack2_xl,Attack2_YT, facing_dir, Attack2_PROJECTILE, -1, id))
                 {
                     hspd = 0;
                     vspd = 0;

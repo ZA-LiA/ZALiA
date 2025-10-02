@@ -17,9 +17,9 @@ if(!timer)
     // 98DE
     counter = (counter+1)&$FF;
     
-    if!(counter&$3F) facingDir = dir_to_pc(id);
+    if!(counter&$3F) facing_dir = dir_to_pc(id);
     
-    hspd = (8*facingDir) &$FF;
+    hspd = (8*facing_dir) &$FF;
     updateX();
     
     update_EF11();

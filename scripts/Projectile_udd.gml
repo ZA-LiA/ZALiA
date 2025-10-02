@@ -1,7 +1,7 @@
 /// Projectile_udd()
 
 
-GO_udp_1(); // drawX=x; drawY=y; xScale=facingDir;
+GO_udp_1(); // drawX=x; drawY=y; xScale=facing_dir;
 palidx_base = palidx_def;
 
 if(!is_undefined(  scr_udp))
@@ -35,13 +35,13 @@ if (isProjSprAdjFrame())
         if (rm_pal_qual_lit() 
         ||  is_ancestor_(object_index, Fireball1,Fireball2,Flame1,Flame2) )
         {
-            xScale = facingDir;
+            xScale = facing_dir;
             yScale = 1;
         }
     }
     else
     {   // OG
-        xScale = facingDir;
+        xScale = facing_dir;
         yScale = 1;
     }
 }

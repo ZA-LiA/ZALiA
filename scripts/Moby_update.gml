@@ -14,7 +14,7 @@ if (stun_timer)
 // 9B94: JSR DA02, 9B97
 if (yt >= g.pc.yt)
 {
-    hspd = ($20*facingDir) &$FF;
+    hspd = ($20*facing_dir) &$FF;
     vspd = 0;
 }
 

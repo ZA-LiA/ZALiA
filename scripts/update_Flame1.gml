@@ -37,7 +37,7 @@ if (timer)
     }
     
     // 9940
-    Projectile_update_3a(true); // Projectile_update_1a(!isVal(pID, 6, 8));
+    Projectile_update_3a(despawn_offscreen_hor); // Projectile_update_1a(!isVal(pID, 6, 8));
 }
 else
 {   // 995A

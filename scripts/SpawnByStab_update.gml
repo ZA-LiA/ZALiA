@@ -121,7 +121,7 @@ switch(behavior)
                 hp          = g.dl_HP[|HP_IDX];
                 //hp          = $18;
                 counter   = $11;
-                facingDir = other.facingDir;
+                facing_dir = other.facing_dir;
                 hspd      = other.hspd;
                 stun_timer= 8;
                 cs        = other.cs;
@@ -227,7 +227,7 @@ if (_can_spawn_jar)
     with(spawned_inst)
     {
         hp        = 0;
-        facingDir = 1;
+        facing_dir = 1;
         hspd      = other.hspd;
         stun_timer= $18; // OG: 8
         cs        = other.cs;

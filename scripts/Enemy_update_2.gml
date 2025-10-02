@@ -14,17 +14,17 @@ if!(counter&$3F) // 1st frame of move period
 {
     // Decide hspd for this move period
     var            _C1  = $18;
-    if(!facingDir) _C1 += $10;
+    if(!facing_dir) _C1 += $10;
                    _C1  = wINwAll(x-_C1,$30, 0,cam_x_range());
     //
     if (counter&$80 
     &&  _C1 )
-    {    frwd_bkwd = -facingDir;  } // go backwards
-    else frwd_bkwd =  facingDir;    // go forwards
+    {    frwd_bkwd = -facing_dir;  } // go backwards
+    else frwd_bkwd =  facing_dir;    // go forwards
 }
 
-if (frwd_bkwd) hspd =  ($08*facingDir)&$FF;        // go forwards
-else           hspd = (($10*facingDir)&$FF) ^ $FF; // go backwards
+if (frwd_bkwd) hspd =  ($08*facing_dir)&$FF;        // go forwards
+else           hspd = (($10*facing_dir)&$FF) ^ $FF; // go backwards
 
 
 

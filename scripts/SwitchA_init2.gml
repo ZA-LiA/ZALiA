@@ -10,7 +10,7 @@ SPR_POLE = spr_Switch_part_5a;
 sprite = SPR_HEAD; // for GO_draw_sprite_outline()
 GO_set_sprite_index(SPR_HEAD);
 
-facingDir = 1;
+facing_dir = 1;
 
 
 var           _a = 0;

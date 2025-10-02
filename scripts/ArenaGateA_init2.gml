@@ -1,7 +1,7 @@
 /// ArenaGateA_init2()
 
 
-facingDir = 1;
+facing_dir = 1;
 
 
 GROUND_Y  = (((spawn_y>>8)+1)<<8) - ($3<<3);

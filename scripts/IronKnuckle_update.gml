@@ -38,7 +38,7 @@ if (behavior) // if attacking
         {   // IronKnuckle Blue, RebonackB --------------------
             var _XL = xl;
             var _YT = yt + ($A * (behavior==BVR_ATKL));
-            GOC1_create(_XL,_YT, facingDir, projectile,projectile_ver);
+            GOC1_create(_XL,_YT, facing_dir, projectile,projectile_ver);
             behavior = 0;
         }
         else
@@ -175,7 +175,7 @@ switch(g.mod_IronKnuckle_AggroAI)
     if (abilities&ABL_SHOT) _ATTACK_DIST = $60; // IronKnuckleBlue, RebonackB
     
     var _IN_DIST_Y      = inRange(yt-g.pc.yt, _MIN,_MAX);
-    var _IN_DIST_ATTACK = byte(goDist1() + _ATTACK_DIST + !facingDir) < byte(_ATTACK_DIST<<1);
+    var _IN_DIST_ATTACK = byte(goDist1() + _ATTACK_DIST + !facing_dir) < byte(_ATTACK_DIST<<1);
     
     var _QUAL_ATTACK    = _IN_DIST_Y && _IN_DIST_ATTACK;
     
@@ -208,7 +208,7 @@ switch(g.mod_IronKnuckle_AggroAI)
     var _IN_DIST_X1      = wINw(x,1,g.view_xl_og,VIEW_W_OG);
     var _IN_DIST_Y       = inRange(yt-g.pc.yt, _MIN,_MAX);
     var _IN_DIST_ATTACK  = abs(x-g.pc.x) <= _ATTACK_DIST;
-    var _IN_DIST_ATTACK_OG = byte(goDist1() + _ATTACK_DIST + !facingDir) < byte(_ATTACK_DIST<<1);
+    var _IN_DIST_ATTACK_OG = byte(goDist1() + _ATTACK_DIST + !facing_dir) < byte(_ATTACK_DIST<<1);
     
     var _QUAL_ATTACK     = _IN_DIST_Y && _IN_DIST_ATTACK && (_C1 || _REBO);
     
@@ -244,7 +244,7 @@ switch(g.mod_IronKnuckle_AggroAI)
     var _IN_DIST_X1        = wINw(x,1,g.view_xl_og,VIEW_W_OG);
     var _IN_DIST_Y         = inRange(yt-g.pc.yt, _MIN,_MAX);
     var _IN_DIST_ATTACK    = abs(x-g.pc.x) <= _ATTACK_DIST;
-    var _IN_DIST_ATTACK_OG = byte(goDist1() + _ATTACK_DIST + !facingDir) < byte(_ATTACK_DIST<<1);
+    var _IN_DIST_ATTACK_OG = byte(goDist1() + _ATTACK_DIST + !facing_dir) < byte(_ATTACK_DIST<<1);
     
     var _QUAL_ATTACK     = _IN_DIST_Y && _IN_DIST_ATTACK;
     
@@ -286,8 +286,8 @@ if (_QUAL_AGGRO
     
     
     // 9D7B. ----------------------------------------------------------
-    facingDir = dir_to_pc(id);
-    hspd = (HSPD_CHASE*facingDir) &$FF;
+    facing_dir = dir_to_pc(id);
+    hspd = (HSPD_CHASE*facing_dir) &$FF;
     
     is_aggro = is_aggro || _QUAL_AGGRO;
     
@@ -374,13 +374,13 @@ if (_QUAL_AGGRO
 else
 {   // 9DEE
     if (counter&$1) hspd = 0;
-    else            hspd = (HSPD_PACE*facingDir) &$FF;
+    else            hspd = (HSPD_PACE*facing_dir) &$FF;
     
     
     if(!timer)
     {   // 9E0F
         timer = DUR_PACE; // $50
-        if (counter&$1) facingDir = -facingDir;
+        if (counter&$1) facing_dir = -facing_dir;
         counter = (counter+1)&$FF;
     }
 }
@@ -430,7 +430,7 @@ if (behavior) // if attacking
             // IronKnuckle Blue, RebonackB --------------------
             var _x = xx;
             var _y = yy + (10 * (behavior == BVR_ATKL));
-            Projectile_create(_x, _y, facingDir, projectile);
+            Projectile_create(_x, _y, facing_dir, projectile);
             behavior = 0;
         }
         else
@@ -564,9 +564,9 @@ if (inRange(yy - g.pc.yy, 0, 41))
     
     
     // 9D7B
-    facingDir = dir_to_pc(id);
+    facing_dir = dir_to_pc(id);
     
-    hspd = byte(HSPD_CHASE * facingDir);
+    hspd = byte(HSPD_CHASE * facing_dir);
     
     
     
@@ -574,7 +574,7 @@ if (inRange(yy - g.pc.yy, 0, 41))
     // 9D84 
     var                       _ATTACK_DIST = $1C;
     if (abilities & ABL_SHOT) _ATTACK_DIST = $60; // IronKnuckleBlue, RebonackB
-    if (byte(goDist1() + _ATTACK_DIST + !facingDir) < byte(_ATTACK_DIST <<1))
+    if (byte(goDist1() + _ATTACK_DIST + !facing_dir) < byte(_ATTACK_DIST <<1))
     {
         
         // 9D91. ---------- SET hspd ------------------
@@ -624,7 +624,7 @@ else
 {
     // 9DEE
     if (counter & 1) hspd = 0;
-    else             hspd = byte(HSPD_PACE * facingDir);
+    else             hspd = byte(HSPD_PACE * facing_dir);
     
     
     if (!timer)
@@ -632,7 +632,7 @@ else
         // 9E0F
         timer = DUR_PACE; // $50
         
-        if (counter & 1) facingDir = -facingDir;
+        if (counter & 1) facing_dir = -facing_dir;
         
         counter = byte(counter+1);
     }

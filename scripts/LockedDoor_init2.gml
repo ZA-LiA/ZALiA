@@ -11,7 +11,7 @@ SPR_1B = spr_Locked_Door_2a;    // Mid, NO key hole
 SPR_2A = spr_Locked_Door1A;     // Top & Btm
 SPR_3A = spr_Locked_Door_2b;    // Switch
 
-facingDir = 1;
+facing_dir = 1;
 
 
 YOFF        = $10;

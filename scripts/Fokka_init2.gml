@@ -97,7 +97,7 @@ Arm_xoff = dg_Arm_XOFF[#0,0];
 
 
 // ---------------------------------------------------
-facingDir = xScale;
+facing_dir = xScale;
 
 
 abilities |= ABL_WALK;
@@ -119,7 +119,7 @@ update_shield_hb();
 // sword hb
 SwordHB_XOFF =  8 + g.HB_ADJ_X; // 
 SwordHB_YOFF = 16 + g.HB_ADJ_Y; // 
-SwordHB_xoff = SwordHB_XOFF * facingDir;
+SwordHB_xoff = SwordHB_XOFF * facing_dir;
 SwordHB_yoff = SwordHB_YOFF;
 SwordHB_W    = 14 + g.HB_ADJ_W; // 
 SwordHB_H    =  1 + g.HB_ADJ_H; // 

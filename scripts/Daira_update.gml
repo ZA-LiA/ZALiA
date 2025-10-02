@@ -37,7 +37,7 @@ if (behavior
             if (inRange(x, g.view_xl_og,g.view_xr_og) 
             ||  abs(x-g.pc.x) < attack_dist )
             {
-                GOC1_create(xl,yt, facingDir, projectile,projectile_ver);
+                GOC1_create(xl,yt, facing_dir, projectile,projectile_ver);
             }
         }
     }

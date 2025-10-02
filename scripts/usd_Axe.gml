@@ -19,5 +19,5 @@ else
     yScale = -1;
 }
 
-xScale *= facingDir; // If facing left, xScale need to flip
+xScale *= facing_dir; // If facing left, xScale need to flip
 

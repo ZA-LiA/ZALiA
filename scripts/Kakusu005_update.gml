@@ -83,7 +83,7 @@ switch(sub_state)
     
     
     
-    facingDir = sign_(x<g.rm_w_);
+    facing_dir = sign_(x<g.rm_w_);
     
     aud_play_sound(SND_REVEAL);
     sub_state = SUB_STATE_ACTV;

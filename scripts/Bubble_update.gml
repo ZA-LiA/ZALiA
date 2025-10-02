@@ -187,7 +187,7 @@ if (ver & VER_BIT_STAB
             else hspd = -abs8b(hspd) &$FF;
             
             hspd_dir  = byte_dir(hspd);
-            facingDir = hspd_dir;
+            facing_dir = hspd_dir;
             
             updateX();
         }
@@ -214,7 +214,7 @@ if (_OCS
 {   // 9A07
     hspd        = byte_negate(hspd);
     hspd_dir    = byte_dir(   hspd);
-    facingDir   = hspd_dir;
+    facing_dir   = hspd_dir;
     updateX();
 }
 

@@ -17,7 +17,7 @@ if(!hp
 var _carry = 0;
 if(!behavior) // 0: HIDING
 {
-    facingDir = dir_to_pc( id);
+    facing_dir = dir_to_pc( id);
     _carry    = DC91_carry(id);
 }
 

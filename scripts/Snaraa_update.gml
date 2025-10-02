@@ -42,7 +42,7 @@ switch(sub_state)
     if (timer) break;
     
     hspd = (HSPD_MIN * bit_dir(path_dir&$3)) &$FF;
-    // if (facingDir) path_dir = $1; // 1: RGT
+    // if (facing_dir) path_dir = $1; // 1: RGT
     // else           path_dir = $2; // 2: LFT
     
     timer = $10; // Delay mouth open full.
@@ -94,7 +94,7 @@ switch(sub_state)
     
     var _DIR  = bit_dir(path_dir&$3);
     var _dist_remain = Snaraa_update_3();
-    var _dist_target = ($04<<3) * (facingDir==_DIR); // num or 0
+    var _dist_target = ($04<<3) * (facing_dir==_DIR); // num or 0
     
     
     var _MIN  = 4;
@@ -109,7 +109,7 @@ switch(sub_state)
     
     if (_dist_remain <= _dist_target)
     {
-        facingDir = -_DIR;
+        facing_dir = -_DIR;
         
         if(!_dist_target)
         {

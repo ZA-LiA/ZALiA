@@ -25,7 +25,7 @@ with(enemy_spawn_2(MoblB,1))
     HP_IDX = $02; // g.dl_HP_DEFAULT[|$02] = $02
     hp     = g.dl_HP[|HP_IDX];
     
-    hspd = ($10*facingDir) &$FF;
+    hspd = ($10*facing_dir) &$FF;
     set_xy(id, x, viewYT()+$A8);
 }
 

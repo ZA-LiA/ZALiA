@@ -22,7 +22,7 @@ with(GameObject_create(_XL,yt, Boggnipp,1, -1, palidx))
 {
     is_from_spawner = true;
     sub_state = sub_state_CHARGE;
-    facingDir = _DIR;
+    facing_dir = _DIR;
     
     
     if (instance_exists(PlatformRaft) 
@@ -31,8 +31,8 @@ with(GameObject_create(_XL,yt, Boggnipp,1, -1, palidx))
     &&  viewXL()>0 
     &&  viewXR()<g.rm_w )
     {
-        if (facingDir==PlatformRaft.hspd_dir)
-        {   set_xy(id, PlatformRaft.x + ($80*-facingDir), y);  }
+        if (facing_dir==PlatformRaft.hspd_dir)
+        {   set_xy(id, PlatformRaft.x + ($80*-facing_dir), y);  }
     }
 }
 

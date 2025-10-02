@@ -89,14 +89,14 @@ Rider_yoff   = 0;
 var          _DIST = ($05<<3) * sign_(arena_w==PAGE_W);
              _DIST = (arena_w>>1) + _DIST;
 Boss_init_2b(_DIST); // Determine & set the side of the arena to start on.
-facingDir = -sign_(x-arena_x);
+facing_dir = -sign_(x-arena_x);
 
 
 set_xy(id, x,y-2); // MOD: Rebonack seems a little low and is drawing behind fg floor.
 
 
 // target_side: for ver 2
-target_side = facingDir;
+target_side = facing_dir;
 
 
 /* Body HB data --------------------------------------

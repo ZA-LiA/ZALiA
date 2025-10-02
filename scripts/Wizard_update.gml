@@ -4,7 +4,7 @@
 // AE4F
 behavior = 0; // SoundWave checks this
 
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 counter = (counter-1)&$FF;
 
@@ -27,13 +27,13 @@ if (counter == $B0
 &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
 {
     var            _XX = xl +  $D;
-    if(!facingDir) _XX = xl + -$6;
+    if(!facing_dir) _XX = xl + -$6;
     var            _YY = yt + $10;
     
     
-    with(GOC1_create(_XX,_YY, facingDir, projectile,projectile_ver, id))
+    with(GOC1_create(_XX,_YY, facing_dir, projectile,projectile_ver, id))
     {
-        counter = 1 + !facingDir; // 1,2
+        counter = 1 + !facing_dir; // 1,2
     }
 }
 

@@ -13,7 +13,7 @@ if (is_ancestor(object_index, Rock1)
 else                    draw_yoff =  0;
 
 
-xScale = facingDir;
+xScale = facing_dir;
 
 if (g.counter1&$4 && state==state_NORMAL) yScale = -1;
 else                                      yScale =  1;

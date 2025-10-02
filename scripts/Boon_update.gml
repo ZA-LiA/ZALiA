@@ -7,7 +7,7 @@ if ((yt&$FF) < $80
 && !(g.counter1&$1F) 
 &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
 {
-    with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver))
+    with(GOC1_create(xl,yt, facing_dir, projectile,projectile_ver))
     {
         hspd = 0;
         vspd = 0;
@@ -15,7 +15,7 @@ if ((yt&$FF) < $80
 }
 
 
-facingDir = byte_dir(hspd);
+facing_dir = byte_dir(hspd);
 
 
 
@@ -31,7 +31,7 @@ if (stun_timer)
 GOB_update_2();
 if (cs&CS_BD1) enemy_collide_pc_body();
 
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 // -------------------------------------------------------------------------------

@@ -18,7 +18,7 @@ if (NPC_update_1()) // if in dialogue with this instance
 update_EF11();
 
 // 97AF,   97B3: DC91
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 // 97B6, 97CA, 97CD: JMP 9A33
 // --- Auto dialogue Spell Giver, Skill Knight ---

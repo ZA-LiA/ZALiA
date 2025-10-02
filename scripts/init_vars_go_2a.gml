@@ -37,9 +37,9 @@ view_xl_dist    = 0; // cam_x:  x  - viewXL()
 view_yt_dist_og = 0; // cam_yt: yt - viewYT()
 view_yt_dist    = 0; // cam_y:  y  - viewYT()
 
-facingDir = 1; // 1: right, -1: left. 0060[eIndex]. 005F-0065, 0066-006F
-behavior  = 0; // mostly 0080, 0081[eIndex]
-counter   = 0; // mostly: 00AF[eIndex], 044C[pIndex]
+facing_dir = 1; // 1: right, -1: left. 0060[eIndex]. 005F-0065, 0066-006F
+behavior   = 0; // mostly 0080, 0081[eIndex]
+counter    = 0; // mostly: 00AF[eIndex], 044C[pIndex]
 
 dialogue_datakey = "";
 dialogue_ver = "A";

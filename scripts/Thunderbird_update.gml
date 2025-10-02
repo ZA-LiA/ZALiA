@@ -77,7 +77,7 @@ var _TIMING = $1F>>(hp<hp_CUE1); // $1F or $0F. Fireball spawn rate
 if(!(g.counter1&_TIMING) 
 &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
 {   // A40B: JSR DBCE.                     Fireball2, ver 2
-    with(GOC1_create(xl+$C, yt, facingDir, projectile,projectile_ver))
+    with(GOC1_create(xl+$C, yt, facing_dir, projectile,projectile_ver))
     {
         // _data = "02040810FEFCF8F0"; // 02,04,08,10  FE,FC,F8,F0
                                   hspd = $2 <<(g.dl_RandomOG[|2]&$3);
@@ -112,8 +112,8 @@ if!(g.counter1&$3)
 // A45D
 if!(g.counter1&$1F)
 {   // A463: JSR DC91
-    facingDir = dir_to_pc(id);
-    hspd      = ($10*facingDir) &$FF;
+    facing_dir = dir_to_pc(id);
+    hspd      = ($10*facing_dir) &$FF;
 }
 
 

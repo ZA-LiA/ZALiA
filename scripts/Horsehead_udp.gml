@@ -21,7 +21,7 @@ if(!pending_death
 else
 {
     Head_xoff   = 0;
-    Head_xscale = facingDir;
+    Head_xscale = facing_dir;
 }
 
 
@@ -32,8 +32,8 @@ if (attack_state)
 {
     switch(attack_state){
     default:                     {Arm_xoff =   0; break;}
-    case   attack_state_DRAWBACK:{Arm_xoff = -16 * facingDir; break;}
-    case   attack_state_SWING:   {Arm_xoff =  16 * facingDir; break;}
+    case   attack_state_DRAWBACK:{Arm_xoff = -16 * facing_dir; break;}
+    case   attack_state_SWING:   {Arm_xoff =  16 * facing_dir; break;}
     }
 }
 

@@ -125,15 +125,15 @@ else // BD24. All bounces complete
         
         if(!g.counter1)
         {
-            facingDir = dir_to_pc(id);
-            hspd = ($06*facingDir) &$FF;
+            facing_dir = dir_to_pc(id);
+            hspd = ($06*facing_dir) &$FF;
         }
         
         // BD66
         control = (control+1) &$FF;
         
         if(!(control&$7F) 
-        &&  facingDir==dir_to_pc(id) 
+        &&  facing_dir==dir_to_pc(id) 
         &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
         {   // BD6F: JSR 9BE5: JSR DBCE
             var           _idx  = goDist1();
@@ -142,7 +142,7 @@ else // BD24. All bounces complete
             //
             if (_idx<8)
             {   // Create Bullet1, pID $10
-                with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, global.PI_MOB_BLU))
+                with(GOC1_create(xl,yt, facing_dir, projectile,projectile_ver, id, global.PI_MOB_BLU))
                 {
                     //  $16 14 13 11 0F 0E 0D 0B
                     // "161413110F0E0D0B"; // 9BD5-9BDC
@@ -151,7 +151,7 @@ else // BD24. All bounces complete
                     //  $06 0A 0D 0F 11 12 13 13
                     // "060A0D0F11121313"; // 9BCD-9BD4
                     hspd = str_hex("060A0D0F11121313", _idx);
-                    if (!facingDir) hspd ^= $FF;
+                    if (!facing_dir) hspd ^= $FF;
                     
                     
                     var _y1 = g.view_yt_og-8; // OG 0y
@@ -175,7 +175,7 @@ else // BD24. All bounces complete
 
 
 if (hspd) hspd_dir = sign_(hspd<$80);
-//else      hspd_dir = facingDir;
+//else      hspd_dir = facing_dir;
 if (vspd) vspd_dir = sign_(vspd<$80);
 
 

@@ -21,8 +21,8 @@ switch(sub_state)
     case SUB_STATE_CMPL1:{
     if ( sub_state_timer) break;
     
-    facingDir = dir_to_pc_(id);
-    hspd = (hspd_jump*facingDir) &$FF;
+    facing_dir = dir_to_pc_(id);
+    hspd = (hspd_jump*facing_dir) &$FF;
     vspd = VSPD_REVEAL; // Jump!
     ogr  = OGR_JUMP;
     

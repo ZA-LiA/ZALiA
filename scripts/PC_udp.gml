@@ -181,14 +181,14 @@ with(Boss)
     if (state==state_EXPLODE 
     &&  timer<g.BOSS_DEATH_FLASH_CUE )
     {
-        facingDir = dir_to_pc_(id);
+        facing_dir = dir_to_pc_(id);
         
         // Blink the shadow to emulate the OG blinking 
         // effect the happens due to NES limitations.
         //other.Shadow_can_draw = rand()  &$3 != $3; // testing
         //other.Shadow_can_draw = g.timer0&$3 != $3; // testing
         other.Shadow_can_draw = other.can_draw_self && g.counter1&$1;
-        other.Shadow_xoff *= facingDir;
+        other.Shadow_xoff *= facing_dir;
         
         break;//with(Boss)
     }

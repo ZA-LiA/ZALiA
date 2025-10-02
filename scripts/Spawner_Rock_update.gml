@@ -38,7 +38,7 @@ with(GOC1_create(_XL,_YT, _DIR, projectile,projectile_ver)) // Rock1
 {
     is_from_spawner = true;
     GO_depth_init(g.dl_TILE_DEPTHS[|(ds_list_size(g.dl_TILE_DEPTHS))-1] - 1); // Set in front of water & fg terrain
-    hspd = ($10*facingDir) &$FF;
+    hspd = ($10*facing_dir) &$FF;
 }
 
 

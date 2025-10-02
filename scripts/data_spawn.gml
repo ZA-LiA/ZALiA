@@ -448,7 +448,6 @@ for(_i=_arg; _i<argument_count; _i++)
     }
     
     
-    
     _datakey = STR_Speed;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
@@ -459,7 +458,6 @@ for(_i=_arg; _i<argument_count; _i++)
         g.dm_spawn[?_SPAWN_DATAKEY+_datakey] = _val1;
         continue;//_i
     }
-    
     
     
     _datakey = STR_Duration;
@@ -474,8 +472,21 @@ for(_i=_arg; _i<argument_count; _i++)
     }
     
     
-    
     _datakey = STR_Distance;
+    if (is_string(          _val) 
+    &&  string_pos(_datakey,_val) )
+    {
+        _len  = string_length(_datakey);
+        _val1 = string_copy(_val, _len+1, string_length(_val)-_len);
+        _val1 = str_hex(_val1);
+        g.dm_spawn[?_SPAWN_DATAKEY+_datakey] = _val1;
+        continue;//_i
+    }
+    
+    
+    
+    
+    _datakey = STR_Timing;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
     {

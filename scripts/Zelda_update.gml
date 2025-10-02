@@ -39,7 +39,7 @@ if (ver==2) // 2nd Quest Zelda
     // 9796: JSR 9A8D: JSR EF11
     update_EF11();
     
-    if!(g.counter1&$3F) facingDir = dir_to_pc_(id);
+    if!(g.counter1&$3F) facing_dir = dir_to_pc_(id);
     counter = 0; // Just in case. Necessary for dlg
     
     NPC_update_2(); // collision, enter restore house, start dlg

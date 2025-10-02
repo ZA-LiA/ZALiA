@@ -43,7 +43,7 @@ GO_update_cs();
 
 if!(cs&$3) updateX();
 
-if!(g.counter1&$3F) facingDir = dir_to_pc(id);
+if!(g.counter1&$3F) facing_dir = dir_to_pc(id);
 
 
 counter = (counter+1)&$FF;
@@ -60,7 +60,7 @@ if (tmr_tail_forward == DUR_TAIL_FORWARD-8
 &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
 {
     // 9AFE.  Fireball1 pID $19
-    GOC1_create(xl,yt, facingDir, projectile,projectile_ver);
+    GOC1_create(xl,yt, facing_dir, projectile,projectile_ver);
 }
 
 

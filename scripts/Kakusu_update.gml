@@ -46,8 +46,8 @@ if (abilities&ABL_JUMP
 &&  cs&$4 
 && !(_RAND & (jump_chance-1)) ) // JUMP_CHANCE1=$80, JUMP_CHANCE2=$40
 {
-    facingDir = dir_to_pc_(id);
-    hspd = byte(hspd_jump*facingDir);
+    facing_dir = dir_to_pc_(id);
+    hspd = byte(hspd_jump*facing_dir);
     vspd = byte(vspd_jump + ((_RAND<$10)<<4)); // Jump!
     //sdm("xl $"+hex_str(xl)+", yt $"+hex_str(yt)+", cs $"+hex_str(cs)+", ogr "+string(ogr)+", _RAND $"+hex_str(_RAND));
     ogr = OGR_JUMP;

@@ -80,7 +80,7 @@ if (attack_state
 var _DIR = dir_to_pc(id);
 
 
-if!(g.counter1&$1F) facingDir = _DIR;
+if!(g.counter1&$1F) facing_dir = _DIR;
 
 // B4D6. if (counter&$7F){hspd = +-8, updates counter}
 if(!Boss_update_3b(_DIR)) hspd = 0;
@@ -124,9 +124,9 @@ if (g.mod_Gooma_Projectile_1
             var _XL = Weapon_Ball_x-$4;
             var _YT = Weapon_Ball_y-$C;
             // Flame2
-            with(GOC1_create(_XL,_YT, facingDir, projectile,projectile_ver, id, global.PI_MOB_ORG))
+            with(GOC1_create(_XL,_YT, facing_dir, projectile,projectile_ver, id, global.PI_MOB_ORG))
             {
-                hspd = ($20*facingDir) &$FF;
+                hspd = ($20*facing_dir) &$FF;
                 vspd = $FF;
             }
             
@@ -170,8 +170,8 @@ if (g.mod_Gooma_Projectile_1
         {
             var _DIRX  = sign_(inRange((timer>>1)&$7, 3,6));
             var _DIRY  = sign_(inRange((timer>>1)&$7, 1,4));
-                _DIRX *= facingDir;
-                _DIRY *= facingDir;
+                _DIRX *= facing_dir;
+                _DIRY *= facing_dir;
             //
             var _XL = Weapon_Ball_x-4;
             var _YT = Weapon_Ball_y-8;

@@ -7,7 +7,7 @@ if (counter) counter--;
 if(!counter 
 ||  counter&$80 )
 {   // AD17
-    facingDir = -facingDir;
+    facing_dir = -facing_dir;
     hspd      = byte_negate(hspd);
     counter   = $80;
     
@@ -21,7 +21,7 @@ if(!counter
 }
 
 // ADB4, ADBF
-Projectile_update_3a(true); // Projectile_update_1a(pID != 8);
+Projectile_update_3a(despawn_offscreen_hor); // Projectile_update_1a(pID != 8);
 
 
 

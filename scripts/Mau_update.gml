@@ -16,7 +16,7 @@ if(!(counter&$3F)    // every 64 frames. 1.067s
 &&  is_facing_pc(id) 
 &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
 {   // Bullet1
-    GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, global.PI_MOB_BLU);
+    GOC1_create(xl,yt, facing_dir, projectile,projectile_ver, id, global.PI_MOB_BLU);
 }
 
 
@@ -50,16 +50,16 @@ else               // For 0.533s.   $00-1F, $40-5F, $80-9F, $C0-DF
 
 
 if (ver==2 
-// &&  byte_dir(hspd)==g.pc.facingDir )
-&&  facingDir==g.pc.facingDir )
+// &&  byte_dir(hspd)==g.pc.facing_dir )
+&&  facing_dir==g.pc.facing_dir )
 {
     var _DIST  = abs(g.pc.x-x);
     if (_DIST >= MIN_DIST) // FLIP_DIST = $18;
     {
-        facingDir = -g.pc.facingDir;
-        hspd = (abs8b(hspd)*facingDir) &$FF;
+        facing_dir = -g.pc.facing_dir;
+        hspd = (abs8b(hspd)*facing_dir) &$FF;
         
-        var _X = g.pc.x + (_DIST * g.pc.facingDir);
+        var _X = g.pc.x + (_DIST * g.pc.facing_dir);
         //var _X = g.pc.x + (g.pc.x - x);
         set_xy(id, _X,y);
     }

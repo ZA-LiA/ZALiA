@@ -54,9 +54,9 @@ switch(sub_state)
     {
         set_xy(id, x, (y>>3)<<3);
         
-        facingDir = dir_to_pc(id);
+        facing_dir = dir_to_pc(id);
         
-        hspd = byte(hspd_jump * facingDir);
+        hspd = byte(hspd_jump * facing_dir);
         vspd = VSPD_BOUNCE;
         
         

@@ -12,6 +12,7 @@ var _hue, _sat, _lum, _color_hgh, _color_mid, _color_shd, _low, _mid, _high, _mi
 
 
 // MID-TONE -----------------------------------------------------
+// ---------------------------------------------------------------------------------
 _hue  = _base_hue;
 
 if (argument[0]==-2)
@@ -63,6 +64,7 @@ case global.C_ALPHA0:{_color_mid=global.dl_COLOR01[|($D*p.ColorGrid_CLMS)+$05]; 
 
 
 // HIGHLIGHT -----------------------------------------------------
+// ---------------------------------------------------------------------------------
 _hue  = _base_hue + $100;
 _hue += irandom($1F) * choose(1,-1);
 _hue  = _hue mod $100;
@@ -101,6 +103,7 @@ case global.C_ALPHA0:{_color_hgh=global.dl_COLOR01[|($D*p.ColorGrid_CLMS)+$07]; 
 
 
 // SHADE -----------------------------------------------------
+// ---------------------------------------------------------------------------------
 _hue  = _base_hue + $100;
 _hue += irandom($1F) * choose(1,-1);
 _hue  = _hue mod $100;

@@ -32,11 +32,11 @@ if (cs&CS_BD1) enemy_collide_pc_body();
 
 var _HSPD = hspd;
 
-facingDir  = dir_to_pc(id);
+facing_dir  = dir_to_pc(id);
 if (1)
 {
     hspd += g.pc.hspd + DC91_carry(id);
-    hspd  = hspd + ((8*facingDir)&$FF) + (hspd>$FF);
+    hspd  = hspd + ((8*facing_dir)&$FF) + (hspd>$FF);
     hspd &= $FF;
 }
 else
@@ -45,13 +45,13 @@ else
     hspd  += g.pc.hspd + _carry;
     _carry = hspd > $FF;
     hspd  &= $FF;
-    hspd   = hspd + ((8*facingDir)&$FF) + _carry;
+    hspd   = hspd + ((8*facing_dir)&$FF) + _carry;
     hspd  &= $FF;
 }
 updateX();
 
 hspd      = _HSPD;
-facingDir = hspd_dir;
+facing_dir = hspd_dir;
 
 
 
@@ -61,7 +61,7 @@ if(!counter)
     if(!timer)
     {
         counter = 1;
-        hspd_impel_dir = facingDir;
+        hspd_impel_dir = facing_dir;
         
         var _DIST = yt - g.view_yt_og;
         

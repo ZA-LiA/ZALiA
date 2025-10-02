@@ -48,8 +48,8 @@ if (behavior)
         Arm_yoff   = -8 + (behavior==2);
     }
     
-    armXScale *= facingDir;
-    Arm_xoff  *= facingDir;
+    armXScale *= facing_dir;
+    Arm_xoff  *= facing_dir;
     
     if (behavior<3) Arm_sprite = spr_Daira_Arm;
     else            Arm_sprite = spr_Axe2;

@@ -293,10 +293,10 @@ else
         if (down_held) ShieldHB_idx = ShieldHB_IDX_LOW;
         else           ShieldHB_idx = ShieldHB_IDX_HGH;
         
-        var _DIR = facingDir;
-        facingDir = xScale;
+        var _DIR = facing_dir;
+        facing_dir = xScale;
         GOB_update_shield_offsets();
-        facingDir = _DIR;
+        facing_dir = _DIR;
         
         if (xScale) ShieldHB_yoff += x+$08  >=  viewXR();                // very unlikely
         else        ShieldHB_yoff += x      !=  viewXL();                // very   likely

@@ -390,7 +390,7 @@ switch(sub_state)
             _y  = Skull_y + (irandom($B)*sign_(irandom(1)));
             _x -= 8; // xl
             _y -= 7; // yt
-            GOC1_create(_x,_y, facingDir, BossExplosion,1, id);
+            GOC1_create(_x,_y, facing_dir, BossExplosion,1, id);
         }
         
         if (Explosion_timer>EXPLOSION_DUR1-$28)
@@ -401,7 +401,7 @@ switch(sub_state)
             _y  = y + (irandom(hh_-1)*sign_(irandom(1)));
             _x -= 8; // xl
             _y -= 7; // yt
-            GOC1_create(_x,_y, facingDir, BossExplosion,1, id);
+            GOC1_create(_x,_y, facing_dir, BossExplosion,1, id);
         }
     }
     

@@ -47,7 +47,7 @@ if(!pending_death
         
         var            _idx  = timer>>1;
                        _idx &= $7;
-        if (facingDir) _idx ^= $7;
+        if (facing_dir) _idx ^= $7;
         
         //  04 FC F8 FC   04 0C 10 0C
         var _data = "04FCF8FC" + "040C100C";
@@ -71,7 +71,7 @@ if(!pending_death
             var _DATA  = "24"+"28"+"2C"+"30"  +  "34"+"38"+"2C"+"20"; //  24 28 2C 30 34 38 2C 20
                 _DATA += "E4"+"E0"+"DC"+"D8"  +  "D4"+"D0"+"DC"+"E8"; //  E4 E0 DC D8 D4 D0 DC E8
             
-            var _DIFF  = str_hex(_DATA, ((g.counter1>>1)&$7) + ((!facingDir)<<3));
+            var _DIFF  = str_hex(_DATA, ((g.counter1>>1)&$7) + ((!facing_dir)<<3));
                 _DIFF -= ((_DIFF&$80)<<1);
             //
             if (xl+_DIFF >= viewXL() 
@@ -84,7 +84,7 @@ if(!pending_death
                 SwordHB_yoff = 18;
                 
                 var            _XOFF =  16;
-                if (facingDir) _XOFF = -24;
+                if (facing_dir) _XOFF = -24;
                 
                 Weapon_Chain_x  = xl + SwordHB_xoff + _XOFF;
                 Weapon_Chain_x += (g.counter1&$1)<<3;

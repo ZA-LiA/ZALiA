@@ -207,7 +207,7 @@ switch(g.cutscene_part)
             if (g.cutscene_timer == _CUE)
             {
                 set_xy(id, g.pc.x, GROUND_Y-hh_);
-                facingDir = -1;
+                facing_dir = -1;
                 vspd      = $FC;
                 hspd      = $13;
                 ogr       = OGR_OTHR;

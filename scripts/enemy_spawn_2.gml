@@ -42,7 +42,7 @@ with(GameObject_create(_X,_Y, _OBJ,_VER))
     //hp          = $03;
     hspd = $00;
     vspd = $20;
-    facingDir = dir_to_pc(id);
+    facing_dir = dir_to_pc(id);
     
     return id;
 }

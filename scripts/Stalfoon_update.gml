@@ -20,8 +20,8 @@ GO_update_cs();
 // DE40
 GOB_update_2();
 
-facingDir = dir_to_pc(id);
-//if !(g.timer0&$3F) facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
+//if !(g.timer0&$3F) facing_dir = dir_to_pc(id);
 
 
 
@@ -80,8 +80,8 @@ if ((_c1 | _c2)
     is_aggro = true;
     
     var _dist = abs(x - g.pc.x);
-        _c1   =  _dist <  $50 && g.pc.hspd_dir != facingDir;  // back away from pc
-        _c2   = (_dist >= $58 && g.pc.hspd_dir == facingDir); // move torward   pc
+        _c1   =  _dist <  $50 && g.pc.hspd_dir != facing_dir;  // back away from pc
+        _c2   = (_dist >= $58 && g.pc.hspd_dir == facing_dir); // move torward   pc
     
     if (is_facing_pc_(id))
     {
@@ -137,11 +137,11 @@ if ((_c1 | _c2)
         // if facing pc & pc facing away(like Mario Boo behavior)
         if (_dist >= DIST_ATK - 8 
         &&  is_facing_pc_(id) 
-        &&  g.pc.hspd_dir == facingDir         // pc facing away from enemy
+        &&  g.pc.hspd_dir == facing_dir         // pc facing away from enemy
         &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
         {
             // Create Bullet1, pID $10. PI_MOB3: blue
-            GOC1_create(xl,yt, facingDir, projectile,projectile_ver, id, global.PI_MOB_BLU); // 
+            GOC1_create(xl,yt, facing_dir, projectile,projectile_ver, id, global.PI_MOB_BLU); // 
             if (counter < $80) counter = $80 + $20; // 2nd Bullet fires on $C0
             else               counter = 0;         // After 2nd Bullet
         }
@@ -166,13 +166,13 @@ else
     // 0: moving, 1: still, waiting to turn around
     if!(counter & 1) 
     {
-        hspd = byte(HSPD_PACE * facingDir);
-        hspd_impel = facingDir;
+        hspd = byte(HSPD_PACE * facing_dir);
+        hspd_impel = facing_dir;
     }
     
     if(!timer)
     {
-        if (counter & 1) facingDir *= -1; // turn around
+        if (counter & 1) facing_dir *= -1; // turn around
         timer = DUR_PACE; // $50(80): about 1.33 sec
         counter = byte(counter + 1);
     }

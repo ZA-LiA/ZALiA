@@ -10,7 +10,7 @@ else                         sprite = spr_Guma1;
 if (timer)
 {
     arm     = spr_Guma_arm;
-    Arm_xoff = 4 * -facingDir;
+    Arm_xoff = 4 * -facing_dir;
 }
 
 

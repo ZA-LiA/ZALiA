@@ -15,7 +15,7 @@ if (stun_timer)
 // ---------------------------------------------------------------------------
 
 // D845: JSR DC91 (still)
-if!(abilities&ABL_WALK) facingDir = dir_to_pc(id);
+if!(abilities&ABL_WALK) facing_dir = dir_to_pc(id);
 
 
 // D88B: JSR D848 (moving)
@@ -59,7 +59,7 @@ else
         &&  is_facing_pc(id) 
         &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
         {
-            GOC1_create(xl,yt, facingDir, projectile,projectile_ver);
+            GOC1_create(xl,yt, facing_dir, projectile,projectile_ver);
         }
     }
 }
@@ -74,7 +74,7 @@ if (abilities&ABL_WALK) // v2
 {   // D88E
     if (cs&$3)
     {
-        facingDir = -facingDir;
+        facing_dir = -facing_dir;
         hspd      = byte_negate(hspd);
     }
     
@@ -83,8 +83,8 @@ if (abilities&ABL_WALK) // v2
     // D89A:  Face and move towards PC
     if ((counter<<1)&$FF == $80) // on $40,C0
     {
-        facingDir = dir_to_pc(id);
-        hspd      = ($08*facingDir) &$FF;
+        facing_dir = dir_to_pc(id);
+        hspd      = ($08*facing_dir) &$FF;
     }
 }
 
@@ -101,7 +101,7 @@ if (abilities&ABL_SHOT
     &&  is_facing_pc(id) 
     &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
     {
-        GOC1_create(xl,yt, facingDir, projectile,projectile_ver);
+        GOC1_create(xl,yt, facing_dir, projectile,projectile_ver);
     }
 }
 

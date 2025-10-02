@@ -33,7 +33,7 @@ if (_hspdPB_COPY) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // 9A3E
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 
 // ------------------------------------------------------------------------------------
@@ -154,7 +154,7 @@ var _HSPD1 = ($04*sign_(g.counter1&$40)) &$FF; // Attack mode pacing
 if(!_InAggroDist_WIDE)
 {
     hspd = _HSPD1;
-    facingDir = byte_dir(hspd);
+    facing_dir = byte_dir(hspd);
 }
 else
 {
@@ -168,8 +168,8 @@ else
     }
     else
     {
-        facingDir = dir_to_pc_(id);
-        hspd = ($10*facingDir) &$FF;
+        facing_dir = dir_to_pc_(id);
+        hspd = ($10*facing_dir) &$FF;
     }
 }
 

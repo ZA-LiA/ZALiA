@@ -33,13 +33,13 @@ if (vspd<$80   // NOT moving up
 {   // D803
     if(!has_landed) 
     {
-        facingDir = dir_to_pc(id);
+        facing_dir = dir_to_pc(id);
         solid_clip_correction(true);
     }
     
     has_landed = true;
     
-    hspd = (HSPD1*facingDir) &$FF; // $10.  hspd $20 until first landing
+    hspd = (HSPD1*facing_dir) &$FF; // $10.  hspd $20 until first landing
     vspd = 0;
 }
 else // vspd & $80 || !cs4()
@@ -63,7 +63,7 @@ if(!timer
     if (rand()<$80 
     &&  is_facing_pc(id) )
     {
-        with(GOC1_create(xl,yt, facingDir, projectile,projectile_ver))
+        with(GOC1_create(xl,yt, facing_dir, projectile,projectile_ver))
         {
             GO_depth_init(other.depth);
         }

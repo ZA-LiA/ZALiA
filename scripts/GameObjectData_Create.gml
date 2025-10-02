@@ -749,7 +749,7 @@ var _bright1= BRIGHT1;
 
 
 
-
+object = noone;
 o_name = "";
 
 
@@ -2226,11 +2226,12 @@ data_REFLECT_vuln(o_name+"02", object_get_name(Axe)+"01", object_get_name(Bullet
 // -----------------------------------------------------------------------------
 // Balshot  --------------------------------------------------------
 o_name = object_get_name(Balshot);
-data_go_prop1(Balshot, "Balshot", spr_Balshot);
-data_go_scr(  o_name, Balshot_init1, Balshot_init2, Balshot_update);
+data_go_prop1(Balshot, "Balshot", spr_Balshot01b);
+data_go_scr(  o_name, Balshot_init1, Balshot_init2, Balshot_update, Balshot_udp);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
-data_go_prop2(o_name+"01", PIe, HBa, CSh, $01,  $03,XPa0, RSPd, DRPa,  $00,  $00,  $00,  $00,  $00);
-
+data_go_prop2(o_name+"01", PIe, $66, CSh, $01,  $03, $0C, RSPd, DRPa, SWDb,  $00,  $00,  $00,  $00);
+//data_go_prop2(o_name+"01", PIe, $66, CSh, $FF,  $03,XPa0, RSPd, DRPa, SWDh,  $00,  $00,  $00,  $00);
+//data_go_prop2(o_name+"01", PIe, $66, CSh, $01,  $03,XPa0, RSPd, DRPa,  $00,  $00,  $00,  $00,  $00);
 //data_REFLECT_vuln(o_name+"01", object_get_name(Axe)+"01", object_get_name(Bullet1)+"01", object_get_name(Bullet1)+"02", object_get_name(Bullet2)+"01", object_get_name(Fireball1)+"01", object_get_name(Fireball1)+"02", object_get_name(Rock2)+"01", object_get_name(Mace1)+"01", object_get_name(SwordBeam)+"01");
 
 
@@ -2933,7 +2934,8 @@ PSc5 = $010405; // Reverse dir or die.       REFLECT needed to reverse dir. With
 
 // -----------------------------------------------------------------------------
 // Projectile Hostile  --------------------------------------------------------
-o_name = object_get_name(ProjectileHostile);
+object=ProjectileHostile; o_name=object_get_name(object);
+data_go_prop1(object, "ProjectileHostile", spr_Placement_08x16);
 data_go_scr(  o_name,   Projectile_init, 0, 0, 0, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $01,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -2945,7 +2947,8 @@ data_go_prop3(o_name+"01",PBb1,PSa2);
 
 // -----------------------------------------------------------------------------
 // Axe  --------------------------------------------------------
-o_name = object_get_name(Axe);
+object=Axe; o_name=object_get_name(object);
+data_go_prop1(object, "Axe", spr_Axe1);
 data_go_scr(  o_name,   Projectile_init, init_Axe, update_Axe, usd_Axe, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $04,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -2956,7 +2959,8 @@ if (g.mod_REFLECT_more_obj) data_go_prop3(o_name+"01",PBb1,PSa5|PSc3);
 
 // -----------------------------------------------------------------------------
 // Bolo  --------------------------------------------------------
-o_name = object_get_name(Bolo);
+object=Bolo; o_name=object_get_name(object);
+data_go_prop1(object, "Bolo", spr_Bolo1);
 data_go_scr(  o_name,   Projectile_init, init_Bolo, update_Bolo, usd_Bolo, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $03,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -2966,7 +2970,8 @@ data_go_prop3(o_name+"01",PBb1,PSa5);
 
 // -----------------------------------------------------------------------------
 // Boomerang  --------------------------------------------------------
-o_name = object_get_name(Boomerang);
+object=Boomerang; o_name=object_get_name(object);
+data_go_prop1(object, "Boomerang", spr_Boomerang1);
 data_go_scr(  o_name,   Projectile_init, init_Boomerang, update_Boomerang, usd_Boomerang, draw_Boomerang);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBy, CSd,   0,  $03,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -2976,7 +2981,8 @@ data_go_prop3(o_name+"01",PBb1,PSb2);
 
 // -----------------------------------------------------------------------------
 // Bullet1  --------------------------------------------------------
-o_name = object_get_name(Bullet1);
+object=Bullet1; o_name=object_get_name(object);
+data_go_prop1(object, "Bullet1", spr_Bullet1);
 data_go_scr(  o_name,   Projectile_init, init_Bullet1, update_Bullet1, usd_Bullet1, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBy, CSd,   0,  $01,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -2990,7 +2996,8 @@ if (g.mod_REFLECT_more_obj) data_go_prop3(o_name+"02",PBb1,PSa2|PSc3);
 
 // -----------------------------------------------------------------------------
 // Bullet2  --------------------------------------------------------
-o_name = object_get_name(Bullet2);
+object=Bullet2; o_name=object_get_name(object);
+data_go_prop1(object, "Bullet2", spr_Bullet1);
 data_go_scr(  o_name,   Projectile_init, init_Bullet2, update_Bullet2, usd_Bullet1, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBy, CSd,   0,  $04,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3001,7 +3008,8 @@ if (g.mod_REFLECT_more_obj) data_go_prop3(o_name+"01",PBb1,PSa2|PSc3);
 
 // -----------------------------------------------------------------------------
 // Drop  --------------------------------------------------------
-o_name = object_get_name(Drop);
+object=Drop; o_name=object_get_name(object);
+data_go_prop1(object, "Drop", spr_Drop1);
 data_go_scr(  o_name,   Projectile_init, init_Drop, update_Drop, usd_Drop, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $01,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3011,7 +3019,8 @@ data_go_prop3(o_name+"01",PBb1,PSa4);
 
 // -----------------------------------------------------------------------------
 // Fireball1  --------------------------------------------------------
-o_name = object_get_name(Fireball1);
+object=Fireball1; o_name=object_get_name(object);
+data_go_prop1(object, "Fireball1", spr_Fireball1);
 data_go_scr(  o_name,   Projectile_init, init_Fireball1, update_Fireball1, usd_Fireball1, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBy, CSd,   0,  $02,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3025,7 +3034,8 @@ if (g.mod_REFLECT_more_obj) data_go_prop3(o_name+"02",PBb1,PSa4|PSc3);
 
 // -----------------------------------------------------------------------------
 // Fireball2  --------------------------------------------------------
-o_name = object_get_name(Fireball2); // Barba, Thunderbird, 
+object=Fireball2; o_name=object_get_name(object); // Barba, Thunderbird, 
+data_go_prop1(object, "Fireball2", spr_Fireball2);
 data_go_scr(  o_name,   Projectile_init, init_Fireball2, update_Fireball2, usd_Fireball2, 0);
 _PI1  = PIb;
 _HB1  = HBy;
@@ -3044,7 +3054,8 @@ data_go_prop3(o_name+"03",_PB1,_PS1);
 
 // -----------------------------------------------------------------------------
 // Flame1  --------------------------------------------------------
-o_name = object_get_name(Flame1);
+object=Flame1; o_name=object_get_name(object);
+data_go_prop1(object, "Flame1", spr_Flame1);
 data_go_scr(  o_name,   Projectile_init, init_Flame1, update_Flame1, usd_Flame1, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBy, CSd,   0,  $04,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3054,7 +3065,8 @@ data_go_prop3(o_name+"01",PBa1,PSa4);
 
 // -----------------------------------------------------------------------------
 // Flame2  --------------------------------------------------------
-o_name = object_get_name(Flame2);
+object=Flame2; o_name=object_get_name(object);
+data_go_prop1(object, "Flame2", spr_Flame1);
 data_go_scr(  o_name,   Projectile_init, init_Flame2, update_Flame2, usd_Flame2, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $05,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3066,7 +3078,8 @@ data_go_prop3(o_name+"02",PBa1,PSa4);
 
 // -----------------------------------------------------------------------------
 // Mace1  --------------------------------------------------------
-o_name = object_get_name(Mace1);
+object=Mace1; o_name=object_get_name(object);
+data_go_prop1(object, "Mace1", spr_Mace1);
 data_go_scr(  o_name,   Projectile_init, init_Mace1, update_Mace1, usd_Mace1, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBy, CSd,   0,  $05,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3077,7 +3090,8 @@ if (g.mod_REFLECT_more_obj) data_go_prop3(o_name+"01",PBb1,PSa5|PSc3);
 
 // -----------------------------------------------------------------------------
 // Mace2  --------------------------------------------------------
-o_name = object_get_name(Mace2);
+object=Mace2; o_name=object_get_name(object);
+data_go_prop1(object, "Mace2", spr_Mace2);
 data_go_scr(  o_name,   Projectile_init, init_Mace2, update_Mace2, usd_Mace2, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBy, CSd,   0,  $04,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3088,7 +3102,8 @@ if (g.mod_REFLECT_more_obj) data_go_prop3(o_name+"01",PBb1,PSa5|PSc3);
 
 // -----------------------------------------------------------------------------
 // RisingBubble  --------------------------------------------------------
-o_name = object_get_name(RisingBubble);
+object=RisingBubble; o_name=object_get_name(object);
+data_go_prop1(object, "RisingBubble", spr_Rising_Bubble_01);
 data_go_scr(  o_name,   Projectile_init, init_RisingBubble, update_RisingBubble, usd_RisingBubble, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $01,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3100,7 +3115,8 @@ data_go_prop3(o_name+"02",PBb1,PSa4);
 
 // -----------------------------------------------------------------------------
 // Rock1  --------------------------------------------------------
-o_name = object_get_name(Rock1);
+object=Rock1; o_name=object_get_name(object);
+data_go_prop1(object, "Rock1", spr_Rock1);
 data_go_scr(  o_name,   Projectile_init, init_Rock1, update_Rock1, usd_Rock, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $01,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3110,7 +3126,8 @@ data_go_prop3(o_name+"01",PBb1,PSa2);
 
 // -----------------------------------------------------------------------------
 // Rock2  --------------------------------------------------------
-o_name = object_get_name(Rock2);
+object=Rock2; o_name=object_get_name(object);
+data_go_prop1(object, "Rock2", spr_Rock1);
 data_go_scr(  o_name,   Projectile_init, init_Rock2, update_Rock2, usd_Rock, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $02,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3152,7 +3169,8 @@ PSc5 = $010405; // Reverse dir or die.       REFLECT needed to reverse dir. With
 
 // -----------------------------------------------------------------------------
 // Rock3  --------------------------------------------------------
-o_name = object_get_name(Rock3);
+object=Rock3; o_name=object_get_name(object);
+data_go_prop1(object, "Rock3", spr_Rock1);
 data_go_scr(  o_name,   Projectile_init, init_Rock3, update_Rock3, usd_Rock, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $02,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3162,7 +3180,8 @@ data_go_prop3(o_name+"01",PBb1,PSa4);
 
 // -----------------------------------------------------------------------------
 // SoundWave  --------------------------------------------------------
-o_name = object_get_name(SoundWave);
+object=SoundWave; o_name=object_get_name(object);
+data_go_prop1(object, "SoundWave", spr_SoundWave1);
 data_go_scr(  o_name,   Projectile_init, init_SoundWave, update_SoundWave, usd_SoundWave, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $04,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3172,7 +3191,8 @@ data_go_prop3(o_name+"01",PBb1,PSc5);
 
 // -----------------------------------------------------------------------------
 // Spear  --------------------------------------------------------
-o_name = object_get_name(Spear);
+object=Spear; o_name=object_get_name(object);
+data_go_prop1(object, "Spear", spr_Spear_piece1);
 data_go_scr(  o_name,   Projectile_init, init_Spear, update_Spear, usd_Spear, draw_Spear);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBz, CSd,   0,  $02,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3182,7 +3202,8 @@ data_go_prop3(o_name+"01",PBb1,PSb2);
 
 // -----------------------------------------------------------------------------
 // SpikeBall  --------------------------------------------------------
-o_name = object_get_name(SpikeBall1);
+object=SpikeBall1; o_name=object_get_name(object);
+data_go_prop1(object, "SpikeBall1", spr_Spike_ball_4a);
 data_go_scr(  o_name,   SpikeBall1_init_1, SpikeBall1_init_2, SpikeBall1_update, SpikeBall1_udp);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb,HBaa, CSf,   0,  $03,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3194,7 +3215,8 @@ data_go_prop3(o_name+"02",PBb1,PSb2);
 
 // -----------------------------------------------------------------------------
 // SwordBeam  --------------------------------------------------------
-o_name = object_get_name(SwordBeam);
+object=SwordBeam; o_name=object_get_name(object);
+data_go_prop1(object, "SwordBeam", spr_Enemy_Sword_beam);
 data_go_scr(  o_name,   Projectile_init, init_SwordBeam, update_SwordBeam, usd_SwordBeam, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBy, CSd,   0,  $04,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -3208,7 +3230,8 @@ data_go_prop3(o_name+"01",PBb1,PSb2);
 
 // -----------------------------------------------------------------------------
 // BossExplosion  --------------------------------------------------------
-o_name = object_get_name(BossExplosion);
+object=BossExplosion; o_name=object_get_name(object);
+data_go_prop1(object, "BossExplosion", spr_Explosion1A);
 data_go_scr(  o_name,   Projectile_init, init_BossExplosion, update_BossExplosion, usd_BossExplosion, draw_BossExplosion);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBa, CSa,   0,    0,   0,    0,    0,    0,    0,    0,    0,    0);

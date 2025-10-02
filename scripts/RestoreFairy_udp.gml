@@ -15,7 +15,7 @@ else         draw_yoff  = (_val&$3) ^ $3; // 3, 2, 1, 0
 //
 GO_set_sprite(id,dl_sprites[|sign(g.counter1&$4)]);
 
-facingDir = 1;
+facing_dir = 1;
 
 
 

@@ -11,8 +11,11 @@ HSPD1       = $04; //
 hspd_base   = HSPD1;
 hspd        = hspd_base;    // $04 or $FC during update
 vspd        = $E4;
-facingDir   = 1;
+facing_dir   = 1;
 counter     = 0; // 044C[pIndex]
+
+
+despawn_offscreen_hor = false;
 
 
 

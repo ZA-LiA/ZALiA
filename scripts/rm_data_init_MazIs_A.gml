@@ -3255,7 +3255,7 @@ g.dm_spawn[?_dk+STR_Elevator+STR_Spawn+STR_Row+_val] = row5;
 rows4=$30;
 row5=-PAGE_ROWS; rows5=abs(row5)+rows4;
 row6=row5+rows4; rows6=(rows0-row6)+PAGE_ROWS;
-data_exit(EXL0,etA0,1,  CLM2,row5,  CLMS2,rows5,  CLM3,row3,  hex_str(rm_num-1)+EXM1_); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,row5,  CLMS2,rows5,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
 data_exit(EXL1,etA0,1,  CLM2,row6,  CLMS2,rows6,  CLM3,row4,  hex_str(rm_num+1)+EXL0_); // LFT 1, 
 
 
@@ -3567,7 +3567,7 @@ data_spawn(rm+STR_PRIO,SpTrB,$2,  $17<<3,(row0+$00)<<3,  STR_Speed+hex_str(3),ST
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  rm_num_+EXR0_); // RGT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 data_path_conditions(exit_name_r0, exit_name_l0);
@@ -3583,39 +3583,307 @@ data_scene_rando(rm);
 
 
 //   --------------------------  91  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene with steep stairs from left to right exit and pitfalls
+rm_num  = $91;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'145', STR_View+'02');
+
+
+row3=$34; y3=row3<<3;
+row4=$08; y4=row4<<3;
+//row5=$01; y5=row5<<3;
+clm3=$0C; x3=clm3<<3;
+//,  dk_PI+hex_str(_pi)
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,$11<<3); // Snaraa
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,$1D<<3); // Snaraa
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,$29<<3); // Snaraa
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  92  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene with steep stairs from left to right exit and pitfalls 2
+rm_num  = $92;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'146', STR_View+'02');
+
+
+row3=$34; y3=row3<<3;
+row4=$08; y4=row4<<3;
+//row5=$01; y5=row5<<3;
+clm3=$0A; x3=clm3<<3;
+//,  dk_PI+hex_str(_pi)
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,$0D<<3); // Snaraa
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,$15<<3); // Snaraa
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,$21<<3); // Snaraa
+data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,$29<<3); // Snaraa
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  93  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene outside, even flooring held up by multiple pillars from the bottom of screen
+rm_num  = $93;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'147');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row3+$02; y4=row4<<3;
+//row5=$01; y5=row5<<3;
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3,StarSky_1_init);
+data_spawn(rm+STR_PRIO,SpWoA,$1,  $00,$00); // WosuSpawner  1
+//data_spawn(rm+STR_PRXM,Moa_B,$1,  $30<<3,(row0+$07)<<3); // FieryMoa  1
+data_spawn(rm+STR_PRXM,IrKnA,$2,  $1F<<3,y3); // IronKnuckle  2
+data_spawn(rm+STR_PRXM,IrKnA,$3,  $3F<<3,y3); // IronKnuckle  3
+data_spawn(rm+STR_PRXM,IrKnA,$2,  $5F<<3,y3); // IronKnuckle  2
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  94  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene lava floor with ascending and decending platforms with small crumble tile platform in middle
+rm_num  = $94;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'148');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row0+$08; y4=row4<<3;
+//row5=$01; y5=row5<<3;
+data_spawn(rm+STR_PRIO,SpPoA,$1,  0,0); // BubbleSpawner  1 
+//data_spawn(rm+STR_PRXM,Moa_B,$1,  $30<<3,(row0+$07)<<3); // FieryMoa  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $16<<3,y4); // Bot  1 
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $28<<3,y4); // Bot  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  95  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene long low ceiling hallway with Balshot turrets at the end
+rm_num  = $95;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'149', STR_Dark+'00');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row0+$16; y4=row4<<3;
+row5=row3+$01; y5=row5<<3;
+clm3=$50; x3=clm3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,y5); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $55<<3,y5); // v1: Light w/ CANDLE or FIRE
+_val1=$3F;
+data_spawn(rm+STR_PRIO,Balshot,$1,  x3,y4,          STR_Direction+string(-1), STR_Cooldown+hex_str(_val1)); // Balshot  1 
+data_spawn(rm+STR_PRIO,Balshot,$1,  x3,y4+($02<<3), STR_Direction+string(-1), STR_Cooldown+hex_str(_val1), STR_Delay+hex_str(_val1>>1)); // Balshot  1 
+//data_spawn(rm+STR_PRXM,Bot_A,$1,  $16<<3,y4); // Bot  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  96  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene long low ceiling hallway with Balshot turrets at the end 2
+rm_num  = $96;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'150', STR_Dark+'00');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row0+$0E; y4=row4<<3;
+row5=row3+$02; y5=row5<<3;
+clm3=$50; x3=clm3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,y5); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $55<<3,y5); // v1: Light w/ CANDLE or FIRE
+_val1=$3F;
+data_spawn(rm+STR_PRIO,Balshot,$1,  x3,y4,          STR_Direction+string(-1), STR_Cooldown+hex_str(_val1),                              STR_Projectile+STR_Object+object_get_name(Fireball1), STR_Projectile+STR_Attack+STR_Level+"04"); // Balshot  1 
+data_spawn(rm+STR_PRIO,Balshot,$1,  x3,y4+($02<<3), STR_Direction+string(-1), STR_Cooldown+hex_str(_val1), STR_Delay+hex_str(_val1>>1), STR_Projectile+STR_Object+object_get_name(Fireball1), STR_Projectile+STR_Attack+STR_Level+"04"); // Balshot  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_SHIELD+"|"+STR_REFLECT);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  97  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene with Balshot turret protected by solid wall
+rm_num  = $97;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'151', STR_Dark+'00');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row0+$14; y4=row4<<3;
+row5=row0+$16; y5=row5<<3;
+row6=row3+$01; y6=row6<<3;
+row7=row4+$01; y7=row7<<3;
+clm3=$50; x3=clm3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0A<<3,y6); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $24<<3,y7); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $3B<<3,y7); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $55<<3,y6); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,Balshot,$1,  $12<<3,y5,  STR_Direction+string(1), STR_Cooldown+"3F", STR_Projectile+STR_Object+object_get_name(Fireball1), STR_Projectile+STR_Attack+STR_Level+"04"); // Balshot  1 
+//data_spawn(rm+STR_PRXM,BubbA,$1,  $10<<3,y4); // Bubble  1
+data_spawn(rm+STR_PRXM,GumaA,$1,  $27<<3,y4); // Guma  1
+data_spawn(rm+STR_PRXM,GumaA,$1,  $3F<<3,y4); // Guma  1
+//data_spawn(rm+STR_PRXM,StalA,$1,  $20<<3,(row0+$0F)<<3); // Stalfos  1
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  98  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene with many high thin solid walls that need JUMP with crumble tiles in between them, and lava under the crumble tiles
+rm_num  = $98;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'152');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row0+$0A; y4=row4<<3;
+row5=row0+$13; y5=row5<<3;
+row6=row3+$02; y6=row6<<3;
+//data_spawn(rm+STR_PRIO,SpPoA,$1,  0,0); // BubbleSpawner  1 
+//data_spawn(rm+STR_PRXM,LowdA,$1,  $23<<3,y4); // Lowder  1 
+//data_spawn(rm+STR_PRXM,LowdA,$1,  $3B<<3,y4); // Lowder  1 
+//data_spawn(rm+STR_PRXM,OctoA,$1,  $0F<<3,y5); // Octorok  1
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $0B<<3,y6); // Myu  1 
+data_spawn(rm+STR_PRXM,Myu_A,$1,  $54<<3,y6); // Myu  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  99  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon scene with very wide lava pit with Bloobys inbetween that needs JUMP
+rm_num  = $99;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'153');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row3+$02; y4=row4<<3;
+//row5=row0+$13; y5=row5<<3;
+data_spawn(rm+STR_PRXM,Blooby,$1,  $18<<3,y4,  1,$00); // Blooby 1
+data_spawn(rm+STR_PRXM,Blooby,$1,  $27<<3,y4,  1,$00); // Blooby 1
+data_spawn(rm+STR_PRXM,Blooby,$1,  $36<<3,y4,  1,$00); // Blooby 1
+data_spawn(rm+STR_PRXM,Blooby,$1,  $45<<3,y4,  1,$00); // Blooby 1
+//data_spawn(rm+STR_PRIO,SpPoA,$1,  0,0); // BubbleSpawner  1 
+//data_spawn(rm+STR_PRXM,Myu_A,$1,  $0B<<3,y6); // Myu  1 
+//data_spawn(rm+STR_PRXM,Myu_A,$1,  $54<<3,y6); // Myu  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  rm_num_+EXR0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP+"+"+STR_STABDOWN);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"+"+STR_STABDOWN);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  9A  --------------------------- 

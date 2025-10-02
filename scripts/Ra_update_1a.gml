@@ -17,8 +17,8 @@ if (1)
     
     set_xy(id, _X,_Y);
     
-    facingDir   = dir_to_pc(id);
-    hspd        = (HSPD*facingDir) &$FF;
+    facing_dir   = dir_to_pc(id);
+    hspd        = (HSPD*facing_dir) &$FF;
     //hspd        = (HSPD * -_DIR) &$FF;
     
     vspd        = 0;
@@ -44,7 +44,7 @@ else
     vspd        = 0;
     vspd_change = VSPD_CHANGE; // 2
     
-    facingDir   = dir_to_pc(id);
+    facing_dir   = dir_to_pc(id);
 }
 
 

@@ -360,6 +360,7 @@ global.RandoHints_VER = 2; // 1: Old system, 2: Better logic to prevent hints be
 global.RandoHints_enabled = false;
 
 global.WallStyle01Tiles_MAIN = true;
+global.WallStyle02Tiles_MAIN = true;
 
 
 //dm_PC_sprite_sets = ds_map_create();
@@ -3489,6 +3490,15 @@ ds_list_add(dl_rando_seed_SPRITES, val(dm_ITEM[?STR_SWORD   +STR_Sprite], _defau
 // -----------------------------------------------------------------
 // -----------------------------------------------------------------
 // -----------------------------------------------------------------
+global.DungeonLayoutRandoTesting_enabled = false;
+global.DungeonLayoutRandoTesting_dm = ds_map_create();
+global.DungeonLayoutRandoTesting_Background_W = (VIEW_CLMS-$04)<<3;
+global.DungeonLayoutRandoTesting_Background_H = (VIEW_ROWS-$04)<<3;
+//global.DungeonLayoutRandoTesting_Background_COLOR = c_black;
+
+
+
+
 //db_test_various_1a(); // for testing various basic coding things
 
 // *** You can also full search for "ds_grid_create" to find the order grids have been created.

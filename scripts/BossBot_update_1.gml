@@ -10,9 +10,9 @@ GOB_update_2();
 if (cs&$4 
 && !(rand()&$7) )
 {   // A1FE: JSR DC91
-    facingDir = dir_to_pc(id);
+    facing_dir = dir_to_pc(id);
     
-    hspd =($10*facingDir) &$FF;
+    hspd =($10*facing_dir) &$FF;
     vspd = $E8; // JUMP!!
     
     // A1EB

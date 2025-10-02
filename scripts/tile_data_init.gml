@@ -869,6 +869,266 @@ tile_data_init_1();
 
 
 // ------------------------------------------------------------------------
+global.WallStyle02_dm = ds_map_create();
+//global.WallStyle02_dm[?STR_Tileset+"01"] = ts_Man_made_8a_HMS;
+var _TS_IDX1 = ds_list_find_index(dl_tileset,ts_Man_made_6a_WRB);
+var _TS_IDX2 = ds_list_find_index(dl_tileset,ts_Man_made_7a_WRB);
+var _TS_IDX3 = ds_list_find_index(dl_tileset,ts_Man_made_8a_HMS);
+var _TS_IDX4 = ds_list_find_index(dl_tileset,ts_SolidColors01_8x8);
+
+
+
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"05"] = (_TS_IDX2<<8) | $B8; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"09"] = (_TS_IDX2<<8) | $BA; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"06"] = (_TS_IDX2<<8) | $B9; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"0A"] = (_TS_IDX2<<8) | $BB; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"01"] = (_TS_IDX2<<8) | $BF; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"02"] = (_TS_IDX2<<8) | $BD; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"04"] = (_TS_IDX2<<8) | $BC; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"08"] = (_TS_IDX2<<8) | $BE; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"10"] = (_TS_IDX2<<8) | $CF; // Single(1x1)
+//global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"00"+STR_Wall+"10"] = (_TS_IDX3<<8) | $BE; // Single(1x1)
+
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"01"+STR_Wall+"05"] = (_TS_IDX3<<8) | $E9; // Horizontal Right End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"01"+STR_Wall+"09"] = (_TS_IDX3<<8) | $E9; // Horizontal Right End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"01"+STR_Wall+"01"] = (_TS_IDX3<<8) | $E9; // Horizontal Right End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"01"+STR_Wall+"04"] = (_TS_IDX3<<8) | $F9; // Horizontal Right End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"01"+STR_Wall+"08"] = (_TS_IDX3<<8) | $F9; // Horizontal Right End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"01"+STR_Wall+"10"] = (_TS_IDX3<<8) | $F9; // Horizontal Right End
+
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"02"+STR_Wall+"06"] = (_TS_IDX3<<8) | $E8; // Horizontal Left End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"02"+STR_Wall+"0A"] = (_TS_IDX3<<8) | $E8; // Horizontal Left End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"02"+STR_Wall+"02"] = (_TS_IDX3<<8) | $E8; // Horizontal Left End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"02"+STR_Wall+"04"] = (_TS_IDX3<<8) | $F8; // Horizontal Left End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"02"+STR_Wall+"08"] = (_TS_IDX3<<8) | $F8; // Horizontal Left End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"02"+STR_Wall+"10"] = (_TS_IDX3<<8) | $F8; // Horizontal Left End
+
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"03"+STR_Wall+"04"] = (_TS_IDX3<<8) | $CF; // Horizontal Mid
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"03"+STR_Wall+"08"] = (_TS_IDX3<<8) | $CF; // Horizontal Mid
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"03"+STR_Wall+"10"] = (_TS_IDX3<<8) | $CF; // Horizontal Mid
+
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"04"+STR_Wall+"05"] = (_TS_IDX3<<8) | $DE; // Vertical Bottom End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"04"+STR_Wall+"06"] = (_TS_IDX3<<8) | $DE; // Vertical Bottom End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"04"+STR_Wall+"01"] = (_TS_IDX3<<8) | $DE; // Vertical Bottom End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"04"+STR_Wall+"02"] = (_TS_IDX3<<8) | $DE; // Vertical Bottom End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"04"+STR_Wall+"04"] = (_TS_IDX3<<8) | $DE; // Vertical Bottom End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"04"+STR_Wall+"10"] = (_TS_IDX3<<8) | $DE; // Vertical Bottom End
+
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"08"+STR_Wall+"09"] = (_TS_IDX3<<8) | $CE; // Vertical Top End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"08"+STR_Wall+"0A"] = (_TS_IDX3<<8) | $CE; // Vertical Top End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"08"+STR_Wall+"01"] = (_TS_IDX3<<8) | $CE; // Vertical Top End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"08"+STR_Wall+"02"] = (_TS_IDX3<<8) | $CE; // Vertical Top End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"08"+STR_Wall+"08"] = (_TS_IDX3<<8) | $CE; // Vertical Top End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"08"+STR_Wall+"10"] = (_TS_IDX3<<8) | $CE; // Vertical Top End
+
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"0C"+STR_Wall+"01"] = (_TS_IDX3<<8) | $DF; // Vertical Mid
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"0C"+STR_Wall+"02"] = (_TS_IDX3<<8) | $DF; // Vertical Mid
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Part+"0C"+STR_Wall+"10"] = (_TS_IDX3<<8) | $DF; // Vertical Mid
+
+
+
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"05"+STR_Wall+"05"] = (_TS_IDX3<<8) | $DB; // Corner Right-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"05"+STR_Wall+"01"] = (_TS_IDX3<<8) | $DB; // Corner Right-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"05"+STR_Wall+"04"] = (_TS_IDX3<<8) | $DB; // Corner Right-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"05"+STR_Wall+"10"] = (_TS_IDX3<<8) | $FB; // Corner Right-Bottom
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"09"+STR_Wall+"09"] = (_TS_IDX3<<8) | $CB; // Corner Right-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"09"+STR_Wall+"01"] = (_TS_IDX3<<8) | $CB; // Corner Right-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"09"+STR_Wall+"08"] = (_TS_IDX3<<8) | $CB; // Corner Right-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"09"+STR_Wall+"10"] = (_TS_IDX3<<8) | $EB; // Corner Right-Top
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"06"+STR_Wall+"06"] = (_TS_IDX3<<8) | $DA; // Corner Left-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"06"+STR_Wall+"02"] = (_TS_IDX3<<8) | $DA; // Corner Left-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"06"+STR_Wall+"04"] = (_TS_IDX3<<8) | $DA; // Corner Left-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"06"+STR_Wall+"10"] = (_TS_IDX3<<8) | $FA; // Corner Left-Bottom
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"0A"+STR_Wall+"0A"] = (_TS_IDX3<<8) | $CA; // Corner Left-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"0A"+STR_Wall+"02"] = (_TS_IDX3<<8) | $CA; // Corner Left-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"0A"+STR_Wall+"08"] = (_TS_IDX3<<8) | $CA; // Corner Left-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"0A"+STR_Wall+"10"] = (_TS_IDX3<<8) | $EA; // Corner Left-Top
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"01"+STR_Wall+"01"] = (_TS_IDX2<<8) | $D9; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"01"+STR_Wall+"10"] = (_TS_IDX2<<8) | $D9; // Side Right
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"02"+STR_Wall+"02"] = (_TS_IDX2<<8) | $D8; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"02"+STR_Wall+"10"] = (_TS_IDX2<<8) | $D8; // Side Left
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"04"+STR_Wall+"04"] = (_TS_IDX2<<8) | $D6; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"04"+STR_Wall+"10"] = (_TS_IDX2<<8) | $D6; // Side Bottom
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"08"+STR_Wall+"08"] = (_TS_IDX2<<8) | $D1; // Side Top
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"08"+STR_Wall+"10"] = (_TS_IDX2<<8) | $D1; // Side Top
+
+global.WallStyle02_dm[?STR_TSRC+STR_Part+"10"+STR_Wall+"10"] = (_TS_IDX1<<8) | $EA; // Fill
+
+/*
+_i=1;
+                                                                                       _j=0;
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"00"+hex_str( ++_j)] = (_TS_IDX2<<8) | $CE; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"00"+hex_str( ++_j)] = (_TS_IDX3<<8) | $BE; // Single(1x1)
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"00"+STR_Count]=_j;
+
+                                                                                       _j=0;
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $E9; // Horizontal Right End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"01"+STR_Count]=_j;
+                                                                                       _j=0;
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $E8; // Horizontal Left End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"02"+STR_Count]=_j;
+                                                                                       _j=0;
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"03"+hex_str( ++_j)] = (_TS_IDX3<<8) | $93; // Horizontal Mid
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"03"+hex_str( ++_j)] = (_TS_IDX3<<8) | $CF; // Horizontal Mid
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"03"+STR_Count]=_j;
+
+                                                                                       _j=0;
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX3<<8) | $DE; // Vertical Bottom End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"04"+STR_Count]=_j;
+                                                                                       _j=0;
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"08"+hex_str( ++_j)] = (_TS_IDX3<<8) | $CE; // Vertical Top End
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"08"+STR_Count]=_j;
+                                                                                       _j=0;
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"0C"+hex_str( ++_j)] = (_TS_IDX3<<8) | $96; // Vertical Mid
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"0C"+hex_str( ++_j)] = (_TS_IDX3<<8) | $DF; // Vertical Mid
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+hex_str(_i)+STR_Part+"0C"+STR_Count]=_j;
+
+global.WallStyle02_dm[?STR_TSRC+"_Thin"+STR_Style+STR_Count]=_i;
+
+
+
+
+_i=1;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"05"+hex_str( ++_j)] = (_TS_IDX3<<8) | $E5; // Corner Right-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"05"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"09"+hex_str( ++_j)] = (_TS_IDX3<<8) | $D5; // Corner Right-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"09"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"06"+hex_str( ++_j)] = (_TS_IDX3<<8) | $E4; // Corner Left-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"06"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"0A"+hex_str( ++_j)] = (_TS_IDX3<<8) | $D4; // Corner Left-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"0A"+STR_Count]=_j;
+
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C3; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C4; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C5; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B3; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B4; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B5; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C0; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C1; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C2; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B0; // Side Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B1; // Side Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B2; // Side Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+STR_Count]=_j;
+
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"10"+hex_str( ++_j)] = (_TS_IDX4<<8) | $F1; // Fill
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"10"+STR_Count]=_j;
+
+
+
+
+_i++;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"05"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D7; // Corner Right-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"05"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"09"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D3; // Corner Right-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"09"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"06"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D4; // Corner Left-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"06"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"0A"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D0; // Corner Left-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"0A"+STR_Count]=_j;
+
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D9; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C4; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C5; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D8; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B4; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B5; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D5; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D6; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D1; // Side Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D2; // Side Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+STR_Count]=_j;
+
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"10"+hex_str( ++_j)] = (_TS_IDX1<<8) | $EA; // Fill
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"10"+STR_Count]=_j;
+
+
+
+
+_i++;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"05"+hex_str( ++_j)] = (_TS_IDX3<<8) | $FD; // Corner Right-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"05"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"09"+hex_str( ++_j)] = (_TS_IDX3<<8) | $ED; // Corner Right-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"09"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"06"+hex_str( ++_j)] = (_TS_IDX3<<8) | $FC; // Corner Left-Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"06"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"0A"+hex_str( ++_j)] = (_TS_IDX3<<8) | $EC; // Corner Left-Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"0A"+STR_Count]=_j;
+
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C3; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C4; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+hex_str( ++_j)] = (_TS_IDX3<<8) | $C5; // Side Right
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"01"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B3; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B4; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+hex_str( ++_j)] = (_TS_IDX3<<8) | $B5; // Side Left
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"02"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX3<<8) | $D0; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX3<<8) | $D1; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+hex_str( ++_j)] = (_TS_IDX3<<8) | $D2; // Side Bottom
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"04"+STR_Count]=_j;
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D1; // Side Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+hex_str( ++_j)] = (_TS_IDX2<<8) | $D2; // Side Top
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"08"+STR_Count]=_j;
+
+                                                                               _j=0;
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"10"+hex_str( ++_j)] = (_TS_IDX1<<8) | $EA; // Fill
+global.WallStyle02_dm[?STR_TSRC+STR_Style+hex_str(_i)+STR_Part+"10"+STR_Count]=_j;
+
+
+global.WallStyle02_dm[?STR_TSRC+STR_Style+STR_Count]=_i;
+*/
+
+
+
+
+
+
+
+
+
+
 //STR_Single, STR_Horizontal, STR_Vertical, STR_Corner, STR_Side, STR_Top, STR_Bottom
 //dk_SGL, dk_HRZ, dk_VRT, dk_CRN, dk_CTR, dk_SID, dk_TOP, dk_BTM, dk_RGT, dk_LFT
 //dk_WallEdge, dk_WallFill, dk_WallStyle

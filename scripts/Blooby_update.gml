@@ -36,7 +36,7 @@ if (cs&$3
 {
     hspd_dir    = -hspd_dir;
     hspd        = (abs8b(hspd)*hspd_dir) &$FF;
-    facingDir   = hspd_dir;
+    facing_dir   = hspd_dir;
 }
 
 if (cs&$C 
@@ -58,7 +58,7 @@ var _PC_VSPD = g.pc.vspd;
 if(!hspd 
 && !(g.counter1&$3F) )
 {
-    facingDir = dir_to_pc_(id);
+    facing_dir = dir_to_pc_(id);
 }
 
 GO_update_cam_vars();

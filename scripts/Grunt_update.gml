@@ -34,7 +34,7 @@ if ((hspd<$80 && cs&$1)
 ||  (hspd&$80 && cs&$2) )
 {
     hspd      = byte_negate(hspd);
-    facingDir = byte_dir(   hspd);
+    facing_dir = byte_dir(   hspd);
     cs &= ~(CS_RGT|CS_LFT);
 }
 

@@ -91,7 +91,7 @@ if (_can_push_back)
 {   // E4AB.  *carry would be set here in this scenario
     // pushback = $F4 when _p.facingDir = -1 (left)
     // pushback = $0C when _p.facingDir =  1 (right)
-    set_go_hspd_pushbback(id, ($C*_p.facingDir)&$FF);
+    set_go_hspd_pushbback(id, ($C*_p.facing_dir)&$FF);
 }
 
 

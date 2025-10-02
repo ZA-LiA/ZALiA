@@ -22,7 +22,7 @@ if(!ocs
     if (_bvr > 2) spear_yoff = -8;
     else          spear_yoff =  0;
     
-    spear_xscale = facingDir;
+    spear_xscale = facing_dir;
     
     
     
@@ -34,7 +34,7 @@ if(!ocs
             spear_spr1 = SPEAR_SPR1;
             
             
-            spear_xscale = -facingDir;
+            spear_xscale = -facing_dir;
             spear_xoff1 = -8;
             spear_xoff2 =  0;
             
@@ -69,7 +69,7 @@ if(!ocs
             
             if (timer < 8)
             {
-                spear_xscale = -facingDir;
+                spear_xscale = -facing_dir;
                 spear_xoff1 = -12;
                 spear_xoff2 =   0;
             }
@@ -126,8 +126,8 @@ if(!ocs
     }
     
     // spear_xscale *= -1;
-    spear_xoff1 *= facingDir;
-    spear_xoff2 *= facingDir;
+    spear_xoff1 *= facing_dir;
+    spear_xoff2 *= facing_dir;
 }
 
 

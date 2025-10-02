@@ -2,7 +2,7 @@
 
 
 can_draw_self = true;
-facingDir = sign_(g.counter1&($1<<3));
+facing_dir = sign_(g.counter1&($1<<3));
 
 
 

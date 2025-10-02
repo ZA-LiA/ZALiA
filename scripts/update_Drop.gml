@@ -163,7 +163,7 @@ if (collisionProjCS(0,0))
             _yt = g.pc.yt - 2;
             set_xlyt(id, _xl,_yt);
             
-            facingDir = dir_to_pc(id);
+            facing_dir = dir_to_pc(id);
             
             
             // 9910
@@ -173,7 +173,7 @@ if (collisionProjCS(0,0))
             _yt -= hh;
             set_xlyt(id, _xl,_yt);
             if (_IS_RANDO) set_xy(id, other.x,y);
-            if (_IS_RANDO) facingDir = dir_to_pc_(id);
+            if (_IS_RANDO) facing_dir = dir_to_pc_(id);
             
             
             
@@ -182,7 +182,7 @@ if (collisionProjCS(0,0))
                 var _Y1 = g.pc.yt+hh_; // where VSPD_MAX should occur
                 _dir = sign_(y<_Y1);
                 
-                hspd = (HSPD*facingDir) &$FF;
+                hspd = (HSPD*facing_dir) &$FF;
                 vspd = 0;
                 vspd_change = VSPD_CHANGE*_dir;
                 
@@ -203,7 +203,7 @@ if (collisionProjCS(0,0))
                 if (ds_list_find_index(g.dl_RandoEnemy_OBJVER2,_OBJVER)==-1  // if NOT a flying enemy
                 && !is_ancestor_(object_index,FokuA,WosuA) )
                 {
-                    hspd = ($08*facingDir) &$FF;
+                    hspd = ($08*facing_dir) &$FF;
                     vspd =  $E0;
                     if(!uses_vspd_sub)                    vspd = $FE; // Lowder, Megmat
                     if (is_ancestor_(object_index,MegmA)) vspd = $FB + (rand()&$1);

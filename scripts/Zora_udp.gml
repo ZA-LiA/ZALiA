@@ -3,7 +3,7 @@
 
 can_draw_self = true;
 
-if (shoot_timer) Head_xoff = -facingDir;
+if (shoot_timer) Head_xoff = -facing_dir;
 else             Head_xoff = 0;
 
 if (timer)

@@ -25,8 +25,8 @@ if (SwordHB_collidable
         ||  g.dev_invState&$3!=$2 )
         {   // Boss sword make PC-dmg-hop higher & further
             g.pc.vspd = (g.pc.vspd<<1) &$FF;
-            facingDir = dir_to_pc(id);
-            g.pc.hspd = ($18*facingDir) &$FF;
+            facing_dir = dir_to_pc(id);
+            g.pc.hspd = ($18*facing_dir) &$FF;
         }
     }
 }

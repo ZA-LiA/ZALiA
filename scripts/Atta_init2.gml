@@ -15,7 +15,7 @@ projectile     = projectile_OBJ;
 projectile_ver = projectile_VER;
 
 
-facingDir = 1;
+facing_dir = 1;
 
 
 DUR_COOLDOWN = $C0;

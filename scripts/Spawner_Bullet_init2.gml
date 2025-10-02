@@ -10,8 +10,8 @@ projectile     = projectile_OBJ;
 projectile_ver = projectile_VER;
 
 
-if (ver==1) facingDir =  1; // ver 1: shoot right
-if (ver==2) facingDir = -1; // ver 2: shoot left
+if (ver==1) facing_dir =  1; // ver 1: shoot right
+if (ver==2) facing_dir = -1; // ver 2: shoot left
 
 
 dg_SPEEDS = ds_grid_create(8,2);

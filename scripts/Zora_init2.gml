@@ -22,7 +22,7 @@ VSPD_GRAV   = 2;
 vspd_grav   = VSPD_GRAV;
 
 shoot_timer = 0; // 0081,X
-frwd_bkwd = facingDir;
+frwd_bkwd = facing_dir;
 
 
        COLLISION_VER=2;

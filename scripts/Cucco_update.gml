@@ -39,12 +39,12 @@ if (facing_dir_timer)
     facing_dir_timer--;
     if(!facing_dir_timer)
     {
-        facingDir = sign_(irandom(1));
+        facing_dir = sign_(irandom(1));
         facing_dir_timer = $30 + irandom($3F);
     }
 }
 //    counter = (counter+1)&$FF;
-//if!(counter & $3F) facingDir = sign_(irandom(1));
+//if!(counter & $3F) facing_dir = sign_(irandom(1));
 
 
 
@@ -57,7 +57,7 @@ if (abilities&ABL_JUMP
     
     if(!hspd 
     &&  irandom(7) )
-    {   hspd = (HSPD1*facingDir) &$FF;  }
+    {   hspd = (HSPD1*facing_dir) &$FF;  }
 }
 
 updateY();
@@ -94,7 +94,7 @@ switch(sub_state)
     if (cs&CS_BTM)
     {
         if (abilities&ABL_WALK)
-        {    hspd = (HSPD1*facingDir) &$FF;  }
+        {    hspd = (HSPD1*facing_dir) &$FF;  }
         else hspd = 0;
         
         Cucco_update_1();

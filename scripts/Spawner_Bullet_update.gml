@@ -18,7 +18,7 @@ var _DIR  = sign_(g.pc.x-x);
 var _IDX  = goDist1();
 if (_IDX &  $80) 
 {   _IDX ^= $FF;  }
-    _IDX  = (_IDX + $EB + (_DIR>=facingDir)) &$FF;
+    _IDX  = (_IDX + $EB + (_DIR>=facing_dir)) &$FF;
     _IDX  = _IDX>>4;
 //
 if (_IDX&$8) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -31,7 +31,7 @@ with(GOC1_create(_XL,_YT, _DIR, projectile,projectile_ver, id, global.PI_MOB_BLU
 {
     is_from_spawner = true;
     
-    if (facingDir)
+    if (facing_dir)
     {    hspd = other.dg_SPEEDS[#_IDX,0];  }
     else hspd = other.dg_SPEEDS[#_IDX,0]^$FF;
     

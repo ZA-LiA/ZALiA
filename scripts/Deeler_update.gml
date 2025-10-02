@@ -21,7 +21,7 @@ var _RAND = rand();
 // D6E5
 if (counter<$80) // if has NOT dropped
 {   // D6EC
-    facingDir = dir_to_pc(id);
+    facing_dir = dir_to_pc(id);
     
     var _IN_DIST_ATK = abs(g.pc.x-x) + DC91_carry(id)<$40 + ww_;
     var _C1 = _IN_DIST_ATK && !(_RAND&$1F) && !ocs;
@@ -80,7 +80,7 @@ if (counter<$80) // if has NOT dropped
     }
     else
     {   // D6FB
-        hspd = (8*facingDir) &$FF;
+        hspd = (8*facing_dir) &$FF;
         if!(cs&$3) updateX();
     }
     
@@ -101,9 +101,9 @@ if (counter&$80) // if has dropped
     if(!timer) // if can JUMP
     {   // =-----------  JUMP  -------------------
         timer = $40 | (_RAND&$3F);
-        facingDir = dir_to_pc(id);
+        facing_dir = dir_to_pc(id);
         
-        hspd = ($20*facingDir) &$FF;
+        hspd = ($20*facing_dir) &$FF;
         vspd = $E8 | (_RAND&$7);
     }
     

@@ -7,7 +7,7 @@ GO_depth_init(DEPTH_FLYER);
 
 //DRAW_YOFF = 1; // Does it get +1 in-ground??
 
-facingDir = dir_to_pc_(id);
+facing_dir = dir_to_pc_(id);
 
 counter = $FF;
 
@@ -24,8 +24,8 @@ VSPD1 = _SPEED;
 
 if (ver==2)
 {
-    hspd  = (HSPD1*facingDir)&$FF;
-    //vspd  = (VSPD1*facingDir)&$FF;
+    hspd  = (HSPD1*facing_dir)&$FF;
+    //vspd  = (VSPD1*facing_dir)&$FF;
     
     MIN_DIST = $18;
 }

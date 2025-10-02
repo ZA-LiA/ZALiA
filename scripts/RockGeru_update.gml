@@ -6,7 +6,7 @@ var _RAND = rand();
 
 
 // 9730: JSR DC91
-facingDir = dir_to_pc(id);
+facing_dir = dir_to_pc(id);
 
 // 9733
 if (behavior)
@@ -23,7 +23,7 @@ if (behavior)
         // 9748: JSR 9A11: JSR DBCE
         if (avail_uidx_goc(MAX_GOC1) != UIDX_NULL)
         {
-            var _p = GOC1_create(xl, yt, facingDir, projectile,projectile_ver);
+            var _p = GOC1_create(xl, yt, facing_dir, projectile,projectile_ver);
             
             var _diff, _carry;
             
@@ -34,7 +34,7 @@ if (behavior)
             else             _carry = 0;
             
                              _diff  = _diff >>2;
-            if (!facingDir)  _diff ^= $FF;
+            if (!facing_dir)  _diff ^= $FF;
             
             _p.hspd = byte(_diff + g.pc.hspd + _carry);
             

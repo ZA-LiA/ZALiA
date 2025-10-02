@@ -52,7 +52,7 @@ if (react_shield&$FF
             reflected = true;
             if (g.mod_REFLECT_more_obj)
             {
-                facingDir = -facingDir;
+                facing_dir = -facing_dir;
                 vspd      = 0;
                 vspd_adj  = 0;
             }
@@ -71,7 +71,7 @@ if (react_shield&$FF
         }
         else if (_C2) // Bounce
         {   // E431
-            hspd = (8*-facingDir) &$FF;
+            hspd = (8*-facing_dir) &$FF;
             vspd = $F8;
         }
         else // _C3 Disintegrate

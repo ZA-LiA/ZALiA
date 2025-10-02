@@ -44,7 +44,7 @@ if(    !is_undefined(            dk_spawn)){               _a=5;
 
 
 
-facingDir = hspd_dir;
+facing_dir = hspd_dir;
 
 
 set_xy(id, clamp(x,XC_MIN,XC_MAX), clamp(y,YC_MIN,YC_MAX));

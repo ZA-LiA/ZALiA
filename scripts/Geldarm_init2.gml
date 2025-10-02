@@ -73,7 +73,7 @@ set_xlyt(id, xl, GROUND_Y-_HEIGHT_MAX);
 
 
 
-facingDir = dir_to_pc_1();
+facing_dir = dir_to_pc_1();
 
 
 isIdle      = true; // 00AF,X. 1: fully unscrunched, 0: all else

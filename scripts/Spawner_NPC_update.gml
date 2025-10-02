@@ -47,7 +47,7 @@ with(GameObject_create(_xl,_yt, NPC_2,1))
 {
     var _use_costume = global.Halloween1_enabled && !irandom($3);
     counter   = 0;
-    facingDir = _dir;
+    facing_dir = _dir;
     
     
     switch(_VER)
@@ -120,7 +120,7 @@ with(GameObject_create(_xl,_yt, NPC_2,1))
     
     
     if (sprite_datakey==STR_Girubokku) hspd = $10;
-    hspd = (hspd*facingDir) &$FF;
+    hspd = (hspd*facing_dir) &$FF;
     set_hspd_dir();
     hspd_dir_spawn = hspd_dir;
     

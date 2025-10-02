@@ -10,13 +10,13 @@ can_draw_self = phase==1 || phase==2; // 3 is off screen, 4 is reboB dead
 
 // B3A8. sprite (Horse front: spr_Rebonack_1a)
 var                             _idx  = Turn_timer>>2;
-if(!facingDir)                  _idx += 8;
+if(!facing_dir)                  _idx += 8;
 Front_xoff  = str_hex(XOFF_DATA,_idx);
 Front_xoff -= ((Front_xoff&$80)<<1);
 
 // B3DC. Back_sprite & Rider_sprite
                                _idx  = Turn_timer>>2;
-if (facingDir)                 _idx += 8;
+if (facing_dir)                 _idx += 8;
 Back_xoff  = str_hex(XOFF_DATA,_idx);
 Back_xoff -= ((Back_xoff&$80)<<1);
 // -----------------------------------------------------
@@ -35,10 +35,10 @@ Rider_yoff = (g.counter1&$10)>>4;
 
 
                                       _idx  = Turn_timer>>2;
-if(!facingDir)                        _idx += 8;
+if(!facing_dir)                        _idx += 8;
     SwordHB_xoff  = str_hex(XOFF_DATA,_idx);
     SwordHB_xoff -= (SwordHB_xoff&$80)<<1;
-if (facingDir)
+if (facing_dir)
 {   SwordHB_xoff += 15;  }
     SwordHB_xoff += g.HB_ADJ_X;
 //
@@ -64,15 +64,15 @@ if (Turn_timer
         show_debug_message("");
     }
     
-    _str += "facingDir ";
-    if (facingDir) _str += " 1";
+    _str += "facing_dir ";
+    if (facing_dir) _str += " 1";
     else           _str += "-1";
     _str += ", ";
     _str += "Turn_timer: $" + hex_str(Turn_timer) + ".  ";
     
     
                     _idx = Turn_timer >> 2;
-    if (!facingDir) _idx += 8;
+    if (!facing_dir) _idx += 8;
     
     _str += "Front_xoff: ";
     _str += string_copy(_spaces, 1, string_length(_spaces) - string_length(string(Front_xoff)));
@@ -85,7 +85,7 @@ if (Turn_timer
     
     
                     _idx = Turn_timer >> 2;
-    if ( facingDir) _idx += 8;
+    if ( facing_dir) _idx += 8;
     
     _str += "Back_xoff: ";
     _str += string_copy(_spaces, 1, string_length(_spaces) - string_length(string(Back_xoff)));

@@ -11,7 +11,7 @@ if (ver == 2)
 
 // pID 3: 9C3D, 9C48
 // pID 4: 962F, 9634
-Projectile_update_3a(true); // vspd_adj == 0;
+Projectile_update_3a(despawn_offscreen_hor); // vspd_adj == 0;
 
 
 

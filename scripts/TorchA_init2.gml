@@ -6,7 +6,7 @@ var _OBJVER = object_get_name(object_index)+hex_str(ver);
 
 GO_depth_init(DEPTH_NIAO-(DEPTH_PAD>>1));
 
-facingDir = 1;
+facing_dir = 1;
 
 
 

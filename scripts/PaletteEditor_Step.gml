@@ -317,7 +317,8 @@ switch(state)
             {
                 _pi = val(PalEdit_dm[?STR_Palette+hex_str(_i+1)+STR_Palette+STR_Index]);
                 _pos = get_pal_pos(_pi);
-                _palette = get_random_palette1(1,true);
+                _palette = get_random_palette2(-1);
+                //_palette = get_random_palette1(1,true);
                 pal_during_edit = strReplaceAt(pal_during_edit, _pos, global.PAL_CHAR_PER_PAL, _palette);
             }
             

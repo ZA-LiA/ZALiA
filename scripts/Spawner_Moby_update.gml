@@ -22,9 +22,9 @@ with(enemy_spawn_2(MobyA,1))
     &&  viewXL()>0 
     &&  viewXR()<g.rm_w )
     {
-        if (facingDir==PlatformRaft.hspd_dir)
-        {    var _DIFF = $50 *  facingDir;  }
-        else var _DIFF = $50 * -facingDir;
+        if (facing_dir==PlatformRaft.hspd_dir)
+        {    var _DIFF = $50 *  facing_dir;  }
+        else var _DIFF = $50 * -facing_dir;
         set_xy(id, x+_DIFF, y);
     }
 }
