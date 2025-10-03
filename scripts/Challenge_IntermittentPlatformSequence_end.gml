@@ -4,14 +4,18 @@
 var _exists = false;
 
 
+/*
 //ds_grid_clear(g.dg_RmTile_TempSolid, 0);
-with(g){
-    _exists = variable_instance_exists(id,"dg_RmTile_TempSolid");
-if (_exists) _exists =      !is_undefined( dg_RmTile_TempSolid);
-if (_exists) _exists =       ds_exists(    dg_RmTile_TempSolid, ds_type_grid);
-if (_exists)                 ds_grid_clear(dg_RmTile_TempSolid, 0);
-    _exists = false;
+with(g)
+{
+        _exists = variable_instance_exists(id,"dg_RmTile_TempSolid");
+    if (_exists) _exists =      !is_undefined( dg_RmTile_TempSolid);
+    if (_exists) _exists =       ds_exists(    dg_RmTile_TempSolid, ds_type_grid);
+    if (_exists)                 ds_grid_clear(dg_RmTile_TempSolid, 0);
+        _exists = false;
 }
+*/
+
 
 /*
 var _exists = false;

@@ -200,41 +200,39 @@ ds_grid_clear (g.dg_RmTile_solid_def,   0);
 g.dg_RmTile_solid_w = ds_grid_width( g.dg_RmTile_solid);
 g.dg_RmTile_solid_h = ds_grid_height(g.dg_RmTile_solid);
 
-ds_grid_resize(g.dg_RmTile_Break,       _TMX_W, _TMX_H); // unit8
+ds_grid_resize(g.dg_RmTile_Break,       0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Break,       0);
-ds_grid_resize(g.dg_RmTile_Break_def,   _TMX_W, _TMX_H); // unit8
+ds_grid_resize(g.dg_RmTile_Break_def,   0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Break_def,   0);
 
-ds_grid_resize(g.dg_RmTile_Liquid,      _TMX_W, _TMX_H); // unit8
+ds_grid_resize(g.dg_RmTile_Liquid,      0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Liquid,      0);
-ds_grid_resize(g.dg_RmTile_Liquid_def,  _TMX_W, _TMX_H); // unit8
+ds_grid_resize(g.dg_RmTile_Liquid_def,  0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Liquid_def,  0);
 
-ds_grid_resize(g.dg_RmTile_Current,     _TMX_W, _TMX_H); // unit8
+ds_grid_resize(g.dg_RmTile_Current,     0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Current,     0);
-ds_grid_resize(g.dg_RmTile_Current_def, _TMX_W, _TMX_H); // unit8
+ds_grid_resize(g.dg_RmTile_Current_def, 0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Current_def, 0);
 
-ds_grid_resize(g.dg_RmTile_TempSolid,   _TMX_W, _TMX_H); // unit8
+// dg_RmTile_TempSolid used by Challenge_IntermittentPlatformSequence (megaman blocks) and to tell Rescue fairy not to use temporary solid tiles
+ds_grid_resize(g.dg_RmTile_TempSolid,   0,0); // unit8
 ds_grid_clear (g.dg_RmTile_TempSolid,   0);
+//ds_grid_resize(g.dg_RmTile_TempSolid,   _TMX_W,_TMX_H); // unit8
+//ds_grid_clear (g.dg_RmTile_TempSolid,   0);
 
 ds_grid_resize(g.dg_RmTile_Spike,       0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Spike,       0);
 ds_grid_resize(g.dg_RmTile_Spike_def,   0,0); // unit8
 ds_grid_clear (g.dg_RmTile_Spike_def,   0);
-/*
-ds_grid_resize(g.dg_RmTile_Spike,       _TMX_W, _TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Spike,       0);
-ds_grid_resize(g.dg_RmTile_Spike_def,   _TMX_W, _TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Spike_def,   0);
-*/
+
 ds_list_clear(g.dl_ceiling_bottom_rc);
 
 with(g.burnable_mgr)
 {
-    ds_grid_resize(dg_RmTile_Burnable,     _TMX_W, _TMX_H); // unit8
+    ds_grid_resize(dg_RmTile_Burnable,     0,0); // unit8
     ds_grid_clear (dg_RmTile_Burnable,     0);
-    ds_grid_resize(dg_RmTile_Burnable_def, _TMX_W, _TMX_H); // unit8
+    ds_grid_resize(dg_RmTile_Burnable_def, 0,0); // unit8
     ds_grid_clear (dg_RmTile_Burnable_def, 0);
     ds_grid_resize(dg_Burnable,0,ds_grid_height(dg_Burnable));
     ds_grid_clear (dg_Burnable,0);
@@ -247,8 +245,8 @@ if (global.WallStyle01Tiles_MAIN)
     _data = f.dm_rando[?dk_WallStyle+"01"+_TILE_FILE_NAME];
     if(!is_undefined(_data))
     {
-        //ds_grid_resize(_WallStyle01_dg, _TMX_W,_TMX_H);
-        ds_grid_read(_WallStyle01_dg, _data);
+        ds_grid_resize(_WallStyle01_dg, _TMX_W,_TMX_H);
+        ds_grid_read(  _WallStyle01_dg, _data);
     }
 }
 
@@ -258,12 +256,29 @@ if (global.WallStyle02Tiles_MAIN)
     _data = f.dm_rando[?dk_WallStyle+"02"+_TILE_FILE_NAME];
     if(!is_undefined(_data))
     {
-        //ds_grid_resize(_WallStyle02_dg, _TMX_W,_TMX_H);
-        ds_grid_read(_WallStyle02_dg, _data);
+        ds_grid_resize(_WallStyle02_dg, _TMX_W,_TMX_H);
+        ds_grid_read(  _WallStyle02_dg, _data);
     }
 }
-
-
+/*
+show_debug_message("scene_enter_add_tiles(). "+"_TMX_W="+string(_TMX_W)+" _TMX_H="+string(_TMX_H));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_solid-"+string(g.dg_RmTile_solid));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_solid_def-"+string(g.dg_RmTile_solid_def));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Break-"+string(g.dg_RmTile_Break));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Break_def-"+string(g.dg_RmTile_Break_def));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Liquid-"+string(g.dg_RmTile_Liquid));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Liquid_def-"+string(g.dg_RmTile_Liquid_def));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Current-"+string(g.dg_RmTile_Current));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Current_def-"+string(g.dg_RmTile_Current_def));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_TempSolid-"+string(g.dg_RmTile_TempSolid));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Spike-"+string(g.dg_RmTile_Spike));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Spike_def-"+string(g.dg_RmTile_Spike_def));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Burnable-"+string(g.burnable_mgr.dg_RmTile_Burnable));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Burnable_def-"+string(g.burnable_mgr.dg_RmTile_Burnable_def));
+show_debug_message("scene_enter_add_tiles(). "+"g.dg_Burnable-"+string(g.burnable_mgr.dg_Burnable));
+show_debug_message("scene_enter_add_tiles(). "+"_WallStyle01_dg-"+string(_WallStyle01_dg));
+show_debug_message("scene_enter_add_tiles(). "+"_WallStyle02_dg-"+string(_WallStyle02_dg));
+*/
 
 
 //_ts_name = background_get_name(ts_Man_made_1a_WRB);
@@ -633,8 +648,9 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         
         if (global.WallStyle01Tiles_MAIN 
         &&  global.RandoDungeonTilesets_enabled 
-        && !is_undefined(f.dm_rando[?dk_WallStyle+"01"+_TILE_FILE_NAME+_layer_name]) 
-        &&  _WallStyle01_dg[#_clm,_row] )
+        &&  ds_grid_width(_WallStyle01_dg) 
+        &&  _WallStyle01_dg[#_clm,_row] 
+        && !is_undefined(g.dm_rm[?dk_WallStyle+"01"+_TILE_FILE_NAME+_layer_name]) )
         {
             _data = _WallStyle01_dg[#_clm,_row];
             _ts   = g.dl_tileset[|(_data>>8)&$FF];
@@ -644,8 +660,9 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         }
         else if (global.WallStyle02Tiles_MAIN 
         &&  global.RandoDungeonTilesets_enabled 
-        && !is_undefined(f.dm_rando[?dk_WallStyle+"02"+_TILE_FILE_NAME+_layer_name]) 
-        &&  _WallStyle02_dg[#_clm,_row] )
+        &&  ds_grid_width(_WallStyle02_dg) 
+        &&  _WallStyle02_dg[#_clm,_row] 
+        && !is_undefined(g.dm_rm[?dk_WallStyle+"02"+_TILE_FILE_NAME+_layer_name]) )
         {
             _data = _WallStyle02_dg[#_clm,_row];
             _ts   = g.dl_tileset[|(_data>>8)&$FF];
@@ -884,7 +901,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (_val)
             {
-                if(!ds_grid_width(g.dg_RmTile_Spike))
+                if(!ds_grid_width( g.dg_RmTile_Spike))
                 {
                     ds_grid_resize(g.dg_RmTile_Spike,     _TMX_W,_TMX_H); // unit8
                     ds_grid_clear (g.dg_RmTile_Spike,     0);
@@ -936,6 +953,15 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                     ||  _tsrc==$B1 )
                     {    _val=BURNABLE_A;  } // this could be BURNABLE_A or BURNABLE_B but that will have to be decided after the _i loop
                     else _val=BURNABLE_C;    // extra graphic detail around a vine graphic tile
+                    
+                    if(!ds_grid_width( dg_RmTile_Burnable))
+                    {
+                        ds_grid_resize(dg_RmTile_Burnable,     _TMX_W,_TMX_H); // unit8
+                        ds_grid_clear (dg_RmTile_Burnable,     0);
+                        ds_grid_resize(dg_RmTile_Burnable_def, _TMX_W,_TMX_H); // unit8
+                        ds_grid_clear (dg_RmTile_Burnable_def, 0);
+                    }
+                    
                     dg_RmTile_Burnable    [#_clm,_row] = (_depth_idx<<8) | _val;
                     dg_RmTile_Burnable_def[#_clm,_row] = dg_RmTile_Burnable[#_clm,_row];
                 }
@@ -960,6 +986,14 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (_val)
             {
+                if(!ds_grid_width( g.dg_RmTile_Current))
+                {
+                    ds_grid_resize(g.dg_RmTile_Current,     _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (g.dg_RmTile_Current,     0);
+                    ds_grid_resize(g.dg_RmTile_Current_def, _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (g.dg_RmTile_Current_def, 0);
+                }
+                
                 g.dg_RmTile_Current    [#_clm,_row] = (_depth_idx<<8) | _val;
                 g.dg_RmTile_Current_def[#_clm,_row] = g.dg_RmTile_Current[#_clm,_row];
             }
@@ -980,6 +1014,14 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (_val)
             {
+                if(!ds_grid_width( g.dg_RmTile_Break))
+                {
+                    ds_grid_resize(g.dg_RmTile_Break,     _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (g.dg_RmTile_Break,     0);
+                    ds_grid_resize(g.dg_RmTile_Break_def, _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (g.dg_RmTile_Break_def, 0);
+                }
+                
                 _clm1 = _clm;
                 _row1 = _row;
                 g.dg_RmTile_Break    [#_clm1,_row1] = (_depth_idx<<8) | _val;
@@ -1005,6 +1047,14 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (_val)
             {
+                if(!ds_grid_width( g.dg_RmTile_Liquid))
+                {
+                    ds_grid_resize(g.dg_RmTile_Liquid,     _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (g.dg_RmTile_Liquid,     0);
+                    ds_grid_resize(g.dg_RmTile_Liquid_def, _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (g.dg_RmTile_Liquid_def, 0);
+                }
+                
                 _clm1 = _clm;
                 _row1 = _row;
                 g.dg_RmTile_Liquid    [#_clm1,_row1] = (_depth_idx<<8) | _val;

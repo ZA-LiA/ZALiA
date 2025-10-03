@@ -271,7 +271,8 @@ if (Info1_can_draw)
 
 
 ///*
-if (state==state_EDIT1A)
+if (state==state_EDIT1A 
+&&  PalEdit_ViewColorInfo_enabled )
 {
     var _AREA_XL0 = PalEdit_xl;
     var _AREA_YT0 = max(PalEdit_yt+PalEdit_PALS_H, ColorGrid_yt+ColorGrid_H) + 4 + (_DIST1<<2);

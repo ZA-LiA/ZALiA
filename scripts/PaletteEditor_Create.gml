@@ -377,6 +377,8 @@ PalEdit_PAL_COUNT = _count1;
 PalEdit_Cursor_clm = 0;
 PalEdit_Cursor_row = 0;
 //PalEdit_Cursor_color = 0; // the palette color under the cursor
+PalEdit_ViewColorInfo_KEY = "C";
+PalEdit_ViewColorInfo_enabled = false;
 
 
 
@@ -509,6 +511,14 @@ Info1_dg[#_i,_j++] = string(state_EDIT1A); // can draw conditions
 _j=0; _dk2="Y"; _dk3=_dk1+_dk2;
 ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
 Info1_dg[#_i,_j++] = _dk3+","+_dk3+"+LT,"+_dk3+"+RT: VIEW PREVIOUS COLOR(S)";
+Info1_dg[#_i,_j++] = 0; // xl
+Info1_dg[#_i,_j++] = 0; // yt
+Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions
+
+_j=0; //_dk2="B"; _dk3=_dk1+_dk2;
+ds_grid_resize(Info1_dg, (++_i)+1, Info1_dg_H);
+//Info1_dg[#_i,_j++] = "HOLD '"+PalEdit_ViewColorInfo_KEY+"': VIEW COLOR INFO";
+Info1_dg[#_i,_j++] = "PRESS '"+PalEdit_ViewColorInfo_KEY+"': TOGGLE COLOR INFO";
 Info1_dg[#_i,_j++] = 0; // xl
 Info1_dg[#_i,_j++] = 0; // yt
 Info1_dg[#_i,_j++] = string(state_EDIT1A)+string(state_EDIT1B)+string(state_BGR_COLOR); // can draw conditions

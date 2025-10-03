@@ -333,6 +333,11 @@ switch(state)
     
     
     
+    if (keyboard_check_pressed(ord(PalEdit_ViewColorInfo_KEY))) PalEdit_ViewColorInfo_enabled = !PalEdit_ViewColorInfo_enabled;
+    
+    
+    
+    
     // update move PalEdit_Cursor
     PaletteEditor_update_cursor();
     break;}//case state_EDIT1A
