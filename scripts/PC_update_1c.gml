@@ -14,14 +14,21 @@ var _clm,_row;
 control = 0;
 
 
-var _CLMS = min(ds_grid_width( g.dg_RmTile_Break),ds_grid_width( g.dg_RmTile_Liquid));
-var _ROWS = min(ds_grid_height(g.dg_RmTile_Break),ds_grid_height(g.dg_RmTile_Liquid));
-var _clm  = cp1X>>3;
-var _row  = cp1Y>>3;
-if (is_in_grid(_clm,_row, _CLMS,_ROWS))
+//var _CLMS = g.rm_clms;
+//var _ROWS = g.rm_rows;
+//var _CLMS = min(ds_grid_width( g.dg_RmTile_Break),ds_grid_width( g.dg_RmTile_Liquid));
+//var _ROWS = min(ds_grid_height(g.dg_RmTile_Break),ds_grid_height(g.dg_RmTile_Liquid));
+//_clm = cp1X>>3;
+//_row = cp1Y>>3;
+//if (is_in_grid(_clm,_row, _CLMS,_ROWS))
+
+// E098. INSTA-KILL LIQUID ---------------------------------------------
+if (ds_grid_width(g.dg_RmTile_Liquid))
 {
-    // E098. INSTA-KILL LIQUID ---------------------------------------------
-    if (g.dg_RmTile_Liquid[#_clm,_row]&$FF==TID_LQUID1 
+    _clm = cp1X>>3;
+    _row = cp1Y>>3;
+    if (is_in_grid(_clm,_row, ds_grid_width(g.dg_RmTile_Liquid),ds_grid_height(g.dg_RmTile_Liquid)) 
+    &&  g.dg_RmTile_Liquid[#_clm,_row]&$FF==TID_LQUID1 
     && !(cs&$4) )
     {   // E0A4
         aud_play_sound(get_audio_theme_track(STR_PC+STR_Damage));
@@ -59,62 +66,84 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
         state = state_DROWN;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
-    
-    
-    
-    // SPIKES ----------------------------------------------------------
-    if(!iframes_timer 
-    &&  ds_grid_width(g.dg_RmTile_Spike) )
+}
+
+
+
+
+// SPIKES ----------------------------------------------------------
+if(!iframes_timer 
+&&  ds_grid_width(g.dg_RmTile_Spike) )
+{
+    if(!g.DevTools_state 
+    ||  g.dev_invState&$3!=2 )
     {
-        if(!g.DevTools_state 
-        ||  g.dev_invState&$3!=2 )
+        var _SPIKE_CLMS = ds_grid_width( g.dg_RmTile_Spike);
+        var _SPIKE_ROWS = ds_grid_height(g.dg_RmTile_Spike);
+        var _HB_CLMS = ((csTop2X   -csTop1X)>>3) + 1;
+        var _HB_ROWS =(((csBtm1Y-1)-csTop1Y)>>3) + 1;
+        var _hb_clm,_hb_row;
+        for(_i=0; _i<_HB_CLMS; _i++)
         {
-            /*
-            var _CLM1 = (xc-4)>>3;
-            var _CLM2 = (xc+3)>>3;
-            var _ROW1 = (cp1Y-1)>>3; // pc bottom
-            //var _ROW1 = cp1Y>>3; // pc bottom
-            var _ROW2 = cp2Y>>3; // pc top
-            // Floor spikes
-            //if (cs&$4 && !ogr)
-            if ((is_in_grid(_CLM1,_ROW1, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM1,_ROW1]&$FF, TID_SPIKE1,TID_SPIKE2)) 
-            ||  (is_in_grid(_CLM2,_ROW1, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM2,_ROW1]&$FF, TID_SPIKE1,TID_SPIKE2)) 
-            // Ceiling spikes
-            ||  (is_in_grid(_CLM1,_ROW2, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM1,_ROW2]&$FF, TID_SPIKE1,TID_SPIKE2)) 
-            ||  (is_in_grid(_CLM2,_ROW2, _CLMS,_ROWS) && isVal(g.dg_RmTile_Spike[#_CLM2,_ROW2]&$FF, TID_SPIKE1,TID_SPIKE2)) )
-            */
-            if (rectInRect(csTop1X,csTop1Y,csTop2X-csTop1X,(csBtm1Y-1)-csTop1Y, 0,0,_CLMS<<3,_ROWS<<3))
+            for(_j=0; _j<_HB_ROWS; _j++)
             {
-                var _VAL = ds_grid_get_max(g.dg_RmTile_Spike,max(csTop1X,0)>>3,max(csTop1Y,0)>>3,min(csBtm2X>>3,_CLMS-1),min((csBtm2Y-1)>>3,_ROWS-1)) &$FF;
-                if (_VAL==TID_SPIKE1 
-                ||  _VAL==TID_SPIKE2 )
+                _hb_clm = (csTop1X+(_i<<3)) >>3;
+                _hb_row = (csTop1Y+(_j<<3)) >>3;
+                if (is_in_grid(_hb_clm,_hb_row, _SPIKE_CLMS,_SPIKE_ROWS))
                 {
-                    var _damage = $10;
-                    if (g.DevTools_state 
-                    &&  g.dev_invState&$3 )
+                    if (g.dg_RmTile_Spike[#_hb_clm,_hb_row]==TID_SPIKE1 
+                    ||  g.dg_RmTile_Spike[#_hb_clm,_hb_row]==TID_SPIKE2 )
                     {
-                        _damage = 0; // g.dev_invState. 2: skip all, 1 skip dmg, 0 regular
+                        var _damage = $10;
+                        if (g.DevTools_state 
+                        &&  g.dev_invState&$3 )
+                        {
+                            _damage = 0; // g.dev_invState. 2: skip all, 1 skip dmg, 0 regular
+                        }
+                        
+                        PC_take_damage(noone,_damage); // Spike Damage
+                        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     }
-                    
-                    PC_take_damage(noone,_damage); // Spike Damage
-                    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
             }
         }
+        /*
+        if (rectInRect(csTop1X,csTop1Y,csTop2X-csTop1X,(csBtm1Y-1)-csTop1Y, 0,0,_SPIKE_CLMS<<3,_SPIKE_ROWS<<3))
+        {
+            var _VAL = ds_grid_get_max(g.dg_RmTile_Spike,max(csTop1X,0)>>3,max(csTop1Y,0)>>3,min(csBtm2X>>3,_SPIKE_CLMS-1),min((csBtm2Y-1)>>3,_SPIKE_ROWS-1)) &$FF;
+            if (_VAL==TID_SPIKE1 
+            ||  _VAL==TID_SPIKE2 )
+            {
+                var _damage = $10;
+                if (g.DevTools_state 
+                &&  g.dev_invState&$3 )
+                {
+                    _damage = 0; // g.dev_invState. 2: skip all, 1 skip dmg, 0 regular
+                }
+                
+                PC_take_damage(noone,_damage); // Spike Damage
+                exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            }
+        }
+        */
     }
-        
+}
+
     
-    
-    
-    
-    
-    
-    // E0FC. CRUMBLE GROUND --------------------------------------
+
+
+
+
+
+
+// E0FC. CRUMBLE GROUND --------------------------------------
+if (ds_grid_width(g.dg_RmTile_Break))
+{
     if (g.mod_CRUMBLE_TILES==1)
     { // check both csBtm
             _clm = csBtm1X>>3;
             _row = csBtm1Y>>3;
-        if(!is_in_grid(_clm,_row, _CLMS,_ROWS) 
+        if(!is_in_grid(_clm,_row, ds_grid_width(g.dg_RmTile_Break),ds_grid_height(g.dg_RmTile_Break)) 
         || !isVal(g.dg_RmTile_Break[#_clm,_row]&$FF, TID_BREAK2,TID_BREAK4) )
         {
             _clm = csBtm2X>>3;
@@ -122,7 +151,7 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
         }
     }
     
-    if (is_in_grid(_clm,_row, _CLMS,_ROWS) 
+    if (is_in_grid(_clm,_row, ds_grid_width(g.dg_RmTile_Break),ds_grid_height(g.dg_RmTile_Break)) 
     &&  isVal(g.dg_RmTile_Break[#_clm,_row]&$FF, TID_BREAK2,TID_BREAK4) ) // crumble bridge
     {   // E102: JSR E292
         var          _COUNT=ds_grid_width(g.dg_tile_anim);
@@ -132,10 +161,13 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
             if (isVal(g.dg_tile_anim[#_i,0], TID_BREAK2,TID_BREAK4)  // 0: anim num/type
             &&       !g.dg_tile_anim[#_i,1] )                        // 1: counter
             {
+                var _clm2 = 0;
+                var _row2 = 0;
+                
                 if (_clm)
                 {
-                    var _clm2 = _clm-1;
-                    while (is_in_grid(_clm2,_row, _CLMS,_ROWS) 
+                    _clm2 = _clm-1;
+                    while (is_in_grid(_clm2,_row, ds_grid_width(g.dg_RmTile_Break),ds_grid_height(g.dg_RmTile_Break)) 
                        &&  isVal(g.dg_RmTile_Break[#_clm2,_row]&$FF, TID_BREAK2,TID_BREAK4) )
                     {
                             _clm2--;
@@ -147,8 +179,8 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
                 
                 if (_row)
                 {
-                    var _row2 = _row-1;
-                    while (is_in_grid(_clm,_row2, _CLMS,_ROWS) 
+                    _row2 = _row-1;
+                    while (is_in_grid(_clm,_row2, ds_grid_width(g.dg_RmTile_Break),ds_grid_height(g.dg_RmTile_Break)) 
                        &&  isVal(g.dg_RmTile_Break[#_clm,_row2]&$FF, TID_BREAK2,TID_BREAK4) )
                     {
                             _row2--;
@@ -176,7 +208,7 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
                 {
                     _clm2 = _clm + (_j&1);
                     _row2 = _row + (_j>1);
-                    if (is_in_grid(_clm2,_row2, g.rm_clms,g.rm_rows))
+                    if (is_in_grid(_clm2,_row2, ds_grid_width(g.dg_RmTile_Break),ds_grid_height(g.dg_RmTile_Break)))
                     {   // E105
                         g.dg_RmTile_Break[#_clm2,_row2] = 0;
                         aud_play_sound(get_audio_theme_track(dk_BridgeCrumble));
@@ -187,17 +219,21 @@ if (is_in_grid(_clm,_row, _CLMS,_ROWS))
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    // E0B0. VISCOUS LIQUID (SWAMP WATER) --------------------------------------
+}
+
+
+
+
+
+
+
+
+// E0B0. VISCOUS LIQUID (SWAMP WATER) --------------------------------------
+if (ds_grid_width(g.dg_RmTile_Liquid))
+{
     _clm =  cp1X    >>3;
     _row = (cp1Y-4) >>3;
-    if (is_in_grid(_clm,_row, _CLMS,_ROWS) 
+    if (is_in_grid(_clm,_row, ds_grid_width(g.dg_RmTile_Liquid),ds_grid_height(g.dg_RmTile_Liquid)) 
     &&  g.dg_RmTile_Liquid[#_clm,_row]&$FF==TID_LQUID2 )
     {
         control |= (control_MOVE1 | control_DRAW1 | control_SOUND1);

@@ -206,8 +206,8 @@ if(!rm_w
                             if(!_wall_part_data_was_set) _wall_part_data_was_set = _dg_wall_part_data[#_clm,_row]!=0;
                             if (_wall_part_data_was_set)
                             {
-                                g.dm_rm[?dk_WallStyle+"01"+_FILE_NAME0+_layer_name] = true;
-                                g.dm_rm[?dk_WallStyle+"02"+_FILE_NAME0+_layer_name] = true;
+                                global.dm_scene_wall_data[?dk_WallStyle+"01"+_FILE_NAME0+_layer_name] = true;
+                                global.dm_scene_wall_data[?dk_WallStyle+"02"+_FILE_NAME0+_layer_name] = true;
                             }
                         }
                     }//_j
@@ -265,7 +265,7 @@ if(!rm_w
         
         
         
-        if (_wall_part_data_was_set) g.dm_rm[?_FILE_NAME0+STR_Wall+STR_Part+STR_Data] = ds_grid_write(_dg_wall_part_data);
+        if (_wall_part_data_was_set) global.dm_scene_wall_data[?_FILE_NAME0+STR_Wall+STR_Part+STR_Data] = ds_grid_write(_dg_wall_part_data);
         
         
         

@@ -221,8 +221,8 @@ if (global.WallStyle01Tiles_MAIN
     
     // ---------------------------------------------------------------------------------
     if (global.WallStyle01Tiles_MAIN 
-    &&  true ) // testing
-    //&&  irandom(ds_list_size(dl_list2))<ds_list_size(dl_list1) )
+    //&&  true ) // testing
+    &&  irandom(ds_list_size(dl_list2))<ds_list_size(dl_list1) )
     {
         _area = _dl_areas[|irandom(ds_list_size(_dl_areas)-1)];
         ds_list_delete(_dl_areas,ds_list_find_index(_dl_areas,_area));
@@ -260,7 +260,8 @@ if (global.WallStyle01Tiles_MAIN
             _file_name1 += string(_i);
             
             
-            _data = g.dm_rm[?_file_name1+STR_Wall+STR_Part+STR_Data];
+            _data = global.dm_scene_wall_data[?_file_name1+STR_Wall+STR_Part+STR_Data];
+            //_data = g.dm_rm[?_file_name1+STR_Wall+STR_Part+STR_Data];
             if(!is_undefined(_data))
             {
                 ds_grid_read(_dg_wall_type, _data);
@@ -468,8 +469,8 @@ if (global.WallStyle01Tiles_MAIN
     
     // ---------------------------------------------------------------------------------
     if (global.WallStyle02Tiles_MAIN 
-    &&  true ) // testing
-    //&&  irandom(ds_list_size(dl_list2))<ds_list_size(dl_list1) )
+    //&&  true ) // testing
+    &&  irandom(ds_list_size(dl_list2))<ds_list_size(dl_list1) )
     {
         _area = _dl_areas[|irandom(ds_list_size(_dl_areas)-1)];
         ds_list_delete(_dl_areas,ds_list_find_index(_dl_areas,_area));
@@ -506,7 +507,8 @@ if (global.WallStyle01Tiles_MAIN
             _file_name1 += string(_i);
             
             
-            _data = g.dm_rm[?_file_name1+STR_Wall+STR_Part+STR_Data];
+            _data = global.dm_scene_wall_data[?_file_name1+STR_Wall+STR_Part+STR_Data];
+            //_data = g.dm_rm[?_file_name1+STR_Wall+STR_Part+STR_Data];
             if(!is_undefined(_data))
             {
                 ds_grid_read(_dg_wall_type, _data);

@@ -512,6 +512,7 @@ if (ds_exists(global.WallStyle02_dm,ds_type_map)){ds_map_destroy(global.WallStyl
 if (ds_exists(global.dm_scene_rando,ds_type_map)){ds_map_destroy(global.dm_scene_rando); global.dm_scene_rando=undefined;}
 if (ds_exists(global.dm_tile_layer_data,ds_type_map)){ds_map_destroy(global.dm_tile_layer_data); global.dm_tile_layer_data=undefined;}
 if (ds_exists(global.dm_scene_wh,ds_type_map)){ds_map_destroy(global.dm_scene_wh); global.dm_scene_wh=undefined;}
+if (ds_exists(global.dm_scene_wall_data,ds_type_map)){ds_map_destroy(global.dm_scene_wall_data); global.dm_scene_wall_data=undefined;}
 
 if (ds_exists(global.DropSpawner_dm,ds_type_map)){ds_map_destroy(global.DropSpawner_dm); global.DropSpawner_dm=undefined;}
 if (ds_exists(global.DungeonLayoutRandoTesting_dm,ds_type_map)){ds_map_destroy(global.DungeonLayoutRandoTesting_dm); global.DungeonLayoutRandoTesting_dm=undefined;}

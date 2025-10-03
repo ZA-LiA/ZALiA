@@ -8,9 +8,16 @@ if (DEV)
 }
 
 
+var _file, _encoded;
+
+
 FILE_NAME0 = "SceneData01.txt";
 //FILE_NAME1 = FILE_NAME0;
 FILE_NAME1 = "rm_tile_data/"+FILE_NAME0;
+
+
+FILE2_NAME0 = "SceneWallData01.txt";
+FILE2_NAME1 = "rm_tile_data/"+FILE2_NAME0;
 
 
 
@@ -18,6 +25,31 @@ FILE_NAME1 = "rm_tile_data/"+FILE_NAME0;
 var _REINITIALIZING = false; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED. BUT UPDATE OVERWORLD DATA FIRST IF IT NEEDS TO BE UPDATED ***
 if(!_REINITIALIZING)
 {
+    if (file_exists(FILE2_NAME1))
+    {
+        _file    = file_text_open_read(FILE2_NAME1);
+        _encoded = file_text_read_string(_file);
+                   file_text_close(      _file);
+        var _dm_SCENE_WALL_FILE_DATA = json_decode(_encoded);
+        if (_dm_SCENE_WALL_FILE_DATA==-1) // `json_decode` returns -1 if it fails
+        {
+            show_debug_message("!!!! WARNING! RoomData_Create(). `_dm_SCENE_WALL_FILE_DATA` failed to get data from file '"+FILE2_NAME1+"' !!!!");
+        }
+        else
+        {
+            var _SCENE_WALL_PART_DATA = _dm_SCENE_WALL_FILE_DATA[?"scene_wall_data"];
+            if(!is_undefined(_SCENE_WALL_PART_DATA)) ds_map_read(global.dm_scene_wall_data, _SCENE_WALL_PART_DATA);
+            ds_map_destroy(_dm_SCENE_WALL_FILE_DATA); _dm_SCENE_WALL_FILE_DATA=undefined;
+        }
+    }
+    else
+    {
+        show_debug_message("!!!! WARNING! RoomData_Create(). file '"+FILE2_NAME1+"' does not exist !!!!");
+    }
+    
+    
+    
+    
     if (file_exists(FILE_NAME1))
     {
         RoomData_Create_3(); // get and set data for `g.dm_rm`, `g.dm_spawn`, `g.dm_dungeon`, ...
@@ -1553,6 +1585,9 @@ ds_list_destroy(_dl_id_key);       _dl_id_key      =undefined;
 if (DEV) // Because this will save to local dir which needs to be moved to included files during development
 {
     var _dm_save_data = ds_map_create();
+    
+    
+    // ------------------------------------------------------------------------------------------
     _dm_save_data[?STR_Tile+STR_File+"_Dimensions"] = ds_map_write(global.dm_scene_wh);
     _dm_save_data[?"scene_data"]       = ds_map_write(g.dm_rm);
     _dm_save_data[?"spawn_data"]       = ds_map_write(g.dm_spawn);
@@ -1580,11 +1615,10 @@ if (DEV) // Because this will save to local dir which needs to be moved to inclu
     
     _dm_save_data[?"dl_MapItem_ITEM_IDS"] = ds_list_write(g.dl_MapItem_ITEM_IDS);
     
-    
-    var _ENCODED = json_encode(_dm_save_data);
-    var _FILE = file_text_open_write(working_directory+FILE_NAME0);
-                file_text_write_string(_FILE, _ENCODED);
-                file_text_close(       _FILE);
+    _encoded = json_encode(_dm_save_data);
+    _file = file_text_open_write(working_directory+FILE_NAME0);
+            file_text_write_string(_file, _encoded);
+            file_text_close(       _file);
     // !!!! MOVE(NOT COPY) THE SAVED DATA FROM %localappdata% TO Included Files !!!!
     repeat(1) show_debug_message("");
     show_debug_message("RoomData_Create(). Data saved to '"+FILE_NAME0+"'!");
@@ -1595,6 +1629,28 @@ if (DEV) // Because this will save to local dir which needs to be moved to inclu
     repeat(1) show_debug_message("");
     
     
+    
+    // ------------------------------------------------------------------------------------------
+    ds_map_clear(_dm_save_data);
+    _dm_save_data[?"scene_wall_data"] = ds_map_write(global.dm_scene_wall_data);
+    
+    _encoded = json_encode(_dm_save_data);
+    _file = file_text_open_write(working_directory+FILE2_NAME0);
+            file_text_write_string(_file, _encoded);
+            file_text_close(       _file);
+    // !!!! MOVE(NOT COPY) THE SAVED DATA FROM %localappdata% TO Included Files !!!!
+    repeat(1) show_debug_message("");
+    show_debug_message("RoomData_Create(). Data saved to '"+FILE2_NAME0+"'!");
+    repeat(1) show_debug_message("");
+    show_debug_message("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    show_debug_message("THIS IS A REMINDER TO MOVE(NOT COPY) FILE '"+FILE2_NAME0+"' FROM THE %localappdata% DIRECTORY TO ITS Included Files DIRECTORY!");
+    show_debug_message("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    repeat(1) show_debug_message("");
+    
+    
+    
+    
+    // ------------------------------------------------------------------------------------------
     ds_map_destroy(_dm_save_data); _dm_save_data=undefined;
 }
 

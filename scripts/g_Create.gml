@@ -2164,6 +2164,7 @@ rm_brightness_update_VER = 2;
 
 
 
+global.dm_scene_wall_data = ds_map_create();
 
 global.dm_scene_rando = ds_map_create();
 
@@ -3559,6 +3560,10 @@ ds_list_destroy(_dl2); _dl2=undefined;
 ds_list_destroy(_dl3); _dl3=undefined;
 repeat(4) sdm("");
 */
+
+
+
+//show_debug_message("-1 >>3 = $"+hex_str((-1)>>3)); // $FFFFFFFF
 
 
 
