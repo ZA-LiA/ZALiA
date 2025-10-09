@@ -11,7 +11,7 @@ if(!g.mod_PC_ENTER_FROM_CHIMNEY
 if(!g.cutscene 
 &&  g.EnterRoom_SpawnGO_timer <= 1 
 // &&  g.rm_enter_spawn_go_tmr == 1 
-// &&  g.pc.ogr 
+// &&  global.pc.ogr 
 && !(g.exit_enter.side & $F) ) // Chimney exit
 {
     // g.mod_PC_ENTER_FROM_CHIMNEY |= $80;
@@ -35,7 +35,7 @@ var _DEPTH  = g.TILE_DEPTH_MAX_BACK+1;
 
 
 
-with(g.pc)
+with(global.pc)
 {
     xScale      =  1;
     set_xy(id, _X, y);
@@ -162,7 +162,7 @@ with(g.pc)
         
         break;  }
     } // switch
-} // with (g.pc)
+} // with (global.pc)
 
 
 

@@ -6,8 +6,8 @@ var _HBW = 4;
 var _HBH = 4;
 var _x     = CLM_BASE<<3;
 var _X_INC =(CLM_OFF <<3); // x increment
-var _Y  = (g.pc.yt>>3)<<3;
-    _Y  = get_ground_y(g.pc.x,_Y, 1, _Y+PC_H);
+var _Y  = (global.pc.yt>>3)<<3;
+    _Y  = get_ground_y(global.pc.x,_Y, 1, _Y+PC_H);
     _Y += -PC_H;
     _Y += 8;
 //

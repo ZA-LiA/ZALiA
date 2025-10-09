@@ -83,9 +83,9 @@ switch(sub_state)
     }
     
     
-    var _DIST  = abs(x-g.pc.x);
+    var _DIST  = abs(x-global.pc.x);
     if (_DIST <= AGRO_DIST 
-    &&  abs(y-g.pc.y) <= (g.pc.hh-hh_)+$10 )
+    &&  abs(y-global.pc.y) <= (global.pc.hh-hh_)+$10 )
     {
         counter     = 0;
         hspd_impel  = dir_to_pc_(id);
@@ -108,17 +108,17 @@ switch(sub_state)
     
     var _DIST  = ATTACK_DIST;
     if ((instance_exists(PlatformRaft) && sign_(PlatformRaft.hspd<$80)==hspd_dir)
-    ||  (g.pc.hspd                     && sign_(g.pc.hspd<$80)        ==hspd_dir) )
+    ||  (global.pc.hspd                     && sign_(global.pc.hspd<$80)        ==hspd_dir) )
     {   _DIST  = ATTACK_DIST>>1;  }
     /*
-    if (g.pc.hspd 
-    &&  sign_(g.pc.hspd<$80)==hspd_dir )
+    if (global.pc.hspd 
+    &&  sign_(global.pc.hspd<$80)==hspd_dir )
     //{   _DIST  = ATTACK_DIST>>2;  }
     {   _DIST  = ATTACK_DIST>>1;  }
     */
     
     
-    if (abs(x-g.pc.x) <= _DIST)
+    if (abs(x-global.pc.x) <= _DIST)
     {
         if (abs8b(hspd) >= HSPD_CHARGE>>1)
         {
@@ -178,7 +178,7 @@ switch(sub_state)
         hspd_dir = sign_(hspd<$80);
     }
     
-    if (abs(x-g.pc.x) >= RESET_DIST)
+    if (abs(x-global.pc.x) >= RESET_DIST)
     {
         hspd_impel  = dir_to_pc_(id);
         sub_state   = sub_state_CHARGE;

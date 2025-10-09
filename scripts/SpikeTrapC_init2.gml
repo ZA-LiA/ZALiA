@@ -39,7 +39,7 @@ speed1 = SPEED1;
 
 
 
-set_xy_len_ang(id, spawn_x,spawn_y, (chain_length<<3)+LEN_OFF, angle);
+set_xy_len_ang(id, spawn_xl,spawn_yt, (chain_length<<3)+LEN_OFF, angle);
 
 
 

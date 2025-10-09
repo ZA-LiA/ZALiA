@@ -8,9 +8,9 @@ switch(Collision_VER)
     update_body_hb_1a();
     if (GO_can_collide_this_frame(update_idx) 
     && !stun_timer 
-    && !g.pc.iframes_timer 
-    &&  g.pc.yt>=yt 
-    &&  collide_pc_body(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, BodyHB_r) )
+    && !global.pc.iframes_timer 
+    &&  global.pc.yt>=yt 
+    &&  collide_pc_body(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, BodyHB_r) )
     {
         PC_take_damage(id);
     }

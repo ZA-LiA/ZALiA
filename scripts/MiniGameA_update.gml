@@ -21,9 +21,9 @@ switch(sub_state)
         p.SpellFlash_PC_timer = _DURATION;
     }
     
-    if(!g.pc.ogr)
+    if(!global.pc.ogr)
     {
-        with(g.pc) set_xy(id, x, yb-($10>>pc_is_cucco()));
+        with(global.pc) set_xy(id, x, yb-($10>>pc_is_cucco()));
         g.pc_lock   = PC_LOCK_ALL; // Lock all
         
         sub_state   = ST_SUB1_PRE2;
@@ -41,15 +41,15 @@ switch(sub_state)
     // Adjusting PC into position
     case ST_SUB1_PRE2:{
     g.pc_lock            = PC_LOCK_ALL; // Lock all
-    g.pc.WalkTo_active   = true;
-    g.pc.WalkTo_x        = PC_START_GAME_X;
-    g.pc.WalkTo_hspd_max = g.pc.HSPD_MAX1;
+    global.pc.WalkTo_active   = true;
+    global.pc.WalkTo_x        = PC_START_GAME_X;
+    global.pc.WalkTo_hspd_max = global.pc.HSPD_MAX1;
     
-    if (g.pc.x==PC_START_GAME_X)
+    if (global.pc.x==PC_START_GAME_X)
     {
-        g.pc.WalkTo_active = false;
-        g.pc.hspd          = 0;
-        g.pc.attack_phase  = 0;
+        global.pc.WalkTo_active = false;
+        global.pc.hspd          = 0;
+        global.pc.attack_phase  = 0;
         g.pc_lock          = PC_LOCK_ALL^pc_allow;
         
         set_camera_xy(x-viewW_(), viewYT()); // Center cam on game center

@@ -193,12 +193,12 @@ if(!is_undefined(_dl_ts_data))
 
 
 // --------------------------------------------------------------
-ds_grid_resize(g.dg_RmTile_solid,       _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_solid,       0);
-ds_grid_resize(g.dg_RmTile_solid_def,   _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_solid_def,   0);
-g.dg_RmTile_solid_w = ds_grid_width( g.dg_RmTile_solid);
-g.dg_RmTile_solid_h = ds_grid_height(g.dg_RmTile_solid);
+ds_grid_resize(global.dg_solid,       _TMX_W,_TMX_H); // unit8
+ds_grid_clear (global.dg_solid,       0);
+ds_grid_resize(global.dg_solid_def,   _TMX_W,_TMX_H); // unit8
+ds_grid_clear (global.dg_solid_def,   0);
+global.dg_solid_w = ds_grid_width( global.dg_solid);
+global.dg_solid_h = ds_grid_height(global.dg_solid);
 
 ds_grid_resize(g.dg_RmTile_Break,       _TMX_W,_TMX_H); // unit8
 ds_grid_clear (g.dg_RmTile_Break,       0);
@@ -260,8 +260,8 @@ if (global.WallStyle02Tiles_MAIN)
 }
 /*
 show_debug_message("scene_enter_add_tiles(). "+"_TMX_W="+string(_TMX_W)+" _TMX_H="+string(_TMX_H));
-show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_solid-"+string(g.dg_RmTile_solid));
-show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_solid_def-"+string(g.dg_RmTile_solid_def));
+show_debug_message("scene_enter_add_tiles(). "+"global.dg_solid-"+string(global.dg_solid));
+show_debug_message("scene_enter_add_tiles(). "+"global.dg_solid_def-"+string(global.dg_solid_def));
 show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Break-"+string(g.dg_RmTile_Break));
 show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Break_def-"+string(g.dg_RmTile_Break_def));
 show_debug_message("scene_enter_add_tiles(). "+"g.dg_RmTile_Liquid-"+string(g.dg_RmTile_Liquid));
@@ -511,8 +511,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             _y = (_row+(_scale_y==-1)) <<3;
             
             
-            g.dg_RmTile_solid    [#_clm,_row] = _tsrc;
-            g.dg_RmTile_solid_def[#_clm,_row] = _tsrc;
+            global.dg_solid    [#_clm,_row] = _tsrc;
+            global.dg_solid_def[#_clm,_row] = _tsrc;
             
             if (g.dev_use_tile_markers 
             &&  _tsrc )
@@ -720,8 +720,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         {
             _clm1 = _clm;
             _row1 = _row;
-            g.dg_RmTile_solid    [#_clm1,_row1] = _tsrc;
-            g.dg_RmTile_solid_def[#_clm1,_row1] = _tsrc;
+            global.dg_solid    [#_clm1,_row1] = _tsrc;
+            global.dg_solid_def[#_clm1,_row1] = _tsrc;
             
             if (g.dev_use_tile_markers 
             &&  _tsrc )
@@ -1199,10 +1199,10 @@ if (_rm_has_burnables)
             _val = dg_RmTile_Burnable[#_clm1,_row1];
             if (_val&$FF==BURNABLE_A)
             {
-                if(!g.dg_RmTile_solid    [#_clm1,_row1])
+                if(!global.dg_solid    [#_clm1,_row1])
                 {
-                    g.dg_RmTile_solid    [#_clm1,_row1] = TID_SOLID1;
-                    g.dg_RmTile_solid_def[#_clm1,_row1] = TID_SOLID1;
+                    global.dg_solid    [#_clm1,_row1] = TID_SOLID1;
+                    global.dg_solid_def[#_clm1,_row1] = TID_SOLID1;
                     
                     if (g.dev_use_tile_markers)
                     {

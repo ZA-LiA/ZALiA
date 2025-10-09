@@ -1239,11 +1239,10 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$14,  '36'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0C,  0); // RGT 0, to Overworld 
 
 
-////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+object_get_name(Challenge_IntermittentPlatformSequence),rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
-data_scene_rando(rm);
+//data_scene_rando(rm);
 
 
 
@@ -2166,7 +2165,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  $3B<<3,y6,  STR_Treasure+STR_Map+"01"); // HEART PIECE
 
 
-////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_m0, exit_name_r0);
 data_path_conditions(exit_name_m0, exit_name_l0);
 data_path_conditions(exit_name_m0, _dk_spawn_item0);
@@ -2177,7 +2175,7 @@ data_path_conditions(exit_name_r0, _dk_spawn_item0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
-data_scene_rando(rm);
+//data_scene_rando(rm);
 
 
 

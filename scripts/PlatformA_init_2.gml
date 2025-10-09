@@ -91,9 +91,9 @@ switch(ver)
     location_b = location_a + 1;
     
     
-    spawn_x = (spawn_x <<3) - (ww>>1);
-    spawn_y = (spawn_y <<3) - (hh>>1);
-    set_xlyt(id, spawn_x, spawn_y);
+    spawn_xl = (spawn_xl <<3) - (ww>>1);
+    spawn_yt = (spawn_yt <<3) - (hh>>1);
+    set_xlyt(id, spawn_xl, spawn_yt);
     dg_path[# location_a, 1] = x;
     dg_path[# location_a, 2] = y;
     

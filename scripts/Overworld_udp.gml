@@ -39,15 +39,15 @@ PC_draw_y_base    = ow_pc_xy(1); // pc view y
 PC_draw_x         = PC_draw_x_base + PC_draw_xoff;
 PC_draw_y         = PC_draw_y_base + PC_draw_yoff;
 
-_idx              = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
-PC_draw_is_sheet  = val(g.pc.dm_skins[?hex_str(_idx)+"_source_is_file"]);
-PC_draw_sheet_xl  = g.pc.Spritesheet_W * pc_sprite_idx;
-PC_draw_sheet_yt  = g.pc.Spritesheet_H * $E;
+_idx              = val(global.pc.dm_skins[?STR_Current+STR_Idx]);
+PC_draw_is_sheet  = val(global.pc.dm_skins[?hex_str(_idx)+"_source_is_file"]);
+PC_draw_sheet_xl  = global.pc.Spritesheet_W * pc_sprite_idx;
+PC_draw_sheet_yt  = global.pc.Spritesheet_H * $E;
 
 if (PC_draw_is_sheet)
 {
-    PC_draw_x -= g.pc.Spritesheet_W>>1;
-    PC_draw_y -= g.pc.Spritesheet_H>>1;
+    PC_draw_x -= global.pc.Spritesheet_W>>1;
+    PC_draw_y -= global.pc.Spritesheet_H>>1;
 }
 
 

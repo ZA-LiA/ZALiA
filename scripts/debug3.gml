@@ -115,17 +115,17 @@ sdm(string_format(_val, 16, 16));
 sdm("--------------------");
 sdm("");
 
-_val = _val + g.pc.hspd + _carry;
+_val = _val + global.pc.hspd + _carry;
 _carry = (_val & $100) >> 8;
 _val &= $FF;
 sdm("A3");
-sdm("g.pc.hspd: " + string_format(g.pc.hspd, 16, 16));
+sdm("global.pc.hspd: " + string_format(global.pc.hspd, 16, 16));
 sdm("_carry: " + string_format(_carry, 16, 16));
 sdm("");
 
-sdm("is_int32(g.pc.hspd): " + string(is_int32(g.pc.hspd)));
-sdm("is_int64(g.pc.hspd): " + string(is_int64(g.pc.hspd)));
-sdm("is_real(g.pc.hspd):  " + string(is_real(g.pc.hspd)));
+sdm("is_int32(global.pc.hspd): " + string(is_int32(global.pc.hspd)));
+sdm("is_int64(global.pc.hspd): " + string(is_int64(global.pc.hspd)));
+sdm("is_real(global.pc.hspd):  " + string(is_real(global.pc.hspd)));
 sdm("");
                     
 sdm("is_int32(_carry): " + string(is_int32(_carry)));
@@ -143,11 +143,11 @@ sdm(string_format(_val, 16, 16));
 sdm("--------------------");
 sdm("");
 
-_val = _val + g.pc.hspd + _carry;
+_val = _val + global.pc.hspd + _carry;
 _carry = (_val & $100) >> 8;
 _val &= $FF;
 sdm("A4");
-sdm("g.pc.hspd: " + string_format(g.pc.hspd, 16, 16));
+sdm("global.pc.hspd: " + string_format(global.pc.hspd, 16, 16));
 sdm("_carry: " + string_format(_carry, 16, 16));
 sdm("");
 
@@ -166,11 +166,11 @@ sdm(string_format(_val, 16, 16));
 sdm("--------------------");
 sdm("");
 
-_val = _val + g.pc.hspd + _carry;
+_val = _val + global.pc.hspd + _carry;
 _carry = (_val & $100) >> 8;
 _val &= $FF;
 sdm("A5");
-sdm("g.pc.hspd: " + string_format(g.pc.hspd, 16, 16));
+sdm("global.pc.hspd: " + string_format(global.pc.hspd, 16, 16));
 sdm("_carry: " + string_format(_carry, 16, 16));
 sdm("");
 

@@ -7,9 +7,9 @@ switch(g.mod_IronKnuckle_ShieldAI)
     // =============================================================================
     // -------------------------------------------------------------------
     case 0:{ // OG  ------------------------------------------------
-    if (yt != g.pc.yt)
+    if (yt != global.pc.yt)
     {
-        if (g.pc.yt+$A >= yt) ShieldHB_idx = ShieldHB_IDX_LOW; // 1
+        if (global.pc.yt+$A >= yt) ShieldHB_idx = ShieldHB_IDX_LOW; // 1
         else                  ShieldHB_idx = ShieldHB_IDX_HGH; // 2
     }
     else
@@ -43,9 +43,9 @@ switch(g.mod_IronKnuckle_ShieldAI)
     
     if (_IN_DIST_ATK)
     {
-        if (g.pc.ogr) // OGR_OTHR, OGR_JUMP
+        if (global.pc.ogr) // OGR_OTHR, OGR_JUMP
         {
-            if (g.pc.yt+$A >= yt) ShieldHB_idx = ShieldHB_IDX_LOW; // 1
+            if (global.pc.yt+$A >= yt) ShieldHB_idx = ShieldHB_IDX_LOW; // 1
             else                  ShieldHB_idx = ShieldHB_IDX_HGH; // 2
             
             delay_shield_chance = -1; // -1: 100% chance

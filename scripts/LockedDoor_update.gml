@@ -13,7 +13,7 @@ if (counter) // Opening
     {
         if (avail_uidx_goc(MAX_GOC1)!=UIDX_NULL)
         {
-            with(GOC1_create(xl, yt+$10-3, g.pc.xScale, ProjectileHostile))
+            with(GOC1_create(xl, yt+$10-3, global.pc.xScale, ProjectileHostile))
             {
                 state = state_EXPLODE;
                 disintegrate_counter = $F0; // Disintegrate;
@@ -47,13 +47,13 @@ if (counter) // Opening
 
 // ------------------------------------------------------------------
 // D9BA
-                  g.pc.colliding_locked_door = $0; // 05E7
+                  global.pc.colliding_locked_door = $0; // 05E7
 if (cs&CS_BD1)
 {   // D9C3
     if(!pc_is_fairy()) pushback_pc_and_go(id);
     
-    if (x<g.pc.x) g.pc.colliding_locked_door = $2;
-    else          g.pc.colliding_locked_door = $1;
+    if (x<global.pc.x) global.pc.colliding_locked_door = $2;
+    else          global.pc.colliding_locked_door = $1;
     
     facing_dir = dir_to_pc(id);
 }
@@ -118,11 +118,11 @@ switch(ver)
     // ------------------------------------------------------------
     case 2:{ // Switch --------------------------
     var _C1  =  switch_side==($1|$2)            // $1: right, 2: left
-            || (switch_side== $1 && x< g.pc.x) 
-            || (switch_side== $2 && x>=g.pc.x);
+            || (switch_side== $1 && x< global.pc.x) 
+            || (switch_side== $2 && x>=global.pc.x);
     //
     if (_C1 
-    &&  g.pc.cs&CS_BTM )
+    &&  global.pc.cs&CS_BTM )
     {
         counter = 1; // Starts opening process
     }
@@ -151,8 +151,8 @@ if(!counter) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 if (cs&CS_BD1)
 {
-    g.pc.hspd = 0;
-    g.pc.vspd = 0;
+    global.pc.hspd = 0;
+    global.pc.vspd = 0;
     
     g.pc_lock = PC_LOCK_ALL; // Lock all
 }

@@ -15,7 +15,7 @@ update_body_hb_1a();
 
 
 if (react_shield&$FF 
-&&  collide_pc_shield(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h) )
+&&  collide_pc_shield(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h) )
 {
     var _REFLECT_ACTIVE = g.spells_active & SPL_RFLC;
     var _LV2_SHIELD = f.items & ITM_SHLD;
@@ -59,7 +59,7 @@ if (react_shield&$FF
             //vspd        = 0;
             //vspd_adj    = 0;
             hspd        = max(abs8b(hspd),$20);
-            hspd        = byte(hspd*sign_(x>=g.pc.x));
+            hspd        = byte(hspd*sign_(x>=global.pc.x));
             //hspd        = byte(max(abs8b(hspd),$20) * -sign_(sign8b(hspd)));
             //hspd        = byte(max(abs8b(hspd),$18) * -sign_(sign8b(hspd)));
             if (is_ancestor(object_index, SoundWave))
@@ -99,7 +99,7 @@ if (react_shield&$FF
 
 if (react_body 
 && !collided_shield 
-&&  collide_pc_body(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, BodyHB_r) )
+&&  collide_pc_body(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, BodyHB_r) )
 {   // E442
     enemy_collide_pc_body();
     

@@ -24,7 +24,7 @@ if (collide_pc_shield(_X,_Y, 1,1, _RAD))
 else if (collide_pc_body(_X,_Y, 1,1, _RAD))
 {
     _collided=true;
-    if(!g.pc.iframes_timer) PC_take_damage(id, $0C);
+    if(!global.pc.iframes_timer) PC_take_damage(id, $0C);
 }
 
 if (_collided)

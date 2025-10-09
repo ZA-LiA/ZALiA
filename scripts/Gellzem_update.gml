@@ -71,7 +71,7 @@ for(_i=0; _i<EYE_CNT; _i++)
         else                dl_tmr_revive[|_i] = REVIVE_DELAY_1;
         
         
-        if (g.pc.behavior==g.pc.behavior_STAB_DOWN) PC_set_bounce();
+        if (global.pc.behavior==global.pc.behavior_STAB_DOWN) PC_set_bounce();
         
         
         aud_play_sound(get_audio_theme_track(dk_StrikeEnemy));
@@ -82,7 +82,7 @@ for(_i=0; _i<EYE_CNT; _i++)
     {   dl_tmr_revive[|_i]--;  }
     
     if (revive_type==2    // Must hit all eyes with 1 sword strike
-    && !g.pc.attack_phase )   // 
+    && !global.pc.attack_phase )   // 
     {   dl_tmr_revive[|_i] = 0;  }
 }
 
@@ -92,9 +92,9 @@ for(_i=0; _i<EYE_CNT; _i++)
 // update_body_hb_1a();
 BodyHB_can_draw = true;
 
-if (collide_pc_sword(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h)) 
+if (collide_pc_sword(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h)) 
 {
-    if (g.pc.behavior==g.pc.behavior_STAB_DOWN) PC_set_bounce();
+    if (global.pc.behavior==global.pc.behavior_STAB_DOWN) PC_set_bounce();
     else                              pushback_pc_and_go(id, $8,0); // Won't push GO
     //else                              pushback_pc_and_go(id, -1, 0); // Won't push GO
     

@@ -25,9 +25,9 @@ if(!behavior) // 0: HIDING
 
 
 var _ATTACK_DIST = ATK_DIST;
-if (abs(y-g.pc.y)-(hh_+g.pc.hh_) < ($3<<3)) _ATTACK_DIST += $08; // MOD. Added this because enemy rando has BossBot spawning too close to PC
+if (abs(y-global.pc.y)-(hh_+global.pc.hh_) < ($3<<3)) _ATTACK_DIST += $08; // MOD. Added this because enemy rando has BossBot spawning too close to PC
 
-var _IN_DIST = (abs(x-g.pc.x)+_carry) < _ATTACK_DIST;
+var _IN_DIST = (abs(x-global.pc.x)+_carry) < _ATTACK_DIST;
 
 
 

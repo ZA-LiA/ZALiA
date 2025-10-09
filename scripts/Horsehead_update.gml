@@ -64,7 +64,7 @@ if(!pending_death)
         {
             // -----------------------------------------------------
             case attack_state_IDLE:{
-            if (abs(x-g.pc.x)>=DISTANCE2) // DISTANCE2=DISTANCE1($20)+$10
+            if (abs(x-global.pc.x)>=DISTANCE2) // DISTANCE2=DISTANCE1($20)+$10
             {   // is far enough from pc to spawn projectile with melee attack
                 if (ProjAttack_timer1)
                 {   ProjAttack_timer1--;  }
@@ -85,7 +85,7 @@ if(!pending_death)
             &&  timer==DURATION1-1 ) // DURATION1=$F
             {
                 if (is_facing_pc_(id) 
-                &&  abs(x-g.pc.x)>=DISTANCE2 ) // DISTANCE2=DISTANCE1($20)+$10
+                &&  abs(x-global.pc.x)>=DISTANCE2 ) // DISTANCE2=DISTANCE1($20)+$10
                 {
                     with(GOC1_create(x,y, facing_dir, projectile,projectile_ver, id, palidx_def))
                     {

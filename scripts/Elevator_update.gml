@@ -4,6 +4,7 @@
 if (state!=state_NORMAL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+/*
 // -----------------------------------------------------------------
 if (cs&CS_BD1)
 {
@@ -13,7 +14,7 @@ if (cs&CS_BD1)
         Elevator_update_1();
     }
 }
-
+*/
 
 
 // -----------------------------------------------------------------
@@ -29,10 +30,10 @@ can_draw_self = true;
 update_body_hb_1a();
 
     cs &= ~CS_BD1; // remove CS_BD1 from cs
-if (collide_pc_body(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h))
+if (collide_pc_body(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h))
 {
     cs |=  CS_BD1;
-    g.pc.colliding_elevator = id;
+    global.pc.colliding_elevator = id;
 }
 
 

@@ -23,7 +23,7 @@ csLft2_xoff = g.dg_CS_OFF[#  cs_off_idx, 14]; // CS_LFT Bottom x
 csLft2_yoff = g.dg_CS_OFF[#  cs_off_idx, 15]; // CS_LFT Bottom y
 
 
-if (id==g.pc)
+if (id==global.pc)
 {   // Same values for fairy.
                             cp1_xoff =  7;
          if (pc_is_cucco()) cp1_yoff = hh;

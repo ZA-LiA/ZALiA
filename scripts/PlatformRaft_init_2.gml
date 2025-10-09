@@ -88,7 +88,7 @@ switch(ver)
     if (isVal(dock_state, dock_state_FREE0,dock_state_FREE1))
     {
         //setXY( id, spawn_x,yt);
-        set_xy(id, g.pc.x,y);
+        set_xy(id, global.pc.x,y);
     }
     
     

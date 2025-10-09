@@ -28,7 +28,7 @@ if (deathFlashTimer>0)
     else                              set_background_color(p.C_RED3); // 20231107. I think this should only be red for death and matches the gameover bgr color
     
     
-    with(g.pc)
+    with(global.pc)
     {
         var _PAD = $09;
         var _X = clamp(g.last_dist_from_view_x, viewXL()+_PAD,viewXR()-_PAD);

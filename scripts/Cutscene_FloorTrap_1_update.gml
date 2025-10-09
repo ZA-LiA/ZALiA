@@ -10,9 +10,9 @@ switch(sub_state)
     // -----------------------------------------------------
     case sub_state_IDLE:{
     if (timer) break;
-    if (inRange(g.pc.x, Zelda_X-Trigger_DIST,Zelda_X+Trigger_DIST))
-    //if (inRange(g.pc.x, min(Trigger_X,Zelda_X),max(Trigger_X,Zelda_X)))
-    //if (g.pc.x >= Trigger_X)
+    if (inRange(global.pc.x, Zelda_X-Trigger_DIST,Zelda_X+Trigger_DIST))
+    //if (inRange(global.pc.x, min(Trigger_X,Zelda_X),max(Trigger_X,Zelda_X)))
+    //if (global.pc.x >= Trigger_X)
     {
         g.pc_lock = PC_LOCK;
         
@@ -36,7 +36,7 @@ switch(sub_state)
     {
         // ------------------------------------------
         case 1:{
-        if (g.pc.ogr) break;
+        if (global.pc.ogr) break;
         
         // Remove ground tiles
         Cutscene_FloorTrap_1_update_1a(1);

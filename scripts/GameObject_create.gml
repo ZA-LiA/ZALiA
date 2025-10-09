@@ -77,10 +77,9 @@ with(instance_create(_XL,_YT, _OBJECT))
     
     
     
-    spawn_x = _XL;
-    spawn_y = _YT;
-    set_xy(id, spawn_x+sprite_index_xoff, spawn_y+sprite_index_yoff);
-    //setXY(id, spawn_x,spawn_y);
+    spawn_xl = _XL;
+    spawn_yt = _YT;
+    set_xy(id, spawn_xl+sprite_index_xoff, spawn_yt+sprite_index_yoff);
     
     
     
@@ -100,9 +99,9 @@ with(instance_create(_XL,_YT, _OBJECT))
         scr_step  = scr_update;
         
         facing_dir = 1;
-        xScale    = facing_dir;
-        hspd      = 0;
-        vspd      = 0;
+        xScale     = facing_dir;
+        hspd       = 0;
+        vspd       = 0;
     }
     else if (is_ancestor(object_index,Challenge))
     {
@@ -111,8 +110,8 @@ with(instance_create(_XL,_YT, _OBJECT))
         challenge_id = _OBJVER;
         
         facing_dir = 1;
-        xScale    = facing_dir;
-        hspd      = 0;
+        xScale     = facing_dir;
+        hspd       = 0;
     }
     else if (is_ancestor(object_index,Item))
     {
@@ -125,10 +124,10 @@ with(instance_create(_XL,_YT, _OBJECT))
         IS_HOLD_ITEM = val(g.dm_ITEM[?_OBJ_NAME+STR_Hold+STR_Item]);
         
         facing_dir = 1;
-        xScale    = facing_dir;
-        hspd      = 0;
+        xScale     = facing_dir;
+        hspd       = 0;
         
-        if(!IS_HOLD_ITEM) g.pc.Disguise_enabled = false; // So pc can stab item.
+        if(!IS_HOLD_ITEM) global.pc.Disguise_enabled = false; // So pc can stab item.
     }
     else if (is_ancestor(object_index,Boss))
     {
@@ -178,12 +177,12 @@ with(instance_create(_XL,_YT, _OBJECT))
         
         g.go_mgr.uIdxSwap_gob = UIDX_NULL;
         
-        if (g.pc.Disguise_enabled)
+        if (global.pc.Disguise_enabled)
         {
             if (is_ancestor(object_index,NPC_B)  // NPC_B: Minigame
             ||  is_ancestor(object_index,NPC_D) )// NPC_D: Shop
             {
-                g.pc.Disguise_enabled = false;
+                global.pc.Disguise_enabled = false;
             }
         }
     }
@@ -253,7 +252,7 @@ with(instance_create(_XL,_YT, _OBJECT))
     
     
     if (g.town_name==STR_Bulblin 
-    &&  g.pc.Disguise_enabled 
+    &&  global.pc.Disguise_enabled 
     //&&  f.items&ITM_MASK 
     &&  is_ancestor(object_index,GOB1) )
     {

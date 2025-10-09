@@ -15,7 +15,7 @@ if (reflected
     update_body_hb_1a();
     with(source_inst) update_body_hb_1a();
     
-    if (rectInRect(BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h, source_inst.BodyHB_x,source_inst.BodyHB_y,source_inst.BodyHB_w,source_inst.BodyHB_h))
+    if (rectInRect(BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h, source_inst.BodyHB_xl,source_inst.BodyHB_yt,source_inst.BodyHB_w,source_inst.BodyHB_h))
     {
         _collided_src = true;
         disintegrate_counter = $F2;

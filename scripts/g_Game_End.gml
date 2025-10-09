@@ -556,6 +556,9 @@ if (_exists) _exists = ds_exists(        dg_spell_cost_DEFAULT, ds_type_grid);
 if (_exists)           ds_grid_destroy(  dg_spell_cost_DEFAULT);
 if (_exists)                             dg_spell_cost_DEFAULT=undefined;
 
+if (ds_exists(global.dg_solid,ds_type_grid)){ds_map_destroy(global.dg_solid); global.dg_solid=undefined;}
+if (ds_exists(global.dg_solid_def,ds_type_grid)){ds_map_destroy(global.dg_solid_def); global.dg_solid_def=undefined;}
+/*
     _exists=variable_instance_exists(id,"dg_RmTile_solid");
 if (_exists) _exists = !is_undefined(    dg_RmTile_solid);
 if (_exists) _exists = ds_exists(        dg_RmTile_solid, ds_type_grid);
@@ -567,7 +570,7 @@ if (_exists) _exists = !is_undefined(    dg_RmTile_solid_def);
 if (_exists) _exists = ds_exists(        dg_RmTile_solid_def, ds_type_grid);
 if (_exists)           ds_grid_destroy(  dg_RmTile_solid_def);
 if (_exists)                             dg_RmTile_solid_def=undefined;
-
+*/
     _exists=variable_instance_exists(id,"dg_RmTile_Break");
 if (_exists) _exists = !is_undefined(    dg_RmTile_Break);
 if (_exists) _exists = ds_exists(        dg_RmTile_Break, ds_type_grid);

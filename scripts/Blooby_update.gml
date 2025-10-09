@@ -51,7 +51,7 @@ if (cs&$C
 
 
 
-var _PC_VSPD = g.pc.vspd;
+var _PC_VSPD = global.pc.vspd;
 
 
 
@@ -68,8 +68,8 @@ update_EF11();
 update_body_hb_1a();
 PC_update_sword_hb();
 
-if (g.pc.SwordHB_collidable 
-&&  collide_pc_sword(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, BodyHB_r) )
+if (global.pc.SwordHB_collidable 
+&&  collide_pc_sword(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, BodyHB_r) )
 {
     cs |= CS_SW1;
 }
@@ -111,19 +111,19 @@ switch(sub_state)
     {
         var _reacted = false;
         
-        if (g.pc.behavior==g.pc.behavior_STAB_DOWN)
+        if (global.pc.behavior==global.pc.behavior_STAB_DOWN)
         {
             if (_PC_VSPD 
             &&  _PC_VSPD<$80 )
             {
                 var _HB_W = 8;
                 if (ver!=2 
-                ||  g.pc.SwordHB_w<_HB_W 
-                ||  collideRect((g.pc.SwordHB_x+g.pc.SwordHB_w_)-(_HB_W>>1),g.pc.SwordHB_y,_HB_W,g.pc.SwordHB_h, id) ) // more specific/narrower sword hb
+                ||  global.pc.SwordHB_w<_HB_W 
+                ||  collideRect((global.pc.SwordHB_x+global.pc.SwordHB_w_)-(_HB_W>>1),global.pc.SwordHB_y,_HB_W,global.pc.SwordHB_h, id) ) // more specific/narrower sword hb
                 {
                     if (ver==2)
                     {
-                        g.pc.vspd = $FA;
+                        global.pc.vspd = $FA;
                     }
                     else
                     {
@@ -131,22 +131,22 @@ switch(sub_state)
                         if (pc_is_cucco()) BounceVelocity += $3;
                         BounceVelocity  = -max(BounceVelocity_MIN, BounceVelocity);
                         BounceVelocity &= $FF;
-                        g.pc.vspd = BounceVelocity;
+                        global.pc.vspd = BounceVelocity;
                     }
-                    //sdm("BounceVelocity $"+hex_str(BounceVelocity)+", _PC_VSPD $"+hex_str(_PC_VSPD)+", g.pc.vspd $"+hex_str(g.pc.vspd));
+                    //sdm("BounceVelocity $"+hex_str(BounceVelocity)+", _PC_VSPD $"+hex_str(_PC_VSPD)+", global.pc.vspd $"+hex_str(global.pc.vspd));
                     
                     _reacted = true;
                 }
             }
         }
-        else if (g.pc.behavior==g.pc.behavior_STAB_UP)
+        else if (global.pc.behavior==global.pc.behavior_STAB_UP)
         {
-            //g.pc.vspd = 0;
+            //global.pc.vspd = 0;
             //_reacted = true;
         }
-        else if (isVal(g.pc.behavior, g.pc.behavior_STAB_STAND,g.pc.behavior_STAB_CROUCH))
+        else if (isVal(global.pc.behavior, global.pc.behavior_STAB_STAND,global.pc.behavior_STAB_CROUCH))
         {
-            g.control1_timer = g.pc.Pushback_DURATION; // PC atk will NOT affect PC.hspd
+            g.control1_timer = global.pc.Pushback_DURATION; // PC atk will NOT affect PC.hspd
             pushback_pc(x, hspd_PUSHBACK);
             _reacted = true;
         }

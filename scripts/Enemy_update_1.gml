@@ -69,7 +69,7 @@ switch(object_index)
 
 
 var _InAttackDist_ORIG = (goDist1()+attack_dist)&$FF < (attack_dist<<1)&$FF;
-var _InAttackDist_WIDE =  abs(x-g.pc.x)              <  attack_dist;
+var _InAttackDist_WIDE =  abs(x-global.pc.x)              <  attack_dist;
 
 var _InAggroDist_ORIG  = (goDist1()+$50)&$FF < $A0;
 var _InAggroDist_WIDE  = ocsH1(id);
@@ -160,8 +160,8 @@ else
 {
     if (_InAttackDist_WIDE)
     {   // 9AAB. ------------------- SET hspd ---------------------------------
-             if (g.pc.cs&(CS_RGT|CS_LFT))  hspd = 0;
-        else if (Input.hHeld && g.pc.hspd) hspd = g.pc.hspd;
+             if (global.pc.cs&(CS_RGT|CS_LFT))  hspd = 0;
+        else if (Input.hHeld && global.pc.hspd) hspd = global.pc.hspd;
         else                               hspd = _HSPD1;
         
         hspd = (hspd>>1) | (hspd&$80);

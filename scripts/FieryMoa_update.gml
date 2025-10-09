@@ -33,7 +33,7 @@ switch(counter&$3)
     // at PC and move back to the view edge it appeared, leaving 
     // flames in the PC's path.
     
-    hspd           = ($20 * -sign_(g.pc.hspd_dir)) &$FF;
+    hspd           = ($20 * -sign_(global.pc.hspd_dir)) &$FF;
     set_hspd_dir();
     hspd_dir_reset = hspd_dir;
     facing_dir      = hspd_dir;
@@ -43,14 +43,14 @@ switch(counter&$3)
     if (hspd_dir)       _X  = viewXL()+ww_;
     
     var                 _Y  = RESET_Y;
-    //var                 _Y  = clamp(g.pc.y>>8, 0, g.rm_pages_y-1) + 1;
+    //var                 _Y  = clamp(global.pc.y>>8, 0, g.rm_pages_y-1) + 1;
     //                    _Y  = (_Y<<8) - $6B;
-    if (cam_yt_range()) _Y  = g.pc.yt - $2B;
+    if (cam_yt_range()) _Y  = global.pc.yt - $2B;
     //var                _Y  = g.view_yt_og + $8D + 8;
     set_xy(id, _X,_Y);
     
     // Duration until turn around.
-    if (g.pc.hspd) timer = $10; // $10: 0.267s
+    if (global.pc.hspd) timer = $10; // $10: 0.267s
     else           timer = $50; // $50: 1.333s
     
     // Because these durations are based off the og view width, 
@@ -71,7 +71,7 @@ switch(counter&$3)
     sdm("FieryMoa. timer $"+hex_str(timer)+" + extra time $"+hex_str(_extra)+" = $"+hex_str(timer+_extra)+", "
        +"hspd $"+hex_str(hspd)+", "
        +"xy $"+hex_str(x)+" $"+hex_str(y)+", "
-       +"pc xy $"+hex_str(g.pc.x)+" $"+hex_str(g.pc.y)+", "
+       +"pc xy $"+hex_str(global.pc.x)+" $"+hex_str(global.pc.y)+", "
        +"view xl&xr $"+hex_str(viewXL())+" $"+hex_str(viewXR())+", ");
     sdm(""); */
     

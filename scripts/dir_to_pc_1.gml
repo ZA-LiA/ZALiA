@@ -7,13 +7,13 @@
 // This script simulates OG, keeping PC xy set to PC spawn xy
 
 
-if(!g.pc.state)
+if(!global.pc.state)
 {
-    var _PC_X = g.pc.x;
-    var _PC_Y = g.pc.y;
-    set_xy(g.pc, g.pc.ww_,g.pc.hh_);
+    var _PC_X = global.pc.x;
+    var _PC_Y = global.pc.y;
+    set_xy(global.pc, global.pc.ww_,global.pc.hh_);
     var _DIR = dir_to_pc_(id);
-    set_xy(g.pc, _PC_X,_PC_Y);
+    set_xy(global.pc, _PC_X,_PC_Y);
     return _DIR;
 }
 

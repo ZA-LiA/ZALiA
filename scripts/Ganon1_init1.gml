@@ -33,13 +33,13 @@ pc_is_inside = false;
 pc_x_min  = 0;
 pc_x_max  = 0;
 
-PC_HB1_XLOFF = g.pc.csLft1_xoff;
-PC_HB1_YTOFF = g.pc.csLft1_yoff;
-//PC_HB1_YTOFF = g.pc.csTop1_yoff;
-PC_HB1_W  = g.pc.csRgt1_xoff-g.pc.csLft1_xoff;
-PC_HB1_H  = g.pc.csBtm1_yoff-PC_HB1_YTOFF;
-PC_HB1_xl = g.pc.xl+PC_HB1_XLOFF;
-PC_HB1_yt = g.pc.yt+PC_HB1_YTOFF;
+PC_HB1_XLOFF = global.pc.csLft1_xoff;
+PC_HB1_YTOFF = global.pc.csLft1_yoff;
+//PC_HB1_YTOFF = global.pc.csTop1_yoff;
+PC_HB1_W  = global.pc.csRgt1_xoff-PC_HB1_XLOFF;
+PC_HB1_H  = global.pc.csBtm1_yoff-PC_HB1_YTOFF;
+PC_HB1_xl = global.pc.xl+PC_HB1_XLOFF;
+PC_HB1_yt = global.pc.yt+PC_HB1_YTOFF;
 
 Fought_DATAKEY = STR_Battle+STR_Count+STR_Quest+hex_str(f.quest_num);
 
@@ -199,13 +199,11 @@ Ground_y     = GROUND_Y;
 
 
 dl_ONEWAY_RC = ds_list_create();
-var _dg_W = ds_grid_width( g.dg_RmTile_solid);
-var _dg_H = ds_grid_height(g.dg_RmTile_solid);
-for(_i=0; _i<_dg_W; _i++)
+for(_i=0; _i<global.dg_solid_w; _i++)
 {
-    for(_j=0; _j<_dg_H; _j++)
+    for(_j=0; _j<global.dg_solid_h; _j++)
     {
-        if (g.dg_RmTile_solid[#_i,_j]==TID_ONEWY1)
+        if (global.dg_solid[#_i,_j]==TID_ONEWY1)
         {
             ds_list_add(dl_ONEWAY_RC,(_j<<8)|_i);
         }

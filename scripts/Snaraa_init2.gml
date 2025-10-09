@@ -1,7 +1,7 @@
 /// Snaraa_init2()
 
 
-if (g.dg_RmTile_solid[# (xl>>3)-1, yt>>3]&$FF == TID_SOLID1)
+if (global.dg_solid[# (xl>>3)-1, yt>>3]&$FF == TID_SOLID1)
 {    facing_dir =  1;  }
 else facing_dir = -1;
 

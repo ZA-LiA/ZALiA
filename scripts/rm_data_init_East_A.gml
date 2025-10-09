@@ -5562,7 +5562,7 @@ data_path_conditions(exit_name_r1, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
 data_path_conditions(exit_name_l0, exit_name_r1);
 
-data_scene_rando(rm);
+//data_scene_rando(rm);
 
 
 
@@ -5718,11 +5718,10 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$08,  'B0'+EXR0_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$13,  'B2'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00"+object_get_name(Challenge_IntermittentPlatformSequence),rm);
 data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
 
-data_scene_rando(rm);
+//data_scene_rando(rm);
 
 
 

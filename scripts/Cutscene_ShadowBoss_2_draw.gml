@@ -5,14 +5,14 @@ if (f.quest_num==1)
 {
     if (triforce_can_draw)
     {
-        draw_sprite_(TRIFORCE_SPR,0, g.pc.drawX, g.pc.drawY-g.pc.hh_-8, p.triforce_pi);
+        draw_sprite_(TRIFORCE_SPR,0, global.pc.drawX, global.pc.drawY-global.pc.hh_-8, p.triforce_pi);
     }
 }
 else
 {
     if (Boss_can_draw)
     {
-        draw_pc_skin(Boss_x+4,Boss_y, 1,1, g.pc.behavior_DAMAGE, false, 1,1, Boss_pi);
+        draw_pc_skin(Boss_x+4,Boss_y, 1,1, global.pc.behavior_DAMAGE, false, 1,1, Boss_pi);
     }
     
     if (Blood_can_draw)

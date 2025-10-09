@@ -23,9 +23,9 @@ switch(sub_state)
     
     //is_idle = false;
     
-    if (    g.pc.hspd 
-    &&      g.pc.hspd_dir == -dir_to_pc_(id) 
-    &&  abs(g.pc.x - x)   <= AGRO_DIST )
+    if (    global.pc.hspd 
+    &&      global.pc.hspd_dir == -dir_to_pc_(id) 
+    &&  abs(global.pc.x - x)   <= AGRO_DIST )
     {
         switch(ver){
         case 1:{sub_state = ST_SUB1_DROP; break;}

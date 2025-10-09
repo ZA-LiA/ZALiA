@@ -11,7 +11,7 @@ if (SwordHB_collidable
 &&  collide_pc_body(SwordHB_x,SwordHB_y,SwordHB_w,SwordHB_h) )
 {   // ---------------------------------------------------------------------
     // E582: JSR E2EF
-    var _invulnerable_timer = g.pc.iframes_timer;
+    var _invulnerable_timer = global.pc.iframes_timer;
     
     enemy_collide_pc_body(); // damage pc
     
@@ -24,9 +24,9 @@ if (SwordHB_collidable
         if(!g.DevTools_state 
         ||  g.dev_invState&$3!=$2 )
         {   // Boss sword make PC-dmg-hop higher & further
-            g.pc.vspd = (g.pc.vspd<<1) &$FF;
+            global.pc.vspd = (global.pc.vspd<<1) &$FF;
             facing_dir = dir_to_pc(id);
-            g.pc.hspd = ($18*facing_dir) &$FF;
+            global.pc.hspd = ($18*facing_dir) &$FF;
         }
     }
 }

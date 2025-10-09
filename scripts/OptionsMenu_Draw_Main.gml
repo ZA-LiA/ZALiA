@@ -122,15 +122,15 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         case MainOption_PC_SPRITES:{
         var _y2;
         var _PAD1 = 1; // player skin yt,yb pad
-        var _DIST3 = (g.pc.Spritesheet_H>>1) - $8;
+        var _DIST3 = (global.pc.Spritesheet_H>>1) - $8;
         
         if (_i==MainOption) _pi = PI_MENU1;
         else                _pi = PI_MENU2;
         
-        _idx = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
-        _text += " "+string(_idx+1)+"/"+string(val(g.pc.dm_skins[?STR_Set+STR_Count]));
-        //_text += string(_idx+1)+"/"+string(val(g.pc.dm_skins[?STR_Set+STR_Count]));
-        _text += ": " + val(g.pc.dm_skins[?hex_str(_idx)+STR_Name], STR_undefined);;
+        _idx = val(global.pc.dm_skins[?STR_Current+STR_Idx]);
+        _text += " "+string(_idx+1)+"/"+string(val(global.pc.dm_skins[?STR_Set+STR_Count]));
+        //_text += string(_idx+1)+"/"+string(val(global.pc.dm_skins[?STR_Set+STR_Count]));
+        _text += ": " + val(global.pc.dm_skins[?hex_str(_idx)+STR_Name], STR_undefined);;
         _xl = TextArea1_xl;
         _yt = _yt1;
         draw_text_(_xl,_yt, _text, _font, _pi);
@@ -142,7 +142,7 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         draw_text_(_xl,_yt, _text, _font, _pi);
         
         _xl += _font_w*string_length(_text);
-        _text2 = val(g.pc.dm_skins[?hex_str(_idx)+STR_Creator], STR_undefined);
+        _text2 = val(global.pc.dm_skins[?hex_str(_idx)+STR_Creator], STR_undefined);
         _val = ", ";
         _len = string_length(_val);
         _j = string_count(",",_text2) + 1;
@@ -170,9 +170,9 @@ for(_i=0; _i<MainOption_COUNT; _i++)
         _y2  = _yt1 + _font_h;
         _y2 += _DIST3;
         _y = _y2;
-        if (_y+(g.pc.Spritesheet_H>>1) < MenuWindow_yb)
+        if (_y+(global.pc.Spritesheet_H>>1) < MenuWindow_yb)
         {
-            draw_pc_skin(_x,_y, 1,1, g.pc.behavior_WALK1+PCSpriteWalk_frame, false, -1,-1, global.PI_PC1);
+            draw_pc_skin(_x,_y, 1,1, global.pc.behavior_WALK1+PCSpriteWalk_frame, false, -1,-1, global.PI_PC1);
         }
         
         

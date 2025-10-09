@@ -60,7 +60,7 @@ var _datakey;
 
 if (g.town_num 
 &&  g.town_name==STR_Bulblin 
-&& !g.pc.Disguise_enabled )
+&& !global.pc.Disguise_enabled )
 //&& !(f.items&ITM_MASK) )
 {
     state = 0;
@@ -95,7 +95,7 @@ var _yt = yt;
 hspd = 0; // Most NPC don't move.
 
 
-GROUND_Y = (((spawn_y>>8)+1)<<8) - ($3<<3);
+GROUND_Y = (((spawn_yt>>8)+1)<<8) - ($3<<3);
 GROUND_Y = get_ground_y(x,GROUND_Y, -1, GROUND_Y);
 
 
@@ -319,15 +319,15 @@ else if (isVal(object_index,NPC_4,NPC_5)) // Healer, Saver, Quest
     
     if (object_index==NPC_5) // Quest NPC
     {
-            door_exit_inst = collideRect(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, Exit);
+            door_exit_inst = collideRect(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, Exit);
         if (door_exit_inst==noone) door_exit_inst = 0;
         
         
         // 9756
-        spawn_x = xl;
-        spawn_y = yt-8;
-        _xl = spawn_x;
-        _yt = spawn_y;
+        spawn_xl = xl;
+        spawn_yt = yt-8;
+        _xl = spawn_xl;
+        _yt = spawn_yt;
         
         counter  = $80;  // $80: Waiting in house.
         timer_a1 = $90;  // Delay permission to exit house.
@@ -348,7 +348,7 @@ else if (object_index==NPC_7) // Spell Giver
     g.dm_spawn[?STR_Spell+STR_Dialogue+STR_Datakey+_SPAWN_DATAKEY] = _DIALOGUE_DATAKEY;
     */
     
-    //GROUND_Y = get_ground_y(x,spawn_y, 1, GROUND_Y);
+    //GROUND_Y = get_ground_y(x,spawn_yt, 1, GROUND_Y);
     
     if(!is_undefined(dk_spawn)) give_spell = val(g.dm_spawn[?STR_Spell+STR_Bit+dk_spawn]);
     else                        give_spell = SPL_SUMM;
@@ -426,7 +426,7 @@ else if (is_ver(id,NPC_A,1))
                      arena_x = g.rm_w_;
     with(Boss) other.arena_x = arena_x;
     
-    GROUND_Y = (((spawn_y>>8)+1)<<8) - ($3<<3);
+    GROUND_Y = (((spawn_yt>>8)+1)<<8) - ($3<<3);
     GROUND_Y = get_ground_y(arena_x,GROUND_Y, -1, GROUND_Y);
     
     if (f.quest_num>1)

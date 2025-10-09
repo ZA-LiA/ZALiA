@@ -37,10 +37,10 @@ if (hp < HP) // if THUNDER has been cast
 {
     update_body_hb_1a();
     // At least 8 of body hb need to be on screen
-    if (borderInRect(8, BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h, viewXL(),viewYT(),viewW(),viewH()))
+    if (borderInRect(8, BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h, viewXL(),viewYT(),viewW(),viewH()))
     {   // A3C2 - Prevent taking dmg if Link is up/downthrust
-        if (g.pc.behavior!=g.pc.behavior_STAB_DOWN 
-        &&  g.pc.behavior!=g.pc.behavior_STAB_UP )
+        if (global.pc.behavior!=global.pc.behavior_STAB_DOWN 
+        &&  global.pc.behavior!=global.pc.behavior_STAB_UP )
         {   // E48B - Link projectiles to enemy body
             GOB_body_collide_pc_proj();
             // E677 - Link sword to enemy body

@@ -32,8 +32,8 @@ switch(sprite)
     Pupil_xl=drawX-1;
     Pupil_yt=drawY-0;
     Pupil_h=1;
-         if (g.pc.x<x-8) Pupil_xl--;
-    else if (g.pc.x>x+7) Pupil_xl++;
+         if (global.pc.x<x-8) Pupil_xl--;
+    else if (global.pc.x>x+7) Pupil_xl++;
     break;}//case sprite_OPEN_HALF
 }//switch(sprite)
 

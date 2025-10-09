@@ -38,7 +38,7 @@ switch(sub_state)
     
     if(!atk_cooldown_timer 
     // &&  y_off_float == 0 
-    &&  abs(g.pc.x-x) <= DIST_ATK )
+    &&  abs(global.pc.x-x) <= DIST_ATK )
     {
         y_off_float =  0;
         

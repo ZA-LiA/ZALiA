@@ -45,12 +45,12 @@ switch(counter) // 00AF[eIndex]
     GOB_body_collide_pc_body_1a();
     
     if ((cs&CS_BD1)  // colliding w/ PC body
-    && !g.pc.ogr )   // PC confirmed to be on ground
+    && !global.pc.ogr )   // PC confirmed to be on ground
     {   // 9B03
         g.pc_lock = PC_LOCK_ALL; // Lock all
-        PC_set_behavior(g.pc.behavior_IDLE);
+        PC_set_behavior(global.pc.behavior_IDLE);
         
-        set_xlyt(id, xl,g.pc.yt);
+        set_xlyt(id, xl,global.pc.yt);
         
         f.crystals |= $1<<(DUNGEON_NUM-1);
         
@@ -73,12 +73,12 @@ switch(counter) // 00AF[eIndex]
     case 2:{ // 9B2B
     set_xy(id, x,y-1);
     
-    if (yt<=spawn_y)
+    if (yt<=spawn_yt)
     {
-        set_xlyt(id, xl,spawn_y); // just in case
+        set_xlyt(id, xl,spawn_yt); // just in case
         
         Flash_timer = Flash_DUR; // $62
-        g.pc.hspd   = 0;
+        global.pc.hspd   = 0;
         
         //aud_play_sound(mus_PlaceCrystal01_1); // This includes SND_STRK_SLD1 at the start
         aud_play_sound(get_audio_theme_track(dk_StrikeSolid));

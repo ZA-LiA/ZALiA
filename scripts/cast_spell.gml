@@ -34,7 +34,7 @@ with(g)
             if(!CuccoSpell2_Active)
             {
                 _TO_HUMAN = true;
-                with(pc)
+                with(global.pc)
                 {
                     var _ROW_UNDER = yb>>3;
                         _ROW_UNDER = find_row_solid(TID_SOLID1|TID_ONEWY1, x>>3,_ROW_UNDER,     1,0,  _ROW_UNDER);
@@ -54,7 +54,7 @@ with(g)
         }
         
         
-        with(pc)
+        with(global.pc)
         {   // set properties specific to PC's form(cucco, fairy, Lonk)
             is_cucco = true;
             PC_update_1a();

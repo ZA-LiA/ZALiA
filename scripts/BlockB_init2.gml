@@ -3,8 +3,16 @@
 
 var _i, _a, _x,_y;
 
+
 GO_sprite_init(spr_Block_02a);
-GO_init_palidx(global.PI_BGR4);
+
+var _pi = global.PI_BGR4;
+if(!is_undefined(         dk_spawn))
+{   _pi = val(g.dm_spawn[?dk_spawn+STR_pal_idx], _pi);  }
+GO_init_palidx(_pi);
+//GO_init_palidx(global.PI_BGR4);
+
+
 GO_depth_init(DEPTH_BG1-1); // -1 so tile pal swap can work
 //GO_depth_init(DEPTH_BG4+1); // +1 so tile pal swap can work
 

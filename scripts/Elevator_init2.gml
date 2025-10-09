@@ -8,9 +8,9 @@ var _i,_j, _val;
 var _exit_data = 0;
 if(!is_undefined(dk_spawn))
 {
-    spawn_x = (val(g.dm_spawn[?dk_spawn+"_x"], g.rm_clms>>1) <<3) - ww_;
-    spawn_y =  val(g.dm_spawn[?dk_spawn+"_y"], g.rm_rows>>1) <<3;
-    set_xlyt(id, spawn_x,spawn_y);
+    spawn_xl = (val(g.dm_spawn[?dk_spawn+"_x"], g.rm_clms>>1) <<3) - ww_;
+    spawn_yt =  val(g.dm_spawn[?dk_spawn+"_y"], g.rm_rows>>1) <<3;
+    set_xlyt(id, spawn_xl,spawn_yt);
     
     _exit_data = val(g.dm_spawn[?dk_spawn+STR_ExitData]);
 }
@@ -18,9 +18,9 @@ if(!is_undefined(dk_spawn))
 var _exit_data = -1;
 if(!is_undefined(dk_spawn))
 {
-    spawn_x = (val(g.dm_spawn[?dk_spawn+"_x"], g.rm_clms>>1) <<3) - ww_;
-    spawn_y =  val(g.dm_spawn[?dk_spawn+"_y"], g.rm_rows>>1) <<3;
-    set_xlyt(id, spawn_x, spawn_y);
+    spawn_xl = (val(g.dm_spawn[?dk_spawn+"_x"], g.rm_clms>>1) <<3) - ww_;
+    spawn_yt =  val(g.dm_spawn[?dk_spawn+"_y"], g.rm_rows>>1) <<3;
+    set_xlyt(id, spawn_xl, spawn_yt);
     
     _exit_data = val(g.dm_spawn[?dk_spawn+STR_ExitData], "");
 }
@@ -49,7 +49,7 @@ if(!is_undefined(dk_spawn)
     
     if (_exit_data==0) // if elevator is confined in scene and doesn't go to an exit
     {
-        if (g.pc.y<y)
+        if (global.pc.y<y)
         {
             _yt = find_row_solid(TID_SOLID1, (x>>3)<<3, y>>3, -1,-1, yt>>3);
             _yt = _yt<<3;
@@ -60,8 +60,8 @@ if(!is_undefined(dk_spawn)
             _yt -= hh;
         }
         
-        spawn_y = _yt;
-        set_xlyt(id, spawn_x,spawn_y);
+        spawn_yt = _yt;
+        set_xlyt(id, spawn_xl,spawn_yt);
     }
     else
     {
@@ -108,9 +108,9 @@ if(!is_undefined(dk_spawn)
                 case $8:{_yt=cam_yt_min()-_OFFSET;    break;}
                 }
                 
-                spawn_x = _xl;
-                spawn_y = _yt;
-                set_xlyt(id, spawn_x,spawn_y);
+                spawn_xl = _xl;
+                spawn_yt = _yt;
+                set_xlyt(id, spawn_xl,spawn_yt);
             }
         }
     }
@@ -184,8 +184,8 @@ if (g.exit_enter
             _spawn_row = g.dm_spawn[?dk_spawn+STR_Elevator+STR_Spawn+STR_Row+_exit_num_];
             if(!is_undefined(_spawn_row))
             {
-                spawn_y = _spawn_row<<3;
-                set_xlyt(id, xl, spawn_y);
+                spawn_yt = _spawn_row<<3;
+                set_xlyt(id, xl, spawn_yt);
                 break;//while (true)
             }
         }

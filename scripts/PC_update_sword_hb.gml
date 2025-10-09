@@ -29,7 +29,7 @@ adds an offset to the swrd hb.
 It can happen for UPTHRUST,DWNTHRUST, LOW&HIGH STAB right.
 */
 
-with(g.pc)
+with(global.pc)
 {
     var _DIST1 = 8;
     

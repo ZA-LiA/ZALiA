@@ -109,7 +109,7 @@ From  udp_Magnot():
 // 8 diff dir pupil can point.
 // a circle w/ 8 equal sections gives each section's angle 45* (360/8)
 // 0*, 45*, 90*, 135*, 180*, 225*, 270*, 315*
-var _val  = point_direction(x,y, g.pc.x,g.pc.y);
+var _val  = point_direction(x,y, global.pc.x,global.pc.y);
     _val += 22.5; // offset by 1/16th. 45/2 = 22.5 = 360/16
     _val  = _val mod 360; // in case adding offset went past 359
     _val  = _val div 45;   // Determine the section index(0-7) of the angle
@@ -165,10 +165,10 @@ for(_i=ds_grid_width(dg_Cucco_rage)-1; _i>=1; _i--)
                 _h = $A;
                 _x = dg_Cucco_rage[#_i,1] - (_w>>1);
                 _y = dg_Cucco_rage[#_i,2] - (_h>>1);
-                if (rectInRect(_x,_y, _w,_h, _inst.BodyHB_x,_inst.BodyHB_y, _inst.BodyHB_w,_inst.BodyHB_h))
+                if (rectInRect(_x,_y, _w,_h, _inst.BodyHB_xl,_inst.BodyHB_yt, _inst.BodyHB_w,_inst.BodyHB_h))
                 {
-                    damage_gob(id, g.pc.dl_ATTACK_DAMAGE[| f.level_atk], false);
-                    // update_E726(g.pc.dl_ATTACK_DAMAGE[| f.level_atk], false);
+                    damage_gob(id, global.pc.dl_ATTACK_DAMAGE[| f.level_atk], false);
+                    // update_E726(global.pc.dl_ATTACK_DAMAGE[| f.level_atk], false);
                 }
             }
         }

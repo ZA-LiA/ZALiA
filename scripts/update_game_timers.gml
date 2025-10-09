@@ -14,7 +14,7 @@ if (timer_b<0)
     if (timer_b1) timer_b1--;
     
     // 0518
-    if (pc.iframes_timer) pc.iframes_timer--;
+    if (global.pc.iframes_timer) global.pc.iframes_timer--;
     
     // 0516
     if (global.OVERWORLD.enc_spawn_timer) global.OVERWORLD.enc_spawn_timer--;
@@ -39,10 +39,10 @@ if (timer_b<0)
 if (boss_stun_timer) boss_stun_timer--;
 
 // 050C PC stun timer
-if (pc.stun_timer) pc.stun_timer--;
+if (global.pc.stun_timer) global.pc.stun_timer--;
 
 // 050A PC attack timer
-if (pc.attack_timer) pc.attack_timer--;
+if (global.pc.attack_timer) global.pc.attack_timer--;
 
 // 0503 Delay control of PC when entering a room
 if (EnterRoom_control_timer) EnterRoom_control_timer--;

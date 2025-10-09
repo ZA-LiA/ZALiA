@@ -110,8 +110,8 @@ BodyHB_yoff    = BODY_YOFF;
 BodyHB_w       = BODY_W
 BodyHB_h       = BODY_H
 
-BodyHB_x       = x-(BodyHB_w>>1);
-BodyHB_y       = MIN_Y+BODY_YOFF;
+BodyHB_xl       = x-(BodyHB_w>>1);
+BodyHB_yt       = MIN_Y+BODY_YOFF;
 
 
 

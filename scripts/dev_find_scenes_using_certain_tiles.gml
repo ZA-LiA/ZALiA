@@ -21,10 +21,15 @@ if (ds_list_find_index(_dl_areas,Area_Title)==-1) ds_list_insert(_dl_areas, 0, A
 var _RULE = 0;
 
 
+var _TS_NAME = "ts_Man_made_1a_WRB";
+ds_list_add(_dl_tsrc,$A8,$A9);
+
+/*
 // Looking for anything using ts_Natural_2a_WRB
 var _TS_NAME = "ts_Man_made_8a_HMS";
 _i = $60;
 repeat($AB-_i) ds_list_add(_dl_tsrc,_i++);
+*/
 
 /*
 // Natural tiles in ts_ManMade05

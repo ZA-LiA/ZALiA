@@ -26,7 +26,7 @@ if (state!=state_NORMAL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 update_body_hb_1a();
 
 
-var _p = collide_pc_proj(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, BodyHB_r);
+var _p = collide_pc_proj(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, BodyHB_r);
 if(!_p)
 {   // E6A6
     cs &= ~CS_PR1; // remove CS_PR1(PC Proj) from cs(Colliding Sides)
@@ -64,15 +64,15 @@ if (react_proj & _BITS) // $0000FF. Can take damage bits
     // E6F3-E6F7 could set carry and then E70C goes to an RTS ending up at E4AB.
     // BVR_DWTH/DAMG/ITM1-4  all have a higher value thn  BVR_UPTH = 8
     
-    // _can_push_back = !(cs&CS_PR1) || g.pc.behavior >= g.pc.BVR_UPTH;
-    _can_push_back  = !(cs&(CS_PR1|CS_SW1)) || isVal(g.pc.behavior, g.pc.behavior_STAB_UP, g.pc.behavior_STAB_DOWN, g.pc.behavior_DAMAGE, g.pc.behavior_HOLD_ITEM1, g.pc.behavior_HOLD_ITEM2, g.pc.behavior_HOLD_ITEM3, g.pc.behavior_HOLD_ITEM4);
+    // _can_push_back = !(cs&CS_PR1) || global.pc.behavior >= global.pc.BVR_UPTH;
+    _can_push_back  = !(cs&(CS_PR1|CS_SW1)) || isVal(global.pc.behavior, global.pc.behavior_STAB_UP, global.pc.behavior_STAB_DOWN, global.pc.behavior_DAMAGE, global.pc.behavior_HOLD_ITEM1, global.pc.behavior_HOLD_ITEM2, global.pc.behavior_HOLD_ITEM3, global.pc.behavior_HOLD_ITEM4);
     
     
     // Proj can only collide when stunTimer is clear, CS_PR1 is clear, CS_SW1 is clear
     if!(cs & (CS_PR1|CS_SW1))
     {   // E70E
         cs |= CS_PR1;
-        damage_gob(id, g.pc.dl_ATTACK_DAMAGE[|f.level_atk], true);
+        damage_gob(id, global.pc.dl_ATTACK_DAMAGE[|f.level_atk], true);
     }
 }
 
@@ -145,13 +145,13 @@ if (state == ST_NORM
         &&  (!(ed1 & g.ED1_SLB) || _p.isFire) )
         {
             // E6F3
-            _can_push_back = !(cs & CS_SW1) || g.pc.behavior >= g.pc.BVR_UPTH;
+            _can_push_back = !(cs & CS_SW1) || global.pc.behavior >= global.pc.BVR_UPTH;
             
             if !(cs & CS_SW1)
             {
                 // E70E
                 cs |= CS_SW1;
-                update_E726(g.pc.ar_atk_dmg[f.level_atk], true);
+                update_E726(global.pc.ar_atk_dmg[f.level_atk], true);
             }
         }
         else

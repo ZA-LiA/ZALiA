@@ -18,13 +18,13 @@ switch(sub_state)
     case SUB_STATE_IDLE:{
     if (timer) break;
     
-    g.pc.depth_def = PC_DEPTH;
+    global.pc.depth_def = PC_DEPTH;
     
-    set_xy(g.pc, x,yt-g.pc.hh_);
+    set_xy(global.pc, x,yt-global.pc.hh_);
     g.pc_lock   = PC_LOCK_ALL;
     g.cutscene  = 1;
     
-    if (g.pc.state!=g.pc.state_NORMAL) break;
+    if (global.pc.state!=global.pc.state_NORMAL) break;
     timer       = $40;
     sub_state   = SUB_STATE_OPEN1;
     
@@ -50,13 +50,13 @@ switch(sub_state)
     if (timer) break;
     
     
-    g.pc.depth_def = PC_DEPTH;
+    global.pc.depth_def = PC_DEPTH;
     
     
     if (rows_up<ROWS)
     {
         rows_up++;
-        set_xlyt(id, xl, spawn_y-(rows_up<<3));
+        set_xlyt(id, xl, spawn_yt-(rows_up<<3));
         
         for(var _i=0; _i<ww>>3; _i++)
         {   // Remove tiles behind sprite
@@ -85,7 +85,7 @@ switch(sub_state)
     if (timer) break;
     
     
-    g.pc.depth_def = PC_DEPTH_DEF;
+    global.pc.depth_def = PC_DEPTH_DEF;
     
     
     Exit_inst.open = 1;
@@ -110,18 +110,18 @@ switch(sub_state)
     if (timer) break;
     
     
-    g.pc.depth_def = PC_DEPTH_DEF;
+    global.pc.depth_def = PC_DEPTH_DEF;
     
     var _X = x-ww_-$10;
-    g.pc.WalkTo_active   = true;
-    g.pc.WalkTo_x        = _X;
-    g.pc.WalkTo_hspd_max = $10;
+    global.pc.WalkTo_active   = true;
+    global.pc.WalkTo_x        = _X;
+    global.pc.WalkTo_hspd_max = $10;
     
-    if (g.pc.x==_X)
+    if (global.pc.x==_X)
     //if (walk_pc_to_x(x-ww_-$10, $10)) // if PC at 
     {
-        g.pc.WalkTo_active = false;
-        g.pc.depth_def = PC_DEPTH_DEF;
+        global.pc.WalkTo_active = false;
+        global.pc.depth_def = PC_DEPTH_DEF;
         g.pc_lock   = 0;
         g.cutscene  = 0;
         

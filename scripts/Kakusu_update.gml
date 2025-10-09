@@ -234,8 +234,8 @@ if (object_index==Kakusu003) // Kakusu003: Only a downthrust from high enough wi
     hp = g.dl_HP[|hp_idx];
     
     if (cs&CS_SW1 
-    &&  g.pc.behavior==g.pc.behavior_STAB_DOWN  // if PC downthrusting
-    &&  g.pc.y-g.pc.drop_y >= drop_dist )       // if PC has fallen far enough
+    &&  global.pc.behavior==global.pc.behavior_STAB_DOWN  // if PC downthrusting
+    &&  global.pc.y-global.pc.drop_y >= drop_dist )       // if PC has fallen far enough
     {
         damage_gob(id, max(hp,0), false);
     }

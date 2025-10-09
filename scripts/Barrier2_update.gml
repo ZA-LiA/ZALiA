@@ -12,8 +12,8 @@ switch(sub_state)
     if (timer) break;
     if (f.quest_num==1) break;
     
-    if (abs(g.pc.x-Blocks_XC) <= Activate_DIST 
-    && !g.pc.ogr )
+    if (abs(global.pc.x-Blocks_XC) <= Activate_DIST 
+    && !global.pc.ogr )
     {
         g.pc_lock = PC_LOCK_ALL;
         
@@ -120,7 +120,7 @@ switch(sub_state)
         {   // Remove all solids
             _clm = _CLM + (_i mod _clms);
             _row = _ROW + (_i div _clms);
-            g.dg_RmTile_solid[#_clm,_row]=0;
+            global.dg_solid[#_clm,_row]=0;
         }
         
         
@@ -128,7 +128,7 @@ switch(sub_state)
         //f.dm_quests[?g.TriforceBarrier1_RM_NAME+STR_Barrier+STR_State] = 1; // Barrier has been removed
         
         g.pc_lock = 0;
-        PC_set_behavior(g.pc.behavior_IDLE); // 
+        PC_set_behavior(global.pc.behavior_IDLE); // 
         Audio.can_play_mus_rm_body = true; // 
         
         timer     = 0;

@@ -16,7 +16,7 @@ if (g.mod_BuildBridge_COND==2  // 2: Talk to NPC only once and bridge will auto 
     var _CLMS =  8; // PC proximity to water edge to trigger build
     var _XL   = (CLM_L-_CLMS)    <<3;
     var _DIST = (CLMS+(_CLMS<<1))<<3;
-    if(!inRange(g.pc.x, _XL, _XL+_DIST))
+    if(!inRange(global.pc.x, _XL, _XL+_DIST))
     {
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }

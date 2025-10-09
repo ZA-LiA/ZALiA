@@ -33,7 +33,7 @@ if (g.gui_state!=g.gui_state_NONE)
         drawX  = viewXC() - ((CLMS>>1)<<3);
         drawX  = (drawX>>3)<<3;
         
-        drawY  = g.pc.yt - (rows<<3);
+        drawY  = global.pc.yt - (rows<<3);
         drawY -= $01<<3; // padding
         drawY  = (drawY>>3)<<3;
     }
@@ -79,7 +79,7 @@ switch(g.cutscene_part)
     set_camera_xy(g.rm_w_-viewW_(), viewYT());
     
     
-    GROUND_Y = (g.pc.spawn_y>>3)<<3;
+    GROUND_Y = (global.pc.spawn_yt>>3)<<3;
     GROUND_Y = get_ground_y(viewXC(),GROUND_Y,  1, GROUND_Y+PC_H);
     CEILNG_Y = find_row_solid(TID_SOLID1, viewXC()>>3,(GROUND_Y>>3)-4, -1, 0, $08);
     CEILNG_Y = (CEILNG_Y+1)<<3;
@@ -123,7 +123,7 @@ switch(g.cutscene_part)
         dg_curtain[#_i,5] = _CURTAIN_DEPTH;
         
         //  GROUND ROW  -------------------------------------------------------
-        _y = get_ground_y(_x,_Y_START, 1, g.pc.spawn_y+PC_H);
+        _y = get_ground_y(_x,_Y_START, 1, global.pc.spawn_yt+PC_H);
         _y = _y>>3;
         dg_curtain[#_i,4] = _y; // ground row
         
@@ -183,12 +183,12 @@ switch(g.cutscene_part)
         xScale = -1;
         set_xy(id, _X + (8 * -xScale), y);
         
-        g.pc.xScale = -xScale;
-        set_xy(g.pc, x + ($10 * xScale), y);
+        global.pc.xScale = -xScale;
+        set_xy(global.pc, x + ($10 * xScale), y);
         if (pc_is_cucco())
         {
-            with(g.pc) set_xy(id, other.x-$0B, other.y-$03);
-            depth = g.pc.depth-1;
+            with(global.pc) set_xy(id, other.x-$0B, other.y-$03);
+            depth = global.pc.depth-1;
         }
         
         sub_state = SUB_STATE_TALK1; // So correct sprite is drawn
@@ -318,7 +318,7 @@ switch(g.cutscene_part)
     // Move in for kiss.
     var _DIST = 4;
     
-    with(g.pc)
+    with(global.pc)
     {
         set_xy(id, x + (_DIST*xScale), y);
     }
@@ -462,9 +462,9 @@ switch(g.cutscene_part)
     g.menu_state = g.DIALOGUE_WINDOW.SUB_STATE_CLOS1; // close dlg window
     
     
-    // Changing g.pc.state<=0 will cause any other gob(like the Torches) to NOT draw
+    // Changing global.pc.state<=0 will cause any other gob(like the Torches) to NOT draw
     can_draw_L_and_Z = false;
-           //g.pc.state = -1;
+           //global.pc.state = -1;
     //with(Zelda) state =  0;
     
     
@@ -1026,7 +1026,7 @@ switch(g.cutscene_part)
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------
-with(g.pc)
+with(global.pc)
 {
     can_draw_self = false;
     
@@ -1048,9 +1048,9 @@ with(Zelda)
     
     
     update_EF11();
-    xScale = -g.pc.xScale;
+    xScale = -global.pc.xScale;
     
-    with(g.pc) other.depth = depth-1;
+    with(global.pc) other.depth = depth-1;
 }
 
 

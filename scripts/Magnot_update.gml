@@ -15,17 +15,17 @@ if(!Idle_timer
 {
     if (auto_return_state)
     {
-             if (move_dirs&$3) hspd = (speed1*sign_(g.pc.x-x)) &$FF;
-        else if (move_dirs&$C) vspd = (speed1*sign_(g.pc.y-y)) &$FF;
+             if (move_dirs&$3) hspd = (speed1*sign_(global.pc.x-x)) &$FF;
+        else if (move_dirs&$C) vspd = (speed1*sign_(global.pc.y-y)) &$FF;
     }
     else
     {
         trig_canDraw = true;
-        if (g.pc.hspd 
-        ||  g.pc.vspd )
+        if (global.pc.hspd 
+        ||  global.pc.vspd )
         {
-                 if (move_dirs&$3 && collide_pc_body(trig_hori_x,trig_hori_y,trig_hori_w,trig_hori_h)) hspd = (speed1*sign_(g.pc.x-x)) &$FF;
-            else if (move_dirs&$C && collide_pc_body(trig_vert_x,trig_vert_y,trig_vert_w,trig_vert_h)) vspd = (speed1*sign_(g.pc.y-y)) &$FF;
+                 if (move_dirs&$3 && collide_pc_body(trig_hori_x,trig_hori_y,trig_hori_w,trig_hori_h)) hspd = (speed1*sign_(global.pc.x-x)) &$FF;
+            else if (move_dirs&$C && collide_pc_body(trig_vert_x,trig_vert_y,trig_vert_w,trig_vert_h)) vspd = (speed1*sign_(global.pc.y-y)) &$FF;
         }
     }
 }

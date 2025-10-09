@@ -6,25 +6,25 @@ var _val, _val0,_val1;
 var _dk, _pos;
 
 
-GO_depth_init(min(g.pc.depth_def,DEPTH_ITEM)-3);
+GO_depth_init(min(global.pc.depth_def,DEPTH_ITEM)-3);
 GO_init_palidx(global.PI_SPELL_PC1+1); // PI_SPELL_FLASH1+1: Brightest pc spell flash colors
 //GO_init_palidx(PI_PC_2+1); // PI_PC_2+1: Brightest pc spell flash colors
 //GO_init_palidx(PI_MOB_RED);
 GO_sprite_init(SPRITE1);
 
 
-// spawn_x: headstone xl, spawn_y: headstone yt and ghost yt
-Headstone_x = spawn_x+8;
-Headstone_y = spawn_y+8;
+// spawn_x: headstone xl, spawn_yt: headstone yt and ghost yt
+Headstone_x = spawn_xl+8;
+Headstone_y = spawn_yt+8;
 
 Ghost_HOME_X = Headstone_x-($0B<<3);
-Ghost_HOME_Y = spawn_y+hh_;
+Ghost_HOME_Y = spawn_yt+hh_;
 //Ghost_HOME_X = x;
 set_xy(id, Ghost_HOME_X,Ghost_HOME_Y);
 
 //spawn_x -= ww_;
-//spawn_y -= hh_;
-//set_xlyt(id, spawn_x,spawn_y);
+//spawn_yt -= hh_;
+//set_xlyt(id, spawn_x,spawn_yt);
 
 
 var _COUNT1 = 4;

@@ -1,7 +1,7 @@
 /// PC_take_damage(obj inst Enemy, *alt damage)
 
 
-if (g.pc.iframes_timer)
+if (global.pc.iframes_timer)
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -69,7 +69,7 @@ adjust_stat(-_damage, 0);
 
 
 // ---------------------------------------------------------------
-with(g.pc)
+with(global.pc)
 {
     attack_phase  = 0;
     iframes_timer = 4;

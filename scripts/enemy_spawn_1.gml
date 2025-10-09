@@ -20,11 +20,11 @@ with(GameObject_create(0,0, _OBJ,_VER))
     // WIDE VIEW
     var _XL  = viewXL() + (viewW() * !facing_dir); // left or right end of view
         _XL -= ww_;                               // half GO's width
-        _XL +=((g.pc.yt&$FF)<3) * facing_dir;      // OG CARRY. 0, 1, -1
-    var _YT  =  g.pc.yt + g.pc.hh - $22;
+        _XL +=((global.pc.yt&$FF)<3) * facing_dir;      // OG CARRY. 0, 1, -1
+    var _YT  =  global.pc.yt + global.pc.hh - $22;
     /*  OG
-    var _XL = g.camXL + ((8*facing_dir)&$FF) + ((g.pc.yt&$FF)<3);
-    var _YT = g.pc.yt - 2;
+    var _XL = g.camXL + ((8*facing_dir)&$FF) + ((global.pc.yt&$FF)<3);
+    var _YT = global.pc.yt - 2;
     */
     
     set_xlyt(id, _XL,_YT);

@@ -45,20 +45,20 @@ for(var _i=ds_list_size(g.go_mgr.dl_gob1)-1; _i>=0; _i--)
         {
             GOB_update_shield_offsets();
             update_shield_hb();
-                 if(!ShieldHB_r &&  other.BodyHB_r) _collided=rectInCirc(other.BodyHB_x,other.BodyHB_y,other.BodyHB_r, ShieldHB_x,ShieldHB_y,ShieldHB_w,ShieldHB_h);
-            else if( ShieldHB_r && !other.BodyHB_r) _collided=rectInCirc(ShieldHB_x,ShieldHB_y,ShieldHB_r, other.BodyHB_x,other.BodyHB_y,other.BodyHB_w,other.BodyHB_h);
-            else if( ShieldHB_r &&  other.BodyHB_r) _collided=circInCirc(ShieldHB_x,ShieldHB_y,ShieldHB_r, other.BodyHB_x,other.BodyHB_y,other.BodyHB_r);
-            else                                    _collided=rectInRect(ShieldHB_x,ShieldHB_y,ShieldHB_w,ShieldHB_h, other.BodyHB_x,other.BodyHB_y,other.BodyHB_w,other.BodyHB_h);
+                 if(!ShieldHB_r &&  other.BodyHB_r) _collided=rectInCirc(other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_r, ShieldHB_x,ShieldHB_y,ShieldHB_w,ShieldHB_h);
+            else if( ShieldHB_r && !other.BodyHB_r) _collided=rectInCirc(ShieldHB_x,ShieldHB_y,ShieldHB_r, other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_w,other.BodyHB_h);
+            else if( ShieldHB_r &&  other.BodyHB_r) _collided=circInCirc(ShieldHB_x,ShieldHB_y,ShieldHB_r, other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_r);
+            else                                    _collided=rectInRect(ShieldHB_x,ShieldHB_y,ShieldHB_w,ShieldHB_h, other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_w,other.BodyHB_h);
         }
         
         
         if(!_collided)
         {
             update_body_hb_1a();
-                 if(!BodyHB_r &&  other.BodyHB_r) var _C1=rectInCirc(other.BodyHB_x,other.BodyHB_y,other.BodyHB_r, BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h);
-            else if( BodyHB_r && !other.BodyHB_r) var _C1=rectInCirc(BodyHB_x,BodyHB_y,BodyHB_r, other.BodyHB_x,other.BodyHB_y,other.BodyHB_w,other.BodyHB_h);
-            else if( BodyHB_r &&  other.BodyHB_r) var _C1=circInCirc(BodyHB_x,BodyHB_y,BodyHB_r, other.BodyHB_x,other.BodyHB_y,other.BodyHB_r);
-            else                                  var _C1=rectInRect(BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h, other.BodyHB_x,other.BodyHB_y,other.BodyHB_w,other.BodyHB_h);
+                 if(!BodyHB_r &&  other.BodyHB_r) var _C1=rectInCirc(other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_r, BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h);
+            else if( BodyHB_r && !other.BodyHB_r) var _C1=rectInCirc(BodyHB_xl,BodyHB_yt,BodyHB_r, other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_w,other.BodyHB_h);
+            else if( BodyHB_r &&  other.BodyHB_r) var _C1=circInCirc(BodyHB_xl,BodyHB_yt,BodyHB_r, other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_r);
+            else                                  var _C1=rectInRect(BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h, other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_w,other.BodyHB_h);
             if (_C1 
             &&  ds_list_find_index(dl_ProjVuln,_OBJVER)+1 ) // if this gob inst is vulnerable to the REFLECTed projectile
             {

@@ -3,7 +3,7 @@
 
 if (is_string(argument0)) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-with(g.pc) behavior = clamp(argument0, 0,behavior_LAST);
+with(global.pc) behavior = clamp(argument0, 0,behavior_LAST);
 
 
 

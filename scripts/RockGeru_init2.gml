@@ -24,11 +24,11 @@ rockXOff    =  0;
 rockYOff    =  0;
 
 
-Wall_Y      = spawn_y;
+Wall_Y      = spawn_yt;
 //GROUND_Y    = get_ground_y(x,y,1,viewYB()-$18);
 //Wall_H      = $10<<3;
 //Wall_Y      = GROUND_Y - WALL_H;
-Wall_XL     = spawn_x;
+Wall_XL     = spawn_xl;
 Wall_W      = g.rm_w;
 Wall_XR     = Wall_XL+Wall_W;
 

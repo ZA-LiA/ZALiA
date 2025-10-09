@@ -73,9 +73,9 @@ if (ver==2) // 2nd quest
     
     var                  _DIST = $03<<3;
     set_xy(  id, g.rm_w_+_DIST, y);
-    set_xy(g.pc, g.rm_w_-_DIST, y);
-    g.pc.spawn_x = g.pc.xl;
-    g.pc.spawn_y = g.pc.yt;
+    set_xy(global.pc, g.rm_w_-_DIST, y);
+    global.pc.spawn_xl = global.pc.xl;
+    global.pc.spawn_yt = global.pc.yt;
     
     
     dialogue_datakey = "0Z_01_";

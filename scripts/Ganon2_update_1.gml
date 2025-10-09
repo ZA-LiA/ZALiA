@@ -1,7 +1,7 @@
 /// Ganon2_update_1()
 
 
-with(g.pc)
+with(global.pc)
 {
     if (state!=state_NORMAL) break;
     

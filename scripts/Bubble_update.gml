@@ -32,7 +32,7 @@ if (is_dormant)
     update_body_hb_1a();
     with(Flame1)
     {
-        if (rectInRect(BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h, other.BodyHB_x,other.BodyHB_y,other.BodyHB_w,other.BodyHB_h))
+        if (rectInRect(BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h, other.BodyHB_xl,other.BodyHB_yt,other.BodyHB_w,other.BodyHB_h))
         {
             state = 0;
             
@@ -172,9 +172,9 @@ if (ver & VER_BIT_STAB
     {
         stun_timer = 0;
         
-        if (isVal(g.pc.behavior, g.pc.behavior_STAB_UP,g.pc.behavior_STAB_DOWN))
+        if (isVal(global.pc.behavior, global.pc.behavior_STAB_UP,global.pc.behavior_STAB_DOWN))
         {
-            if (g.pc.behavior == g.pc.behavior_STAB_UP)
+            if (global.pc.behavior == global.pc.behavior_STAB_UP)
             {    vspd = -abs8b(vspd) &$FF;  }
             else vspd =  abs8b(vspd) &$FF;
             
@@ -182,7 +182,7 @@ if (ver & VER_BIT_STAB
         }
         else
         {
-            if (g.pc.xScale)
+            if (global.pc.xScale)
             {    hspd =  abs8b(hspd) &$FF;  }
             else hspd = -abs8b(hspd) &$FF;
             

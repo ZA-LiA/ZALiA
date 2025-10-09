@@ -88,7 +88,7 @@ else if (collisionProjCS(0,hh_))
         
         if (ver==1) will_slide = !(rand()&$3);
         
-        if (will_slide) facing_dir = sign_(xl<g.pc.xl-8);
+        if (will_slide) facing_dir = sign_(xl<global.pc.xl-8);
         
         if (will_slide) hspd = ($10*facing_dir) &$FF;
         else            hspd = 0;

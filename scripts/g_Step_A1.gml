@@ -1,15 +1,15 @@
 /// g_Step_A1()
 
 
-pc.x_change_prev = pc.x_change1 + pc.x_change2;
-pc.x_change  = 0;
-pc.x_change1 = 0; // x_change right before 1st update_Camera_1a()
-pc.x_change2 = 0; // x_change right before 2nd update_Camera_1a()
+global.pc.x_change_prev = global.pc.x_change1 + global.pc.x_change2;
+global.pc.x_change  = 0;
+global.pc.x_change1 = 0; // x_change right before 1st update_Camera_1a()
+global.pc.x_change2 = 0; // x_change right before 2nd update_Camera_1a()
 
-pc.y_change_prev = pc.y_change1 + pc.y_change2;
-pc.y_change  = 0;
-pc.y_change1 = 0; // y_change right before 1st update_Camera_1a()
-pc.y_change2 = 0; // y_change right before 2nd update_Camera_1a()
+global.pc.y_change_prev = global.pc.y_change1 + global.pc.y_change2;
+global.pc.y_change  = 0;
+global.pc.y_change1 = 0; // y_change right before 1st update_Camera_1a()
+global.pc.y_change2 = 0; // y_change right before 2nd update_Camera_1a()
 
 with(GameObject)
 {

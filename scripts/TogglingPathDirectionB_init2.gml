@@ -4,7 +4,7 @@
 path_dir = g.dm_spawn[? dk_spawn+STR_Direction];
 
 
-set_xlyt(id, spawn_x-(ww>>1), spawn_y-(hh>>1));
+set_xlyt(id, spawn_xl-(ww>>1), spawn_yt-(hh>>1));
 
 
 
@@ -65,9 +65,9 @@ switch (location_a)
       elev = GameObject_create(_XX,_YY, ElevatorB,1);
 with (elev)
 {
-    spawn_x = _XX;
-    spawn_y = _YY;
-    set_xlyt(id, spawn_x, spawn_y);
+    spawn_xl = _XX;
+    spawn_yt = _YY;
+    set_xlyt(id, spawn_xl, spawn_yt);
     
     ds_list_add(dl_exit, g.exit_enter);
     

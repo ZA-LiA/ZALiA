@@ -39,10 +39,10 @@ if (dock_state==dock_state_FREE0
     // In the event PC is left stranded, 
     // the RAFT will reverse its direction 
     // if it gets far enough outside the room.
-    if (g.pc.cs_btm_inst!=id 
+    if (global.pc.cs_btm_inst!=id 
     && !wINw(xl,ww, -ww,g.rm_w+(ww<<1)) )
     //&& !rectInRect(     xl,     yt,     ww,     hh,    -ww,       -hh,g.rm_w+(ww<<1),g.rm_h+(hh<<1)) 
-    //&&  rectInRect(g.pc.xl,g.pc.yt,g.pc.ww,g.pc.hh, 0,min(0,viewYT()),g.rm_w,    max(g.rm_h,viewH())) )
+    //&&  rectInRect(global.pc.xl,global.pc.yt,global.pc.ww,global.pc.hh, 0,min(0,viewYT()),g.rm_w,    max(g.rm_h,viewH())) )
     {
         hspd_dir = -hspd_dir;
         hspd     =(hspd1*hspd_dir) &$FF;
@@ -54,19 +54,19 @@ if (dock_state==dock_state_FREE0
         }
     }
 }
-else if(!g.pc.stun_timer 
-     && !g.pc.ogr )
+else if(!global.pc.stun_timer 
+     && !global.pc.ogr )
 {
     switch(  dock_state)
     {
         case dock_state_DOCKED0:{ // Docked and waiting for player to get on
-        if (g.pc.cs_btm_inst==id 
-        &&  inRange(g.pc.x, x-$10,x+$10) )
+        if (global.pc.cs_btm_inst==id 
+        &&  inRange(global.pc.x, x-$10,x+$10) )
         {    dock_state = dock_state_FREE0;  } // Move freely not expecting to dock
         break;}
         
         case dock_state_DOCKED1:{ // Docked and waiting for player to get off
-        if (g.pc.cs_btm_inst!=id)
+        if (global.pc.cs_btm_inst!=id)
         {    dock_state = dock_state_DOCKED0;  } // Docked and waiting for player to get on
         break;}
     }

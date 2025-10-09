@@ -11,9 +11,9 @@ if (_count>=3) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // ---------------------------------------------------
-if (g.pc.x <=        viewW_() 
-||  g.pc.x >= g.rm_w-viewW_() )
-{    var _DIR = sign_(g.pc.x>g.rm_w_);  }
+if (global.pc.x <=        viewW_() 
+||  global.pc.x >= g.rm_w-viewW_() )
+{    var _DIR = sign_(global.pc.x>g.rm_w_);  }
 else var _DIR = sign_(rand()&$1);
 
 // WIDE VIEW

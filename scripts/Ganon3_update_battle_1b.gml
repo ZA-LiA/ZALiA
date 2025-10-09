@@ -7,7 +7,7 @@ if (stun_timer) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 update_body_hb_1a();
 
 
-var _p = collide_pc_proj(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, BodyHB_r);
+var _p = collide_pc_proj(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, BodyHB_r);
 if(!_p)
 {
     cs &= ~CS_PR1; // remove CS_PR1(PC Proj) from cs(Colliding Sides)
@@ -34,7 +34,7 @@ if (_p.type_bits & (_p.BIT_BEM1 | _p.BIT_FIR1))
     // a projectile collision, but it's definitely in the OG code...
     // E6F3-E6F7 could set carry and then E70C goes to an RTS ending up at E4AB.
     // BVR_DWTH/DAMG/ITM1-4  all have a higher value thn  BVR_UPTH = 8
-    _can_push_back = !(cs&(CS_PR1|CS_SW1)) || isVal(g.pc.behavior,g.pc.behavior_STAB_UP,g.pc.behavior_STAB_DOWN,g.pc.behavior_DAMAGE,g.pc.behavior_HOLD_ITEM1,g.pc.behavior_HOLD_ITEM2,g.pc.behavior_HOLD_ITEM3,g.pc.behavior_HOLD_ITEM4);
+    _can_push_back = !(cs&(CS_PR1|CS_SW1)) || isVal(global.pc.behavior,global.pc.behavior_STAB_UP,global.pc.behavior_STAB_DOWN,global.pc.behavior_DAMAGE,global.pc.behavior_HOLD_ITEM1,global.pc.behavior_HOLD_ITEM2,global.pc.behavior_HOLD_ITEM3,global.pc.behavior_HOLD_ITEM4);
     
     // Proj can only collide when stunTimer is clear, CS_PR1 is clear, CS_SW1 is clear
     if!(cs & (CS_PR1|CS_SW1))

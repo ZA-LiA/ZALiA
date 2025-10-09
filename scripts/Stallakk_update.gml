@@ -57,8 +57,8 @@ if (sub_state==sub_state_IDLE1
     if(!_C1)
     {
         _C1 =  facing_dir==dir_to_pc_(id) 
-           &&  abs(x-g.pc.x)<=Attack_DIST 
-           &&  hINh(yt,hh, g.pc.yt-$04,g.pc.hh+$08);
+           &&  abs(x-global.pc.x)<=Attack_DIST 
+           &&  hINh(yt,hh, global.pc.yt-$04,global.pc.hh+$08);
     }
     
     if (_C1)

@@ -4,15 +4,15 @@
 
 
 update_body_hb_1a();
-if (g.pc.SwordHB_collidable 
-&&  g.pc.attack_bits&(BIT_ATK1|BIT_ATK2|BIT_ATK3|BIT_ATK4) 
-&&  collide_pc_sword(BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h,BodyHB_r) )
+if (global.pc.SwordHB_collidable 
+&&  global.pc.attack_bits&(BIT_ATK1|BIT_ATK2|BIT_ATK3|BIT_ATK4) 
+&&  collide_pc_sword(BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h,BodyHB_r) )
 {
     if!(cs &  CS_SW1)
     {
         cs |= CS_SW1;
         
-        with(g.pc)
+        with(global.pc)
         {
             if (attack_bits&(BIT_ATK1|BIT_ATK2)) // high stab, low stab
             {
@@ -39,7 +39,7 @@ if (g.pc.SwordHB_collidable
         
         
         if ((Attack_id==Attack1_ID && BattleState!=BattleState_Attack1_IDLE) 
-        ||  (Attack_id!=Attack1_ID && g.pc.behavior==g.pc.behavior_STAB_DOWN) )
+        ||  (Attack_id!=Attack1_ID && global.pc.behavior==global.pc.behavior_STAB_DOWN) )
         {
             aud_play_sound(get_audio_theme_track(dk_ElevatorMove));
             aud_play_sound(get_audio_theme_track(STR_Stab),0,false,.5);

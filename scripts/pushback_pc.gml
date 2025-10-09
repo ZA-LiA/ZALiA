@@ -1,7 +1,7 @@
 /// pushback_pc(push source x, new hspd)
 
 
-with(g.pc)
+with(global.pc)
 {
     if(!argument1)                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if (argument0< x && cs&CS_RGT) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

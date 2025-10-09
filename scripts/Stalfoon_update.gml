@@ -68,39 +68,39 @@ switch (hover_type)
 
 
 
-var _home_dir = sign(x - g.pc.x);
+var _home_dir = sign(x - global.pc.x);
 
 var _c1 = ocsH3(id);                // all w on screen 
 var _c2 = ocsH1(id) && is_aggro;    // any w on screen & aggro last frame
 
 // Much of this is similar to IronKnuckle behavior
 if ((_c1 | _c2) 
-&&  abs(spawn_y - g.pc.yt) <= 41 )
+&&  abs(spawn_yt - global.pc.yt) <= 41 )
 {
     is_aggro = true;
     
-    var _dist = abs(x - g.pc.x);
-        _c1   =  _dist <  $50 && g.pc.hspd_dir != facing_dir;  // back away from pc
-        _c2   = (_dist >= $58 && g.pc.hspd_dir == facing_dir); // move torward   pc
+    var _dist = abs(x - global.pc.x);
+        _c1   =  _dist <  $50 && global.pc.hspd_dir != facing_dir;  // back away from pc
+        _c2   = (_dist >= $58 && global.pc.hspd_dir == facing_dir); // move torward   pc
     
     if (is_facing_pc_(id))
     {
-        _c2 &= (abs(g.pc.hspd_impel) || _dist >= DIST_ATK);
+        _c2 &= (abs(global.pc.hspd_impel) || _dist >= DIST_ATK);
         
         if ((_c1 || _c2) 
-        &&  g.pc.hspd )
-        // &&  !g.pc.ogr )
+        &&  global.pc.hspd )
+        // &&  !global.pc.ogr )
         {
             _c1 &= abs8b(hspd) < HSPD_MAX_AWAY;
             _c2 &= abs8b(hspd) < HSPD_MAX_TWRD;
-            // _c2 &= abs8b(hspd) < g.pc.hspd;
-            // _c1 &= g.pc.hspd_impel;
+            // _c2 &= abs8b(hspd) < global.pc.hspd;
+            // _c1 &= global.pc.hspd_impel;
             
             if ((_c1 || _c2) 
-            &&  abs8b(hspd) < abs8b(g.pc.hspd) )
+            &&  abs8b(hspd) < abs8b(global.pc.hspd) )
             {
-                hspd = byte(hspd +  g.pc.hspd_dir);
-                hspd_impel =        g.pc.hspd_dir;
+                hspd = byte(hspd +  global.pc.hspd_dir);
+                hspd_impel =        global.pc.hspd_dir;
             }
             
             // hspd_impel = true;
@@ -137,7 +137,7 @@ if ((_c1 | _c2)
         // if facing pc & pc facing away(like Mario Boo behavior)
         if (_dist >= DIST_ATK - 8 
         &&  is_facing_pc_(id) 
-        &&  g.pc.hspd_dir == facing_dir         // pc facing away from enemy
+        &&  global.pc.hspd_dir == facing_dir         // pc facing away from enemy
         &&  avail_uidx_goc(MAX_GOC1) != UIDX_NULL )
         {
             // Create Bullet1, pID $10. PI_MOB3: blue
@@ -187,10 +187,10 @@ if(!hspd_impel)
         hspd = byte(hspd + -sign8b(hspd));
     
     // if (sign8b(hspd) != _home_dir 
-    // &&  sign8b(hspd) == g.pc.hspdDir 
-    // &&   abs8b(hspd) > abs8b(g.pc.hspd) )
+    // &&  sign8b(hspd) == global.pc.hspdDir 
+    // &&   abs8b(hspd) > abs8b(global.pc.hspd) )
     if (sign8b(hspd) != _home_dir 
-    &&  abs8b(hspd) > abs8b(g.pc.hspd) )
+    &&  abs8b(hspd) > abs8b(global.pc.hspd) )
     {
         hspd = byte(hspd + -sign8b(hspd));
     }

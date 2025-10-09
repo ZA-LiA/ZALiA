@@ -15,7 +15,7 @@ switch (sub_state)
     {
         _x = dg_doors[# i,1];
         _y = dg_doors[# i,2];
-        _colliding = pointInRect(g.pc.x,g.pc.cp1Y, _x-(DOOR_HB_W>>1),_y-2,DOOR_HB_W,4);
+        _colliding = pointInRect(global.pc.x,global.pc.cp1Y, _x-(DOOR_HB_W>>1),_y-2,DOOR_HB_W,4);
         
         if (!dg_doors[# i,0])
         {
@@ -27,7 +27,7 @@ switch (sub_state)
         
         
         if (Input.Up_held                            // is holding up
-        && !g.pc.ogr                            // is on ground
+        && !global.pc.ogr                            // is on ground
         && !(Input.held_0 & Input.U)            // Has released 'up' since spawning
         &&  _colliding )
         {
@@ -44,10 +44,10 @@ switch (sub_state)
                 else if (i >= _COUNT)   i = 0;
             }
             
-            set_xlyt(g.pc, _x-g.pc.ww_, _y-g.pc.hh);
-            // setXY(g.pc, _x-(PC_W>>1), _y-PC_H);
-            g.pc.hspd = 0;
-            g.pc.vspd = 0;
+            set_xlyt(global.pc, _x-global.pc.ww_, _y-global.pc.hh);
+            // setXY(global.pc, _x-(PC_W>>1), _y-PC_H);
+            global.pc.hspd = 0;
+            global.pc.vspd = 0;
             
             path_dir = -path_dir;
             g.dm_spawn[? dk_spawn+STR_Direction] = path_dir;

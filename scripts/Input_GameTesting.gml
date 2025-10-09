@@ -48,7 +48,7 @@ if (GP_Other6_held    // GP_Other6: trig R
 &&  g.DevTools_state 
 &&  g.DevDash_state   // g.DevDash_state: toggle in options menu
 && !g.app_paused 
-&& !g.pc.ogr )        // pc on ground
+&& !global.pc.ogr )        // pc on ground
 {
     g.DevDash_state = 2; // 0: Off, 1: On, 2: On and dash input held
 }
@@ -208,7 +208,7 @@ if (g.FileCleaning01_STATE
 if (DEV 
 &&  keyboard_check_pressed(vk_f3) )
 {
-    with(g.pc)
+    with(global.pc)
     {
         cucco_knockback_testing = (cucco_knockback_testing+1) mod 5;
         sdm(""); sdm("cucco_knockback_testing "+string(cucco_knockback_testing)); sdm("");

@@ -56,7 +56,7 @@ else // vspd & $80 || !cs4()
 
 // D818
 if(!timer 
-&&  byte(byte(yt)-byte(g.pc.yt)+_carry) < $11 )
+&&  byte(byte(yt)-byte(global.pc.yt)+_carry) < $11 )
 {   // D825
     timer = $70; // $70: 1.867s
     

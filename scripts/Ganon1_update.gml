@@ -24,9 +24,9 @@ switch(sub_state)
         Audio.can_play_boss_music  = false;
         
         g.pc_lock = PC_LOCK_ALL & ~PC_LOCK_VSPD;
-        g.pc.xScale = sign_(x>g.pc.x);
+        global.pc.xScale = sign_(x>global.pc.x);
         
-        if (g.pc.xl<arena_xl)
+        if (global.pc.xl<arena_xl)
         {   
             timer     = 0;
             sub_state = sub_state_PC_WALK1;
@@ -50,19 +50,19 @@ switch(sub_state)
     case sub_state_PC_WALK1:{ // CONFIRM PC ON GROUND
     if (timer) break;
     
-    if(!g.pc.ogr)
+    if(!global.pc.ogr)
     {
         var _X = arena_xl+($7<<3);
         g.pc_lock = PC_LOCK_ALL
-        g.pc.WalkTo_active   = true;
-        g.pc.WalkTo_x        = _X;
-        g.pc.WalkTo_hspd_max = $10;
+        global.pc.WalkTo_active   = true;
+        global.pc.WalkTo_x        = _X;
+        global.pc.WalkTo_hspd_max = $10;
         
-        if (g.pc.x==_X)
+        if (global.pc.x==_X)
         //if (walk_pc_to_x(arena_xl+($7<<3), $10))
         {
-            g.pc.WalkTo_active = false;
-            g.pc.hspd = 0;
+            global.pc.WalkTo_active = false;
+            global.pc.hspd = 0;
             timer     = 0;
             sub_state = sub_state_SUMMON2;
         }
@@ -82,7 +82,7 @@ switch(sub_state)
     Crystal_sprite_state=2; // 2: full
     if (timer) break;
     
-    if (g.pc.x >= arena_xl+($7<<3))
+    if (global.pc.x >= arena_xl+($7<<3))
     {
         g.pc_lock = PC_LOCK_ALL & ~PC_LOCK_VSPD;
         
@@ -103,7 +103,7 @@ switch(sub_state)
     Crystal_sprite_state=2; // 2: full
     if (timer) break;
     
-    if(!g.pc.ogr)
+    if(!global.pc.ogr)
     {
         g.pc_lock = PC_LOCK_ALL
         
@@ -123,10 +123,10 @@ switch(sub_state)
     case sub_state_SUMMON2:{ // CONFIRM PC ON GROUND
     if (timer) break;
     
-    if(!g.pc.ogr 
+    if(!global.pc.ogr 
     && !p.Flash_Pal_timer )
     {
-        PC_set_behavior(g.pc.behavior_IDLE);
+        PC_set_behavior(global.pc.behavior_IDLE);
         g.pc_lock = PC_LOCK_ALL;
         
         timer     = $40;
@@ -538,8 +538,8 @@ switch(sub_state)
 
 
 Ganon2_update_3(); // GO_update_cam_vars(), GO_update_cs(), update_body_hb_1a(), update_EF11()
-PC_HB1_xl = g.pc.xl+PC_HB1_XLOFF;
-PC_HB1_yt = g.pc.yt+PC_HB1_YTOFF;
+PC_HB1_xl = global.pc.xl+PC_HB1_XLOFF;
+PC_HB1_yt = global.pc.yt+PC_HB1_YTOFF;
 
 
 
@@ -558,35 +558,35 @@ if (Collision_VER==2
     }
     else if (_C1) // if colliding this frame
     {
-        var _PC_HB_XL_PREV = (g.pc.x_prev-g.pc.ww_)+PC_HB1_XLOFF;
-        var _PC_HB_YT_PREV = (g.pc.y_prev-g.pc.hh_)+PC_HB1_YTOFF;
+        var _PC_HB_XL_PREV = (global.pc.x_prev-global.pc.ww_)+PC_HB1_XLOFF;
+        var _PC_HB_YT_PREV = (global.pc.y_prev-global.pc.hh_)+PC_HB1_YTOFF;
         if(!rectInRect(x_prev-ww_,y_prev-hh_,ww,hh, _PC_HB_XL_PREV,_PC_HB_YT_PREV,PC_HB1_W,PC_HB1_H)) // if wasn't colliding prev frame
         {
-            var _x = g.pc.x;
-            var _y = g.pc.y;
+            var _x = global.pc.x;
+            var _y = global.pc.y;
             if(!wINw(_PC_HB_XL_PREV,PC_HB1_W, x_prev-ww_,ww)) // if pc on prev frame was to the left or right of Ganon
             {
-                if (g.pc.x_prev<x_prev) _x = clamp(g.pc.x, pc_x_min, max(pc_x_min, xl-(PC_HB1_W>>1)));
-                else                    _x = clamp(g.pc.x, min(pc_x_max, xr+(PC_HB1_W>>1)), pc_x_max);
+                if (global.pc.x_prev<x_prev) _x = clamp(global.pc.x, pc_x_min, max(pc_x_min, xl-(PC_HB1_W>>1)));
+                else                    _x = clamp(global.pc.x, min(pc_x_max, xr+(PC_HB1_W>>1)), pc_x_max);
             }
             else
             {
-                if (g.pc.y_prev<y_prev)
+                if (global.pc.y_prev<y_prev)
                 {
-                    _y  = yt-g.pc.hh_;
+                    _y  = yt-global.pc.hh_;
                     _y += 2; // micro adjustment
                 }
                 else
                 {
-                    var _MAX_Y  = min(get_ground_y(g.pc.csBtm1X,yb,1,g.pc.csBtm1Y,TID_SOLID1),get_ground_y(g.pc.csBtm2X,yb,1,g.pc.csBtm2Y,TID_SOLID1));
-                        _MAX_Y -= g.pc.hh_;
+                    var _MAX_Y  = min(get_ground_y(global.pc.csBtm1X,yb,1,global.pc.csBtm1Y,TID_SOLID1),get_ground_y(global.pc.csBtm2X,yb,1,global.pc.csBtm2Y,TID_SOLID1));
+                        _MAX_Y -= global.pc.hh_;
                         _MAX_Y += 1;
-                    _y = clamp(g.pc.y, (yb-2)+g.pc.hh_,_MAX_Y);
+                    _y = clamp(global.pc.y, (yb-2)+global.pc.hh_,_MAX_Y);
                 }
             }
             
             _x = clamp(_x, pc_x_min,pc_x_max);
-            with(g.pc)
+            with(global.pc)
             {
                 var _X_PREV = x;
                 var _Y_PREV = y;
@@ -635,10 +635,10 @@ if (Collision_VER==2
     {
         _clm = (dl_ONEWAY_RC[|_i]>>0) &$FF;
         _row = (dl_ONEWAY_RC[|_i]>>8) &$FF;
-        if (point_in_rect((_clm<<3)+4,(_row<<3)+4, xl,yt,ww,hh)) g.dg_RmTile_solid[#_clm,_row]=0;
-        else                                                     g.dg_RmTile_solid[#_clm,_row]=TID_ONEWY1;
-        //if (rectInRectAll(xl,yt,ww,hh, _clm<<3,_row<<3,8,8)) g.dg_RmTile_solid[#_clm,_row]=0;
-        //else                                                 g.dg_RmTile_solid[#_clm,_row]=TID_ONEWY1;
+        if (point_in_rect((_clm<<3)+4,(_row<<3)+4, xl,yt,ww,hh)) global.dg_solid[#_clm,_row]=0;
+        else                                                     global.dg_solid[#_clm,_row]=TID_ONEWY1;
+        //if (rectInRectAll(xl,yt,ww,hh, _clm<<3,_row<<3,8,8)) global.dg_solid[#_clm,_row]=0;
+        //else                                                 global.dg_solid[#_clm,_row]=TID_ONEWY1;
     }
 }
 

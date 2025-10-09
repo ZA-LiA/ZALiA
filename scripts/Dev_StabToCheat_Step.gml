@@ -34,7 +34,7 @@ if(!is_active)
 if (is_active 
 &&  g.use_StabToCheat )
 {
-    if(!g.pc.SwordHB_collidable) 
+    if(!global.pc.SwordHB_collidable) 
     {
         collided_cheat = false;
         exit; // !!!!!!!!!!!!!!!!!
@@ -46,7 +46,7 @@ if (is_active
     PC_update_sword_hb();
     for(var _i=0; _i<OPTION_CNT; _i++)
     {
-        if (rectInRect(dg_hb[#_i,0],dg_hb[#_i,1],dg_hb[#_i,2],dg_hb[#_i,3], g.pc.SwordHB_x,g.pc.SwordHB_y,g.pc.SwordHB_w,g.pc.SwordHB_h))
+        if (rectInRect(dg_hb[#_i,0],dg_hb[#_i,1],dg_hb[#_i,2],dg_hb[#_i,3], global.pc.SwordHB_x,global.pc.SwordHB_y,global.pc.SwordHB_w,global.pc.SwordHB_h))
         {
             collided_cheat = true;
             _num = _i+1;
@@ -75,18 +75,18 @@ if (is_active
             exit; // !!!!!!!!!!!!!!!!!
         }
         
-        g.pc.HoldItem_timer  = $20; // $70
-        g.pc.HoldItem_palidx = global.PI_MOB_ORG;
-        g.pc.HoldItem_ver    = 1;
+        global.pc.HoldItem_timer  = $20; // $70
+        global.pc.HoldItem_palidx = global.PI_MOB_ORG;
+        global.pc.HoldItem_ver    = 1;
         
-                       g.pc.HoldItem_object = ItmA0;
-        if (_num == 2) g.pc.HoldItem_object = ItmA1;
-        if (_num == 3) g.pc.HoldItem_object = ItmA2;
-        if (_num == 4) g.pc.HoldItem_object = ItmA3;
-        if (_num == 5) g.pc.HoldItem_object = ItmA4;
-        if (_num == 6) g.pc.HoldItem_object = ItmA5;
-        if (_num == 7) g.pc.HoldItem_object = ItmA6;
-        if (_num == 8) g.pc.HoldItem_object = ItmA7;
+                       global.pc.HoldItem_object = ItmA0;
+        if (_num == 2) global.pc.HoldItem_object = ItmA1;
+        if (_num == 3) global.pc.HoldItem_object = ItmA2;
+        if (_num == 4) global.pc.HoldItem_object = ItmA3;
+        if (_num == 5) global.pc.HoldItem_object = ItmA4;
+        if (_num == 6) global.pc.HoldItem_object = ItmA5;
+        if (_num == 7) global.pc.HoldItem_object = ItmA6;
+        if (_num == 8) global.pc.HoldItem_object = ItmA7;
         
         aud_play_sound(get_audio_theme_track(dk_GetItem+"01"), -1,false,-1, dk_GetItem+"01");
     }
@@ -198,10 +198,10 @@ if (is_active
         if (string_length(_added))
         {
             //sdm("_added: "+_added);
-                          g.pc.HoldItem_object = CONT_PIECE_OBJ_HP;
-            if (_num==20) g.pc.HoldItem_object = CONT_PIECE_OBJ_MP;
-            g.pc.HoldItem_timer  = $20; // OG: $70
-            g.pc.HoldItem_palidx = global.PI_MOB_RED;
+                          global.pc.HoldItem_object = CONT_PIECE_OBJ_HP;
+            if (_num==20) global.pc.HoldItem_object = CONT_PIECE_OBJ_MP;
+            global.pc.HoldItem_timer  = $20; // OG: $70
+            global.pc.HoldItem_palidx = global.PI_MOB_RED;
             aud_play_sound(get_audio_theme_track(dk_Fanfare), -1,false,-1, dk_Fanfare);
         }
         
@@ -284,7 +284,7 @@ if (is_active
     else if (_num==32)
     {
         f.hp = 0;
-        g.pc.is_dead = true;
+        global.pc.is_dead = true;
         // pc_take_dmg();
     }
     

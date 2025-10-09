@@ -42,9 +42,9 @@ Boss_HPBar_udp();
 
 
 // ------------------------------------------------------------
-if (g.pc.attack_phase==0 
-||  g.pc.attack_phase==4 
-|| (g.pc.attack_phase==3 && !g.pc.SwordHB_collidable) )
+if (global.pc.attack_phase==0 
+||  global.pc.attack_phase==4 
+|| (global.pc.attack_phase==3 && !global.pc.SwordHB_collidable) )
 {
     is_blocking_attack = false;
 }
@@ -58,7 +58,7 @@ if (g.boss_stun_timer)
     // $80 means pending death
     if (g.boss_stun_timer&$8F==$80) aud_play_sound(get_audio_theme_track(STR_PC+STR_Damage));
     
-    behavior = g.pc.behavior_DAMAGE;
+    behavior = global.pc.behavior_DAMAGE;
     
     // 98B1: JSR 9A0F
     ShadowBoss_update_1(); // setFacingDir, xScale, updateXY, jump
@@ -80,14 +80,14 @@ else
     // 98D3: JSR 98EB
     if (1)
     {
-        var _DIST  =  abs(g.pc.x -  x);
-            _DIST += 3 + (g.pc.x <= x);
+        var _DIST  =  abs(global.pc.x -  x);
+            _DIST += 3 + (global.pc.x <= x);
             _DIST  = _DIST>>4;
     }
     else
     {   // OG
         var _X    =       xl    &$FF;
-        var _PC_X = (g.pc.xl-8) &$FF;
+        var _PC_X = (global.pc.xl-8) &$FF;
         
         var            _DIST  = (_X-_PC_X) &$FF;
         if (_DIST&$80) _DIST ^= $FF;
@@ -133,9 +133,9 @@ else
                         _CHANCE = round(_CHANCE*.6); // Less chance of blocking if currently attacking.
                     }
                     
-                    _C2 =  g.pc.attack_phase==1 
-                       ||  g.pc.attack_phase==2 
-                       || (g.pc.attack_phase==3 && g.pc.SwordHB_collidable);
+                    _C2 =  global.pc.attack_phase==1 
+                       ||  global.pc.attack_phase==2 
+                       || (global.pc.attack_phase==3 && global.pc.SwordHB_collidable);
                 }
                 
                 if (_C1 
@@ -157,7 +157,7 @@ else
                     down_held = Input.dHeld; // down_held true means crouching behaviors
                 }
                 // 9964
-                else if (yt>=g.pc.yt)
+                else if (yt>=global.pc.yt)
                 {
                     if (attack_phase==0 
                     ||  attack_phase==3 )
@@ -215,11 +215,11 @@ else
         {   // 99E6
             if (byte_dir(hspd)!=xScale   // moving opposite of (the dir towards pc)
             && !(walk_frame&$1) )        // walk_frame==0,2
-            {    behavior = g.pc.behavior_WALK1 + (walk_frame^$2);  } // behavior = g.pc.BVR_WLK1 + 2,1,0
-            else behavior = g.pc.behavior_WALK1 +  walk_frame;        // behavior = g.pc.BVR_WLK1 + 0,1,2
+            {    behavior = global.pc.behavior_WALK1 + (walk_frame^$2);  } // behavior = global.pc.BVR_WLK1 + 2,1,0
+            else behavior = global.pc.behavior_WALK1 +  walk_frame;        // behavior = global.pc.BVR_WLK1 + 0,1,2
             
-            //if (to_pc_dir_x==xScale) behavior = g.pc.BVR_WLK1 + str_hex('00'+'01'+'02', walk_frame);
-            //else                     behavior = g.pc.BVR_WLK1 + str_hex('02'+'01'+'00', walk_frame);
+            //if (to_pc_dir_x==xScale) behavior = global.pc.BVR_WLK1 + str_hex('00'+'01'+'02', walk_frame);
+            //else                     behavior = global.pc.BVR_WLK1 + str_hex('02'+'01'+'00', walk_frame);
             
             if!(g.counter1&$3)
             {   //                walk_frame: 0,1,2
@@ -230,15 +230,15 @@ else
         }
         else
         {   // 9A05.  While on ground
-            if (down_held) behavior = g.pc.behavior_CROUCH; // 6: BVR_CRCH
-            else           behavior = g.pc.behavior_IDLE;   // 3: BVR_IDLE
+            if (down_held) behavior = global.pc.behavior_CROUCH; // 6: BVR_CRCH
+            else           behavior = global.pc.behavior_IDLE;   // 3: BVR_IDLE
         }
     }
     else
     {   // 99CC.  While NOT on ground
         down_held = Input.dHeld;
-        if (vspd<$80) behavior = g.pc.behavior_WALK3;  // 2: BVR_WLK3
-        else          behavior = g.pc.behavior_CROUCH; // 6: BVR_CRCH
+        if (vspd<$80) behavior = global.pc.behavior_WALK3;  // 2: BVR_WLK3
+        else          behavior = global.pc.behavior_CROUCH; // 6: BVR_CRCH
     }
     
     
@@ -250,7 +250,7 @@ else
         if (timer1 
         ||  attack_phase!=3 )
         {
-                           behavior  = g.pc.behavior_DRAWBACK; // 4: BVR_DRAW
+                           behavior  = global.pc.behavior_DRAWBACK; // 4: BVR_DRAW
                            behavior += attack_phase==2;        // 5: BVR_ATK1 (high)
             if (down_held) behavior += 2;                      // 6,7: BVR_CRCH, BVR_ATK2 (low)
         }
@@ -287,7 +287,7 @@ else
     
     // 98E2: JSR 9A8D
     if(!ogr 
-    && !g.pc.ogr 
+    && !global.pc.ogr 
     && !timer3 ) // invulnerable timer
     {   // 9A9A
         if (down_held) ShieldHB_idx = ShieldHB_IDX_LOW;
@@ -325,9 +325,9 @@ else
             ShadowBoss_update_2(); // pushback
         }
         // 9ABB: JSR E942
-        else if (collide_pc_sword(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h))
+        else if (collide_pc_sword(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h))
         {   // 9ACD
-            //sdm("down_held: "+string(down_held)+", attack_phase: "+string(attack_phase)+", shld_hb_idx==ShieldHB_IDX_LOW: "+string(shld_hb_idx==ShieldHB_IDX_LOW)+", g.pc.attack_phase: "+string(g.pc.attack_phase));
+            //sdm("down_held: "+string(down_held)+", attack_phase: "+string(attack_phase)+", shld_hb_idx==ShieldHB_IDX_LOW: "+string(shld_hb_idx==ShieldHB_IDX_LOW)+", global.pc.attack_phase: "+string(global.pc.attack_phase));
                 hp--;
             if (hp) g.boss_stun_timer = $18;
             else    g.boss_stun_timer = $FF;

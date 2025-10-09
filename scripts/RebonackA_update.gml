@@ -199,7 +199,7 @@ if (phase==1)
             {
                 Proj_tokens = 0;
                 var _XC   = arena_x + (Proj_DIST1 * -_DIR);
-                var _DIST = abs(g.pc.x-_XC)>>3;
+                var _DIST = abs(global.pc.x-_XC)>>3;
                     _DIST = clamp(_DIST, 3,(arena_w>>3)-5);
                 with(GOC1_create(_XC,Proj_YT, _DIR, Proj_OBJ))
                 {
@@ -245,7 +245,7 @@ if (phase==1)
         
         
         
-        with(g.pc)
+        with(global.pc)
         {
             if (behavior==behavior_STAB_DOWN 
             &&  vspd&$80 )
@@ -290,8 +290,8 @@ if (phase==2
     &&  instance_exists(reboB) 
     &&  reboB.state == state_DROP 
     &&  reboB.timer == 1 // Last frame of rising xp
-    &&  g.pc.state  == g.pc.state_NORMAL 
-    && !g.pc.is_dead )
+    &&  global.pc.state  == global.pc.state_NORMAL 
+    && !global.pc.is_dead )
     {
         phase = 4;
     }

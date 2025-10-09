@@ -77,19 +77,19 @@ with(_projectile)
     
     var                     _YOFF  =  0;
     if (_FIRE){
-        if (g.pc.stab_type) _YOFF  =  4; // Stab high
+        if (global.pc.stab_type) _YOFF  =  4; // Stab high
         else                _YOFF  = 13; // Stab low
         //if(!Input.dHeld)    _YOFF =  4; // Stab high
         //else                _YOFF = 13; // Stab low
         if (_CUCCO)         _YOFF  = 13 - 16 + 2;
     }else{
-        if (g.pc.stab_type) _YOFF  =  0; // Stab high
+        if (global.pc.stab_type) _YOFF  =  0; // Stab high
         else                _YOFF  = 10; // Stab low
         if (_CUCCO)         _YOFF  = 10 - 16 + 2;
     }
-    set_xlyt(id, g.pc.x+_XOFF, g.pc.yt+_YOFF);
+    set_xlyt(id, global.pc.x+_XOFF, global.pc.yt+_YOFF);
     
-    facing_dir = g.pc.xScale;
+    facing_dir = global.pc.xScale;
     xScale    = facing_dir;
     hspd      = ($20*facing_dir) &$FF;
     

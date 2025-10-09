@@ -10,7 +10,7 @@
 // I'm using a bool 'RandomOG_started'.
 if(!RandomOG_started)
 {
-    if (pc.state)
+    if (global.pc.state)
     {
         RandomOG_started = true;
         dl_RandomOG[|0]  = RandomOG_START_VAL;

@@ -5,7 +5,7 @@
 if (ocs               // if NOT on screen
 ||  g.counter1&$1F    // if NOT the 32nd frame. 32 frames = 0.533s
 || !is_facing_pc(id)  // if NOT facing PC
-||  abs(g.pc.x-x) > $1C<<3  // mod
+||  abs(global.pc.x-x) > $1C<<3  // mod
 ||  avail_uidx_goc(MAX_GOC1)==UIDX_NULL )
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -13,7 +13,7 @@ if (ocs               // if NOT on screen
 
 
 // ---------------------------------------------------------------------------
-var _DIR  = sign_(g.pc.x-x);
+var _DIR  = sign_(global.pc.x-x);
 
 var _IDX  = goDist1();
 if (_IDX &  $80) 

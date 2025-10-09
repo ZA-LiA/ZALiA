@@ -68,7 +68,7 @@ if(!tmr_delay_fall
         GOB_body_collide_pc_body_1a();
         
         if (cs&CS_BD1 
-        &&  g.pc.yt+g.pc.hh >= yt+8 )
+        &&  global.pc.yt+global.pc.hh >= yt+8 )
         {
             enemy_collide_pc_body();
         }

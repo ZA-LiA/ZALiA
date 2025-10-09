@@ -25,9 +25,9 @@ switch(behavior)
         
         if (IS_BREAK_BLOCK) // Breakable block
         {
-            if(!g.pc.SwordHB_collidable 
+            if(!global.pc.SwordHB_collidable 
             || !(f.items&ITM_GLOV) 
-            || !pointInRect(g.pc.SCS_x,g.pc.SCS_y, (xl>>3)<<3,(yt>>3)<<3,$10,$10) )
+            || !pointInRect(global.pc.SCS_x,global.pc.SCS_y, (xl>>3)<<3,(yt>>3)<<3,$10,$10) )
             {
                 break; // #################################################
             }
@@ -56,9 +56,9 @@ switch(behavior)
         
         if(!_colliding 
         &&  ver == 1    // Breakable block
-        &&  g.pc.SwordHB_collidable )
+        &&  global.pc.SwordHB_collidable )
         {
-            _colliding = pointInRect(g.pc.SCS_x,g.pc.SCS_y, (xl>>3)<<3,(yt>>3)<<3,$10,$10);
+            _colliding = pointInRect(global.pc.SCS_x,global.pc.SCS_y, (xl>>3)<<3,(yt>>3)<<3,$10,$10);
         }
         
         if(!_colliding) break; // #################################################

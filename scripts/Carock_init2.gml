@@ -11,13 +11,13 @@ Boss_init_2();
 if (ver==2)
 {
     var _CLMS = $4;
-    spawn_x  = ((arena_w>>1)>>3) - _CLMS - (ww_>>3);
-    spawn_x  = _CLMS + irandom(spawn_x);
-    spawn_x  = spawn_x<<3;
-    spawn_x *= sign_(g.pc.x<arena_x);
-    spawn_x  = arena_x + spawn_x;
-    spawn_x -= ww_;
-    set_xy(id, spawn_x+sprite_index_xoff, spawn_y+sprite_index_yoff);
+    spawn_xl  = ((arena_w>>1)>>3) - _CLMS - (ww_>>3);
+    spawn_xl  = _CLMS + irandom(spawn_xl);
+    spawn_xl  = spawn_xl<<3;
+    spawn_xl *= sign_(global.pc.x<arena_x);
+    spawn_xl  = arena_x + spawn_xl;
+    spawn_xl -= ww_;
+    set_xy(id, spawn_xl+sprite_index_xoff, spawn_yt+sprite_index_yoff);
     
     NPC_catch_item();
 }
@@ -36,8 +36,8 @@ SPRITE_FORWARD = spr_Carock_2a_1_v2_WRB;
 // GROUND_Y set in Boss_init_2().
 GROUND_Y = (((viewYC()>>8)+1)<<8) - ($3<<3);
 GROUND_Y = get_ground_y(arena_xl+$08,GROUND_Y, -1,GROUND_Y);
-spawn_y  = GROUND_Y - hh;
-set_xy(id, x, spawn_y+sprite_index_yoff);
+spawn_yt  = GROUND_Y - hh;
+set_xy(id, x, spawn_yt+sprite_index_yoff);
 
 
 Boss_init_2b(-1); // Determine & set the side of the arena to start on.

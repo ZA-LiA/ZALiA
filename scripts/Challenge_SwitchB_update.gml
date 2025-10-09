@@ -19,14 +19,14 @@ switch(sub_state)
     
     
     
-    var _change=false;
-    //var _pressed_count=0;
-    var _all_pressed=true;
+    var _change = false;
+    //var _pressed_count = 0;
+    var _all_pressed = true;
     with(SwchB)
     {
         if(!pressed)
         {
-            _all_pressed=false;
+            _all_pressed = false;
             break;//with(SwchB)
         }
     }
@@ -39,20 +39,28 @@ switch(sub_state)
         break;}//case 1
         
         case 2:{
-        if (complete != _all_pressed)
+        if (complete!=_all_pressed)
         {
-            _change=true;
-            complete=_all_pressed;
+            _change = true;
+            complete = _all_pressed;
         }
         break;}//case 2
         
         case 3:{
-        if (complete != _all_pressed)
+        if (complete!=_all_pressed)
         {
-            _change=true;
-            complete=_all_pressed;
+            _change = true;
+            complete = _all_pressed;
         }
         break;}//case 3
+        
+        case 4:{
+        if (complete!=_all_pressed)
+        {
+            _change = true;
+            complete = _all_pressed;
+        }
+        break;}//case 4
     }//switch(ver)
     
     
@@ -94,6 +102,11 @@ switch(sub_state)
         case 3:{
         f.dm_challenges[?challenge_id+STR_Complete] = complete;
         break;}//case 3
+        
+        case 4:{
+        with(SwchB) complete = other.complete;
+        //f.dm_challenges[?challenge_id+STR_Complete] = complete;
+        break;}//case 4
     }//switch(ver)
     
     timer = DUR_DELAY2; // DUR_DELAY2=$20
@@ -229,6 +242,78 @@ switch(sub_state)
     }//switch(ver)
     break;}//case STATE_COMPLETE
 }//switch(sub_state)
+
+
+
+
+if (ver==4)
+{
+    var _Waterfall_COUNT = val(Water_dm[?STR_Waterfall+STR_Count]);
+    if (_Waterfall_COUNT)
+    {
+        var _i,_j, _xl,_yt, _x,_y, _w,_h, _datakey0;
+        with(BurnableMgr)
+        {
+            var          _COUNT = ds_grid_width(dg_Burnable);
+            for(_i=0; _i<_COUNT; _i++)
+            {
+                if (dg_Burnable[#_i,$2])
+                {
+                    _x = dg_Burnable[#_i,$5] + 4;
+                    _y = dg_Burnable[#_i,$6] + 4;
+                    for(_j=0; _j<_Waterfall_COUNT; _j++)
+                    {
+                        _datakey0 = STR_Waterfall+hex_str(_j+1);
+                        if (val(other.Water_dm[?_datakey0+STR_Active]))
+                        {
+                            _w  = val(other.Water_dm[?_datakey0+STR_Current+STR_Width]);
+                            if (_w>8)
+                            {
+                                _h  = val(other.Water_dm[?_datakey0+STR_Current+STR_Height]);
+                                _xl = val(other.Water_dm[?_datakey0+STR_Current+"_XL"]);
+                                _yt = val(other.Water_dm[?_datakey0+STR_Current+"_YT"]);
+                                if (pointInRect(_x,_y, _xl,_yt,_w,_h))
+                                {
+                                    dg_Burnable[#_i,$2] = 0; // main timer
+                                    dg_Burnable[#_i,$3] = 0; // spread timer
+                                    dg_Burnable[#_i,$4] = 0; // can draw
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        if (sub_state!=STATE_IDLE)
+        {
+            for(_i=0; _i<_Waterfall_COUNT; _i++)
+            {
+                _datakey0 = STR_Waterfall+hex_str(_i+1);
+                if (val(Water_dm[?_datakey0+STR_Active]))
+                {
+                    if (val(Water_dm[?_datakey0+STR_Current+STR_Width])>2)
+                    {
+                        if!(g.counter1&$7)
+                        {
+                            Water_dm[?_datakey0+STR_Current+STR_Width] = val(Water_dm[?_datakey0+STR_Current+STR_Width]) - 2;
+                            Water_dm[?_datakey0+STR_Current+"_XL"]     = val(Water_dm[?_datakey0+"_XL"]) + ((val(Water_dm[?_datakey0+STR_Width])-val(Water_dm[?_datakey0+STR_Current+STR_Width]))>>1);
+                        }
+                    }
+                    else
+                    {
+                        Water_dm[?_datakey0+STR_Current+"_YT"]      = val(Water_dm[?_datakey0+STR_Current+"_YT"]) + 1 + (g.counter1&$1);
+                        Water_dm[?_datakey0+STR_Current+STR_Height] = val(Water_dm[?_datakey0+STR_Height]) - (val(Water_dm[?_datakey0+STR_Current+"_YT"])-val(Water_dm[?_datakey0+"_YT"]));
+                        
+                        if(!val(Water_dm[?_datakey0+STR_Current+STR_Height])) Water_dm[?_datakey0+STR_Active] = false;
+                        //if (val(Water_dm[?_datakey0+STR_Current+"_YT"])>val(Water_dm[?_datakey0+"_YT"])+$10)
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 

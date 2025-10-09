@@ -56,8 +56,8 @@ with(instance_create(0,0,Exit))
     page_y = yt>>8;
     
     
-    BodyHB_x = xl;
-    BodyHB_y = yt;
+    BodyHB_xl = xl;
+    BodyHB_yt = yt;
     BodyHB_w = ww;
     BodyHB_h = hh;
     
@@ -105,7 +105,7 @@ with(instance_create(0,0,Exit))
         is_draw_open_exit = true;
     }
     
-    //sdm("Exit_construct() "+exitName+" exitNum $"+" open="+string(open)+hex_str(exitNum)+", xl $"+hex_str(xl)+" yt $"+hex_str(yt)+", ww $"+hex_str(ww)+" hh $"+hex_str(hh)+", BodyHB_x $"+hex_str(BodyHB_x)+" BodyHB_y $"+hex_str(BodyHB_y)+" BodyHB_w $"+hex_str(BodyHB_w)+" BodyHB_h $"+hex_str(BodyHB_h));
+    //sdm("Exit_construct() "+exitName+" exitNum $"+" open="+string(open)+hex_str(exitNum)+", xl $"+hex_str(xl)+" yt $"+hex_str(yt)+", ww $"+hex_str(ww)+" hh $"+hex_str(hh)+", BodyHB_xl $"+hex_str(BodyHB_xl)+" BodyHB_yt $"+hex_str(BodyHB_yt)+" BodyHB_w $"+hex_str(BodyHB_w)+" BodyHB_h $"+hex_str(BodyHB_h));
     
     
     
@@ -114,7 +114,7 @@ with(instance_create(0,0,Exit))
     if ((exit_type&g.EXIT_TYPE_DOOR)==g.EXIT_TYPE_DOOR 
     &&  open 
     &&  g.town_name==STR_Bulblin 
-    && !g.pc.Disguise_enabled )
+    && !global.pc.Disguise_enabled )
     //&& !(f.items&ITM_MASK) )
     {
         open = false;

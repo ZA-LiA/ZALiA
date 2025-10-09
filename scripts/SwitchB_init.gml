@@ -33,12 +33,16 @@ else                 yScale =  1;
 */
 
 
+GROUND_Y = yt+8;
+GROUND_Y = get_ground_y(x,GROUND_Y, -1, GROUND_Y);
+/*
 GROUND_Y = g.rm_h - ($03<<3);
 GROUND_Y = get_ground_y(x,GROUND_Y, -1, yt+8);
 
 // *** yt is 8 ABOVE the ground.
 //set_xy(id, x,GROUND_Y-8);
 set_xy(id, x,GROUND_Y);
+*/
 
 
 BodyHB_IDX  = -1;

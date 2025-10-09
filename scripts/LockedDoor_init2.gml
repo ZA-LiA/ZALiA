@@ -23,11 +23,11 @@ SWITCH_XOFF = $C;
 counter = 0; // 0: idle, > 0: opening
 
 
-GROUND_Y = spawn_y + hh;
+GROUND_Y = spawn_yt + hh;
 GROUND_Y = get_ground_y(x,GROUND_Y-8, 1,GROUND_Y);
 
-spawn_y = GROUND_Y-$30;
-set_xy(id, x, spawn_y+8);
+spawn_yt = GROUND_Y-$30;
+set_xy(id, x, spawn_yt+8);
 
 
 

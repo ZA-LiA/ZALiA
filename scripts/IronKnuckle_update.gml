@@ -174,7 +174,7 @@ switch(g.mod_IronKnuckle_AggroAI)
     var                     _ATTACK_DIST = $1C;
     if (abilities&ABL_SHOT) _ATTACK_DIST = $60; // IronKnuckleBlue, RebonackB
     
-    var _IN_DIST_Y      = inRange(yt-g.pc.yt, _MIN,_MAX);
+    var _IN_DIST_Y      = inRange(yt-global.pc.yt, _MIN,_MAX);
     var _IN_DIST_ATTACK = byte(goDist1() + _ATTACK_DIST + !facing_dir) < byte(_ATTACK_DIST<<1);
     
     var _QUAL_ATTACK    = _IN_DIST_Y && _IN_DIST_ATTACK;
@@ -188,8 +188,8 @@ switch(g.mod_IronKnuckle_AggroAI)
     var                     _ATTACK_DIST = $1C;
     if (abilities&ABL_SHOT) _ATTACK_DIST = $60; // IronKnuckleBlue, RebonackB
     
-    var _IN_DIST_Y      = inRange(yt-g.pc.yt, _MIN,_MAX);
-    var _IN_DIST_ATTACK = abs(x-g.pc.x) <= _ATTACK_DIST;
+    var _IN_DIST_Y      = inRange(yt-global.pc.yt, _MIN,_MAX);
+    var _IN_DIST_ATTACK = abs(x-global.pc.x) <= _ATTACK_DIST;
     
     var _QUAL_ATTACK    = _IN_DIST_Y && _IN_DIST_ATTACK;
     
@@ -206,8 +206,8 @@ switch(g.mod_IronKnuckle_AggroAI)
     if (abilities&ABL_SHOT) _ATTACK_DIST = $60; // IronKnuckleBlue, RebonackB
     
     var _IN_DIST_X1      = wINw(x,1,g.view_xl_og,VIEW_W_OG);
-    var _IN_DIST_Y       = inRange(yt-g.pc.yt, _MIN,_MAX);
-    var _IN_DIST_ATTACK  = abs(x-g.pc.x) <= _ATTACK_DIST;
+    var _IN_DIST_Y       = inRange(yt-global.pc.yt, _MIN,_MAX);
+    var _IN_DIST_ATTACK  = abs(x-global.pc.x) <= _ATTACK_DIST;
     var _IN_DIST_ATTACK_OG = byte(goDist1() + _ATTACK_DIST + !facing_dir) < byte(_ATTACK_DIST<<1);
     
     var _QUAL_ATTACK     = _IN_DIST_Y && _IN_DIST_ATTACK && (_C1 || _REBO);
@@ -242,8 +242,8 @@ switch(g.mod_IronKnuckle_AggroAI)
     if (abilities&ABL_SHOT) _ATTACK_DIST = $60; // IronKnuckleBlue, RebonackB
     
     var _IN_DIST_X1        = wINw(x,1,g.view_xl_og,VIEW_W_OG);
-    var _IN_DIST_Y         = inRange(yt-g.pc.yt, _MIN,_MAX);
-    var _IN_DIST_ATTACK    = abs(x-g.pc.x) <= _ATTACK_DIST;
+    var _IN_DIST_Y         = inRange(yt-global.pc.yt, _MIN,_MAX);
+    var _IN_DIST_ATTACK    = abs(x-global.pc.x) <= _ATTACK_DIST;
     var _IN_DIST_ATTACK_OG = byte(goDist1() + _ATTACK_DIST + !facing_dir) < byte(_ATTACK_DIST<<1);
     
     var _QUAL_ATTACK     = _IN_DIST_Y && _IN_DIST_ATTACK;
@@ -297,12 +297,12 @@ if (_QUAL_AGGRO
     //if (_QUAL_ATTACK)
     if (_IN_DIST_ATTACK)
     {   // 9D91. ---------- SET hspd ------------------
-             if (g.pc.hspd)      hspd = g.pc.hspd;
+             if (global.pc.hspd)      hspd = global.pc.hspd;
         else if (g.counter1&$40) hspd = ( HSPD_PACE)&$FF;
         else                     hspd = (-HSPD_PACE)&$FF;
         
         if (abilities&ABL_SHOT  // IronKnuckle-Blue, RebonackB
-        || !g.pc.ogr )
+        || !global.pc.ogr )
         {
             hspd = (hspd>>1) | (hspd&$80);
         }
@@ -547,12 +547,12 @@ if (tmr_stun == 2) attack_tokens = 4 | (rand() & 3); // result 4,5,6,7
 // var _C1 = !(ocs & 4) || oi == ReboB;
 
 
-if (inRange(yy - g.pc.yy, 0, 41))
+if (inRange(yy - global.pc.yy, 0, 41))
 {
     // 9D52, 9D67. ----------- SET shieldState --------------------
-    if (yy != g.pc.yy)
+    if (yy != global.pc.yy)
     {
-        if (g.pc.yy + $A >= yy) shld_hb_idx = SHLD_HB_IDX_LOW; // 1
+        if (global.pc.yy + $A >= yy) shld_hb_idx = SHLD_HB_IDX_LOW; // 1
         else                    shld_hb_idx = SHLD_HB_IDX_HGH; // 2
     }
     else if (Input.pB && rand() & (3 >>_VER3))
@@ -578,11 +578,11 @@ if (inRange(yy - g.pc.yy, 0, 41))
     {
         
         // 9D91. ---------- SET hspd ------------------
-             if (g.pc.hspd)      hspd = g.pc.hspd;
+             if (global.pc.hspd)      hspd = global.pc.hspd;
         else if (g.timer0 & $40) hspd = byte( HSPD_PACE);
         else                     hspd = byte(-HSPD_PACE);
         
-        if (abilities & ABL_SHOT || !g.pc.ogr) // IronKnuckleBlue, RebonackB
+        if (abilities & ABL_SHOT || !global.pc.ogr) // IronKnuckleBlue, RebonackB
         {
             hspd = (hspd >>1) | (hspd & $80);
         }

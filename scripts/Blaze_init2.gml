@@ -123,7 +123,7 @@ switch(ver)
         break;}
     }//switch(size)
     
-    set_xlyt(id, spawn_x,spawn_y);
+    set_xlyt(id, spawn_xl,spawn_yt);
     GO_depth_init(DEPTH_BG4+1);
     BodyHB_idx=BodyHB_IDX;
     hspd=0;
@@ -141,7 +141,7 @@ if (ver==3
     ANIM_SPEED = $08;
     hspd = 0;
     vspd = 0;
-    set_xlyt(id, spawn_x,spawn_y);
+    set_xlyt(id, spawn_xl,spawn_yt);
 }
 
 

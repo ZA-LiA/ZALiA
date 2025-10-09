@@ -14,7 +14,7 @@ if (g.counter1>=SHOW_INFO_CUE)
 
 if (g.counter1>=SHOW_LINK_CUE)
 {
-    draw_pc_skin(LINK_X+$08,LINK_Y+$10, 1,1, g.pc.behavior_IDLE, false, -1,-1, global.PI_PC1);
+    draw_pc_skin(LINK_X+$08,LINK_Y+$10, 1,1, global.pc.behavior_IDLE, false, -1,-1, global.PI_PC1);
 }
 
 

@@ -27,14 +27,14 @@ if(!state
     g.pc_lock = 0;
     
     global.ViewCatchUp_move_x = 0;
-    if (g.pc.x!=viewXC())
+    if (global.pc.x!=viewXC())
     {
         if!(g.view_lock&$1) global.ViewCatchUp_state |= $1;
         if!(g.view_lock&$2) global.ViewCatchUp_state |= $2;
     }
     
     global.ViewCatchUp_move_y = 0;
-    if (g.pc.y!=viewYC())
+    if (global.pc.y!=viewYC())
     {
         if!(g.view_lock&$4) global.ViewCatchUp_state |= $4;
         if!(g.view_lock&$8) global.ViewCatchUp_state |= $8;

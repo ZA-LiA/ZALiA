@@ -91,8 +91,8 @@ if(!iframes_timer
                 _hb_row = (csTop1Y+(_j<<3)) >>3;
                 if (is_in_grid(_hb_clm,_hb_row, _SPIKE_CLMS,_SPIKE_ROWS))
                 {
-                    if (g.dg_RmTile_Spike[#_hb_clm,_hb_row]==TID_SPIKE1 
-                    ||  g.dg_RmTile_Spike[#_hb_clm,_hb_row]==TID_SPIKE2 )
+                    if (g.dg_RmTile_Spike[#_hb_clm,_hb_row]&$FF==TID_SPIKE1 
+                    ||  g.dg_RmTile_Spike[#_hb_clm,_hb_row]&$FF==TID_SPIKE2 )
                     {
                         var _damage = $10;
                         if (g.DevTools_state 
@@ -274,7 +274,7 @@ var _YT = yt;
 with(Exit)
 {
     if (open 
-    &&  rectInRect(BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h, _XL,_YT,_W,_H) )
+    &&  rectInRect(BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h, _XL,_YT,_W,_H) )
     {
         _exit = id;
         break;//with(Exit)

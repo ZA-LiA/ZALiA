@@ -3,10 +3,10 @@
 // For pogo minigame
 
 
-if(!g.pc.ogr)
+if(!global.pc.ogr)
 {
-    if (g.pc.xr >= Goal_XL 
-    &&  g.pc.yb <= Goal_YB )
+    if (global.pc.xr >= Goal_XL 
+    &&  global.pc.yb <= Goal_YB )
     {   // Player made it to the goal
         prize_num = 1;
         

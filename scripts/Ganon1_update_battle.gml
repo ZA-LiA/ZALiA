@@ -64,8 +64,8 @@ switch(BattleState)
     if (timer1) break;
     
     
-    var _DIST0 = abs(x-g.pc.x);
-    var _DIST1 = ww_+g.pc.ww_;
+    var _DIST0 = abs(x-global.pc.x);
+    var _DIST1 = ww_+global.pc.ww_;
     var _DIST2 = _DIST1+($05<<3);
     var _DIST3 = _DIST1+($0C<<3);
     var                _HSPD = $60;
@@ -76,7 +76,7 @@ switch(BattleState)
     
     var _C1 = _DIST0<_DIST2;
     if (_C1) hspd = byte($60   * sign_(x<arena_x)); // go torward dir that has most arena space
-    else     hspd = byte(_HSPD * sign_(x<g.pc.x));
+    else     hspd = byte(_HSPD * sign_(x<global.pc.x));
     updateX();
     
     vspd_grav = 2;
@@ -85,7 +85,7 @@ switch(BattleState)
     off_ground_reason = OGR_JUMP;
     
     GO_update_cs();
-    //sdm("hspd $"+hex_str(hspd)+", _HSPD $"+hex_str(_HSPD)+", _DIST0 $"+hex_str(_DIST0)+", _DIST1 $"+hex_str(_DIST1)+", _DIST2 $"+hex_str(_DIST2)+", _DIST3 $"+hex_str(_DIST3)+", ww_+g.pc.ww_+($04<<3) $"+hex_str(ww_+g.pc.ww_+($04<<3)));
+    //sdm("hspd $"+hex_str(hspd)+", _HSPD $"+hex_str(_HSPD)+", _DIST0 $"+hex_str(_DIST0)+", _DIST1 $"+hex_str(_DIST1)+", _DIST2 $"+hex_str(_DIST2)+", _DIST3 $"+hex_str(_DIST3)+", ww_+global.pc.ww_+($04<<3) $"+hex_str(ww_+global.pc.ww_+($04<<3)));
     
     timer1 = 0;
     if (_C1) BattleState = BattleState_ATTACK1_JUMP2;
@@ -109,7 +109,7 @@ switch(BattleState)
     
     GO_update_cs();
     
-    var      _DIFF = x-g.pc.x;
+    var      _DIFF = x-global.pc.x;
     if (     _DIFF==0 
     ||  sign(_DIFF)==sign8b(hspd) 
     //||  abs(x-arena_x) >= (arena_w>>1)-ww_ 
@@ -132,7 +132,7 @@ switch(BattleState)
     
     
     if (vspd&$80 
-    &&  yb < Ground_y-g.pc.hh )
+    &&  yb < Ground_y-global.pc.hh )
     {
         Ganon1_update_battle_2(); // pc body-to-body damage
     }
@@ -233,7 +233,7 @@ switch(BattleState)
     
     Ganon1_update_battle_3();
     hspd = 0;
-    hspd_impel = -sign_(x<g.pc.x);
+    hspd_impel = -sign_(x<global.pc.x);
     
     //timer1      = 0;
     BattleState = BattleState_ATTACK2_IDLE;
@@ -269,7 +269,7 @@ switch(BattleState)
     
     
     hspd = 0;
-    hspd_impel = sign_(x<g.pc.x);
+    hspd_impel = sign_(x<global.pc.x);
     
     timer1      = $20;
     BattleState = BattleState_ATTACK2_POSITION;
@@ -431,7 +431,7 @@ switch(BattleState)
     
     
     var _C1 = _RAND<85;
-    var _C2 = !g.pc.ogr && g.pc.y<y; // pc standing on pillar
+    var _C2 = !global.pc.ogr && global.pc.y<y; // pc standing on pillar
     var _C3 = Attack1_counter>=3 && !irandom(3); // in case attack2 not getting used enough
     
     if (_C2         // guarantee attack1 if pc standing on pillar
@@ -459,26 +459,26 @@ switch(BattleState)
 if (BattleState==BattleState_ATTACK2_TELL 
 ||  BattleState==BattleState_ATTACK2_POSITION )
 {
-    if (sign_(g.pc.x>x)==hspd_dir 
+    if (sign_(global.pc.x>x)==hspd_dir 
     &&  GO_can_collide_this_frame(uIdx) 
-    &&  hINh(g.pc.csRgt1Y,g.pc.csRgt2Y-g.pc.csRgt1Y, yt+4,hh-4) 
-    //&&  hINh(g.pc.csRgt1Y,g.pc.csRgt2Y-g.pc.csRgt1Y, yt,hh) 
+    &&  hINh(global.pc.csRgt1Y,global.pc.csRgt2Y-global.pc.csRgt1Y, yt+4,hh-4) 
+    //&&  hINh(global.pc.csRgt1Y,global.pc.csRgt2Y-global.pc.csRgt1Y, yt,hh) 
     &&  collide_pc_body(bodyX,bodyY, bodyW,bodyH) )
     {
         var _shift=2;
         
         if (hspd_dir)
         {
-            if (collide_solid_grid(g.pc.csRgt1X,g.pc.csRgt1Y) 
-            &&  g.pc.csLft1X < xr )
+            if (collide_solid_grid(global.pc.csRgt1X,global.pc.csRgt1Y) 
+            &&  global.pc.csLft1X < xr )
             {
                 _shift=1;
             }
         }
         else
         {
-            if (collide_solid_grid(g.pc.csLft1X,g.pc.csLft1Y) 
-            &&  g.pc.csRgt1X > xl )
+            if (collide_solid_grid(global.pc.csLft1X,global.pc.csLft1Y) 
+            &&  global.pc.csRgt1X > xl )
             {
                 _shift=1;
             }
@@ -493,25 +493,25 @@ if (BattleState==BattleState_ATTACK2_TELL
 if (BattleState==BattleState_ATTACK2_TELL 
 ||  BattleState==BattleState_ATTACK2_POSITION )
 {
-    if (sign_(g.pc.x>x)==hspd_dir 
+    if (sign_(global.pc.x>x)==hspd_dir 
     &&  GO_can_collide_this_frame(uIdx) 
-    &&  hINh(g.pc.csRgt1Y,g.pc.csRgt2Y-g.pc.csRgt1Y, yt,hh) 
+    &&  hINh(global.pc.csRgt1Y,global.pc.csRgt2Y-global.pc.csRgt1Y, yt,hh) 
     &&  collide_pc_body(bodyX,bodyY, bodyW,bodyH) )
     {
         var _DAMAGE = get_stat_max(STR_Heart)>>2;
         
         if (hspd_dir)
         {
-            if (collide_solid_grid(g.pc.csRgt1X,g.pc.csRgt1Y) 
-            &&  g.pc.csLft1X < xr )
+            if (collide_solid_grid(global.pc.csRgt1X,global.pc.csRgt1Y) 
+            &&  global.pc.csLft1X < xr )
             {
                 pc_take_dmg(id,_DAMAGE);
             }
         }
         else
         {
-            if (collide_solid_grid(g.pc.csLft1X,g.pc.csLft1Y) 
-            &&  g.pc.csRgt1X > xl )
+            if (collide_solid_grid(global.pc.csLft1X,global.pc.csLft1Y) 
+            &&  global.pc.csRgt1X > xl )
             {
                 pc_take_dmg(id,_DAMAGE);
             }
@@ -526,11 +526,11 @@ if (Collision_VER==1)
     ||  BattleState==BattleState_ATTACK2_POSITION )
     {
         if(!stun_timer 
-        && !g.pc.iframes_timer 
-        &&  sign_(g.pc.x>x)==hspd_dir 
+        && !global.pc.iframes_timer 
+        &&  sign_(global.pc.x>x)==hspd_dir 
         &&  GO_can_collide_this_frame(update_idx) 
-        &&  hINh(g.pc.csRgt1Y,g.pc.csRgt2Y-g.pc.csRgt1Y, yt,hh) 
-        &&  collide_pc_body(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h) )
+        &&  hINh(global.pc.csRgt1Y,global.pc.csRgt2Y-global.pc.csRgt1Y, yt,hh) 
+        &&  collide_pc_body(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h) )
         {
             PC_take_damage(id);
         }

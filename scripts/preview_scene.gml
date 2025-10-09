@@ -76,8 +76,8 @@ if (RoomPreview_VER
                 //view_hview[0]=_H1;
                 //view_wview[0]=VIEW_W_WD;
                 //view_hview[0]=VIEW_H_WD;
-                var _X = clamp(g.pc.x-VIEW_W_WD_,cam_xl_min(),cam_xl_max());
-                var _Y = clamp(g.pc.y-VIEW_H_WD_,cam_yt_min(),cam_yt_max());
+                var _X = clamp(global.pc.x-VIEW_W_WD_,cam_xl_min(),cam_xl_max());
+                var _Y = clamp(global.pc.y-VIEW_H_WD_,cam_yt_min(),cam_yt_max());
                 //window_set_rectangle(_X,_Y, VIEW_W_WD,VIEW_H_WD);
                 //set_view_xy_on_pc();
                 //window_set_rectangle(_XL2,_YT2, _W2,_H2);
@@ -107,10 +107,10 @@ if (RoomPreview_VER
     {
         if (keyboard_check_released(RoomPreview_KEY1))
         {
-            var _X = clamp(g.pc.x-VIEW_W_WD_,0,room_width -VIEW_W_WD);
-            var _Y = clamp(g.pc.y-VIEW_H_WD_,0,room_height-VIEW_H_WD-8);
-            //var _X = clamp(g.pc.x-VIEW_W_WD_,cam_xl_min(),cam_xl_max());
-            //var _Y = clamp(g.pc.y-VIEW_H_WD_,cam_yt_min(),cam_yt_max());
+            var _X = clamp(global.pc.x-VIEW_W_WD_,0,room_width -VIEW_W_WD);
+            var _Y = clamp(global.pc.y-VIEW_H_WD_,0,room_height-VIEW_H_WD-8);
+            //var _X = clamp(global.pc.x-VIEW_W_WD_,cam_xl_min(),cam_xl_max());
+            //var _Y = clamp(global.pc.y-VIEW_H_WD_,cam_yt_min(),cam_yt_max());
             view_xview[0]=_X;
             view_yview[0]=_Y;
             view_wview[0]=VIEW_W_WD;

@@ -23,7 +23,7 @@ if (counter<$80) // if has NOT dropped
 {   // D6EC
     facing_dir = dir_to_pc(id);
     
-    var _IN_DIST_ATK = abs(g.pc.x-x) + DC91_carry(id)<$40 + ww_;
+    var _IN_DIST_ATK = abs(global.pc.x-x) + DC91_carry(id)<$40 + ww_;
     var _C1 = _IN_DIST_ATK && !(_RAND&$1F) && !ocs;
     
     

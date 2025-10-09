@@ -4,8 +4,8 @@
 BodyHB_can_draw = state==state_NORMAL;
 
 
-BodyHB_x = x + BodyHB_xoff;
-BodyHB_y = y + BodyHB_yoff;
+BodyHB_xl = x + BodyHB_xoff;
+BodyHB_yt = y + BodyHB_yoff;
 
 
 

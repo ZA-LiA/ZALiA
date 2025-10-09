@@ -68,7 +68,7 @@ for(_i=0; _i<_SPAWNED_MAX; _i++) // Number of chances to spawn a block this fram
     }
     
     if (_x>>3 < 0 
-    ||  _x>>3 > ds_grid_width(g.dg_RmTile_solid)-1 )
+    ||  _x>>3 > global.dg_solid_w-1 )
     {
         continue;
     }
@@ -76,9 +76,9 @@ for(_i=0; _i<_SPAWNED_MAX; _i++) // Number of chances to spawn a block this fram
     _x += GRID_XL;
     
     
-        _c1 = g.dg_RmTile_solid[#_x>>3, _Y1>>3];
+        _c1 = global.dg_solid[#_x>>3, _Y1>>3];
     if(!_c1)
-    {   _c1 = g.dg_RmTile_solid[#_x>>3,(_Y1>>3)+2] && collideRect(_x,_Y2,$10,$30, SPAWN_OBJ);  }
+    {   _c1 = global.dg_solid[#_x>>3,(_Y1>>3)+2] && collideRect(_x,_Y2,$10,$30, SPAWN_OBJ);  }
     
     if (_c1)
     {

@@ -34,9 +34,9 @@ hspd = _HSPD;
 // ----------------------------------------------------------------------------
 // MODDED. See update_Lowder_OG for unmodded
 // 98E6
-var _C1a = g.pc.yt+$10>=yt;               // qualify aggro
+var _C1a = global.pc.yt+$10>=yt;               // qualify aggro
 //var _C1b = _C1a;                            // Testing. can walk off edge
-var _C1b = g.pc.yt-$08>=yt && ver==2;     // qualify walk off edge
+var _C1b = global.pc.yt-$08>=yt && ver==2;     // qualify walk off edge
 var _C2a =   _cs_COPY&$4  && !(cs&$4);  // is at edge of ground
 var _C2b = !(_cs_COPY&$4) && !(cs&$4);  // is falling
 var _C3a = xl<cam_xl_min() || xr>cam_xr_max();  // is past edge of room

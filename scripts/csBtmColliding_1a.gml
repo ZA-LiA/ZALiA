@@ -10,12 +10,12 @@ if(!is_undefined(   cs_btm_inst)
 {
         _VAL =      cs_btm_inst.solid_type;
     
-    if (_VAL & TID_SOLID1)
+    if (_VAL&TID_SOLID1)
     {
         return _VAL; // Full Solid trumps One-way
     }
     
-    if (_VAL & TID_ONEWY1 
+    if (_VAL&TID_ONEWY1 
     &&  csBtm_qual_oneway(id, (csBtm1Y - (cs_btm_inst.yt&$7)) &$7) )
     {
         return _VAL;
@@ -23,23 +23,23 @@ if(!is_undefined(   cs_btm_inst)
 }
 
 // ------------------------------------------------------------------------------
-if (_VAL == 0)
+if (_VAL==0)
 {
-    _VAL  = csBtmColliding();
+    _VAL = csBtmColliding();
 }
 
-if (_VAL == 0)
+if (_VAL==0)
 {
     return 0;
 }
 
-if (_VAL & TID_SOLID1)
+if (_VAL&TID_SOLID1)
 {
     return _VAL; // Full Solid trumps One-way
 }
 
 // ------------------------------------------------------------------------------
-if (_VAL & TID_ONEWY1 
+if (_VAL&TID_ONEWY1 
 &&  csBtm_qual_oneway(id, csBtm1Y&$7) )
 {
     return _VAL;

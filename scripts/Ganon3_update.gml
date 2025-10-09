@@ -166,7 +166,7 @@ switch(sub_state)
     case sub_state_INTRO1:{
     if (timer) break;
     
-    if (abs(g.pc.x-x) < $13<<3)
+    if (abs(global.pc.x-x) < $13<<3)
     {
         g.pc_lock = PC_LOCK_ALL;
         
@@ -296,7 +296,7 @@ switch(sub_state)
         
         var            _Y=g.rm_h+$40;
         if (     yt >= _Y 
-        &&  g.pc.yt >= _Y )
+        &&  global.pc.yt >= _Y )
         {
             with(Exit)
             {
@@ -478,9 +478,9 @@ switch(sub_state)
     case sub_state_FANFARE_PRE1:{
     //if (timer==1) aud_play_sound(Audio.MUS_VICTORY_1);
     if (timer) break;
-    if (g.pc.ogr) break;
+    if (global.pc.ogr) break;
     
-    with(g.pc)
+    with(global.pc)
     {
         set_xy(id, x, other.GROUND_Y-hh_);
         hspd=0;
@@ -521,8 +521,8 @@ switch(sub_state)
     if (timer==1) aud_play_sound(Audio.MUS_VICTORY_1);
     if (timer) break;
     
-    if (g.pc.ogr) break;
-    with(g.pc)
+    if (global.pc.ogr) break;
+    with(global.pc)
     {
         set_xy(id, x, other.GROUND_Y-hh_);
         hspd=0;

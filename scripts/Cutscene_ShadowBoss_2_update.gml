@@ -87,9 +87,9 @@ switch(sub_state)
     
     
     
-    if(!g.pc.ogr)
+    if(!global.pc.ogr)
     {
-        with(g.pc)
+        with(global.pc)
         {
             solid_clip_correction(false); // Make sure not in ground
             hspd = 0; // mod
@@ -114,7 +114,7 @@ switch(sub_state)
     case sub_state_WALK_PC:{ // ShadowBoss-9B53 -------------------------------------------------
     if (g.cutscene_timer)
     {
-        if (g.pc.behavior!=g.pc.behavior_CROUCH) PC_set_behavior(g.pc.behavior_IDLE);
+        if (global.pc.behavior!=global.pc.behavior_CROUCH) PC_set_behavior(global.pc.behavior_IDLE);
         break;//case sub_state_WALK_PC
     }
 
@@ -126,22 +126,22 @@ switch(sub_state)
     
     
     g.pc_lock = PC_LOCK_ALL
-    g.pc.WalkTo_active   = true;
-    g.pc.WalkTo_x        = _TARGET_X;
-    g.pc.WalkTo_hspd_max = $10; // $10 max hspd. Should limit speed to 1 pixel per frame
+    global.pc.WalkTo_active   = true;
+    global.pc.WalkTo_x        = _TARGET_X;
+    global.pc.WalkTo_hspd_max = $10; // $10 max hspd. Should limit speed to 1 pixel per frame
     
-    if (g.pc.x==_TARGET_X)
+    if (global.pc.x==_TARGET_X)
     {
-        g.pc.WalkTo_active = false;
+        global.pc.WalkTo_active = false;
         
-        set_xy(g.pc, _TARGET_X, g.pc.y);
-        g.pc.hspd = 0;
+        set_xy(global.pc, _TARGET_X, global.pc.y);
+        global.pc.hspd = 0;
         
-        PC_set_behavior(g.pc.behavior_IDLE);
-        g.pc.xScale = 1;
+        PC_set_behavior(global.pc.behavior_IDLE);
+        global.pc.xScale = 1;
         
-        if (f.quest_num>=2) var _X = ARENA_X + (ARENA_X-g.pc.x);
-        else                var _X = g.pc.x + ($03<<3);
+        if (f.quest_num>=2) var _X = ARENA_X + (ARENA_X-global.pc.x);
+        else                var _X = global.pc.x + ($03<<3);
         with(TK_OBJ) // TK: Triforce Keeper
         {
             set_xy(id, _X, GROUND_Y-hh_);
@@ -230,11 +230,11 @@ switch(sub_state)
     else
     {
         Boss_x        = ARENA_X;
-        Boss_y        = g.pc.y - $10 - $8;
+        Boss_y        = global.pc.y - $10 - $8;
         Boss_Target_y = Boss_y - Boss_Raise_DIST;
         
         Bottle_x      = Boss_x;
-        Bottle_y      = g.pc.y - $16;
+        Bottle_y      = global.pc.y - $16;
         
         p.Flash_Pal_timer        = 0;
         p.Flash_Bgr_timer        = 0;
@@ -257,7 +257,7 @@ switch(sub_state)
     // ======================================================================================
     // ----------------------------------------------------------------------------------
     case sub_state_HOLD_TRIFORCE:{ // ShadowBoss-9BA8 -------------------------------------------------
-    g.pc.xScale = 1;
+    global.pc.xScale = 1;
     
     // 9BB1
     with(TK_OBJ)
@@ -270,8 +270,8 @@ switch(sub_state)
     // MOD -------------------------------
     g.pc_lock         = PC_LOCK_ALL;
     triforce_can_draw = 1;
-    PC_set_behavior(g.pc.behavior_HOLD_ITEM4);
-    if (pc_is_cucco()) g.pc.HoldItem_timer = $FF;
+    PC_set_behavior(global.pc.behavior_HOLD_ITEM4);
+    if (pc_is_cucco()) global.pc.HoldItem_timer = $FF;
     
     // Triforce fills hp & mp. 
     // w/out this, low hp beep will continue for rest of game.
@@ -552,13 +552,13 @@ switch(sub_state)
     Boss_y += Boss_vspd;
     if (Boss_y>=viewYB()+$30)
     {
-        if (pc_is_cucco()) g.pc.HoldItem_timer = $FF;
+        if (pc_is_cucco()) global.pc.HoldItem_timer = $FF;
         
         Bottle_spr = Bottle_SPR2;
-        Bottle_x   = g.pc.x;
-        Bottle_y   = g.pc.y - $17;
+        Bottle_x   = global.pc.x;
+        Bottle_y   = global.pc.y - $17;
         
-        PC_set_behavior(g.pc.behavior_HOLD_ITEM2);
+        PC_set_behavior(global.pc.behavior_HOLD_ITEM2);
         
         audio_stop_sound(Audio.mus_rm_inst);
         aud_play_sound(get_audio_theme_track(dk_GetItem+"01"), -1,false,-1, dk_GetItem+"01");
@@ -584,9 +584,9 @@ switch(sub_state)
     if (_HP_MAX!=f.hp) g.StatRestore_timer_hp = max($FF,_HP_MAX);
     if (_MP_MAX!=f.mp) g.StatRestore_timer_mp = max($FF,_MP_MAX);
     
-    PC_set_behavior(g.pc.behavior_IDLE);
+    PC_set_behavior(global.pc.behavior_IDLE);
     g.pc_lock = 0;
-    g.pc.hspd = 0;
+    global.pc.hspd = 0;
     
     g.cutscene     = 0;
     g.cutscene_ctr = 0;

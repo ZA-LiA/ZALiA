@@ -4,7 +4,7 @@
 if(!g.dialogue_source)
 {   // Just in case Dialogue is opened w/out a g.dialogue_source
     g.pc_lock = 0;
-    g.pc.in_restore_house = false;
+    global.pc.in_restore_house = false;
     
     g.gui_state        = g.gui_state_NONE;
     g.menu_built_count = 0;
@@ -569,7 +569,7 @@ switch(g.menu_state)
         var _GET_SPELL = _TYPE==TYPE_SPELL && dialogue_ver=="A"; // 'A' acquiring spell
         var _GET_SKILL = _TYPE==TYPE_SKILL && dialogue_ver=="A"; // 'A' acquiring skill
         
-        var _YB = g.pc.yb;
+        var _YB = global.pc.yb;
         var _DURATION1 = $40; // spell flash duration
         var _DURATION2 = _DURATION1 + $80; // $C0. spell flash duration + fanfare delay
         
@@ -606,7 +606,7 @@ switch(g.menu_state)
                     }
                     
                     
-                    with(g.pc)
+                    with(global.pc)
                     {
                         var _Y = _YB - (Cucco_H>>1);
                         set_xy(id, x,_Y);
@@ -751,7 +751,7 @@ switch(g.menu_state)
             if (_TYPE==TYPE_SPELL)
             {   // SPELL-GIVER. B78A.  Acquiring spell --------------------------------
                 g.pc_lock             = 0;
-                g.pc.in_restore_house = false;
+                global.pc.in_restore_house = false;
                 
                 g.PAUSE_MENU.state    = g.PAUSE_MENU.state_SPELL; // set PauseMenu to open spell list
                 g.menu_built_count    = 0;
@@ -956,7 +956,7 @@ switch(g.menu_state)
     
     
     g.pc_lock = 0;
-    g.pc.in_restore_house = false;
+    global.pc.in_restore_house = false;
     
     
     // B7F0

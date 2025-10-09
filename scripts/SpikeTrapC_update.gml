@@ -3,7 +3,7 @@
 
 if (spin_dir!=0) // You can set spin_dir to 0 to stop all movement.
 {
-    set_xy_len_ang(id, spawn_x,spawn_y, (chain_length<<3)+LEN_OFF, angle);
+    set_xy_len_ang(id, spawn_xl,spawn_yt, (chain_length<<3)+LEN_OFF, angle);
     angle += speed1 * -spin_dir;
     angle  = (angle+360) mod 360; // adjust for possible rollover
 }
@@ -12,9 +12,9 @@ if (spin_dir!=0) // You can set spin_dir to 0 to stop all movement.
 // because image dimensions are even but graphic dimension is odd, 
 // this will adjust the hb position depending on PC location.
 BodyHB_idx  = BodyHB_IDX;                 // ABOVE & LEFT  of pc
-BodyHB_idx +=  x>=g.pc.x;                 // ABOVE & RIGHT of pc
-BodyHB_idx +=  y>=g.pc.y;                 // BELOW & LEFT  of pc
-BodyHB_idx += (x>=g.pc.x) && (y>=g.pc.y); // BELOW & RIGHT of pc
+BodyHB_idx +=  x>=global.pc.x;                 // ABOVE & RIGHT of pc
+BodyHB_idx +=  y>=global.pc.y;                 // BELOW & LEFT  of pc
+BodyHB_idx += (x>=global.pc.x) && (y>=global.pc.y); // BELOW & RIGHT of pc
 
 
 GO_update_cam_vars();

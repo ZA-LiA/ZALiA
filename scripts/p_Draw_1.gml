@@ -108,11 +108,11 @@ if(!global.App_frame_count)
     var _palette, _sprite;
     var _surf = -1;
     
-    with(g.pc)
+    with(global.pc)
     {
         // The palette colors for the custom pc sprites are in the 
         // top left of the $FF(bottom-right) box of the sprite sheet.
-        // g.pc.PCSkins_SYS_VER==1: colors are in sub image $3F.
+        // global.pc.PCSkins_SYS_VER==1: colors are in sub image $3F.
         // The palettes are displayed as 3 rows of 3 4x4 color squares, 
         // with each row separated by 1 pixel.
         var _c_wht = p.C_WHT0_;
@@ -231,7 +231,7 @@ if(!global.App_frame_count)
 
 
 // player skins palettes
-//if(!g.pc.skins_palettes_are_set)
+//if(!global.pc.skins_palettes_are_set)
 if(!global.App_frame_count)
 {
     _C1 |= $4;
@@ -360,12 +360,12 @@ if (_C1&$3)
 // ------------------------------------------------------------------------
 if (_C1&$4)
 {
-    with(g.pc)
+    with(global.pc)
     {
         // PC SpriteSheet Colors
         // The palette colors for the custom pc sprites are in the 
         // top left of the $FF(bottom-right) box of the sprite sheet.
-        // g.pc.PCSkins_SYS_VER==1: colors are in sub image $3F.
+        // global.pc.PCSkins_SYS_VER==1: colors are in sub image $3F.
         // The palettes are displayed as 3 rows of 3 4x4 squares, 
         // with each row separated by 1 pixel.
         var _j,_k, _idx, _val, _count;

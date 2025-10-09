@@ -23,8 +23,8 @@ if (abilities&ABL_JUMP
     if (_VER3)
     {
         _C1 =   _RAND&$8 
-           &&  abs(x-g.pc.x) <= $18+irandom($C) 
-           &&  inRange(y, viewYT(),g.pc.yb+($3<<3));
+           &&  abs(x-global.pc.x) <= $18+irandom($C) 
+           &&  inRange(y, viewYT(),global.pc.yb+($3<<3));
     }
     
     if (_C1)

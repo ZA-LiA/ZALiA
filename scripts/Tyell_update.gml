@@ -41,8 +41,8 @@ else if (isVal(sub_state, SUB_STATE_ATK1,SUB_STATE_ATK2))
     else if (sub_state==SUB_STATE_ATK2)
     {
         var _i, _x,_y;
-        var _CLMS = ds_grid_width( g.dg_RmTile_solid);
-        var _ROWS = ds_grid_height(g.dg_RmTile_solid);
+        var _CLMS = global.dg_solid_w;
+        var _ROWS = global.dg_solid_h;
         // 9 points. 3 TOP, 3 MID, 3 BTM
         //  .   .   .
         //  
@@ -65,7 +65,7 @@ else if (isVal(sub_state, SUB_STATE_ATK1,SUB_STATE_ATK2))
                 continue;
             }
             
-            if (g.dg_RmTile_solid[#_x,_y] 
+            if (global.dg_solid[#_x,_y] 
             && !g.dg_RmTile_Break[#_x,_y] )
             {
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
@@ -129,9 +129,9 @@ switch(sub_state)
     // ------------------------------------------------------------------
     case SUB_STATE_LAUNCH_COUNTDOWN:{ // 
     if (timer) break;
-    //if!(g.timer0&$FF) sdm("point_distance(x,y,g.pc.x,g.pc.y): "+hex_str(round(point_distance(x,y,g.pc.x,g.pc.y))));
+    //if!(g.timer0&$FF) sdm("point_distance(x,y,global.pc.x,global.pc.y): "+hex_str(round(point_distance(x,y,global.pc.x,global.pc.y))));
     //if!(g.timer0&$FF) sdm("AGRO_DIST: $"+hex_str(AGRO_DIST));
-    if (point_distance(x,y,g.pc.x,g.pc.y)>AGRO_DIST) break;
+    if (point_distance(x,y,global.pc.x,global.pc.y)>AGRO_DIST) break;
     if (LaunchCountdown_timer)
     {
         LaunchCountdown_timer--;
@@ -143,10 +143,10 @@ switch(sub_state)
             hspd = 0;
             vspd = 0;
     switch(ver){
-    case 1:{vspd = (AIM_SPD * -sign_(y-g.pc.y)) &$FF; break;}
-    case 2:{hspd = (AIM_SPD * -sign_(x-g.pc.x)) &$FF; break;}
-    case 3:{vspd = (AIM_SPD * -sign_(y-g.pc.y)) &$FF; break;
-            hspd = (AIM_SPD * -sign_(x-g.pc.x)) &$FF; break;}
+    case 1:{vspd = (AIM_SPD * -sign_(y-global.pc.y)) &$FF; break;}
+    case 2:{hspd = (AIM_SPD * -sign_(x-global.pc.x)) &$FF; break;}
+    case 3:{vspd = (AIM_SPD * -sign_(y-global.pc.y)) &$FF; break;
+            hspd = (AIM_SPD * -sign_(x-global.pc.x)) &$FF; break;}
     } // switch(ver)
     
     
@@ -180,23 +180,23 @@ switch(sub_state)
     if (hspd)
     {
         updateX();
-        if!((g.pc.x-x) * sign8b(hspd))
+        if!((global.pc.x-x) * sign8b(hspd))
         {
-            set_xy(id, g.pc.x, y);
+            set_xy(id, global.pc.x, y);
             hspd = 0;
-            vspd = (ATCK_SPD * -sign_(y-g.pc.y)) &$FF;
+            vspd = (ATCK_SPD * -sign_(y-global.pc.y)) &$FF;
             timer     = ATK_DELAY1_DUR;
             sub_state = SUB_STATE_ATK2;
         }
     }
     else if (vspd)
     {
-        var            _PC_Y  = g.pc.y-8;
+        var            _PC_Y  = global.pc.y-8;
         if (ATK_LEVEL) _PC_Y += $10;
         
         if!((_PC_Y-y) * sign8b(vspd))
         {
-            hspd = (ATCK_SPD * -sign_(x-g.pc.x)) &$FF;
+            hspd = (ATCK_SPD * -sign_(x-global.pc.x)) &$FF;
             vspd = 0;
             timer     = ATK_DELAY1_DUR;
             sub_state = SUB_STATE_ATK2;

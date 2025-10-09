@@ -85,10 +85,10 @@ X_MIN = 0;
 X_MAX = g.rm_w;
 Y_MIN = 0;
 Y_MAX = g.rm_h;
-if (DIRECTION&$1) X_MIN=spawn_x;
-if (DIRECTION&$2) X_MAX=spawn_x;
-if (DIRECTION&$4) Y_MIN=spawn_y;
-if (DIRECTION&$8) Y_MAX=spawn_y;
+if (DIRECTION&$1) X_MIN=spawn_xl;
+if (DIRECTION&$2) X_MAX=spawn_xl;
+if (DIRECTION&$4) Y_MIN=spawn_yt;
+if (DIRECTION&$8) Y_MAX=spawn_yt;
 if(!is_undefined(dk_spawn))
 {
     var _len, _pos;

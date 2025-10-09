@@ -17,8 +17,8 @@ if (ChangeRoom_timer<=0)
 {
     if (_EXITING_RM)
     {
-        leave_rm_x = pc.xl;
-        leave_rm_y = pc.yt;
+        leave_rm_x = global.pc.xl;
+        leave_rm_y = global.pc.yt;
         
         // MOD. To prevent GO's from drawing during room change
         set_go_can_draw_self(false); 

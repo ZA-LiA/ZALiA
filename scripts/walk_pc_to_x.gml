@@ -1,7 +1,7 @@
 /// walk_pc_to_x(x, max hspd)
 
 
-with(g.pc)
+with(global.pc)
 {
     if (x==argument0)
     {

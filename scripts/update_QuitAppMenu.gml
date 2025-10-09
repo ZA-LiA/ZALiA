@@ -128,8 +128,8 @@ with(g.QUIT_APP_MENU)
                     sub_state = sub_state_IDLE_CLOSED;
                     
                     
-                    g.pc.state = g.pc.state_DEAD;
-                    g.pc.can_draw_self = false;
+                    global.pc.state = global.pc.state_DEAD;
+                    global.pc.can_draw_self = false;
                     
                     if(!get_saved_value(f.file_num, STR_Rando+STR_Active, false) 
                     ||  get_saved_value(f.file_num, STR_Rando+"_UP_A"+STR_XP+"_Penalty", true) )

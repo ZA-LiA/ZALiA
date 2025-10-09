@@ -38,8 +38,8 @@ else
 {
     _ts_nums = $E0E1F0F1;
     
-    if (g.dg_RmTile_solid[# xl>>3   ,(yt>>3)-1] 
-    ||  g.dg_RmTile_solid[#(xl>>3)+1,(yt>>3)-1] )
+    if (global.dg_solid[# xl>>3   ,(yt>>3)-1] 
+    ||  global.dg_solid[#(xl>>3)+1,(yt>>3)-1] )
     {
         _ts_nums &= $0000FFFF;
         _ts_nums |= $E2E30000;
@@ -227,11 +227,11 @@ if(!active){
     var _YT     = viewYT() -  _DIST_Y;
     var _W      = viewW()  + (_DIST_X<<1);
     var _H      = viewH()  + (_DIST_Y<<1);
-    active = pointInRect(spawn_x+ww_, spawn_y+hh_, _XL,_YT,_W,_H);
-    //active = point_in_rect(spawn_x+ww_, spawn_y+hh_, _XL,_YT,_W,_H);
+    active = pointInRect(spawn_xl+ww_, spawn_yt+hh_, _XL,_YT,_W,_H);
+    //active = point_in_rect(spawn_xl+ww_, spawn_yt+hh_, _XL,_YT,_W,_H);
 }
 if(!active)
-{   active = qual_spawn_3a(spawn_x,ww_, spawn_y,hh_);  }
+{   active = qual_spawn_3a(spawn_xl,ww_, spawn_yt,hh_);  }
 
 
 

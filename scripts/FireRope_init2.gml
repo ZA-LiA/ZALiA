@@ -42,7 +42,7 @@ speed1 = SPEED1;
 
 
 
-set_xy_len_ang(id, spawn_x,spawn_y, fireball_count<<3, angle);
+set_xy_len_ang(id, spawn_xl,spawn_yt, fireball_count<<3, angle);
 
 
 

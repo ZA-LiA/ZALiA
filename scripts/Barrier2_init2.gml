@@ -33,9 +33,9 @@ Blocks_ROWS     = $03;
 Blocks_COUNT    = Blocks_CLMS * Blocks_ROWS;
 
 Blocks_W        = Blocks_CLMS<<4;
-Blocks_XC       = spawn_x;
+Blocks_XC       = spawn_xl;
 Blocks_XL       = Blocks_XC-(Blocks_W>>1);
-Blocks_YT       = spawn_y;
+Blocks_YT       = spawn_yt;
 
 Blocks_DUR1     = $25; // same as DUR_STATE_DED
 Blocks_CUE1     = $18; // 
@@ -49,7 +49,7 @@ Activate_SOUND  = get_audio_theme_track(Activate_SOUND_THEME);
 Activate_DIST   = ($03<<3) + (Blocks_W>>1);
 //Activate_DIST   = ($04<<3) + (Blocks_W>>1);
 
-PC_HOLD_BEHAVIOR = g.pc.behavior_HOLD_ITEM1;
+PC_HOLD_BEHAVIOR = global.pc.behavior_HOLD_ITEM1;
 
 
 
@@ -85,7 +85,7 @@ else
     {
         _clm = _CLM + (_i mod _clms);
         _row = _ROW + (_i div _clms);
-        g.dg_RmTile_solid[#_clm,_row]=TID_SOLID1;
+        global.dg_solid[#_clm,_row]=TID_SOLID1;
     }
     
     

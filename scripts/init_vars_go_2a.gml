@@ -15,8 +15,8 @@ explosion_yscale        = 1;
 explosion_sprite        = 0;
 
 
-spawn_x = 0;
-spawn_y = 0;
+spawn_xl = 0;
+spawn_yt = 0;
 
 // ocs: Off Camera State
 // Includes certain bits if parts of the entity are off camera.

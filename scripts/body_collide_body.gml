@@ -3,12 +3,12 @@
 
 with(argument[1]) // obj or inst
 {
-    if (rectInRect(argument[0].BodyHB_x, 
-                   argument[0].BodyHB_y, 
+    if (rectInRect(argument[0].BodyHB_xl, 
+                   argument[0].BodyHB_yt, 
                    argument[0].BodyHB_w, 
                    argument[0].BodyHB_h, 
-                               BodyHB_x, 
-                               BodyHB_y, 
+                               BodyHB_xl, 
+                               BodyHB_yt, 
                                BodyHB_w, 
                                BodyHB_h) )
     {

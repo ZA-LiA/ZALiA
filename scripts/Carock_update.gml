@@ -151,7 +151,7 @@ switch(sub_state)
             //
             
             if(!irandom(1) 
-            &&  abs(x-g.pc.x)>($A<<3) )
+            &&  abs(x-global.pc.x)>($A<<3) )
             {    var _YT = yb-$20;  }
             else var _YT = yb-$10;
             
@@ -322,7 +322,7 @@ switch(sub_state)
     Carock_set_Attack2x();
     
     
-    set_xy(id, x, spawn_y+sprite_index_yoff); // set to atk1 yt
+    set_xy(id, x, spawn_yt+sprite_index_yoff); // set to atk1 yt
     
     sub_state_timer = DURATION2;
     sub_state       = sub_state_ATTACK_2B;
@@ -376,7 +376,7 @@ switch(sub_state)
     }
     
     
-    set_xlyt(id, xl, spawn_y); // set to atk1 yt
+    set_xlyt(id, xl, spawn_yt); // set to atk1 yt
     
     sub_state_timer = Attack3_DURATION1;
     sub_state       = sub_state_ATTACK_3B;

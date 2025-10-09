@@ -2,7 +2,7 @@
 
 
 // --------------------------------------------------------------------
-//var _PC_CAN_DRAW_SELF = pc.can_draw_self;
+//var _PC_CAN_DRAW_SELF = global.pc.can_draw_self;
 // C1A2: JSR D250       - set all GO.canDrawSelf = false
 set_go_can_draw_self(false);
 
@@ -48,7 +48,7 @@ update_Platforms();
 update_low_hp_sound();
 
 
-with(pc)
+with(global.pc)
 {   // D4F3: JSR 903A       - PC
     PC_update_1();
     
@@ -63,13 +63,14 @@ with(pc)
 
 
 
-pc.x_change1 = pc.x_change;
-pc.y_change1 = pc.y_change;
+global.pc.x_change1 = global.pc.x_change;
+global.pc.y_change1 = global.pc.y_change;
 
 // D4FE: JSR 9925       - Camera    (OG update order)
-if (view_update_order==1) update_view_1();
+update_view_1();
+//if (view_update_order==1) update_view_1();
 
-with(pc) PC_update_hitboxes_1a(); // 2023/10/31. Added so hb draw has right info
+with(global.pc) PC_update_hitboxes_1a(); // 2023/10/31. Added so hb draw has right info
 
 //                      - PC projectile hb update
 update_pc_proj_2a();
@@ -79,31 +80,43 @@ update_pc_proj_2a();
 // --------------------------------------------------------------------
 // --------------------------------------------------------------------
 // D504: JSR D5A7       - Entities & projectiles
-if (pc.state)
+if (global.pc.state)
 {
     with(go_mgr) update_GameObjectMgr();
 }
 
 
+//with(SmasherTrapManager) SmasherTrapManager_update();
+
+
 // --------------------------------------------------------------------
 // --------------------------------------------------------------------
 // --------------------------------------------------------------------
-pc.x_change2 = pc.x_change;
-pc.y_change2 = pc.y_change;
+global.pc.x_change2 = global.pc.x_change;
+global.pc.y_change2 = global.pc.y_change;
 
 // D4FE: JSR 9925       - Camera    (MOD: Moved cam update to here)
+// Added 2023/11/01. Because some GO can move PC
+if (global.pc.x_change!=0 
+||  global.pc.y_change!=0 )
+{
+    update_view_1();
+}
+/*
 if (view_update_order==2)
 {
     update_view_1();
 }
 else
-{   // Added 2023/11/01. Because some GO can move PC
-    if (pc.x_change!=0 
-    ||  pc.y_change!=0 )
+{
+    // Added 2023/11/01. Because some GO can move PC
+    if (global.pc.x_change!=0 
+    ||  global.pc.y_change!=0 )
     {
         update_view_1();
     }
 }
+*/
 
 
 // --------------------------------------------------------------------
@@ -137,7 +150,7 @@ update_tile_anims();
 // D513                 - PC landingTimer
 // D52D: JSR EBF0       - PC camX, ocs, udp, update_swrdXY
 // D530                 - PC scs (sword collide solid)
-with(pc) PC_update_2();
+with(global.pc) PC_update_2();
 
 
 

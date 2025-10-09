@@ -71,8 +71,8 @@ if (counter < Bounce_MAX) // Bounce counter. Knocked off Helmethead, falling
             // where it may fall into a pit.
             if (Rise_done) // not 1st fall
             {
-                if ( g.pc.yt > Rise_YT)
-                {    Rise_yt = g.pc.yt;  } // not 1st rise, wave height close to PC
+                if ( global.pc.yt > Rise_YT)
+                {    Rise_yt = global.pc.yt;  } // not 1st rise, wave height close to PC
                 else Rise_yt = Rise_YT;
             }
             

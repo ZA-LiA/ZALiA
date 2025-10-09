@@ -73,7 +73,7 @@ switch(sub_state)
         _y = GROUND_ROW<<3;
     for(_i=GROUND_CLM; _i<g.rm_clms; _i++)
     {
-        if (g.dg_RmTile_solid[#_i,GROUND_ROW]) break;
+        if (global.dg_solid[#_i,GROUND_ROW]) break;
         _x = _i<<3;
         tile_change_1a(DEPTH_BG1, _x,_y, ts_Man_made_1a_WRB,$A0, TID_ONEWY1);
     }

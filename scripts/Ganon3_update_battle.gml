@@ -69,7 +69,7 @@ if (GO_can_collide_this_frame(update_idx))
     {
         if (Attack_id==Attack1_ID)
         {    _bodies_colliding=collide_pc_body(SkullHB_x,SkullHB_y, SkullHB_W,SkullHB_H, SkullHB_R);  }
-        else _bodies_colliding=collide_pc_body(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, BodyHB_r);
+        else _bodies_colliding=collide_pc_body(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, BodyHB_r);
     }
 }
 if (_bodies_colliding) cs |=  CS_BD1;
@@ -79,8 +79,8 @@ if (cs&CS_BD1) enemy_collide_pc_body();
 
 /*
 if (cs&CS_SW1 
-&&  g.pc.attack_bits&(BIT_ATK1|BIT_ATK2|BIT_ATK4) 
-//&&  g.pc.behavior!=g.pc.BVR_DWTH 
+&&  global.pc.attack_bits&(BIT_ATK1|BIT_ATK2|BIT_ATK4) 
+//&&  global.pc.behavior!=global.pc.BVR_DWTH 
 &&  Attack_id    != Attack1_ID 
 &&  Attack_round <= Attack_ROUNDS )
 {
@@ -189,8 +189,8 @@ switch(BattleState)
         }
         Skull_hspd = byte(_hspd * sign_(Skull_x<=arena_x));
         Skull_vspd = byte(_vspd * sign_(Skull_y<=viewYC()));
-        //Skull_hspd = byte(_hspd * sign_(Skull_x>g.pc.x));
-        //Skull_vspd = byte(_vspd * sign_(g.pc.attack_bits&BIT_ATK3));
+        //Skull_hspd = byte(_hspd * sign_(Skull_x>global.pc.x));
+        //Skull_vspd = byte(_vspd * sign_(global.pc.attack_bits&BIT_ATK3));
         
         
         //RoarDelay_timer      = RoarDelay_DURATION1;
@@ -220,7 +220,7 @@ switch(BattleState)
     /*if (timer==1)
     {
         timer=0;
-        Skull_hspd = byte( Skull_SPEED2 * sign_(Skull_x>g.pc.x));
+        Skull_hspd = byte( Skull_SPEED2 * sign_(Skull_x>global.pc.x));
         Skull_vspd = byte(-Skull_SPEED2);
     }*/
     if (timer) break;
@@ -298,15 +298,15 @@ switch(BattleState)
     Ganon3_update_skull_hb();
     PC_update_sword_hb();
     if (dg_AttackRounds[#Attack_round-1,1]  // current hp skull
-    &&  g.pc.SwordHB_collidable 
-    &&  g.pc.attack_bits&(BIT_ATK1|BIT_ATK2|BIT_ATK3|BIT_ATK4) 
+    &&  global.pc.SwordHB_collidable 
+    &&  global.pc.attack_bits&(BIT_ATK1|BIT_ATK2|BIT_ATK3|BIT_ATK4) 
     &&  collide_pc_sword(SkullHB_x,SkullHB_y, SkullHB_W,SkullHB_H, SkullHB_R) )
     {
         if!(SkullHB_colliding &  CS_SW1)
         {
             SkullHB_colliding |= CS_SW1;
             
-            with(g.pc)
+            with(global.pc)
             {
                 g.control1_timer = Pushback_DURATION; // PC atk will NOT affect PC.hspd
                 if (( xScale && !(cs&$2)) 
@@ -335,13 +335,13 @@ switch(BattleState)
             
             if (dg_AttackRounds[#Attack_round-1,1]) // current hp skull
             {
-                Skull_hspd = byte(abs8b(Skull_hspd) * g.pc.xScale);
+                Skull_hspd = byte(abs8b(Skull_hspd) * global.pc.xScale);
                 Skull_vspd = byte(abs8b(Skull_vspd) * sign_(irandom(1)));
-                if (g.pc.attack_bits&(BIT_ATK3|BIT_ATK4))
+                if (global.pc.attack_bits&(BIT_ATK3|BIT_ATK4))
                 {
                     Skull_hspd = byte(abs8b(Skull_hspd) * sign_(irandom(1)));
-                    if (g.pc.attack_bits&BIT_ATK3) Skull_vspd = byte( abs8b(Skull_vspd));
-                    if (g.pc.attack_bits&BIT_ATK4) Skull_vspd = byte(-abs8b(Skull_vspd));
+                    if (global.pc.attack_bits&BIT_ATK3) Skull_vspd = byte( abs8b(Skull_vspd));
+                    if (global.pc.attack_bits&BIT_ATK4) Skull_vspd = byte(-abs8b(Skull_vspd));
                 }
                 
                 if (Attack_round==3 
@@ -739,8 +739,8 @@ switch(BattleState)
     Attack_id = Attack2_ID;
     if (timer==1)
     {   // JUMP!!!!!
-        var _DIST0 = abs(x-g.pc.x);
-        var _DIST1 = ww_+g.pc.ww_;
+        var _DIST0 = abs(x-global.pc.x);
+        var _DIST1 = ww_+global.pc.ww_;
         var _DIST2 = _DIST1+($05<<3);
         var _DIST3 = _DIST1+($0C<<3);
         var                _HSPD = $60;
@@ -748,7 +748,7 @@ switch(BattleState)
         if (_DIST0<_DIST2) _HSPD = $40;
         if (_DIST0<_DIST1) _HSPD = $30;
         
-        hspd_dir = sign_(x<g.pc.x);
+        hspd_dir = sign_(x<global.pc.x);
         hspd  = byte(_HSPD*hspd_dir);
         
         vspd_dir = -1;
@@ -966,7 +966,7 @@ switch(BattleState)
     Attack_id = Attack4_ID;
     if (timer) break;
     
-    hspd_dir = sign_(x>=g.pc.x);
+    hspd_dir = sign_(x>=global.pc.x);
     
     timer       = 0;
     BattleState = BattleState_Attack4_POSITION1;
@@ -1002,12 +1002,12 @@ switch(BattleState)
     if (timer) break;
     if (StunMovement_timer) break;
     
-    Ganon2_update_6(max($28,g.pc.HSPD_MAX1+$10), hspd_dir); // update x, y, jump
-    //Ganon2_update_6(max($28,g.pc.hspd_max+$10), hspd_dir); // update x, y, jump
+    Ganon2_update_6(max($28,global.pc.HSPD_MAX1+$10), hspd_dir); // update x, y, jump
+    //Ganon2_update_6(max($28,global.pc.hspd_max+$10), hspd_dir); // update x, y, jump
     
     if (Ganon3_update_battle_2a()  // if hit wall (cs3)
     && !Ganon2_update_4()  // returns: y+Slime_H_ >= GROUND_Y
-    &&  inRange(y, GROUND_Y-ww_-g.pc.hh_ ,GROUND_Y-ww_-1) )
+    &&  inRange(y, GROUND_Y-ww_-global.pc.hh_ ,GROUND_Y-ww_-1) )
     {
         var _X  = (arena_w>>1)-Slime_H_;
             //_X += 8; //adj

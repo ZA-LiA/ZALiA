@@ -5,25 +5,25 @@ if ( sub_state==SUB_ST_IDLE
 ||  (sub_state==SUB_ST_MOVE && abs(speed1)<=SPD_O) )
 {
     update_body_hb_3a();
-    if (collide_pc_sword(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h))
+    if (collide_pc_sword(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h))
     {
         var     _PUSH = $C;
         var     _qual = false;
         switch(orientation)
         {
             case 0: {
-            if (isVal(g.pc.behavior, g.pc.behavior_STAB_STAND, g.pc.behavior_STAB_CROUCH) 
-            &&  g.pc.xScale == DIR_IN )
+            if (isVal(global.pc.behavior, global.pc.behavior_STAB_STAND, global.pc.behavior_STAB_CROUCH) 
+            &&  global.pc.xScale == DIR_IN )
             {
                 _qual = true;
-                g.control1_timer = g.pc.Pushback_DURATION;
-                g.pc.hspd = byte(_PUSH * -DIR_IN);
+                g.control1_timer = global.pc.Pushback_DURATION;
+                global.pc.hspd = byte(_PUSH * -DIR_IN);
             }
             break;  }
             
             case 1: {
-            if (isVal(g.pc.behavior, g.pc.behavior_STAB_DOWN) 
-            &&  g.pc.vspd && g.pc.vspd < $80 )
+            if (isVal(global.pc.behavior, global.pc.behavior_STAB_DOWN) 
+            &&  global.pc.vspd && global.pc.vspd < $80 )
             {
                 _qual = true;
                 PC_set_bounce();
@@ -31,21 +31,21 @@ if ( sub_state==SUB_ST_IDLE
             break;  }
             
             case 2: {
-            if (isVal(g.pc.behavior, g.pc.behavior_STAB_STAND, g.pc.behavior_STAB_CROUCH) 
-            &&  g.pc.xScale == DIR_IN )
+            if (isVal(global.pc.behavior, global.pc.behavior_STAB_STAND, global.pc.behavior_STAB_CROUCH) 
+            &&  global.pc.xScale == DIR_IN )
             {
                 _qual = true;
-                g.control1_timer = g.pc.Pushback_DURATION;
-                g.pc.hspd = byte(_PUSH * -DIR_IN);
+                g.control1_timer = global.pc.Pushback_DURATION;
+                global.pc.hspd = byte(_PUSH * -DIR_IN);
             }
             break;  }
             
             case 3: {
-            if (isVal(g.pc.behavior, g.pc.behavior_STAB_UP) 
-            &&  g.pc.vspd && g.pc.vspd & $80 )
+            if (isVal(global.pc.behavior, global.pc.behavior_STAB_UP) 
+            &&  global.pc.vspd && global.pc.vspd & $80 )
             {
                 _qual = true;
-                g.pc.vspd = 0;
+                global.pc.vspd = 0;
             }
             break;  }
         }

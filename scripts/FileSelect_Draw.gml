@@ -4,7 +4,6 @@
 var _i,_j;
 var _pi;
 var _text;
-var _spr = 0;
 var _x = 0;
 var _y = 0;
 //var _yoff = 0;
@@ -46,10 +45,9 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
     {   // Quest icon
         if (dg_stats[#_i,1]==2)
         {
-            _spr = SPR_QUEST;
             _x = QUEST_X;
             _y = QUEST_Y + (SAVE_FILE_PAD*_i);
-            draw_sprite_(_spr,0, _x,_y, _pi);
+            draw_sprite_(SPR_QUEST,0, _x,_y, _pi);
         }
         
         
@@ -59,7 +57,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
         _x  = DEATHS_X;
         _y  = DEATHS_Y + (SAVE_FILE_PAD*_i);
         _y += 1; // save file name pad
-        draw_text_(_x, _y, _text, -1,_pi);
+        draw_text_(_x,_y, _text, -1,_pi);
         
         
         // Levels
@@ -90,25 +88,22 @@ switch(state)
     
     // ==================================================
     case State_REGISTER:{
-    var _STATE = FileSelect_Rando_is_on(-1);
-    
     // "OFF"/"ON" text after "RANDO" text
     _x  = saveNameX;
     _x += (string_length("RANDO")+1)<<3;
     _y  = REGISTER_RANDO_TEXT_YT;
     //_y  = RandoOptions_Y;
     //_y += $2; // micro adj
-    if (_STATE) _text = Text_ON;
-    else        _text = Text_OFF;
-    var _len = string_length(_text);
+    if (REGISTER_rando_is_on) _text = Text_ON;
+    else                      _text = Text_OFF;
     draw_text_(_x,_y, _text, -1,PI_MENU1);
     
     // Rando seed
-    if (_STATE)
+    if (REGISTER_rando_is_on)
     {
         _x += (string_length(Text_ON)+1)<<3;
         _y += RandoSeedY_ADJ1;
-        Rando_draw_seed(_x,_y, FileSelect_get_file_seed(Register_file_num,1));
+        Rando_draw_seed(_x,_y, REGISTER_file_seed);
     }
     break;}//case State_REGISTER
     
@@ -175,7 +170,7 @@ if (state==State_REGISTER
 
 
 // ---------------------------------------------------------------------------------------------
-if (covered) g.surf.draw_clear_color = p.C_BLK1;
+//if (covered) g.surf.draw_clear_color = p.C_BLK1;
 
 
 

@@ -31,5 +31,36 @@ if (_exists)                             ds_=undefined;
 */
 
 
+var _exists = false;
+
+
+
+
+if (ver==4)
+{
+    if (surface_exists(Water_surf1)) surface_free(Water_surf1);
+    
+    var _COUNT0 = val(Water_dm[?STR_Waterfall+STR_Count]);
+    if (_COUNT0)
+    {
+        for(var _i=0; _i<_COUNT0; _i++) // each waterfall
+        {
+            if(!is_undefined(  Water_dm[?STR_Waterfall+hex_str(_i+1)+STR_Surface]) 
+            &&  surface_exists(Water_dm[?STR_Waterfall+hex_str(_i+1)+STR_Surface]) )
+            {
+                surface_free(  Water_dm[?STR_Waterfall+hex_str(_i+1)+STR_Surface]);
+            }
+        }
+    }
+    
+    
+        _exists=variable_instance_exists(id,"Water_dm");
+    if (_exists) _exists = !is_undefined(    Water_dm);
+    if (_exists) _exists = ds_exists(        Water_dm,ds_type_map);
+    if (_exists)           ds_map_destroy(   Water_dm);
+    if (_exists)                             Water_dm=undefined;
+}
+
+
 
 

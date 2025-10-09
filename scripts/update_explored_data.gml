@@ -1,16 +1,16 @@
 /// update_explored_data()
 
 
-if (g.pc.x>>8 != g.pc.x_prev>>8   // Crossed into a map page
-||  g.pc.y>>8 != g.pc.y_prev>>8 ) // Crossed into a map page
+if (global.pc.x>>8 != global.pc.x_prev>>8   // Crossed into a map page
+||  global.pc.y>>8 != global.pc.y_prev>>8 ) // Crossed into a map page
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 
 
-var  _PAGE_X = g.pc.x>>8;
-var  _PAGE_Y = g.pc.y>>8;
+var  _PAGE_X = global.pc.x>>8;
+var  _PAGE_Y = global.pc.y>>8;
 if(!(_PAGE_X+1) 
 || !(_PAGE_Y+1) )
 {

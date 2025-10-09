@@ -7,7 +7,7 @@ g.gui_state       = g.gui_state_DIALOGUE1;
 g.pc_lock         = PC_LOCK_ALL; // Lock all
 g.dialogue_started_this_frame = true;
 
-with(g.pc)
+with(global.pc)
 {
     attack_phase = 0;
     PC_set_behavior(behavior_IDLE);

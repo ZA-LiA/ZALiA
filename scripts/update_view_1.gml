@@ -7,8 +7,8 @@ var _diff  = 0;
 var _dist0 = 0;
 
 var                 _PC_DIR_BITS  = $0;
-if (pc.x_change!=0) _PC_DIR_BITS |= $1<<(!pc.x_change_dir); // $1 or $2
-if (pc.y_change!=0) _PC_DIR_BITS |= $4<<(!pc.y_change_dir); // $4 or $8
+if (global.pc.x_change!=0) _PC_DIR_BITS |= $1<<(!global.pc.x_change_dir); // $1 or $2
+if (global.pc.y_change!=0) _PC_DIR_BITS |= $4<<(!global.pc.y_change_dir); // $4 or $8
 
 
 
@@ -19,7 +19,7 @@ if (pc.y_change!=0) _PC_DIR_BITS |= $4<<(!pc.y_change_dir); // $4 or $8
 // --------------  HORIZONTAL  -------------------------------------
 if(!cam_xl_range())
 {     view_at_rm_edge |= $3;  }
-//if (_DEBUG) show_debug_message("update_view_1(). pc.x=$"+hex_str(pc.x)+" pc.x_change="+string(pc.x_change)+" pc.y_change="+string(pc.y_change)+" _PC_DIR_BITS=$"+hex_str(_PC_DIR_BITS)+", pc.x_change_dir="+string(pc.x_change_dir)+" pc.view_xl_dist="+string(pc.view_xl_dist)+", viewXL()=$"+hex_str(viewXL())+" cam_xl_min()=$"+hex_str(cam_xl_min())+", view_at_rm_edge=$"+hex_str(view_at_rm_edge)+" g.view_lock_rm=$"+hex_str(view_lock_rm)+" view_lock=$"+hex_str(view_lock));
+//if (_DEBUG) show_debug_message("update_view_1(). global.pc.x=$"+hex_str(global.pc.x)+" global.pc.x_change="+string(global.pc.x_change)+" global.pc.y_change="+string(global.pc.y_change)+" _PC_DIR_BITS=$"+hex_str(_PC_DIR_BITS)+", global.pc.x_change_dir="+string(global.pc.x_change_dir)+" global.pc.view_xl_dist="+string(global.pc.view_xl_dist)+", viewXL()=$"+hex_str(viewXL())+" cam_xl_min()=$"+hex_str(cam_xl_min())+", view_at_rm_edge=$"+hex_str(view_at_rm_edge)+" g.view_lock_rm=$"+hex_str(view_lock_rm)+" view_lock=$"+hex_str(view_lock));
 
 if(!( view_at_rm_edge &  $3) 
 && !((view_lock       &  $3) & _PC_DIR_BITS) )
@@ -30,8 +30,8 @@ if(!( view_at_rm_edge &  $3)
     // RIGHT ----------------------------
     if (cam_xr_max()-viewXR() <= _pad) // if view is close enough to its max
     {
-        if (pc.x_change_dir            // pc moving right
-        ||  pc.view_xl_dist>viewW_() ) // pc right of cam center
+        if (global.pc.x_change_dir            // global.pc moving right
+        ||  global.pc.view_xl_dist>viewW_() ) // global.pc right of cam center
         {
             view_at_rm_edge |= $1; // $1 right
         }
@@ -40,8 +40,8 @@ if(!( view_at_rm_edge &  $3)
     // LEFT ----------------------------
     if (viewXL()-cam_xl_min() <= _pad)
     {
-        if(!pc.x_change_dir            // pc moving left
-        ||  pc.view_xl_dist<viewW_() ) // pc left of cam center
+        if(!global.pc.x_change_dir            // global.pc moving left
+        ||  global.pc.view_xl_dist<viewW_() ) // global.pc left of cam center
         {
             view_at_rm_edge |= $2; // $2 left
         }
@@ -52,20 +52,20 @@ if(!( view_at_rm_edge &  $3)
     if (use_smooth_cam_x 
     || !(view_at_rm_edge&$3) )
     {
-        //if (_DEBUG) show_debug_message("update_view_1(). pc.x=$"+hex_str(pc.x)+" viewXC()=$"+hex_str(viewXC())+", abs(pc.x-viewXC())="+string(abs(pc.x-viewXC()))+" _diff="+string(_diff)+" global.ViewCatchUp_move_x="+string_format(global.ViewCatchUp_move_x,1,4));
-        if ((global.ViewCatchUp_state&$1 && pc.x>viewXC()) 
-        ||  (global.ViewCatchUp_state&$2 && pc.x<viewXC()) )
+        //if (_DEBUG) show_debug_message("update_view_1(). global.pc.x=$"+hex_str(global.pc.x)+" viewXC()=$"+hex_str(viewXC())+", abs(global.pc.x-viewXC())="+string(abs(global.pc.x-viewXC()))+" _diff="+string(_diff)+" global.ViewCatchUp_move_x="+string_format(global.ViewCatchUp_move_x,1,4));
+        if ((global.ViewCatchUp_state&$1 && global.pc.x>viewXC()) 
+        ||  (global.ViewCatchUp_state&$2 && global.pc.x<viewXC()) )
         {
-            _dist0 = abs(pc.x-viewXC());
+            _dist0 = abs(global.pc.x-viewXC());
             global.ViewCatchUp_move_x += global.ViewCatchUp_SPEED_X * min((_dist0/global.ViewCatchUp_DIST1),1.00);
             _diff  = min(floor(global.ViewCatchUp_move_x), _dist0);
-            _diff *= sign_(pc.x>viewXC());
+            _diff *= sign_(global.pc.x>viewXC());
             //show_debug_message("update_view_1(). viewXL()=$"+hex_str(viewXL())+" _dist0="+string(_dist0)+" global.ViewCatchUp_move_x="+string_format(global.ViewCatchUp_move_x,4,4)+" frac(global.ViewCatchUp_move_x)="+string_format(frac(global.ViewCatchUp_move_x),4,4)+" _diff="+string(_diff));
             global.ViewCatchUp_move_x  = frac(global.ViewCatchUp_move_x);
         }
         else if(!global.ViewCatchUp_state)
         {
-            _diff = update_view_1a(pc.x_change, use_smooth_cam_x, pc.x,viewXC());
+            _diff = update_view_1a(global.pc.x_change, use_smooth_cam_x, global.pc.x,viewXC());
         }
         
         if (_diff!=0)
@@ -78,10 +78,10 @@ if(!( view_at_rm_edge &  $3)
         }
         
         
-        //if (_DEBUG) show_debug_message("update_view_1(). pc.x=$"+hex_str(pc.x)+" viewXC()=$"+hex_str(viewXC())+", abs(pc.x-viewXC())="+string(abs(pc.x-viewXC()))+" _diff="+string(_diff)+" global.ViewCatchUp_move_x="+string_format(global.ViewCatchUp_move_x,1,4));
+        //if (_DEBUG) show_debug_message("update_view_1(). global.pc.x=$"+hex_str(global.pc.x)+" viewXC()=$"+hex_str(viewXC())+", abs(global.pc.x-viewXC())="+string(abs(global.pc.x-viewXC()))+" _diff="+string(_diff)+" global.ViewCatchUp_move_x="+string_format(global.ViewCatchUp_move_x,1,4));
         if (global.ViewCatchUp_state&$3)
         {
-            if (pc.x==viewXC() 
+            if (global.pc.x==viewXC() 
             ||  viewXL()-cam_xl_min()<=_pad 
             ||  cam_xr_max()-viewXR()<=_pad )
             {
@@ -105,7 +105,7 @@ if(!( view_at_rm_edge &  $3)
 // --------------  VERTICAL  -------------------------------------
 if(!cam_yt_range())
 {     view_at_rm_edge |= $C;  }
-//if (_DEBUG) show_debug_message("update_view_1(). pc.x=$"+hex_str(pc.x)+" pc.x_change="+string(pc.x_change)+" pc.y_change="+string(pc.y_change)+" _PC_DIR_BITS=$"+hex_str(_PC_DIR_BITS)+", pc.y_change_dir="+string(pc.y_change_dir)+" pc.view_yt_dist="+string(pc.view_yt_dist)+", viewYT()=$"+hex_str(viewYT())+" cam_yt_min()=$"+hex_str(cam_yt_min())+", view_at_rm_edge=$"+hex_str(view_at_rm_edge)+" g.view_lock_rm=$"+hex_str(view_lock_rm)+" view_lock=$"+hex_str(view_lock));
+//if (_DEBUG) show_debug_message("update_view_1(). global.pc.x=$"+hex_str(global.pc.x)+" global.pc.x_change="+string(global.pc.x_change)+" global.pc.y_change="+string(global.pc.y_change)+" _PC_DIR_BITS=$"+hex_str(_PC_DIR_BITS)+", global.pc.y_change_dir="+string(global.pc.y_change_dir)+" global.pc.view_yt_dist="+string(global.pc.view_yt_dist)+", viewYT()=$"+hex_str(viewYT())+" cam_yt_min()=$"+hex_str(cam_yt_min())+", view_at_rm_edge=$"+hex_str(view_at_rm_edge)+" g.view_lock_rm=$"+hex_str(view_lock_rm)+" view_lock=$"+hex_str(view_lock));
 
 if(!( view_at_rm_edge &  $C) 
 && !((view_lock       &  $C) & _PC_DIR_BITS) )
@@ -116,8 +116,8 @@ if(!( view_at_rm_edge &  $C)
     // DOWN ----------------------------
     if (cam_yb_max()-viewYB() <= _pad)
     {
-        if (pc.y_change_dir            // pc moving down
-        ||  pc.view_yt_dist>viewH_() ) // pc below view center
+        if (global.pc.y_change_dir            // global.pc moving down
+        ||  global.pc.view_yt_dist>viewH_() ) // global.pc below view center
         {
             view_at_rm_edge |= $4; // $4 bottom
         }
@@ -126,8 +126,8 @@ if(!( view_at_rm_edge &  $C)
     // UP ----------------------------
     if (viewYT()-cam_yt_min() <= _pad)
     {
-        if(!pc.y_change_dir            // pc moving up
-        ||  pc.view_yt_dist<viewH_() ) // pc above view center
+        if(!global.pc.y_change_dir            // global.pc moving up
+        ||  global.pc.view_yt_dist<viewH_() ) // global.pc above view center
         {
             view_at_rm_edge |= $8; // $8 top
         }
@@ -137,19 +137,19 @@ if(!( view_at_rm_edge &  $C)
     if (use_smooth_cam_y 
     || !(view_at_rm_edge&$C) )
     {
-        //if (_DEBUG) show_debug_message("update_view_1(). pc.y=$"+hex_str(pc.y)+" viewYC()=$"+hex_str(viewYC())+", abs(pc.y-viewYC())="+string(abs(pc.y-viewYC()))+" _diff="+string(_diff)+" global.ViewCatchUp_move_y="+string_format(global.ViewCatchUp_move_y,1,4));
-        if ((global.ViewCatchUp_state&$4 && pc.y>viewYC()) 
-        ||  (global.ViewCatchUp_state&$8 && pc.y<viewYC()) )
+        //if (_DEBUG) show_debug_message("update_view_1(). global.pc.y=$"+hex_str(global.pc.y)+" viewYC()=$"+hex_str(viewYC())+", abs(global.pc.y-viewYC())="+string(abs(global.pc.y-viewYC()))+" _diff="+string(_diff)+" global.ViewCatchUp_move_y="+string_format(global.ViewCatchUp_move_y,1,4));
+        if ((global.ViewCatchUp_state&$4 && global.pc.y>viewYC()) 
+        ||  (global.ViewCatchUp_state&$8 && global.pc.y<viewYC()) )
         {
-            _dist0 = abs(pc.y-viewYC());
+            _dist0 = abs(global.pc.y-viewYC());
             global.ViewCatchUp_move_y += global.ViewCatchUp_SPEED_Y * min((_dist0/global.ViewCatchUp_DIST1),1.00);
             _diff  = min(floor(global.ViewCatchUp_move_y), _dist0);
-            _diff *= sign_(pc.y>viewYC());
+            _diff *= sign_(global.pc.y>viewYC());
             global.ViewCatchUp_move_y  = frac(global.ViewCatchUp_move_y);
         }
         else if(!global.ViewCatchUp_state)
         {
-            _diff = update_view_1a(pc.y_change, use_smooth_cam_y, pc.y,viewYC());
+            _diff = update_view_1a(global.pc.y_change, use_smooth_cam_y, global.pc.y,viewYC());
         }
         
         if (_diff!=0)
@@ -162,10 +162,10 @@ if(!( view_at_rm_edge &  $C)
         }
         
         
-        //if (_DEBUG) show_debug_message("update_view_1(). pc.y=$"+hex_str(pc.y)+" viewYC()=$"+hex_str(viewYC())+", abs(pc.y-viewYC())="+string(abs(pc.y-viewYC()))+" _diff="+string(_diff)+" global.ViewCatchUp_move_y="+string_format(global.ViewCatchUp_move_y,1,4));
+        //if (_DEBUG) show_debug_message("update_view_1(). global.pc.y=$"+hex_str(global.pc.y)+" viewYC()=$"+hex_str(viewYC())+", abs(global.pc.y-viewYC())="+string(abs(global.pc.y-viewYC()))+" _diff="+string(_diff)+" global.ViewCatchUp_move_y="+string_format(global.ViewCatchUp_move_y,1,4));
         if (global.ViewCatchUp_state&$C)
         {
-            if (pc.y==viewYC() 
+            if (global.pc.y==viewYC() 
             ||  viewYT()-cam_yt_min()<=_pad 
             ||  cam_yb_max()-viewYB()<=_pad )
             {
@@ -186,13 +186,11 @@ if(!( view_at_rm_edge &  $C)
 update_view_og();
 
 
-if (view_update_order==1)
-{   // Added 2023/11/01 so that if a GO moves PC and 
-    // update_Camera_1a() is called again after 
-    // GO update, it doesn't cause a double cam move.
-    pc.x_change=0;
-    pc.y_change=0;
-}
+// Added 2023/11/01 so that if a GO moves PC and 
+// update_Camera_1() is called again after 
+// GO update, it doesn't cause a double cam move.
+global.pc.x_change = 0;
+global.pc.y_change = 0;
 
 
 

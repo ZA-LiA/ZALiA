@@ -45,7 +45,7 @@ change_pal(strReplaceAt(p.pal_rm_new, _POS,_LEN,_PAL));
 
 
 g.pc_lock   = PC_LOCK;
-g.pc.xScale = 1;
+global.pc.xScale = 1;
 
 
 

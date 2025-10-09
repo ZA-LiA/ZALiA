@@ -22,7 +22,7 @@ else                   g.EnterRoom_control_timer = g.EnterRoom_DURATION_DOOR;
 set_pc_spawn_xy();
 
 
-// The default spawn_y for entering a room from a 
+// The default spawn_yt for entering a room from a 
 // Pit-Up Exit is too low for some rooms that have 
 // solid tiles high up, this adjusts for that.
 if (_side&$8 
@@ -33,8 +33,8 @@ if (_side&$8
     ||  collide_solid_grid(csBtm2X,csBtm2Y) )
     {
         var _ROW = min(find_row_solid(0,csBtm1X>>3,csBtm1Y>>3,-1), find_row_solid(0,csBtm2X>>3,csBtm2Y>>3,-1));
-        spawn_y  = (_ROW+1)<<3;
-        spawn_y -= hh;
+        spawn_yt  = (_ROW+1)<<3;
+        spawn_yt -= hh;
     }
 }
 
@@ -83,7 +83,7 @@ if (_side&$3)
 
 depth = depth_def;
 
-set_xlyt(id, spawn_x,spawn_y); // current sprite_index is spr_Placement_32x32
+set_xlyt(id, spawn_xl,spawn_yt); // current sprite_index is spr_Placement_32x32
 
 
      if (_side&$3==$1) xScale = -1; // right exit
@@ -106,9 +106,9 @@ if (_ON_ELEVATOR)
 {
     with(Elevator)
     {
-        if (collide_pc_body(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h))
+        if (collide_pc_body(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h))
         {
-            with(g.pc)
+            with(global.pc)
             {
                 RmEnter_elevator       = other;
                 RescueDropOff_elevator = other;
@@ -157,7 +157,7 @@ state = state_NORMAL;
 
 
 
-if (DEV) sdm(" PC_spawn()  "+"spawn_x $"+hex_str(spawn_x)+", spawn_y $"+hex_str(spawn_y));
+if (DEV) sdm(" PC_spawn()  "+"spawn_xl $"+hex_str(spawn_xl)+", spawn_yt $"+hex_str(spawn_yt));
 
 
 

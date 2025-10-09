@@ -7,7 +7,7 @@
 pushback_pc_and_go(id);
 
 // 9AFC
-hspd = g.pc.hspd ^ $FF;
+hspd = global.pc.hspd ^ $FF;
 
 aud_play_sound(get_audio_theme_track(dk_StrikeSolid));
 

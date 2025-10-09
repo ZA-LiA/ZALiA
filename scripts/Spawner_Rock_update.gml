@@ -26,11 +26,11 @@ if (ver==2)  _DIR = -PlatformRaft.hspd_dir; // So it's not chasing PC
 var _XL  = viewXC() + (viewW_()*-_DIR);
     _XL += 4*_DIR;
     _XL -= 8;
-var _YT  = g.pc.yt + dl_YOFF[|_IDX] + 1;
+var _YT  = global.pc.yt + dl_YOFF[|_IDX] + 1;
 //_YT -= $3; // 2022/11/07: Rocks seems too low. 2022/11/12: Y position was fine, verified by testing OG
 /*  OG. // ar_yoff = $03,13,-0D,-1D, -$2D,-3D,03,13;
 var _XL  = g.camXL + ($C*_DIR)&$FF;
-var _YT  = g.pc.yt + ar_yoff[_IDX] + 1;
+var _YT  = global.pc.yt + ar_yoff[_IDX] + 1;
 */
 
 g.go_mgr.uIdxSwap_goc = _UIDX;

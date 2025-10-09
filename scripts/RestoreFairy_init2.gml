@@ -23,10 +23,10 @@ sub_state       = SUB_STATE_IDLE;
 if (rm_get_encounter_types(g.rm_name) & g.ENC_FARY)
 {
     var  _Y  = (g.rm_rows-PAGE_ROWS)<<3;
-    spawn_y  = _Y + ($1C<<3); // common ground y
-    spawn_y  = get_ground_y(x,_Y, 1, spawn_y);
-    spawn_y -= $A<<3;
-    set_xlyt(id, xl,spawn_y);
+    spawn_yt  = _Y + ($1C<<3); // common ground y
+    spawn_yt  = get_ground_y(x,_Y, 1, spawn_yt);
+    spawn_yt -= $A<<3;
+    set_xlyt(id, xl,spawn_yt);
 }
 
 

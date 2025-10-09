@@ -14,7 +14,7 @@ if (_UIDX == UIDX_NULL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // Spawn ahead of PC as PC is moving.
 var _XL  = viewXL() + irandom(viewW());
-    _XL += ($60 * sign(g.pc.x_change));
+    _XL += ($60 * sign(global.pc.x_change));
     _XL  = round8(_XL); // round to nearest 8th
 var _YT  = viewYB()-8;
 

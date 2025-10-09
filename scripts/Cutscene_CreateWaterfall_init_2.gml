@@ -9,9 +9,9 @@ scr_step = Cutscene_CreateWaterfall_update;
 depth = Waterfall_DRAW_DEPTH;
 
 
-spawn_x = $2D<<3;
-spawn_y = ((g.rm_rows-PAGE_ROWS)+$10)<<3;
-set_xlyt(id, spawn_x,spawn_y);
+spawn_xl = $2D<<3;
+spawn_yt = ((g.rm_rows-PAGE_ROWS)+$10)<<3;
+set_xlyt(id, spawn_xl,spawn_yt);
 
 
 if (quest_is_complete(QuestID_Nabooru_Spell))

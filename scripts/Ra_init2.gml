@@ -42,7 +42,7 @@ switch(ver)
 
 
 if (wINw(xl,ww, viewXL(),viewW()) 
-&&  g.pc.state==g.pc.state_SPAWN 
+&&  global.pc.state==global.pc.state_SPAWN 
 &&  g.exit_enter.side&$3 )
 {
     hspd = 0;

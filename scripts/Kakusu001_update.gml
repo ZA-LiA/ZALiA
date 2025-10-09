@@ -6,13 +6,13 @@ switch(sub_state)
     // ---------------------------------------------------------------------
     // --------------------------------------------------------------
     case SUB_STATE_CHLG_1A:{
-    if (g.pc.ogr) break;
+    if (global.pc.ogr) break;
     
     
-    // var _CLM = g.pc.x       >>3;
-    var _ROW = g.pc.csBtm1Y>>3;
+    // var _CLM = global.pc.x       >>3;
+    var _ROW = global.pc.csBtm1Y>>3;
     
-    if (wINw(g.pc.csBtm1X,g.pc.csBtm2X-g.pc.csBtm1X, dg_platform[#0,1]<<3,$02<<3) 
+    if (wINw(global.pc.csBtm1X,global.pc.csBtm2X-global.pc.csBtm1X, dg_platform[#0,1]<<3,$02<<3) 
     &&  _ROW == dg_platform[#0,2] )
     {
         for(var _i=0; _i<Platform_COUNT; _i++) dg_platform[#_i,0] = 0;
@@ -35,8 +35,8 @@ switch(sub_state)
     // ---------------------------------------------------------------------
     // --------------------------------------------------------------
     case SUB_STATE_CHLG_1B:{
-    if ( g.pc.ogr 
-    || !(g.pc.cs&CS_BTM) )
+    if ( global.pc.ogr 
+    || !(global.pc.cs&CS_BTM) )
     {
         break;//case SUB_STATE_CHLG_1B:{
     }
@@ -47,11 +47,11 @@ switch(sub_state)
     /*
     if!(g.counter1&$7F){
         var _str  = "TID_ONEWY1 $"+hex_str(TID_ONEWY1)+", ";
-            _str += "g.pc.csBtm1X>>3 $"+hex_str(g.pc.csBtm1X>>3)+", ";
-            _str += "g.pc.csBtm2X>>3 $"+hex_str(g.pc.csBtm2X>>3)+", ";
-            _str += "g.pc.csBtm1Y>>3 $"+hex_str(g.pc.csBtm1Y>>3)+", ";
-            _str += "g.dg_RmTile_solid[#g.pc.csBtm1X>>3,g.pc.csBtm1Y>>3] $"+hex_str(g.dg_RmTile_solid[#g.pc.csBtm1X>>3,g.pc.csBtm1Y>>3])+", ";
-            _str += "g.dg_RmTile_solid[#g.pc.csBtm2X>>3,g.pc.csBtm1Y>>3] $"+hex_str(g.dg_RmTile_solid[#g.pc.csBtm2X>>3,g.pc.csBtm1Y>>3])+", ";
+            _str += "global.pc.csBtm1X>>3 $"+hex_str(global.pc.csBtm1X>>3)+", ";
+            _str += "global.pc.csBtm2X>>3 $"+hex_str(global.pc.csBtm2X>>3)+", ";
+            _str += "global.pc.csBtm1Y>>3 $"+hex_str(global.pc.csBtm1Y>>3)+", ";
+            _str += "global.dg_solid[#global.pc.csBtm1X>>3,global.pc.csBtm1Y>>3] $"+hex_str(global.dg_solid[#global.pc.csBtm1X>>3,global.pc.csBtm1Y>>3])+", ";
+            _str += "global.dg_solid[#global.pc.csBtm2X>>3,global.pc.csBtm1Y>>3] $"+hex_str(global.dg_solid[#global.pc.csBtm2X>>3,global.pc.csBtm1Y>>3])+", ";
             sdm(_str);
         for(_i=0; _i<Platform_COUNT; _i++){
             _str  = string(_i)+": ";
@@ -66,17 +66,17 @@ switch(sub_state)
     
     
     
-    var _ROW  = g.pc.csBtm1Y>>3;
-    var _CLM1 = g.pc.csBtm1X>>3;
-    var _CLM2 = g.pc.csBtm2X>>3;
+    var _ROW  = global.pc.csBtm1Y>>3;
+    var _CLM1 = global.pc.csBtm1X>>3;
+    var _CLM2 = global.pc.csBtm2X>>3;
     
     var _c1 = is_in_grid(_CLM1,_ROW, g.rm_clms,g.rm_rows);
     var _c2 = is_in_grid(_CLM2,_ROW, g.rm_clms,g.rm_rows);
     
     var      _SOLID1 = 0;
-    if (_c1) _SOLID1 = g.dg_RmTile_solid[#_CLM1,_ROW];
+    if (_c1) _SOLID1 = global.dg_solid[#_CLM1,_ROW];
     var      _SOLID2 = 0;
-    if (_c2) _SOLID2 = g.dg_RmTile_solid[#_CLM2,_ROW];
+    if (_c2) _SOLID2 = global.dg_solid[#_CLM2,_ROW];
     
     if((!_c1 || !_SOLID1) 
     && (!_c2 || !_SOLID2) )
@@ -93,7 +93,7 @@ switch(sub_state)
     ||  _SOLID2&TID_ONEWY1 )
     {
         var _W = 2<<3;
-        _x  = g.pc.x-(_W>>1);
+        _x  = global.pc.x-(_W>>1);
         _y  = _ROW<<3;
         
         for(_i=1; _i<Platform_COUNT; _i++)

@@ -332,7 +332,7 @@ if (abs(_HORIZONTAL))
         case MainOption_PC_SPRITES:{
         //if (timer) break;
         
-        with(g.pc)
+        with(global.pc)
         {
             var _Skin_COUNT = val(dm_skins[?STR_Set+STR_Count],1);
             if (_Skin_COUNT>1)

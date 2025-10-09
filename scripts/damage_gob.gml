@@ -17,8 +17,8 @@ with(argument0)
     
     var _HP_PREV=hp;
     
-        hp -= argument1;
-    if (hp <= 0)
+        hp-=argument1;
+    if (hp<=0)
     {
         hspd_pushback = 0;
         update_kill_count(); // kill count
@@ -27,7 +27,7 @@ with(argument0)
         timer = explosion_DURATION1; // explosion_DURATION1=$25: 0.617s
         state = state_EXPLODE;
     }
-    else if (g.pc.behavior != g.pc.behavior_STAB_DOWN)
+    else if (global.pc.behavior!=global.pc.behavior_STAB_DOWN)
     {
         if (argument2) pushback_pc_and_go(id,0); // Proj collision: Won't push PC
         else           pushback_pc_and_go(id);

@@ -288,6 +288,7 @@ while(!is_undefined(g.dm_spawn[?_dk_spawn+STR_obj_idx]))
 
 
 
+/*
 //  ------------  Challenge  ---------------------------
 _count2=1;
 _dk_spawn2 = g.rm_name+STR_Challenge+hex_str(_count2++);
@@ -331,6 +332,7 @@ while(!is_undefined(_obj2))
     _dk_spawn2 = g.rm_name+STR_Challenge+hex_str(_count2++);
     _obj2      = g.dm_spawn[?_dk_spawn2+STR_obj_idx];
 }
+*/
 
 
 

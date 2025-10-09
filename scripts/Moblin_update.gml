@@ -36,7 +36,7 @@ if (behavior  // if attacking
     &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
     {
         if (inRange(x, g.view_xl_og,g.view_xr_og) 
-        ||  abs(x-g.pc.x) < attack_dist )
+        ||  abs(x-global.pc.x) < attack_dist )
         {
             var _XL = xl + (ver==3);
             var _YT = yt + 5;

@@ -7,7 +7,7 @@ update_EF11();
 
 if(!active)
 {
-    active = qual_spawn_3a(spawn_x,ww_, spawn_y,hh_);
+    active = qual_spawn_3a(spawn_xl,ww_, spawn_yt,hh_);
     //active = qual_spawn_1a(spawn_x, ww);
     //if (active) sdm("DropSpawner activated!");
 }

@@ -131,10 +131,10 @@ DEFEATED_COUNT = get_kakusu_count();
 
 
 
-spawn_x = (($47<<3)+4) - ww_;
-spawn_y = (_ROW0+$1B)<<3;
-set_xlyt(id, spawn_x,spawn_y);
-//sdm("spawn_x $"+hex_str(spawn_x)+", spawn_y $"+hex_str(spawn_y));
+spawn_xl = (($47<<3)+4) - ww_;
+spawn_yt = (_ROW0+$1B)<<3;
+set_xlyt(id, spawn_xl,spawn_yt);
+//sdm("spawn_xl $"+hex_str(spawn_xl)+", spawn_yt $"+hex_str(spawn_yt));
 
 
 
@@ -151,10 +151,10 @@ if (TurnedIn_count>=DEFEATED_GOAL)
     
     
     rows_up = ROWS;
-    set_xlyt(id, xl, spawn_y-hh);
+    set_xlyt(id, xl, spawn_yt-hh);
     sub_state = SUB_STATE_DONE;
 }
-//sdm("hh $"+hex_str(hh)+", spawn_y $"+hex_str(spawn_y)+", ROWS "+string(ROWS)+", rows_up "+string(rows_up)+", rows_up<<3 $"+hex_str(rows_up<<3));
+//sdm("hh $"+hex_str(hh)+", spawn_yt $"+hex_str(spawn_yt)+", ROWS "+string(ROWS)+", rows_up "+string(rows_up)+", rows_up<<3 $"+hex_str(rows_up<<3));
 
 for(_i=0; _i<TurnedIn_count; _i++)
 {

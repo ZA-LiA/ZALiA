@@ -27,11 +27,11 @@ if (global.CamZoom1_state
     if (surface_get_width(application_surface)<_W1) surface_resize(application_surface, _W1,_H1);
     
     //g.view_at_rm_edge
-    //_scale = (g.pc.x-viewXL())/viewW_();
+    //_scale = (global.pc.x-viewXL())/viewW_();
     var _xl = -((_w/2)-(_W1/2));
-    _xl += ((viewXC()-g.pc.x)*_scale)*_SCALE1;
+    _xl += ((viewXC()-global.pc.x)*_scale)*_SCALE1;
     _xl  = clamp(_xl, _W1-_w,0);
-    //_xl += (viewXC()-g.pc.x)*_SCALE1;
+    //_xl += (viewXC()-global.pc.x)*_SCALE1;
     //_xl *= _scale;
     //_xl  = -_xl;
     //var _xl = round((_W1/2)-(_w/2));

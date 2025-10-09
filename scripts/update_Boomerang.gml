@@ -58,7 +58,7 @@ if(!_COLLIDED_SHIELD)  // if havn't bounced off shield
         catchX = source_inst.xl + 2;
         catchY = source_inst.yt + 3;
         
-        if (rectInRect(BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h, catchX,catchY,CATCH_W,CATCH_H))
+        if (rectInRect(BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h, catchX,catchY,CATCH_W,CATCH_H))
         {
             state = 0;
         }

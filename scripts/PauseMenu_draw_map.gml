@@ -134,7 +134,7 @@ if (MenuMapPC_can_draw)
 {
     if (g.dungeon_num)
     {
-        draw_sprite_(MenuMapPC_DUNGEON_SPRITE,0, MenuMapPC_x,MenuMapPC_y, global.PI_PC1, g.pc.xScale);
+        draw_sprite_(MenuMapPC_DUNGEON_SPRITE,0, MenuMapPC_x,MenuMapPC_y, global.PI_PC1, global.pc.xScale);
     }
     else
     {

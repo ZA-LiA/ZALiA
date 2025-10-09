@@ -12,9 +12,9 @@ if (sub_state==sub_state_IDLE2) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
-if (g.pc.behavior==PC_HOLD_BEHAVIOR)
+if (global.pc.behavior==PC_HOLD_BEHAVIOR)
 {
-    draw_sprite_(spr_Triforce_1a,0, g.pc.x,g.pc.yt-$08, Triforce_pi);
+    draw_sprite_(spr_Triforce_1a,0, global.pc.x,global.pc.yt-$08, Triforce_pi);
 }
 /*
 ar_PALSEQ_TRIFORCE[3] = _GRN0+_WHT1+_ORG1+_WHT1; // 

@@ -8,7 +8,7 @@ can_draw_self = true;
 
 NPC_udp_2(); // update `RandoHint_hint_num`
 
-xScale = sign_(x<g.pc.x);
+xScale = sign_(x<global.pc.x);
 
 
 if (tri_can_draw==2 

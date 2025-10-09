@@ -1,7 +1,7 @@
 /// db_pc_swrdHB_1a()
 
 
-with(g.pc)
+with(global.pc)
 {
     if (behavior==behavior_STAB_STAND 
     ||  behavior==behavior_STAB_CROUCH 

@@ -51,7 +51,7 @@ else
         if (abs(x-cam_xr_max()) < $80) _C3 = 2; // move left
         
         // Dir torwards pc, 1(right) or 2(left)
-        var _C4 = dir8b(g.pc.x-x);
+        var _C4 = dir8b(global.pc.x-x);
         
         
         

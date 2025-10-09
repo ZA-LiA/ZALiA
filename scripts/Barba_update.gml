@@ -69,7 +69,7 @@ switch(sub_state)
     BounceAttack_y_dir = choose(1,-1);
     
     var  _X = 0;
-    if (      dg_PITS[#Pit_idx,1] + (dg_PITS[#Pit_idx,2]>>1) < g.pc.x)
+    if (      dg_PITS[#Pit_idx,1] + (dg_PITS[#Pit_idx,2]>>1) < global.pc.x)
     {    _X = dg_PITS[#Pit_idx,1] +  dg_PITS[#Pit_idx,2] - min($10, dg_PITS[#Pit_idx,2]>>1);  }
     else _X = dg_PITS[#Pit_idx,1]                        + min($10, dg_PITS[#Pit_idx,2]>>1);
     
@@ -123,7 +123,7 @@ switch(sub_state)
         &&  is_facing_pc(id) 
         &&  g.counter1&$1 ) // new projectile every other frame
         {   // 9BEA
-            var _DIST1 = abs(x-g.pc.x);
+            var _DIST1 = abs(x-global.pc.x);
                 _DIST1 = max(0, _DIST1-$10)>>4;
             //
             var _C1 = g.mod_BARBA_PROJ_BOUNCE && (!Pit_idx || Pit_idx==Pit_COUNT-1);
@@ -238,11 +238,11 @@ switch(sub_state)
             
             _w=dg_PITS[#_pit_idx1,2];
             _x=dg_PITS[#_pit_idx1,1]+(_w>>1); // pit xc
-            _dist1=abs(_x-g.pc.x)-(_w>>1);
+            _dist1=abs(_x-global.pc.x)-(_w>>1);
             
             _w=dg_PITS[#_pit_idx2,2];
             _x=dg_PITS[#_pit_idx2,1]+(_w>>1);
-            _dist2=abs(_x-g.pc.x)-(_w>>1);
+            _dist2=abs(_x-global.pc.x)-(_w>>1);
             
             if (irandom($3)) _pit_idx=_pit_idx1;
             else             _pit_idx=_pit_idx2;
@@ -250,7 +250,7 @@ switch(sub_state)
             _w=dg_PITS[#_pit_idx,2];
             _x=dg_PITS[#_pit_idx,1]+(_w>>1);
             _xl=_x-4; // projectile centered in pit
-            var _dir=sign_(_x<g.pc.x);
+            var _dir=sign_(_x<global.pc.x);
             _xl += 4 * -_dir; // attempt to avoid hitting pit wall by backing away slightly from pc
             
             _yt=Liquid_YT;
@@ -259,7 +259,7 @@ switch(sub_state)
             {
                 _w = dg_PITS[#_i,2];
                 _x = dg_PITS[#_i,1] + (_w>>1);
-                _dist = abs(_x-g.pc.x) - (_w>>1);
+                _dist = abs(_x-global.pc.x) - (_w>>1);
                 if (_dist1>_dist)
                 {
                     _dist1=_dist;

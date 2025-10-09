@@ -12,8 +12,8 @@ if (DEV)
 
 
 
-g.pc.state = g.pc.state_SPAWN;
-//show_debug_message("g.pc.x: $"+hex_str(g.pc.x)+", g.pc.y: $"+hex_str(g.pc.y));
+global.pc.state = global.pc.state_SPAWN;
+//show_debug_message("global.pc.x: $"+hex_str(global.pc.x)+", global.pc.y: $"+hex_str(global.pc.y));
 
 // ** this has been moved to g_Room_Start()
 //NIAO_Room_Start();
@@ -56,14 +56,14 @@ if (g.mod_SAFE_ENCOUNTER_ENEMIES
     
     // -------------------------------------------------------------------------------
     var _i, _x,_y;
-    var _DIR   = sign_(g.pc.x<g.rm_w_);
-    var _DIST1 =   abs(g.pc.x-g.rm_w_) + g.rm_w_;
+    var _DIR   = sign_(global.pc.x<g.rm_w_);
+    var _DIST1 =   abs(global.pc.x-g.rm_w_) + g.rm_w_;
     var _DIST2 = $3<<3;
     var          _COUNT = irandom(1)+1; // 1,2
     for(_i=0; _i<_COUNT; _i++)
     {
         _x  = max(irandom(_DIST1>>3), 8);
-        _x  = g.pc.x + ((_x<<3)*_DIR);
+        _x  = global.pc.x + ((_x<<3)*_DIR);
         _x  = clamp(_x, _DIST2,g.rm_w-_DIST2);
         
         _y  = g.rm_rows-PAGE_ROWS; // first row of btm-most page
@@ -75,7 +75,7 @@ if (g.mod_SAFE_ENCOUNTER_ENEMIES
         {
             var _clm =  x    >>3;
             var _row = (yb-4)>>3;
-            if ((g.dg_RmTile_solid[#_clm,_row]&$FF)==TID_SOLID1)
+            if ((global.dg_solid[#_clm,_row]&$FF)==TID_SOLID1)
             {
                 _y = _row<<3;
                 _y = get_ground_y(x,_y, -1, _y);

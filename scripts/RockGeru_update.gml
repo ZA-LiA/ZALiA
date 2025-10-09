@@ -36,10 +36,10 @@ if (behavior)
                              _diff  = _diff >>2;
             if (!facing_dir)  _diff ^= $FF;
             
-            _p.hspd = byte(_diff + g.pc.hspd + _carry);
+            _p.hspd = byte(_diff + global.pc.hspd + _carry);
             
             var _data = "DC"+"E4"+"EC"+"F4"  +  "F8"+"00"+"00"+"00";
-            var _idx  = (g.pc.yt >>5) & 7;
+            var _idx  = (global.pc.yt >>5) & 7;
             _p.vspd = str_hex(_data, _idx);
         }
     }
@@ -87,15 +87,15 @@ switch(counter & 3)
                 _carry = _x > $FF;
                 _x &= $FF;
                 
-                _x += g.pc.hspd + _carry;
+                _x += global.pc.hspd + _carry;
                 _carry = _x > $FF;
                 _x &= $FF;
                 
-                _x += g.pc.hspd + _carry;
+                _x += global.pc.hspd + _carry;
                 _carry = _x > $FF;
                 _x &= $FF;
                 
-                _x += g.pc.hspd + _carry;
+                _x += global.pc.hspd + _carry;
                 _carry = _x > $FF;
                 _x &= $FF;
                 
@@ -113,7 +113,7 @@ switch(counter & 3)
                 
                 var _W = min(viewXR(),Wall_XR) - max(viewXL(),Wall_XL);
                 _x = max(viewXL(),Wall_XL) + irandom(_W);
-                if (g.pc.hspd) _x += 8 * sign_(g.pc.hspd<$80);
+                if (global.pc.hspd) _x += 8 * sign_(global.pc.hspd<$80);
                 _x = clamp(_x, Wall_XL,Wall_XR);
                 set_xy(id, _x,y);
                 

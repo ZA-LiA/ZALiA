@@ -35,14 +35,14 @@ var _HSPD = hspd;
 facing_dir  = dir_to_pc(id);
 if (1)
 {
-    hspd += g.pc.hspd + DC91_carry(id);
+    hspd += global.pc.hspd + DC91_carry(id);
     hspd  = hspd + ((8*facing_dir)&$FF) + (hspd>$FF);
     hspd &= $FF;
 }
 else
 {
     var _carry = DC91_carry(id);
-    hspd  += g.pc.hspd + _carry;
+    hspd  += global.pc.hspd + _carry;
     _carry = hspd > $FF;
     hspd  &= $FF;
     hspd   = hspd + ((8*facing_dir)&$FF) + _carry;

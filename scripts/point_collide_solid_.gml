@@ -19,9 +19,9 @@ if(!argument0
 var _CLM = argument0>>3;
 var _ROW = argument1>>3;
 
-if(!g.dg_RmTile_solid[#_CLM,_ROW]) // btm right
+if(!global.dg_solid[#_CLM,_ROW]) // btm right
 {
-    return g.dg_RmTile_solid[#_CLM,_ROW];
+    return global.dg_solid[#_CLM,_ROW];
 }
 
 
@@ -32,20 +32,20 @@ if(!(argument0&$7)
     if(!(argument0&$7) 
     && !(argument1&$7) )
     {
-        if(!g.dg_RmTile_solid[#_CLM-1,_ROW-1]   // top left
-        || !g.dg_RmTile_solid[#_CLM  ,_ROW-1]   // top right
-        || !g.dg_RmTile_solid[#_CLM-1,_ROW+1] ) // btm left
+        if(!global.dg_solid[#_CLM-1,_ROW-1]   // top left
+        || !global.dg_solid[#_CLM  ,_ROW-1]   // top right
+        || !global.dg_solid[#_CLM-1,_ROW+1] ) // btm left
         {
             return 0;
         }
     }
     else if(!(argument0&$7) 
-         && !g.dg_RmTile_solid[#_CLM-1,_ROW+1] ) // btm left
+         && !global.dg_solid[#_CLM-1,_ROW+1] ) // btm left
     {
         return 0;
     }
     else if(!(argument1&$7) 
-         && !g.dg_RmTile_solid[#_CLM  ,_ROW-1] ) // top right
+         && !global.dg_solid[#_CLM  ,_ROW-1] ) // top right
     {
         return 0;
     }
@@ -54,7 +54,7 @@ if(!(argument0&$7)
 
 
 
-return g.dg_RmTile_solid[#_CLM,_ROW];
+return global.dg_solid[#_CLM,_ROW];
 
 
 

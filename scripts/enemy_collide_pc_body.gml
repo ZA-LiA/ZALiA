@@ -2,7 +2,7 @@
 
 
 // E2EF
-if(!g.pc.iframes_timer) PC_take_damage(id);
+if(!global.pc.iframes_timer) PC_take_damage(id);
 
 
 

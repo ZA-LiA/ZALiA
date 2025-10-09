@@ -8,14 +8,14 @@ if (cs&CS_SW1)
     
     if(!stun_timer)
     {
-        vspd = g.pc.VSPD_DAMAGE; // $FE. Low velocity
+        vspd = global.pc.VSPD_DAMAGE; // $FE. Low velocity
         
-        if ((cs&CS_RGT && x> g.pc.x) 
-        ||  (cs&CS_LFT && x<=g.pc.x) )
+        if ((cs&CS_RGT && x> global.pc.x) 
+        ||  (cs&CS_LFT && x<=global.pc.x) )
         {    hspd = 0;  }
-        else hspd = ($D * sign_(x>g.pc.x)) &$FF;
+        else hspd = ($D * sign_(x>global.pc.x)) &$FF;
         
-        stun_timer = g.pc.DamageFlash_DURATION;
+        stun_timer = global.pc.DamageFlash_DURATION;
     }
     
     
@@ -144,7 +144,7 @@ switch(sub_state)
     case SUB_STATE_PANIC:{
     if (cs&CS_BTM)
     {
-        hspd = ($20*sign_(x>g.pc.x)) &$FF;
+        hspd = ($20*sign_(x>global.pc.x)) &$FF;
         Cucco_update_1();
         if (sub_state!=SUB_STATE_PANIC)
         {

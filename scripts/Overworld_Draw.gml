@@ -257,11 +257,11 @@ if (PC_can_draw)
     if (PC_draw_is_sheet)
     {
         PC_draw_is_sheet = false;
-        draw_sprite_part_(g.pc.Skin_image,0, PC_draw_sheet_xl,PC_draw_sheet_yt, g.pc.Spritesheet_W,g.pc.Spritesheet_H, PC_draw_x,PC_draw_y, global.PI_PC1);
+        draw_sprite_part_(global.pc.Skin_image,0, PC_draw_sheet_xl,PC_draw_sheet_yt, global.pc.Spritesheet_W,global.pc.Spritesheet_H, PC_draw_x,PC_draw_y, global.PI_PC1);
     }
     else
     {
-        draw_sprite_(g.pc.Skin_image,PC_draw_image_idx, PC_draw_x,PC_draw_y, global.PI_PC1);
+        draw_sprite_(global.pc.Skin_image,PC_draw_image_idx, PC_draw_x,PC_draw_y, global.PI_PC1);
     }
 }
 

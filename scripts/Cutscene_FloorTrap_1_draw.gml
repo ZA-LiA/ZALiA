@@ -4,10 +4,10 @@
 if (sub_state!=sub_state_DONE)
 {
     var _DIST = Trigger_DIST+($03<<3);
-    if (inRange(g.pc.x, Zelda_X-_DIST,Zelda_X+_DIST))
+    if (inRange(global.pc.x, Zelda_X-_DIST,Zelda_X+_DIST))
     {    var _SPR = Zelda_SPR1;  }
     else var _SPR = Zelda_SPR2;
-    //if (g.pc.x > Trigger_X-$18) var _SPR = Zelda_SPR1;
+    //if (global.pc.x > Trigger_X-$18) var _SPR = Zelda_SPR1;
     //else                        var _SPR = Zelda_SPR2;
     draw_sprite_(_SPR,0, Zelda_X,Zelda_Y, Zelda_PI, Zelda_XSCALE);
 }

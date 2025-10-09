@@ -12,7 +12,7 @@ if (DEV)
 
 with(instance_create(argument1, argument2, argument0))
 {
-    g.pc = id;
+    global.pc = id;
     PC_init();
 }
 

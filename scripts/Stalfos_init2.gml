@@ -44,8 +44,8 @@ if (g.mod_STALFOS_CHAIN)
 {
     can_draw_chain = true;
     
-    _val = (spawn_y>>8)<<5;
-    CEILING_Y  = find_row_solid(TID_SOLID1|TID_ONEWY1, x>>3,spawn_y>>3, -1,0, _val);
+    _val = (spawn_yt>>8)<<5;
+    CEILING_Y  = find_row_solid(TID_SOLID1|TID_ONEWY1, x>>3,spawn_yt>>3, -1,0, _val);
     CEILING_Y += CEILING_Y != _val; // Add one if it found a solid row
     CEILING_Y  = CEILING_Y<<3;
     
@@ -53,13 +53,13 @@ if (g.mod_STALFOS_CHAIN)
     CHAIN_SPR   = spr_Chain_link_02a;
     CHAIN_SPR_H = sprite_get_height(CHAIN_SPR);
     
-    _val1       = (spawn_y-CEILING_Y);
+    _val1       = (spawn_yt-CEILING_Y);
     _val2       = (CHAIN_SPR_H+1);
     CHAIN_COUNT   =  _val1 div _val2;
     //CHAIN_COUNT  += (_val1 mod _val2) > 2;
     CHAIN_COUNT++;
     
-    spawn_y = CEILING_Y + (_val2*(CHAIN_COUNT-1)) + 3;
+    spawn_yt = CEILING_Y + (_val2*(CHAIN_COUNT-1)) + 3;
 }
 
 

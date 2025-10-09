@@ -94,7 +94,7 @@ switch(sub_state)
                     p.SpellFlash_PC_timer = _DURATION;
                     aud_play_sound(get_audio_theme_track(STR_Cast+STR_Spell));
                     
-                    with(g.pc)
+                    with(global.pc)
                     {
                         PC_update_1a(); // set properties specific to PC form(cucco, fairy, Lonk)
                         set_xy(id, x, other.yb-hh_);
@@ -182,7 +182,7 @@ switch(sub_state)
     Minigame_display_timer_can_draw = false;
     
     if (timer) break;
-    if (g.pc.ogr) break;
+    if (global.pc.ogr) break;
     
     timer     = 1; // Delay game start sound
     sub_state = sub_state_PRE_GAME1;

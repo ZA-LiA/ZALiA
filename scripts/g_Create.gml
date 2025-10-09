@@ -203,7 +203,7 @@ DevTools_state = 0;
 global.RenderFrameDelay_state = -1;
 global.RenderFrameDelay_timer =  0; // Display state when > 0
 
-view_update_order = 1; // 1: OG, 2: update after gob update
+//view_update_order = 1; // 1: OG, 2: update after gob update
 
 dev_use_tile_markers        = true;
 can_show_t_solid            = false;
@@ -1356,11 +1356,10 @@ dg_anim_clouds = ds_grid_create(0,0);
 
 
 
-
-dg_RmTile_solid     = ds_grid_create(0,0); // the current room's 8x8 grid of values representing if the tile is not solid, solid, or a oneway platform
-dg_RmTile_solid_def = ds_grid_create(0,0); // the current room's 8x8 grid of values representing if the tile is not solid, solid, or a oneway platform
-dg_RmTile_solid_w   = 0;
-dg_RmTile_solid_h   = 0;
+global.dg_solid     = ds_grid_create(0,0); // the current room's 8x8 grid of values representing if the tile is not solid, solid, or a oneway platform
+global.dg_solid_def = ds_grid_create(0,0); // the current room's 8x8 grid of values representing if the tile is not solid, solid, or a oneway platform
+global.dg_solid_w   = 0;
+global.dg_solid_h   = 0;
 
 
 dl_solid_inst = ds_list_create();
@@ -2837,7 +2836,7 @@ dl_MapItem_ITEM_IDS = ds_list_create();
 
 // ----------------------------------------------------------
 // --------------------  PLAYER CHARACTER  ------------------
-pc = noone; // player character instance
+global.pc = noone; // player character instance
 
             dl_WalkAnim_DURATION = ds_list_create();
 ds_list_add(dl_WalkAnim_DURATION,8);
@@ -3564,6 +3563,15 @@ repeat(4) sdm("");
 
 
 //show_debug_message("-1 >>3 = $"+hex_str((-1)>>3)); // $FFFFFFFF
+//show_debug_message(string($FFFFFFFFFFFFFFFF)+", "+string($FFFFFFFFFFFFFFFE)+", "+string($F00000000000000F)); // -1, -2, -1152921504606846961
+
+//dg_test = ds_grid_create($10,$1);
+//for(_i=0; _i<ds_grid_width(dg_test); _i++) dg_test[#_i,$0] = $FFFFFFFFFFFFFFFF;
+//for(_i=0; _i<ds_grid_width(dg_test); _i++) show_debug_message(string(dg_test[#_i,$0]>>($8*_i))); // all -1
+
+//dg_test = ds_grid_create($8,$1);
+//for(_i=0; _i<ds_grid_width(dg_test); _i++) dg_test[#_i,$0] = $FFFFFFFF;
+//for(_i=0; _i<ds_grid_width(dg_test); _i++) show_debug_message(string(dg_test[#_i,$0]>>($4*_i))); // 4294967295, 268435455, 16777215, 1048575, 65535, 4095, 255, 15
 
 
 

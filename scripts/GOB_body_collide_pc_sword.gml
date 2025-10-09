@@ -15,12 +15,12 @@
 
 // ----------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------
-if(!g.pc.SwordHB_collidable 
+if(!global.pc.SwordHB_collidable 
 || !react_sword            // Spawners, NPCs, etc.. have no reaction to PC sword
 ||  state != state_NORMAL )
 {
     cs &= ~CS_SW1; // remove CS_SW1 (PC's SWord) from cs (Colliding Sides)
-    g.pc.SwordHB2_colliding  = noone;
+    global.pc.SwordHB2_colliding  = noone;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -40,16 +40,16 @@ PC_update_sword_hb();
 // SwordHB2_colliding is for keys, pbags, jars
 if (cs&CS_BTM 
 && !vspd 
-&& !g.pc.ogr 
-&&  g.pc.SwordHB2_collidable 
-&&  rectInRect(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, g.pc.SwordHB2_xl,g.pc.SwordHB2_yt, g.pc.SwordHB2_w,g.pc.SwordHB2_h) )
-{    g.pc.SwordHB2_colliding = id;  }
-else g.pc.SwordHB2_colliding = noone;
+&& !global.pc.ogr 
+&&  global.pc.SwordHB2_collidable 
+&&  rectInRect(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, global.pc.SwordHB2_xl,global.pc.SwordHB2_yt, global.pc.SwordHB2_w,global.pc.SwordHB2_h) )
+{    global.pc.SwordHB2_colliding = id;  }
+else global.pc.SwordHB2_colliding = noone;
 
 
-var _HB1_COLLIDING = collide_pc_sword(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, BodyHB_r);
+var _HB1_COLLIDING = collide_pc_sword(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h, BodyHB_r);
 if(!_HB1_COLLIDING 
-&&  g.pc.SwordHB2_colliding != id )
+&&  global.pc.SwordHB2_colliding != id )
 {
     cs &= ~CS_SW1; // remove CS_SW1 (PC's SWord) from cs (Colliding Sides)
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -74,8 +74,8 @@ if(!_HB1_COLLIDING
 //      $FF0000: extra pushback/bounce
 // -----------------------------------------------
 
-// g.pc.attack_bits is from PREVIOUS frame's behavior
-var _ATK_BITS = g.pc.attack_bits;
+// global.pc.attack_bits is from PREVIOUS frame's behavior
+var _ATK_BITS = global.pc.attack_bits;
 
 
 
@@ -120,7 +120,7 @@ var _REACT_BITS = _react_sword & _ATK_BITS;
 if(!_REACT_BITS) // if NOT vuln to current attack type
 {
     cs &= ~CS_SW1; // remove CS_SW1 (PC's SWord) from cs (Colliding Sides)
-    g.pc.SwordHB2_colliding = noone;
+    global.pc.SwordHB2_colliding = noone;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -139,7 +139,7 @@ if(!_REACT_BITS) // if NOT vuln to current attack type
 if (is_ancestor(object_index,Item) 
 &&  stun_timer ) // if is an Item that's stunned
 {
-    g.pc.SwordHB2_colliding = noone;
+    global.pc.SwordHB2_colliding = noone;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -171,11 +171,11 @@ if (is_ancestor(object_index,Item)
 
 // Another possibility is spawning a jar from SpawnByStab block
 
-if (g.pc.behavior==g.pc.behavior_STAB_UP  // OG right here uses CURRENT frame's behavior
-&&  g.pc.yt < yt )                // if PC.yt is ABOVE GO.yt
+if (global.pc.behavior==global.pc.behavior_STAB_UP  // OG right here uses CURRENT frame's behavior
+&&  global.pc.yt < yt )                // if PC.yt is ABOVE GO.yt
 {   // E6A6
     cs &= ~CS_SW1; // remove CS_SW1 (PC's SWord) from cs (Colliding Sides)
-    g.pc.SwordHB2_colliding  = noone;
+    global.pc.SwordHB2_colliding  = noone;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
@@ -204,9 +204,9 @@ if(!_HB1_COLLIDING)
 
 
 
-if (g.pc.behavior==g.pc.behavior_STAB_UP) // OG right here uses CURRENT frame's behavior
+if (global.pc.behavior==global.pc.behavior_STAB_UP) // OG right here uses CURRENT frame's behavior
 {
-    g.pc.vspd = 0;
+    global.pc.vspd = 0;
 }
 
 
@@ -217,7 +217,7 @@ if!(cs &  CS_SW1) // if NOT already colliding PC SWord or PC Proj
     
     
     // OG right here uses CURRENT frame's behavior
-    if (g.pc.behavior==g.pc.behavior_STAB_DOWN)
+    if (global.pc.behavior==global.pc.behavior_STAB_DOWN)
     {
         PC_set_bounce(); // Downthrust
     }
@@ -260,10 +260,10 @@ if!(cs &  CS_SW1) // if NOT already colliding PC SWord or PC Proj
 // $FF0000: extra pushback/bounce
 
 
-// var _BIT_ATK1  = (g.pc.behavior == g.pc.BVR_ATK1) <<0; // $01. High stab
-// var _BIT_ATK2  = (g.pc.behavior == g.pc.BVR_ATK2) <<1; // $02. Low  stab
-// var _BIT_DWTH  = (g.pc.behavior == g.pc.BVR_DWTH) <<2; // $04. Down stab
-// var _BIT_UPTH  = (g.pc.behavior == g.pc.BVR_UPTH) <<3; // $08. Up   stab
+// var _BIT_ATK1  = (global.pc.behavior == global.pc.BVR_ATK1) <<0; // $01. High stab
+// var _BIT_ATK2  = (global.pc.behavior == global.pc.BVR_ATK2) <<1; // $02. Low  stab
+// var _BIT_DWTH  = (global.pc.behavior == global.pc.BVR_DWTH) <<2; // $04. Down stab
+// var _BIT_UPTH  = (global.pc.behavior == global.pc.BVR_UPTH) <<3; // $08. Up   stab
 
     // $ 00 00(FF) - Set bits 1st byte
 // var _ATK_BITS  = _BIT_ATK1 | _BIT_ATK2 | _BIT_DWTH | _BIT_UPTH;

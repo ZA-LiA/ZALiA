@@ -474,13 +474,30 @@ RescueFairy_draw_y = 0;
 RescueDropOff_rc         = -1;
 RescueDropOff_elevator   = noone;
 RescueDropOff_solid_inst = noone;
-RescueDropOff_x = 0;
-RescueDropOff_y = 0;
+//RescueDropOff_x = 0;
+//RescueDropOff_y = 0;
 Rescue_SPEED_X = 8.00;
 Rescue_SPEED_Y = 8.00;
-Rescue_move_x  = 0;
-Rescue_move_y  = 0;
+//Rescue_move_x  = 0;
+//Rescue_move_y  = 0;
 Rescue_DIST1   = PC_W * 2;
+
+// For using ease algo
+Rescue_duration_MIN = $10;
+//Rescue_duration_MIN = $18;
+Rescue_duration_MAX = $30;
+Rescue_DIST2      = $3; // Move rate Rescue_DIST2 per frame
+Rescue_x_duration = 0;
+Rescue_y_duration = 0;
+Rescue_x_time     = 0; // number of frames since Rescue start
+Rescue_y_time     = 0; // number of frames since Rescue start
+Rescue_x_start    = 0;
+Rescue_y_start    = 0;
+Rescue_x_end      = 0;
+Rescue_y_end      = 0;
+Rescue_x_dist     = 0;
+Rescue_y_dist     = 0;
+
 
 //  The elevator instance pc entered the rm on.
 RmEnter_elevator = noone;

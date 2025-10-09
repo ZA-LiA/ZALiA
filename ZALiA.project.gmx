@@ -3,9 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1183" name="datafiles">
-    <datafiles number="1183" name="rm_tile_data">
-      <datafiles number="1183" name="Title">
+  <datafiles number="1189" name="datafiles">
+    <datafiles number="1189" name="rm_tile_data">
+      <datafiles number="1189" name="Title">
         <datafile>
           <name>Title_000.json</name>
           <exists>-1</exists>
@@ -24,7 +24,7 @@
           <filename>Title_000.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="WestA">
+      <datafiles number="1189" name="WestA">
         <datafile>
           <name>WestA_000.json</name>
           <exists>-1</exists>
@@ -1420,7 +1420,7 @@
           <filename>WestA_254.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="EastA">
+      <datafiles number="1189" name="EastA">
         <datafile>
           <name>EastA_000.json</name>
           <exists>-1</exists>
@@ -3445,7 +3445,7 @@
           <filename>EastA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="DthMt">
+      <datafiles number="1189" name="DthMt">
         <datafile>
           <name>DthMt_000.json</name>
           <exists>-1</exists>
@@ -3957,7 +3957,7 @@
           <filename>DthMt_041.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="MazIs">
+      <datafiles number="1189" name="MazIs">
         <datafile>
           <name>MazIs_000.json</name>
           <exists>-1</exists>
@@ -5625,6 +5625,91 @@
           <filename>MazIs_153.json</filename>
         </datafile>
         <datafile>
+          <name>MazIs_154.json</name>
+          <exists>-1</exists>
+          <size>105037</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_154.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_155.json</name>
+          <exists>-1</exists>
+          <size>68743</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_155.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_156.json</name>
+          <exists>-1</exists>
+          <size>96922</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_156.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_157.json</name>
+          <exists>-1</exists>
+          <size>60586</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_157.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_158.json</name>
+          <exists>-1</exists>
+          <size>56749</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_158.json</filename>
+        </datafile>
+        <datafile>
           <name>MazIs_216.json</name>
           <exists>-1</exists>
           <size>68673</size>
@@ -5863,6 +5948,23 @@
           <filename>MazIs_235.json</filename>
         </datafile>
         <datafile>
+          <name>MazIs_241.json</name>
+          <exists>-1</exists>
+          <size>91494</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_241.json</filename>
+        </datafile>
+        <datafile>
           <name>MazIs_242.json</name>
           <exists>-1</exists>
           <size>94293</size>
@@ -5931,7 +6033,7 @@
           <filename>MazIs_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="TownA">
+      <datafiles number="1189" name="TownA">
         <datafile>
           <name>TownA_000.json</name>
           <exists>-1</exists>
@@ -7038,7 +7140,7 @@
           <filename>TownA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="TownB">
+      <datafiles number="1189" name="TownB">
         <datafile>
           <name>TownB_000.json</name>
           <exists>-1</exists>
@@ -7210,7 +7312,7 @@
           <filename>TownB_098.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcA">
+      <datafiles number="1189" name="PalcA">
         <datafile>
           <name>PalcA_000.json</name>
           <exists>-1</exists>
@@ -7518,7 +7620,7 @@
           <filename>PalcA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcB">
+      <datafiles number="1189" name="PalcB">
         <datafile>
           <name>PalcB_000.json</name>
           <exists>-1</exists>
@@ -7911,7 +8013,7 @@
           <filename>PalcB_027.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcC">
+      <datafiles number="1189" name="PalcC">
         <datafile>
           <name>PalcC_000.json</name>
           <exists>-1</exists>
@@ -8202,7 +8304,7 @@
           <filename>PalcC_020.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcD">
+      <datafiles number="1189" name="PalcD">
         <datafile>
           <name>PalcD_000.json</name>
           <exists>-1</exists>
@@ -8510,7 +8612,7 @@
           <filename>PalcD_026.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcE">
+      <datafiles number="1189" name="PalcE">
         <datafile>
           <name>PalcE_001.json</name>
           <exists>-1</exists>
@@ -8937,7 +9039,7 @@
           <filename>PalcE_040.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcF">
+      <datafiles number="1189" name="PalcF">
         <datafile>
           <name>PalcF_000.json</name>
           <exists>-1</exists>
@@ -9449,7 +9551,7 @@
           <filename>PalcF_035.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcG">
+      <datafiles number="1189" name="PalcG">
         <datafile>
           <name>PalcG_000.json</name>
           <exists>-1</exists>
@@ -10505,7 +10607,7 @@
           <filename>PalcG_070.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcH">
+      <datafiles number="1189" name="PalcH">
         <datafile>
           <name>PalcH_000.json</name>
           <exists>-1</exists>
@@ -10694,7 +10796,7 @@
           <filename>PalcH_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1183" name="PalcZ">
+      <datafiles number="1189" name="PalcZ">
         <datafile>
           <name>PalcZ_000.json</name>
           <exists>-1</exists>
@@ -11088,7 +11190,7 @@
         <filename>SceneWallData01.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="1183" name="ow_tile_data">
+    <datafiles number="1189" name="ow_tile_data">
       <datafile>
         <name>OvrwA_00.json</name>
         <exists>-1</exists>
@@ -11141,7 +11243,7 @@
         <filename>OverworldData01.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="1183" name="other">
+    <datafiles number="1189" name="other">
       <datafile>
         <name>RandoPalettes01.json</name>
         <exists>-1</exists>
@@ -12448,6 +12550,8 @@
       <sprite>sprites\spr_Block_02a</sprite>
       <sprite>sprites\spr_Block03</sprite>
       <sprite>sprites\spr_Block04</sprite>
+      <sprite>sprites\spr_Blcok05</sprite>
+      <sprite>sprites\spr_Block06</sprite>
       <sprite>sprites\spr_Barrier_1a</sprite>
       <sprite>sprites\spr_Barrier_1b</sprite>
       <sprite>sprites\spr_Torch_1a</sprite>
@@ -13029,6 +13133,7 @@
         <script>scripts\pushback_pc.gml</script>
         <script>scripts\pushback_pc_and_go.gml</script>
         <script>scripts\set_go_hspd_pushbback.gml</script>
+        <script>scripts\update_go_xy_on_moving_platform.gml</script>
         <script>scripts\solid_clip_correction.gml</script>
         <script>scripts\GO_vspd_update1.gml</script>
         <script>scripts\GO_update_cam_vars.gml</script>
@@ -13615,6 +13720,88 @@
               <script>scripts\Zora_draw.gml</script>
             </scripts>
           </scripts>
+          <scripts name="spawner">
+            <script>scripts\enemy_spawn_1.gml</script>
+            <script>scripts\enemy_spawn_2.gml</script>
+            <scripts name="bago_spawner">
+              <script>scripts\Spawner_Bago_init1.gml</script>
+              <script>scripts\Spawner_Bago_init2.gml</script>
+              <script>scripts\Spawner_Bago_update.gml</script>
+            </scripts>
+            <scripts name="spawner_boggnipp">
+              <script>scripts\Spawner_Boggnipp_init1.gml</script>
+              <script>scripts\Spawner_Boggnipp_init2.gml</script>
+              <script>scripts\Spawner_Boggnipp_update.gml</script>
+            </scripts>
+            <scripts name="bubble_spawner">
+              <script>scripts\Spawner_PoisonBubble_init2.gml</script>
+              <script>scripts\Spawner_PoisonBubble_update.gml</script>
+            </scripts>
+            <scripts name="bullet_spawner">
+              <script>scripts\Spawner_Bullet_init2.gml</script>
+              <script>scripts\Spawner_Bullet_update.gml</script>
+              <script>scripts\Spawner_Bullet_end.gml</script>
+            </scripts>
+            <scripts name="drop_spawner">
+              <script>scripts\Spawner_Drop_end.gml</script>
+              <script>scripts\Spawner_Drop_init2.gml</script>
+              <script>scripts\Spawner_Drop_update.gml</script>
+              <script>scripts\Spawner_Drop_udp.gml</script>
+              <script>scripts\Spawner_Drop_draw.gml</script>
+            </scripts>
+            <scripts name="grunt_spawner">
+              <script>scripts\Spawner_Grunt_init2.gml</script>
+              <script>scripts\Spawner_Grunt_update.gml</script>
+            </scripts>
+            <scripts name="mau_spawner">
+              <script>scripts\Spawner_Mau_init2.gml</script>
+              <script>scripts\Spawner_Mau_update.gml</script>
+            </scripts>
+            <scripts name="moby_spawner">
+              <script>scripts\Spawner_Moby_init2.gml</script>
+              <script>scripts\Spawner_Moby_update.gml</script>
+            </scripts>
+            <scripts name="rock_spawner">
+              <script>scripts\Spawner_Rock_end.gml</script>
+              <script>scripts\Spawner_Rock_init2.gml</script>
+              <script>scripts\Spawner_Rock_update.gml</script>
+            </scripts>
+            <scripts name="wosu_spawner">
+              <script>scripts\Spawner_Wosu_init1.gml</script>
+              <script>scripts\Spawner_Wosu_init2.gml</script>
+              <script>scripts\Spawner_Wosu_update.gml</script>
+            </scripts>
+          </scripts>
+          <scripts name="spike_trap">
+            <script>scripts\SpikeTrap_out_of_bounds.gml</script>
+            <scripts name="spike_trap_a">
+              <script>scripts\SpikeTrapA_init2.gml</script>
+              <script>scripts\SpikeTrapA_update.gml</script>
+              <script>scripts\SpikeTrapA_udp.gml</script>
+              <script>scripts\SpikeTrapA_draw.gml</script>
+            </scripts>
+            <scripts name="spike_trap_b">
+              <script>scripts\SpikeTrapB_init2.gml</script>
+              <script>scripts\SpikeTrapB_update.gml</script>
+              <script>scripts\SpikeTrapB_udp.gml</script>
+            </scripts>
+            <scripts name="spike_trap_c">
+              <script>scripts\SpikeTrapC_end.gml</script>
+              <script>scripts\SpikeTrapC_init1.gml</script>
+              <script>scripts\SpikeTrapC_init2.gml</script>
+              <script>scripts\SpikeTrapC_update.gml</script>
+              <script>scripts\SpikeTrapC_udp.gml</script>
+              <script>scripts\SpikeTrapC_draw.gml</script>
+            </scripts>
+          </scripts>
+          <scripts name="fire_rope">
+            <script>scripts\FireRope_init1.gml</script>
+            <script>scripts\FireRope_init2.gml</script>
+            <script>scripts\FireRope_update.gml</script>
+            <script>scripts\FireRope_udp.gml</script>
+            <script>scripts\FireRope_draw.gml</script>
+            <script>scripts\colliding_FireRope.gml</script>
+          </scripts>
           <scripts name="kakusu">
             <script>scripts\Kakusu_end.gml</script>
             <script>scripts\Kakusu_init.gml</script>
@@ -13678,68 +13865,23 @@
               <script>scripts\Kakusu014_udp.gml</script>
             </scripts>
           </scripts>
+          <scripts name="various">
+            <script>scripts\SmasherTrapManager_end.gml</script>
+            <script>scripts\SmasherTrapManager_init1.gml</script>
+            <script>scripts\SmasherTrapManager_init2.gml</script>
+            <script>scripts\SmasherTrapManager_update.gml</script>
+            <script>scripts\SmasherTrapManager_udp.gml</script>
+            <script>scripts\SmasherTrapManager_draw.gml</script>
+            <script>scripts\SmasherTrap01_end.gml</script>
+            <script>scripts\SmasherTrap01_init1.gml</script>
+            <script>scripts\SmasherTrap01_init2.gml</script>
+            <script>scripts\SmasherTrap01_init3.gml</script>
+            <script>scripts\SmasherTrap01_update.gml</script>
+            <script>scripts\SmasherTrap01_udp.gml</script>
+            <script>scripts\SmasherTrap01_draw.gml</script>
+          </scripts>
         </scripts>
         <scripts name="gob2">
-          <scripts name="spawner">
-            <script>scripts\enemy_spawn_1.gml</script>
-            <script>scripts\enemy_spawn_2.gml</script>
-            <scripts name="npc_spawner">
-              <script>scripts\Spawner_NPC_init2.gml</script>
-              <script>scripts\Spawner_NPC_update.gml</script>
-            </scripts>
-            <scripts name="bago_spawner">
-              <script>scripts\Spawner_Bago_init1.gml</script>
-              <script>scripts\Spawner_Bago_init2.gml</script>
-              <script>scripts\Spawner_Bago_update.gml</script>
-            </scripts>
-            <scripts name="spawner_boggnipp">
-              <script>scripts\Spawner_Boggnipp_init1.gml</script>
-              <script>scripts\Spawner_Boggnipp_init2.gml</script>
-              <script>scripts\Spawner_Boggnipp_update.gml</script>
-            </scripts>
-            <scripts name="block_spawner">
-              <script>scripts\Spawner_FallingBlock_init2.gml</script>
-              <script>scripts\Spawner_FallingBlock_update.gml</script>
-            </scripts>
-            <scripts name="bubble_spawner">
-              <script>scripts\Spawner_PoisonBubble_init2.gml</script>
-              <script>scripts\Spawner_PoisonBubble_update.gml</script>
-            </scripts>
-            <scripts name="bullet_spawner">
-              <script>scripts\Spawner_Bullet_init2.gml</script>
-              <script>scripts\Spawner_Bullet_update.gml</script>
-              <script>scripts\Spawner_Bullet_end.gml</script>
-            </scripts>
-            <scripts name="drop_spawner">
-              <script>scripts\Spawner_Drop_end.gml</script>
-              <script>scripts\Spawner_Drop_init2.gml</script>
-              <script>scripts\Spawner_Drop_update.gml</script>
-              <script>scripts\Spawner_Drop_udp.gml</script>
-              <script>scripts\Spawner_Drop_draw.gml</script>
-            </scripts>
-            <scripts name="grunt_spawner">
-              <script>scripts\Spawner_Grunt_init2.gml</script>
-              <script>scripts\Spawner_Grunt_update.gml</script>
-            </scripts>
-            <scripts name="mau_spawner">
-              <script>scripts\Spawner_Mau_init2.gml</script>
-              <script>scripts\Spawner_Mau_update.gml</script>
-            </scripts>
-            <scripts name="moby_spawner">
-              <script>scripts\Spawner_Moby_init2.gml</script>
-              <script>scripts\Spawner_Moby_update.gml</script>
-            </scripts>
-            <scripts name="rock_spawner">
-              <script>scripts\Spawner_Rock_end.gml</script>
-              <script>scripts\Spawner_Rock_init2.gml</script>
-              <script>scripts\Spawner_Rock_update.gml</script>
-            </scripts>
-            <scripts name="wosu_spawner">
-              <script>scripts\Spawner_Wosu_init1.gml</script>
-              <script>scripts\Spawner_Wosu_init2.gml</script>
-              <script>scripts\Spawner_Wosu_update.gml</script>
-            </scripts>
-          </scripts>
           <scripts name="npc">
             <script>scripts\NPC_init1.gml</script>
             <script>scripts\NPC_init2.gml</script>
@@ -13787,6 +13929,10 @@
             <script>scripts\NPC_catch_item.gml</script>
             <script>scripts\NPC_draw_door.gml</script>
             <script>scripts\NPC_activate_dialogue.gml</script>
+            <scripts name="npc_spawner">
+              <script>scripts\Spawner_NPC_init2.gml</script>
+              <script>scripts\Spawner_NPC_update.gml</script>
+            </scripts>
           </scripts>
           <scripts name="item">
             <script>scripts\Item_init.gml</script>
@@ -13864,6 +14010,10 @@
             <script>scripts\BlockB_init2.gml</script>
             <script>scripts\BlockB_update.gml</script>
             <script>scripts\BlockB_udp.gml</script>
+            <scripts name="block_spawner">
+              <script>scripts\Spawner_FallingBlock_init2.gml</script>
+              <script>scripts\Spawner_FallingBlock_update.gml</script>
+            </scripts>
           </scripts>
           <scripts name="burnable">
             <scripts name="burnable1">
@@ -13873,28 +14023,6 @@
               <script>scripts\Burnable1_update.gml</script>
               <script>scripts\Burnable1_udp.gml</script>
               <script>scripts\Burnable1_draw.gml</script>
-            </scripts>
-          </scripts>
-          <scripts name="spike_trap">
-            <script>scripts\SpikeTrap_out_of_bounds.gml</script>
-            <scripts name="spike_trap_a">
-              <script>scripts\SpikeTrapA_init2.gml</script>
-              <script>scripts\SpikeTrapA_update.gml</script>
-              <script>scripts\SpikeTrapA_udp.gml</script>
-              <script>scripts\SpikeTrapA_draw.gml</script>
-            </scripts>
-            <scripts name="spike_trap_b">
-              <script>scripts\SpikeTrapB_init2.gml</script>
-              <script>scripts\SpikeTrapB_update.gml</script>
-              <script>scripts\SpikeTrapB_udp.gml</script>
-            </scripts>
-            <scripts name="spike_trap_c">
-              <script>scripts\SpikeTrapC_end.gml</script>
-              <script>scripts\SpikeTrapC_init1.gml</script>
-              <script>scripts\SpikeTrapC_init2.gml</script>
-              <script>scripts\SpikeTrapC_update.gml</script>
-              <script>scripts\SpikeTrapC_udp.gml</script>
-              <script>scripts\SpikeTrapC_draw.gml</script>
             </scripts>
           </scripts>
           <scripts name="switch">
@@ -13927,14 +14055,6 @@
             <script>scripts\TargetA_init2.gml</script>
             <script>scripts\TargetA_update.gml</script>
             <script>scripts\TargetA_udp.gml</script>
-          </scripts>
-          <scripts name="fire_rope">
-            <script>scripts\FireRope_init1.gml</script>
-            <script>scripts\FireRope_init2.gml</script>
-            <script>scripts\FireRope_update.gml</script>
-            <script>scripts\FireRope_udp.gml</script>
-            <script>scripts\FireRope_draw.gml</script>
-            <script>scripts\colliding_FireRope.gml</script>
           </scripts>
           <scripts name="torch">
             <script>scripts\Torch_ignite.gml</script>
@@ -14190,6 +14310,7 @@
             <script>scripts\Challenge_SwitchB_init.gml</script>
             <script>scripts\Challenge_SwitchB_update.gml</script>
             <script>scripts\Challenge_SwitchB_update_1a.gml</script>
+            <script>scripts\Challenge_SwitchB_draw.gml</script>
             <script>scripts\Challenge_SwitchC_end.gml</script>
             <script>scripts\Challenge_SwitchC_init.gml</script>
             <script>scripts\Challenge_SwitchC_update.gml</script>
@@ -14740,7 +14861,6 @@
     <scripts name="palette">
       <script>scripts\p_Create.gml</script>
       <script>scripts\p_init.gml</script>
-      <script>scripts\p_init_add_more_colors.gml</script>
       <script>scripts\p_Room_Start.gml</script>
       <script>scripts\p_Room_End.gml</script>
       <script>scripts\p_Draw.gml</script>
@@ -14890,6 +15010,8 @@
       <script>scripts\get_random_lorem_words.gml</script>
       <script>scripts\get_random_lorem_dlg.gml</script>
       <script>scripts\spell_sequence_is_complete.gml</script>
+      <script>scripts\ease_in.gml</script>
+      <script>scripts\ease_in_out.gml</script>
     </scripts>
     <scripts name="math">
       <script>scripts\isVal.gml</script>
@@ -15309,6 +15431,11 @@
             <object>objects\Kakusu013</object>
             <object>objects\Kakusu014</object>
           </objects>
+          <objects name="various">
+            <object>objects\SmasherTrapManager</object>
+            <object>objects\SmasherTrap</object>
+            <object>objects\SmasherTrap01</object>
+          </objects>
         </objects>
         <objects name="gob2">
           <object>objects\GOB2</object>
@@ -15643,7 +15770,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1040">
+  <constants number="1042">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -15947,6 +16074,7 @@
     <constant name="STR_Complete">"_Complete"</constant>
     <constant name="STR_Translated">"_Translated"</constant>
     <constant name="STR_Last">"_Last"</constant>
+    <constant name="STR_Trap">"_Trap"</constant>
     <constant name="STR_Switch">"_Switch"</constant>
     <constant name="STR_Dock">"_Dock"</constant>
     <constant name="STR_Platform">"_Platform"</constant>
@@ -16213,6 +16341,7 @@
     <constant name="STR_Wall">"_Wall"</constant>
     <constant name="STR_Sign">"_Sign"</constant>
     <constant name="STR_Bridge">"_Bridge"</constant>
+    <constant name="STR_Waterfall">"_Waterfall"</constant>
     <constant name="STR_Cloud">"_Cloud"</constant>
     <constant name="STR_River_Devil">"_River_Devil"</constant>
     <constant name="STR_Boss">"_Boss"</constant>

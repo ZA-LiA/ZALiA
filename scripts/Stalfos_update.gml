@@ -9,7 +9,7 @@ if(!counter
 //&&  ocs ) // OG
 {   // 9662
     update_EF11();
-    set_xlyt(id, xl,spawn_y);
+    set_xlyt(id, xl,spawn_yt);
     hspd = 0;
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -114,7 +114,7 @@ if(!_timer_COPY)
 //      still be collidable w/ other objs.
 if(!g.mod_STALFOS_CONTROL1)
 {
-    with(g.pc){if (behavior==behavior_STAB_UP) SwordHB_collidable = false;} // OG
+    with(global.pc){if (behavior==behavior_STAB_UP) SwordHB_collidable = false;} // OG
 }
 
 

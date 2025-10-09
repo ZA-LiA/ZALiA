@@ -66,9 +66,9 @@ else
 
 
 
-spawn_x = dg_sequence[#0,1];
-spawn_y = dg_sequence[#0,2];
-set_xy(id, spawn_x,spawn_y);
+spawn_xl = dg_sequence[#0,1];
+spawn_yt = dg_sequence[#0,2];
+set_xy(id, spawn_xl,spawn_yt);
 
 
 

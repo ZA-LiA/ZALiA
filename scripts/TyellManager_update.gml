@@ -24,7 +24,7 @@ for(_i=ds_list_size(dl_inst)-1; _i>=0; _i--)
     }
     else
     {
-        _LaunchCountdown_COUNT += point_distance(_inst.x,_inst.y,g.pc.x,g.pc.y) <= AGRO_DIST;
+        _LaunchCountdown_COUNT += point_distance(_inst.x,_inst.y,global.pc.x,global.pc.y) <= AGRO_DIST;
     }
 }
 for(_i=ds_list_size(_dl_delete)-1; _i>=0; _i--)
@@ -45,7 +45,7 @@ if (_COUNT1)
         if (    state == state_NORMAL 
         &&  sub_state == SUB_STATE_IDLE1 
         &&  ocsHV4(id)      // if ALL w and ALL h in ocs area
-        &&  point_distance(x,y,g.pc.x,g.pc.y) <= other.AGRO_DIST )
+        &&  point_distance(x,y,global.pc.x,global.pc.y) <= other.AGRO_DIST )
         {
             ds_list_add(_dl_options,id);
         }

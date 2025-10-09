@@ -4,12 +4,12 @@
 var _i,_j, _a, _idx, _val, _count;
 
 
-GROUND_Y    = spawn_y  + hh;
+GROUND_Y    = spawn_yt  + hh;
 GROUND_Y    = get_ground_y(x,GROUND_Y-hh, 1,GROUND_Y);
 
-spawn_y     = GROUND_Y - hh;
+spawn_yt     = GROUND_Y - hh;
 
-set_xlyt(id, xl,spawn_y);
+set_xlyt(id, xl,spawn_yt);
 
 
 // ----------------------------------------------------------------------

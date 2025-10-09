@@ -50,8 +50,8 @@ with(instance_create(_XL,_YT, _OBJ))
     
     
     
-    spawn_x = _XL;
-    spawn_y = _YT;
+    spawn_xl = _XL;
+    spawn_yt = _YT;
     set_xlyt(id, _XL,_YT);
     
     facing_dir = _FACING;

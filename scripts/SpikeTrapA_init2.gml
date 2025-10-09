@@ -99,8 +99,8 @@ _DIRECTION = clamp(_DIRECTION,$1,$C);
 if (_DIRECTION&$3==$3 
 ||  _DIRECTION&$C==$C )
 {
-    if (_DIRECTION&$3) _DIRECTION = $1<<(x>g.pc.x);
-    else               _DIRECTION = $4<<(y>g.pc.y);
+    if (_DIRECTION&$3) _DIRECTION = $1<<(x>global.pc.x);
+    else               _DIRECTION = $4<<(y>global.pc.y);
 }
 
 

@@ -37,12 +37,12 @@ else
 {
     var _EXTRA = $10;
     var _Y = yt-_EXTRA;
-    if(!g.pc.ogr              // if PC on ground
-    &&  hINh(_Y,abs((GROUND_Y+_EXTRA)-_Y), g.pc.yt,g.pc.hh)  // 
-    //&&  hINh(_Y,abs(GROUND_Y-_Y), g.pc.yt,g.pc.hh)  // 
-    //&&  hINh(yt-_EXTRA,hh+(_EXTRA<<1), g.pc.yt,g.pc.hh)  // 
-    //&&  abs(y-g.pc.y) <= hh_  // mod 2022/05/07
-    &&  abs(x-g.pc.x) < $20 )
+    if(!global.pc.ogr              // if PC on ground
+    &&  hINh(_Y,abs((GROUND_Y+_EXTRA)-_Y), global.pc.yt,global.pc.hh)  // 
+    //&&  hINh(_Y,abs(GROUND_Y-_Y), global.pc.yt,global.pc.hh)  // 
+    //&&  hINh(yt-_EXTRA,hh+(_EXTRA<<1), global.pc.yt,global.pc.hh)  // 
+    //&&  abs(y-global.pc.y) <= hh_  // mod 2022/05/07
+    &&  abs(x-global.pc.x) < $20 )
     {
         NPC_activate_dialogue(); // activate dialogue
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

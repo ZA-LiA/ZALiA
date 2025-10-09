@@ -24,7 +24,7 @@ for(_i=0; i<_COUNT; i++)
     }
     
     
-    if (g.dg_RmTile_solid[#_clm,_row] & argument[0])  // if SOLID or ONEWAY
+    if (global.dg_solid[#_clm,_row] & argument[0])  // if SOLID or ONEWAY
     {
         return (_row<<8) | _clm; // return found solid row & clm
     }

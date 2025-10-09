@@ -13,7 +13,7 @@ var _IDX = (g.counter1>>2)&$3;
 var _c1=false;
 var _x1;
 //var _Y_OFF = (g.timer0>>Anim_TIMING1)&$7;
-var _Y  = spawn_y;
+var _Y  = spawn_yt;
     //_Y += -((!!_DIR)<<3);
     //_Y += _Y_OFF*_DIR;
 var _rows=0;
@@ -26,7 +26,7 @@ for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier/crystal
         dg_barrier[#_i+1,3] = false;
     //
     _c1 = Anim_VER && dg_barrier[#_i+1,0]<2;
-    _x1 = spawn_x + ((BARRIER_W+BARRIER_PAD) * _i);
+    _x1 = spawn_xl + ((BARRIER_W+BARRIER_PAD) * _i);
     
     _rows  = dg_barrier[#_i+1,2];
     _rows += _c1;
@@ -59,12 +59,12 @@ pal_swap_reset();
 
 
 
-var _Y1 = spawn_y-8;
+var _Y1 = spawn_yt-8;
 var _Y2 = _Y1 + ((ROWS_DEF+$02)<<3);
 _pi = global.PI_BGR2;
 for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier
 {
-    _x  = spawn_x + ((BARRIER_W+BARRIER_PAD) * _i);
+    _x  = spawn_xl + ((BARRIER_W+BARRIER_PAD) * _i);
     _x += 8;
     draw_sprite_(g.Block2_SPR1,0, _x,_Y1, _pi);
     draw_sprite_(g.Block2_SPR1,0, _x,_Y2, _pi);
@@ -72,7 +72,7 @@ for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier
 
 
 // CRYSTALS  -----------------------------------------------------------
-_Y = spawn_y-8;
+_Y = spawn_yt-8;
 var _spr = CRYSTAL_SPR_1B;
 for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier/crystal
 {
@@ -85,7 +85,7 @@ for(_i=0; _i<BARRIER_COUNT; _i++) // each barrier/crystal
     {    _pi  = p.dg_PI_SEQ[#$00, (g.counter1>>1)&$3];  } // changes color every 2 frames
     else _pi  = global.PI_GUI1;
     
-    _x  = spawn_x + ((BARRIER_W+BARRIER_PAD) * _i);
+    _x  = spawn_xl + ((BARRIER_W+BARRIER_PAD) * _i);
     _x += 8; // horizontal center of this barrier
     _y  = _Y;
     draw_sprite_(_spr,0, _x,_y, _pi);

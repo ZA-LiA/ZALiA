@@ -12,7 +12,7 @@ for(_i=ds_grid_width(dg_restart)-1; _i>=0; _i--)
     _w = dg_restart[#_i,3];
     _h = dg_restart[#_i,4];
     
-    if (rectInRect(_x,_y,_w,_h, g.pc.BodyHB_x,g.pc.BodyHB_y,g.pc.BodyHB_w,g.pc.BodyHB_h) 
+    if (rectInRect(_x,_y,_w,_h, global.pc.BodyHB_xl,global.pc.BodyHB_yt,global.pc.BodyHB_w,global.pc.BodyHB_h) 
     &&  seq_dir != dg_restart[#_i,0] )
     {
         var _ready = true;
@@ -153,7 +153,7 @@ for(_i=0; _i<PLATFORMS; _i++)
             {
                 _clm = _CLM+(_j mod _CLMS);
                 _row = _ROW+(_j div _CLMS);
-                g.dg_RmTile_solid[#_clm,_row] = TID_SOLID1;
+                global.dg_solid[#_clm,_row] = TID_SOLID1;
                 dg_platform[#_idx,6] = TID_SOLID1; // 6: SOLID state
                 
                 g.dg_RmTile_TempSolid[#_clm,_row] = TID_SOLID1; // tells Rescue Fairy to not use these solid tiles
@@ -219,7 +219,7 @@ for(_i=0; _i<PLATFORMS; _i++)
             {
                 _clm = _CLM+(_j mod _CLMS);
                 _row = _ROW+(_j div _CLMS);
-                g.dg_RmTile_solid[#_clm,_row] = 0;
+                global.dg_solid[#_clm,_row] = 0;
                 dg_platform[#_idx,6] = 0; // 6: SOLID state
                 
                 g.dg_RmTile_TempSolid[#_clm,_row] = 0;

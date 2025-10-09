@@ -36,7 +36,7 @@ if (g.FallScene_timer)
     global.FallScene_dm[?STR_Current+STR_ScaleX] = 1;
     if (_FALL_DIR&($4|$8)) // if vertical fall. $4: DOWN, $8: UP
     {
-        if (g.room_type=="A") global.FallScene_dm[?STR_Current+STR_ScaleX] = g.pc.xScale;
+        if (g.room_type=="A") global.FallScene_dm[?STR_Current+STR_ScaleX] = global.pc.xScale;
         else                  global.FallScene_dm[?STR_Current+STR_ScaleX] = 1;
     }
     else if (_FALL_DIR&($1|$2)) // if horizontal fall. $1: RIGHT, $2: LEFT

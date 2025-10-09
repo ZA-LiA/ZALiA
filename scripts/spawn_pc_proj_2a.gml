@@ -1,8 +1,8 @@
 /// spawn_pc_proj_2a()
 
 
-if (g.pc.attack_phase-1 != g.pc.stab_type 
-||  g.pc.attack_timer   != g.pc.attack_phase_DURATION1-1 )   // attack_phase_DURATION1-1 = 5
+if (global.pc.attack_phase-1 != global.pc.stab_type 
+||  global.pc.attack_timer   != global.pc.attack_phase_DURATION1-1 )   // attack_phase_DURATION1-1 = 5
 {
     return noone;
 }
@@ -72,7 +72,7 @@ for(_i=ds_list_size(g.go_mgr.dl_goc2)-1; _i>=0; _i--)
         continue; // keep updating _tokens
     }
     
-    if (wINw(_proj.BodyHB_x,_proj.BodyHB_w, g.view_xl_og,VIEW_W_OG))
+    if (wINw(_proj.BodyHB_xl,_proj.BodyHB_w, g.view_xl_og,VIEW_W_OG))
     {
         _tokens--;
     }

@@ -25,8 +25,8 @@ if(!is_undefined(              dk_spawn))
 GO_init_palidx(_pi);
 
 
-spawn_x = (spawn_x>>3)<<3;
-set_xlyt(id, spawn_x,spawn_y);
+spawn_xl = (spawn_xl>>3)<<3;
+set_xlyt(id, spawn_xl,spawn_yt);
 if(!is_undefined(dk_spawn))
 {   // Remember last xy
     var _XL = f.dm_quests[?dk_spawn+"_XL"];

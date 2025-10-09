@@ -220,16 +220,16 @@ if (hp)
         if (Crystal_position        // is in attack pos
         && !Crystal_fade_state       // is opaque/solid/not fading
         &&  f.hp 
-        &&  g.pc.SwordHB_collidable 
-        &&  g.pc.attack_bits&(BIT_ATK1|BIT_ATK2) 
+        &&  global.pc.SwordHB_collidable 
+        &&  global.pc.attack_bits&(BIT_ATK1|BIT_ATK2) 
         &&  collide_pc_sword(_Crystal_X-2,_Crystal_Y-3, 4,6) )
         {
             if!(cs &  CS_SW1)
             {
                 cs |= CS_SW1;
                 
-                g.control1_timer = g.pc.Pushback_DURATION; // PC atk will NOT affect PC.hspd
-                if!(g.pc.cs&CS_LFT) g.pc.hspd = $FC;
+                g.control1_timer = global.pc.Pushback_DURATION; // PC atk will NOT affect PC.hspd
+                if!(global.pc.cs&CS_LFT) global.pc.hspd = $FC;
                 
                 
                 aud_play_sound(get_audio_theme_track(dk_StrikeEnemy));
@@ -279,7 +279,7 @@ if (hp)
 // Squish PC Against Solid --------------
 if (hp)
 {
-    with(g.pc)
+    with(global.pc)
     {
         //if (invuln_tmr) break;
         var _AMT=1;

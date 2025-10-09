@@ -16,10 +16,10 @@ projectile_ver = projectile_VER;
 // if hspd was inc or maintained for the frame
 hspd_impel = 0; 
 HSPD_TO_HOME = 6; // 6
-HSPD_MAX_TWRD = g.pc.HSPD_MAX - 2;
+HSPD_MAX_TWRD = global.pc.HSPD_MAX - 2;
 HSPD_MAX_AWAY = HSPD_MAX_TWRD - 2;
-// HSPD_MAX_AWAY = g.pc.HSPD_MAX - max(1, g.pc.HSPD_MAX >>3);
-// HSPD_MAX_TWRD = (g.pc.HSPD_MAX - (g.pc.HSPD_MAX >>2)) + 2;
+// HSPD_MAX_AWAY = global.pc.HSPD_MAX - max(1, global.pc.HSPD_MAX >>3);
+// HSPD_MAX_TWRD = (global.pc.HSPD_MAX - (global.pc.HSPD_MAX >>2)) + 2;
 // HSPD_MAX_AWAY = HSPD_MAX_TWRD - 1;
 HSPD_PACE = 8;
 DUR_PACE  = $50; // 

@@ -13,7 +13,7 @@ switch(sub_state)
     
     
     var _W = 8;
-    if (wINw(g.pc.x,1, x-(_W>>1),_W))
+    if (wINw(global.pc.x,1, x-(_W>>1),_W))
     {
         g.pc_lock   = PC_LOCK_ALL;
         g.cutscene  = 1;
@@ -95,7 +95,7 @@ switch(sub_state)
     if (rows_up<ROWS)
     {
         rows_up++;
-        set_xlyt(id, xl, spawn_y-(rows_up<<3));
+        set_xlyt(id, xl, spawn_yt-(rows_up<<3));
         aud_play_sound(get_audio_theme_track(dk_ElevatorMove));
         aud_play_sound(get_audio_theme_track(dk_BridgeCrumble));
         timer = DUR2;

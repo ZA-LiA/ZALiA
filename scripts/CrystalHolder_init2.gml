@@ -55,14 +55,14 @@ midtone_colorID_cur = midtone_colorID_DEF;
 
 //spawn_x  = ((xx>>8)<<8) + $80 - ww_;
 
-GROUND_Y = (((spawn_y>>8)+1)<<8) - ($3<<3);
+GROUND_Y = (((spawn_yt>>8)+1)<<8) - ($3<<3);
 GROUND_Y = get_ground_y(x,GROUND_Y, -1,GROUND_Y);
 
 
-spawn_y  = GROUND_Y - ($48+$6);
-set_xlyt(id, spawn_x,spawn_y);
+spawn_yt  = GROUND_Y - ($48+$6);
+set_xlyt(id, spawn_xl,spawn_yt);
 
-// sdm("GROUND_Y $"+hex_str(GROUND_Y)+", spawn_y $"+hex_str(spawn_y));
+// sdm("GROUND_Y $"+hex_str(GROUND_Y)+", spawn_yt $"+hex_str(spawn_yt));
 
 
 if (crystal_is_placed(DUNGEON_NUM)) counter = 0; // Only udp will update

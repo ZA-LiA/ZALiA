@@ -129,7 +129,7 @@ switch (sub_state)
     }
     
     
-    g.pc.xScale = sign_(dg_a[# location_b-1,1] - dg_a[# location_a-1,1]);
+    global.pc.xScale = sign_(dg_a[# location_b-1,1] - dg_a[# location_a-1,1]);
     timer = DUR_SELF_CONTROL1_DELAY;
     
     

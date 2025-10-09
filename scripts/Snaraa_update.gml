@@ -22,10 +22,10 @@ switch(sub_state)
     
     if (timer 
     || !ocsHV4(id)      // if NOT all w AND NOT all h in ocs area
-    || !ocsHV4(g.pc)    // if NOT all w AND NOT all h in ocs area
+    || !ocsHV4(global.pc)    // if NOT all w AND NOT all h in ocs area
     || !is_facing_pc_(id) 
-    ||  abs(x-g.pc.x) > DIST_ATCK 
-    || !inRange(y, g.pc.yt, g.pc.yt+g.pc.hh) )
+    ||  abs(x-global.pc.x) > DIST_ATCK 
+    || !inRange(y, global.pc.yt, global.pc.yt+global.pc.hh) )
     {
         break;
     }
@@ -63,7 +63,7 @@ switch(sub_state)
     hspd = (hspd*_DIR) &$FF;
     
     
-    if (byte(g.dg_RmTile_solid[#rc_b2&$FF, rc_b2>>8]) != TID_SOLID1)
+    if (byte(global.dg_solid[#rc_b2&$FF, rc_b2>>8]) != TID_SOLID1)
     {   // Just in case target no longer solid.
         _x  = (rc_a&$FF)<<3;
         path_dist = Snaraa_update_1(_x>>3);
@@ -126,7 +126,7 @@ switch(sub_state)
             Snaraa_update_2();
             
             _DIR = bit_dir(path_dir&$3);
-            if (byte(g.dg_RmTile_solid[#rc_a2&$FF, rc_a2>>8]) != TID_SOLID1)
+            if (byte(global.dg_solid[#rc_a2&$FF, rc_a2>>8]) != TID_SOLID1)
             {
                 timer = $40;
                 sub_state = SUB_STATE_ATK1;

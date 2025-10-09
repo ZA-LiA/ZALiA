@@ -50,17 +50,17 @@ else               // For 0.533s.   $00-1F, $40-5F, $80-9F, $C0-DF
 
 
 if (ver==2 
-// &&  byte_dir(hspd)==g.pc.facing_dir )
-&&  facing_dir==g.pc.facing_dir )
+// &&  byte_dir(hspd)==global.pc.facing_dir )
+&&  facing_dir==global.pc.facing_dir )
 {
-    var _DIST  = abs(g.pc.x-x);
+    var _DIST  = abs(global.pc.x-x);
     if (_DIST >= MIN_DIST) // FLIP_DIST = $18;
     {
-        facing_dir = -g.pc.facing_dir;
+        facing_dir = -global.pc.facing_dir;
         hspd = (abs8b(hspd)*facing_dir) &$FF;
         
-        var _X = g.pc.x + (_DIST * g.pc.facing_dir);
-        //var _X = g.pc.x + (g.pc.x - x);
+        var _X = global.pc.x + (_DIST * global.pc.facing_dir);
+        //var _X = global.pc.x + (global.pc.x - x);
         set_xy(id, _X,y);
     }
 }

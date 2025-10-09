@@ -12,11 +12,11 @@ switch(sub_state)
         var _REMAINING = f.CRYSTAL_MAX - bitCount(f.crystals);
         if(!_REMAINING)
         {
-            var _DIST = abs((xl+(BodyHB_w>>1)) - g.pc.x);
+            var _DIST = abs((xl+(BodyHB_w>>1)) - global.pc.x);
             if (_DIST < (BodyHB_w>>1)+$40)
             {   // A249
                 g.pc_lock = PC_LOCK_ALL; // Lock all
-                PC_set_behavior(g.pc.behavior_IDLE);
+                PC_set_behavior(global.pc.behavior_IDLE);
                 
                 counter   = 0; // 0071[eIndex]
                 sub_state = 1; // 00AF[eIndex]
@@ -28,22 +28,22 @@ switch(sub_state)
         
         
         // A25F
-        if(!g.pc.is_dead)
+        if(!global.pc.is_dead)
         {   // A266
-            if(1){ // MOD.  So that PC can collided w/enemies, changing order of update so that g.pc.invuln_tmr only sets to 0 if (cs&CS_BD1). 
+            if(1){ // MOD.  So that PC can collided w/enemies, changing order of update so that global.pc.invuln_tmr only sets to 0 if (cs&CS_BD1). 
                 // A269: JSR E4D9
                 GOB_body_collide_pc_body_1a();
                 // A26C: JSR D6C1
-                if (cs&CS_BD1) g.pc.iframes_timer = 0;
+                if (cs&CS_BD1) global.pc.iframes_timer = 0;
                 if (cs&CS_BD1) enemy_collide_pc_body();
                 // A26F
                 if (cs&CS_BD1 
                 &&  (pc_is_fairy() || pc_is_cucco()) )
                 {
-                    g.pc.is_dead = 1;
+                    global.pc.is_dead = 1;
                 }
             }else{ // ---------------------------------------
-                g.pc.iframes_timer = 0;
+                global.pc.iframes_timer = 0;
                 // A269: JSR E4D9
                 GOB_body_collide_pc_body_1a();
                 // A26C: JSR D6C1
@@ -52,7 +52,7 @@ switch(sub_state)
                 if (cs&CS_BD1 
                 && (pc_is_fairy() || pc_is_cucco()) )
                 {
-                    g.pc.is_dead = 1;
+                    global.pc.is_dead = 1;
                 }
             }
         }

@@ -25,17 +25,17 @@ else
 // Give the return the palettes for _Skin_IDX
 if (_Skin_IDX>=0)
 {
-    var _Skin_COUNT = val(g.pc.dm_skins[?STR_Set+STR_Count]);
+    var _Skin_COUNT = val(global.pc.dm_skins[?STR_Set+STR_Count]);
     if (_Skin_COUNT 
     &&  _Skin_IDX<_Skin_COUNT )
     {
-        var _DATAKEY = g.pc.dm_skins[?hex_str(_Skin_IDX)+STR_Datakey];
+        var _DATAKEY = global.pc.dm_skins[?hex_str(_Skin_IDX)+STR_Datakey];
         if(!is_undefined(_DATAKEY))
         {
             var _Skin_palette = p.PAL_SET_PC_1; // default
             //var _Skin_palette = p.PAL_PC_1+p.PAL_PC_2+p.PAL_PC_3; // default
-                _Skin_palette = val(g.pc.dm_skins[?string(_DATAKEY)  +STR_Palette], _Skin_palette);
-                _Skin_palette = val(g.pc.dm_skins[?hex_str(_Skin_IDX)+STR_Palette], _Skin_palette);
+                _Skin_palette = val(global.pc.dm_skins[?string(_DATAKEY)  +STR_Palette], _Skin_palette);
+                _Skin_palette = val(global.pc.dm_skins[?hex_str(_Skin_IDX)+STR_Palette], _Skin_palette);
             if (g.RandoPalette_state)
             //&&  val(f.dm_rando[?STR_Randomize+STR_Palette]) )
             {

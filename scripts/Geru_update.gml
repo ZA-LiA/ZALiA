@@ -73,7 +73,7 @@ if (behavior) // if attacking
             &&  avail_uidx_goc(MAX_GOC1)!=UIDX_NULL )
             {
                 if (inRange(x, g.view_xl_og,g.view_xr_og) 
-                ||  abs(x-g.pc.x) < attack_dist )
+                ||  abs(x-global.pc.x) < attack_dist )
                 {
                     var            _XL  = xl;
                     if (facing_dir) _XL += $10;
@@ -181,8 +181,8 @@ facing_dir = dir_to_pc(id);
 
 
 // 9B96
-var _IN_DIST_ATCK = abs(x-g.pc.x) < attack_dist;
-var _IN_DIST_AGRO = abs(x-g.pc.x) < $50;
+var _IN_DIST_ATCK = abs(x-global.pc.x) < attack_dist;
+var _IN_DIST_AGRO = abs(x-global.pc.x) < $50;
 //var _IN_DIST_ATCK = byte(goDist1() + attack_dist) < byte(attack_dist<<1);
 //var _IN_DIST_AGRO = byte(goDist1() + $50)        < $A0;
 
@@ -192,9 +192,9 @@ if (_IN_DIST_ATCK
 ||  _IN_DIST_AGRO )
 {   // 9C1C
     if(!behavior   // if NOT attacking
-    &&  g.pc.ogr ) // PC off ground
+    &&  global.pc.ogr ) // PC off ground
     {
-        ShieldHB_idx = ShieldHB_IDX_LOW + (g.pc.yt+$A < yt);
+        ShieldHB_idx = ShieldHB_IDX_LOW + (global.pc.yt+$A < yt);
     }
     
     
@@ -236,8 +236,8 @@ if (_IN_DIST_ATCK
     
     // ------------------ SET hspd -----------------------
     // 9C66
-         if (g.pc.cs&(CS_RGT|CS_LFT))  hspd = 0;
-    else if (g.pc.hspd && Input.hHeld) hspd = g.pc.hspd;
+         if (global.pc.cs&(CS_RGT|CS_LFT))  hspd = 0;
+    else if (global.pc.hspd && Input.hHeld) hspd = global.pc.hspd;
     else                               hspd = (4*sign_(g.counter1&$40)) &$FF;
     
     hspd = (hspd>>1) | (hspd&$80);

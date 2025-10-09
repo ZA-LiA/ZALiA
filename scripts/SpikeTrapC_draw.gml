@@ -12,8 +12,8 @@ if(1)
     var _i, _x,_y;
     for(_i=chain_length; _i>=0; _i--)
     {
-        _x = spawn_x + round(lengthdir_x(_i<<3, angle));
-        _y = spawn_y + round(lengthdir_y(_i<<3, angle));
+        _x = spawn_xl + round(lengthdir_x(_i<<3, angle));
+        _y = spawn_yt + round(lengthdir_y(_i<<3, angle));
         draw_sprite_(CHAIN_SPR,0, _x,_y);
     }
 }
@@ -23,8 +23,8 @@ else
     var _i, _x,_y;
     for(_i=chain_length<<1; _i>=0; _i--)
     {
-        _x = spawn_x + round(lengthdir_x(_i<<2, angle));
-        _y = spawn_y + round(lengthdir_y(_i<<2, angle));
+        _x = spawn_xl + round(lengthdir_x(_i<<2, angle));
+        _y = spawn_yt + round(lengthdir_y(_i<<2, angle));
         draw_sprite_(CHAIN_SPR,0, _x,_y);
     }
 }
@@ -36,7 +36,7 @@ pal_swap_reset();
 
 
 
-//if (g.can_use_dev_tools1) drawPointCross(spawn_x,spawn_y);
+//if (g.can_use_dev_tools1) drawPointCross(spawn_xl,spawn_yt);
 
 
 

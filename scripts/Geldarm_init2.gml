@@ -63,7 +63,7 @@ var _HEIGHT_MAX  = (SEGMENTS * _SEGMENT_H) + _SEGMENT_H; // +1 for head
     _HEIGHT_MAX--; // In OG the bottom 2 segments are overlapping by 1 extra pixel
 //
 
-GROUND_Y = spawn_y + hh;
+GROUND_Y = spawn_yt + hh;
 GROUND_Y = get_ground_y(x,GROUND_Y-8, 1,GROUND_Y, TID_SOLID1|TID_ONEWY1);
 //GROUND_Y = get_ground_y(x,GROUND_Y-8, 1,GROUND_Y);
 

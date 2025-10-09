@@ -78,7 +78,7 @@ switch(ver)
     _ROW    = yt >>3;
     for(i=(CLMS * ROWS)-1; i>=0; i--)
     {
-        g.dg_RmTile_solid[# _CLM + (i mod CLMS), _ROW + (i div CLMS)] = TID_SOLID1;
+        global.dg_solid[# _CLM + (i mod CLMS), _ROW + (i div CLMS)] = TID_SOLID1;
     }
     
     

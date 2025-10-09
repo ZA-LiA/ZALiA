@@ -1,7 +1,7 @@
 /// Challenge_Secret01_update()
 
 
-var _C1 = g.pc.xScale && !g.pc.hspd && !g.pc.vspd && !Input.held;
+var _C1 = global.pc.xScale && !global.pc.hspd && !global.pc.vspd && !Input.held;
 
 if (timer) timer--;
 if (counter2>=0) counter2++; // For fade timings
@@ -21,7 +21,7 @@ switch(sub_state)
         {
             var _W = $12;
             var _H = $30;
-            if (rectInRect(Headstone_x-(_W>>1),Headstone_y-(_H>>1),_W,_H, g.pc.x-PC_W_,g.pc.y-PC_H_,PC_W,PC_H))
+            if (rectInRect(Headstone_x-(_W>>1),Headstone_y-(_H>>1),_W,_H, global.pc.x-PC_W_,global.pc.y-PC_H_,PC_W,PC_H))
             {
                 counter1++;
             }
@@ -33,7 +33,7 @@ switch(sub_state)
                 {   //clm3=$41; x3=clm3<<3;  data_spawn(rm+STR_PRIO,NPC_0,$1,  x3,y6,  STR_Dialogue+DK0012); // Headstone
                     // NPC xl should be the xl of the headstone. xl+8 is headstone center
                     var _W = $12;
-                    if (rectInRect((xl+8)-(_W>>1),BodyHB_y,_W,BodyHB_h, g.pc.x-8,g.pc.BodyHB_y,$10,g.pc.BodyHB_h))
+                    if (rectInRect((xl+8)-(_W>>1),BodyHB_y,_W,BodyHB_h, global.pc.x-8,global.pc.BodyHB_y,$10,global.pc.BodyHB_h))
                     //if (collide_pc_body((xl+8)-(_W>>1),BodyHB_y, _W,BodyHB_h))
                     //if (collide_pc_body(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h, BodyHB_r))
                     {

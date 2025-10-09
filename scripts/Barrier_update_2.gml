@@ -8,8 +8,8 @@ var _datakey;
 Anim_yoff = (g.counter1>>1)&$7;
 
 
-if (!g.pc.is_dead 
-&& !(g.pc.ocs&$4)   // $4: pc center x is on screen
+if (!global.pc.is_dead 
+&& !(global.pc.ocs&$4)   // $4: pc center x is on screen
 &&  state==state_NORMAL 
 &&  GO_can_collide_this_frame(update_idx) )
 {
@@ -20,11 +20,11 @@ if (!g.pc.is_dead
             if (dg_barrier[#_i+1,0]) continue; // Already raised
             
             
-            BodyHB_x = spawn_x + ((BARRIER_W+BARRIER_PAD) * _i);
-            BodyHB_y = spawn_y;
+            BodyHB_xl = spawn_xl + ((BARRIER_W+BARRIER_PAD) * _i);
+            BodyHB_yt = spawn_yt;
             BodyHB_w = BARRIER_W;
             BodyHB_h = BARRIER_H;
-            if (collide_pc_body(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h))
+            if (collide_pc_body(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h))
             {    cs |=  CS_BD1;  }
             else cs &= ~CS_BD1;
             
@@ -33,11 +33,11 @@ if (!g.pc.is_dead
             // A26C: JSR D6C1
             if (cs&CS_BD1)
             {
-                g.pc.iframes_timer = 0; // So the following scripts will run.
+                global.pc.iframes_timer = 0; // So the following scripts will run.
                 enemy_collide_pc_body();
                 
                 // PC damage bounce AWAY from barrier.
-                g.pc.hspd = (abs8b(g.pc.hspd)*facing_dir) &$FF;
+                global.pc.hspd = (abs8b(global.pc.hspd)*facing_dir) &$FF;
                 break; // _i
             }
         }
@@ -50,7 +50,7 @@ if (!g.pc.is_dead
             if (pc_is_cucco()  
             ||  pc_is_fairy() )
             {
-                g.pc.is_dead = 1;
+                global.pc.is_dead = 1;
                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
@@ -90,13 +90,13 @@ switch(sub_state)
     // ---------------------------------------------------------------------------
     case SUB_STATE_IDLE:{
     if (timer) break;
-    if(!rectInViewAll(spawn_x,spawn_y, BARRIER_AREA_W,BARRIER_H)) break;
+    if(!rectInViewAll(spawn_xl,spawn_yt, BARRIER_AREA_W,BARRIER_H)) break;
     
-    var _DIST  = abs((xl+(BARRIER_AREA_W>>1)) - g.pc.x);
+    var _DIST  = abs((xl+(BARRIER_AREA_W>>1)) - global.pc.x);
         _DIST -=          BARRIER_AREA_W>>1;
     if (_DIST >= $30 
-    ||  g.pc.y< yt 
-    ||  g.pc.y>=yt+BARRIER_H )
+    ||  global.pc.y< yt 
+    ||  global.pc.y>=yt+BARRIER_H )
     {
         break;
     }
@@ -108,7 +108,7 @@ switch(sub_state)
     
     
     // A249
-    //set_pc_bvr(g.pc.BVR_IDLE); // OG
+    //set_pc_bvr(global.pc.BVR_IDLE); // OG
     dg_barrier[#0,1] = 0; // 0:Will trigger next barrier raise. dg_barrier[#0,1] (curr barrier num being raised)
     counter = 0;
     

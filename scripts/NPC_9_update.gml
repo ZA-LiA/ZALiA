@@ -13,7 +13,7 @@ else
     if ( is_ver(id,NPC_9,$1)  // Bagu
     ||  (is_ver(id,NPC_9,$C) && val(f.dm_quests[?STR_Talo+STR_State])==1) ) // Talo
     {
-        NPC_update_3(g.pc.x,g.pc.y); // Spawn item
+        NPC_update_3(global.pc.x,global.pc.y); // Spawn item
     }
 }
 

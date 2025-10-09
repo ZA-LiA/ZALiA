@@ -4,7 +4,7 @@
 if (state!=state_NORMAL 
 && !hp )
 {
-    with(GameObject_create(spawn_x,spawn_y, object_index,ver, dk_spawn))
+    with(GameObject_create(spawn_xl,spawn_yt, object_index,ver, dk_spawn))
     {
         set_xlyt(id, xl,other.y_dive);
         GO_depth_init(other.depth_def); // just in case this spawn has a unique depth

@@ -34,7 +34,7 @@ for(_i=ds_grid_width(g.dg_tile_anim)-1; _i>=0; _i--)
         {
             _clm = _CLM+(_j&1);
             _row = _ROW+(_j>1);
-            g.dg_RmTile_solid[#_clm,_row] = 0;
+            global.dg_solid[#_clm,_row] = 0;
             g.dg_RmTile_Break[#_clm,_row] = 0;
         }
         

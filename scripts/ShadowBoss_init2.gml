@@ -8,12 +8,12 @@ var _val;
 
 Boss_init_2();
 
-GO_depth_init(g.pc.depth+1);
+GO_depth_init(global.pc.depth+1);
 //GO_init_palidx(global.PI_MOB_PUR);
 GO_init_palidx(global.PI_MOB_RED);
 
 GROUND_Y = g.rm_h - ($03<<3);
-GROUND_Y = get_ground_y(arena_x,GROUND_Y, 1, spawn_y + hh);
+GROUND_Y = get_ground_y(arena_x,GROUND_Y, 1, spawn_yt + hh);
 
 
 behavior  = 0; // 0081

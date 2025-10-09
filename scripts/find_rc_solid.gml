@@ -22,10 +22,10 @@ if (argument_count>6) _DEFAULT = argument[6] & $FFFF;
 
 
 // -----------------------------------------------------------------------------------------
-var _MINX  = max(                                0, cam_xl_min()>>3);
-var _MINY  = max(                                0, cam_yt_min()>>3);
-var _GRIDW = min(ds_grid_width( g.dg_RmTile_solid), cam_xr_max()>>3) - _MINX;
-var _GRIDH = min(ds_grid_height(g.dg_RmTile_solid), cam_yb_max()>>3) - _MINY;
+var _MINX  = max(                0, cam_xl_min()>>3);
+var _MINY  = max(                0, cam_yt_min()>>3);
+var _GRIDW = min(global.dg_solid_w, cam_xr_max()>>3) - _MINX;
+var _GRIDH = min(global.dg_solid_h, cam_yb_max()>>3) - _MINY;
 //sdm("min_clm $"+hex_str(_MINX)+", max_clm $"+hex_str(_GRIDW-1)+", clm $"+hex_str(argument[1])+", min_row $"+hex_str(_MINY)+", max_row $"+hex_str(_GRIDH)+", row $"+hex_str(argument[2]));
 
 for(var _i=0; _i<_COUNT; _i++)
@@ -37,12 +37,12 @@ for(var _i=0; _i<_COUNT; _i++)
     }
     
     
-    if (g.dg_RmTile_solid[#argument[1],argument[2]]    & argument[0])    // if SOLID or ONEWAY
-    {                          return (argument[2]<<8) | argument[1];  } // return found solid row & clm
-    //                                      row $FF00  |  clm $00FF
+    if (global.dg_solid[#argument[1],argument[2]]    & argument[0])    // if SOLID or ONEWAY
+    {                        return (argument[2]<<8) | argument[1];  } // return found solid row & clm
+    //                                    row $FF00  |  clm $00FF
     if (argument[0]==0 
-    && !g.dg_RmTile_solid[#argument[1],argument[2]] )
-    {                          return (argument[2]<<8) | argument[1];  } // return found non-solid row & clm
+    && !global.dg_solid[#argument[1],argument[2]] )
+    {                        return (argument[2]<<8) | argument[1];  } // return found non-solid row & clm
     
     
     // -----------------------------------------------------

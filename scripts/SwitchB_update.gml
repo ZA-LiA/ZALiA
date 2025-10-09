@@ -17,11 +17,11 @@ update_body_hb_2a();
 // *** yt is 8 ABOVE the ground.
 
 
-if (g.dg_RmTile_solid[# xl>>3,    yt>>3]&$FF == TID_SOLID1  // if solid tile on top
-||  g.dg_RmTile_solid[#(xl>>3)+1, yt>>3]&$FF == TID_SOLID1  // if solid tile on top
+if (global.dg_solid[# xl>>3,    yt>>3]&$FF == TID_SOLID1  // if solid tile on top
+||  global.dg_solid[#(xl>>3)+1, yt>>3]&$FF == TID_SOLID1  // if solid tile on top
 ||  collide_solid_inst(x,y-1) 
-//|| (g.pc.cs&CS_BTM && pointInRect(g.pc.x,g.pc.y+g.pc.hh_, xx+2,GROUND_Y,$C,3)) ) // if PC on top
-|| (g.pc.cs&CS_BTM && pointInRect(g.pc.cp1X,g.pc.cp1Y, BodyHB_x,BodyHB_y,BodyHB_w,BodyHB_h)) ) // if PC on top
+//|| (global.pc.cs&CS_BTM && pointInRect(global.pc.x,global.pc.y+global.pc.hh_, xx+2,GROUND_Y,$C,3)) ) // if PC on top
+|| (global.pc.cs&CS_BTM && pointInRect(global.pc.cp1X,global.pc.cp1Y, BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h)) ) // if PC on top
 {
     if(!pressed)
     {

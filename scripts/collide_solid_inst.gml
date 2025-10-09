@@ -9,7 +9,7 @@ for(_i=ds_list_size(g.dl_solid_inst)-1; _i>=0; _i--)
     &&  instance_exists(_inst) 
     &&                  _inst.state==state_NORMAL 
     &&                  _inst.solid_type 
-    &&  rectInRect(argument0,argument1,1,1, _inst.BodyHB_x,_inst.BodyHB_y,_inst.BodyHB_w,_inst.BodyHB_h) )
+    &&  rectInRect(argument0,argument1,1,1, _inst.BodyHB_xl,_inst.BodyHB_yt,_inst.BodyHB_w,_inst.BodyHB_h) )
     {
         return          _inst;
     }

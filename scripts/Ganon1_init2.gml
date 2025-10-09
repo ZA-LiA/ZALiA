@@ -45,12 +45,12 @@ DoorBlocks_count        = 0; // number placed so far
 
 
 
-pc_offset1 = g.pc.csLft1_xoff-g.pc.ww_;
-pc_offset2 = g.pc.csRgt1_xoff-g.pc.ww_;
+pc_offset1 = global.pc.csLft1_xoff-global.pc.ww_;
+pc_offset2 = global.pc.csRgt1_xoff-global.pc.ww_;
 pc_x_min   = (arena_xl-2)+abs(pc_offset1);
 pc_x_max   = (arena_xr+2)-abs(pc_offset2)-1;
-//pc_x_min   = (arena_xl-2)+abs(g.pc.x-g.pc.csLft1X);
-//pc_x_max   = (arena_xr+2)-abs(g.pc.x-g.pc.csRgt1X)-1;
+//pc_x_min   = (arena_xl-2)+abs(global.pc.x-global.pc.csLft1X);
+//pc_x_max   = (arena_xr+2)-abs(global.pc.x-global.pc.csRgt1X)-1;
 
 
 if(!is_undefined(dk_spawn))

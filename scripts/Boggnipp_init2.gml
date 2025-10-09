@@ -8,7 +8,7 @@ GO_depth_init(DEPTH_BG1);
 
 
 
-YT_IDLE = spawn_y+YT_IDLE;
+YT_IDLE = spawn_yt+YT_IDLE;
 set_xlyt(id, xl,YT_IDLE);
 
 

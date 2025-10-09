@@ -2,8 +2,8 @@
 
 
 // DC91
-if (argument0.xl < g.pc.xl) return  1;
-                            return -1;
+if (argument0.xl<global.pc.xl) return  1;
+                               return -1;
 //
 
 
@@ -11,7 +11,7 @@ if (argument0.xl < g.pc.xl) return  1;
 // DC91
 // Note: byte(-1 >> 8) = $FF
 var _carry, _lmp, _lx, _emp, _ex, _val;
-_val    = g.pc.x - $10; // og g.pc.xl
+_val    = global.pc.x - $10; // og global.pc.xl
 
 _lx     = byte(_val) + 8;
 _carry  = _lx > $FF;
@@ -23,7 +23,7 @@ _lx     = byte(_lx);
 _ex     = byte(xl) ^ $FF;
 _carry  = ((_lx + _ex) + _carry) > $FF;
 
-_lmp    = byte(_lmp); // same as mp of (g.pc.x - 8)
+_lmp    = byte(_lmp); // same as mp of (global.pc.x - 8)
 _emp    = byte(xl >> 8) ^ $FF;
 _val    = (_lmp + _emp) + _carry;
 _carry  = _val > $FF;
@@ -50,7 +50,7 @@ return _carry;
 // DC91
 // Note: byte(-1 >> 8) = $FF
 var _carry, _lmp, _lx, _emp, _ex, _val;
-_lx     = g.pc.x - 8;
+_lx     = global.pc.x - 8;
 _carry  = _lx < 8;
 
 _ex     = byte(xl) ^ $FF;
@@ -71,7 +71,7 @@ return _carry;
 /*
 // DC91
 var _carry, _lmp, _lx, _emp, _ex, _val;
-_val    = g.pc.x - $10; // og g.pc.xl
+_val    = global.pc.x - $10; // og global.pc.xl
 
 _lx     = byte(_val) + 8;
 _carry  = _lx > $FF;
@@ -98,7 +98,7 @@ return _carry;
 
 /*
 // DC91
-var _lx = g.pc.xl + 8;
+var _lx = global.pc.xl + 8;
 facingDir = signBin(xl < _lx);
 
 return (byte(xl>>8) <= byte(_lx>>8)) && (xl < _lx);

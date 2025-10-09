@@ -41,9 +41,9 @@ switch(sub_state)
         
         if (1) // MOD.  Prevent spawning out of solids.
         {
-            if(!g.dg_RmTile_solid[# (_X-ww_)>>3, _Y>>3])
+            if(!global.dg_solid[# (_X-ww_)>>3, _Y>>3])
             {   _X += 8;  }
-            if(!g.dg_RmTile_solid[# (_X+ww_)>>3, _Y>>3])
+            if(!global.dg_solid[# (_X+ww_)>>3, _Y>>3])
             {   _X -= 8;  }
                 _X  = (_X>>3)<<3;
         }
@@ -108,7 +108,7 @@ switch(sub_state)
             //     _X += (ww_ * hspd_dir) + 1;
             var _Y  = y + hh_ + 1;
             
-            if(!g.dg_RmTile_solid[# _X>>3, _Y>>3])
+            if(!global.dg_solid[# _X>>3, _Y>>3])
             {
                 timer = 0; // Force SUB_STATE_SBMRG
             }

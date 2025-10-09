@@ -158,9 +158,9 @@ if (collisionProjCS(0,0))
             if(!_dir) _dir  =  1;
             else      _dir  = -1;
             
-            var _CARRY = (g.pc.yt&$FF) > 2;
+            var _CARRY = (global.pc.yt&$FF) > 2;
             _xl = g.view_xl_og + ((8*_dir)&$FF) + _CARRY;
-            _yt = g.pc.yt - 2;
+            _yt = global.pc.yt - 2;
             set_xlyt(id, _xl,_yt);
             
             facing_dir = dir_to_pc(id);
@@ -179,7 +179,7 @@ if (collisionProjCS(0,0))
             
             if (is_ancestor(object_index,Ra__A))
             {
-                var _Y1 = g.pc.yt+hh_; // where VSPD_MAX should occur
+                var _Y1 = global.pc.yt+hh_; // where VSPD_MAX should occur
                 _dir = sign_(y<_Y1);
                 
                 hspd = (HSPD*facing_dir) &$FF;
@@ -219,8 +219,8 @@ if (collisionProjCS(0,0))
                 }
                 else if (is_ancestor(object_index,StalA)) // Stalfos
                 {
-                    spawn_x = xl;
-                    spawn_y = yt;
+                    spawn_xl = xl;
+                    spawn_yt = yt;
                     counter = 1; // has detached from chain
                 }
             }

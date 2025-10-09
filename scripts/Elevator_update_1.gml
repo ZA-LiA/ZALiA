@@ -5,9 +5,9 @@ var _i, _x;
 var _dir = 0;
 var _ELEVB = TYPE=="B";
 
-            g.pc.ogr  = 0;
-            g.pc.vspd = 0;
-if (_ELEVB) g.pc.hspd = 0;
+            global.pc.ogr  = 0;
+            global.pc.vspd = 0;
+if (_ELEVB) global.pc.hspd = 0;
 
 var                           _DIR_RQST = Input.vHeld;
 if (_ELEVB)                   _DIR_RQST = moving_dir;
@@ -18,7 +18,7 @@ if (g.EnterRoom_control_timer){
 }
 
 
-var _PC_CS  = g.pc.cs&$F;
+var _PC_CS  = global.pc.cs&$F;
 for(_i=(ww>>3)-1; _i>=0; _i--)
 {
     _x=(xl+4) + (_i<<3);
@@ -81,19 +81,19 @@ if (_C1)
 {
         _dir = 0;
     
-    var _DIFF  = (x+pc_xoff) - g.pc.x;
+    var _DIFF  = (x+pc_xoff) - global.pc.x;
     if (_DIFF != 0 
     &&  _C2 )
     {
-        g.pc.x_change = _DIFF;
+        global.pc.x_change = _DIFF;
         _dir  =    sign(_DIFF);
     }
     
     
-        _DIFF  = (yt+hh-8) - (g.pc.yt+g.pc.hh);
+        _DIFF  = (yt+hh-8) - (global.pc.yt+global.pc.hh);
     if (_DIFF != 0) 
     {
-        g.pc.y_change = _DIFF;
+        global.pc.y_change = _DIFF;
         _dir  =    sign(_DIFF);
     }
     
@@ -111,10 +111,10 @@ if (_C1)
 }
 
 
-var      _X = g.pc.x;
+var      _X = global.pc.x;
 if (_C2) _X = x  + pc_xoff;
-var      _Y = yt + hh - 8 - g.pc.hh_;
-set_xy(g.pc, _X,_Y);
+var      _Y = yt + hh - 8 - global.pc.hh_;
+set_xy(global.pc, _X,_Y);
 
 
 

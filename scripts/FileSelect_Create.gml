@@ -393,7 +393,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++)
 
 
 // -------------------------------------------------
-FileSelect_Create_Rando();
+//FileSelect_Create_Rando();
 
 
 var _seed=0;
@@ -421,6 +421,12 @@ for(_file_num=1; _file_num<=SAVE_FILE_MAX; _file_num++)
     //sdm("Quest-1 Seed $"+hex_str(dm_RandoSeeds[?_datakey1]));
     //sdm("Quest-2 Seed $"+hex_str(dm_RandoSeeds[?_datakey2]));
 }
+
+
+
+
+// -------------------------------------------------
+FileSelect_Create_Rando();
 
 
 
@@ -467,6 +473,9 @@ _y += $01<<3; // + extra "RANDO"/"END" pad
 _y += REGISTER_surf_DrawArea_YT;
 _y += RandoOptions_YOFF1;
 REGISTER_RANDO_TEXT_YT = _y;
+
+REGISTER_rando_is_on = false;
+REGISTER_file_seed = 0;
 
 
 

@@ -5,11 +5,7 @@
 if(!is_undefined(   colliding_elevator) 
 &&  instance_exists(colliding_elevator) )
 {
-    if (g.view_update_order==1) // 1: OG
-    {
-        with(colliding_elevator) Elevator_update_1();
-    }
-    
+    with(colliding_elevator) Elevator_update_1();
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 

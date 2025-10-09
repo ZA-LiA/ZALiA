@@ -23,8 +23,8 @@ mouth_yoff  = 0;
 mouth_color = 0;
 
 
-GROUND_Y = ((spawn_y+hh)>>3)<<3;
-GROUND_Y = get_ground_y(x,spawn_y, 1, GROUND_Y, TID_SOLID1|TID_ONEWY1);
+GROUND_Y = ((spawn_yt+hh)>>3)<<3;
+GROUND_Y = get_ground_y(x,spawn_yt, 1, GROUND_Y, TID_SOLID1|TID_ONEWY1);
 
 
 switch(ver)

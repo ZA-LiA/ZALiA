@@ -17,7 +17,7 @@ if(!g.cutscene
 {   // 97DE, 97E0: JSR EF11
     with(TK_OBJ)
     {
-        if (f.quest_num>=2) set_xlyt(id, spawn_x-$10, spawn_y);
+        if (f.quest_num>=2) set_xlyt(id, spawn_xl-$10, spawn_yt);
         
         counter = (counter+1)&$FF;
         if (f.quest_num==1) tri_can_draw = 1;
@@ -37,10 +37,10 @@ if(!g.cutscene
         g.view_lock |= (g.view_lock_boss | g.view_lock_rm);
         
         
-            g.pc.hspd = 0;
-        if(!g.pc.ogr)
+            global.pc.hspd = 0;
+        if(!global.pc.ogr)
         {
-            with(g.pc)
+            with(global.pc)
             {
                 solid_clip_correction(false);
                 PC_set_behavior(behavior_IDLE);
@@ -121,7 +121,7 @@ switch(g.cutscene_part)
     // 980D
     if(!g.cutscene_timer)
     {   // 9812
-        with(BOSS_OBJ) set_xy(id, g.pc.x, GROUND_Y-hh_);
+        with(BOSS_OBJ) set_xy(id, global.pc.x, GROUND_Y-hh_);
         
         var                     _DURATION = $40;
         p.Flash_Pal_timer     = _DURATION;
@@ -206,7 +206,7 @@ switch(g.cutscene_part)
         {
             if (g.cutscene_timer == _CUE)
             {
-                set_xy(id, g.pc.x, GROUND_Y-hh_);
+                set_xy(id, global.pc.x, GROUND_Y-hh_);
                 facing_dir = -1;
                 vspd      = $FC;
                 hspd      = $13;
@@ -226,14 +226,14 @@ switch(g.cutscene_part)
             {
                 g.cutscene_timer = $70 + 1;
                 
-                //GO_sprite_init(g.pc.sprite_index);
-                GO_set_sprite(id, g.pc.sprite);
+                //GO_sprite_init(global.pc.sprite_index);
+                GO_set_sprite(id, global.pc.sprite);
                 set_xy(id, x, GROUND_Y-hh_); // mod
                 
                 g.cutscene_part++;
             }
             
-            behavior = g.pc.behavior_DAMAGE; // $0A: BVR_DAMG
+            behavior = global.pc.behavior_DAMAGE; // $0A: BVR_DAMG
             
             // 9878: JMP 9A77
             // udp must be called in update_ShadowBoss() bc 
@@ -258,7 +258,7 @@ switch(g.cutscene_part)
     {   // 9887
         with(BOSS_OBJ)
         {
-            behavior = g.pc.behavior_CROUCH;
+            behavior = global.pc.behavior_CROUCH;
             ShadowBoss_udp();
         }
     }

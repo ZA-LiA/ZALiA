@@ -27,15 +27,15 @@ sub_state           = SUB_STATE_IDLE;
 
 
 
-spawn_x = $1D<<3;
-spawn_y = (_ROW0+$1C)<<3; // _ROW0+$1C: ground row
-set_xlyt(id, spawn_x,spawn_y);
+spawn_xl = $1D<<3;
+spawn_yt = (_ROW0+$1C)<<3; // _ROW0+$1C: ground row
+set_xlyt(id, spawn_xl,spawn_yt);
 
 //sdm("Cutscene_MoaiOpenMouth2_init_2 dk_spawn: "+dk_spawn);
 
 PC_DEPTH        = TILE_DEPTH+1;
-PC_DEPTH_DEF    = g.pc.depth_def;
-//g.pc.depth_def  = PC_DEPTH;
+PC_DEPTH_DEF    = global.pc.depth_def;
+//global.pc.depth_def  = PC_DEPTH;
 
 
 var _EXIT_NAME = g.rm_name+"00";
@@ -63,7 +63,7 @@ if (opened)
     {   Exit_inst.open = 1;  }
     
     rows_up = ROWS;
-    set_xlyt(id, xl, spawn_y-hh);
+    set_xlyt(id, xl, spawn_yt-hh);
     
     var _x,_y;
     
@@ -82,7 +82,7 @@ if (opened)
 if (opened 
 ||  Exit_inst!=g.exit_enter )
 {
-    //g.pc.depth_def  = PC_DEPTH_DEF;
+    //global.pc.depth_def  = PC_DEPTH_DEF;
     //g.pc_lock       = 0;
     //g.cutscene      = 0;
     

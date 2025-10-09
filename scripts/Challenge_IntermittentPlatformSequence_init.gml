@@ -79,7 +79,7 @@ if(!is_undefined(dk_spawn))
 
 
 
-ds_grid_resize(g.dg_RmTile_TempSolid, ds_grid_width(g.dg_RmTile_solid),ds_grid_height(g.dg_RmTile_solid)); // unit8
+ds_grid_resize(g.dg_RmTile_TempSolid, global.dg_solid_w,global.dg_solid_h); // unit8
 ds_grid_clear (g.dg_RmTile_TempSolid, 0);
 //ds_grid_clear(g.dg_RmTile_TempSolid, 0);
 

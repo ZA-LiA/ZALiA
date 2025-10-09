@@ -14,7 +14,7 @@ if (g.cutscene != g.CUTSCENE_GAME_END_1A
 var _i;
 
 
-with(g.pc)
+with(global.pc)
 {
     g.pc_lock       = PC_LOCK_ALL;
     // g.pc_lock       = PC_LOCK_A1;
@@ -46,9 +46,9 @@ var IDX_Y = IDX_X+1;
 if(!g.cutscene_part)
 {
     // var _SPR = val(g.dm_ITEM_SPR[? object_get_name(hold_item_oi)]);
-    var _X = g.pc.spawn_x + g.pc.ww_;
-    var _Y = g.pc.spawn_y - 8; // OG
-    // var _Y = g.pc.spawn_y - (3<<3); // MOD. Looks better $10 higher?
+    var _X = global.pc.spawn_xl + global.pc.ww_;
+    var _Y = global.pc.spawn_yt - 8; // OG
+    // var _Y = global.pc.spawn_y - (3<<3); // MOD. Looks better $10 higher?
     //     _Y -= 3; // MOD
     
     for(_i=ds_grid_width(dg_triforce)-1; _i>=0; _i--)
@@ -111,7 +111,7 @@ switch(g.cutscene_part)
     
     // TODO: Find better triforce resting position
     var _C1  = !(g.counter1&$1F) 
-            &&  dg_triforce[#1,IDX_Y] > g.pc.yt-($03<<3)-4;
+            &&  dg_triforce[#1,IDX_Y] > global.pc.yt-($03<<3)-4;
     // 
     
     for(_i=2; _i>=0; _i--)
@@ -124,7 +124,7 @@ switch(g.cutscene_part)
     }
     
     
-    if (abs(g.pc.x-dg_triforce[#1,IDX_X]) >= $4C) // (OG: >= $40).  if triforce has moved far enough
+    if (abs(global.pc.x-dg_triforce[#1,IDX_X]) >= $4C) // (OG: >= $40).  if triforce has moved far enough
     {
         g.cutscene_timer = DUR1; // DUR1: $5F 1.583s. Delay spell flash.
         g.cutscene_part++;
@@ -229,7 +229,7 @@ switch(g.cutscene_part)
         sdm("exit door");
         
         
-        g.pc.HoldItem_timer = 0;
+        global.pc.HoldItem_timer = 0;
         
         g.cutscene_part = 0;
         g.cutscene      = 1;

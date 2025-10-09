@@ -1,7 +1,7 @@
 /// collide_pc_sword(x, y, w, h, *radius)
 
 
-with(g.pc)
+with(global.pc)
 {
     // SwordHB_collidable is set and determined at end of master update in update_swrdXY()
     if(!SwordHB_collidable) return false;

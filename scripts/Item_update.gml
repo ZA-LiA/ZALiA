@@ -29,19 +29,19 @@ switch(sub_state)
     // E51E. ITEM_TYPE: "A":Major items, "B":Heart/Magic containers, "C":Quest items, "G":Extra Life Doll
     if (IS_HOLD_ITEM 
     &&  cs&CS_BD1 
-    && !g.pc.ogr 
-    && !g.pc.HoldItem_timer )
+    && !global.pc.ogr 
+    && !global.pc.HoldItem_timer )
     {   // E726, E538: JSR E771
         Item_update_1(); // E771
         
-        g.pc.HoldItem_timer  = g.pc.HoldItem_DURATION; // $70
-        g.pc.vspd = 0; // og
-        //g.pc.hspd = 0; // og
+        global.pc.HoldItem_timer  = global.pc.HoldItem_DURATION; // $70
+        global.pc.vspd = 0; // og
+        //global.pc.hspd = 0; // og
         
-        g.pc.HoldItem_inst   = id; // 
-        g.pc.HoldItem_object = object_index; // 049D 
-        //g.pc.HoldItem_ver    = ver;
-        //g.pc.HoldItem_palidx = palidx_base;
+        global.pc.HoldItem_inst   = id; // 
+        global.pc.HoldItem_object = object_index; // 049D 
+        //global.pc.HoldItem_ver    = ver;
+        //global.pc.HoldItem_palidx = palidx_base;
         if (object_index==CONT_PIECE_OBJ_MP)
         {
             GO_sprite_init(g.dl_cont_spr_mp[|0]);
@@ -61,7 +61,7 @@ switch(sub_state)
     && !stun_timer )
     {
         if (cs&CS_SW1  // Note: TYPE1's react_swrd value does NOT collide w/ PC swrd
-        || (g.pc.SwordHB2_colliding==id && isVal(ITEM_TYPE,STR_KEY,STR_JAR,STR_PBAG)) )
+        || (global.pc.SwordHB2_colliding==id && isVal(ITEM_TYPE,STR_KEY,STR_JAR,STR_PBAG)) )
         {
             Item_update_1(); // E771
             stun_timer = STUN_DURATION1; // $30
@@ -84,39 +84,39 @@ switch(sub_state)
     // ---------------------------------------------------------------------
     // ----------------------------------------------------------
     case sub_state_HELD:{
-    if (g.pc.HoldItem_timer)
+    if (global.pc.HoldItem_timer)
     {
-        var _X = g.pc.x;
+        var _X = global.pc.x;
         if (ww<$10)
         {
-            if (pc_is_cucco()) _X += ww_ * -g.pc.xScale;
+            if (pc_is_cucco()) _X += ww_ * -global.pc.xScale;
             else               _X -= ww_;
             //if(!pc_is_cucco()) _X -= ww_;
         }
         
-        var _Y  = g.pc.yt-hh_;
+        var _Y  = global.pc.yt-hh_;
             _Y -= sign(pc_is_cucco());
         set_xy(id, _X,_Y);
         /*
-        var _X  = g.pc.x-(8*g.pc.HoldItem_x_scale);
-            _X += ww_ * g.pc.HoldItem_x_scale;
-        set_xy(id, _X, g.pc.yt-hh_);
+        var _X  = global.pc.x-(8*global.pc.HoldItem_x_scale);
+            _X += ww_ * global.pc.HoldItem_x_scale;
+        set_xy(id, _X, global.pc.yt-hh_);
         */
         /*
-        set_xy(id, (g.pc.x-8)+ww_, g.pc.yt-hh_);
+        set_xy(id, (global.pc.x-8)+ww_, global.pc.yt-hh_);
         
         if (pc_is_cucco() 
         &&  ww<$10 
-        && !g.pc.xScale )
+        && !global.pc.xScale )
         {
-            set_xy(id, g.pc.x+4, g.pc.yt-hh_);
+            set_xy(id, global.pc.x+4, global.pc.yt-hh_);
         }
         */
         update_EF11();
     }
     else
     {
-        g.pc.HoldItem_inst = noone;
+        global.pc.HoldItem_inst = noone;
         state = 0;
         exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }

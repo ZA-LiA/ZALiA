@@ -14,8 +14,8 @@ if (can_leave_kid)
         
         if(!dg_kids[#_i,0]) continue;
         
-        if(!g.pc.ogr 
-        &&  rectInRect(dg_kids[#_i,1]-2,dg_kids[#_i,2]-2,4,4, g.pc.x-6,g.pc.yt,12,g.pc.hh))
+        if(!global.pc.ogr 
+        &&  rectInRect(dg_kids[#_i,1]-2,dg_kids[#_i,2]-2,4,4, global.pc.x-6,global.pc.yt,12,global.pc.hh))
         {   // PC can put out flame.
             dg_kids[#_i,0] = 0;
         }
@@ -144,7 +144,7 @@ if (ver==3
     else
     {
         var _PC_REACT = 2;
-        var _PC_VSPD = g.pc.vspd;
+        var _PC_VSPD = global.pc.vspd;
         
         GOB_update_2();
         stun_timer = 0;
@@ -165,9 +165,9 @@ if (ver==3
         || (_PC_REACT==1 && ver==5) )
         {
             if (cs&CS_SW1 
-            &&  isVal(g.pc.behavior, g.pc.behavior_STAB_UP,g.pc.behavior_STAB_DOWN) )
+            &&  isVal(global.pc.behavior, global.pc.behavior_STAB_UP,global.pc.behavior_STAB_DOWN) )
             {
-                g.pc.vspd = _PC_VSPD;
+                global.pc.vspd = _PC_VSPD;
             }
         }
     }

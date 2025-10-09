@@ -1,7 +1,7 @@
 /// PC_set_bounce()
 
 
-with(g.pc)
+with(global.pc)
 {
     switch(g.mod_HowDownStabAffectsVSPD){
     case 0:{                                    vspd =       vspd_bounce;      break;} // OG. vspd_bounce: $FE

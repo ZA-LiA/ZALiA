@@ -23,7 +23,7 @@ if (argument_count>7) _HIDDEN = argument[7];
 
 
 
-if (_SOLID!=-1) g.dg_RmTile_solid[#argument[1]>>3,argument[2]>>3] = _SOLID;
+if (_SOLID!=-1) global.dg_solid[#argument[1]>>3,argument[2]>>3] = _SOLID;
 
 
 if ( _unique 

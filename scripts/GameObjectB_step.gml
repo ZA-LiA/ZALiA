@@ -119,7 +119,7 @@ switch(state)
                 vspd = 0;
                 
                 var _y = yb-1;
-                if (g.dg_RmTile_solid[#x>>3,_y>>3]&$FF == TID_SOLID1)
+                if (global.dg_solid[#x>>3,_y>>3]&$FF == TID_SOLID1)
                 {
                     _y = ((_y>>3)-1)<<3;
                     _y = get_ground_y(x,yb, -1, _y);

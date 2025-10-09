@@ -1,7 +1,7 @@
 /// draw_pc_skin(x, y, xscale, yscale, *behavior, *use disguise, *shield level, *sword level, *palette idx, *color, *rotation)
 
 
-with(g.pc)
+with(global.pc)
 {
     var                     _arg = 0;
     var _X       = argument[_arg++]; // pc center x

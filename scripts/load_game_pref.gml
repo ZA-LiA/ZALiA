@@ -135,7 +135,7 @@ if(!is_undefined(_val)) g.HiddenExitIndicator_enabled = _val;
 
 
 _val = _dm_FILE_DATA[?STR_PC+STR_Sprite+STR_Set];
-if(!is_undefined(_val)) g.pc.dm_skins[?STR_Current+STR_Idx] = clamp(_val, 0,val(g.pc.dm_skins[?STR_Set+STR_Count])-1);
+if(!is_undefined(_val)) global.pc.dm_skins[?STR_Current+STR_Idx] = clamp(_val, 0,val(global.pc.dm_skins[?STR_Set+STR_Count])-1);
 
 
 

@@ -916,7 +916,7 @@ data_go_scr(  o_name,   Challenge_init, Challenge_SwitchA_init, Challenge_Switch
 // Challenge_SwitchB  --------------------------------------------------------
 o_name = object_get_name(Challenge_SwitchB);
 data_go_prop1(    Challenge_SwitchB, "Challenge_SwitchB", spr_Placement_16x16);
-data_go_scr(  o_name,   Challenge_init, Challenge_SwitchB_init, Challenge_SwitchB_update, 0, 0, Challenge_SwitchB_end);
+data_go_scr(  o_name,   Challenge_init, Challenge_SwitchB_init, Challenge_SwitchB_update, 0, Challenge_SwitchB_draw, Challenge_SwitchB_end);
 
 
 // -----------------------------------------------------------------------------
@@ -1159,6 +1159,22 @@ data_go_prop1(    SpTrC, "SpikeTrapC", spr_Spike_ball_1a);
 data_go_scr(  o_name,   SpikeTrapC_init1, SpikeTrapC_init2, SpikeTrapC_update, SpikeTrapC_udp, SpikeTrapC_draw, SpikeTrapC_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, $51, CSf,   0,  $03,   0, RSPd,    0, SWDc,    0,    0,    0,    0); // 
+
+
+// -----------------------------------------------------------------------------
+// SmasherTrap  --------------------------------------------------------
+object=SmasherTrapManager; o_name=object_get_name(object);
+data_go_prop1(object, "SmasherTrapManager", spr_Block06);
+data_go_scr(  o_name, SmasherTrapManager_init1, SmasherTrapManager_init2, SmasherTrapManager_update, SmasherTrapManager_udp, SmasherTrapManager_draw);
+//                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
+data_go_prop2(o_name+"01", PIe,  -1, $00,   0,  $00,   0, RSPd,    0, SWDc,    0,    0,    0,    0);
+
+object=SmasherTrap01; o_name=object_get_name(object);
+data_go_prop1(object, "SmasherTrap01", spr_Block06);
+data_go_scr(  o_name, SmasherTrap01_init1, SmasherTrap01_init2, SmasherTrap01_update, SmasherTrap01_udp, SmasherTrap01_draw);
+//                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
+data_go_prop2(o_name+"01", PIe,  -1, $00,   0,  $00,   0, RSPd,    0, SWDc,    0,    0,    0,    0);
+data_go_prop2(o_name+"02", PIe,  -1, $00,   0,  $00,   0, RSPd,    0, SWDc,    0,    0,    0,    0);
 
 
 // -----------------------------------------------------------------------------

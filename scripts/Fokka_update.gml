@@ -129,9 +129,9 @@ if!(cs&$3) updateX();
 
 
 // 9DC6
-if (g.pc.ogr)
+if (global.pc.ogr)
 {
-    if (g.pc.yt+5 >= yt) ShieldHB_idx = ShieldHB_IDX_LOW; // 1
+    if (global.pc.yt+5 >= yt) ShieldHB_idx = ShieldHB_IDX_LOW; // 1
     else                 ShieldHB_idx = ShieldHB_IDX_HGH; // 2
 }
 else if (Input.Attack_pressed)
@@ -158,7 +158,7 @@ else
 {
     if (cs&$4)
     {   // 9E06. -------------- SET hspd -----------------
-             if (g.pc.hspd)      hspd = g.pc.hspd;
+             if (global.pc.hspd)      hspd = global.pc.hspd;
         else if (g.counter1&$40) hspd =  HSPD_PACE &$FF;
         else                     hspd = -HSPD_PACE &$FF;
         

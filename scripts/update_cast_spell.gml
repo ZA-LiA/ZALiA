@@ -5,7 +5,7 @@
 
 if (Input.Magic_pressed 
 &&  f.spells&g.spell_ready 
-&&  g.pc.state 
+&&  global.pc.state 
 &&  !(g.pc_lock&PC_LOCK_SPEL) )
 {
     // ---------  A SPELL WAS REQUESTED THIS FRAME  ---------------------

@@ -5,9 +5,9 @@ var _i, _a, _idx;
 
 Cutscene_init();
 
-spawn_x = $2D<<3;
-spawn_y = ((g.rm_rows-PAGE_ROWS)+$10)<<3;
-set_xlyt(id, spawn_x,spawn_y);
+spawn_xl = $2D<<3;
+spawn_yt = ((g.rm_rows-PAGE_ROWS)+$10)<<3;
+set_xlyt(id, spawn_xl,spawn_yt);
 
                       _a=1;
 SUB_STATE_CHECK0    = _a++;

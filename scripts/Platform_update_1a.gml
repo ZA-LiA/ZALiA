@@ -15,6 +15,9 @@ if (_DIFF_X==0
 }
 
 
+// updates all GameObject instances
+update_go_xy_on_moving_platform(_DIFF_X,_DIFF_Y);
+/*
 with(GameObject)
 {
     if (is_ancestor_(object_index,GameObjectA,GOB1,NPC,Item) 
@@ -48,6 +51,10 @@ with(GameObject)
         {
             y_change +=     _DIFF_Y;
             set_xy(id, x, y+_DIFF_Y);
+        }
+    }
+}
+*/
             /* TODO: What happens when the platform moves pc into ceiling or floor?
             GO_update_cs();
             
@@ -58,9 +65,6 @@ with(GameObject)
                 set_xy(id, x, y+_DIFF_Y);
             }
             */
-        }
-    }
-}
 
 
 

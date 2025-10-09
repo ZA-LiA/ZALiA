@@ -51,7 +51,7 @@ if (is_talking)
         // g.GWIN_D2(restore house dlg) doesn't draw PC nor NPC
         if (g.gui_state == g.gui_state_DIALOGUE1)
         {
-            g.pc.xScale = sign_(x-g.pc.x); // Face PC torwards NPC
+            global.pc.xScale = sign_(x-global.pc.x); // Face PC torwards NPC
             update_EF11();
         }
         
@@ -191,7 +191,7 @@ if (counter==$80)
     if (timer_a1) timer_a1--;
     
     if(!timer_a1 
-    &&  abs(g.pc.x-x)<$60 )
+    &&  abs(global.pc.x-x)<$60 )
     {   // 97F5
         GO_update_cs();
         

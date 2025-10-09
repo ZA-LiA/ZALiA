@@ -39,7 +39,7 @@ sub_state    = ST_SUB1_IDLE;
 
 DIST_ATK = $28; // $30 more challenging
 
-y_idle = spawn_y - 2;
+y_idle = spawn_yt - 2;
 y_dive = y_idle + $10;
 
 //Y_OFF_FLOAT_MAX = 1;

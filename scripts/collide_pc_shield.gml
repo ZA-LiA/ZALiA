@@ -1,7 +1,7 @@
 /// collide_pc_shield(x, y, w, h, *radius)
 
 
-with(g.pc)
+with(global.pc)
 {
     if (argument_count>4 
     &&  argument[4] )

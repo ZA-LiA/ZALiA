@@ -6,10 +6,10 @@ var _FILE_NUM = argument[0];
 
 FileSelect_clear_save_file_rando_info(_FILE_NUM);
 
-var _DATAKEY1 = STR_Save+STR_File+hex_str(_FILE_NUM);
-SaveFileRandoInfo_dm[?_DATAKEY1+STR_Surface] = 0;
+var _DATAKEY0 = STR_Save+STR_File+hex_str(_FILE_NUM);
+SaveFileRandoInfo_dm[?_DATAKEY0+STR_Surface] = 0;
 
-var _file_data = global.dm_save_file_data[?_DATAKEY1+STR_Encoded];
+var _file_data = global.dm_save_file_data[?_DATAKEY0+STR_Encoded];
 if (is_undefined(_file_data))
 {
     var _FILE_NAME = f.dl_file_names[|_FILE_NUM-1];
@@ -33,7 +33,7 @@ if (_dm_FILE!=-1)
             if (_dm_Rando!=-1)
             {
                 _rando_data = _dm_Rando[?STR_Rando+STR_Settings];
-                if(!is_undefined(_rando_data)) SaveFileRandoInfo_dm[?_DATAKEY1+STR_Rando+STR_Data] = _rando_data;
+                if(!is_undefined(_rando_data)) SaveFileRandoInfo_dm[?_DATAKEY0+STR_Rando+STR_Data] = _rando_data;
                 
                 ds_map_destroy(_dm_Rando); _dm_Rando=undefined;
             }
@@ -42,6 +42,12 @@ if (_dm_FILE!=-1)
     
     ds_map_destroy(_dm_FILE); _dm_FILE=undefined;
 }
+
+
+
+
+SaveFileRandoInfo_dm[?_DATAKEY0+STR_Seed+STR_Quest+"01"] = FileSelect_get_file_seed(_FILE_NUM,1);
+SaveFileRandoInfo_dm[?_DATAKEY0+STR_Seed+STR_Quest+"02"] = FileSelect_get_file_seed(_FILE_NUM,2);
 
 
 

@@ -2,10 +2,10 @@
 
 
 var _i, _arg, _found;
-var _ROWS = ds_grid_height(g.dg_RmTile_solid);
+var _ROWS = global.dg_solid_h;
 
                                  _arg=0;
-var _search_CLM = clamp(argument[_arg++]>>3, 0, max(0,ds_grid_width(g.dg_RmTile_solid)-1));
+var _search_CLM = clamp(argument[_arg++]>>3, 0, max(0,global.dg_solid_w-1));
 var _search_row = clamp(argument[_arg++]>>3, 0, max(0,_ROWS-1));
 var _SEARCH_DIR = sign_(argument[_arg++]);
 
@@ -19,7 +19,7 @@ var                                          _SOLID_BITS =     TID_SOLID1;
 if (argument_count>_arg && argument[_arg++]) _SOLID_BITS = max(TID_SOLID1,argument[_arg-1]);
 
 
-var _is_in_solid = (g.dg_RmTile_solid[#_search_CLM,_search_row]&$FF) != 0;
+var _is_in_solid = (global.dg_solid[#_search_CLM,_search_row]&$FF) != 0;
 
 
 
@@ -35,7 +35,7 @@ for(_i=0; _i<_ROWS; _i++)
     }
     
     
-         _val  = g.dg_RmTile_solid[#_search_CLM,_search_row]&$FF;
+         _val  = global.dg_solid[#_search_CLM,_search_row]&$FF;
          _val &= _SOLID_BITS;
     //
     if ((_val && !_is_in_solid) 

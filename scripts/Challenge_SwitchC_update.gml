@@ -36,7 +36,7 @@ switch(sub_state)
     
     for(_i=(CLMS*ROWS)-1; _i>=0; _i--)
     {
-        g.dg_RmTile_solid[#(xl>>3)+(_i mod CLMS), (yt>>3)+(_i div CLMS)] = 0;
+        global.dg_solid[#(xl>>3)+(_i mod CLMS), (yt>>3)+(_i div CLMS)] = 0;
     }
     
     
@@ -68,7 +68,7 @@ switch(sub_state)
     
     for(var _i=(CLMS*ROWS)-1; _i>=0; _i--)
     {
-        g.dg_RmTile_solid[#(xl>>3)+(_i mod CLMS), (yt>>3)+(_i div CLMS)] = TID_SOLID1;
+        global.dg_solid[#(xl>>3)+(_i mod CLMS), (yt>>3)+(_i div CLMS)] = TID_SOLID1;
     }
     
     

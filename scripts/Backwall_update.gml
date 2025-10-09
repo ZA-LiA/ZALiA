@@ -96,25 +96,25 @@ switch(ver)
 {
     // -----------------------------------------------------
     case 1:{
-    if(!g.pc.is_dead)
+    if(!global.pc.is_dead)
     {
         if (pc_is_drowning)
         {
             var _CHANGE = sign_(DIRECTION&$A);
-            if (DIRECTION&$3) set_xy(g.pc, g.pc.x+_CHANGE, g.pc.y);
-            else              set_xy(g.pc, g.pc.x, g.pc.y+_CHANGE);
+            if (DIRECTION&$3) set_xy(global.pc, global.pc.x+_CHANGE, global.pc.y);
+            else              set_xy(global.pc, global.pc.x, global.pc.y+_CHANGE);
             
             var      _qual=false;
             switch(DIRECTION){
-            case $1:{_qual=g.pc.x<x-g.pc.ww_; break;}//case $1
-            case $2:{_qual=g.pc.x>x+g.pc.ww_; break;}//case $2
-            case $4:{_qual=g.pc.y<y-g.pc.hh_; break;}//case $4
-            case $8:{_qual=g.pc.y>y+g.pc.hh_; break;}//case $8
+            case $1:{_qual=global.pc.x<x-global.pc.ww_; break;}//case $1
+            case $2:{_qual=global.pc.x>x+global.pc.ww_; break;}//case $2
+            case $4:{_qual=global.pc.y<y-global.pc.hh_; break;}//case $4
+            case $8:{_qual=global.pc.y>y+global.pc.hh_; break;}//case $8
             }//switch(DIRECTION)
             
             if (_qual)
             {
-                g.pc.is_dead = true;
+                global.pc.is_dead = true;
                 //if (f.items&ITM_FRY1)
             }
         }
@@ -122,10 +122,10 @@ switch(ver)
         {
             var _DIST = $4<<sign(DIRECTION&$C);
             switch(DIRECTION){
-            case $1:{pc_is_drowning=g.pc.xl+_DIST<x; break;}//case $1
-            case $2:{pc_is_drowning=g.pc.xr-_DIST>x; break;}//case $2
-            case $4:{pc_is_drowning=g.pc.yt+_DIST<y; break;}//case $4
-            case $8:{pc_is_drowning=g.pc.yb-_DIST>y; break;}//case $8
+            case $1:{pc_is_drowning=global.pc.xl+_DIST<x; break;}//case $1
+            case $2:{pc_is_drowning=global.pc.xr-_DIST>x; break;}//case $2
+            case $4:{pc_is_drowning=global.pc.yt+_DIST<y; break;}//case $4
+            case $8:{pc_is_drowning=global.pc.yb-_DIST>y; break;}//case $8
             }//switch(DIRECTION)
             
             if (pc_is_drowning)
@@ -133,11 +133,11 @@ switch(ver)
                 var _damage = get_stat_max(STR_Heart);
                 //if (f.items&ITM_FRY1) _damage = Container_AMT<<1;
                 //if (g.DevTools_state && g.dev_invState&$3) _damage = 0; // g.dev_invState. 2: skip all, 1 skip dmg, 0 regular
-                with(g.pc) adjust_stat(-_damage, 0);
+                with(global.pc) adjust_stat(-_damage, 0);
                 
                 g.pc_lock = PC_LOCK_ALL;
-                PC_set_behavior(g.pc.behavior_DAMAGE);
-                g.pc.stun_timer = $10;
+                PC_set_behavior(global.pc.behavior_DAMAGE);
+                global.pc.stun_timer = $10;
                 aud_play_sound(get_audio_theme_track(STR_PC+STR_Damage));
                 //timer = 0;
                 //sub_state = sub_state_DROWNING;

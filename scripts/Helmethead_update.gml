@@ -114,7 +114,7 @@ else
         if (g.mod_HelmetHead_Vulnerability) // g.mod_HelmetHead_Vulnerability: Only vulnerable once new head fully grown
         {   // Do only a little damage
             hp  = g.dl_HP[|HP_IDX];
-            hp -= min(3, g.pc.dl_ATTACK_DAMAGE[|f.level_atk]) * Head_num;
+            hp -= min(3, global.pc.dl_ATTACK_DAMAGE[|f.level_atk]) * Head_num;
         }
         
         

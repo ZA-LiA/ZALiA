@@ -42,7 +42,7 @@ switch(ver)
 
 var _DEBUG1 = 0 && x<$100 && !(g.counter0&$7F);
 if (_DEBUG1){
-_str  =  " BodyHB_x $" + hex_str(BodyHB_x)   +", BodyHB_y $" + hex_str(BodyHB_y);
+_str  =  " BodyHB_xl $" + hex_str(BodyHB_xl)   +", BodyHB_yt $" + hex_str(BodyHB_yt);
 _str += ", BodyHB_xoff: "+string(BodyHB_xoff)+", BodyHB_yoff: "+string(BodyHB_yoff);
 _str += ", BodyHB_w $" + hex_str(BodyHB_w)   +", BodyHB_h $" + hex_str(BodyHB_h);
 sdm(""); sdm(_str);
@@ -70,7 +70,7 @@ hspd = 0;
 
 
 if (_DEBUG1){
-_str  =  " BodyHB_x $" + hex_str(BodyHB_x)   +", BodyHB_y $" + hex_str(BodyHB_y);
+_str  =  " BodyHB_xl $" + hex_str(BodyHB_xl)   +", BodyHB_yt $" + hex_str(BodyHB_yt);
 _str += ", BodyHB_xoff: "+string(BodyHB_xoff)+", BodyHB_yoff: "+string(BodyHB_yoff);
 _str += ", BodyHB_w $" + hex_str(BodyHB_w)   +", BodyHB_h $" + hex_str(BodyHB_h);
 sdm(""); sdm(_str);
@@ -170,7 +170,7 @@ if (moving_dir==$4) // if moving down/falling
     {
         //var _DIST = 2;
         if (cs_btm_inst) // if landed on another Pushable
-        //||  rectInRect(BodyHB_x+_DIST,BodyHB_y+_DIST,BodyHB_w-(_DIST<<1),BodyHB_h-(_DIST<<1), g.pc.csLft1X,g.pc.csLft1Y,g.pc.csRgt1X-g.pc.csLft1X,g.pc.csLft2Y-g.pc.csLft1Y) ) // if landed on pc
+        //||  rectInRect(BodyHB_xl+_DIST,BodyHB_yt+_DIST,BodyHB_w-(_DIST<<1),BodyHB_h-(_DIST<<1), global.pc.csLft1X,global.pc.csLft1Y,global.pc.csRgt1X-global.pc.csLft1X,global.pc.csLft2Y-global.pc.csLft1Y) ) // if landed on pc
         {
             destroy_Pushable(id,true);
         }
@@ -188,7 +188,7 @@ if (moving_dir==$4) // if moving down/falling
     }
     else
     {
-        update_body_hb_3a(); // uses x, instead of xl, to calculate BodyHB_x & BodyHB_y.
+        update_body_hb_3a(); // uses x, instead of xl, to calculate BodyHB_xl & BodyHB_yt.
         with(Enemy)
         {   // Falling on an enemy kills them
             update_body_hb_1a();
@@ -203,10 +203,10 @@ if (moving_dir==$4) // if moving down/falling
         }
         
         
-        if (yb<g.pc.csLft2Y)
+        if (yb<global.pc.csLft2Y)
         {
             var _DIST = 2;
-            if (rectInRect(BodyHB_x+_DIST,BodyHB_y+_DIST,BodyHB_w-(_DIST<<1),BodyHB_h-(_DIST<<1), g.pc.csLft1X,g.pc.csLft1Y,g.pc.csRgt1X-g.pc.csLft1X,g.pc.csLft2Y-g.pc.csLft1Y))
+            if (rectInRect(BodyHB_xl+_DIST,BodyHB_yt+_DIST,BodyHB_w-(_DIST<<1),BodyHB_h-(_DIST<<1), global.pc.csLft1X,global.pc.csLft1Y,global.pc.csRgt1X-global.pc.csLft1X,global.pc.csLft2Y-global.pc.csLft1Y))
             {   // Falling on pc
                 destroy_Pushable(id,true);
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
@@ -279,7 +279,7 @@ if (moving_dir&$3)      // 0: NOT moving, 1: right, 2: left, 4: down, 8: up
     var _DIFF = x-_X_PREV; // positive if moved right, negative if moved left
     if (_DIFF!=0)
     {
-        with(g.pc)
+        with(global.pc)
         {
             var _push_pc_dir = 0;
             
@@ -325,11 +325,15 @@ if (moving_dir&$3)      // 0: NOT moving, 1: right, 2: left, 4: down, 8: up
                 x_change +=  _DIFF;
             }
         }
+        
+        
+        // updates all GameObject instances
+        //update_go_xy_on_moving_platform(_DIFF,0);
     }
     
     
     
-    if (abs(xl-home_xl) >= MOVE_DIST1)
+    if (abs(xl-home_xl)>=MOVE_DIST1)
     {
         moving_dir = 0;
         home_xl    = xl;
@@ -362,7 +366,7 @@ var _qual = -1;
 if (cs&$4             // is on ground
 && !moving_dir        // is NOT moving
 &&  f.items&ITM_BRAC  // Have Power Bracelet
-&& !g.pc.ogr          // PC is on ground
+&& !global.pc.ogr          // PC is on ground
 && !Input.Down_held   // Down NOT held
 &&  Input.heldH )     // 1: Right OR 2: Left held
 {
@@ -372,15 +376,15 @@ if (cs&$4             // is on ground
     
     if (Input.Right_held) // RIGHT
     {
-        if (g.pc.x<=x)
+        if (global.pc.x<=x)
         {
-            var _C1 = collideRect(g.pc.csRgt1X,g.pc.csRgt1Y,1,1, id);
-            var _C2 = collideRect(g.pc.csRgt2X,g.pc.csRgt2Y,1,1, id);
+            var _C1 = collideRect(global.pc.csRgt1X,global.pc.csRgt1Y,1,1, id);
+            var _C2 = collideRect(global.pc.csRgt2X,global.pc.csRgt2Y,1,1, id);
             if (_C1 
             ||  _C2 )
             {
-                if ((_C1 || !(collide_solid_grid(g.pc.csRgt1X,g.pc.csRgt1Y)&TID_SOLID1)) 
-                &&  (_C2 || !(collide_solid_grid(g.pc.csRgt2X,g.pc.csRgt2Y)&TID_SOLID1)) )
+                if ((_C1 || !(collide_solid_grid(global.pc.csRgt1X,global.pc.csRgt1Y)&TID_SOLID1)) 
+                &&  (_C2 || !(collide_solid_grid(global.pc.csRgt2X,global.pc.csRgt2Y)&TID_SOLID1)) )
                 {
                     _x=xr+1;
                     for(_i=(hh>>3)-1; _i>=0; _i--)
@@ -401,15 +405,15 @@ if (cs&$4             // is on ground
     }
     else if (Input.Left_held) // LEFT
     {
-        if (g.pc.x>=x)
+        if (global.pc.x>=x)
         {
-            var _C1 = collideRect(g.pc.csLft1X,g.pc.csLft1Y,1,1, id);
-            var _C2 = collideRect(g.pc.csLft2X,g.pc.csLft2Y,1,1, id);
+            var _C1 = collideRect(global.pc.csLft1X,global.pc.csLft1Y,1,1, id);
+            var _C2 = collideRect(global.pc.csLft2X,global.pc.csLft2Y,1,1, id);
             if (_C1 
             ||  _C2 )
             {
-                if ((_C1 || !(collide_solid_grid(g.pc.csLft1X,g.pc.csLft1Y)&TID_SOLID1)) 
-                &&  (_C2 || !(collide_solid_grid(g.pc.csLft2X,g.pc.csLft2Y)&TID_SOLID1)) )
+                if ((_C1 || !(collide_solid_grid(global.pc.csLft1X,global.pc.csLft1Y)&TID_SOLID1)) 
+                &&  (_C2 || !(collide_solid_grid(global.pc.csLft2X,global.pc.csLft2Y)&TID_SOLID1)) )
                 {
                     _x=xl-1;
                     for(_i=(hh>>3)-1; _i>=0; _i--)
@@ -445,7 +449,7 @@ var _qual = -1;
 if (cs&$4             // is on ground
 && !moving_dir        // is NOT moving
 &&  f.items&ITM_BRAC  // Have Power Bracelet
-&& !g.pc.ogr          // PC is on ground
+&& !global.pc.ogr          // PC is on ground
 && !Input.Down_held   // Down NOT held
 &&  Input.heldH )     // 1: Right OR 2: Left held
 {
@@ -455,9 +459,9 @@ if (cs&$4             // is on ground
     
     if (Input.Right_held) // RIGHT
     {
-        if (g.pc.x<=x 
-        && !(collide_solid_grid(g.pc.csRgt1X,g.pc.csRgt1Y)&TID_SOLID1) 
-        && !(collide_solid_grid(g.pc.csRgt2X,g.pc.csRgt2Y)&TID_SOLID1) )
+        if (global.pc.x<=x 
+        && !(collide_solid_grid(global.pc.csRgt1X,global.pc.csRgt1Y)&TID_SOLID1) 
+        && !(collide_solid_grid(global.pc.csRgt2X,global.pc.csRgt2Y)&TID_SOLID1) )
         {
             _x=xr+1;
             for(_i=(hh>>3)-1; _i>=0; _i--)
@@ -473,17 +477,17 @@ if (cs&$4             // is on ground
             
             if!(_colliding_sides&$1)
             {
-                if (collideRect(g.pc.csRgt1X,g.pc.csRgt1Y,1,1, id) 
-                ||  collideRect(g.pc.csRgt2X,g.pc.csRgt2Y,1,1, id) )
+                if (collideRect(global.pc.csRgt1X,global.pc.csRgt1Y,1,1, id) 
+                ||  collideRect(global.pc.csRgt2X,global.pc.csRgt2Y,1,1, id) )
                 {   _qual = 1;  }
             }
         }
     }
     else if (Input.Left_held) // LEFT
     {
-        if (g.pc.x>=x 
-        && !(collide_solid_grid(g.pc.csLft1X,g.pc.csLft1Y)&TID_SOLID1) 
-        && !(collide_solid_grid(g.pc.csLft2X,g.pc.csLft2Y)&TID_SOLID1) )
+        if (global.pc.x>=x 
+        && !(collide_solid_grid(global.pc.csLft1X,global.pc.csLft1Y)&TID_SOLID1) 
+        && !(collide_solid_grid(global.pc.csLft2X,global.pc.csLft2Y)&TID_SOLID1) )
         {
             _x=xl-1;
             for(_i=(hh>>3)-1; _i>=0; _i--)
@@ -499,8 +503,8 @@ if (cs&$4             // is on ground
             
             if!(_colliding_sides&$2)
             {
-                if (collideRect(g.pc.csLft1X,g.pc.csLft1Y,1,1, id) 
-                ||  collideRect(g.pc.csLft2X,g.pc.csLft2Y,1,1, id) )
+                if (collideRect(global.pc.csLft1X,global.pc.csLft1Y,1,1, id) 
+                ||  collideRect(global.pc.csLft2X,global.pc.csLft2Y,1,1, id) )
                 {   _qual = 1;  }
             }
         }
@@ -521,7 +525,7 @@ if (push_counter >= PUSH_DUR)
 
 
 if (_DEBUG1){
-_str  =  " BodyHB_x $" + hex_str(BodyHB_x)   +", BodyHB_y $" + hex_str(BodyHB_y);
+_str  =  " BodyHB_xl $" + hex_str(BodyHB_xl)   +", BodyHB_yt $" + hex_str(BodyHB_yt);
 _str += ", BodyHB_xoff: "+string(BodyHB_xoff)+", BodyHB_yoff: "+string(BodyHB_yoff);
 _str += ", BodyHB_w $" + hex_str(BodyHB_w)   +", BodyHB_h $" + hex_str(BodyHB_h);
 sdm(""); sdm(_str); sdm(""); sdm("");

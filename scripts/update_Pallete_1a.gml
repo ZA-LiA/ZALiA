@@ -27,7 +27,7 @@ else if (SpellFlash_PC_timer)
     if (pc_is_cucco()) _pi = dg_PI_SEQ[#$5,_idx];
     else               _pi = dg_PI_SEQ[#$4,_idx];
 }
-else if (g.pc.Disguise_enabled)
+else if (global.pc.Disguise_enabled)
 {
     if (pc_is_cucco()) _pi = global.PI_DISGUISE_CUCCO;
     else               _pi = global.PI_DISGUISE_PC;

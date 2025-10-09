@@ -730,22 +730,22 @@ if (canDrawSections>ANIM_FRAMES_DEF  // Map
         
         // g.rm_ow_dir: $0: horizontal axis, $1: vertical axis, bit $2: flip x/y scale
         var _frame_index  = (g.rm_ow_dir&$1)<<2; // 0,4. 0,1: right, 2,3: left, 4,5: down, 6,7: up
-            _frame_index += (!g.pc.xScale)<<1;   // +=0,2. Flips x/y scale
-            _frame_index += (g.rm_ow_dir&$2) * g.pc.xScale; // flips x/y scale
-            //_frame_index += (g.rm_ow_dir&$2) * sign(!g.pc.xScale); // flips x/y scale
+            _frame_index += (!global.pc.xScale)<<1;   // +=0,2. Flips x/y scale
+            _frame_index += (g.rm_ow_dir&$2) * global.pc.xScale; // flips x/y scale
+            //_frame_index += (g.rm_ow_dir&$2) * sign(!global.pc.xScale); // flips x/y scale
             //_frame_index +=  g.rm_ow_dir&$2; // flips x/y scale
             _frame_index += sign(g.counter0&$1F>$11); // anim timing
         //
-        MenuMapPC_OW_sprite = g.pc.Skin_image;
+        MenuMapPC_OW_sprite = global.pc.Skin_image;
         MenuMapPC_OW_sprite_image_idx = $60|_frame_index;
         
-        _idx = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
-        if (val(g.pc.dm_skins[?hex_str(_idx)+"_source_is_file"]))
+        _idx = val(global.pc.dm_skins[?STR_Current+STR_Idx]);
+        if (val(global.pc.dm_skins[?hex_str(_idx)+"_source_is_file"]))
         {
             MenuMapPC_use_sprite_sheet = true;
             
-            MenuMapPC_sprite_w = g.pc.Spritesheet_W;
-            MenuMapPC_sprite_h = g.pc.Spritesheet_H;
+            MenuMapPC_sprite_w = global.pc.Spritesheet_W;
+            MenuMapPC_sprite_h = global.pc.Spritesheet_H;
             MenuMapPC_x -= MenuMapPC_sprite_w>>1;
             MenuMapPC_y -= MenuMapPC_sprite_h>>1;
             MenuMapPC_sheet_x = MenuMapPC_sprite_w * _frame_index;

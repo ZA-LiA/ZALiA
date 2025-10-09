@@ -13,13 +13,13 @@ if (DEV)
 // -------------------------------------------------------------------
 // -------------------------------------------------------------------
 var _i,_j, _idx;
-var _num, _val,_val1,_val2, _count,_count1, _len;
+var _num, _val,_val1,_val2, _count,_count1,_count2, _len;
 var _x,_xl,_xl1,_xl2, _y,_yt,_yt1,_yt2, _w,_w_, _h,_h_;
 var _clm,_clm1, _row,_row1, _owrc;
 var _depth, _tile_id, _layer_name;
 var _file_name, _data;
 var _dk, _datakey,_datakey0;
-var _obj,_ver, _obj_name, _pi;
+var _obj,_obj1,_obj2,_ver, _obj_name, _pi;
 var _scene_name, _scene_used;
 var _exit, _exit_num, _exit_name,_exit_name1, _exit_sides;
 var _spawn_datakey,_spawn_datakey1,_spawn_datakey2;
@@ -271,7 +271,7 @@ if (room==rmB_NextLife
     overworld_paused = false;
     rm_ow_dir = 0; // 0: WE, 1: NS, 2: 
     
-    leave_rm_x = 0; // 05D3,Y. pc's ogX when exiting a room
+    leave_rm_x = 0; // 05D3,Y. global.pc's ogX when exiting a room
     leave_rm_y = 0; // 
     
     encounter_type = 0; // current room's encounter type
@@ -301,13 +301,13 @@ if (room==rmB_NextLife
 
 
 
-pc.Disguise_enabled = false;
+global.pc.Disguise_enabled = false;
 if (_ROOM_A 
 && !is_undefined(town_name) )
 {
     if (town_name==STR_Bulblin)
     {
-        if (f.items&ITM_MASK) pc.Disguise_enabled = true;
+        if (f.items&ITM_MASK) global.pc.Disguise_enabled = true;
     }
     else if (global.Halloween1_enabled)
     {
@@ -319,7 +319,7 @@ if (_ROOM_A
         ||  town_name==STR_Darunia 
         ||  town_name==STR_New_Kasuto )
         {
-            pc.Disguise_enabled = true;
+            global.pc.Disguise_enabled = true;
         }
     }
 }
@@ -915,8 +915,8 @@ if (_ROOM_A)
                     page_y = yt>>8;
                     
                     
-                    BodyHB_x = xl;
-                    BodyHB_y = yt;
+                    BodyHB_xl = xl;
+                    BodyHB_yt = yt;
                     BodyHB_w = ww;
                     BodyHB_h = hh;
                 }
@@ -963,7 +963,7 @@ if (_ROOM_A)
 
 // -------------------------------------------------------------------------
 if (_ROOM_C)
-{   // 2025/03/23. A falling scene from the global.OVERWORLD will draw cucco if pc was cucco in the last scene
+{   // 2025/03/23. A falling scene from the global.OVERWORLD will draw cucco if global.pc was cucco in the last scene
     spells_active = 0;
     
     if (mod_PC_CUCCO_1 
@@ -1404,13 +1404,13 @@ if (_ROOM_A
 
 if (_ROOM_A)
 {
-    _x = pc.x;
-    _y = pc.y;
+    _x = global.pc.x;
+    _y = global.pc.y;
     set_pc_spawn_xy(); // update_explored_data() && rm_set_cam_1a() need this
-    set_xy(pc, pc.spawn_x+PC_W_,pc.spawn_y+PC_H_);
+    set_xy(global.pc, global.pc.spawn_xl+PC_W_,global.pc.spawn_yt+PC_H_);
     
     update_explored_data();
-    set_xy(pc, _x,_y); // idk if this is necessary.
+    set_xy(global.pc, _x,_y); // idk if this is necessary.
 }
 
 
@@ -1545,7 +1545,7 @@ if (_ROOM_A)
                         dg_spawn_prio[#_idx,$D] = val(f.dm_quests[?get_defeated_dk()+_spawn_datakey]);
                         dg_spawn_prio[#_idx,$E] = _spawn_permission;
                         
-                        // Trying to set it close to where pc spawns
+                        // Trying to set it close to where global.pc spawns
                         _exit_name = _scene_used+strR(f.reen,RmName_LEN+1);
                         _xl = val(dm_rm[?_exit_name+STR_Spawn_x]) <<3;
                         _yt = val(dm_rm[?_exit_name+STR_Spawn_y]) <<3;
@@ -1599,12 +1599,12 @@ if (_ROOM_A
 {
     if (_ROOM_A)
     {
-        with(pc)
+        with(global.pc)
         {
-            set_xy(id, spawn_x+PC_W_,spawn_y+PC_H_); // rm_set_cam_1a() needs this
+            set_xy(id, spawn_xl+PC_W_,spawn_yt+PC_H_); // rm_set_cam_1a() needs this
             update_view_og();
             rm_set_cam_1a(x,y);
-            //show_debug_message("g_Room_Start(). "+"pc x "+hex_str(x)+", pc y "+hex_str(y)+", pc spawn_x "+hex_str(spawn_x)+", pc spawn_y "+hex_str(spawn_y)+",  view_yview[0] $"+hex_str(view_yview[0])+", cam_yt_min() "+hex_str(cam_yt_min())+", cam_yt_max() "+hex_str(cam_yt_max()));
+            //show_debug_message("g_Room_Start(). "+"global.pc x "+hex_str(x)+", global.pc y "+hex_str(y)+", global.pc spawn_xl "+hex_str(spawn_xl)+", global.pc spawn_yt "+hex_str(spawn_yt)+",  view_yview[0] $"+hex_str(view_yview[0])+", cam_yt_min() "+hex_str(cam_yt_min())+", cam_yt_max() "+hex_str(cam_yt_max()));
         }
     }
     
@@ -1661,7 +1661,7 @@ if (_ROOM_A)
 
 
 if (_ROOM_A 
-&&  pc.Disguise_enabled )
+&&  global.pc.Disguise_enabled )
 {
     for(_i=ds_list_size(g.dl_TILE_DEPTH_NAMES)-1; _i>=0; _i--)
     {
@@ -1671,8 +1671,8 @@ if (_ROOM_A
         {
             if (string_pos(STR_BREAK_,_val) 
             ||  string_pos(STR_BURNABLE,_val) )
-            {   // So that pc can stab blocks, burn vines, etc...
-                pc.Disguise_enabled = false;
+            {   // So that global.pc can stab blocks, burn vines, etc...
+                global.pc.Disguise_enabled = false;
                 break;//_i
             }
         }
@@ -1696,7 +1696,7 @@ if (_ROOM_A
 if (_ROOM_A)
 {
     instance_create(viewXC()-viewW_(), viewYT(), HUD); // Create HUD instance
-    with(pc) PC_Room_Start();
+    with(global.pc) PC_Room_Start();
     with(go_mgr) GameObjectMgr_Room_Start(); // Creates inactive GOBs
     NIAO_Room_Start();
     
@@ -1785,13 +1785,13 @@ if (_ROOM_A
             {
                 if (side&$1)
                 {
-                    _xl1 = val(g.dm_rm[?exitName+STR_Spawn_x])<<3; // pc spawn xl. right exit
-                    _yt1 = val(g.dm_rm[?exitName+STR_Spawn_y])<<3; // pc spawn yt. right exit
+                    _xl1 = val(g.dm_rm[?exitName+STR_Spawn_x])<<3; // global.pc spawn xl. right exit
+                    _yt1 = val(g.dm_rm[?exitName+STR_Spawn_y])<<3; // global.pc spawn yt. right exit
                 }
                 else
                 {
-                    _xl2 = val(g.dm_rm[?exitName+STR_Spawn_x])<<3; // pc spawn xl. right exit
-                    _yt2 = val(g.dm_rm[?exitName+STR_Spawn_y])<<3; // pc spawn yt. right exit
+                    _xl2 = val(g.dm_rm[?exitName+STR_Spawn_x])<<3; // global.pc spawn xl. right exit
+                    _yt2 = val(g.dm_rm[?exitName+STR_Spawn_y])<<3; // global.pc spawn yt. right exit
                 }
                 
                 _exit_sides |= side&$F;
@@ -1844,7 +1844,7 @@ if (_ROOM_A
                     _y = tile_get_y(_tile_id);
                     _clm = _x>>3
                     _row = _y>>3
-                    for(_j=0; _j<dg_RmTile_solid_h; _j++) // each row
+                    for(_j=0; _j<global.dg_solid_h; _j++) // each row
                     {
                         //tile_layer_find, tile_layer_delete_at, tile_get_x
                         _x = _clm<<3;
@@ -1989,6 +1989,62 @@ if (_ROOM_A
             _pi  = val(dm_spawn[?_datakey+STR_Palette+STR_Idx]);
             GameObject_create(_xl,_yt, _obj,_ver, _datakey, _pi)
         }
+    }
+}
+
+
+
+
+
+
+
+
+//  ------------  Challenge  ---------------------------
+if (_ROOM_A)
+{
+    _count2 = 1;
+    _spawn_datakey2 = g.rm_name+STR_Challenge+hex_str(_count2++);
+    _obj2           = g.dm_spawn[?_spawn_datakey2+STR_obj_idx];
+    while(!is_undefined(_obj2))
+    {
+        _ver = g.dm_spawn[?_spawn_datakey2+STR_version];
+        _xl  = g.dm_spawn[?_spawn_datakey2+"_x"];
+        _yt  = g.dm_spawn[?_spawn_datakey2+"_y"];
+        
+        _spawn_datakey = _spawn_datakey2;
+        _obj = _obj2;
+        /*
+        if (global.SceneRando_enabled 
+        &&  _SceneRando_scene!=g.rm_name )
+        {   // Currently, this assumes each scene only has 1 Challenge object which is the same challenge requirements
+            _count1 = 1;
+            _spawn_datakey1 = _SceneRando_scene+STR_Challenge+hex_str(_count1++);
+            _obj1           = g.dm_spawn[?_spawn_datakey1+STR_obj_idx];
+            while(!is_undefined(_obj1))
+            {
+                if (is_ancestor(_obj1,_obj2))
+                {
+                    _spawn_datakey = _spawn_datakey1;
+                    _obj = _obj1;
+                    _ver = val(g.dm_spawn[?_spawn_datakey1+STR_version],_ver);
+                    _xl  = val(g.dm_spawn[?_spawn_datakey1+"_x"],_xl);
+                    _yt  = val(g.dm_spawn[?_spawn_datakey1+"_y"],_yt);
+                    break;//while(!is_undefined(_obj1))
+                }
+                
+                _spawn_datakey1 = g.rm_name+STR_Challenge+hex_str(_count1++);
+                _obj1           = g.dm_spawn[?_spawn_datakey1+STR_obj_idx];
+            }
+        }
+        */
+        
+        with(GameObject_create(_xl,_yt, _obj,_ver, _spawn_datakey))
+        {
+            // ------------------------------------------
+        }
+        
+        _spawn_datakey2 = g.rm_name+STR_Challenge+hex_str(_count2++);
+        _obj2           = g.dm_spawn[?_spawn_datakey2+STR_obj_idx];
     }
 }
 

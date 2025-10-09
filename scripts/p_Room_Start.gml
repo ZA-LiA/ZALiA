@@ -295,7 +295,7 @@ p_Room_Start_palette_rando();
 if (room!=rmB_Title 
 &&  room!=rmB_FileSelect )
 {
-    _idx = val(g.pc.dm_skins[?STR_Current+STR_Idx]);
+    _idx = val(global.pc.dm_skins[?STR_Current+STR_Idx]);
     _pal = get_pc_skin_palette(_idx);
     pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_PC1), string_length(_pal), _pal);
     //if (g.AltDungeonTiles_TEST1 && g.room_type=="A" && isVal(g.dungeon_num,1)) pal_rm_def = strReplaceAt(pal_rm_def,get_pal_pos(PI_BGR_1)+2, 6,CI_PUR2_+CI_PUR3_+CI_CYN4_); // Testing

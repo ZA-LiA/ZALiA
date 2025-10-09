@@ -67,7 +67,7 @@ if (g.mod_BARRIER_LOOK==1)
     
     DRAW_YOFF = 0;
     
-    set_xlyt(id, spawn_x,spawn_y);
+    set_xlyt(id, spawn_xl,spawn_yt);
     
     ROWS_DEF = $0C;
     GROUND_Y = get_ground_y(xl-($2<<3),yt+($2<<3), 1, yt+(ROWS_DEF<<3));

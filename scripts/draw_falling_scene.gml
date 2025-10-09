@@ -65,26 +65,26 @@ if (val(global.FallScene_dm[?STR_PC+dk_can_draw]))
     if (pc_is_cucco())
     {
         _y += 8;
-        draw_sprite_(g.pc.CuccoFallScene_SPRITE_BODY,0, _x+4,_y-5, -1, _X_SCALE,1, p.C_BLK1); // shadow
-        draw_sprite_(g.pc.CuccoFallScene_SPRITE_LEGS,0, _x+4,_y-5, -1, _X_SCALE,1, p.C_BLK1); // shadow
-        draw_sprite_(g.pc.CuccoFallScene_SPRITE_WING,0, _x+4,_y-5, -1, _X_SCALE,1, p.C_BLK1); // shadow
+        draw_sprite_(global.pc.CuccoFallScene_SPRITE_BODY,0, _x+4,_y-5, -1, _X_SCALE,1, p.C_BLK1); // shadow
+        draw_sprite_(global.pc.CuccoFallScene_SPRITE_LEGS,0, _x+4,_y-5, -1, _X_SCALE,1, p.C_BLK1); // shadow
+        draw_sprite_(global.pc.CuccoFallScene_SPRITE_WING,0, _x+4,_y-5, -1, _X_SCALE,1, p.C_BLK1); // shadow
         
         pal_swap_set(global.palette_image, _pi);
-        draw_sprite_(g.pc.CuccoFallScene_SPRITE_BODY,0, _x,  _y,   -1, _X_SCALE); // 
-        draw_sprite_(g.pc.CuccoFallScene_SPRITE_LEGS,0, _x,  _y,   -1, _X_SCALE); // 
-        draw_sprite_(g.pc.CuccoFallScene_SPRITE_WING,0, _x,  _y,   -1, _X_SCALE); // 
+        draw_sprite_(global.pc.CuccoFallScene_SPRITE_BODY,0, _x,  _y,   -1, _X_SCALE); // 
+        draw_sprite_(global.pc.CuccoFallScene_SPRITE_LEGS,0, _x,  _y,   -1, _X_SCALE); // 
+        draw_sprite_(global.pc.CuccoFallScene_SPRITE_WING,0, _x,  _y,   -1, _X_SCALE); // 
         pal_swap_reset();
         
         _x += (_X_SCALE*2) - !_X_SCALE;
         _y -= 5;
-        draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, 1,1, g.pc.Cucco_eye_color);
+        draw_sprite_(spr_1x1_WHT,0, _x,_y, -1, 1,1, global.pc.Cucco_eye_color);
         // For whatever reason, draw_point_colour() isn't drawing here or doesn't scale the point with the app's scale
-        //draw_point_colour(_x,_y, g.pc.Cucco_eye_color);
+        //draw_point_colour(_x,_y, global.pc.Cucco_eye_color);
     }
     else
     {
-        draw_pc_skin(_x+8,_y-9, _X_SCALE,1, g.pc.behavior_DAMAGE, false, -1,-1,  -1, p.C_BLK1);
-        draw_pc_skin(_x,  _y,   _X_SCALE,1, g.pc.behavior_DAMAGE, false, -1,-1, _pi);
+        draw_pc_skin(_x+8,_y-9, _X_SCALE,1, global.pc.behavior_DAMAGE, false, -1,-1,  -1, p.C_BLK1);
+        draw_pc_skin(_x,  _y,   _X_SCALE,1, global.pc.behavior_DAMAGE, false, -1,-1, _pi);
     }
 }
 

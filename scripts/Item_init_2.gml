@@ -50,7 +50,7 @@ var _i,_j, _val, _count;
 if(!audio_is_playing(get_audio_theme_track(dk_ItemDrop)) 
 &&  isVal(ITEM_TYPE,STR_KEY,STR_JAR,STR_PBAG,STR_1UP)  
 &&  rectInView(xl,yt,ww,hh) 
-&& !(g.dg_RmTile_solid[#x>>3,(yb+1)>>3] &$FF) ) // If not on ground
+&& !(global.dg_solid[#x>>3,(yb+1)>>3] &$FF) ) // If not on ground
 {
     aud_play_sound(get_audio_theme_track(dk_ItemDrop));
 }

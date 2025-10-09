@@ -45,7 +45,7 @@ if(!area_is_ow(f.reen)) counter1 = 0; // if NOT going to ow
 
 
 pc_lock  = 0;
-pc.state = pc.state_NULL;
+global.pc.state = global.pc.state_NULL;
 
 
 gui_window_can_draw = 0;

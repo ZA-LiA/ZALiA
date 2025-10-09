@@ -1,7 +1,7 @@
 /// get_pc_attack_damage()
 
 
-var _damage  = g.pc.dl_ATTACK_DAMAGE[|f.level_atk];
+var _damage  = global.pc.dl_ATTACK_DAMAGE[|f.level_atk];
 
 if (g.mod_PC_CUCCO_2    // Gives PC Cucco extra atk dmg
 &&  pc_is_cucco() )

@@ -10,7 +10,7 @@ if (is_talking)
     else
     {   // 9AA0
         facing_dir   = dir_to_pc(id);
-        g.pc.xScale = -facing_dir;
+        global.pc.xScale = -facing_dir;
         update_EF11();
         return true;
     }

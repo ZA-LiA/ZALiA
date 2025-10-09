@@ -51,7 +51,7 @@ else if(!_ROOM_B)
     if (_ROOM_A 
     &&  g.town_name==STR_Bulblin 
     //&& !(f.items&ITM_MASK) )
-    && !g.pc.Disguise_enabled ) // set in g.Room_Start()
+    && !global.pc.Disguise_enabled ) // set in g.Room_Start()
     {
         rm_music_theme = STR_Battle+"02"; // STR_Battle+"02": only difference is Niko's audio set will be a fuller variation of battle theme
     }

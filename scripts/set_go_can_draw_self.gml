@@ -7,7 +7,7 @@ var _i;
 
 
 // PC ----------------------------------------------------
-with(g.pc)
+with(global.pc)
 {
     if (state) can_draw_self = argument0;
     else       can_draw_self = false;

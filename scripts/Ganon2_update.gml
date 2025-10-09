@@ -11,16 +11,16 @@ switch(sub_state)
     Crystal_can_draw = true;
     //if (timer) break;
     g.pc_lock = PC_LOCK;
-    g.pc.xScale = 1;
+    global.pc.xScale = 1;
     if (timer) break;
     
     
-    if(!g.pc.ogr)
-    //if (g.pc.cs&$4 
-    //&& !g.pc.ogr )
+    if(!global.pc.ogr)
+    //if (global.pc.cs&$4 
+    //&& !global.pc.ogr )
     {
         g.pc_lock = PC_LOCK_ALL;
-        PC_set_behavior(g.pc.behavior_IDLE);
+        PC_set_behavior(global.pc.behavior_IDLE);
         
         timer = $C0;
         sub_state = sub_state_INTRO1;

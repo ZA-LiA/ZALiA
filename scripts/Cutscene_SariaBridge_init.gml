@@ -15,8 +15,8 @@ var _clm;
      DIR    = -1; // The river search dir
 if ( DIR)
 {    CLM    = 0;  }
-else CLM    = ds_grid_width( g.dg_RmTile_solid)-1;
-     ROW    = ds_grid_height(g.dg_RmTile_solid)-2;
+else CLM    = global.dg_solid_w-1;
+     ROW    = global.dg_solid_h-2;
 //
      CLM    = find_clm_solid(0, CLM,        ROW, DIR,0, CLM);
      ROW    = find_row_solid(0, CLM + -DIR, ROW,  -1,0, ROW-2);
@@ -29,7 +29,7 @@ else CLM    = ds_grid_width( g.dg_RmTile_solid)-1;
      CLM_R  = CLM_L+(CLMS-1);       // right  column
      CLM_C  = CLM_L+(CLMS>>1);      // center column
 //
-     DIR    = sign_(g.pc.x < (CLM_C<<3));  // The direction of the build
+     DIR    = sign_(global.pc.x < (CLM_C<<3));  // The direction of the build
 if ( DIR)
 {    CLM    = CLM_L;  }
 else CLM    = CLM_R;

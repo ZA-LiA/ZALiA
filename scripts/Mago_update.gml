@@ -78,15 +78,15 @@ else if (inRange(counter, $C0,$DF)) // ---  $DF-C0:  0.533s
     {
         with(GOC1_create(x,y, facing_dir, projectile,projectile_ver)) // Flame1
         {
-            spawn_x  = other.xl + (8*facing_dir); // OG: Gives right a +4 advantage
+            spawn_xl  = other.xl + (8*facing_dir); // OG: Gives right a +4 advantage
             if (g.mod_MAGO_ADJ1){
-            spawn_x  = other.x  + (4*facing_dir); // 4 off from mago center
-            spawn_x -= ww_; // bc spawn_x is considered xl position
+            spawn_xl  = other.x  + (4*facing_dir); // 4 off from mago center
+            spawn_xl -= ww_; // bc spawn_xl is considered xl position
             }
             
-            spawn_y  = other.yb -  hh;
+            spawn_yt  = other.yb -  hh;
             
-            set_xy(id, spawn_x+ww_, spawn_y+hh_);
+            set_xy(id, spawn_xl+ww_, spawn_yt+hh_);
             
             
             
@@ -134,7 +134,7 @@ else if (inRange(counter, $00,$9F)) // ---  $9F-00:  2.667s
         &&  instance_number(object_index)==1 )
         {
             var _DIST = $06<<3;
-            _x = clamp(_x, g.pc.x-_DIST,g.pc.x+_DIST);
+            _x = clamp(_x, global.pc.x-_DIST,global.pc.x+_DIST);
             _x = clamp(_x, ww_,g.rm_w-ww_);
         }
         
@@ -165,10 +165,10 @@ else if (inRange(counter, $00,$9F)) // ---  $9F-00:  2.667s
             if (_row == _NULL) // if no solid ground below new xy (For example: Elevator shaft)
             {
                 // Gonna be lazy and just set x to something simple.
-                // _x += ($04<<3) * sign_(_x < g.pc.x);
-                // _x  = g.pc.x + (($03<<3) * -sign_(_x < g.pc.x));
-                _x  = spawn_x + ww_;
-                _y  = spawn_y + hh_;
+                // _x += ($04<<3) * sign_(_x < global.pc.x);
+                // _x  = global.pc.x + (($03<<3) * -sign_(_x < global.pc.x));
+                _x  = spawn_xl + ww_;
+                _y  = spawn_yt + hh_;
                 
                 // _clm  = _x>>3;
                 // _row  = find_row_solid(TID_SOLID1, _clm,_ROW, 1,-1, _NULL);

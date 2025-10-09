@@ -18,12 +18,12 @@ SwordHB_collidable = false;
 // EC7F
 
 var                                      _bits  = 0;
-if (behavior==g.pc.behavior_STAB_STAND)  _bits |= BIT_ATK1; // $01. high stab
-if (behavior==g.pc.behavior_STAB_CROUCH) _bits |= BIT_ATK2; // $02. low  stab
-if (behavior==g.pc.behavior_STAB_DOWN)   _bits |= BIT_ATK3; // $04. down thrust
-if (behavior==g.pc.behavior_STAB_UP)     _bits |= BIT_ATK4; // $08. up   thrust
+if (behavior==global.pc.behavior_STAB_STAND)  _bits |= BIT_ATK1; // $01. high stab
+if (behavior==global.pc.behavior_STAB_CROUCH) _bits |= BIT_ATK2; // $02. low  stab
+if (behavior==global.pc.behavior_STAB_DOWN)   _bits |= BIT_ATK3; // $04. down thrust
+if (behavior==global.pc.behavior_STAB_UP)     _bits |= BIT_ATK4; // $08. up   thrust
 
-if (id==g.pc) attack_bits =              _bits;
+if (id==global.pc) attack_bits =              _bits;
 
 if(!_bits) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -44,7 +44,7 @@ if(1)
     else if (_bits&BIT_ATK3) _yOff  = 33; // down thrust
     else                     _yOff  = -4; // up   thrust
     
-    if (id==g.pc 
+    if (id==global.pc 
     &&  is_cucco 
     &&  _bits&(BIT_ATK2|BIT_ATK3) )
     {                        _yOff -= 16;  }

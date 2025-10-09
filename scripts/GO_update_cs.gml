@@ -1,7 +1,7 @@
 /// GO_update_cs()
 
 
-var _IS_PC = id==g.pc;
+var _IS_PC = id==global.pc;
 
 var         _HSPD_DIR = -sign_(hspd&$80);
 if (_IS_PC) _HSPD_DIR = hspd_dir;

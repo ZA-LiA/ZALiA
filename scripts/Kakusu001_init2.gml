@@ -31,8 +31,8 @@ VSPD_REVEAL = vspd_jump;
 
 
 
-var _CLM = ds_grid_width( g.dg_RmTile_solid);
-var _ROW = ds_grid_height(g.dg_RmTile_solid);
+var _CLM = global.dg_solid_w;
+var _ROW = global.dg_solid_h;
 var _clm = 0;
 var _row = 0;
 
@@ -120,7 +120,7 @@ for(_i=0; _i<Platform_COUNT; _i++)
     {
         for(_k=_ROW-1; _k>=0; _k--) // btm to top
         {
-            if (g.dg_RmTile_solid[#_j,_k]&TID_ONEWY1)
+            if (global.dg_solid[#_j,_k]&TID_ONEWY1)
             {
                 dg_platform[#_i,1] = _j;
                 dg_platform[#_i,2] = _k;

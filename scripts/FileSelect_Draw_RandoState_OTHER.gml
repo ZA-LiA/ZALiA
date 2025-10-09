@@ -285,14 +285,14 @@ switch(RandoOTHER_state)
     _y =dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABDOWN,1] + PC_H_;
     if (dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABDOWN,2]) _pi = global.PI_PC1;
     else                                                            _pi = PI_DARK1;
-    draw_pc_skin(_x,_y, 1,1, g.pc.behavior_STAB_DOWN, false, -1,-1, _pi);
+    draw_pc_skin(_x,_y, 1,1, global.pc.behavior_STAB_DOWN, false, -1,-1, _pi);
     
     
     _x =dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,0] + PC_W_;
     _y =dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,1] + PC_H_;
     if (dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,2]) _pi = global.PI_PC1;
     else                                                          _pi = PI_DARK1;
-    draw_pc_skin(_x,_y, 1,1, g.pc.behavior_STAB_UP, false, -1,-1, _pi);
+    draw_pc_skin(_x,_y, 1,1, global.pc.behavior_STAB_UP, false, -1,-1, _pi);
     
     
     _x = dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_BACK,0];

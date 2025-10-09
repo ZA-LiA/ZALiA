@@ -16,7 +16,7 @@ if (ver==2) // 2nd Quest Zelda
     */
     if(!val(f.dm_quests[?Zelda_DATAKEY1]))
     {   // I'm having trouble setting a custom pos for pc so this is an attempt to resolve it.
-        set_xy(g.pc, g.rm_w_-abs(x-g.rm_w_),y);
+        set_xy(global.pc, g.rm_w_-abs(x-g.rm_w_),y);
     }
     
     if (val(f.dm_quests[?Zelda_DATAKEY1]))
@@ -24,7 +24,7 @@ if (ver==2) // 2nd Quest Zelda
     else dialogue_ver = "02";    // 02: BOTTLE INSTRUCTIONS
     
     // update give item
-    NPC_update_3(g.pc.x,g.pc.y); // Spawn item
+    NPC_update_3(global.pc.x,global.pc.y); // Spawn item
     
     
     // ----------------------------------------------------------------------------------
@@ -68,9 +68,9 @@ switch(sub_state)
     // Bounce off sleeping Zelda w/ downthrust
     update_body_hb_1a();
     if (state==state_NORMAL 
-    &&  g.pc.SwordHB_collidable 
-    &&  g.pc.attack_bits&BIT_ATK3  // BIT_ATK3: downthrust
-    &&  collide_pc_sword(BodyHB_x,BodyHB_y, BodyHB_w,BodyHB_h) 
+    &&  global.pc.SwordHB_collidable 
+    &&  global.pc.attack_bits&BIT_ATK3  // BIT_ATK3: downthrust
+    &&  collide_pc_sword(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h) 
     && !(cs &   CS_SW1) )
     {
          cs |=  CS_SW1;

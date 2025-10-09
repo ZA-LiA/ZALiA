@@ -27,8 +27,8 @@ if (g.gui_state
 }
 */
 
-if (g.pc.state!=g.pc.state_NORMAL  // MOD
-||  g.pc.HoldItem_timer            // MOD
+if (global.pc.state!=global.pc.state_NORMAL  // MOD
+||  global.pc.HoldItem_timer            // MOD
 ||  g.EnterRoom_control_timer )    // MOD
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -59,13 +59,13 @@ if (object_index==NPC_4  // 4: Healer, Saver
 {
     if (Input.Up_held 
     &&  g.gui_state==g.gui_state_NONE 
-    && !g.pc.ogr 
-    &&  pointInRect(g.pc.cp1X,g.pc.cp1Y, DoorHB_XL,DoorHB_YT, DOOR_W,DOOR_H) )
+    && !global.pc.ogr 
+    &&  pointInRect(global.pc.cp1X,global.pc.cp1Y, DoorHB_XL,DoorHB_YT, DOOR_W,DOOR_H) )
     {   // 99D4. Start dialogue
         g.gui_state       = g.gui_state_DIALOGUE2;
         g.dialogue_source = id;
         
-        g.pc.in_restore_house = true;
+        global.pc.in_restore_house = true;
         g.pc_lock             = PC_LOCK_ALL; // Lock all
         
         is_talking   = true; // 05C3[eIndex]++;
@@ -87,7 +87,7 @@ if (Input.Attack_pressed
     if (object_index==NPC_4   // 4: healer, saver
     ||  object_index==NPC_5 ) // 5: quest
     {
-        if(!g.pc.ogr              // PC on ground
+        if(!global.pc.ogr              // PC on ground
         &&  abs(x-DOOR_XC)>=$14 ) // spr at least 4 away from door
         {
             _qualifies = true;
@@ -101,7 +101,7 @@ if (Input.Attack_pressed
     }
     else // For anyone else, PC must be on ground
     {
-        _qualifies = !g.pc.ogr; // !g.pc.ogr: PC on ground
+        _qualifies = !global.pc.ogr; // !global.pc.ogr: PC on ground
     }
     
     

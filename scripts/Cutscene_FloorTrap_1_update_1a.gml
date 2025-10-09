@@ -14,7 +14,7 @@ for(_i=0; _i<_count; _i++)
         break;}
         
         case 2:{ // remove solids
-        g.dg_RmTile_solid[#_clm,_row] = 0;
+        global.dg_solid[#_clm,_row] = 0;
         //tile_change_1a(DEPTH_BG2, _clm<<3,_row<<3, 0, $00, 0);
         break;}
     }
@@ -37,8 +37,8 @@ for(_i=0; _i<_count; _i++)
     break;} // remove tiles
     
     case 2:{
-    g.dg_RmTile_solid[#_clm,_row]   = 0;
-    g.dg_RmTile_solid[#_clm,_row+1] = 0;
+    global.dg_solid[#_clm,_row]   = 0;
+    global.dg_solid[#_clm,_row+1] = 0;
     break;} // remove solids
     }
 }
