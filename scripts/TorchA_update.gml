@@ -60,7 +60,7 @@ if(!is_lit)
         with(GameObjectB)
         {
             if (state==state_NORMAL 
-            &&  is_ancestor(object_index,BlazA) 
+            &&  is_ancestor(object_index,Blaze01) 
             &&  rectInRect(_HB_X,_HB_Y,_HB_W,_HB_H, BodyHB_xl,BodyHB_yt,BodyHB_w,BodyHB_h) )
             {
                 _C1=true;

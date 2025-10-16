@@ -39,7 +39,10 @@ if(!is_undefined(_dl_ts_data))
                     
                     if (_char=="/")
                     {
-                        _ts_asset_idx = val(g.dm_tileset[?_ts_name],ts_SolidColors01_8x8); // asset index
+                        //_ts_asset_idx = g.dm_tileset[?_ts_name]; // asset index
+                        //if (is_undefined(_ts_asset_idx)) continue;//_j
+                        _ts_asset_idx = val(g.dm_tileset[?_ts_name],ts_tile_marker_1a_8x8); // asset index
+                        //_ts_asset_idx = val(g.dm_tileset[?_ts_name],ts_SolidColors01_8x8); // asset index
                         //_ts_asset_idx = val(g.dm_tileset[?_ts_name],g.ts_SOLID_COLORS); // asset index
                         
                         _num = val(_dm_ts_info[?STR_Count]) + 1;

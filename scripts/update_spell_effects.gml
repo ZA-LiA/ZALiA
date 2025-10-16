@@ -139,7 +139,7 @@ if (g.spells_active &   SPL_SPEL)
             
             switch(react_spell){
             default:{_obj=Bot_A; _ver=1; break;}
-            case  2:{_obj=AcheA; _ver=1; break;}
+            case  2:{_obj=Ache01; _ver=1; break;}
             case  3:{_obj=ReFaA; _ver=1; break;}
             }
             
@@ -194,8 +194,8 @@ if (g.spells_active &   SPL_SPEL)
                 case $00:{_obj=Bot_A; _ver=1; break;}
                 case $01:{_obj=Bot_A; _ver=2; break;}
                 case $02:{_obj=BoBoA; _ver=1; break;}
-                case $03:{_obj=AcheA; _ver=1; break;}
-                case $04:{_obj=AcheA; _ver=2; break;} // Acheman
+                case $03:{_obj=Ache01; _ver=1; break;}
+                case $04:{_obj=Ache01; _ver=2; break;} // Acheman
                 case $05:{_obj=Wheep; _ver=1; break;}
                 case $06:{_obj=LowdA; _ver=1; break;}
                 case $07:{_obj=MegmA; _ver=1; break;}

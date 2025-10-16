@@ -203,12 +203,25 @@ if(!rm_w
                             else if (ds_list_find_index(_dl_SIDE_RGT,     _tsrc)!=-1) _dg_wall_part_data[#_clm,_row] = $1;
                             else if (ds_list_find_index(_dl_FILL,         _tsrc)!=-1) _dg_wall_part_data[#_clm,_row] = $10;
                             
+                            
                             if(!_wall_part_data_was_set) _wall_part_data_was_set = _dg_wall_part_data[#_clm,_row]!=0;
                             if (_wall_part_data_was_set)
                             {
                                 global.dm_scene_wall_data[?dk_WallStyle+"01"+_FILE_NAME0+_layer_name] = true;
                                 global.dm_scene_wall_data[?dk_WallStyle+"02"+_FILE_NAME0+_layer_name] = true;
                             }
+                            
+                            
+                            _datakey0 = _FILE_NAME0+"_FGWALL";
+                            if (is_undefined(global.dm_scene_wall_data[?_datakey0+STR_Clm+"_XL"]))
+                            {                global.dm_scene_wall_data[?_datakey0+STR_Clm+"_XL"] = _clm;  }
+                            else             global.dm_scene_wall_data[?_datakey0+STR_Clm+"_XL"] = min(global.dm_scene_wall_data[?_datakey0+STR_Clm+"_XL"], _clm);
+                            global.dm_scene_wall_data[?_datakey0+STR_Clm+"_XR"] = max(val(global.dm_scene_wall_data[?_datakey0+STR_Clm+"_XR"]), _clm+1);
+                            
+                            if (is_undefined(global.dm_scene_wall_data[?_datakey0+STR_Row+"_YT"]))
+                            {                global.dm_scene_wall_data[?_datakey0+STR_Row+"_YT"] = _row;  }
+                            else             global.dm_scene_wall_data[?_datakey0+STR_Row+"_YT"] = min(global.dm_scene_wall_data[?_datakey0+STR_Row+"_YT"], _row);
+                            global.dm_scene_wall_data[?_datakey0+STR_Row+"_YB"] = max(val(global.dm_scene_wall_data[?_datakey0+STR_Row+"_YB"]), _row+1);
                         }
                     }//_j
                 }

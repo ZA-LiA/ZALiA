@@ -259,8 +259,8 @@ if (ver==4)
             {
                 if (dg_Burnable[#_i,$2])
                 {
-                    _x = dg_Burnable[#_i,$5] + 4;
-                    _y = dg_Burnable[#_i,$6] + 4;
+                    _x = dg_Burnable[#_i,$5];
+                    _y = dg_Burnable[#_i,$6];
                     for(_j=0; _j<_Waterfall_COUNT; _j++)
                     {
                         _datakey0 = STR_Waterfall+hex_str(_j+1);

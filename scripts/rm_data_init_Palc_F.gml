@@ -435,7 +435,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($47<<3)+4,y4,  STR_Qualified+STR_Quest+STR_N
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($4F<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"02"); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($57<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"02"); // v1: Light w/ CANDLE or FIRE
 
-data_spawn(rm+STR_PRXM,ReboA,$1,  $44<<3,y3,  STR_Arena+'_x'+hex_str($30<<3)); // RebonackA  2
+data_spawn(rm+STR_PRXM,Rebonack01A,$1,  $44<<3,y3,  STR_Arena+'_x'+hex_str($30<<3)); // RebonackA  2
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '07'+EXR0_); // LFT 0, 
@@ -507,9 +507,9 @@ y4=(row0+$09)<<3;
 data_spawn(rm+STR_PRIO,LoDoA,$1,  $54<<3,(row0+$15)<<3); // LockedDoor
 data_spawn(rm+STR_PRIO,SpDrA,$1,  $37<<3,y4); // DropSpawner  1
 data_spawn(rm+STR_PRIO,SpDrA,$1,  $67<<3,y4); // DropSpawner  1
-data_spawn(rm+STR_PRXM,AttaA,$1,  $10<<3,y3); // Atta  1
-data_spawn(rm+STR_PRXM,AttaA,$1,  $30<<3,y3); // Atta  1
-data_spawn(rm+STR_PRXM,AttaA,$1,  $70<<3,y3); // Atta  1
+data_spawn(rm+STR_PRXM,Atta01,$1,  $10<<3,y3); // Atta  1
+data_spawn(rm+STR_PRXM,Atta01,$1,  $30<<3,y3); // Atta  1
+data_spawn(rm+STR_PRXM,Atta01,$1,  $70<<3,y3); // Atta  1
 
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
@@ -789,7 +789,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($5F<<3)+4,y4,  STR_Qualified+STR_Quest+STR_N
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($67<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"02"); // v1: Light w/ CANDLE or FIRE
 
 x3=x0+($14<<3);
-data_spawn(rm+STR_PRXM,ReboA,$2,  x3,y3,  STR_Arena+'_x'+hex_str(x0)); // RebonackA  v3. Tougher
+data_spawn(rm+STR_PRXM,Rebonack01A,$2,  x3,y3,  STR_Arena+'_x'+hex_str(x0)); // RebonackA  v3. Tougher
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '10'+EXR0_); // LFT 0, 
@@ -983,7 +983,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $52<<3,y4,  STR_Lit); // v1: Light w/ CANDLE 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $59<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 clm3=$30; // arena center
-data_spawn(rm+STR_PRIO,BarbA,$1,  (clm3+$06)<<3,(row0+$18)<<3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Barba  1
+data_spawn(rm+STR_PRIO,Barba01,$1,  (clm3+$06)<<3,(row0+$18)<<3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Barba  1
 data_spawn(rm+STR_PRIO,CrHoA,$1,  ($6E<<3)-4,row3<<3); // CrystalHolder  1
 g.dm_rm[?STR_Boss+STR_Scene+STR_Name+_DUNGEON_NAME] = rm;
 

@@ -178,7 +178,7 @@ if (global.WallStyle01Tiles_MAIN
     var _TSRC_DEF = $08;
     var _dg_wall_type = ds_grid_create(0,0);
     var _dg_new_tsrc  = ds_grid_create(0,0);
-    var _scene_clms,_scene_rows, _clm,_row, _block_clms,_block_rows;
+    var _scene_clms,_scene_rows, _clm,_row, _clm_xl,_clm_xr, _row_yt,_row_yb, _block_clms,_block_rows;
     var _area;
     var _dl_areas = ds_list_create();
     ds_list_add(_dl_areas,Area_PalcA,Area_PalcB,Area_PalcC,Area_PalcD,Area_PalcE,Area_PalcF,Area_PalcG);
@@ -375,9 +375,19 @@ if (global.WallStyle01Tiles_MAIN
                 _scene_rows = ds_grid_height(_dg_wall_type);
                 ds_grid_resize(_dg_new_tsrc, _scene_clms,_scene_rows);
                 ds_grid_clear( _dg_new_tsrc,0);
-                for(_j=0; _j<_scene_rows; _j++)
+                
+                _clm_xl = val(global.dm_scene_wall_data[?_file_name1+"_FGWALL"+STR_Clm+"_XL"]);
+                _clm_xr = val(global.dm_scene_wall_data[?_file_name1+"_FGWALL"+STR_Clm+"_XR"], _scene_clms);
+                
+                _row_yt = val(global.dm_scene_wall_data[?_file_name1+"_FGWALL"+STR_Row+"_YT"]);
+                _row_yb = val(global.dm_scene_wall_data[?_file_name1+"_FGWALL"+STR_Row+"_YB"], _scene_rows);
+                //show_debug_message("Rando_randomize_dungeon_tilesets(). "+"WallStyle01. "+_file_name1+", _scene_clms=$"+hex_str(_scene_clms)+" _scene_rows=$"+hex_str(_scene_rows)+", _clm_xl=$"+hex_str(_clm_xl)+" _clm_xr=$"+hex_str(_clm_xr)+" _row_yt=$"+hex_str(_row_yt)+" _row_yb=$"+hex_str(_row_yb));
+                
+                for(_j=_row_yt; _j<_row_yb; _j++)
+                //for(_j=0; _j<_scene_rows; _j++)
                 {
-                    for(_k=0; _k<_scene_clms; _k++)
+                    for(_k=_clm_xl; _k<_clm_xr; _k++)
+                    //for(_k=0; _k<_scene_clms; _k++)
                     {
                         _wall_type = _dg_wall_type[#_k,_j];
                         if (_wall_type 
@@ -621,9 +631,18 @@ if (global.WallStyle01Tiles_MAIN
                 _scene_rows = ds_grid_height(_dg_wall_type);
                 ds_grid_resize(_dg_new_tsrc, _scene_clms,_scene_rows);
                 
-                for(_j=0; _j<_scene_rows; _j++)
+                _clm_xl = val(global.dm_scene_wall_data[?_file_name1+"_FGWALL"+STR_Clm+"_XL"]);
+                _clm_xr = val(global.dm_scene_wall_data[?_file_name1+"_FGWALL"+STR_Clm+"_XR"], _scene_clms);
+                
+                _row_yt = val(global.dm_scene_wall_data[?_file_name1+"_FGWALL"+STR_Row+"_YT"]);
+                _row_yb = val(global.dm_scene_wall_data[?_file_name1+"_FGWALL"+STR_Row+"_YB"], _scene_rows);
+                //show_debug_message("Rando_randomize_dungeon_tilesets(). "+"WallStyle02. "+_file_name1+", _scene_clms=$"+hex_str(_scene_clms)+" _scene_rows=$"+hex_str(_scene_rows)+", _clm_xl=$"+hex_str(_clm_xl)+" _clm_xr=$"+hex_str(_clm_xr)+" _row_yt=$"+hex_str(_row_yt)+" _row_yb=$"+hex_str(_row_yb));
+                
+                for(_j=_row_yt; _j<_row_yb; _j++)
+                //for(_j=0; _j<_scene_rows; _j++)
                 {
-                    for(_k=0; _k<_scene_clms; _k++)
+                    for(_k=_clm_xl; _k<_clm_xr; _k++)
+                    //for(_k=0; _k<_scene_clms; _k++)
                     {
                         _wall_type = _dg_wall_type[#_k,_j];
                         if (_wall_type 

@@ -1887,8 +1887,8 @@ _RSP = RSPa;
 
 // -----------------------------------------------------------------------------
 // Horsehead  --------------------------------------------------------
-o_name = object_get_name(HorsA); // *
-data_go_prop1(    HorsA, "Horsehead", spr_Horsehead_body1A);
+o_name = object_get_name(Horsehead01); // *
+data_go_prop1(    Horsehead01, "Horsehead", spr_Horsehead_body1A);
 data_go_scr(  o_name,   Horsehead_init1, Horsehead_init2, Horsehead_update, Horsehead_udp, Horsehead_draw, Horsehead_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBn, CSb, $0F,  $03, $15, _RSP,    0, SWDa, PRJd,    0,    0,    0);
@@ -1896,8 +1896,8 @@ data_go_prop2(o_name+"01", PIb, HBn, CSb, $0F,  $03, $15, _RSP,    0, SWDa, PRJd
 
 // -----------------------------------------------------------------------------
 // Helmethead  --------------------------------------------------------
-o_name = object_get_name(HelmA); // *
-data_go_prop1(    HelmA, "Helmethead", spr_Helmethead_body_1);
+o_name = object_get_name(Helmethead01); // *
+data_go_prop1(    Helmethead01, "Helmethead", spr_Helmethead_body_1);
 data_go_scr(  o_name,   Helmethead_init1, Helmethead_init2, Helmethead_update, Helmethead_udp, Helmethead_draw, Helmethead_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc,HBah, CSb, $11,  $04, $17, _RSP,    0, SWDa, PRJd,    0,    0,    0);
@@ -1906,8 +1906,8 @@ data_go_prop2(o_name+"01", PIc,HBah, CSb, $11,  $04, $17, _RSP,    0, SWDa, PRJd
 
 // -----------------------------------------------------------------------------
 // RebonackA  --------------------------------------------------------
-o_name = object_get_name(ReboA); // *
-data_go_prop1(    ReboA, "RebonackA", spr_Placement_32x32);
+o_name = object_get_name(Rebonack01A); // *
+data_go_prop1(    Rebonack01A, "RebonackA", spr_Placement_32x32);
 data_go_scr(  o_name,   RebonackA_init1, RebonackA_init2, RebonackA_update, RebonackA_udp, RebonackA_draw, Boss_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBm, CSb,HPau,  $04,XPe0, _RSP,    0, SWDa, PRJd,    0,    0,    0);
@@ -1916,8 +1916,8 @@ data_go_prop2(o_name+"02", PIc, HBm, CSb,HPau,  $04,XPe0, _RSP,    0, SWDa, PRJd
 
 // -----------------------------------------------------------------------------
 // RebonackB  --------------------------------------------------------
-o_name = object_get_name(ReboB); // *
-data_go_prop1(    ReboB, "RebonackB", spr_Iron_Knuckle_Idle1);
+o_name = object_get_name(Rebonack01B); // *
+data_go_prop1(    Rebonack01B, "RebonackB", spr_Iron_Knuckle_Idle1);
 data_go_scr(  o_name,   Boss_init_1, RebonackB_init2, RebonackB_update, RebonackB_udp, IronKnuckle_draw, Boss_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBb, CSb, $11,  $01, $19, _RSP,    0, SWDa, PRJd,    0,    0,    0);
@@ -1930,8 +1930,8 @@ data_REFLECT_vuln(o_name+"02", object_get_name(Mace1)+"01", object_get_name(Mace
 
 // -----------------------------------------------------------------------------
 // Carock  --------------------------------------------------------
-o_name = object_get_name(CaroA); // *
-data_go_prop1(    CaroA, "Carock", spr_Carock_1a);
+o_name = object_get_name(Carock01); // *
+data_go_prop1(    Carock01, "Carock", spr_Carock_1a);
 data_go_scr(  o_name,   Boss_init_1, Carock_init2, Carock_update, Carock_udp, Carock_draw, Carock_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBo, CSb, $0A,  $04, $1A, _RSP,    0, SWDa, PRJd,    0,    0,    0);
@@ -1940,8 +1940,8 @@ data_go_prop2(o_name+"02", PIb, HBo, CSb, $0C,  $05, $1B, _RSP,    0, SWDa, PRJd
 
 // -----------------------------------------------------------------------------
 // Gooma  --------------------------------------------------------
-o_name = object_get_name(GoomA); // *
-data_go_prop1(    GoomA, "Gooma", spr_Gooma_Placement);
+o_name = object_get_name(Gooma01); // *
+data_go_prop1(    Gooma01, "Gooma", spr_Gooma_Placement);
 data_go_scr(  o_name,   Boss_init_1, Gooma_init2, Gooma_update, Gooma_udp, Gooma_draw, Boss_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBp, CSb, $19,  $06, $1B, _RSP,    0, SWDa, PRJd,    0,    0,    0);
@@ -1950,8 +1950,8 @@ data_go_prop2(o_name+"02", PIb, HBp, CSb, $24,  $08, $22, _RSP,    0, SWDa, PRJd
 
 // -----------------------------------------------------------------------------
 // Barba  --------------------------------------------------------
-o_name = object_get_name(BarbA); // *
-data_go_prop1(    BarbA, "Barba", spr_Barba_Placement);
+o_name = object_get_name(Barba01); // *
+data_go_prop1(    Barba01, "Barba", spr_Barba_Placement);
 data_go_scr(  o_name,   Boss_init_1, Barba_init2, Barba_update, Barba_udp, Barba_draw, Barba_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBe, CSb, $1B,  $06, $1D, _RSP,    0, SWDa, PRJd,    0,    0,    0);
@@ -1959,8 +1959,8 @@ data_go_prop2(o_name+"01", PIa, HBe, CSb, $1B,  $06, $1D, _RSP,    0, SWDa, PRJd
 
 // -----------------------------------------------------------------------------
 // Thunderbird  --------------------------------------------------------
-o_name = object_get_name(ThunA); // *
-data_go_prop1(    ThunA, "Thunderbird", spr_Thunderbird_Placement);
+o_name = object_get_name(Thunderbird01); // *
+data_go_prop1(    Thunderbird01, "Thunderbird", spr_Thunderbird_Placement);
 data_go_scr(  o_name,   Boss_init_1, Thunderbird_init2, Thunderbird_update, Thunderbird_udp, Thunderbird_draw, Boss_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBl, CSa, $1B,  $06, $20, _RSP,    0, SWDb, PRJd, THNc,    0,    0);
@@ -1968,8 +1968,8 @@ data_go_prop2(o_name+"01", PIc, HBl, CSa, $1B,  $06, $20, _RSP,    0, SWDb, PRJd
 
 // -----------------------------------------------------------------------------
 // ShadowBoss  --------------------------------------------------------
-o_name = object_get_name(ShLiA); // *
-data_go_prop1(    ShLiA, "ShadowBoss", spr_Placement_32x32);
+o_name = object_get_name(ShadowLonk01); // *
+data_go_prop1(    ShadowLonk01, "ShadowBoss", spr_Placement_32x32);
 data_go_scr(  o_name,   Boss_init_1, ShadowBoss_init2, ShadowBoss_update, ShadowBoss_udp, ShadowBoss_draw, Boss_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PId, HBi, CSa, $06,  $05, $16, _RSP,    0, SWDb, PRJd,    0,    0,    0);
@@ -2155,8 +2155,8 @@ data_go_prop2(o_name+"01",_PI1,_HB1,_CS1, $10,_ATK2,_XP1, _RSP, _DRP, _SWD, _PRJ
 
 // -----------------------------------------------------------------------------
 // Ache  --------------------------------------------------------
-o_name = object_get_name(AcheA);
-data_go_prop1(    AcheA, "Ache", spr_Ache1);
+o_name = object_get_name(Ache01);
+data_go_prop1(    Ache01, "Ache", spr_Ache1);
 data_go_scr(  o_name,   GameObjectB_init, Ache_init2, Ache_update, Ache_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBa, CSa, $03,  $01, $03, RSPb, DRPb, SWDa, PRJc, THNb, SPLa,    0);
@@ -2169,8 +2169,8 @@ data_REFLECT_vuln(o_name+"02", object_get_name(Axe)+"01", object_get_name(Fireba
 
 // -----------------------------------------------------------------------------
 // Aneru  --------------------------------------------------------
-o_name = object_get_name(AnerA);
-data_go_prop1(    AnerA, "Aneru", spr_Aneru1);
+o_name = object_get_name(Aneru01);
+data_go_prop1(    Aneru01, "Aneru", spr_Aneru1);
 data_go_scr(  o_name,   GameObjectB_init, Aneru_init2, Aneru_update, Aneru_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBa, CSa, $08,  $02, $0C, RSPc, DRPb, SWDa, PRJc, THNb, SPLa,    0);
@@ -2184,8 +2184,8 @@ data_REFLECT_vuln(o_name+"03", object_get_name(Rock2)+"01", object_get_name(Axe)
 
 // -----------------------------------------------------------------------------
 // Aruroda  --------------------------------------------------------
-o_name = object_get_name(ArurA);
-data_go_prop1(    ArurA, "Aruroda", spr_Aruroda_body1);
+o_name = object_get_name(Aruroda01);
+data_go_prop1(    Aruroda01, "Aruroda", spr_Aruroda_body1);
 data_go_scr(  o_name,   GameObjectB_init, Aruroda_init2, Aruroda_update, Aruroda_udp, Aruroda_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBj, CSb, $0F,  $05, $16, RSPc, DRPc, SWDa,    0, THNb, SPLa,    0);
@@ -2195,8 +2195,8 @@ data_REFLECT_vuln(o_name+"01", object_get_name(Fireball1)+"01", object_get_name(
 
 // -----------------------------------------------------------------------------
 // Atta  --------------------------------------------------------
-o_name = object_get_name(AttaA);
-data_go_prop1(    AttaA, "Atta", spr_Atta_1a);
+o_name = object_get_name(Atta01);
+data_go_prop1(    Atta01, "Atta", spr_Atta_1a);
 data_go_scr(  o_name,   GameObjectB_init, Atta_init2, Atta_update, Atta_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBa, CSa, $0F,  $02, $0D, RSPc, DRPc, SWDa, PRJc, THNb, SPLa,    0);
@@ -2205,9 +2205,9 @@ data_REFLECT_vuln(o_name+"01", object_get_name(Fireball1)+"01", object_get_name(
 
 
 // -----------------------------------------------------------------------------
-// Backwall  --------------------------------------------------------
-o_name = object_get_name(Backwall);
-data_go_prop1(    Backwall, "Backwall", spr_Placement_16x16);
+// Backwall01  --------------------------------------------------------
+o_name = object_get_name(Backwall01);
+data_go_prop1(    Backwall01, "Backwall01", spr_Placement_16x16);
 data_go_scr(  o_name,   Backwall_init1, Backwall_init2, Backwall_update, Backwall_udp, Backwall_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa,   0,   0,   0,  $08,   0, RSPd,    0,    0,    0,    0,    0,    0);
@@ -2215,8 +2215,8 @@ data_go_prop2(o_name+"01", PIa,   0,   0,   0,  $08,   0, RSPd,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // Bagin  --------------------------------------------------------
-o_name = object_get_name(BagiA);
-data_go_prop1(    BagiA, "Bagin", spr_Bagin_1a);
+o_name = object_get_name(Bagin01);
+data_go_prop1(    Bagin01, "Bagin", spr_Bagin_1a);
 data_go_scr(  o_name,   GameObjectB_init, Bagin_init2, Bagin_update, Bagin_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBa, CSa, $03,  $03, $05, RSPd, DRPa, SWDa, PRJc, THNb, SPLa,    0);
@@ -2228,8 +2228,8 @@ data_REFLECT_vuln(o_name+"02", object_get_name(Axe)+"01", object_get_name(Bullet
 
 // -----------------------------------------------------------------------------
 // Bago  --------------------------------------------------------
-o_name = object_get_name(BagoA);
-data_go_prop1(    BagoA, "Bago", spr_Bago1);
+o_name = object_get_name(Bago01);
+data_go_prop1(    Bago01, "Bago", spr_Bago1);
 data_go_scr(  o_name,   GameObjectB_init, Bago_init2, Bago_update, Bago_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBa, CSa, $03,  $03, $05, RSPc, DRPb, SWDa, PRJc, THNb, SPLa, DRNc);
@@ -2240,9 +2240,9 @@ data_REFLECT_vuln(o_name+"02", object_get_name(Axe)+"01", object_get_name(Bullet
 
 
 // -----------------------------------------------------------------------------
-// Balshot  --------------------------------------------------------
-o_name = object_get_name(Balshot);
-data_go_prop1(Balshot, "Balshot", spr_Balshot01b);
+// Balshot01  --------------------------------------------------------
+o_name = object_get_name(Balshot01);
+data_go_prop1(Balshot01, "Balshot01", spr_Balshot01b);
 data_go_scr(  o_name, Balshot_init1, Balshot_init2, Balshot_update, Balshot_udp);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIe, $66, CSh, $01,  $03, $0C, RSPd, DRPa, SWDb,  $00,  $00,  $00,  $00);
@@ -2259,8 +2259,8 @@ _PRJ = PRJd;
 _THN = THNb;
 _bright1 = 0;
 //_bright1 = BRIGHT1;
-o_name = object_get_name(BlazA);
-data_go_prop1(    BlazA, "Blaze", spr_Flame1);
+o_name = object_get_name(Blaze01);
+data_go_prop1(    Blaze01, "Blaze", spr_Flame1);
 data_go_scr(  o_name,   Blaze_init1, Blaze_init2, Blaze_update, Blaze_udp, Blaze_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBc, CSc, $06,  $03, $05, RSPd,    0,    0, _PRJ, _THN,    0,    0,    _bright1);
@@ -2285,9 +2285,9 @@ data_go_prop2(o_name+"02", PId, HBa, CSa,HPMax, $03,XPa0, RSPd, DRPa, SWDf,    0
 
 
 // -----------------------------------------------------------------------------
-// Boggnipp  --------------------------------------------------------
-o_name = object_get_name(Boggnipp);
-data_go_prop1(    Boggnipp, "Boggnipp", spr_Boggnipp_1a);
+// Boggnipp01  --------------------------------------------------------
+o_name = object_get_name(Boggnipp01);
+data_go_prop1(    Boggnipp01, "Boggnipp01", spr_Boggnipp_1a);
 data_go_scr(  o_name,   Boggnipp_init1, Boggnipp_init2, Boggnipp_update, Boggnipp_udp);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBa, CSa, $03,  $03, $05, RSPd, DRPb, SWDa, PRJc, THNb, SPLa,    0);
@@ -2710,7 +2710,7 @@ data_REFLECT_vuln(o_name+"01", object_get_name(Axe)+"01", object_get_name(Bullet
 // Octorok  --------------------------------------------------------
 //_RSP  = RSPd; // 'refresh rm'
 _RSP  = RSPc; // OG: Refresh area
-o_name = data_go_prop1(OctoA, "Octorok", spr_Octorok_Idle);
+o_name = data_go_prop1(Octorok01, "Octorok", spr_Octorok_Idle);
 data_go_scr(  o_name,   GameObjectB_init, Octorok_init2, Octorok_update, Octorok_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBa, CSa, $04,  $02, $0A, _RSP, DRPb, SWDa, PRJc, THNb, SPLa,    0);
@@ -2745,8 +2745,10 @@ data_go_prop1(    Snaraa, "Snaraa", spr_Snaraa_1a_1_WRB);
 data_go_scr(  o_name,   Snaraa_init1, Snaraa_init2, Snaraa_update, Snaraa_udp, Snaraa_draw, Snaraa_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBw, CSa, $0D,  $02, $05, RSPd, DRPb, SWDa, PRJc, THNb, SPLa, DRNc);
+//data_go_prop2(o_name+"02", PIb, HBw, CSa, $0D,  $02, $05, RSPd, DRPb, SWDa, PRJc, THNb, SPLa, DRNc);
 
 data_REFLECT_vuln(o_name+"01", object_get_name(Axe)+"01", object_get_name(Bullet1)+"01", object_get_name(Bullet1)+"02", object_get_name(Bullet2)+"01", object_get_name(Fireball1)+"01", object_get_name(Fireball1)+"02", object_get_name(Mace1)+"01", object_get_name(Mace2)+"01", object_get_name(SwordBeam)+"01");
+//data_REFLECT_vuln(o_name+"02", object_get_name(Axe)+"01", object_get_name(Bullet1)+"01", object_get_name(Bullet1)+"02", object_get_name(Bullet2)+"01", object_get_name(Fireball1)+"01", object_get_name(Fireball1)+"02", object_get_name(Mace1)+"01", object_get_name(Mace2)+"01", object_get_name(SwordBeam)+"01");
 
 
 // -----------------------------------------------------------------------------
@@ -2862,8 +2864,8 @@ data_REFLECT_vuln(o_name+"01", object_get_name(Bullet1)+"01", object_get_name(Bu
 
 // -----------------------------------------------------------------------------
 // Fenser(HelmetHead Head)  --------------------------------------------------------
-o_name = object_get_name(HeHeA);
-data_go_prop1(    HeHeA, "Fenser", spr_Helmethead_head_1);
+o_name = object_get_name(HelmetheadHead01);
+data_go_prop1(    HelmetheadHead01, "Fenser", spr_Helmethead_head_1);
 data_go_scr(  o_name,   Fenser_init1, Fenser_init2, Fenser_update, 0, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBv, CSm, $15,  $02,   0, RSPc,    0, SWDa, PRJd, THNb,    0,    0);

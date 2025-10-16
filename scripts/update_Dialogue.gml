@@ -883,7 +883,7 @@ switch(g.menu_state)
         || (!global.Halloween1_enabled && isVal(g.town_name,STR_Saria,STR_Darunia) && g.dl_RandomOG[|2]<$67) ) 
         {
             // B7E0.  Change NPC to Ache or Bot or ... --------------------------------------------
-            var _obj = AcheA;
+            var _obj = Ache01;
             var _ver = $1;
             if (global.Halloween1_enabled)
             {
@@ -913,14 +913,14 @@ switch(g.menu_state)
                 {
                     switch(object_index)
                     {   // ------------------------------
-                        case AcheA:{
+                        case Ache01:{
                         facing_dir = g.dialogue_source.facing_dir;
                         behavior  = 3;
                         vspd      = 0;
                         hspd      = 0;
                         hp        = 0;
                         IDLE_Y    = ((yt>>8)<<8) + $40;
-                        break;}//case AcheA
+                        break;}//case Ache01
                         
                         // ------------------------------
                         case Bot_A:{

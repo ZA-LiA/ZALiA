@@ -26,16 +26,16 @@ g.view_lock     |= g.view_lock_boss; // 3: cam left & right locked
 
             start_timer = 0;
 switch(object_index){
-case ReboA:{start_timer = $FF; break;}
-//case ReboA:{start_timer = $FF - ((BRIDGE_TILE_CNT*($1<<S1)) * !bridge_ver); break;}
-case CaroA:{start_timer = $40; break;}
-case BarbA:{start_timer = $FF; break;}
-case ThunA:{start_timer = $90; break;}
+case Rebonack01A:{start_timer = $FF; break;}
+//case Rebonack01A:{start_timer = $FF - ((BRIDGE_TILE_CNT*($1<<S1)) * !bridge_ver); break;}
+case Carock01:{start_timer = $40; break;}
+case Barba01:{start_timer = $FF; break;}
+case Thunderbird01:{start_timer = $90; break;}
 }
 
 
-if (object_index!=ThunA 
-&&  object_index!=ShLiA 
+if (object_index!=Thunderbird01 
+&&  object_index!=ShadowLonk01 
 &&  object_index!=Ganon )
 {
     with(ArenaGate)

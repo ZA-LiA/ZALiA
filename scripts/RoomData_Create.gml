@@ -1910,7 +1910,7 @@ repeat(8) sdm("");
 
 
 
-//dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
+//if (DEV) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 //if (global.REINITIALIZE_DATA1) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 
 

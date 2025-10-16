@@ -10,7 +10,7 @@ if (is_ancestor(object_index, DairA))
     SwordHB_xoff = SwordHB_XOFF * facing_dir;
     SwordHB_yoff = SwordHB_YOFF;
 }
-else if (is_ancestor_(object_index, FokkA,IrKnA,ReboB))
+else if (is_ancestor_(object_index, FokkA,IrKnA,Rebonack01B))
 {
     if (1)
     {   // OG ----------------------------------------------
@@ -22,11 +22,11 @@ else if (is_ancestor_(object_index, FokkA,IrKnA,ReboB))
         SwordHB_xoff  = SwordHB_XOFF <<inRange(timer, 3, 12); // $08,$10
         SwordHB_xoff *= facing_dir;
         
-        // IrKnA & ReboB at certain points don't 
+        // IrKnA & Rebonack01B at certain points don't 
         // clear the carry like Fokka does.
         // facing right:   8,  16,   9
         // facing left:   -8, -15,  -7
-        if (is_ancestor_(object_index, IrKnA,ReboB))
+        if (is_ancestor_(object_index, IrKnA,Rebonack01B))
         {
             if ( timer >= 13 
             ||  (timer >=  3 && !facing_dir) )            // timer 3-12
@@ -90,7 +90,7 @@ else if (is_ancestor(object_index, StalA))
     SwordHB_xoff = SwordHB_XOFF * facing_dir;
     SwordHB_yoff = SwordHB_YOFF;
 }
-else if (is_ancestor(object_index, HorsA))
+else if (is_ancestor(object_index, Horsehead01))
 {
     if (attack_state)
     {   // 983B(in sprite update)
@@ -103,7 +103,7 @@ else if (is_ancestor(object_index, HorsA))
         SwordHB_yoff = SwordHB_YOFF + 9; // SwordHB_YOFF=16+g.HB_ADJ_Y
     }
 }
-else if (is_ancestor(object_index, ReboA))
+else if (is_ancestor(object_index, Rebonack01A))
 {
     // updated in usd_RebonackA()
 }

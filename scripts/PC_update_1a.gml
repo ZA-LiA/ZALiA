@@ -59,7 +59,7 @@ if (is_cucco)
             switch(g.mod_PCSword2){
             case 1:{SwordHB_w += 2; break;}
             case 2:{SwordHB_w += 3; break;}
-            case 3:{SwordHB_w += 3-instance_exists(ShLiA); break;}
+            case 3:{SwordHB_w += 3-instance_exists(ShadowLonk01); break;}
             }
         }
     }
@@ -117,8 +117,8 @@ else
         switch(g.mod_PCSword2){
         case 1:{SwordHB_w += 2; break;}
         case 2:{SwordHB_w += 3; break;}
-        case 3:{SwordHB_w += 3-instance_exists(ShLiA); break;}
-        //case 3:{SwordHB_w += 3 - (!!instance_number(ShLiA)); break;}
+        case 3:{SwordHB_w += 3-instance_exists(ShadowLonk01); break;}
+        //case 3:{SwordHB_w += 3 - (!!instance_number(ShadowLonk01)); break;}
         }
     }
     

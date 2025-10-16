@@ -3118,12 +3118,12 @@ global.DropSpawner_dm = ds_map_create();
 
 
 
-//AnerA,ArurA,Bot_A,DairA,DoomA,FokkA,FokuA,GeruA,GoriA,GumaA,IrKnA,MagoA,MoblA,OctoA,StalA,Stallakk,TektA,ZoraA
+//Aneru01,Aruroda01,Bot_A,DairA,DoomA,FokkA,FokuA,GeruA,GoriA,GumaA,IrKnA,MagoA,MoblA,Octorok01,StalA,Stallakk,TektA,ZoraA
 //LowdA,MegmA,Myu_A,WizaA,
 //GeldA,GlzmA,
 //LeevA,
 //BoonA,BubbA,GiruA,Moa_A,Moa_B,
-//AttaA,Wheep
+//Atta01,Wheep
 //Mau_A
 //BagiA
 //BagoA
@@ -3198,8 +3198,8 @@ ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(MegmA)+"01");
 //                                                                                              //
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(GeldA)+"01");
 //                                                                                              //
-ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(AnerA)+"01",object_get_name(AnerA)+"02");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(OctoA)+"01",object_get_name(OctoA)+"02",object_get_name(OctoA)+"03");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Aneru01)+"01",object_get_name(Aneru01)+"02");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Octorok01)+"01",object_get_name(Octorok01)+"02",object_get_name(Octorok01)+"03");
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(LeevA)+"01");
 //                                                                                              //
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(WosuA)+"01");
@@ -3216,14 +3216,14 @@ ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(IrKnA)+"01",object_get_name
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(GeruA)+"01",object_get_name(GeruA)+"02");
 //                                                                                              //
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(MagoA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(ArurA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(AttaA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Aruroda01)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Atta01)+"01");
 //ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Wheep)+"01");
 //                                                                                              //
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(GeruA)+"03"); // Blue Geru
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(IrKnA)+"03");
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(BoBoA)+"01");
-ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(AnerA)+"03"); // Fire Aneru
+ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(Aneru01)+"03"); // Fire Aneru
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(FokkA)+"01",object_get_name(FokkA)+"02");
 ds_list_add(dl_RandoEnemy_OBJVER_A1, object_get_name(FokuA)+"01");
 //                                                                                              //
@@ -3236,7 +3236,7 @@ ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(GlzmA)+"01",object_get_name(
 ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(TektA)+"01");
 ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(ZoraA)+"01");
 ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(WizaA)+"01");
-ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(BlazA)+"01",object_get_name(BlazA)+"02");
+ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(Blaze01)+"01",object_get_name(Blaze01)+"02");
 ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(FiRoA)+"01"); // Spinning FireRope
 ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(SpTrC)+"01"); // Spinning spike ball
 //                                                                                              //

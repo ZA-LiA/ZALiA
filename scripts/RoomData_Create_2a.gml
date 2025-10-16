@@ -2627,6 +2627,8 @@ global.dm_scene_wh[?'MazIs_158'+STR_Width ] = $0300;
 global.dm_scene_wh[?'MazIs_158'+STR_Height] = $0100;
 
 //  ----------------------------  159  ----------------------------
+global.dm_scene_wh[?'MazIs_159'+STR_Width ] = $0200;
+global.dm_scene_wh[?'MazIs_159'+STR_Height] = $0300;
 
 //  ----------------------------  160  ----------------------------
 

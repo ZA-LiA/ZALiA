@@ -42,7 +42,7 @@ DUR_ATK_STAB    = $10; // $0504,X
 CUE_ATK_PHASE2  = $0C; // for udd
 CUE_ATK_PHASE3  = $02; // for udd
 
-is_aggro        = is_ancestor(object_index,ReboB);
+is_aggro        = is_ancestor(object_index,Rebonack01B);
 is_cucco_aware  = false;
 attack_tokens   = 0; // $0401[uIdx].  Num of remaining quick succession attacks
 
@@ -158,7 +158,7 @@ Arm_xoff = dg_Arm_XOFF[#0,0];
 
 abilities |= ABL_WALK;
 
-if ( is_ancestor(object_index,ReboB) 
+if ( is_ancestor(object_index,Rebonack01B) 
 ||  (is_ancestor(object_index,IrKnA) && ver==3) )
 {
     abilities |= ABL_SHOT;

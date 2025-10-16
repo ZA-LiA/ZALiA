@@ -11,7 +11,7 @@ else                HPBar_hp_color = p.C_RED3;
 
 if (hp)
 {
-    if (object_index==ShLiA 
+    if (object_index==ShadowLonk01 
     ||  object_index==Ganon3 )
     {   // Some enemy hp should not be randomized
         var _HP_PER_UNIT = g.dl_HP_DEFAULT[|HP_IDX];

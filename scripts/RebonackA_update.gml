@@ -217,7 +217,7 @@ if (phase==1)
         var _XL = xl + $18;
         var _YT = yt;
         var _VER = 1 + (ver==2);
-        with(GameObject_create(_XL,_YT, ReboB,_VER, dk_spawn, palidx_def))
+        with(GameObject_create(_XL,_YT, Rebonack01B,_VER, dk_spawn, palidx_def))
         {
             state = state_NORMAL;
             

@@ -1,4 +1,4 @@
-/// data_Platform(object_index, version, x, y, *palette idx, *direction, *start location, *path)
+/// data_Platform(object_index, version, x, y, *palette idx, *direction, *start location, *path, *hspd, *vspd, *width)
 
 
 var _ARGS = argument_count;
@@ -23,6 +23,15 @@ if (_ARGS>_arg) g.dm_spawn[?_SPAWN_DATAKEY+STR_Start]     =       argument[_arg+
 
 // string. Every 4 chars is rc of a location along the platform's path.
 if (_ARGS>_arg) g.dm_spawn[?_SPAWN_DATAKEY+STR_Path]      =       argument[_arg++]
+
+// HSPD. $10 = 1 pixel per frame
+if (_ARGS>_arg) g.dm_spawn[?_SPAWN_DATAKEY+STR_HSPD]      =       argument[_arg++]
+
+// VSPD. $10 = 1 pixel per frame
+if (_ARGS>_arg) g.dm_spawn[?_SPAWN_DATAKEY+STR_VSPD]      =       argument[_arg++]
+
+// Different platform width than this object's default
+if (_ARGS>_arg) g.dm_spawn[?_SPAWN_DATAKEY+STR_Width]     =       argument[_arg++]
 
 
 

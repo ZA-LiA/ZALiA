@@ -67,7 +67,7 @@ HPBar_XOFF += HPBar_XPAD;
 HPBar_XOFF  = clamp(HPBar_XOFF, HPBar_XPAD,viewW_()-4);
 
 
-if(!is_ancestor_(object_index,ThunA,ShLiA,Ganon))
+if(!is_ancestor_(object_index,Thunderbird01,ShadowLonk01,Ganon))
 {
     with(GameObject_create(arena_xl-8,y, ArenaGateA,1)) boss=other;
     with(GameObject_create(arena_xr,  y, ArenaGateA,1)) boss=other;

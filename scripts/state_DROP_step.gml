@@ -22,7 +22,7 @@ with(argument0)
         && !drop_item_obj )
         {
             var _XP  = xp;
-                _XP += xp==300 && is_ancestor(object_index,ReboB);
+                _XP += xp==300 && is_ancestor(object_index,Rebonack01B);
             //
             f.xpPending += _XP;
             f.xpPending &= $FFFF;

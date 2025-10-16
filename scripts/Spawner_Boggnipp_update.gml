@@ -5,9 +5,9 @@ if (g.counter1&$7F) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if (available_update_idx_gob(MAX_GOB1)==UIDX_NULL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 var            _count  = 0;
-with(Boggnipp) _count += sign(state);
+with(Boggnipp01) _count += sign(state);
 if (_count>=3) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//if (instance_number(Boggnipp)>=3) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//if (instance_number(Boggnipp01)>=3) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // ---------------------------------------------------
@@ -18,7 +18,7 @@ else var _DIR = sign_(rand()&$1);
 
 // WIDE VIEW
 var _XL = (viewXC() + (viewW_()*-_DIR) + (8*_DIR)) - 8;
-with(GameObject_create(_XL,yt, Boggnipp,1, -1, palidx))
+with(GameObject_create(_XL,yt, Boggnipp01,1, -1, palidx))
 {
     is_from_spawner = true;
     sub_state = sub_state_CHARGE;

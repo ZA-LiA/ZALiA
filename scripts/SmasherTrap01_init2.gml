@@ -10,6 +10,9 @@ var _trap_data = undefined;
 GO_sprite_init(Smasher_SPRITE1);
 
 
+facing_dir = 1;
+
+
 if(!is_undefined(dk_spawn))
 {
     attack_speed = val(g.dm_spawn[?dk_spawn+STR_Speed], attack_speed);

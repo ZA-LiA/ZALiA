@@ -121,7 +121,7 @@ else
         
         // BB10: JSR B869,  B876
         // Spawn Head ----------------------------------------------
-        with(GameObject_create(xl, yt-$D, HeHeA,1))
+        with(GameObject_create(xl, yt-$D, HelmetheadHead01,1))
         {
             state      = state_NORMAL;
             

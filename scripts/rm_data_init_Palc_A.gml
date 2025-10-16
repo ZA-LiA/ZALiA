@@ -594,7 +594,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $0F<<3,y3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $50<<3,y3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $5F<<3,y3); // v1: Light w/ CANDLE or FIRE
 clm3=$30; // clm3: arena center clm
-data_spawn(rm+STR_PRIO,HorsA,$1,  (clm3+$10)<<3,(row0+$15)<<3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Horsehead  1
+data_spawn(rm+STR_PRIO,Horsehead01,$1,  (clm3+$10)<<3,(row0+$15)<<3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Horsehead  1
 data_spawn(rm+STR_PRIO,CrHoA,$1,  CRYSTALHOLDER_XL,(row0+$16)<<3); // CrystalHolder  1
 g.dm_rm[?STR_Boss+STR_Scene+STR_Name+_DUNGEON_NAME] = rm;
 

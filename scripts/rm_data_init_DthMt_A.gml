@@ -132,12 +132,12 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,GoriA,$2,  $200,y3); // Goriya  2
 //data_spawn(rm+STR_PRXM,GoriA,$3,  $200,y3); // Goriya  3
-data_spawn(rm+STR_PRXM,OctoA,$1,  $C0,(row3-$02)<<3); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $E0,(row3-$06)<<3); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $100,(row3-$0A)<<3); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $2F0,(row3-$0A)<<3); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $310,(row3-$06)<<3); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $330,(row3-$02)<<3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $C0,(row3-$02)<<3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $E0,(row3-$06)<<3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $100,(row3-$0A)<<3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $2F0,(row3-$0A)<<3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $310,(row3-$06)<<3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $330,(row3-$02)<<3); // Octorok  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld
@@ -165,11 +165,11 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_DM+'
 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$17<<3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,$0B<<3); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,OctoA,$2,  $16<<3,(row0+$16)<<3); // Octorok  2
-data_spawn(rm+STR_PRXM,OctoA,$2,  $26<<3,(row0+$14)<<3); // Octorok  2
-data_spawn(rm+STR_PRXM,OctoA,$2,  $36<<3,(row0+$12)<<3); // Octorok  2
-data_spawn(rm+STR_PRXM,OctoA,$2,  $46<<3,(row0+$10)<<3); // Octorok  2
-data_spawn(rm+STR_PRXM,OctoA,$2,  $5A<<3,(row0+$0E)<<3); // Octorok  2
+data_spawn(rm+STR_PRXM,Octorok01,$2,  $16<<3,(row0+$16)<<3); // Octorok  2
+data_spawn(rm+STR_PRXM,Octorok01,$2,  $26<<3,(row0+$14)<<3); // Octorok  2
+data_spawn(rm+STR_PRXM,Octorok01,$2,  $36<<3,(row0+$12)<<3); // Octorok  2
+data_spawn(rm+STR_PRXM,Octorok01,$2,  $46<<3,(row0+$10)<<3); // Octorok  2
+data_spawn(rm+STR_PRXM,Octorok01,$2,  $5A<<3,(row0+$0E)<<3); // Octorok  2
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$16,  0); // LFT 0, to Overworld 
@@ -227,12 +227,12 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_DM+'
 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$13<<3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,$13<<3); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,OctoA,$1,  $100,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $130,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $160,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $290,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $2C0,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $2F0,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $100,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $130,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $160,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $290,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $2C0,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $2F0,$B0); // $A8: Octorok  1
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$12,  0);        // LFT 0, to Overworld  
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$12,  0);        // RGT 0, to Overworld  
@@ -261,9 +261,9 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_DM+'
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$0F<<3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,$0D<<3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,MoblA,$3,  $D0,$70); // $A4: Moblin  3
-data_spawn(rm+STR_PRXM,OctoA,$2,  $1B0,$90); // $A8: Octorok  2
-data_spawn(rm+STR_PRXM,OctoA,$2,  $260,$A0); // $A8: Octorok  2
-data_spawn(rm+STR_PRXM,OctoA,$2,  $2C0,$80); // $A8: Octorok  2
+data_spawn(rm+STR_PRXM,Octorok01,$2,  $1B0,$90); // $A8: Octorok  2
+data_spawn(rm+STR_PRXM,Octorok01,$2,  $260,$A0); // $A8: Octorok  2
+data_spawn(rm+STR_PRXM,Octorok01,$2,  $2C0,$80); // $A8: Octorok  2
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$0E,  0);        // LFT 0, to Overworld  
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$0C,  0);        // RGT 0, to Overworld  
@@ -361,12 +361,12 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_DM+'
 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$13<<3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,$13<<3); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,OctoA,$1,  $100,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $130,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $160,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $290,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $2C0,$B0); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $2F0,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $100,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $130,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $160,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $290,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $2C0,$B0); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $2F0,$B0); // $A8: Octorok  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$12,  0);        // LFT 0, to Overworld  
@@ -397,10 +397,10 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,DairA,$1,  $C0,(row3-$04)<<3); // $91: Daira  1
 data_spawn(rm+STR_PRXM,GoriA,$3,  $2F0,y3); // $9A: Goriya  3
-data_spawn(rm+STR_PRXM,AcheA,$1,  $80,y5); // $88: Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $E0,y5); // $88: Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $120,y5); // $88: Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $260,y5); // $88: Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $80,y5); // $88: Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $E0,y5); // $88: Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $120,y5); // $88: Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $260,y5); // $88: Ache  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld
@@ -505,10 +505,10 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_DM+'
 
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,$0F<<3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,$0D<<3); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,OctoA,$1,  $120,$80); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $1C0,$80); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $270,$90); // $A8: Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $2D0,$70); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $120,$80); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $1C0,$80); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $270,$90); // $A8: Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $2D0,$70); // $A8: Octorok  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$0E,  0);        // LFT 0, to Overworld  
@@ -541,8 +541,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  clms3<<3,y4,  STR_Lit); // v1: Light w/ CANDL
 data_spawn(rm+STR_PRIO,TorchA,$1,  (clms0-clms3-1)<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 clm3=$14; clm4=$30; y4=(row0+$06)<<3;
 data_spawn(rm+STR_PRXM,DairA,$2,  $60<<3,y3); // Daira  2
-data_spawn(rm+STR_PRXM,AcheA,$2,  clm3<<3,y4); // Ache  2
-data_spawn(rm+STR_PRXM,AcheA,$2,  clm4<<3,y4); // Ache  2
+data_spawn(rm+STR_PRXM,Ache01,$2,  clm3<<3,y4); // Ache  2
+data_spawn(rm+STR_PRXM,Ache01,$2,  clm4<<3,y4); // Ache  2
 data_spawn(rm+STR_PRXM,LowdA,$1,  (clm3+$08)<<3,y3); // Lowder  1
 data_spawn(rm+STR_PRXM,LowdA,$1,  (clm3+$10)<<3,y3); // Lowder  1
 
@@ -624,12 +624,12 @@ row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 row5=row3+$02; y5=row5<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y4); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,OctoA,$1,  $1A<<3,y5); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $22<<3,y5); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $26<<3,y5); // Octorok  1
-//data_spawn(rm+STR_PRXM,OctoA,$1,  $1E<<3,y3); // Octorok  1
-//data_spawn(rm+STR_PRXM,OctoA,$1,  $26<<3,y3); // Octorok  1
-//data_spawn(rm+STR_PRXM,OctoA,$1,  $2A<<3,y3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $1A<<3,y5); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $22<<3,y5); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $26<<3,y5); // Octorok  1
+//data_spawn(rm+STR_PRXM,Octorok01,$1,  $1E<<3,y3); // Octorok  1
+//data_spawn(rm+STR_PRXM,Octorok01,$1,  $26<<3,y3); // Octorok  1
+//data_spawn(rm+STR_PRXM,Octorok01,$1,  $2A<<3,y3); // Octorok  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '10'+EXR0_); // LFT 0, 
@@ -658,9 +658,9 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+'00', STR_Tile+area_WA+'
 
 x3=(clms0-$09)<<3; row3=row0+$16; y3=row3<<3; y4=(row3+$01)<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $28<<3,$19<<3); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,OctoA,$1,  $18<<3,y3); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $1C<<3,y3); // Octorok  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $22<<3,y3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $18<<3,y3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $1C<<3,y3); // Octorok  1
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $22<<3,y3); // Octorok  1
 
 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '13'+EXL0_); // RGT 0, 
@@ -845,8 +845,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  (clm4<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,GoriA,$2,  $66<<3,y3); // Goriya  2
-data_spawn(rm+STR_PRXM,AcheA,$1,  $28<<3,y5); // Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $60<<3,y5); // Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $28<<3,y5); // Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $60<<3,y5); // Ache  1
 data_spawn(rm+STR_PRXM,MegmA,$1,  $2C<<3,y3); // Megmat  1
 data_spawn(rm+STR_PRXM,MegmA,$1,  $2F<<3,y3); // Megmat  1
 data_spawn(rm+STR_PRXM,MegmA,$1,  $34<<3,y3); // Megmat  1
@@ -893,9 +893,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  (clm4<<3)+4,y3); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,DairA,$1,  $6A<<3,y3); // Daira  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $12<<3,y6); // Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $1C<<3,y6); // Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $28<<3,y6); // Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $12<<3,y6); // Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $1C<<3,y6); // Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $28<<3,y6); // Ache  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $16<<3,y5); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $22<<3,y5); // Bot  1
 
@@ -1167,9 +1167,9 @@ y3 = (row0+$11)<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  (clms0-8)<<3,y3); // v1: Light w/ CANDLE or FIRE
 clm3 = $12;
 y3 = (row0+$05)<<3;
-data_spawn(rm+STR_PRXM,AcheA,$1,  $44<<3,y3); // $88: Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $50<<3,y3); // $88: Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $5C<<3,y3); // $88: Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $44<<3,y3); // $88: Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $50<<3,y3); // $88: Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $5C<<3,y3); // $88: Ache  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$08,  '21'+EXR0_); // LFT 0, 
@@ -1240,10 +1240,10 @@ row3 = row0+$14;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
 y3 = (row0+$1A)<<3;
 y4 = (row0+$16)<<3;
-data_spawn(rm+STR_PRXM,OctoA,$1,  $1A<<3,y3); // $A8: Octorok  1 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $28<<3,y4); // $A8: Octorok  1 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $48<<3,y3); // $A8: Octorok  1 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $5C<<3,y4); // $A8: Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $1A<<3,y3); // $A8: Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $28<<3,y4); // $A8: Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $48<<3,y3); // $A8: Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $5C<<3,y4); // $A8: Octorok  1 
 row3 = row0+$14;
 
 
@@ -1349,12 +1349,12 @@ data_spawn(rm+STR_PRXM,MoblA,$2,  $2E<<3,y4); // Moblin  2
 data_spawn(rm+STR_PRXM,MoblA,$2,  $5E<<3,y4); // Moblin  2 
 y3 = (row0+$1A)<<3;
 y4 = (row0+$16)<<3;
-data_spawn(rm+STR_PRXM,BagiA,$1,  $16<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $4F<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $76<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,OctoA,$1,  $22<<3,y4); // Octorok  1 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $3D<<3,y4); // Octorok  1 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $5A<<3,y4); // Octorok  1 
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $16<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $4F<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $76<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $22<<3,y4); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $3D<<3,y4); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $5A<<3,y4); // Octorok  1 
 
 
 row3  = row0+$08;
@@ -1391,9 +1391,9 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_
 
 data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init); // 
 y3=(row0+$1A)<<3;
-data_spawn(rm+STR_PRXM,BagiA,$1,  $17<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $2D<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,OctoA,$1,  $1C<<3,(row0+$10)<<3); // Octorok  1 
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $17<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $2D<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $1C<<3,(row0+$10)<<3); // Octorok  1 
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$12,  '2C'+EXR1_); // LFT 0, 
@@ -1458,13 +1458,13 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_DM+'014', STR_ow_ax
 //data_spawn(rm+STR_PRIO,TorchA,$1,  (clms0-9)<<3,(row0+$15)<<3); // v1: Light w/ CANDLE or FIRE
 y3  = (row0+$1A)<<3;
 _val = DEPTH_BG1;
-data_spawn(rm+STR_PRXM,BagiA,$1,  $0B<<3,y3,  STR_Depth+string(_val)); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $1A<<3,y3,  STR_Depth+string(_val)); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $44<<3,y3,  STR_Depth+string(_val)); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $4F<<3,y3,  STR_Depth+string(_val)); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $0B<<3,y3,  STR_Depth+string(_val)); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $1A<<3,y3,  STR_Depth+string(_val)); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $44<<3,y3,  STR_Depth+string(_val)); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $4F<<3,y3,  STR_Depth+string(_val)); // Bagin
 y3 = (row0+$07)<<3;
-data_spawn(rm+STR_PRXM,AcheA,$1,  $28<<3,y3); // Ache  1
-data_spawn(rm+STR_PRXM,AcheA,$1,  $36<<3,y3); // Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $28<<3,y3); // Ache  1
+data_spawn(rm+STR_PRXM,Ache01,$1,  $36<<3,y3); // Ache  1
 
 
 row3 = row0+$0A;
@@ -1505,9 +1505,9 @@ y3  = (row0+$13)<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y3); // v1: Light w/ CANDLE or FIRE
 y3  = (row0+$1A)<<3;
 _val = DEPTH_BG1;
-data_spawn(rm+STR_PRXM,BagiA,$1,  $14<<3,y3,  STR_Depth+string(_val)); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $1F<<3,y3,  STR_Depth+string(_val)); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $2C<<3,y3,  STR_Depth+string(_val)); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $14<<3,y3,  STR_Depth+string(_val)); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $1F<<3,y3,  STR_Depth+string(_val)); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $2C<<3,y3,  STR_Depth+string(_val)); // Bagin
 y3  = (row0+$14)<<3;
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $55<<3,y3); // Myu  1 
 

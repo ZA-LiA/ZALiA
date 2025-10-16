@@ -5,10 +5,10 @@ if (g.counter1&$7F) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if (available_update_idx_gob(MAX_GOB1)==UIDX_NULL) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 var         _count  = 0;
-with(BagoA) _count += sign(state);
-//with(BagoA) _count += state==state_NORMAL;
+with(Bago01) _count += sign(state);
+//with(Bago01) _count += state==state_NORMAL;
 if (_count>=6) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//if (instance_number(BagoA)>=6) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//if (instance_number(Bago01)>=6) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // ---------------------------------------------------
@@ -24,7 +24,7 @@ var _Y = (g.camYT-8) + $D0;
 
 var _VER = 1 + (g.area_name==Area_PalcG);
 
-with(GameObject_create(_X,_Y, BagoA,_VER, -1, palidx))
+with(GameObject_create(_X,_Y, Bago01,_VER, -1, palidx))
 {
     is_from_spawner = true;
     

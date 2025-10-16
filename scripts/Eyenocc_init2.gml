@@ -87,7 +87,7 @@ if(!is_undefined(dk_spawn))
 if(!is_undefined(dk_spawn))
 {
     sequence_num = val(f.dm_quests[?dk_spawn+STR_Sequence+STR_Num],sequence_num);
-    if (sequence_num>>4 >= val(dm[?STR_Sequence+STR_Count]))
+    if (sequence_num>>4>=val(dm[?STR_Sequence+STR_Count]))
     {
         sequence_num = (val(dm[?STR_Sequence+STR_Count])<<4) | max(sequence_num&$F, 1);
         sequence_num = (sequence_num&$F0) | val(dm[?STR_Sequence+string(sequence_num>>4)+STR_Count], sequence_num&$F);
@@ -131,7 +131,7 @@ Eye_state_OPEN_HALF = _i++;
 Eye_state_OPEN_FULL = _i++;
 Eye_state_CLOSED    = _i++;
 Eye_state           = Eye_state_OPEN_HALF;
-if (sequence_num>>4 == val(dm[?STR_Sequence+STR_Count]))
+if (sequence_num>>4==val(dm[?STR_Sequence+STR_Count]))
 {
     Eye_state = Eye_state_CLOSED;
 }

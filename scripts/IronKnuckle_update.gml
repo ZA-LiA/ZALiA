@@ -5,11 +5,11 @@
 // v1 Orange $18
 // v2 Red    $19
 // v3 Blue   $1A
-// v3 ReboB  $0A. Rebonack Knight
+// v3 Rebonack01B  $0A. Rebonack Knight
 
 
 var _RAND = rand();
-var _REBO = is_ancestor(object_index,ReboB);
+var _REBO = is_ancestor(object_index,Rebonack01B);
 var _VER3 = is_ver(id,IrKnA,3) || _REBO;
 
 
@@ -161,7 +161,7 @@ if (stun_timer==2) attack_tokens = $4 | (_RAND&$3); // result 4,5,6,7
 // 9D38
 // RebonackB. He can go off screen & come back
 // !(ocs&$4): at least half w inside ocs area w
-// var _C1 = !(ocs&$4) || object_index==ReboB;
+// var _C1 = !(ocs&$4) || object_index==Rebonack01B;
 
 var                             _MAX = 41; // OG
 if (g.mod_IronKnuckle_AggroAI2) _MAX = 47;
@@ -311,9 +311,9 @@ if (_QUAL_AGGRO
         
         // 9DB0. ----------- Check for and start attack -----------------
         if (behavior==BVR_IDLE    // 0: BVR_IDLE
-        //&&  (_REBO || !(ocs&$4)) ) // ReboB can be w/in atk dist but off screen
-        //&&  (_REBO || ocsH2(id)) ) // ReboB can be w/in atk dist but off screen
-        && !(ocs&$4) )            // ReboB can be w/in atk dist but off screen
+        //&&  (_REBO || !(ocs&$4)) ) // Rebonack01B can be w/in atk dist but off screen
+        //&&  (_REBO || ocsH2(id)) ) // Rebonack01B can be w/in atk dist but off screen
+        && !(ocs&$4) )            // Rebonack01B can be w/in atk dist but off screen
         {
             var _can_attack = false;
             
@@ -398,10 +398,10 @@ else
 // v1 Orange $18
 // v2 Red    $19
 // v3 Blue   $1A
-// v3 ReboB  $0A
+// v3 Rebonack01B  $0A
 
 
-var _VER3 = (isAncestor(oi, IrKnA) && ver == 3) || isAncestor(oi, ReboB);
+var _VER3 = (isAncestor(oi, IrKnA) && ver == 3) || isAncestor(oi, Rebonack01B);
 
 
 
@@ -544,7 +544,7 @@ if (tmr_stun == 2) attack_tokens = 4 | (rand() & 3); // result 4,5,6,7
 // 9D38
 // RebonackB boss eID $0A. He can go off screen & come back
 // !(ocs & 4): at least half w inside ocs area w
-// var _C1 = !(ocs & 4) || oi == ReboB;
+// var _C1 = !(ocs & 4) || oi == Rebonack01B;
 
 
 if (inRange(yy - global.pc.yy, 0, 41))
@@ -592,7 +592,7 @@ if (inRange(yy - global.pc.yy, 0, 41))
         
         // 9DB0. ----------- Check for and start attack -----------------
         if (behavior == BVR_IDLE    // 0: BVR_IDLE
-        &&  !(ocs & 4) )            // ReboB can be w/in atk dist but off screen
+        &&  !(ocs & 4) )            // Rebonack01B can be w/in atk dist but off screen
         {
             if (!attack_tokens)     counter = byte(counter+1);
             

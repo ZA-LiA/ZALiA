@@ -447,12 +447,12 @@ row6=row3+$01; y6=row6<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3-DIST2,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3+DIST3,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  xt1,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,AnerA,$3,  $2A<<3,y4); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $2E<<3,y5); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $32<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $60<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $64<<3,y5); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $68<<3,y4); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $2A<<3,y4); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $2E<<3,y5); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $32<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $60<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $64<<3,y5); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $68<<3,y4); // Aneru  3
 
 
 clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
@@ -691,7 +691,7 @@ row4=row0+$0F; y4=row4<<3;
 //row4=row3+$01; y4=row4<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $37<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $77<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,AnerA,$3,  $60<<3,(row0+$16)<<3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $60<<3,(row0+$16)<<3); // Aneru  3
 
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
@@ -1029,8 +1029,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3-DIST2,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3+DIST3,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,SpStA,$2,  $6A<<3,(row0+$0F)<<3); // SpawnByStab  2
-data_spawn(rm+STR_PRXM,AnerA,$3,  $1C<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $34<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $1C<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $34<<3,y3); // Aneru  3
 data_spawn(rm+STR_PRXM,Ra__A,$3,  $36<<3,y5); // Ra  3
 data_spawn(rm+STR_PRXM,Ra__A,$3,  $48<<3,y5); // Ra  3
 
@@ -1374,9 +1374,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x3+DIST3,y5,  STR_Lit); // v1: Light w/ CANDL
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($27<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($47<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  xt1,(row3+$01)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,AnerA,$3,  $20<<3,y7); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $40<<3,y7); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $60<<3,y7); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $20<<3,y7); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $40<<3,y7); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $60<<3,y7); // Aneru  3
 data_spawn(rm+STR_PRXM,BubbA,$2,  $1F<<3,y6); // Bubble  2
 data_spawn(rm+STR_PRXM,BubbA,$2,  $2F<<3,y6); // Bubble  2
 data_spawn(rm+STR_PRXM,BubbA,$2,  $3F<<3,y6); // Bubble  2
@@ -1520,9 +1520,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x3-DIST2,y6,  STR_Lit); // v1: Light w/ CANDL
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3+DIST3,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  xt1,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,SpStA,$2,  $64<<3,(row0+$0D)<<3); // SpawnByStab  2
-data_spawn(rm+STR_PRXM,AnerA,$3,  $06<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $1A<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $72<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $06<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $1A<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $72<<3,y3); // Aneru  3
 data_spawn(rm+STR_PRXM,BubbA,$1,  $2A<<3,y4); // Bubble  1
 data_spawn(rm+STR_PRXM,BubbA,$1,  $68<<3,y4); // Bubble  1
 
@@ -2279,7 +2279,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x3+((clms3*_a++)<<3),y5,  STR_Lit); // v1: Li
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3+((clms3*_a++)<<3),y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3+((clms3*_a++)<<3),y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 clm3=$30; // clm3: arena center clm
-data_spawn(rm+STR_PRXM,ThunA,$1,  (clm3+$12)<<3,(row0+$0D)<<3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Thunderbird  1
+data_spawn(rm+STR_PRXM,Thunderbird01,$1,  (clm3+$12)<<3,(row0+$0D)<<3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Thunderbird  1
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '34'+EXR0_); // LFT 0, 
@@ -2325,7 +2325,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w
 data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 */
 data_spawn(rm+STR_PRIO,NPC_A,$1,  $5B<<3,(row0+$0C)<<3,  STR_Dialogue+DK0911); // Triforce Keeper
-data_spawn(rm+STR_PRXM,ShLiA,$1,  $48<<3,y3,  STR_Arena+'_x'+hex_str(x3)); // ShadowBoss  1
+data_spawn(rm+STR_PRXM,ShadowLonk01,$1,  $48<<3,y3,  STR_Arena+'_x'+hex_str(x3)); // ShadowBoss  1
 g.dm_rm[?STR_Boss+STR_Scene+STR_Name+_DUNGEON_NAME] = rm;
 
 
@@ -2387,12 +2387,12 @@ row3=row0+$15; y3=row3<<3;
 row4=row3-$02; y4=row4<<3;
 row5=row3+$02; y5=row5<<3;
 //data_spawn(rm+STR_PRIO,LoDoA,$1,  $15<<3,(row3-$02)<<3); // Locked Door
-data_spawn(rm+STR_PRXM,AnerA,$3,  $2A<<3,y4); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $2E<<3,y5); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $32<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $60<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $64<<3,y5); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $68<<3,y4); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $2A<<3,y4); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $2E<<3,y5); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $32<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $60<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $64<<3,y5); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $68<<3,y4); // Aneru  3
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '2B'+EXR0_); // LFT 0, 
@@ -2423,7 +2423,7 @@ row3=row0+$15; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($67<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($77<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,GoomA,$2,  (clm3-$12)<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Gooma 2 (max: hp, atk, xp)
+data_spawn(rm+STR_PRIO,Gooma01,$2,  (clm3-$12)<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Gooma 2 (max: hp, atk, xp)
 //data_spawn(rm+STR_PRIO,ReboB,$2,  x3,(row0+$16)<<3,  x4); // Black Knight
 //data_spawn(rm+STR_PRIO,HelmA,$2,  x3,y2,  STR_Arena+'_x'+hex_str(x4)); // Helmethead  2
 
@@ -2572,9 +2572,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w
 data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,LoDoA,$1,  $67<<3,(row3-$02)<<3); // Locked Door
 //data_spawn(rm+STR_PRIO,LoDoA,$1,  $67<<3,(row0+$18)<<3); // Locked Door
-data_spawn(rm+STR_PRXM,AnerA,$3,  $20<<3,y6); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $40<<3,y6); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $60<<3,y6); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $20<<3,y6); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $40<<3,y6); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $60<<3,y6); // Aneru  3
 data_spawn(rm+STR_PRXM,BubbA,$2,  $1F<<3,y5); // Bubble  2
 data_spawn(rm+STR_PRXM,BubbA,$2,  $2F<<3,y5,  STR_Direction+hex_str($2|$8)); // Bubble  2
 data_spawn(rm+STR_PRXM,BubbA,$2,  $3F<<3,y5,  STR_Direction+hex_str($1|$8)); // Bubble  2
@@ -2705,11 +2705,11 @@ data_spawn(rm+STR_PRXM,BubbA,$2,  $27<<3,(row0+$15)<<3,  STR_Direction+hex_str($
 data_spawn(rm+STR_PRXM,BubbA,$2,  $49<<3,(row0+$13)<<3,  STR_Direction+hex_str($2|$4)); // Bubble  2
 data_spawn(rm+STR_PRXM,BubbA,$2,  $6E<<3,(row0+$00)<<3,  STR_Direction+hex_str($2|$4)); // Bubble  2
 clm3=$1F; clms3=$10; _x3=(clm3<<3)+4; _a=0;
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
 /*
 y4    =(row0+$00)<<3;
 y5    =(row0+$02)<<3;
@@ -2775,8 +2775,8 @@ data_spawn(rm+STR_PRIO,SpBuA,$1,  $04<<3,y4); // BulletSpawner  1
 data_spawn(rm+STR_PRIO,SpBuA,$2,  $26<<3,y4); // BulletSpawner  2
 data_spawn(rm+STR_PRIO,SpBuA,$1,  $58<<3,y4); // BulletSpawner  1
 data_spawn(rm+STR_PRIO,SpBuA,$2,  $7A<<3,y4); // BulletSpawner  2
-data_spawn(rm+STR_PRXM,AttaA,$1,  $15<<3,y5); // Atta  1
-data_spawn(rm+STR_PRXM,AttaA,$1,  $69<<3,y5); // Atta  1
+data_spawn(rm+STR_PRXM,Atta01,$1,  $15<<3,y5); // Atta  1
+data_spawn(rm+STR_PRXM,Atta01,$1,  $69<<3,y5); // Atta  1
 data_spawn(rm+STR_PRXM,WosuA,$1,  $3F<<3,y3); // Wosu  1
 
 
@@ -2952,10 +2952,10 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w
 data_spawn(rm+STR_PRXM,SpDrA,$1,  $6E<<3,(row0+$09)<<3); // DropSpawner  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $26<<3,y3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $42<<3,y3); // Myu  1
-data_spawn(rm+STR_PRXM,AnerA,$3,  $18<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $30<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $48<<3,y3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $60<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $18<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $30<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $48<<3,y3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $60<<3,y3); // Aneru  3
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '43'+EXR0_); // LFT 0, 
@@ -2982,7 +2982,7 @@ set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_PG+'050', STR_ow_axis+hex_
 row3=row0+$08; y3=row3<<3;
 row4=row0+$0E; y4=row4<<3;
 row5=row0+$0C; y5=row5<<3;
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($16<<3)+4,(row0+$0C)<<3); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($16<<3)+4,(row0+$0C)<<3); // Blaze  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $30<<3,y4); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $3B<<3,y4); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $4A<<3,y5); // Bot  1
@@ -3175,11 +3175,11 @@ data_spawn(rm+STR_PRXM,BubbA,$2,  $27<<3,(row0+$15)<<3,  STR_Direction+hex_str($
 data_spawn(rm+STR_PRXM,BubbA,$2,  $49<<3,(row0+$13)<<3,  STR_Direction+hex_str($2|$4)); // Bubble  2
 data_spawn(rm+STR_PRXM,BubbA,$2,  $6E<<3,(row0+$00)<<3,  STR_Direction+hex_str($2|$4)); // Bubble  2
 clm3=$1F; clms3=$10; _x3=(clm3<<3)+4; _a=0;
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
-data_spawn(rm+STR_PRXM,BlazA,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
+data_spawn(rm+STR_PRXM,Blaze01,$1,  _x3+((clms3*_a++)<<3),y5);
 
 
 data_exit(EXU0,etA4,0,  $04,row_e0,  $70,ROWS5,  $30,row_e4,  '49'+EXD0_); // UP  0, Pit up 
@@ -3472,9 +3472,9 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w
 data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 clm3=$30; clms3=$20; _a=0;
-data_spawn(rm+STR_PRXM,AttaA,$1,  (clm3+(clms3*_a++))<<3,y5); // Atta  1
-data_spawn(rm+STR_PRXM,AttaA,$1,  (clm3+(clms3*_a++))<<3,y5); // Atta  1
-data_spawn(rm+STR_PRXM,AttaA,$1,  (clm3+(clms3*_a++))<<3,y5); // Atta  1
+data_spawn(rm+STR_PRXM,Atta01,$1,  (clm3+(clms3*_a++))<<3,y5); // Atta  1
+data_spawn(rm+STR_PRXM,Atta01,$1,  (clm3+(clms3*_a++))<<3,y5); // Atta  1
+data_spawn(rm+STR_PRXM,Atta01,$1,  (clm3+(clms3*_a++))<<3,y5); // Atta  1
 data_spawn(rm+STR_PRXM,SpDrA,$1,  $20<<3,y6); // DropSpawner  1
 data_spawn(rm+STR_PRXM,SpDrA,$1,  $40<<3,y6); // DropSpawner  1
 data_spawn(rm+STR_PRXM,SpDrA,$1,  $60<<3,y6); // DropSpawner  1
@@ -3659,11 +3659,11 @@ y3 = (row0+$1A)<<3;
 y5 = (row0+$09)<<3;
 data_spawn(rm+STR_PRXM,Ra__A,$3,  $18<<3,y5); // Ra  3
 data_spawn(rm+STR_PRXM,Ra__A,$3,  $46<<3,y5); // Ra  3
-data_spawn(rm+STR_PRXM,BagiA,$1,  $0F<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $1F<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $2F<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $3F<<3,y3); // Bagin
-data_spawn(rm+STR_PRXM,BagiA,$1,  $4F<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $0F<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $1F<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $2F<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $3F<<3,y3); // Bagin
+data_spawn(rm+STR_PRXM,Bagin01,$1,  $4F<<3,y3); // Bagin
 
 
 row3 = row0+$12;
@@ -3703,9 +3703,9 @@ data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row3+$01)<<3,  dk_PI+hex_str(_pi)); // Sn
 data_spawn(rm+STR_PRXM,Snaraa,$1,  x3,(row6+$01)<<3,  dk_PI+hex_str(_pi)); // Snaraa
 data_spawn(rm+STR_PRXM,FokuA,$1,  $2F<<3,y3); // Fokkeru  1
 data_spawn(rm+STR_PRXM,FokuA,$1,  $5F<<3,y6); // Fokkeru  1
-data_spawn(rm+STR_PRXM,AnerA,$3,  $1E<<3,y7); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $3E<<3,y7); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $6E<<3,y7); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $1E<<3,y7); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $3E<<3,y7); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $6E<<3,y7); // Aneru  3
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '10'+EXR0_); // LFT 0, 
@@ -3750,14 +3750,14 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($3F<<3)+4,y5,  STR_Lit); // v1: Light w/ CAN
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($53<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($67<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  ($67<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,AnerA,$3,  $06<<3,(row0+$0A)<<3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $14<<3,(row0+$08)<<3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $22<<3,(row0+$0A)<<3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $30<<3,(row0+$10)<<3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $46<<3,(row0+$18)<<3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $58<<3,(row0+$16)<<3); // Aneru  3
-data_spawn(rm+STR_PRXM,AnerA,$3,  $6A<<3,(row0+$18)<<3); // Aneru  3
-//data_spawn(rm+STR_PRXM,AnerA,$3,  $67<<3,(row0+$18)<<3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $06<<3,(row0+$0A)<<3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $14<<3,(row0+$08)<<3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $22<<3,(row0+$0A)<<3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $30<<3,(row0+$10)<<3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $46<<3,(row0+$18)<<3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $58<<3,(row0+$16)<<3); // Aneru  3
+data_spawn(rm+STR_PRXM,Aneru01,$3,  $6A<<3,(row0+$18)<<3); // Aneru  3
+//data_spawn(rm+STR_PRXM,Aneru01,$3,  $67<<3,(row0+$18)<<3); // Aneru  3
 
 
 data_exit(EXD0,etA1,1,  $00,row_e2,  $10,ROWS5,  $08,row_e3,  '0B'+EXU0_); // DWN 0, Pit down 

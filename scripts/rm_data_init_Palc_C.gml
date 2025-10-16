@@ -584,7 +584,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm4+(clms4*_a++))<<3)+4,y4,  STR_Lit); // 
 data_spawn(rm+STR_PRIO,TorchA,$1,  ((clm4+(clms4*_a++))<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 clm3=$30; // clm3: arena center
-data_spawn(rm+STR_PRIO,ReboA,$1,  (clm3+$14)<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // RebonackA
+data_spawn(rm+STR_PRIO,Rebonack01A,$1,  (clm3+$14)<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // RebonackA
 data_spawn(rm+STR_PRIO,CrHoA,$1,  CRYSTALHOLDER_XL-($03<<3),y3); // CrystalHolder  1
 g.dm_rm[?STR_Boss+STR_Scene+STR_Name+_DUNGEON_NAME] = rm;
 

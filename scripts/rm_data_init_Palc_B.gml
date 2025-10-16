@@ -380,8 +380,8 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($52<<3)+4,y3,  STR_Lit); // v1: Light w/ CAN
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($21<<3)+4,(row3+$01)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,LoDoA,$1,  $24<<3,(row0+$15)<<3); // LockedDoor
 data_spawn(rm+STR_PRXM,StalA,$2,  $32<<3,(row0+$0B)<<3); // Stalfos  2
-data_spawn(rm+STR_PRXM,AnerA,$1,  $2C<<3,(row0+$17)<<3); // Aneru  1
-data_spawn(rm+STR_PRXM,AnerA,$1,  $5A<<3,(row0+$17)<<3); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $2C<<3,(row0+$17)<<3); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $5A<<3,(row0+$17)<<3); // Aneru  1
 
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
@@ -455,10 +455,10 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+4,y3,  STR_Lit); // v1: Light w/ CAN
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($52<<3)+4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($21<<3)+4,(row3+$01)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,BubbA,$1,  $10<<3,(row0+$0B)<<3); // Bubble  1
-data_spawn(rm+STR_PRXM,AnerA,$2,  $0B<<3,y3); // Aneru  2
-data_spawn(rm+STR_PRXM,AnerA,$2,  $2E<<3,y3); // Aneru  2
-data_spawn(rm+STR_PRXM,AnerA,$2,  $36<<3,y3); // Aneru  2
-data_spawn(rm+STR_PRXM,AnerA,$2,  $68<<3,y3); // Aneru  2
+data_spawn(rm+STR_PRXM,Aneru01,$2,  $0B<<3,y3); // Aneru  2
+data_spawn(rm+STR_PRXM,Aneru01,$2,  $2E<<3,y3); // Aneru  2
+data_spawn(rm+STR_PRXM,Aneru01,$2,  $36<<3,y3); // Aneru  2
+data_spawn(rm+STR_PRXM,Aneru01,$2,  $68<<3,y3); // Aneru  2
 
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
@@ -832,7 +832,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $0F<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $50<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $5F<<3,y4); // v1: Light w/ CANDLE or FIRE
 clm3=$30; // arena center clm
-data_spawn(rm+STR_PRIO,HelmA,$1,  (clm3+$10)<<3,(row3+$02)<<3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Helmethead  1
+data_spawn(rm+STR_PRIO,Helmethead01,$1,  (clm3+$10)<<3,(row3+$02)<<3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Helmethead  1
 data_spawn(rm+STR_PRIO,CrHoA,$1,  CRYSTALHOLDER_XL,y3); // CrystalHolder  1
 g.dm_rm[?STR_Boss+STR_Scene+STR_Name+_DUNGEON_NAME] = rm;
 
@@ -908,10 +908,10 @@ row5=row7+$02; y5=row5<<3;
 row6=row7+$07; y6=row6<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
 data_spawn(rm+STR_PRIO,SpDrA,$1,  $62<<3,y4); // DropSpawner  1
-data_spawn(rm+STR_PRXM,OctoA,$1,  $0C<<3,y5); // Octorok  1 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $28<<3,y5); // Octorok  1 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $3E<<3,y6); // Octorok  1 
-data_spawn(rm+STR_PRXM,OctoA,$1,  $66<<3,y5); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $0C<<3,y5); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $28<<3,y5); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $3E<<3,y6); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $66<<3,y5); // Octorok  1 
 
 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '00'+EXL0_); // RGT 0, 

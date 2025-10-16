@@ -97,7 +97,7 @@ switch(state)
             
             
             if(!_item 
-            &&  object_index==CaroA 
+            &&  object_index==Carock01 
             &&  ver==2 
             &&  Item_OBJ )
             {   // PENDANT or whatever rando puts here

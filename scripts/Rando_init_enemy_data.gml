@@ -4,25 +4,25 @@
 
 
 //                                                      //
-RandoData_enemy(AcheA,1,1, 1,0);
-RandoData_enemy(AcheA,2,2, 2,0); // Acheman
+RandoData_enemy(Ache01,1,1, 1,0);
+RandoData_enemy(Ache01,2,2, 2,0); // Acheman
 //                                                      //
-RandoData_enemy(AnerA,1,1, 2,0);
-RandoData_enemy(AnerA,2,1, 3,1);
-RandoData_enemy(AnerA,3,2, 4,0);
+RandoData_enemy(Aneru01,1,1, 2,0);
+RandoData_enemy(Aneru01,2,1, 3,1);
+RandoData_enemy(Aneru01,3,2, 4,0);
 //                                                      //
-RandoData_enemy(ArurA,1,3, 0,3);
+RandoData_enemy(Aruroda01,1,3, 0,3);
 //                                                      //
-RandoData_enemy(AttaA,1,2, 0,0);
+RandoData_enemy(Atta01,1,2, 0,0);
 //                                                      //
-RandoData_enemy(BagiA,1,1, 0,0);
+RandoData_enemy(Bagin01,1,1, 0,0);
 //                                                      //
-RandoData_enemy(BagoA,1,1, 0,0);
+RandoData_enemy(Bago01,1,1, 0,0);
 //                                                      //
-RandoData_enemy(BlazA,1,1, 0,0);
-RandoData_enemy(BlazA,2,2, 0,2);
+RandoData_enemy(Blaze01,1,1, 0,0);
+RandoData_enemy(Blaze01,2,2, 0,2);
 //                                                      //
-RandoData_enemy(Boggnipp,1,1, 0,0);
+RandoData_enemy(Boggnipp01,1,1, 0,0);
 //                                                      //
 RandoData_enemy(BoonA,1,2, 3,2);
 //                                                      //
@@ -100,9 +100,9 @@ RandoData_enemy(MobyA,1,1, 0,0);
 //                                                      //
 RandoData_enemy(Myu_A,1,1, 1,1);
 //                                                      //
-RandoData_enemy(OctoA,1,1, 2,0);
-RandoData_enemy(OctoA,2,2, 3,2);
-RandoData_enemy(OctoA,3,2, 0,0);
+RandoData_enemy(Octorok01,1,1, 2,0);
+RandoData_enemy(Octorok01,2,2, 3,2);
+RandoData_enemy(Octorok01,3,2, 0,0);
 //                                                      //
 RandoData_enemy(Ra__A,1,1, 3,1);
 RandoData_enemy(Ra__A,2,1, 4,1);

@@ -13,7 +13,7 @@ switch(sub_state)
     
     
     Eye_state = Eye_state_OPEN_HALF;
-    if (sequence_num>>4 < val(dm[?STR_Sequence+STR_Count]))
+    if (sequence_num>>4<val(dm[?STR_Sequence+STR_Count]))
     {
         if (ocsHV1(id)) // if any w AND h in ocs area
         {
@@ -28,7 +28,7 @@ switch(sub_state)
                 
                 sequence_num += $10;
                 sequence_num &= $F0;
-                sequence_num |= $01;
+                sequence_num |= $01; // sequence_num&$F is the sub-sequence num. The sequence num of movements for the last stab.
                 if(!is_undefined(dk_spawn)) f.dm_quests[?dk_spawn+STR_Sequence+STR_Num] = sequence_num;
                 
                 Source_xl = xl;
@@ -108,11 +108,12 @@ switch(sub_state)
             }
         }
         
-        if (sequence_num&$F < val(dm[?STR_Sequence+string(sequence_num>>4)+STR_Count]))
+        // sequence_num&$F is the sub-sequence num. The sequence num of movements for the last stab.
+        if (sequence_num&$F< val(dm[?STR_Sequence+string(sequence_num>>4)+STR_Count]))
         {
             sequence_num++;
-            Destination_xl =  val(dm[?STR_Sequence+hex_str(sequence_num)+"_X"], Source_xl);
-            Destination_yt =  val(dm[?STR_Sequence+hex_str(sequence_num)+"_Y"], Source_yt);
+            Destination_xl = val(dm[?STR_Sequence+hex_str(sequence_num)+"_X"], Source_xl);
+            Destination_yt = val(dm[?STR_Sequence+hex_str(sequence_num)+"_Y"], Source_yt);
             hspd = (SPEED1*sign(Destination_xl-Source_xl)) &$FF;
             vspd = (SPEED1*sign(Destination_yt-Source_yt)) &$FF;
             timer  = $6;

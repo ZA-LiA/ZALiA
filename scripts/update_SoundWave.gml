@@ -24,12 +24,12 @@ if (reflected
         
         with(source_inst)
         {
-            if (is_ancestor_(object_index,CaroA,WizaA))
+            if (is_ancestor_(object_index,Carock01,WizaA))
             {    var      _DAMAGE = 2;  }
             else var      _DAMAGE = g.dg_enemy_damage[#f.level_lif-1, other.attack_level];
             damage_gob(id,_DAMAGE,true); // damage enemy
             
-            if (is_ancestor( object_index,CaroA)) Boss_update_5(); // $22 Carock
+            if (is_ancestor( object_index,Carock01)) Boss_update_5(); // $22 Carock
         }
     }
 }

@@ -3,8 +3,8 @@
 // Used by: Horsehead, Helmethead
 
 
-var _HORSE  = is_ancestor(object_index,HorsA);
-var _HELMET = is_ancestor(object_index,HelmA);
+var _HORSE  = is_ancestor(object_index,Horsehead01);
+var _HELMET = is_ancestor(object_index,Helmethead01);
 
 
 // BB74

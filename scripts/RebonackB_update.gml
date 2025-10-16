@@ -8,7 +8,7 @@ if (pending_death)
     
     if (state==state_EXPLODE)
     {
-        with(ReboA)
+        with(Rebonack01A)
         {
             if (state) state = state_NORMAL;
         }

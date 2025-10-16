@@ -64,8 +64,8 @@ if (_a
         
         if (_is_last_data 
         ||  _char=="," )
-        {   // data_spawn(   rm+STR_PRXM,BagiA,1,  x3,y4,  -1, STR_Qualified+STR_Quest+STR_Nums+"02"); // Bagin
-            // data_spawn_1a(rm+STR_PRIO,BagiA,1,  x3,y3,  -1,-1,  0,1);
+        {   // data_spawn(   rm+STR_PRXM,Bagin01,1,  x3,y4,  -1, STR_Qualified+STR_Quest+STR_Nums+"02"); // Bagin
+            // data_spawn_1a(rm+STR_PRIO,Bagin01,1,  x3,y3,  -1,-1,  0,1);
             _count++;
             
             
@@ -125,8 +125,8 @@ if (_a
             }
             else if (_count>=$7)
             {
-                //data_spawn_1a(rm+STR_PRIO,CaroA,2,  x3,y3,  -1,-1,  x4);
-                if (isVal(_obj_name,"HorsA","HelmA","ReboA","CaroA","GoomA","BarbA","ThunA","ShLiA","Ganon1","Ganon3") 
+                //data_spawn_1a(rm+STR_PRIO,Carock01,2,  x3,y3,  -1,-1,  x4);
+                if (isVal(_obj_name,"Horsehead01","Helmethead01","Rebonack01A","Carock01","Gooma01","Barba01","Thunderbird01","ShadowLonk01","Ganon1","Ganon3") 
                 &&  _count==$8 )
                 {
                     _str3 = "STR_Arena+"+"'_x'+"+"hex_str("+_str+")";
@@ -157,17 +157,17 @@ if (_a
                         default:{_str3=_str; break;}
                         
                         // --------------------------------------------
-                        case "BagiA":{ // Bagin
-                        // data_spawn(   rm+STR_PRXM,BagiA,1,  x3,y4,  -1,STR_Qualified+STR_Quest+STR_Nums+"02");
-                        // data_spawn_1a(rm+STR_PRXM,BagiA,1,  x3,y3,  -1,-1,  DEPTH_ENEMY);
-                        // data_spawn_1a(rm+STR_PRXM,BagiA,1,  x3,y3,  -1,-1, _val);
+                        case "Bagin01":{ // Bagin
+                        // data_spawn(   rm+STR_PRXM,Bagin01,1,  x3,y4,  -1,STR_Qualified+STR_Quest+STR_Nums+"02");
+                        // data_spawn_1a(rm+STR_PRXM,Bagin01,1,  x3,y3,  -1,-1,  DEPTH_ENEMY);
+                        // data_spawn_1a(rm+STR_PRXM,Bagin01,1,  x3,y3,  -1,-1, _val);
                         if (_count==$8) _str3 = "STR_Depth+string("+_str+")";
                         break;}
                         
                         // --------------------------------------------
-                        case "BlazA":{ // Blaze
-                        // data_spawn_1a(rm+STR_PRIO,BlazA,1,  x4,y5,  -1,-1,  STR_Qualified+STR_Quest+STR_Nums+"02");
-                        // data_spawn_1a(rm+STR_PRXM,BlazA,6,  x3,y3,  -1,-1,  3);
+                        case "Blaze01":{ // Blaze
+                        // data_spawn_1a(rm+STR_PRIO,Blaze01,1,  x4,y5,  -1,-1,  STR_Qualified+STR_Quest+STR_Nums+"02");
+                        // data_spawn_1a(rm+STR_PRXM,Blaze01,6,  x3,y3,  -1,-1,  3);
                         if (_ver==6 && _count==$8) _str3 = "STR_Size+hex_str("+_str+")";
                         break;}
                         

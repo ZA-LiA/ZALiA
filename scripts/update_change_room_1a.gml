@@ -113,6 +113,88 @@ if (_EXITING_RM)
 }
 
 
+/* // For video showing off extra scenes
+if (_EXITING_RM 
+&&  g.area_name==Area_MazIs 
+&&  g.rm_num>=$40 )
+{
+    switch(g.exit_leave.exitName){
+    case Area_MazIs+"40"+"00":{f.reen=Area_MazIs+"43"+"00"; break;}
+    case Area_MazIs+"40"+"10":{f.reen=Area_MazIs+"43"+"00"; break;}
+    case Area_MazIs+"40"+"20":{f.reen=Area_MazIs+"43"+"00"; break;}
+    case Area_MazIs+"43"+"10":{f.reen=Area_MazIs+"90"+"20"; break;}
+    case Area_MazIs+"43"+"20":{f.reen=Area_MazIs+"90"+"20"; break;}
+    case Area_MazIs+"90"+"10":{f.reen=Area_MazIs+"92"+"20"; break;}
+    case Area_MazIs+"92"+"10":{f.reen=Area_MazIs+"45"+"40"; break;}
+    case Area_MazIs+"45"+"10":{f.reen=Area_MazIs+"46"+"20"; break;}
+    case Area_MazIs+"46"+"40":{f.reen=Area_MazIs+"47"+"80"; break;}
+    case Area_MazIs+"47"+"10":{f.reen=Area_MazIs+"48"+"20"; break;}
+    case Area_MazIs+"48"+"80":{f.reen=Area_MazIs+"76"+"20"; break;}
+    case Area_MazIs+"76"+"10":{f.reen=Area_MazIs+"77"+"20"; break;}
+    case Area_MazIs+"77"+"10":{f.reen=Area_MazIs+"88"+"20"; break;}
+    case Area_MazIs+"88"+"21":{f.reen=Area_MazIs+"6D"+"20"; break;}
+    case Area_MazIs+"6D"+"10":{f.reen=Area_MazIs+"4D"+"80"; break;}
+    case Area_MazIs+"6D"+"40":{f.reen=Area_MazIs+"4D"+"80"; break;}
+    case Area_MazIs+"4D"+"20":{f.reen=Area_MazIs+"8B"+"00"; break;}
+    case Area_MazIs+"8B"+"01":{f.reen=Area_MazIs+"9A"+"00"; break;}
+    case Area_MazIs+"9A"+"10":{f.reen=Area_MazIs+"7D"+"20"; break;}
+    case Area_MazIs+"7D"+"40":{f.reen=Area_MazIs+"6F"+"40"; break;}
+    case Area_MazIs+"7D"+"80":{f.reen=Area_MazIs+"6F"+"40"; break;}
+    case Area_MazIs+"6F"+"80":{f.reen=Area_MazIs+"55"+"20"; break;}
+    case Area_MazIs+"55"+"10":{f.reen=Area_MazIs+"56"+"20"; break;}
+    case Area_MazIs+"56"+"10":{f.reen=Area_MazIs+"57"+"20"; break;}
+    case Area_MazIs+"57"+"10":{f.reen=Area_MazIs+"58"+"20"; break;}
+    case Area_MazIs+"58"+"10":{f.reen=Area_MazIs+"59"+"20"; break;}
+    case Area_MazIs+"59"+"10":{f.reen=Area_MazIs+"6A"+"20"; break;}
+    case Area_MazIs+"6A"+"10":{f.reen=Area_MazIs+"81"+"20"; break;}
+    case Area_MazIs+"81"+"10":{f.reen=Area_MazIs+"8A"+"20"; break;}
+    case Area_MazIs+"8A"+"10":{f.reen=Area_MazIs+"8E"+"20"; break;}
+    case Area_MazIs+"8E"+"10":{f.reen=Area_MazIs+"7F"+"20"; break;}
+    case Area_MazIs+"7F"+"10":{f.reen=Area_MazIs+"9C"+"20"; break;}
+    case Area_MazIs+"7F"+"40":{f.reen=Area_MazIs+"9C"+"20"; break;}
+    case Area_MazIs+"9C"+"10":{f.reen=Area_MazIs+"93"+"20"; break;}
+    case Area_MazIs+"93"+"10":{f.reen=Area_MazIs+"87"+"20"; break;}
+    case Area_MazIs+"87"+"10":{f.reen=Area_MazIs+"70"+"20"; break;}
+    case Area_MazIs+"70"+"20":{f.reen=Area_MazIs+"72"+"10"; break;}
+    //case Area_MazIs+"72"+"10":{f.reen=Area_MazIs+"83"+"80"; break;}
+    case Area_MazIs+"72"+"10":{f.reen=Area_MazIs+"6E"+"20"; break;}
+    case Area_MazIs+"6E"+"10":{f.reen=Area_MazIs+"83"+"80"; break;}
+    case Area_MazIs+"6E"+"40":{f.reen=Area_MazIs+"83"+"80"; break;}
+    case Area_MazIs+"6E"+"80":{f.reen=Area_MazIs+"83"+"80"; break;}
+    case Area_MazIs+"83"+"40":{f.reen=Area_MazIs+"8F"+"20"; break;}
+    case Area_MazIs+"8F"+"10":{f.reen=Area_MazIs+"95"+"20"; break;}
+    case Area_MazIs+"95"+"10":{f.reen=Area_MazIs+"8C"+"21"; break;}
+    case Area_MazIs+"8C"+"11":{f.reen=Area_MazIs+"8C"+"20"; break;}
+    case Area_MazIs+"8C"+"10":{f.reen=Area_MazIs+"8D"+"20"; break;}
+    case Area_MazIs+"8D"+"21":{f.reen=Area_MazIs+"9D"+"11"; break;}
+    case Area_MazIs+"9D"+"21":{f.reen=Area_MazIs+"9D"+"10"; break;}
+    case Area_MazIs+"9D"+"20":{f.reen=Area_MazIs+"6C"+"20"; break;}
+    case Area_MazIs+"6C"+"10":{f.reen=Area_MazIs+"74"+"20"; break;}
+    case Area_MazIs+"74"+"10":{f.reen=Area_MazIs+"69"+"20"; break;}
+    case Area_MazIs+"74"+"40":{f.reen=Area_MazIs+"74"+"20"; break;}
+    case Area_MazIs+"69"+"10":{f.reen=Area_MazIs+"82"+"20"; break;}
+    case Area_MazIs+"82"+"10":{f.reen=Area_MazIs+"94"+"20"; break;}
+    case Area_MazIs+"94"+"10":{f.reen=Area_MazIs+"98"+"20"; break;}
+    case Area_MazIs+"98"+"10":{f.reen=Area_MazIs+"99"+"20"; break;}
+    case Area_MazIs+"99"+"10":{f.reen=Area_MazIs+"96"+"20"; break;}
+    case Area_MazIs+"96"+"10":{f.reen=Area_MazIs+"97"+"20"; break;}
+    case Area_MazIs+"97"+"10":{f.reen=Area_MazIs+"9B"+"00"; break;}
+    case Area_MazIs+"9B"+"10":{f.reen=Area_MazIs+"67"+"20"; break;}
+    case Area_MazIs+"9B"+"20":{f.reen=Area_MazIs+"67"+"20"; break;}
+    case Area_MazIs+"67"+"10":{f.reen=Area_MazIs+"73"+"20"; break;}
+    case Area_MazIs+"73"+"10":{f.reen=Area_MazIs+"75"+"20"; break;}
+    case Area_MazIs+"75"+"10":{f.reen=Area_MazIs+"60"+"20"; break;}
+    case Area_MazIs+"60"+"10":{f.reen=Area_MazIs+"4F"+"20"; break;}
+    case Area_MazIs+"4F"+"10":{f.reen=Area_MazIs+"84"+"20"; break;}
+    case Area_MazIs+"84"+"40":{f.reen=Area_MazIs+"86"+"80"; break;}
+    case Area_MazIs+"86"+"10":{f.reen=Area_MazIs+"85"+"20"; break;}
+    case Area_MazIs+"85"+"20":{f.reen=Area_MazIs+"40"+"10"; break;}
+    //case Area_MazIs+""+"":{f.reen=Area_MazIs+""+""; break;}
+    }
+}
+*/
+
+
 
 
 // ------------------------------------------------------------------
@@ -233,7 +315,8 @@ else
     
     room_goto_(_ROOM, _VIEW_W,_VIEW_H);
     
-    show_debug_message("update_change_room_1a()    room_goto("+_RM_NAME+")"+",  f.reen: '"+f.reen+"'");
+    if (g.exit_leave!=noone) show_debug_message("update_change_room_1a().  "+"g.exit_leave.exitName '"+string(val(g.exit_leave.exitName))+"', room_goto("+_RM_NAME+")"+",  f.reen: '"+f.reen+"'"+", _GOING_TO_OW="+string(_GOING_TO_OW));
+    else                     show_debug_message("update_change_room_1a().  "+"g.exit_leave==noone"                                       + ", room_goto("+_RM_NAME+")"+",  f.reen: '"+f.reen+"'"+", _GOING_TO_OW="+string(_GOING_TO_OW));
 }
 
 

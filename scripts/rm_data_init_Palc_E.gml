@@ -112,11 +112,11 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($0C<<3)+4,y4,  STR_Lit); // v1: Light w/ CAN
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($12<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,(row0+$0C)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,SpBuA,$1,  $40<<3,(row0+$0D)<<3); // BulletSpawner  1
-data_spawn(rm+STR_PRXM,AnerA,$1,  $4E<<3,(row0+$17)<<3); // Aneru  1
-data_spawn(rm+STR_PRXM,AnerA,$1,  $56<<3,(row0+$15)<<3); // Aneru  1
-data_spawn(rm+STR_PRXM,AnerA,$1,  $5E<<3,(row0+$13)<<3); // Aneru  1
-data_spawn(rm+STR_PRXM,AnerA,$1,  $66<<3,(row0+$11)<<3); // Aneru  1
-data_spawn(rm+STR_PRXM,AnerA,$1,  $6E<<3,(row0+$0F)<<3); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $4E<<3,(row0+$17)<<3); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $56<<3,(row0+$15)<<3); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $5E<<3,(row0+$13)<<3); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $66<<3,(row0+$11)<<3); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $6E<<3,(row0+$0F)<<3); // Aneru  1
 
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
@@ -309,7 +309,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $51<<3,y4,  STR_Qualified+STR_Quest+STR_Nums+
 data_spawn(rm+STR_PRIO,TorchA,$1,  $5F<<3,y4,  STR_Qualified+STR_Quest+STR_Nums+"02"); // v1: Light w/ CANDLE or FIRE
 
 clm3=$30; // clm3: arena center clm
-data_spawn(rm+STR_PRIO,GoomA,$1,  (clm3+$0F)<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Gooma  1
+data_spawn(rm+STR_PRIO,Gooma01,$1,  (clm3+$0F)<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Gooma  1
 data_spawn(rm+STR_PRIO,CrHoA,$1,  CRYSTALHOLDER_XL,y3); // CrystalHolder  1
 g.dm_rm[?STR_Boss+STR_Scene+STR_Name+_DUNGEON_NAME] = rm;
 
@@ -346,7 +346,7 @@ row3=row0+$17; y3=row3<<3;
 row4=row0+$0B; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($12<<3)+4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($77<<3)+4,(row4+$01)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,BlazA,$2,  ($2E<<3)+4,y3); // Blaze v2
+data_spawn(rm+STR_PRIO,Blaze01,$2,  ($2E<<3)+4,y3); // Blaze v2
 data_spawn(rm+STR_PRIO,SpStA,$1,  $54<<3,(row0+$0D)<<3); // SpawnByStab  1
 //data_spawn(rm+STR_PRXM,Moa_B,$1,  $1E<<3,(row0+$0B)<<3); // FieryMoa  1
 data_spawn(rm+STR_PRXM,IrKnA,$1,  $20<<3,y3); // IronKnuckle  1
@@ -468,10 +468,10 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  x3+(_dist*_a++),y4,  STR_Lit); // v1: Light w
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3+(_dist*_a++),y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  x3+(_dist*_a++),y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,SpDrA,$1,  $6E<<3,(row0+$09)<<3); // DropSpawner  1
-data_spawn(rm+STR_PRXM,AnerA,$2,  $18<<3,y3); // Aneru  2
-data_spawn(rm+STR_PRXM,AnerA,$2,  $30<<3,y3); // Aneru  2
-data_spawn(rm+STR_PRXM,AnerA,$2,  $48<<3,y3); // Aneru  2
-data_spawn(rm+STR_PRXM,AnerA,$2,  $60<<3,y3); // Aneru  2
+data_spawn(rm+STR_PRXM,Aneru01,$2,  $18<<3,y3); // Aneru  2
+data_spawn(rm+STR_PRXM,Aneru01,$2,  $30<<3,y3); // Aneru  2
+data_spawn(rm+STR_PRXM,Aneru01,$2,  $48<<3,y3); // Aneru  2
+data_spawn(rm+STR_PRXM,Aneru01,$2,  $60<<3,y3); // Aneru  2
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $26<<3,y3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $42<<3,y3); // Myu  1
 
@@ -729,12 +729,12 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($6C<<3)+4,y3,  STR_Lit,STR_Qualified+STR_Que
 row4=row0+$0B; y4=row4<<3;
 row5=row3-$02; y5=row5<<3;
 x3=$14<<3; _dist=$0C<<3; _i=0;
-data_spawn(rm+STR_PRIO,BlazA,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  (x3+(_dist*(_i++)))+4,y5,  STR_Qualified+STR_Quest+STR_Nums+"02"); // Blaze  1
 data_spawn(rm+STR_PRXM,StalA,$2,  $16<<3,y4); // Stalfos  2
 data_spawn(rm+STR_PRXM,StalA,$2,  $2E<<3,y4); // Stalfos  2
 data_spawn(rm+STR_PRXM,StalA,$2,  $46<<3,y4); // Stalfos  2
@@ -973,7 +973,7 @@ if (g.mod_P5HorseHead)
     data_spawn(rm+STR_PRIO,TorchA,$1,  ($37<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
     data_spawn(rm+STR_PRIO,TorchA,$1,  ($77<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
     clm3=$20; // arena center clm
-    data_spawn(rm+STR_PRIO,HorsA,$1,  (clm3+$0B)<<3,(row0+$15)<<3,  STR_Arena+'_x'+hex_str(clm3<<3),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Horsehead  1
+    data_spawn(rm+STR_PRIO,Horsehead01,$1,  (clm3+$0B)<<3,(row0+$15)<<3,  STR_Arena+'_x'+hex_str(clm3<<3),  STR_Qualified+STR_Quest+STR_Nums+"02"); // Horsehead  1
     data_spawn(rm+STR_PRXM,IrKnA,$3,  $38<<3,y3,  STR_Qualified+STR_Quest+STR_Nums+"01"); // IronKnuckle  3
 }
 else

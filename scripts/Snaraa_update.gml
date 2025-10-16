@@ -24,7 +24,7 @@ switch(sub_state)
     || !ocsHV4(id)      // if NOT all w AND NOT all h in ocs area
     || !ocsHV4(global.pc)    // if NOT all w AND NOT all h in ocs area
     || !is_facing_pc_(id) 
-    ||  abs(x-global.pc.x) > DIST_ATCK 
+    ||  abs(x-global.pc.x)>agro_distance 
     || !inRange(y, global.pc.yt, global.pc.yt+global.pc.hh) )
     {
         break;

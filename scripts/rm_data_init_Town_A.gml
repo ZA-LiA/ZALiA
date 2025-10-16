@@ -1013,12 +1013,12 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $1442, 3,Fire1_init, _FIRE_PI); //
 //data_spawn(rm+STR_PRXM,Moa_B,$1,  (clm1-1)<<3,(row0+$08)<<3); // FieryMoa  1
 break;}
 case 2:{// Fire IS harmful
-data_spawn(rm+STR_PRIO,BlazA,$6,  $1C<<3,(row0+$19)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $2C<<3,(row0+$0B)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $4A<<3,(row0+$13)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $4F<<3,(row0+$0F)<<3,  STR_Size+hex_str(2)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $19<<3,(row0+$14)<<3,  STR_Size+hex_str(1)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $42<<3,(row0+$14)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $1C<<3,(row0+$19)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $2C<<3,(row0+$0B)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $4A<<3,(row0+$13)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $4F<<3,(row0+$0F)<<3,  STR_Size+hex_str(2)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $19<<3,(row0+$14)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $42<<3,(row0+$14)<<3,  STR_Size+hex_str(1)); // Blaze v6
 break;}
 }//switch(g.mod_OldKasutoFire)
 
@@ -1082,12 +1082,12 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0E52, 3,Fire1_init, _FIRE_PI); //
 //data_spawn(rm+STR_PRXM,Moa_B,$1,  (clm1-1)<<3,(row0+$07)<<3); // FieryMoa  1
 break;}
 case 2:{// Fire IS harmful
-data_spawn(rm+STR_PRIO,BlazA,$6,  $20<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $4D<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $2B<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $54<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $52<<3,(row0+$0E)<<3,  STR_Size+hex_str(1)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $64<<3,(row0+$0C)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $20<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $4D<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $2B<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $54<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $52<<3,(row0+$0E)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $64<<3,(row0+$0C)<<3,  STR_Size+hex_str(1)); // Blaze v6
 break;}
 }//switch(g.mod_OldKasutoFire)
 
@@ -1127,13 +1127,13 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0C32, 3,Fire1_init, _FIRE_PI); //
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $184B, 3,Fire1_init, _FIRE_PI); // 
 //data_spawn(rm+STR_PRXM,Moa_B,$1,  (clm1-1)<<3,(row0+$07)<<3); // FieryMoa  1
 }else if (g.mod_OldKasutoFire==2){
-data_spawn(rm+STR_PRIO,BlazA,$6,  $44<<3,(row0+$13)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $48<<3,(row0+$17)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $57<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $30<<3,(row0+$0B)<<3,  STR_Size+hex_str(2)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $1C<<3,(row0+$0A)<<3,  STR_Size+hex_str(1)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $32<<3,(row0+$0C)<<3,  STR_Size+hex_str(1)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $4B<<3,(row0+$18)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $44<<3,(row0+$13)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $48<<3,(row0+$17)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $57<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $30<<3,(row0+$0B)<<3,  STR_Size+hex_str(2)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $1C<<3,(row0+$0A)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $32<<3,(row0+$0C)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $4B<<3,(row0+$18)<<3,  STR_Size+hex_str(1)); // Blaze v6
 }
 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $10<<3,(row0+$17)<<3); 
@@ -1189,11 +1189,11 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0F54, 3,Fire1_init, _FIRE_PI); //
 //data_spawn(rm+STR_PRXM,Moa_B,$1,  (clm1-1)<<3,(row0+$07)<<3); // FieryMoa  1
 break;}
 case 2:{// Fire IS harmful
-data_spawn(rm+STR_PRIO,BlazA,$6,  $2A<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $38<<3,(row0+$13)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $35<<3,(row0+$15)<<3,  STR_Size+hex_str(2)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $3F<<3,(row0+$10)<<3,  STR_Size+hex_str(1)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $54<<3,(row0+$0F)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $2A<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $38<<3,(row0+$13)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $35<<3,(row0+$15)<<3,  STR_Size+hex_str(2)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $3F<<3,(row0+$10)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $54<<3,(row0+$0F)<<3,  STR_Size+hex_str(1)); // Blaze v6
 break;}
 }//switch(g.mod_OldKasutoFire)
 
@@ -1363,12 +1363,12 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0C64, 3,Fire1_init, _FIRE_PI); //
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0E52, 3,Fire1_init, _FIRE_PI); // 
 //data_spawn(rm+STR_PRXM,Moa_B,$1,  (clm1-1)<<3,(row0+$07)<<3); // FieryMoa  1
 }else if (g.mod_OldKasutoFire==2){
-data_spawn(rm+STR_PRIO,BlazA,$6,  $20<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $4C<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $2B<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $54<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $52<<3,(row0+$0E)<<3,  STR_Size+hex_str(1)); // Blaze v6
-data_spawn(rm+STR_PRIO,BlazA,$6,  $64<<3,(row0+$0C)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $20<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $4C<<3,(row0+$0D)<<3,  STR_Size+hex_str(3)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $2B<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $54<<3,(row0+$11)<<3,  STR_Size+hex_str(2)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $52<<3,(row0+$0E)<<3,  STR_Size+hex_str(1)); // Blaze v6
+data_spawn(rm+STR_PRIO,Blaze01,$6,  $64<<3,(row0+$0C)<<3,  STR_Size+hex_str(1)); // Blaze v6
 }
 
 data_spawn(rm+STR_PRXM,Moa_A,$2,  $10<<3,(row0+$17)<<3); 

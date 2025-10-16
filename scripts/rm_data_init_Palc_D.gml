@@ -262,7 +262,7 @@ row3=row0+$0A; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  ($12<<3)+4,(row0+$18)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $77<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($16<<3)+4,(row0+$0E)<<3); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($16<<3)+4,(row0+$0E)<<3); // Blaze  1
 data_spawn(rm+STR_PRIO,SpPoA,$1,  0,0,  STR_Qualified+STR_Quest+STR_Nums+"02"); // PoisonBubbleSpawner  1 
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $36<<3,(row0+$10)<<3); // Myu  1
 data_spawn(rm+STR_PRXM,Myu_A,$1,  $4E<<3,(row0+$0E)<<3); // Myu  1
@@ -338,9 +338,9 @@ rm_num  = $07;
 set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_PD+'006', STR_ow_axis+hex_str(ow_axis));
 
 
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($100)+4,$60); // $8C: Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($200)+4,$60); // $8C: Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($300)+4,$60); // $8C: Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($100)+4,$60); // $8C: Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($200)+4,$60); // $8C: Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($300)+4,$60); // $8C: Blaze  1
 data_spawn(rm+STR_PRXM,Ra__A,$2,  $1B0,$60); // $A9: Ra  2
 data_spawn(rm+STR_PRXM,Ra__A,$2,  $240,$60); // $A9: Ra  2
 data_spawn(rm+STR_PRIO,SpStA,$2,  $76<<3,(row0+$0E)<<3); // SpawnByStab  2
@@ -454,9 +454,9 @@ set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_PD+'006', STR_ow_axis+hex_
 row3=row0+$12; y3=row3<<3;
 row4=row0+$0E; y4=row4<<3;
 row5=row0+$0C; y5=row5<<3;
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($100)+4,y5); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($200)+4,y5); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($300)+4,y5); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($100)+4,y5); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($200)+4,y5); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($300)+4,y5); // Blaze  1
 data_spawn(rm+STR_PRXM,DoomA,$1,  $42<<3,y4); // Doomknocker  1
 //data_spawn(rm+STR_PRXM,DoomA,$1,  $48<<3,(row0+$0E)<<3); // Doomknocker  1
 data_spawn(rm+STR_PRIO,SpStA,$2,  $3B0,y4); // SpawnByStab  2
@@ -589,7 +589,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $5B<<3,y4,  STR_Lit); // v1: Light w/ CANDLE 
 */
 
 clm3=$31; // clm3: arena center
-data_spawn(rm+STR_PRIO,CaroA,$1,  $71<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Carock  1
+data_spawn(rm+STR_PRIO,Carock01,$1,  $71<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Carock  1
 data_spawn(rm+STR_PRIO,CrHoA,$1,  ($6F<<3)-4,y3); // CrystalHolder  1
 g.dm_rm[?STR_Boss+STR_Scene+STR_Name+_DUNGEON_NAME] = rm;
 
@@ -612,7 +612,7 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  $55<<3,y4,  STR_Lit); // v1: Light w/ CANDLE 
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $5F<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 
 clm3=$30; // clm3: arena center
-data_spawn(rm+STR_PRIO,CaroA,$1,  $70<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Carock  1
+data_spawn(rm+STR_PRIO,Carock01,$1,  $70<<3,y3,  STR_Arena+'_x'+hex_str(clm3<<3)); // Carock  1
 data_spawn(rm+STR_PRIO,CrHoA,$1,  ($6F<<3)-4,y3); // CrystalHolder  1
 g.dm_rm[?STR_Boss+STR_Scene+STR_Name+_DUNGEON_NAME] = rm;
 
@@ -854,8 +854,8 @@ row4=row3+$01; y4=row4<<3;
 row5=row0+$0C; y5=row5<<3;
 row6=row0+$07; y6=row6<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $77<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($08<<3)+4,y5); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($12<<3)+4,y5); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($08<<3)+4,y5); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($12<<3)+4,y5); // Blaze  1
 data_spawn(rm+STR_PRXM,Ra__A,$1,  $36<<3,y6); // Ra  1
 data_spawn(rm+STR_PRXM,Ra__A,$1,  $48<<3,y6); // Ra  1
 
@@ -888,9 +888,9 @@ set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_PD+'006', STR_ow_axis+hex_
 
 
 y3=(row0+$0C)<<3;
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($20<<3)+4,y3); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($40<<3)+4,y3); // Blaze  1
-data_spawn(rm+STR_PRIO,BlazA,$1,  ($60<<3)+4,y3); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($20<<3)+4,y3); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($40<<3)+4,y3); // Blaze  1
+data_spawn(rm+STR_PRIO,Blaze01,$1,  ($60<<3)+4,y3); // Blaze  1
 data_spawn(rm+STR_PRXM,DoomA,$1,  $24<<3,(row0+$0E)<<3); // Doomknocker  1
 data_spawn(rm+STR_PRXM,StalA,$1,  $4B<<3,(row0+$0A)<<3); // Stalfos  1
 //data_spawn(rm+STR_PRXM,StalA,$1,  $4C<<3,(row0+$0C)<<3); // Stalfos  1
