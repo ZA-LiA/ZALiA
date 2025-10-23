@@ -2,9 +2,10 @@
 
 
 var _i,_j, _idx, _val1, _data;
-var _pos, _str;
+var _pos;
 var _datakey0;
 var _trap_data = undefined;
+DEBUG1=false;
 
 
 GO_sprite_init(Smasher_SPRITE1);
@@ -23,29 +24,29 @@ if(!is_undefined(dk_spawn))
         _data = g.dm_spawn[?dk_spawn+STR_Data+hex_str(_i)];
         if (is_undefined(_data)) break;//_i
         
-        _str = STR_Trigger+STR_Position;
-        _pos = string_pos(_str,_data);
+        _datakey0 = STR_Trigger+STR_Position;
+        _pos = string_pos(_datakey0,_data);
         if (_pos)
         {
-            _pos += string_length(_str);
+            _pos += string_length(_datakey0);
             _val1 = string_copy(_data, _pos, string_length(_data)-(_pos-1));
             trigger_x = str_hex(string_copy(_val1,1,4));
             trigger_y = str_hex(string_copy(_val1,5,4));
         }
         
-        _str = STR_Delay;
-        _pos = string_pos(_str,_data);
+        _datakey0 = STR_Delay;
+        _pos = string_pos(_datakey0,_data);
         if (_pos)
         {
-            _pos += string_length(_str);
+            _pos += string_length(_datakey0);
             DELAY_timer = str_hex(string_copy(_data, _pos, string_length(_data)-(_pos-1)));
         }
         
-        _str = STR_Trap+STR_Data;
-        _pos = string_pos(_str,_data);
+        _datakey0 = STR_Trap+STR_Data;
+        _pos = string_pos(_datakey0,_data);
         if (_pos)
         {
-            _pos += string_length(_str);
+            _pos += string_length(_datakey0);
             _trap_data = string_copy(_data, _pos, string_length(_data)-(_pos-1));
         }
     }
@@ -97,6 +98,17 @@ else
     spawn_yt = (attack_y_head_start_y + (hh_*-attack_y_direction)) - hh_;
 }
 
+if (DEBUG1)
+{
+    show_debug_message("SmasherTrap01_init2()."+" attack_x_head_x=$"+hex_str(attack_x_head_x,4)+" attack_x_head_y=$"+hex_str(attack_x_head_y,4)+" attack_x_direction="+string(attack_x_direction)+" attack_x_distance=$"+hex_str(attack_x_distance,4)+" attack_x_duration=$"+hex_str(attack_x_duration,4));
+    show_debug_message("SmasherTrap01_init2()."+" attack_y_head_x=$"+hex_str(attack_y_head_x,4)+" attack_y_head_y=$"+hex_str(attack_y_head_y,4)+" attack_y_direction="+string(attack_y_direction)+" attack_y_distance=$"+hex_str(attack_y_distance,4)+" attack_y_duration=$"+hex_str(attack_y_duration,4));
+    show_debug_message("");
+    show_debug_message("SmasherTrap01_init2()."+" BodyHB_xoff="+string(BodyHB_xoff)+" BodyHB_yoff="+string(BodyHB_yoff)+" BodyHB_w$="+hex_str(BodyHB_w,4)+" BodyHB_h$="+hex_str(BodyHB_h,4)+" ww=$"+hex_str(ww,4)+" hh=$"+hex_str(hh,4)+" spawn_xl=$"+hex_str(spawn_xl,4)+" spawn_yt=$"+hex_str(spawn_yt,4)+" xl=$"+hex_str(xl,4)+" yt=$"+hex_str(yt,4)+" trigger_x=$"+hex_str(trigger_x,4)+" trigger_y=$"+hex_str(trigger_y,4));
+    show_debug_message("");
+    show_debug_message("");
+    show_debug_message("");
+}
+
 
 
 
@@ -111,13 +123,13 @@ switch(ver)
     var _depth, _layer_name;
     Wall_dg_tsrc = ds_grid_create(0,0);
     
+    /*
     if (attack_x_duration)
     {
         if (attack_x_direction) ww =          attack_x_head_start_x;
         else                    ww = g.rm_w - attack_x_head_start_x;
         ww += abs(attack_x_head_end_x-attack_x_head_start_x);
         ww_ = ww>>1;
-        sprite_index_xoff = ww_; // so `set_xy` sets correct values
     }
     else
     {
@@ -125,8 +137,12 @@ switch(ver)
         else                    hh = g.rm_h - attack_y_head_start_y;
         hh += abs(attack_y_head_end_y-attack_y_head_start_y);
         hh_ = hh>>1;
-        sprite_index_yoff = hh_; // so `set_xy` sets correct values
     }
+    */
+    
+    // so `set_xy` sets correct values
+    sprite_index_xoff = ww_;
+    sprite_index_yoff = hh_;
     
     
     if (attack_x_duration)
@@ -157,7 +173,7 @@ switch(ver)
             ||  (attack_y_duration && tile_layer_find(_depth, attack_y_head_start_x,attack_y_head_start_y-attack_y_direction)!=-1) )
             {
                 FGWALL_depth = _depth;
-                GO_depth_init(FGWALL_depth-1);
+                GO_depth_init(FGWALL_depth-3);
                 break;//_i
             }
         }
@@ -313,7 +329,6 @@ global.dm_tile_layer_data[?'PalcC_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUC
 
 
 
-
 set_xy(id, spawn_xl+ww_, spawn_yt+hh_);
 
 
@@ -341,6 +356,19 @@ BodyHB_h = hh;
 
 solid_type = TID_SOLID1;
 add_to_solid_inst_list(id);
+
+
+
+
+if (DEBUG1)
+{
+    show_debug_message("SmasherTrap01_init2()."+" attack_x_head_x=$"+hex_str(attack_x_head_x,4)+" attack_x_head_y=$"+hex_str(attack_x_head_y,4)+" attack_x_direction="+string(attack_x_direction)+" attack_x_distance=$"+hex_str(attack_x_distance,4)+" attack_x_duration=$"+hex_str(attack_x_duration,4));
+    show_debug_message("SmasherTrap01_init2()."+" attack_y_head_x=$"+hex_str(attack_y_head_x,4)+" attack_y_head_y=$"+hex_str(attack_y_head_y,4)+" attack_y_direction="+string(attack_y_direction)+" attack_y_distance=$"+hex_str(attack_y_distance,4)+" attack_y_duration=$"+hex_str(attack_y_duration,4));
+    show_debug_message("");
+    show_debug_message("SmasherTrap01_init2()."+" BodyHB_xoff="+string(BodyHB_xoff)+" BodyHB_yoff="+string(BodyHB_yoff)+" BodyHB_w$="+hex_str(BodyHB_w,4)+" BodyHB_h$="+hex_str(BodyHB_h,4)+" ww=$"+hex_str(ww,4)+" hh=$"+hex_str(hh,4)+" spawn_xl=$"+hex_str(spawn_xl,4)+" spawn_yt=$"+hex_str(spawn_yt,4)+" xl=$"+hex_str(xl,4)+" yt=$"+hex_str(yt,4)+" trigger_x=$"+hex_str(trigger_x,4)+" trigger_y=$"+hex_str(trigger_y,4));
+}
+
+//show_debug_message("SmasherTrap01_init2()."+" palidx_def=$"+hex_str(palidx_def)+" palidx_base=$"+hex_str(palidx_base)+" palidx=$"+hex_str(palidx)+" global.PI_BGR1=$"+hex_str(global.PI_BGR1));
 
 
 

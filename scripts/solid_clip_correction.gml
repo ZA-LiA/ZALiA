@@ -12,7 +12,8 @@ if(!is_undefined(   cs_btm_inst)
 //&& (vspd || argument0) )
 {
     var _y  = y;
-    switch(1) // Not sure yet the right way to do this
+    switch(3) // Not sure yet the right way to do this
+    //switch(1) // Not sure yet the right way to do this
     {
         case 1:{
         _y  = cs_btm_inst.BodyHB_yt-hh_; 
@@ -27,10 +28,6 @@ if(!is_undefined(   cs_btm_inst)
         break;}
         
         case 3:{
-        _y  = cs_btm_inst.yt-hh_;
-        break;}
-        
-        case 4:{
         if (csBtm1Y < cs_btm_inst.BodyHB_yt+8)
         {   _y = cs_btm_inst.BodyHB_yt-hh_;  }
         break;}
@@ -38,13 +35,6 @@ if(!is_undefined(   cs_btm_inst)
     
     set_xy(id, x,_y);
     updateCSPoints();
-    
-    /*
-    if (_y&$7 
-    &&  inRange(_y>>3, 0,g.dg_rt_solid_h-1) 
-    &&  g.dg_rt_solid[#x>>3,_y>>3] )
-    //&&  is_in_grid(x>>3,bodyY>>3, g.dg_rt_solid_w,g.dg_rt_solid_h) 
-    */
     
     return y-_y_PREV;
 }
@@ -102,7 +92,6 @@ if (csBtm1Y>>3 >= 0
         
         
         
-        
         // -------------------------------------------------
         // ------------------------------------------------------------------------
         // For certain objects, adj shoult NOT be made if colliding w/ break blocks.
@@ -121,20 +110,18 @@ if (csBtm1Y>>3 >= 0
         {
             return y-_y_PREV;
         }
+        
+        
+        
+        
         // ------------------------------------------------------------------------
         // -------------------------------------------------
-        
-        
-        
-        
-        
         var _yt  =  (csBtm1Y>>3)<<3;
             _yt -= !(csBtm1Y&$7)<<3;
             _yt -=   csBtm1Y-yt; // This is important if sprite_index height is shorter than cs height, like w/ Tektites
         set_xlyt(id, xl,_yt);
         
         updateCSPoints();
-        
         
         
         
@@ -162,6 +149,7 @@ if (csBtm1Y>>3 >= 0
         }
     }
 }
+
 
 
 

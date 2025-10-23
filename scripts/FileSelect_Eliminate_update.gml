@@ -21,7 +21,7 @@ switch(global.GUI_NAV1_VER)
 if (_cursor_dir!=0)
 {
     FileSelect_cursor_move(State_ELIMINATE,_cursor_dir);
-    cursor_name = 0;
+    REGISTER_new_save_file_name = 0;
     aud_play_sound(get_audio_theme_track(CURSOR_SOUND_THEME2));
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

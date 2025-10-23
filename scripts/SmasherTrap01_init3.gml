@@ -36,9 +36,5 @@ if (attack_y_head_end_y!=attack_y_head_start_y)
 }
 
 
-//destination_xl = spawn_xl + attack_x_distance;
-//destination_yt = spawn_yt + attack_y_distance;
-
-
 
 

@@ -40,7 +40,7 @@ switch(ver)
     if (val(f.dm_challenges[?challenge_id+STR_Complete]))
     {
         complete = true;
-        with(SwchB) complete=true;
+        with(SwchB) complete = true;
         sub_state = STATE_COMPLETE;
     }
     else

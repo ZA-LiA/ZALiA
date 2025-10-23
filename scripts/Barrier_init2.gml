@@ -5,6 +5,7 @@ var _i, _a, _count;
 
 
 can_draw_self = false;
+can_draw_self_exception = true;
 
 DEPTH1 = DEPTH_ENEMY;
 DEPTH2 = DEPTH_BG6+1;

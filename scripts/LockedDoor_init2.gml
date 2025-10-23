@@ -19,6 +19,8 @@ DRAW_YOFF  += YOFF;
 openYOff    = 0;
 SWITCH_XOFF = $C;
 
+can_draw_self_exception = true;
+
 //behavior = 0; // 0: idle, 1: opening
 counter = 0; // 0: idle, > 0: opening
 
@@ -62,7 +64,7 @@ if(!is_undefined(dk_spawn))
         }
     }
 }
-show_debug_message("LockedDoor_init2(). respawn_type "+hex_str(respawn_type));
+//show_debug_message("LockedDoor_init2(). respawn_type "+hex_str(respawn_type));
 
 
 // 0: neither, 1: right, 2: left, 3: both

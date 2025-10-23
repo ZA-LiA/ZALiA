@@ -105,13 +105,15 @@ BODY_YOFF   = 4;
 BODY_W      = ww - (BODY_XOFF<<1);
 BODY_H      = (GROUND_Y-MIN_Y) - (BODY_YOFF<<1);
 
-BodyHB_xoff    = BODY_XOFF;
-BodyHB_yoff    = BODY_YOFF;
-BodyHB_w       = BODY_W
-BodyHB_h       = BODY_H
+BodyHB_xoff = BODY_XOFF;
+BodyHB_yoff = BODY_YOFF;
+BodyHB_w    = BODY_W
+BodyHB_h    = BODY_H
 
-BodyHB_xl       = x-(BodyHB_w>>1);
-BodyHB_yt       = MIN_Y+BODY_YOFF;
+BodyHB_xl   = x - (BodyHB_w>>1);
+BodyHB_xr   = BodyHB_xl + BodyHB_w;
+BodyHB_yt   = MIN_Y + BODY_YOFF;
+BodyHB_yb   = BodyHB_yt + BodyHB_h;
 
 
 

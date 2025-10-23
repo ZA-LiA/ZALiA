@@ -4,6 +4,8 @@
 var _i, _a, _x,_y;
 
 
+can_draw_self_exception = true;
+
 GO_sprite_init(spr_Block_02a);
 
 var _pi = global.PI_BGR4;

@@ -4,6 +4,8 @@
 var _OBJ_NAME = object_get_name(object_index);
 TYPE = string_char_at(_OBJ_NAME, string_length(_OBJ_NAME));
 
+can_draw_self_exception = true;
+
 exit_dirs   = $0; // bits of which dirs the elev can exit.
 
 

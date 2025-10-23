@@ -3,6 +3,8 @@
 
 GameObjectB_init();
 
+can_draw_self_exception = true;
+
 
 pal_bgr = global.PI_BGR3;
 GO_init_palidx(global.PI_MOB_BLU);

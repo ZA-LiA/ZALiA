@@ -2,6 +2,10 @@
 
 
 can_draw_self = false;
+// `can_draw_self` is set false every frame and must be refreshed every frame by its object.
+// Setting `can_draw_self_exception` = true means the instance's `can_draw_self` will not be set false every frame.
+can_draw_self_exception = false;
+
 
 GO_depth_init(DEPTH_BASE); // sets depth & depth_def
 

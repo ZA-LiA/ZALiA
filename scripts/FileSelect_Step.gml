@@ -37,8 +37,8 @@ if (state==State_NULL
 &&  g.counter1==cue_change_state )
 {
     state = state_pending;
-    cursor_name = 0;
-    cursor_char = 0;
+    REGISTER_new_save_file_name = 0;
+    CharTable_cursor_char = 0;
     cue_change_state = -1;
     cursor_timer1 = 0;
     
@@ -314,11 +314,11 @@ if (state)
         fairy_y  = FAIRY_Y2;
         fairy_y += _CURSOR*SAVE_FILE_PAD;
         
-        cursor_name_x = CURSOR_NAME_X1 + (cursor_name<<3);
+        cursor_name_x = CURSOR_NAME_X1 + (REGISTER_new_save_file_name<<3);
         cursor_name_y = CURSOR_NAME_Y1 + (SAVE_FILE_PAD*_CURSOR);
         
-        cursor_char_x = CURSOR_CHAR_X1 + ((cursor_char mod CLM_COUNT)<<4);
-        cursor_char_y = CURSOR_CHAR_Y1 + ((cursor_char div CLM_COUNT)<<4);
+        cursor_char_x = CURSOR_CHAR_X1 + ((CharTable_cursor_char mod CharTable_Text_CLMS)<<4);
+        cursor_char_y = CURSOR_CHAR_Y1 + ((CharTable_cursor_char div CharTable_Text_CLMS)<<4);
         if (state==State_REGISTER) cursor_char_y += $02<<3;
         break;}//case State_REGISTER
         

@@ -1,6 +1,8 @@
 /// FallingBlock_init2()
 
 
+can_draw_self_exception = true;
+
 GO_init_palidx(global.PI_BGR1);
 LAND_DEPTH = DEPTH_BG1;
 

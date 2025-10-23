@@ -10,10 +10,12 @@ if (hspd) updateX();
 if (vspd) updateY();
 
 
-BodyHB_w = BODY_W;
-BodyHB_h = 8;
+BodyHB_w  = BODY_W;
+BodyHB_h  = 8;
 BodyHB_xl = xl + BODY_XOFF;
-BodyHB_yt = y-(BodyHB_h>>1);
+BodyHB_xr = BodyHB_xl + BodyHB_w;
+BodyHB_yt = y - (BodyHB_h>>1);
+BodyHB_yb = BodyHB_yt + BodyHB_h;
 BodyHB_can_draw = true;
 Platform_update_1a();
 

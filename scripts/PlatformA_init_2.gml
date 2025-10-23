@@ -195,7 +195,10 @@ switch(ver)
 
 
 BodyHB_xl = x - (BodyHB_w>>1);
+BodyHB_xr = BodyHB_xl + BodyHB_w;
+
 BodyHB_yt = y - (BodyHB_h>>1);
+BodyHB_yb = BodyHB_yt + BodyHB_h;
 
 
 

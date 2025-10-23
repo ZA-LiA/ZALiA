@@ -102,7 +102,7 @@ if (false  // change to true when reinitializing the data
     var         _dl_qual_ts = ds_list_create();
     ds_list_add(_dl_qual_ts, ts_Natural_1a_WRB,ts_Natural_2a_WRB,ts_Natural_4a_HMS,ts_Natural02,ts_Natural03);
     ds_list_add(_dl_qual_ts, ts_Man_made_1a_WRB,ts_Man_made_2a_WRB,ts_Man_made_3a_WRB,ts_Man_made_4a_WRB,ts_ManMade05,ts_Man_made_6a_WRB,ts_Man_made_7a_WRB,ts_Man_made_8a_HMS,ts_WallStyle01_01);
-    ds_list_add(_dl_qual_ts, ts_DungeonA01,ts_DungeonB01,ts_DungeonC01,ts_DungeonD01,ts_DungeonE01,ts_DungeonF01,ts_DungeonG01,ts_DungeonH01,ts_DungeonAlt01,ts_DungeonAlt02,ts_DungeonAlt03,ts_DungeonAlt04,ts_DungeonAlt05,ts_DungeonAlt06);
+    ds_list_add(_dl_qual_ts, ts_DungeonA01,ts_DungeonB01,ts_DungeonC01,ts_DungeonD01,ts_DungeonE01,ts_DungeonF01,ts_DungeonG01,ts_DungeonH01,ts_DungeonAlt01,ts_DungeonAlt02,ts_DungeonAlt03,ts_DungeonAlt04,ts_DungeonAlt05,ts_DungeonAlt06,ts_DungeonAlt07);
     ds_list_add(_dl_qual_ts, ts_Menu01, ts_tile_marker_1a_8x8, ts_Overworld_8x8_01);
     
     var          _TS_COUNT = ds_list_size(_dl_qual_ts);

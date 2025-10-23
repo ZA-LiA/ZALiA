@@ -22,7 +22,7 @@ var _RULE = 0;
 
 
 var _TS_NAME = "ts_Man_made_1a_WRB";
-ds_list_add(_dl_tsrc,$A8,$A9);
+ds_list_add(_dl_tsrc,$FE,$FF);
 
 /*
 // Looking for anything using ts_Natural_2a_WRB

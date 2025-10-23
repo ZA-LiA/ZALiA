@@ -2,7 +2,7 @@
 
 
 var _file, _file_data;
-var _REINITIALIZING = false; // *** SET true TO RUN THIS IN CASE A SCENE'S PALETTE DATA HAS CHANGED ***
+var _REINITIALIZING = true; // *** SET true TO RUN THIS IN CASE A SCENE'S PALETTE DATA HAS CHANGED ***
 var _FILE_NAME0 = "PaletteData01.txt"; // use %localappdata% directory so user can save edited palettes
 //var _FILE_NAME0 = 'other/PaletteData01.txt';
 

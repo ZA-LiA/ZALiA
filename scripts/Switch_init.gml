@@ -5,6 +5,8 @@ init_vars_go_A();
 
 init_vars_Switch();
 
+can_draw_self_exception = true;
+
 // default GameObject draw YOff
 DRAW_YOFF = 0;
 

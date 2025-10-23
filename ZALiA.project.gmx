@@ -3,9 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1190" name="datafiles">
-    <datafiles number="1190" name="rm_tile_data">
-      <datafiles number="1190" name="Title">
+  <datafiles number="1195" name="datafiles">
+    <datafiles number="1195" name="rm_tile_data">
+      <datafiles number="1195" name="Title">
         <datafile>
           <name>Title_000.json</name>
           <exists>-1</exists>
@@ -24,7 +24,7 @@
           <filename>Title_000.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="WestA">
+      <datafiles number="1195" name="WestA">
         <datafile>
           <name>WestA_000.json</name>
           <exists>-1</exists>
@@ -1420,7 +1420,7 @@
           <filename>WestA_254.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="EastA">
+      <datafiles number="1195" name="EastA">
         <datafile>
           <name>EastA_000.json</name>
           <exists>-1</exists>
@@ -3445,7 +3445,7 @@
           <filename>EastA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="DthMt">
+      <datafiles number="1195" name="DthMt">
         <datafile>
           <name>DthMt_000.json</name>
           <exists>-1</exists>
@@ -3957,7 +3957,7 @@
           <filename>DthMt_041.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="MazIs">
+      <datafiles number="1195" name="MazIs">
         <datafile>
           <name>MazIs_000.json</name>
           <exists>-1</exists>
@@ -5727,6 +5727,91 @@
           <filename>MazIs_159.json</filename>
         </datafile>
         <datafile>
+          <name>MazIs_160.json</name>
+          <exists>-1</exists>
+          <size>41645</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_160.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_161.json</name>
+          <exists>-1</exists>
+          <size>32171</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_161.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_162.json</name>
+          <exists>-1</exists>
+          <size>40515</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_162.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_163.json</name>
+          <exists>-1</exists>
+          <size>92909</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_163.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_164.json</name>
+          <exists>-1</exists>
+          <size>97978</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_164.json</filename>
+        </datafile>
+        <datafile>
           <name>MazIs_216.json</name>
           <exists>-1</exists>
           <size>68673</size>
@@ -6050,7 +6135,7 @@
           <filename>MazIs_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="TownA">
+      <datafiles number="1195" name="TownA">
         <datafile>
           <name>TownA_000.json</name>
           <exists>-1</exists>
@@ -7157,7 +7242,7 @@
           <filename>TownA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="TownB">
+      <datafiles number="1195" name="TownB">
         <datafile>
           <name>TownB_000.json</name>
           <exists>-1</exists>
@@ -7329,7 +7414,7 @@
           <filename>TownB_098.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcA">
+      <datafiles number="1195" name="PalcA">
         <datafile>
           <name>PalcA_000.json</name>
           <exists>-1</exists>
@@ -7637,7 +7722,7 @@
           <filename>PalcA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcB">
+      <datafiles number="1195" name="PalcB">
         <datafile>
           <name>PalcB_000.json</name>
           <exists>-1</exists>
@@ -8030,7 +8115,7 @@
           <filename>PalcB_027.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcC">
+      <datafiles number="1195" name="PalcC">
         <datafile>
           <name>PalcC_000.json</name>
           <exists>-1</exists>
@@ -8321,7 +8406,7 @@
           <filename>PalcC_020.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcD">
+      <datafiles number="1195" name="PalcD">
         <datafile>
           <name>PalcD_000.json</name>
           <exists>-1</exists>
@@ -8629,7 +8714,7 @@
           <filename>PalcD_026.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcE">
+      <datafiles number="1195" name="PalcE">
         <datafile>
           <name>PalcE_001.json</name>
           <exists>-1</exists>
@@ -9056,7 +9141,7 @@
           <filename>PalcE_040.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcF">
+      <datafiles number="1195" name="PalcF">
         <datafile>
           <name>PalcF_000.json</name>
           <exists>-1</exists>
@@ -9568,7 +9653,7 @@
           <filename>PalcF_035.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcG">
+      <datafiles number="1195" name="PalcG">
         <datafile>
           <name>PalcG_000.json</name>
           <exists>-1</exists>
@@ -10624,7 +10709,7 @@
           <filename>PalcG_070.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcH">
+      <datafiles number="1195" name="PalcH">
         <datafile>
           <name>PalcH_000.json</name>
           <exists>-1</exists>
@@ -10813,7 +10898,7 @@
           <filename>PalcH_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1190" name="PalcZ">
+      <datafiles number="1195" name="PalcZ">
         <datafile>
           <name>PalcZ_000.json</name>
           <exists>-1</exists>
@@ -11207,7 +11292,7 @@
         <filename>SceneWallData01.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="1190" name="ow_tile_data">
+    <datafiles number="1195" name="ow_tile_data">
       <datafile>
         <name>OvrwA_00.json</name>
         <exists>-1</exists>
@@ -11260,7 +11345,7 @@
         <filename>OverworldData01.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="1190" name="other">
+    <datafiles number="1195" name="other">
       <datafile>
         <name>RandoPalettes01.json</name>
         <exists>-1</exists>
@@ -12786,6 +12871,7 @@
         <background>background\ts_DungeonAlt04</background>
         <background>background\ts_DungeonAlt05</background>
         <background>background\ts_DungeonAlt06</background>
+        <background>background\ts_DungeonAlt07</background>
       </backgrounds>
       <backgrounds name="other">
         <background>background\ts_Menu01</background>
@@ -13810,6 +13896,14 @@
               <script>scripts\SpikeTrapC_udp.gml</script>
               <script>scripts\SpikeTrapC_draw.gml</script>
             </scripts>
+            <scripts name="spike_trap_d">
+              <script>scripts\SpikeTrapD_end.gml</script>
+              <script>scripts\SpikeTrapD_init1.gml</script>
+              <script>scripts\SpikeTrapD_init2.gml</script>
+              <script>scripts\SpikeTrapD_update.gml</script>
+              <script>scripts\SpikeTrapD_udp.gml</script>
+              <script>scripts\SpikeTrapD_draw.gml</script>
+            </scripts>
           </scripts>
           <scripts name="fire_rope">
             <script>scripts\FireRope_init1.gml</script>
@@ -13894,6 +13988,7 @@
             <script>scripts\SmasherTrap01_init2.gml</script>
             <script>scripts\SmasherTrap01_init3.gml</script>
             <script>scripts\SmasherTrap01_update.gml</script>
+            <script>scripts\SmasherTrap01_update_ATTACK.gml</script>
             <script>scripts\SmasherTrap01_udp.gml</script>
             <script>scripts\SmasherTrap01_draw.gml</script>
           </scripts>
@@ -15299,7 +15394,7 @@
               <object>objects\Boggnipp01</object>
             </objects>
             <objects name="boon">
-              <object>objects\BoonA</object>
+              <object>objects\Boon01</object>
             </objects>
             <objects name="bot">
               <object>objects\Bot</object>
@@ -15570,6 +15665,7 @@
             <object>objects\SpTrA</object>
             <object>objects\SpTrB</object>
             <object>objects\SpTrC</object>
+            <object>objects\SpikeTrapD</object>
           </objects>
           <objects name="switch">
             <object>objects\Switch</object>

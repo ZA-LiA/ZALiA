@@ -567,7 +567,7 @@ if (Collision_VER==2
             if(!wINw(_PC_HB_XL_PREV,PC_HB1_W, x_prev-ww_,ww)) // if pc on prev frame was to the left or right of Ganon
             {
                 if (global.pc.x_prev<x_prev) _x = clamp(global.pc.x, pc_x_min, max(pc_x_min, xl-(PC_HB1_W>>1)));
-                else                    _x = clamp(global.pc.x, min(pc_x_max, xr+(PC_HB1_W>>1)), pc_x_max);
+                else                         _x = clamp(global.pc.x, min(pc_x_max, xr+(PC_HB1_W>>1)), pc_x_max);
             }
             else
             {
@@ -578,10 +578,10 @@ if (Collision_VER==2
                 }
                 else
                 {
-                    var _MAX_Y  = min(get_ground_y(global.pc.csBtm1X,yb,1,global.pc.csBtm1Y,TID_SOLID1),get_ground_y(global.pc.csBtm2X,yb,1,global.pc.csBtm2Y,TID_SOLID1));
-                        _MAX_Y -= global.pc.hh_;
-                        _MAX_Y += 1;
-                    _y = clamp(global.pc.y, (yb-2)+global.pc.hh_,_MAX_Y);
+                    var _y_max  = min(get_ground_y(global.pc.csBtm1X,yb,1,global.pc.csBtm1Y,TID_SOLID1),get_ground_y(global.pc.csBtm2X,yb,1,global.pc.csBtm2Y,TID_SOLID1));
+                        _y_max -= global.pc.hh_;
+                        _y_max += 1;
+                    _y = clamp(global.pc.y, (yb-2)+global.pc.hh_,_y_max);
                 }
             }
             

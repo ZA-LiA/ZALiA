@@ -265,7 +265,7 @@ if ((state==State_REGISTER  && !surface_exists(REGISTER_surf))
     
     
     // CHAR TABLE =======================
-    _clms = CharTable_CLMS; // number of window clms
+    _clms = CharTable_Window_CLMS; // number of window clms
     _dist2 = (_clms<<3)>>1; // half w of the table window
     
     _x1 = _DrawArea_XC - _dist2; // XL of window border

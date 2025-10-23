@@ -6,6 +6,8 @@
 var _i, _a, _val;
 
 
+can_draw_self_exception = true;
+
 switch(ver){
 default:{GO_sprite_init(g.Pushable_SPR1); break;}// graphic height 45 (spr_Statue_4b)
 case  1:{GO_sprite_init(g.Pushable_SPR1); break;}// graphic height 45 (spr_Statue_4b)

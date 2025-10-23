@@ -6,6 +6,7 @@ var _i;
 
 GameObjectB_init();
 DRAW_YOFF = 0;
+can_draw_self_exception = true;
 
 GO_init_palidx(global.PI_BGR1);
 
@@ -40,26 +41,33 @@ attack_speed = $01;
 
 attack_x_direction    = 0;
 attack_x_distance     = 0;
-attack_x_time         = 0;
-attack_x_duration     = 0;
 attack_x_head_x       = 0;
 attack_x_head_y       = 0;
 attack_x_head_start_x = 0;
 attack_x_head_start_y = 0;
 attack_x_head_end_x   = 0;
 attack_x_head_end_y   = 0;
+attack_x_time         = 0;
+attack_x_duration     = 0;
+attack_x_speed        = 0;
+attack_x_speed_MAX    = 3;
+attack_x_ACCEL_TIME   = ROOM_SPEED_BASE * 1.0; // the amount of time it takes to get to attack_x_speed_MAX
 
 attack_y_direction    = 0;
 attack_y_distance     = 0;
-attack_y_time         = 0;
-attack_y_duration     = 0;
 attack_y_head_x       = 0;
 attack_y_head_y       = 0;
 attack_y_head_start_x = 0;
 attack_y_head_start_y = 0;
 attack_y_head_end_x   = 0;
 attack_y_head_end_y   = 0;
+attack_y_time         = 0;
+attack_y_duration     = 0;
+attack_y_speed        = 0;
+attack_y_speed_MAX    = 3;
+attack_y_ACCEL_TIME   = ROOM_SPEED_BASE * 1.0; // the amount of time it takes to get to attack_x_speed_MAX
 
 
 
-
+xchangeprev=0; // debug
+xchangeprevdiff=0; // debug

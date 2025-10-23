@@ -12,7 +12,7 @@ RandoOptions_Y_DIST = $08 + RandoOptions_PAD1;
 RandoOptions_X      = $14<<3;
 //RandoOptions_X      = $18<<3;
 
-RandoOptions_YOFF1  = -$6;
+RandoOptions_YOFF1  = RANDO_YOFF2;
 RandoOptions_Y      = $11<<3;
 RandoOptions_Y     += -g.VIEW_Y_TILE_OFF; // VIEW_Y_TILE_OFF=2
 RandoOptions_Y     += RandoOptions_YOFF1; // micro adj

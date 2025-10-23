@@ -4,7 +4,7 @@
 var _i,_j,_k, _a,_b, _w,_h;
 var _x,_xl, _y,_yt, _x1,_x2,_x3,_x4, _y1,_y2,_y3,_y4;
 var _val,_val1,_val2,_val3,_val4;
-var _data,_data1,_data2;
+var _data,_data1,_data2,_data3,_data4,_data5,_data6;
 var _rm, _pages, _dk, _datakey0,_datakey1;
 var _len, _dir, _dur, _delay, _dist;
 var _pi;
@@ -1552,7 +1552,7 @@ data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init);
 data_spawn(rm+STR_PRXM,TektA,$1,  $1F<<3,y3); // Tektite  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $3F<<3,y3); // Tektite  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $5F<<3,y3); // Tektite  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $3F<<3,(row0+$08)<<3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $3F<<3,(row0+$08)<<3); // Boon  1 
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
@@ -1687,8 +1687,8 @@ row3=row0+$11; y3=row3<<3;
 row4=row0+$0F; y4=row4<<3;
 row5=row0+$08; y5=row5<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init);
-data_spawn(rm+STR_PRXM,BoonA,$1,  $1F<<3,y5); // Boon  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $3F<<3,y5); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $1F<<3,y5); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $3F<<3,y5); // Boon  1 
 data_spawn(rm+STR_PRXM,GeldA,$1,  $29<<3,y3+($01<<3)); // Geldarm  1 
 data_spawn(rm+STR_PRXM,GeldA,$1,  $35<<3,y3); // Geldarm  1 
 data_spawn(rm+STR_PRXM,GeldA,$1,  $3F<<3,y3); // Geldarm  1 
@@ -1755,8 +1755,8 @@ row3=row0+$17; y3=row3<<3;
 row4=row0+$15; y4=row4<<3;
 row5=row0+$08; y5=row5<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init);
-data_spawn(rm+STR_PRXM,BoonA,$1,  $27<<3,y5); // Boon  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $57<<3,y5); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $27<<3,y5); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $57<<3,y5); // Boon  1 
 data_spawn(rm+STR_PRXM,MegmA,$1,  $17<<3,y4); // Megmat  1
 data_spawn(rm+STR_PRXM,MegmA,$1,  $2F<<3,y4); // Megmat  1
 data_spawn(rm+STR_PRXM,MegmA,$1,  $4F<<3,y4); // Megmat  1
@@ -3950,13 +3950,19 @@ data_scene_rando(rm);
 //   --------------------------  9B  --------------------------- 
 //    Extra scene rando scene. Vertical dungeon scene with many SmasherTraps lining each side trying to crush pc between them. SmasherTraps are walls
 rm_num  = $9B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'155', STR_View+'02');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'155', STR_View+'02', STR_Dark+'00');
 
 
 row3=$34; y3=row3<<3; // EXM0 pc yt
 row4=$02; y4=row4<<3; // EXR0 pc yt
-row5=$36; y5=row5<<3; // bottom most trap yc
-clms3=$04; _w=clms3<<3; // Smasher w
+row5=$03; y5=row5<<3;
+row6=$36; y6=row6<<3; // bottom most trap yc
+data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $15<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $2B<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $37<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+clms3=$20; _w=clms3<<3; // Smasher w
+//clms3=$04; _w=clms3<<3; // Smasher w
 rows3=$04; _h=rows3<<3; // Smasher h
 clm3=$14;  x3=clm3<<3; //  left Smasher head start x
 clm4=clm1; x4=clm4<<3; //  left Smasher head end x
@@ -3968,7 +3974,7 @@ _delay=$80; _val1=$1C; _val2=$C; _val3=$78;
 _data1=STR_Trigger+STR_Position+hex_str($20<<3,4)+hex_str($38<<3,4);
 for(_i=0; _i<$0C; _i++)
 {
-    _y=(row5-(rows3*_i))<<3;
+    _y=(row6-(rows3*_i))<<3;
     
     // Left Smasher
     _data="";
@@ -4019,7 +4025,7 @@ data_scene_rando(rm);
 //   --------------------------  9C  --------------------------- 
 //    Extra scene rando scene. Burnable puzzle with waterfalls that can put out fire unless they're turned off by a switch
 rm_num  = $9C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'156');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'156', STR_Dark+'00');
 
 
 row3=row0+$14; y3=row3<<3;
@@ -4138,8 +4144,8 @@ row5=row0+$1A; y5=row5<<3;
 data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+'1',  $0000,  3,StarSky_1_init);
 data_spawn(rm+STR_PRIO,SpStA,$1,  $54<<3,(row0+$12)<<3); // SpawnByStab  2
-data_spawn(rm+STR_PRXM,BoonA,$1,  $1E<<3,(row0+$08)<<3); // Boon  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $40<<3,(row0+$08)<<3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $1E<<3,(row0+$08)<<3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $40<<3,(row0+$08)<<3); // Boon  1 
 data_spawn(rm+STR_PRXM,Octorok01,$1,  $22<<3,y5); // Octorok  1
 data_spawn(rm+STR_PRXM,Octorok01,$1,  $34<<3,y5); // Octorok  1
 data_spawn(rm+STR_PRXM,Octorok01,$1,  $48<<3,y5); // Octorok  1
@@ -4190,7 +4196,7 @@ data_Platform(PlatformA,$1,  x3,y5,  global.PI_MOB_ORG, 1, 1, _data, $00,_val1, 
 
 row6=$30; rows6=(rows0-row6)+PAGE_ROWS;
 row5=-PAGE_ROWS; rows5=row6-row5;
-data_exit(EXR0,etA0,1,  clm2,row5,  CLMS2,rows5,  clmA,row3,  rm_num_+EXR0_); // RGT 0, 
+data_exit(EXR0,etA0,1,  clm2,row5,  CLMS2,rows5,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 data_exit(EXR1,etA0,1,  clm2,row6,  CLMS2,rows6,  clmA,row4,  hex_str(rm_num-1)+EXR0_); // RGT 1, 
 
 
@@ -4207,23 +4213,194 @@ data_scene_rando(rm);
 
 
 //   --------------------------  A0  --------------------------- 
-//    
+//    Extra scene rando scene. Need to lure enemy to switch to open locked door
+rm_num  = $A0;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'160', STR_Dark+'00');
+
+
+row3=row0+$16; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+row5=row0-$02; y5=row5<<3;
+clm3=$4C; x3=clm3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0B<<3,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $54<<3,y4); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRIO,LoDoA,$2,  $48<<3,(row0+$14)<<3); // LockedDoor
+data_spawn(rm+STR_PRXM,Octorok01,$2,  x3,y5); // Octorok  1
+//data_spawn(rm+STR_PRXM,Bot_A,$1,  x3,y5); // Bot  1 
+data_spawn(rm+STR_PRIO,SwchB,$1,  $4A<<3,(row0+$09)<<3,  dk_PI+hex_str(global.PI_BGR2), "_Other_Objects_Can_Press"); // Can be pressed by enemy
+data_spawn_2a(STR_Challenge,Challenge_SwitchB,$1,  $4C<<3,(row0+$14)<<3); // xy is locked door xy. Challenge will spawn locked door
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  A1  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon with spikes that come out of floor
+rm_num  = $A1;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'161', STR_Dark+'00');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+row5=row0+$18; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0B<<3,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $16<<3,y5,  STR_Depth+string(val(g.dm_TILE_DEPTH[?"BG03"])), "_Spike"+STR_Count+hex_str($14), STR_Attack+STR_Direction+"08");
+//data_spawn(rm+STR_PRXM,Octorok01,$2,  x3,y5); // Octorok  1
+//data_spawn(rm+STR_PRXM,Bot_A,$1,  x3,y5); // Bot  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  A2  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon with several groups of spikes that alternate attacking
+rm_num  = $A2;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'162', STR_Dark+'00');
+
+
+row3=row0+$12; y3=row3<<3;
+row4=row3+$00; y4=row4<<3;
+row5=row0+$18; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $07<<3,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $10<<3,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $4F<<3,y4); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $58<<3,y4); // v1: Light w/ CANDLE or FIRE
+_clm3=$18; _clms3=$08; _i=0;
+_data1=STR_Depth+string(val(g.dm_TILE_DEPTH[?"BG03"]));
+_data2="_Spike"+STR_Count+hex_str(_clms3);
+_data3=STR_Attack+STR_Direction+"08";
+_val1=$60;
+_data4=STR_Cooldown+STR_Duration+hex_str(_val1);
+_data5=STR_Attack+STR_Duration+hex_str(_val1);
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"02");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"02");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"02");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRXM,Moa_B,$1,  (clm1-$01)<<3,(row0+$0B)<<3); // FieryMoa  1
+//data_spawn(rm+STR_PRXM,Bot_A,$1,  x3,y5); // Bot  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  A3  --------------------------- 
-//    
+//    Extra scene rando scene. Outside, tall ledge to right exit, bgr dungeon wall ruins
+rm_num  = $A3;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'163');
+
+
+row3=row0+$16; y3=row3<<3;
+row4=row0+$00; y4=row4<<3;
+row5=row3+$02; y5=row5<<3;
+data_spawn(rm+STR_PRXM,Boon01,$1,  (clm1-$01)<<3,(row0+$08)<<3); // Boon  1 
+//data_spawn(rm+STR_PRXM,Octorok01,$2,  x3,y5); // Octorok  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $27<<3,y5); // Bot  1 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  A4  --------------------------- 
-//    
+//    Extra scene rando scene. Dungeon hallway with ceiling SmasherTrap over item
+rm_num  = $A4;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'164', STR_Dark+'00');
+
+
+row3=row0+$14; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+//row5=row3+$02; y5=row5<<3;
+x3=($10<<3)+4; clms3=$10; _i=0;
+repeat(4) data_spawn(rm+STR_PRIO,TorchA,$1,  x3+((_i++*clms3)<<3),y4); // v1: Light w/ CANDLE or FIRE
+//data_spawn(rm+STR_PRXM,Octorok01,$2,  x3,y5); // Octorok  1
+//data_spawn(rm+STR_PRXM,Bot_A,$1,  $27<<3,y5); // Bot  1 
+//row5=row0+$0C; y5=row5<<3; // trap yb
+//rows3=row5; _h=rows3<<3; // Smasher h
+row6=row0+$0C; y6=row6<<3; //  Smasher head start y
+row7=row0+$18; y7=row7<<3; //  Smasher head end y
+clm3=$60; x3=clm3<<3; // Smasher head xc
+clms3=$20; _w=clms3<<3; // Smasher w
+rows3=$20; _h=rows3<<3; // Smasher h
+_data1=hex_str($6E<<3,4)+hex_str((row0+$18)<<3,4);
+_data="";
+_data+=hex_str(_w,4) +hex_str(_h,4); // w, h
+_data+="0000"        +"0000";        // attack x head start x, attack x head start y
+_data+="0000"        +"0000";        // attack x head end x,   attack x head end y
+_data+=hex_str(x3,4) +hex_str(y6,4); // attack y head start x, attack y head start y
+_data+=hex_str(x3,4) +hex_str(y7,4); // attack y head end x,   attack y head end y
+data_spawn(rm+STR_PRIO,SmasherTrap01,2,  0,0,  dk_PI+hex_str(global.PI_BGR1), STR_Trigger+STR_Position+_data1, STR_Speed+hex_str($01), STR_Delay+hex_str($80,4), STR_Trap+STR_Data+_data);
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  rm_num_+EXR0_); // LFT 0, 
+
+
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmE0,$1,  $6D<<3,y4); // Magic Jar (Full)
+
+
+data_path_conditions(exit_name_l0, _dk_spawn_item0);
+
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  A5  --------------------------- 

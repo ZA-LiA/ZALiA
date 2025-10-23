@@ -21,8 +21,10 @@ BodyHB_xoff = 0;
 BodyHB_yoff = 0;
 BodyHB_w    = 0;
 BodyHB_h    = 0;
-BodyHB_xl    = 0;
-BodyHB_yt    = 0;
+BodyHB_xl   = 0;
+BodyHB_xr   = 0;
+BodyHB_yt   = 0;
+BodyHB_yb   = 0;
 BodyHB_r    = 0; // Radius
 
 

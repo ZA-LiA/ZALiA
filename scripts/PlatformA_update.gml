@@ -74,7 +74,10 @@ switch(ver)
     
     
     BodyHB_xl = x - (BodyHB_w>>1);
+    BodyHB_xr = BodyHB_xl + BodyHB_w;
+    
     BodyHB_yt = y - (BodyHB_h>>1);
+    BodyHB_yb = BodyHB_yt + BodyHB_h;
     
     
     var  _X_DIST1 = (x-dg_path[#location_b,1]) * sign8b(hspd);

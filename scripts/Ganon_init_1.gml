@@ -5,6 +5,9 @@ var _i, _a;
 
 
 Boss_init_1();
+
+can_draw_self_exception = true;
+
 off_ground_reason = 0;
 
 

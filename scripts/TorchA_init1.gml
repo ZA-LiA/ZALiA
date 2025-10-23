@@ -2,6 +2,7 @@
 
 
 GameObjectB_init();
+can_draw_self_exception = true;
 
 GO_sprite_init(spr_Torch_1a);
 

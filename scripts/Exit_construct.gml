@@ -56,10 +56,12 @@ with(instance_create(0,0,Exit))
     page_y = yt>>8;
     
     
+    BodyHB_w  = ww;
+    BodyHB_h  = hh;
     BodyHB_xl = xl;
+    BodyHB_xr = BodyHB_xl + BodyHB_w;
     BodyHB_yt = yt;
-    BodyHB_w = ww;
-    BodyHB_h = hh;
+    BodyHB_yb = BodyHB_yt + BodyHB_h;
     
     
     

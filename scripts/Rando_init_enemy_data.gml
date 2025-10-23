@@ -24,7 +24,7 @@ RandoData_enemy(Blaze01,2,2, 0,2);
 //                                                      //
 RandoData_enemy(Boggnipp01,1,1, 0,0);
 //                                                      //
-RandoData_enemy(BoonA,1,2, 3,2);
+RandoData_enemy(Boon01,1,2, 3,2);
 //                                                      //
 RandoData_enemy(BoBoA,1,4, 4,4);
 //                                                      //

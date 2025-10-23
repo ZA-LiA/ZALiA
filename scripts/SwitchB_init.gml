@@ -1,13 +1,35 @@
 /// SwitchB_init()
 
 
+var _i;
+
+
 GO_depth_init(DEPTH_ENEMY);
 //GO_depth_init(DEPTH_BG1_P4+1); // +1 so tile pal swap can work
 
-var _PI = global.PI_BGR4;
-if(!is_undefined(         dk_spawn))
-{   _PI = val(g.dm_spawn[?dk_spawn+STR_pal_idx], _PI);  }
-GO_init_palidx(_PI);
+
+// if objects besides pc can press the switch
+other_objects_can_press = false;
+
+
+var _pi = global.PI_BGR4;
+if(!is_undefined(dk_spawn))
+{
+    var _data, _datakey;
+    
+    _pi = val(g.dm_spawn[?dk_spawn+STR_pal_idx], _pi);
+    
+    
+    for(_i=1; _i<=$10; _i++)
+    {
+        _data = g.dm_spawn[?dk_spawn+STR_Data+hex_str(_i)];
+        if (is_undefined(_data)) break;//_i
+        
+        if (string_pos("_Other_Objects_Can_Press",_data)!=0) other_objects_can_press = true;
+    }
+}
+
+GO_init_palidx(_pi);
 
 
 facing_dir = 1;

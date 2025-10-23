@@ -47,13 +47,14 @@ if (counter) // Opening
 
 // ------------------------------------------------------------------
 // D9BA
-                  global.pc.colliding_locked_door = $0; // 05E7
+global.pc.colliding_locked_door = $0; // 05E7
+
 if (cs&CS_BD1)
 {   // D9C3
     if(!pc_is_fairy()) pushback_pc_and_go(id);
     
     if (x<global.pc.x) global.pc.colliding_locked_door = $2;
-    else          global.pc.colliding_locked_door = $1;
+    else               global.pc.colliding_locked_door = $1;
     
     facing_dir = dir_to_pc(id);
 }

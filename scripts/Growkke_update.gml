@@ -8,7 +8,9 @@ var _PAD = 3;
 BodyHB_w =  8;
 BodyHB_h = (Segment_CanDraw_cnt<<3) - (_PAD<<1);
 BodyHB_xl =  x - (BodyHB_w>>1);
+BodyHB_xr = BodyHB_xl + BodyHB_w;
 BodyHB_yt = GROUND_Y - _PAD - BodyHB_h + draw_yoff;
+BodyHB_yb = BodyHB_yt + BodyHB_h;
 GOB_update_2();
 
 

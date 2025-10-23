@@ -778,8 +778,8 @@ o_name = "";
 
 // -----------------------------------------------------------------------------
 // GameObject  --------------------------------------------------------
-o_name = object_get_name(GameObject);
-data_go_prop1(    GameObject, "GameObject", spr_Placement_16x16);
+object=GameObject; o_name=object_get_name(object);
+data_go_prop1(object, "GameObject", spr_Placement_16x16);
 data_go_scr(  o_name,   0,   0,   0,   0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBa, CSa,   0,    0,   0, RSPc,    0,    0,    0,    0,    0,    0);
@@ -787,8 +787,8 @@ data_go_prop2(o_name+"01", PIa, HBa, CSa,   0,    0,   0, RSPc,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // GameObjectB  -------------------------------------------------------
-o_name = object_get_name(GameObjectB);
-data_go_prop1(    GameObjectB, "GameObjectB", spr_Placement_16x16);
+object=GameObjectB; o_name=object_get_name(object);
+data_go_prop1(object, "GameObjectB", spr_Placement_16x16);
 data_go_scr(  o_name,   GameObjectB_init, 0, GameObjectB_step,   0,   0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBa, CSa,   0,    0,   0, RSPc,    0,    0,    0,    0,    0,    0);
@@ -807,76 +807,76 @@ data_go_prop2(o_name+"01", PIa, HBa, CSa,   0,    0,   0, RSPc,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // Cutscene: Build Saria bridge  ----------------------------------
-o_name = object_get_name(Cutscene_SariaBridge);
-data_go_prop1(    Cutscene_SariaBridge, o_name, spr_Placement_16x16);
+object=Cutscene_SariaBridge; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_init, Cutscene_SariaBridge_init, Cutscene_SariaBridge_update);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: Build Magical-Key house  -----------------------------
-o_name = object_get_name(Cutscene_MagicalKeyHouse);
-data_go_prop1(    Cutscene_MagicalKeyHouse, o_name, spr_Placement_16x16);
+object=Cutscene_MagicalKeyHouse; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_init, Cutscene_MagicalKeyHouse_init, Cutscene_MagicalKeyHouse_update);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: Enter house through chimney/fireplace  -----------------------
-o_name = object_get_name(Cutscene_EnterFromChimney);
-data_go_prop1(    Cutscene_EnterFromChimney, o_name, spr_Placement_16x16);
+object=Cutscene_EnterFromChimney; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_init, Cutscene_EnterFromChimney_init_2, Cutscene_EnterFromChimney_update_1a);
 //data_go_scr(  o_name,   Cutscene_init, Cutscene_DaruniaChimney_init, Cutscene_DaruniaChimney_update);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: ShadowBoss scene controller  -----------------------
-o_name = object_get_name(Cutscene_ShadowBoss_1); // Pre-fight.
-data_go_prop1(    Cutscene_ShadowBoss_1, o_name, spr_Placement_16x16);
+object=Cutscene_ShadowBoss_1; o_name=object_get_name(object); // Pre-fight.
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_init, Cutscene_ShadowBoss_1_init, Cutscene_ShadowBoss_1_update);
 
-o_name = object_get_name(Cutscene_ShadowBoss_2); // Post-fight.
-data_go_prop1(    Cutscene_ShadowBoss_2, o_name, spr_Placement_16x16);
+object=Cutscene_ShadowBoss_2; o_name=object_get_name(object); // Post-fight.
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_init, Cutscene_ShadowBoss_2_init, Cutscene_ShadowBoss_2_update, 0, Cutscene_ShadowBoss_2_draw);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: Game end, waking Zelda  ----------------------------------
-o_name = object_get_name(Cutscene_GameEnd_1A);
-data_go_prop1(    Cutscene_GameEnd_1A, o_name, spr_Placement_16x16);
+object=Cutscene_GameEnd_1A; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_init, Cutscene_GameEnd_1A_init, Cutscene_GameEnd_1A_update, 0, Cutscene_GameEnd_1A_draw, Cutscene_GameEnd_1A_end);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: End Game Credits  ----------------------------------
-o_name = object_get_name(Cutscene_GameEnd_1B);
-data_go_prop1(    Cutscene_GameEnd_1B, o_name, spr_Placement_16x16);
+object=Cutscene_GameEnd_1B; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_init, Cutscene_GameEnd_1B_init, Cutscene_GameEnd_1B_update, 0, Cutscene_GameEnd_1B_draw);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: Moai opening its mouth  ----------------------------------
-o_name = object_get_name(Cutscene_MoaiOpenMouth_1);
-data_go_prop1(    Cutscene_MoaiOpenMouth_1, o_name, spr_Moai_mouth_1a_1);
+object=Cutscene_MoaiOpenMouth_1; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Moai_mouth_1a_1);
 data_go_scr(  o_name,   Cutscene_MoaiOpenMouth_init_1, Cutscene_MoaiOpenMouth_1_init_2, Cutscene_MoaiOpenMouth_1_update, Cutscene_MoaiOpenMouth_1_udp, Cutscene_MoaiOpenMouth_1_draw);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: Moai opening its mouth  ----------------------------------
-o_name = object_get_name(Cutscene_MoaiOpenMouth2);
-data_go_prop1(    Cutscene_MoaiOpenMouth2, o_name, spr_Moai_mouth_3a); // taller & wider mouth
+object=Cutscene_MoaiOpenMouth2; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Moai_mouth_3a); // taller & wider mouth
 data_go_scr(  o_name,   Cutscene_MoaiOpenMouth_init_1, Cutscene_MoaiOpenMouth2_init_2, Cutscene_MoaiOpenMouth2_update, Cutscene_MoaiOpenMouth_1_udp, Cutscene_MoaiOpenMouth2_draw);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: Water starts from source and falls to ground  ----------------------------------
-o_name = object_get_name(Cutscene_CreateWaterfall);
-data_go_prop1(    Cutscene_CreateWaterfall, o_name, spr_Placement_16x16);
+object=Cutscene_CreateWaterfall; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_CreateWaterfall_init_1, Cutscene_CreateWaterfall_init_2, Cutscene_CreateWaterfall_update, Cutscene_CreateWaterfall_udp, Cutscene_CreateWaterfall_draw, Cutscene_CreateWaterfall_end);
 
 
 // -----------------------------------------------------------------------------
 // Cutscene: Ground under PC crumbles  ----------------------------------
-o_name = object_get_name(Cutscene_FloorTrap_1);
-data_go_prop1(    Cutscene_FloorTrap_1, o_name, spr_Placement_16x16);
+object=Cutscene_FloorTrap_1; o_name=object_get_name(object);
+data_go_prop1(object, o_name, spr_Placement_16x16);
 data_go_scr(  o_name,   Cutscene_FloorTrap_1_init_1, Cutscene_FloorTrap_1_init_2, Cutscene_FloorTrap_1_update, 0, Cutscene_FloorTrap_1_draw, Cutscene_FloorTrap_1_end);
 
 
@@ -893,43 +893,43 @@ data_go_scr(  o_name,   Cutscene_FloorTrap_1_init_1, Cutscene_FloorTrap_1_init_2
 
 // -----------------------------------------------------------------------------
 // Challenge_BlockConfiguration  --------------------------------------------------------
-o_name = object_get_name(Challenge_BlockConfiguration);
-data_go_prop1(    Challenge_BlockConfiguration, "Challenge_BlockConfiguration", spr_Placement_16x16);
+object=Challenge_BlockConfiguration; o_name=object_get_name(object);
+data_go_prop1(object, "Challenge_BlockConfiguration", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_init, Challenge_BlockConfiguration_init, Challenge_BlockConfiguration_update, 0, 0, Challenge_BlockConfiguration_end);
 
 
 // -----------------------------------------------------------------------------
 // Challenge_IntermittentPlatformSequence  --------------------------------------------------------
-o_name = object_get_name(Challenge_IntermittentPlatformSequence);
-data_go_prop1(    Challenge_IntermittentPlatformSequence, "Challenge_IntermittentPlatformSequence", spr_Placement_16x16);
+object=Challenge_IntermittentPlatformSequence; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_IntermittentPlatformSequence", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_init, Challenge_IntermittentPlatformSequence_init, Challenge_IntermittentPlatformSequence_update, 0, Challenge_IntermittentPlatformSequence_draw, Challenge_IntermittentPlatformSequence_end);
 
 
 // -----------------------------------------------------------------------------
 // Challenge_SwitchA  --------------------------------------------------------
-o_name = object_get_name(Challenge_SwitchA);
-data_go_prop1(    Challenge_SwitchA, "Challenge_SwitchA", spr_Placement_16x16);
+object=Challenge_SwitchA; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_SwitchA", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_init, Challenge_SwitchA_init, Challenge_SwitchA_update, 0, 0, Challenge_SwitchA_end);
 
 
 // -----------------------------------------------------------------------------
 // Challenge_SwitchB  --------------------------------------------------------
-o_name = object_get_name(Challenge_SwitchB);
-data_go_prop1(    Challenge_SwitchB, "Challenge_SwitchB", spr_Placement_16x16);
+object=Challenge_SwitchB; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_SwitchB", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_init, Challenge_SwitchB_init, Challenge_SwitchB_update, 0, Challenge_SwitchB_draw, Challenge_SwitchB_end);
 
 
 // -----------------------------------------------------------------------------
 // Challenge_SwitchC  --------------------------------------------------------
-o_name = object_get_name(Challenge_SwitchC);
-data_go_prop1(    Challenge_SwitchC, "Challenge_SwitchC", spr_Placement_16x16);
+object=Challenge_SwitchC; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_SwitchC", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_init, Challenge_SwitchC_init, Challenge_SwitchC_update, 0, Challenge_SwitchC_draw, Challenge_SwitchC_end);
 
 
 // -----------------------------------------------------------------------------
-// Challenge_SwitchC  --------------------------------------------------------
-o_name = object_get_name(Challenge_SwitchD);
-data_go_prop1(    Challenge_SwitchD, "Challenge_SwitchD", spr_Placement_16x16);
+// Challenge_SwitchD  --------------------------------------------------------
+object=Challenge_SwitchD; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_SwitchD", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_init, Challenge_SwitchC_init, Challenge_SwitchC_update, 0, Challenge_SwitchC_draw, Challenge_SwitchC_end);
 
 
@@ -938,47 +938,47 @@ data_go_scr(  o_name,   Challenge_init, Challenge_SwitchC_init, Challenge_Switch
 // -----------------------------------------------------------------------------
 // TogglingPathDirectionA  --------------------------------------------------------
 // Path Router, tpr: Toggling Path Router, tpd: Toggling Path Direction
-o_name = object_get_name(TogglingPathDirectionA);
-data_go_prop1(    TogglingPathDirectionA, "TogglingPathDirectionA", spr_Placement_16x16);
+object=TogglingPathDirectionA; o_name=object_get_name(object);
+data_go_prop1(    object, "TogglingPathDirectionA", spr_Placement_16x16);
 data_go_scr(  o_name,   TogglingPathDirectionA_init1, TogglingPathDirectionA_init2, TogglingPathDirectionA_update, TogglingPathDirectionA_udp, TogglingPathDirectionA_draw, TogglingPathDirectionA_end);
 
 
 // -----------------------------------------------------------------------------
 // TogglingPathDirectionB  --------------------------------------------------------
-o_name = object_get_name(TogglingPathDirectionB);
-data_go_prop1(    TogglingPathDirectionB, "TogglingPathDirectionB", spr_Placement_16x16);
+object=TogglingPathDirectionB; o_name=object_get_name(object);
+data_go_prop1(    object, "TogglingPathDirectionB", spr_Placement_16x16);
 data_go_scr(  o_name,   TogglingPathDirectionB_init1, TogglingPathDirectionB_init2, TogglingPathDirectionB_update, TogglingPathDirectionB_udp, TogglingPathDirectionB_draw, TogglingPathDirectionB_end);
 
 
 // -----------------------------------------------------------------------------
 // Challenge_DefeatAllA  --------------------------------------------------------
-o_name = object_get_name(Challenge_DefeatAllA);
-data_go_prop1(    Challenge_DefeatAllA, "Challenge_DefeatAllA", spr_Placement_16x16);
+object=Challenge_DefeatAllA; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_DefeatAllA", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_DefeatAllA_init_1, Challenge_DefeatAllA_init_2, Challenge_DefeatAllA_update, 0, 0, Challenge_DefeatAllA_end);
 
 
 // -----------------------------------------------------------------------------
 // Challenge_LightTorchesA  --------------------------------------------------------
-o_name = object_get_name(Challenge_LightTorchesA);
-data_go_prop1(    Challenge_LightTorchesA, "Challenge_LightTorchesA", spr_Placement_16x16);
+object=Challenge_LightTorchesA; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_LightTorchesA", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_LightTorchesA_init_1, Challenge_LightTorchesA_init_2, Challenge_LightTorchesA_update, 0, 0, Challenge_LightTorchesA_end);
 
 // -----------------------------------------------------------------------------
 // Challenge_SpellSequenceA  --------------------------------------------------------
-o_name = object_get_name(Challenge_SpellSequenceA);
-data_go_prop1(    Challenge_SpellSequenceA, "Challenge_SpellSequenceA", spr_Placement_16x16);
+object=Challenge_SpellSequenceA; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_SpellSequenceA", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_SpellSequenceA_init_1, Challenge_SpellSequenceA_init_2, Challenge_SpellSequenceA_update, Challenge_SpellSequenceA_udp, Challenge_SpellSequenceA_draw, Challenge_SpellSequenceA_end);
 
 // -----------------------------------------------------------------------------
 // Challenge_PushableMatching1  --------------------------------------------------------
-o_name = object_get_name(Challenge_PushableMatching1);
-data_go_prop1(    Challenge_PushableMatching1, "Challenge_PushableMatching1", spr_Placement_16x16);
+object=Challenge_PushableMatching1; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_PushableMatching1", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_PushableMatching1_init_1, Challenge_PushableMatching1_init_2, Challenge_PushableMatching1_update, 0, Challenge_PushableMatching1_draw, Challenge_PushableMatching1_end);
 
 // -----------------------------------------------------------------------------
 // Challenge_Secret01  --------------------------------------------------------
-o_name = object_get_name(Challenge_Secret01);
-data_go_prop1(    Challenge_Secret01, "Challenge_Secret01", spr_Placement_16x16);
+object=Challenge_Secret01; o_name=object_get_name(object);
+data_go_prop1(    object, "Challenge_Secret01", spr_Placement_16x16);
 data_go_scr(  o_name,   Challenge_Secret01_init_1, Challenge_Secret01_init_2, Challenge_Secret01_update, Challenge_Secret01_udp, Challenge_Secret01_draw, Challenge_Secret01_end);
 
 
@@ -995,13 +995,13 @@ data_go_scr(  o_name,   Challenge_Secret01_init_1, Challenge_Secret01_init_2, Ch
 
 // -----------------------------------------------------------------------------
 // Switch  --------------------------------------------------------
-o_name = object_get_name(SwchA);
-data_go_prop1(    SwchA, "SwitchA", spr_Switch_part_1a_1);
+object=SwchA; o_name=object_get_name(object);
+data_go_prop1(    object, "SwitchA", spr_Switch_part_1a_1);
 data_go_scr(  o_name,   Switch_init, SwitchA_init2, SwitchA_update, SwitchA_udp, SwitchA_draw);
 
 
-o_name = object_get_name(SwchB);
-data_go_prop1(    SwchB, "SwitchB", spr_SwitchB_1a);
+object=SwchB; o_name=object_get_name(object);
+data_go_prop1(    object, "SwitchB", spr_SwitchB_1a);
 data_go_scr(  o_name,   Switch_init, SwitchB_init, SwitchB_update, SwitchB_udp, 0);
 
 
@@ -1013,8 +1013,8 @@ data_go_scr(  o_name,   Switch_init, SwitchB_init, SwitchB_update, SwitchB_udp, 
 
 // -----------------------------------------------------------------------------
 // RestoreFairy  --------------------------------------------------------
-o_name = object_get_name(ReFaA);
-data_go_prop1(    ReFaA, "RestoreFairy", g.dl_Fairy_SPRITES[|0]); // spr_FairyA
+object=ReFaA; o_name=object_get_name(object);
+data_go_prop1(    object, "RestoreFairy", g.dl_Fairy_SPRITES[|0]); // spr_FairyA
 data_go_scr(  o_name,   GameObjectB_init, RestoreFairy_init2, RestoreFairy_update, RestoreFairy_udp);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBc, CSc,   0,    0,   0, RSPc,    0,    0,    0,    0,    0,    0);
@@ -1022,8 +1022,8 @@ data_go_prop2(o_name+"01", PIa, HBc, CSc,   0,    0,   0, RSPc,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // ElevatorA  --------------------------------------------------------
-o_name = object_get_name(ElevA);
-data_go_prop1(    ElevA, "Elevator", spr_Placement_24x48);
+object=ElevA; o_name=object_get_name(object);
+data_go_prop1(    object, "Elevator", spr_Placement_24x48);
 data_go_scr(  o_name,   ElevatorA_init1, Elevator_init2, Elevator_update, Elevator_udp, Elevator_draw, Elevator_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBr, CSj,   0,    0,   0, RSPd,    0,    0,    0,    0,    0,    0);
@@ -1031,8 +1031,8 @@ data_go_prop2(o_name+"01", PIa, HBr, CSj,   0,    0,   0, RSPd,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // ElevatorB  --------------------------------------------------------
-o_name = object_get_name(ElevatorB);
-data_go_prop1(    ElevatorB, "ElevatorB", spr_Placement_24x48);
+object=ElevatorB; o_name=object_get_name(object);
+data_go_prop1(    object, "ElevatorB", spr_Placement_24x48);
 data_go_scr(  o_name,   ElevatorB_init1, ElevatorB_init2, ElevatorB_update, ElevatorB_udp, ElevatorB_draw, Elevator_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBr, CSj,   0,    0,   0, RSPd,    0,    0,    0,    0,    0,    0);
@@ -1040,8 +1040,8 @@ data_go_prop2(o_name+"01", PIa, HBr, CSj,   0,    0,   0, RSPd,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // LockedDoor  --------------------------------------------------------
-o_name = object_get_name(LoDoA);
-data_go_prop1(    LoDoA, "LockedDoor", spr_Locked_Door1B);
+object=LoDoA; o_name=object_get_name(object);
+data_go_prop1(    object, "LockedDoor", spr_Locked_Door1B);
 data_go_scr(  o_name,   GameObjectB_init, LockedDoor_init2, LockedDoor_update, LockedDoor_udp, LockedDoor_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBq, CSa,   0,    0,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -1051,8 +1051,8 @@ data_go_prop2(o_name+"03", PIa, HBq, CSa,   0,    0,   0,    0,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // ArenaGateA  --------------------------------------------------------
-o_name = object_get_name(ArenaGateA);
-data_go_prop1(    ArenaGateA, "ArenaGateA", spr_Placement_08x16);
+object=ArenaGateA; o_name=object_get_name(object);
+data_go_prop1(    object, "ArenaGateA", spr_Placement_08x16);
 data_go_scr(  o_name,   ArenaGateA_init1, ArenaGateA_init2, ArenaGateA_update, ArenaGateA_udp, ArenaGateA_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBq, CSa,   0,    0,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -1060,8 +1060,8 @@ data_go_prop2(o_name+"01", PIa, HBq, CSa,   0,    0,   0,    0,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // FallingBlock  --------------------------------------------------------
-o_name = object_get_name(FaBlA);
-data_go_prop1(    FaBlA, "FallingBlock", spr_Block_01a);
+object=FaBlA; o_name=object_get_name(object);
+data_go_prop1(    object, "FallingBlock", spr_Block_01a);
 data_go_scr(  o_name,   GameObjectB_init, FallingBlock_init2, FallingBlock_update, FallingBlock_udp);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIe, HBa, CSa,HPMax, $01,   0,    0,    0, SWDe,    0,    0,    0,    0);
@@ -1069,8 +1069,8 @@ data_go_prop2(o_name+"01", PIe, HBa, CSa,HPMax, $01,   0,    0,    0, SWDe,    0
 
 // -----------------------------------------------------------------------------
 // BlockB  --------------------------------------------------------
-o_name = object_get_name(BlckB);
-data_go_prop1(    BlckB, "BlockB", spr_Block_02a);
+object=BlckB; o_name=object_get_name(object);
+data_go_prop1(    object, "BlockB", spr_Block_02a);
 data_go_scr(  o_name,   GameObjectB_init, BlockB_init2, BlockB_update, BlockB_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIh, $66, CSh,   0,  $01,   0,    0,    0, SWDc,    0,    0,    0,    0);
@@ -1078,8 +1078,8 @@ data_go_prop2(o_name+"01", PIh, $66, CSh,   0,  $01,   0,    0,    0, SWDc,    0
 
 // -----------------------------------------------------------------------------
 // CrystalHolder  --------------------------------------------------------
-o_name = object_get_name(CrHoA);
-data_go_prop1(    CrHoA, "CrystalHolder", spr_Crystal_1a);
+object=CrHoA; o_name=object_get_name(object);
+data_go_prop1(    object, "CrystalHolder", spr_Crystal_1a);
 data_go_scr(  o_name,   GameObjectB_init, CrystalHolder_init2, CrystalHolder_update, CrystalHolder_udp);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBu, CSb,   0,    0,   0, RSPd,    0,    0,    0,    0,    0,    0);
@@ -1087,8 +1087,8 @@ data_go_prop2(o_name+"01", PIa, HBu, CSb,   0,    0,   0, RSPd,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // SpawnByStab  --------------------------------------------------------
-o_name = object_get_name(SpStA);
-data_go_prop1(    SpStA, "SpawnByStab", spr_Placement_16x16);
+object=SpStA; o_name=object_get_name(object);
+data_go_prop1(    object, "SpawnByStab", spr_Placement_16x16);
 data_go_scr(  o_name,   GameObjectB_init, SpawnByStab_init2, SpawnByStab_update, 0, 0);
 
 // Tested in OG: ENIGMA does turn a SpawnByStab into a Bot
@@ -1099,15 +1099,15 @@ data_go_prop2(o_name+"02", PIb, HBa, CSa,HPbf,  $00,   0, RSPc,    0, SWDa,    0
 
 // -----------------------------------------------------------------------------
 // Barrier  --------------------------------------------------------
-o_name = object_get_name(BarrA);
-data_go_prop1(    BarrA, "Barrier", spr_Barrier_1a);
+object=BarrA; o_name=object_get_name(object);
+data_go_prop1(    object, "Barrier", spr_Barrier_1a);
 data_go_scr(  o_name,   GameObjectB_init, Barrier_init2, Barrier_update, Barrier_udp, Barrier_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBs, CSa,   0,  $06,   0, RSPc,    0,    0,    0,    0,    0,    0);
 
 
-o_name = object_get_name(Barrier2);
-data_go_prop1(    Barrier2, "Barrier2", spr_Block_02a);
+object=Barrier2; o_name=object_get_name(object);
+data_go_prop1(    object, "Barrier2", spr_Block_02a);
 data_go_scr(  o_name,   Barrier2_init1, Barrier2_init2, Barrier2_update, Barrier2_udp, Barrier2_draw, Barrier2_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBa, CSa,   0,    0,   0, RSPc,    0,    0,    0,    0,    0,    0);
@@ -1116,8 +1116,8 @@ data_go_prop2(o_name+"01", PIa, HBa, CSa,   0,    0,   0, RSPc,    0,    0,    0
 // -----------------------------------------------------------------------------
 // Pushable  --------------------------------------------------------
 _ATK1 = $02;
-o_name = object_get_name(PushA);
-data_go_prop1(    PushA, "Pushable", spr_Placement_16x32);
+object=PushA; o_name=object_get_name(object);
+data_go_prop1(    object, "Pushable", spr_Placement_16x32);
 data_go_scr(  o_name,   GameObjectB_init, Pushable_init2, Pushable_update, 0, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa,   0, CSe,   0,_ATK1,   0, RSPd,    0, SWDc,    0,    0,    0,    0);
@@ -1127,8 +1127,8 @@ data_go_prop2(o_name+"03", PIa,   0, CSe,   0,_ATK1,   0, RSPd,    0, SWDc,    0
 
 // -----------------------------------------------------------------------------
 // PushableRefresher  --------------------------------------------------------
-o_name = object_get_name(PushableRefresher);
-data_go_prop1(    PushableRefresher, "PushableRefresher", spr_PillarHead01b);
+object=PushableRefresher; o_name=object_get_name(object);
+data_go_prop1(    object, "PushableRefresher", spr_PillarHead01b);
 data_go_scr(  o_name,   PushableRefresher_init1, PushableRefresher_init2, PushableRefresher_update, PushableRefresher_udp, PushableRefresher_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIe, HBa,   0,   0,    0,   0, RSPd,    0, SWDh,    0,    0,    0,    0);
@@ -1137,8 +1137,8 @@ data_go_prop2(o_name+"01", PIe, HBa,   0,   0,    0,   0, RSPd,    0, SWDh,    0
 // -----------------------------------------------------------------------------
 // SpikeTrap  --------------------------------------------------------
 _ATK1=$03; _ATK2=$06;
-o_name = object_get_name(SpTrA);
-data_go_prop1(    SpTrA, "SpikeTrapA", spr_Spike_ball_2a);
+object=SpTrA; o_name=object_get_name(object);
+data_go_prop1(    object, "SpikeTrapA", spr_Spike_ball_2a);
 data_go_scr(  o_name,   GameObjectB_init, SpikeTrapA_init2, SpikeTrapA_update, SpikeTrapA_udp, SpikeTrapA_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc,HBaa, CSf,   0,_ATK1,   0, RSPd,    0, SWDc,    0,    0,    0,    0);
@@ -1146,19 +1146,26 @@ data_go_prop2(o_name+"01", PIc,HBaa, CSf,   0,_ATK1,   0, RSPd,    0, SWDc,    0
 //data_go_prop2(o_name+"02", PIc,HBaa, CSf,   0,_ATK1,   0, RSPd,    0, SWDc,    0,    0,    0,    0); // Vertical
 
 
-o_name = object_get_name(SpTrB);
-data_go_prop1(    SpTrB, "SpikeTrapB", spr_Myu_2a);
+object=SpTrB; o_name=object_get_name(object);
+data_go_prop1(    object, "SpikeTrapB", spr_Myu_2a);
 data_go_scr(  o_name,   GameObjectB_init, SpikeTrapB_init2, SpikeTrapB_update, SpikeTrapB_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBx, CSg,   0,  $03,   0, RSPd,    0, SWDc,    0,    0,    0,    0); // Horizontal
 data_go_prop2(o_name+"02", PIc, HBx, CSg,   0,  $03,   0, RSPd,    0, SWDc,    0,    0,    0,    0); // Horizontal, Treats edges as walls
 
 
-o_name = object_get_name(SpTrC);
-data_go_prop1(    SpTrC, "SpikeTrapC", spr_Spike_ball_1a);
+object=SpTrC; o_name=object_get_name(object);
+data_go_prop1(    object, "SpikeTrapC", spr_Spike_ball_1a);
 data_go_scr(  o_name,   SpikeTrapC_init1, SpikeTrapC_init2, SpikeTrapC_update, SpikeTrapC_udp, SpikeTrapC_draw, SpikeTrapC_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, $51, CSf,   0,  $03,   0, RSPd,    0, SWDc,    0,    0,    0,    0); // 
+
+
+object=SpikeTrapD; o_name=object_get_name(object);
+data_go_prop1(object, "SpikeTrapD", spr_Placement_08x16);
+data_go_scr(  o_name,   SpikeTrapD_init1, SpikeTrapD_init2, SpikeTrapD_update, SpikeTrapD_udp, SpikeTrapD_draw, SpikeTrapD_end);
+//                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
+data_go_prop2(o_name+"01", PId,  -1, $00,   0,  $04,   0, RSPd,    0, SWDc,    0,    0,    0,    0); // 
 
 
 // -----------------------------------------------------------------------------
@@ -1180,8 +1187,8 @@ data_go_prop2(o_name+"02", PIe,  -1, $00,   0,  $00,   0, RSPd,    0, SWDc,    0
 // -----------------------------------------------------------------------------
 // FireRope  --------------------------------------------------------
 _bright1=2;
-o_name = object_get_name(FiRoA);
-data_go_prop1(    FiRoA, "FireRope", spr_Placement_08x08);
+object=FiRoA; o_name=object_get_name(object);
+data_go_prop1(    object, "FireRope", spr_Placement_08x08);
 data_go_scr(  o_name,   FireRope_init1, FireRope_init2, FireRope_update, FireRope_udp, FireRope_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa,  -1,   0,   0,  $03,   0, RSPd,    0,    0,    0,    0,    0,    0,    _bright1); // 
@@ -1189,16 +1196,16 @@ data_go_prop2(o_name+"01", PIa,  -1,   0,   0,  $03,   0, RSPd,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // PlatformA  --------------------------------------------------------
-o_name = object_get_name(PlatformA);
-data_go_prop1(    PlatformA, "PlatformA", spr_Placement_24x08);
+_obj=PlatformA; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "PlatformA", spr_Placement_24x08);
 data_go_scr(  o_name,   PlatformA_init_1, PlatformA_init_2, PlatformA_update, PlatformA_udp, PlatformA_draw, PlatformA_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa,HBab, CSk,   0,    0,   0, RSPd,    0,    0,    0,    0,    0,    0);
 data_go_prop2(o_name+"02", PIa,HBab, CSk,   0,    0,   0, RSPd,    0,    0,    0,    0,    0,    0);
 
 // PlatformB  --------------------------------------------------------
-o_name = object_get_name(PlatformB);
-data_go_prop1(    PlatformB, "PlatformB", spr_cloud_2a);
+_obj=PlatformB; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "PlatformB", spr_cloud_2a);
 data_go_scr(  o_name,   PlatformB_init_1, PlatformB_init_2, PlatformB_update, PlatformB_udp, PlatformB_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, $55,   0,   0,    0,   0, RSPd,    0,    0,    0,    0,    0,    0);
@@ -1206,16 +1213,16 @@ data_go_prop2(o_name+"02", PIa, HBh,   0,   0,    0,   0, RSPd,    0,    0,    0
 
 
 // PlatformCloud  --------------------------------------------------------
-o_name = object_get_name(PlatformCloud);
-data_go_prop1(    PlatformCloud, "PlatformCloud", spr_Placement_08x08);
+_obj=PlatformCloud; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "PlatformCloud", spr_Placement_08x08);
 data_go_scr(  o_name,   PlatformCloud_init1, PlatformCloud_init2, PlatformCloud_update, PlatformCloud_udp, PlatformCloud_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01",  -1,HB00,   0,   0,    0,   0, RSPd,    0,    0,    0,    0,    0,    0);
 
 
 // PlatformRaft  --------------------------------------------------------
-o_name = object_get_name(PlatformRaft);
-data_go_prop1(    PlatformRaft, "PlatformRaft", spr_Placement_64x08);
+_obj=PlatformRaft; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "PlatformRaft", spr_Placement_64x08);
 //data_go_prop1(    PlatformRaft, "PlatformRaft", spr_Placement_08x08);
 data_go_scr(  o_name,   PlatformRaft_init_1, PlatformRaft_init_2, PlatformRaft_update, PlatformRaft_udp, PlatformRaft_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
@@ -1224,8 +1231,8 @@ data_go_prop2(o_name+"01",  -1,HB00,   0,   0,    0,   0, RSPd,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // TorchA  --------------------------------------------------------
-o_name = object_get_name(TorchA);
-data_go_prop1(    TorchA, "TorchA", spr_Torch_1a);
+_obj=TorchA; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "TorchA", spr_Torch_1a);
 data_go_scr(  o_name,   TorchA_init1, TorchA_init2, TorchA_update, TorchA_udp, TorchA_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIe,HBac, CSc,HPbf,    0,   0, RSPd,    0, SWDe, PRJb,    0,    0,    0,    1);
@@ -1235,8 +1242,8 @@ data_go_prop2(o_name+"03", PIe,HBac, CSc,HPbf,    0,   0, RSPd,    0, SWDe, PRJb
 
 // -----------------------------------------------------------------------------
 // Cucco  --------------------------------------------------------
-o_name = object_get_name(Cucco);
-data_go_prop1(    Cucco, "Cucco", spr_Placement_16x16);
+_obj=Cucco; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "Cucco", spr_Placement_16x16);
 data_go_scr(  o_name,   Cucco_init, Cucco_init2, Cucco_update, Cucco_udp, Cucco_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa,HBaf, CSn,HPbf,    0,   0, RSPd,    0, SWDa, PRJb,    0,    0,    0);
@@ -1244,8 +1251,8 @@ data_go_prop2(o_name+"01", PIa,HBaf, CSn,HPbf,    0,   0, RSPd,    0, SWDa, PRJb
 
 // -----------------------------------------------------------------------------
 // Eyenocc  --------------------------------------------------------
-o_name = object_get_name(Eyenocc);
-data_go_prop1(    Eyenocc, "Eyenocc", spr_Eyenocc01_1);
+_obj=Eyenocc; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "Eyenocc", spr_Eyenocc01_1);
 data_go_scr(  o_name,   Eyenocc_init1, Eyenocc_init2, Eyenocc_update, Eyenocc_udp, Eyenocc_draw, Eyenocc_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIh, $66, CSh,HPMax,   0,   0,    0,    0, SWDa, PRJd,    0,    0,    0);
@@ -1258,8 +1265,8 @@ data_go_prop2(o_name+"01", PIh, $66, CSh,HPMax,   0,   0,    0,    0, SWDa, PRJd
 
 // -----------------------------------------------------------------------------
 // MiniGame  ------------------------------------------------
-o_name = object_get_name(MnGmA);
-data_go_prop1(    MnGmA, "MiniGame_A", spr_Placement_16x16);
+_obj=MnGmA; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "MiniGame_A", spr_Placement_16x16);
 data_go_scr(  o_name,   init_MiniGame, MiniGameA_init, MiniGameA_update, 0, MiniGameA_draw, MiniGame_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01",   0, HBt,   0,   0,    0,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -1268,8 +1275,8 @@ data_go_prop2(o_name+"02",   0, HBt,   0,   0,    0,   0,    0,    0,    0,    0
 
 // -----------------------------------------------------------------------------
 // Mini-game Target  ------------------------------------------------
-o_name = object_get_name(TargA);
-data_go_prop1(    TargA, "MiniGame_Target_A", spr_Placement_16x16);
+_obj=TargA; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "MiniGame_Target_A", spr_Placement_16x16);
 data_go_scr(  o_name,   Target_init, TargetA_init2, TargetA_update, TargetA_udp, 0);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PId, HBa, CSa,   0,    0,   0,    0,    0, SWDb,    0, THNb,    0,    0);
@@ -1286,8 +1293,8 @@ data_go_prop2(o_name+"02", PId, HBa, CSa,   0,    0,   0, RSPb,    0, SWDa, PRJc
 // -----------------------------------------------------------------------------
 // Item  --------------------------------------------------------
 _HB1 = HBag; // HBag: Item(width==16)
-o_name = object_get_name(Item);
-data_go_prop1(    Item, "Item", spr_Placement_16x16);
+_obj=Item; o_name=object_get_name(_obj);
+data_go_prop1(    _obj, "Item", spr_Placement_16x16);
 data_go_scr(  o_name,   Item_init, Item_init_2, Item_update, Item_udp, Item_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIa, HBc, CSa,   0,    0,   0,    0,    0,    0,    0,    0,    0,    0);
@@ -2297,8 +2304,8 @@ data_REFLECT_vuln(o_name+"01", object_get_name(Axe)+"01", object_get_name(Bullet
 
 // -----------------------------------------------------------------------------
 // Boon  --------------------------------------------------------
-o_name = object_get_name(BoonA);
-data_go_prop1(    BoonA, "Boon", spr_Boon1);
+o_name = object_get_name(Boon01);
+data_go_prop1(    Boon01, "Boon", spr_Boon1);
 data_go_scr(  o_name,   GameObjectB_init, Boon_init2, Boon_update, Boon_udp, Boon_draw);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIc, HBa, CSa, $06,  $02, $10, RSPc, DRPc, SWDa, PRJc, THNb, SPLa,    0);

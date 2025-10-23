@@ -4,6 +4,8 @@
 GameObjectB_init();
 scr_step = ArenaGateA_step;
 
+can_draw_self_exception = true;
+
 ST_CTRL = state_DROP+1;
 
 

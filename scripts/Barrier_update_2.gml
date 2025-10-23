@@ -20,10 +20,12 @@ if (!global.pc.is_dead
             if (dg_barrier[#_i+1,0]) continue; // Already raised
             
             
+            BodyHB_w  = BARRIER_W;
+            BodyHB_h  = BARRIER_H;
             BodyHB_xl = spawn_xl + ((BARRIER_W+BARRIER_PAD) * _i);
+            BodyHB_xr = BodyHB_xl + BodyHB_w;
             BodyHB_yt = spawn_yt;
-            BodyHB_w = BARRIER_W;
-            BodyHB_h = BARRIER_H;
+            BodyHB_yb = BodyHB_yt + BodyHB_h;
             if (collide_pc_body(BodyHB_xl,BodyHB_yt, BodyHB_w,BodyHB_h))
             {    cs |=  CS_BD1;  }
             else cs &= ~CS_BD1;

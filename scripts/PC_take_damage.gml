@@ -10,12 +10,10 @@ if (global.pc.iframes_timer)
 var _INST = argument[0];
 
 var                   _ALT_DMG = undefined;
-//var                   _ALT_DMG = -1;
 if (argument_count>1) _ALT_DMG = argument[1];
 
 if(!_INST 
 &&  is_undefined(_ALT_DMG) )
-//&& !_ALT_DMG )
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -37,7 +35,6 @@ if (_INST)
 var _damage = 0;
 
 if(!is_undefined(_ALT_DMG))
-//if (_ALT_DMG+1)
 {
     _damage = _ALT_DMG;
 }

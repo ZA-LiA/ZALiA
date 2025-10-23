@@ -39,13 +39,13 @@ if (Register_cursor<SAVE_FILE_MAX) // SAVE FILE
         ||  input_start_pressed )
         {
             var              _IDX  = Register_file_num-1;
-            f.dl_save_names[|_IDX] = string_delete(      f.dl_save_names[|_IDX], cursor_name+1, 1);
+            f.dl_save_names[|_IDX] = string_delete(      f.dl_save_names[|_IDX], REGISTER_new_save_file_name+1, 1);
             
-            _val = string_char_at(REGI_CHARS,cursor_char+1);
-            f.dl_save_names[|_IDX] = string_insert(_val, f.dl_save_names[|_IDX], cursor_name+1);
+            _val = string_char_at(CharTable_CHARS,CharTable_cursor_char+1);
+            f.dl_save_names[|_IDX] = string_insert(_val, f.dl_save_names[|_IDX], REGISTER_new_save_file_name+1);
         }
         
-        cursor_name = (cursor_name+1+SAVE_NAME_CHAR_LIMIT) mod SAVE_NAME_CHAR_LIMIT;
+        REGISTER_new_save_file_name = (REGISTER_new_save_file_name+1+SAVE_NAME_CHAR_LIMIT) mod SAVE_NAME_CHAR_LIMIT;
         aud_play_sound(get_audio_theme_track(CONFIRM_SOUND_THEME1));
     }
     else if (Input.pressedHV)

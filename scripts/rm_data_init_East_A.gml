@@ -946,7 +946,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'070', STR_ow_ax
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+'1', $0000, 3, StarSky_1_init); // 
 data_spawn(rm+STR_PRXM,TektA,$1,  x0,(row0+$14)<<3); // $AB: Tektite  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $28<<3,(row0+$08)<<3); // $8D: Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $28<<3,(row0+$08)<<3); // $8D: Boon  1 
 
 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$17,  0); // RGT 0, 
@@ -1169,7 +1169,7 @@ data_spawn(rm+STR_PRXM,TektA,$1,  $120,$B0); // $AB: Tektite  1
 data_spawn(rm+STR_PRXM,TektA,$1,  $290,$B0); // $AB: Tektite  1 
 
 data_spawn(rm+STR_PRXM,TektA,$1,  $80,$B0,STR_Strong+STR_Encounter); // $AB: Tektite  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $180,$40,STR_Strong+STR_Encounter); // $8D: Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $180,$40,STR_Strong+STR_Encounter); // $8D: Boon  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $260,$B0,STR_Strong+STR_Encounter); // $AB: Tektite  1 
 
 
@@ -1421,8 +1421,8 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_
 
 y3 = (row0+$08)<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-data_spawn(rm+STR_PRXM,BoonA,$1,  $18<<3,y3); // $8D: Boon  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $40<<3,y3); // $8D: Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $18<<3,y3); // $8D: Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $40<<3,y3); // $8D: Boon  1 
 
 
 row3  = row0+$08;
@@ -1668,13 +1668,13 @@ data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 data_spawn(rm+STR_PRXM,GiruA,$1,  $30,$80); // $99: Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $70,$A0); // $99: Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $E0,$90); // $99: Girubokku  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $130,$40); // $8D: Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $130,$40); // $8D: Boon  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $1D0,$90); // $99: Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $230,$A0); // $99: Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $290,$90); // $99: Girubokku  1 
 
 data_spawn(rm+STR_PRXM,Octorok01,$1,  $40,$B0,STR_Strong+STR_Encounter); // $A8: Octorok  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $150,$40,STR_Strong+STR_Encounter); // $8D: Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $150,$40,STR_Strong+STR_Encounter); // $8D: Boon  1 
 data_spawn(rm+STR_PRXM,Octorok01,$2,  $230,$B0,STR_Strong+STR_Encounter); // $A8: Octorok  2 
 data_spawn(rm+STR_PRXM,Octorok01,$1,  $290,$B0,STR_Strong+STR_Encounter); // $A8: Octorok  1 
 
@@ -1741,7 +1741,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_
 
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-data_spawn(rm+STR_PRXM,BoonA,$1,  $26<<3,(row0+$08)<<3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $26<<3,(row0+$08)<<3); // Boon  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $06<<3,(row0+$10)<<3); // Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $0E<<3,(row0+$14)<<3); // Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $1C<<3,(row0+$12)<<3); // Girubokku  1 
@@ -1751,8 +1751,8 @@ data_spawn(rm+STR_PRXM,GiruA,$1,  $52<<3,(row0+$12)<<3); // Girubokku  1
 
 data_spawn(rm+STR_PRIO,SpRoA,$1,  $00<<3,$00<<3,STR_Strong+STR_Encounter); // RockSpawner  1 
 //data_spawn(rm+STR_PRIO,SpRoA,$1,  $00<<3,$00<<3,STR_Strong+STR_Encounter); // RockSpawner  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $20<<3,(row0+$08)<<3,STR_Strong+STR_Encounter); // Boon  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $40<<3,(row0+$08)<<3,STR_Strong+STR_Encounter); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $20<<3,(row0+$08)<<3,STR_Strong+STR_Encounter); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $40<<3,(row0+$08)<<3,STR_Strong+STR_Encounter); // Boon  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $06<<3,(row0+$10)<<3,STR_Strong+STR_Encounter); // Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $0E<<3,(row0+$14)<<3,STR_Strong+STR_Encounter); // Girubokku  1 
 data_spawn(rm+STR_PRXM,GiruA,$1,  $1C<<3,(row0+$12)<<3,STR_Strong+STR_Encounter); // Girubokku  1 
@@ -1790,7 +1790,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 y3 = (row0+$8)<<3;
-data_spawn(rm+STR_PRXM,BoonA,$1,  $20<<3,y3); // $8D: Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $20<<3,y3); // $8D: Boon  1 
 
 
 row3 = row2-2;
@@ -1991,14 +1991,14 @@ data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 row3 = row0+$17;
 y3  = (row0+$08)<<3;
 y4  = row3<<3;
-data_spawn(rm+STR_PRXM,BoonA,$1,  clm1<<3,y3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  clm1<<3,y3); // Boon  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $1A<<3,y4); // Tektite  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $24<<3,y4); // Tektite  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $52<<3,y4); // Tektite  1 
 
 data_spawn(rm+STR_PRIO,SpRoA,$1,  $00<<3,$00<<3,STR_Strong+STR_Encounter); // RockSpawner  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $20<<3,y3,STR_Strong+STR_Encounter); // Boon  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $40<<3,y3,STR_Strong+STR_Encounter); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $20<<3,y3,STR_Strong+STR_Encounter); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $40<<3,y3,STR_Strong+STR_Encounter); // Boon  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $10<<3,y4,STR_Strong+STR_Encounter); // Tektite  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $22<<3,y4,STR_Strong+STR_Encounter); // Tektite  1 
 data_spawn(rm+STR_PRXM,TektA,$1,  $42<<3,y4,STR_Strong+STR_Encounter); // Tektite  1 
@@ -2591,8 +2591,8 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_
 
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
 y3 = (row0+$08)<<3;
-data_spawn(rm+STR_PRXM,BoonA,$1,  $10<<3,y3); // Boon  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $70<<3,y3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $10<<3,y3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $70<<3,y3); // Boon  1 
 y3 = (row0+$12)<<3;
 y4 = (row0+$14)<<3;
 y5 = (row0+$16)<<3;
@@ -3888,7 +3888,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,CloudCover1_init, -1, 5); // 5: 
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init); // 
 data_Platform(PlatformRaft,1,  $00<<3,y5, _pi); // RAFT
 _a=4; _dist1=rm_w div _a;
-for(_a=_a-1; _a>0; _a--) data_spawn(rm+STR_PRXM,BoonA,$1,  _dist1*_a,(row0+$08)<<3); // Boon  1 
+for(_a=_a-1; _a>0; _a--) data_spawn(rm+STR_PRXM,Boon01,$1,  _dist1*_a,(row0+$08)<<3); // Boon  1 
 data_spawn(rm+STR_PRIO,SpBaA,$2,  $00<<3,$00<<3); // BagoSpawner  2.  Bago depth behind water
 
 
@@ -3919,7 +3919,7 @@ data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,CloudCover1_init, -1, 5); // 5: 
 data_NIAO_1a(rm+STR_NIAO+string(_a++), $0000, 1,Cloud_1_init); // 
 data_Platform(PlatformRaft,1,  $00<<3,y5, _pi); // RAFT
 _a=4; _dist1 = rm_w div _a;
-for(_a=_a-1; _a>0; _a--) data_spawn(rm+STR_PRXM,BoonA,$1,  _dist1*_a,(row0+$08)<<3); // Boon  1 
+for(_a=_a-1; _a>0; _a--) data_spawn(rm+STR_PRXM,Boon01,$1,  _dist1*_a,(row0+$08)<<3); // Boon  1 
 data_spawn(rm+STR_PRIO,Spawner_Boggnipp,$1,  $00<<3,(row0+$18)<<3); // Boggnipp01 Spawner
 
 
@@ -4634,8 +4634,8 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR2_, STR_Tile+area_
 
 row3=row0+$18; y3=(row0+$08)<<3;
 data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init);
-data_spawn(rm+STR_PRXM,BoonA,$1,  $1F<<3,y3); // Boon  1 
-data_spawn(rm+STR_PRXM,BoonA,$1,  $3F<<3,y3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $1F<<3,y3); // Boon  1 
+data_spawn(rm+STR_PRXM,Boon01,$1,  $3F<<3,y3); // Boon  1 
 data_spawn(rm+STR_PRXM,Boggnipp01,$1,  $32<<3,(row0+$1A)<<3); // Boggnipp01
 
 
@@ -5837,9 +5837,9 @@ row3=row0+$18;  y3=(row3+$02)<<3;  y4=(row0+$08)<<3;
 data_NIAO_1a(rm+STR_NIAO+"0", $0000, 1,Cloud_1_init); // 
 data_spawn(rm+STR_PRIO,SpMoA,$1,  $00<<3,(row0+$08)<<3); // MobySpawner  1 
 data_spawn(rm+STR_PRIO,Spawner_Boggnipp,$1,  $00<<3,y3); // Boggnipp01 Spawner
-//data_spawn(rm+STR_PRXM,BoonA,$1,  $1F<<3,y4); // Boon  1 
-//data_spawn(rm+STR_PRXM,BoonA,$1,  $3F<<3,y4); // Boon  1 
-//data_spawn(rm+STR_PRXM,BoonA,$1,  $5F<<3,y4); // Boon  1 
+//data_spawn(rm+STR_PRXM,Boon01,$1,  $1F<<3,y4); // Boon  1 
+//data_spawn(rm+STR_PRXM,Boon01,$1,  $3F<<3,y4); // Boon  1 
+//data_spawn(rm+STR_PRXM,Boon01,$1,  $5F<<3,y4); // Boon  1 
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to Overworld

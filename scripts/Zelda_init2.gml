@@ -4,6 +4,8 @@
 var _i, _a, _datakey;
 
 
+can_draw_self_exception = true;
+
 // Two Zelda's are spawned to this room, only 1 can remain..
 if (g.rm_name!=val(g.dm_rm[?"GameEnd1B_RM_NAME"]))
 //if (g.rm_name!=g.GameEnd1B_RM_NAME)

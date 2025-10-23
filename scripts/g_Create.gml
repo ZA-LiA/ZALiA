@@ -227,6 +227,9 @@ ShieldHB_COLOR              = c_yellow;
 SwordHB_COLOR               = c_green;
 
 dev_invState = 0; // For testing. The state of pc's invulnerability. 0: Off. 1: No dmg. 2: NOT collidable
+DevDash_state    = 0; // 0: Off, 1: On, 2: On and dash input held
+DoubleJump_state = false;
+use_StabToCheat  = false;
 
 //global.AppPause_unpause_key = vk_escape;
 app_paused    = false;
@@ -234,15 +237,130 @@ app_adv_frame = false;
 adv_frame_held_counter = 0;
 
 
+
+
+
+/* ---- Solid Collision System v2 ----
+2025/10/17. Currently, because instances that act as solids might not 
+be aligned with the solids grid (occupying only a part of a tile), solid collision 
+checking is quite complicated (relative to simply checking `global.dg_solids`).
+This new system aims to make the collision check as simple as just checking the 
+value in `global.dg_solids`.
+
+Forseen issue: ONE-WAY solid data will need its own grid or map.
+Potential issue: 
+  If a solid object's BodyHB clips into a solid wall and then 
+  performs its solid update, the solid wall would lose its solid value once the solid object moves away.
+  `global.dg_solids_def` could be used to make sure solid wall tiles are restored if accidentally removed.
+//
+
+Each of the 64 pixels in an 8x8 tile/square is solid can be tracked in a 64-bit integer.
+Each byte of the integer represents an x-axis pixel(pixel clm) of an 8x8 tile.
+Each bit of that byte represents a y-axis pixel(pixel row) within that clm of the 8x8 tile.
+
+This could be considered backward, but I feel is easier to understand when visualizing the bytes and bits:
+XL&$7 =     0        1        2        3        4        5        6        7
+XR&$7 =     1        2        3        4        5        6        7
+Bytes:  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+YT&$7 = 01234567 01234567 01234567 01234567 01234567 01234567 01234567 01234567
+YB&$7 = 1234567  1234567  1234567  1234567  1234567  1234567  1234567  1234567
+
+
+
+
+if (BodyHB_xl<g.rm_w 
+&&  BodyHB_xr 
+&&  BodyHB_yt<g.rm_h 
+&&  BodyHB_yb )
+{
+    var _HB_XL = clamp(BodyHB_xl,      0,g.rm_w-1);
+    var _HB_XR = clamp(BodyHB_xr, _HB_XL,g.rm_w-1);
+    var _HB_W  = _HB_XR - _HB_XL;
+    
+    var _HB_YT = clamp(BodyHB_yt,      0,g.rm_h-1);
+    var _HB_YB = clamp(BodyHB_yb, _HB_YT,g.rm_h-1);
+    var _HB_H  = _HB_YB - _HB_YT;
+    
+    if (_HB_W>>3   // at least 8 in length
+    &&  _HB_H>>3 ) // at least 8 in length
+    {
+        //ds_grid_set_region(global.dg_solids, _HB_XL>>3, _HB_YT>>3, max(_HB_XL>>3, (_HB_XR>>3)-(_HB_XR&$7==0)), max(_HB_YT>>3, (_HB_YB>>3)-(_HB_YB&$7==0)), $0);
+        
+        if ((_HB_XL&$7==0 || (_HB_XR>>3)-((_HB_XL>>3)+1)) 
+        &&  (_HB_YT&$7==0 || (_HB_YB>>3)-((_HB_YT>>3)+1)) )
+        {   // For tiles fully occupied by this object
+            ds_grid_set_region(global.dg_solids, (_HB_XL>>3)+(_HB_XL&$7!=0), (_HB_YT>>3)+(_HB_YT&$7!=0), (_HB_XR>>3)-1, (_HB_YB>>3)-1, $FFFFFFFFFFFFFFFF);
+        }
+        
+        
+        if (_HB_XL&$7 
+        ||  _HB_XR&$7  
+        ||  _HB_YT&$7 
+        ||  _HB_YB&$7 )
+        {   // For tiles only partially occupied by this object
+            var _i,_j, _x,_y, _xl,_xr, _yt,_yb, _byte, _bits;
+            var _CLMS = (_HB_W>>3) + ((_HB_XL&$7)!=0) + ((_HB_XR&$7)!=0);
+            var _ROWS = (_HB_H>>3) + ((_HB_YT&$7)!=0) + ((_HB_YB&$7)!=0);
+            for(_i=0; _i<_CLMS; _i++) // each `dg_solids` clm
+            {
+                for(_j=0; _j<_ROWS; _j++) // each `dg_solids` row
+                {
+                    _x = min(_HB_XR, _HB_XL+(_i<<3));
+                    _y = min(_HB_YB, _HB_YT+(_j<<3));
+                    if (dg_solids[#_x>>3,_y>>3])
+                    {
+                        if!(_HB_YB&$7) break;//_j. The remaining rows of this clm were already set above with `ds_grid_set_region`
+                        else if (_j<_ROWS-2) _j = _ROWS - 2;
+                        continue;//_j
+                    }
+                    
+                    
+                    _xl = max(_HB_XL,  (_x>>3)   <<3);
+                    _xr = min(_HB_XR, ((_x>>3)+1)<<3);
+                    _yt = max(_HB_YT,  (_y>>3)   <<3);
+                    _yb = min(_HB_YB, ((_y>>3)+1)<<3);
+                    
+                    // First byte (from the right) to start including bits to
+                    if (_xr&$7) _byte = 8 - (_xr&$7);
+                    else        _byte = 0;
+                    
+                    if (_yb&$7) _bits = $FF00;
+                    else        _bits = $00FF;
+                    _bits  = _bits >>max(_yt&$7,_yb&$7)
+                    _bits &= $FF;
+                    
+                    repeat(_xr-_xl) dg_solids[#_x>>3,_y>>3] |= _bits<<(_byte++<<3);
+                }
+                
+                if(!(_HB_YT&$7) 
+                && !(_HB_YB&$7) )
+                {
+                    if!(_HB_XR&$7) break;//_i. The remaining tiles were already set above with `ds_grid_set_region`
+                    else if (_i<_CLMS-2) _i = _CLMS - 2;
+                    continue;//_i
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// Checking if a point is colliding:
+var _val = dg_solids[#_px>>3,_py>>3];
+_val = (_val>>(7-(_px&$7))) &$FF; // byte of y bits
+is_colliding = _val & ($1<<(7-(_py&$7)));
+*/
+global.SCSv2_LIVE = false;
+
+
+
+
 // For UI like FileSelect, ContinueSave, ..
 // 1: Mostly works like OG where select button is pressed to move the cursor
 // 2: d-pad up and down can also move the cursor
 global.GUI_NAV1_VER = 2;
-
-
-DevDash_state    = 0; // 0: Off, 1: On, 2: On and dash input held
-DoubleJump_state = false;
-use_StabToCheat  = false;
 
 _TwT_=ROOM_SPEED_BASE*60; // 1 min in frames
 _YwY_=false;
@@ -1189,6 +1307,16 @@ dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+S
 dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
 
 _ts = ts_DungeonAlt06;
+ds_list_add(dl_tileset,_ts);
+_name = background_get_name(_ts);
+dm_tileset[?_name] = _ts;
+dm_tileset[?_name+STR_Tile+STR_Width]  = $08;
+dm_tileset[?_name+STR_Tile+STR_Height] = $08;
+dm_tileset[?_name+STR_Clms] = background_get_width( _ts) div dm_tileset[?_name+STR_Tile+STR_Width];
+dm_tileset[?_name+STR_Rows] = background_get_height(_ts) div dm_tileset[?_name+STR_Tile+STR_Height];
+dm_tileset[?_name+STR_Tile+STR_Count] = dm_tileset[?_name+STR_Clms] * dm_tileset[?_name+STR_Rows];
+
+_ts = ts_DungeonAlt07;
 ds_list_add(dl_tileset,_ts);
 _name = background_get_name(_ts);
 dm_tileset[?_name] = _ts;
@@ -3256,7 +3384,7 @@ ds_list_add( dl_RandoEnemy_OBJVER1, object_get_name(SpTrC)+"01"); // Spinning sp
 //"Snaraa01",
 //"GeruB01",
             dl_RandoEnemy_OBJVER2=ds_list_create(); // Flying Enemies
-ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(BoonA)+"01");
+ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(Boon01)+"01");
 ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(BubbA)+"01",object_get_name(BubbA)+"02",object_get_name(BubbA)+"08");
 ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(GiruA)+"01");
 ds_list_add(dl_RandoEnemy_OBJVER2, object_get_name(Moa_A)+"01",object_get_name(Moa_A)+"02");

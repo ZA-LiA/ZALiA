@@ -4,8 +4,6 @@
 if(!can_draw_self) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-pal_swap_set(global.palette_image, palidx);
-
 if (ver==2)
 {
     if(!surface_exists(Wall_surf))
@@ -54,14 +52,14 @@ if (ver==2)
     }
     
     
+    pal_swap_set(global.palette_image, palidx);
     draw_surface(Wall_surf, drawX-ww_, drawY-hh_);
+    pal_swap_reset();
 }
 else
 {
-    GO_draw_sprite(sprite);
+    GO_draw_sprite(sprite, palidx);
 }
-
-pal_swap_reset();
 
 
 
