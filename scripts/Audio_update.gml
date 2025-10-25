@@ -186,6 +186,9 @@ if(keyboard_check_pressed(vk_f4))
     //aud_play_sound(snd_ZeldaII_BassNote01);
     //Audio.testing_num=(Audio.testing_num+1) mod $F;
     //aud_play_combo1(Audio.testing_num);
+    //aud_play_combo1($14);
+    var _COUNT1=$17; show_debug_message("Audio_update(). "+"Audio.testing_num=$"+hex_str(Audio.testing_num));
+    aud_play_combo1(Audio.testing_num); Audio.testing_num=(Audio.testing_num+1) mod _COUNT1;
 }
 */
 

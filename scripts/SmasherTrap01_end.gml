@@ -36,6 +36,21 @@ var _exists = false;
 
 
 
+if (Trigger_type==2)
+{
+    if (surface_exists(Trigger_surf)) surface_free(Trigger_surf);
+    
+    
+        _exists=variable_instance_exists(id,"Trigger_dg_tsrc");
+    if (_exists) _exists = !is_undefined(    Trigger_dg_tsrc);
+    if (_exists) _exists = ds_exists(        Trigger_dg_tsrc,ds_type_grid);
+    if (_exists)           ds_grid_destroy(  Trigger_dg_tsrc);
+    if (_exists)                             Trigger_dg_tsrc=undefined;
+}
+
+
+
+
 if (ver==2)
 {
     if (surface_exists(Wall_surf)) surface_free(Wall_surf);

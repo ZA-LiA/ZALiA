@@ -3,9 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1195" name="datafiles">
-    <datafiles number="1195" name="rm_tile_data">
-      <datafiles number="1195" name="Title">
+  <datafiles number="1197" name="datafiles">
+    <datafiles number="1197" name="rm_tile_data">
+      <datafiles number="1197" name="Title">
         <datafile>
           <name>Title_000.json</name>
           <exists>-1</exists>
@@ -24,7 +24,7 @@
           <filename>Title_000.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="WestA">
+      <datafiles number="1197" name="WestA">
         <datafile>
           <name>WestA_000.json</name>
           <exists>-1</exists>
@@ -1420,7 +1420,7 @@
           <filename>WestA_254.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="EastA">
+      <datafiles number="1197" name="EastA">
         <datafile>
           <name>EastA_000.json</name>
           <exists>-1</exists>
@@ -3445,7 +3445,7 @@
           <filename>EastA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="DthMt">
+      <datafiles number="1197" name="DthMt">
         <datafile>
           <name>DthMt_000.json</name>
           <exists>-1</exists>
@@ -3957,7 +3957,7 @@
           <filename>DthMt_041.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="MazIs">
+      <datafiles number="1197" name="MazIs">
         <datafile>
           <name>MazIs_000.json</name>
           <exists>-1</exists>
@@ -5812,6 +5812,40 @@
           <filename>MazIs_164.json</filename>
         </datafile>
         <datafile>
+          <name>MazIs_165.json</name>
+          <exists>-1</exists>
+          <size>63185</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_165.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_166.json</name>
+          <exists>-1</exists>
+          <size>98434</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_166.json</filename>
+        </datafile>
+        <datafile>
           <name>MazIs_216.json</name>
           <exists>-1</exists>
           <size>68673</size>
@@ -6135,7 +6169,7 @@
           <filename>MazIs_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="TownA">
+      <datafiles number="1197" name="TownA">
         <datafile>
           <name>TownA_000.json</name>
           <exists>-1</exists>
@@ -7242,7 +7276,7 @@
           <filename>TownA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="TownB">
+      <datafiles number="1197" name="TownB">
         <datafile>
           <name>TownB_000.json</name>
           <exists>-1</exists>
@@ -7414,7 +7448,7 @@
           <filename>TownB_098.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcA">
+      <datafiles number="1197" name="PalcA">
         <datafile>
           <name>PalcA_000.json</name>
           <exists>-1</exists>
@@ -7722,7 +7756,7 @@
           <filename>PalcA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcB">
+      <datafiles number="1197" name="PalcB">
         <datafile>
           <name>PalcB_000.json</name>
           <exists>-1</exists>
@@ -8064,23 +8098,6 @@
           <filename>PalcB_019.json</filename>
         </datafile>
         <datafile>
-          <name>PalcB_022.json</name>
-          <exists>-1</exists>
-          <size>70281</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>PalcB_022.json</filename>
-        </datafile>
-        <datafile>
           <name>PalcB_026.json</name>
           <exists>-1</exists>
           <size>53533</size>
@@ -8097,25 +8114,8 @@
           </ConfigOptions>
           <filename>PalcB_026.json</filename>
         </datafile>
-        <datafile>
-          <name>PalcB_027.json</name>
-          <exists>-1</exists>
-          <size>53617</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>PalcB_027.json</filename>
-        </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcC">
+      <datafiles number="1197" name="PalcC">
         <datafile>
           <name>PalcC_000.json</name>
           <exists>-1</exists>
@@ -8406,7 +8406,7 @@
           <filename>PalcC_020.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcD">
+      <datafiles number="1197" name="PalcD">
         <datafile>
           <name>PalcD_000.json</name>
           <exists>-1</exists>
@@ -8714,7 +8714,7 @@
           <filename>PalcD_026.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcE">
+      <datafiles number="1197" name="PalcE">
         <datafile>
           <name>PalcE_001.json</name>
           <exists>-1</exists>
@@ -9141,7 +9141,7 @@
           <filename>PalcE_040.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcF">
+      <datafiles number="1197" name="PalcF">
         <datafile>
           <name>PalcF_000.json</name>
           <exists>-1</exists>
@@ -9653,7 +9653,7 @@
           <filename>PalcF_035.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcG">
+      <datafiles number="1197" name="PalcG">
         <datafile>
           <name>PalcG_000.json</name>
           <exists>-1</exists>
@@ -10709,7 +10709,7 @@
           <filename>PalcG_070.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcH">
+      <datafiles number="1197" name="PalcH">
         <datafile>
           <name>PalcH_000.json</name>
           <exists>-1</exists>
@@ -10898,7 +10898,7 @@
           <filename>PalcH_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1195" name="PalcZ">
+      <datafiles number="1197" name="PalcZ">
         <datafile>
           <name>PalcZ_000.json</name>
           <exists>-1</exists>
@@ -11292,7 +11292,7 @@
         <filename>SceneWallData01.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="1195" name="ow_tile_data">
+    <datafiles number="1197" name="ow_tile_data">
       <datafile>
         <name>OvrwA_00.json</name>
         <exists>-1</exists>
@@ -11345,7 +11345,7 @@
         <filename>OverworldData01.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="1195" name="other">
+    <datafiles number="1197" name="other">
       <datafile>
         <name>RandoPalettes01.json</name>
         <exists>-1</exists>
@@ -13025,6 +13025,8 @@
       <script>scripts\rm_data_init_East_A.gml</script>
       <script>scripts\rm_data_init_DthMt_A.gml</script>
       <script>scripts\rm_data_init_MazIs_A.gml</script>
+      <script>scripts\rm_data_init_MazIs_A_1.gml</script>
+      <script>scripts\rm_data_init_MazIs_A_2.gml</script>
       <script>scripts\rm_data_init_Palc_A.gml</script>
       <script>scripts\rm_data_init_Palc_B.gml</script>
       <script>scripts\rm_data_init_Palc_C.gml</script>
@@ -15038,9 +15040,11 @@
       <script>scripts\goto_room.gml</script>
       <script>scripts\goto_title_rm.gml</script>
       <scripts name="file_select">
+        <script>scripts\FileSelect_End.gml</script>
         <script>scripts\FileSelect_Room_End.gml</script>
         <script>scripts\FileSelect_Create.gml</script>
         <script>scripts\FileSelect_Create_Rando.gml</script>
+        <script>scripts\FileSelect_Room_Start.gml</script>
         <script>scripts\FileSelect_Step.gml</script>
         <script>scripts\FileSelect_Main_update.gml</script>
         <script>scripts\FileSelect_Register_update.gml</script>
@@ -15071,6 +15075,8 @@
         <script>scripts\FileSelect_draw_savefile_rando_info.gml</script>
         <script>scripts\FileSelect_draw_savefile_rando_info_1a.gml</script>
         <script>scripts\FileSelect_build_surfaces.gml</script>
+        <script>scripts\FileSelect_build_surfaces_1.gml</script>
+        <script>scripts\FileSelect_build_surfaces_2.gml</script>
         <script>scripts\FS_set_options.gml</script>
         <script>scripts\FS_cursor_menu_move.gml</script>
         <script>scripts\FS_set_stats.gml</script>
@@ -15886,7 +15892,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1043">
+  <constants number="1045">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -16101,6 +16107,8 @@
     <constant name="PC_LOCK_CSTB">(PC_LOCK_PRJ2 &lt;&lt;1)</constant>
     <constant name="PC_LOCK_A1">(PC_LOCK_JUMP | PC_LOCK_ATK1 | PC_LOCK_ATK2 | PC_LOCK_ATK3 | PC_LOCK_ATK4 | PC_LOCK_SPEL | PC_LOCK_MENU)</constant>
     <constant name="PC_LOCK_ALL">$FFFFFF</constant>
+    <constant name="STR_Register">"_Register"</constant>
+    <constant name="STR_Eliminate">"_Eliminate"</constant>
     <constant name="STR_Condition">"_Condition"</constant>
     <constant name="STR_Conditions">"_Conditions"</constant>
     <constant name="STR_Encoded">"_Encoded"</constant>

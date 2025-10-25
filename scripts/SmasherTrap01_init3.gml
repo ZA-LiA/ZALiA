@@ -18,8 +18,8 @@ if (attack_x_head_end_x!=attack_x_head_start_x)
     attack_x_head_x    = attack_x_head_start_x;
     attack_x_head_y    = attack_x_head_start_y;
     attack_x_direction = sign_(attack_x_head_end_x>attack_x_head_start_x);
-    attack_x_distance  = attack_x_head_end_x - attack_x_head_start_x;
-    attack_x_duration  = floor(abs(attack_x_distance)/attack_speed);
+    //attack_x_distance  = attack_x_head_end_x - attack_x_head_start_x;
+    //attack_x_duration  = floor(abs(attack_x_distance)/attack_speed);
     
     //facing_dir = attack_x_direction;
 }
@@ -29,8 +29,8 @@ if (attack_y_head_end_y!=attack_y_head_start_y)
     attack_y_head_x    = attack_y_head_start_x;
     attack_y_head_y    = attack_y_head_start_y;
     attack_y_direction = sign_(attack_y_head_end_y>attack_y_head_start_y);
-    attack_y_distance  = attack_y_head_end_y - attack_y_head_start_y;
-    attack_y_duration  = floor(abs(attack_y_distance)/attack_speed);
+    //attack_y_distance  = attack_y_head_end_y - attack_y_head_start_y;
+    //attack_y_duration  = floor(abs(attack_y_distance)/attack_speed);
     
     //facing_dir = attack_y_direction;
 }

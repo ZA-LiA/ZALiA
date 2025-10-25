@@ -179,18 +179,3 @@ cutscene_update();
 
 
 
-/*
-if (keyboard_check_pressed(vk_f7))
-{
-    show_debug_message("crash test");
-    //change_pal(strReplaceAt("", 8, 8, "crash test"));
-    //strReplaceAt("", 8, 8, "crash test");
-    //string_insert("crash test", "", 8);
-    //string_delete("",8,8);
-    //string_copy("",1,global.PAL_CHAR_PER_SCENE);
-}
-*/
-
-
-
-

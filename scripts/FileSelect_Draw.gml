@@ -1,6 +1,14 @@
 /// FileSelect_Draw()
 
 
+FileSelect_build_surfaces();
+
+
+if (room!=rmB_FileSelect) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
 var _i,_j;
 var _pi;
 var _text;
@@ -16,7 +24,7 @@ set_background_color(p.C_BLK1);
 
 
 // ---------------------------------------------------------------------------------------------
-FileSelect_build_surfaces();
+//FileSelect_build_surfaces();
 
 pal_swap_set(global.palette_image, global.PI_GUI1);
 switch(state){

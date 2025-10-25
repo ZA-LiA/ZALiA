@@ -7,6 +7,8 @@ var _len, _font_sprite, _char_size;
 
 
 Rando_failed = false;
+
+
 RandoOptions_PAD1   = $04;
 RandoOptions_Y_DIST = $08 + RandoOptions_PAD1;
 RandoOptions_X      = $14<<3;
@@ -1254,12 +1256,12 @@ dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_BACK,4]  = "";
 RandoSEED_EDIT_state = 0; // 0: cursor free, 1: editing seed
 
 
-                      _i=0;
-RandoSEED_EDIT      = _i++;
-RandoSEED_NEW       = _i++; // randomizes the seed
-RandoSEED_BACK      = _i++;
-RandoSEED_COUNT     = _i;
-RandoSEED_cursor    = 0;
+                   _i=0;
+RandoSEED_EDIT   = _i++;
+RandoSEED_NEW    = _i++; // randomizes the seed
+RandoSEED_BACK   = _i++;
+RandoSEED_COUNT  = _i;
+RandoSEED_cursor = 0;
 
 _X  = RandoOptions_X;
 _X += $00<<3;
@@ -1329,9 +1331,7 @@ FileRandoData_CLM += (FileSelectWindow_CLMS<<3) + $08;
 FileRandoData_CLM  =  FileRandoData_CLM>>3;
 
 FileRandoData_CLMS = (viewW()>>3) - FileRandoData_CLM;
-
 FileRandoData_ROW  = $03;
-
 FileRandoData_YPAD = -$02;
 
 

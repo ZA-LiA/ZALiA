@@ -8,6 +8,10 @@ draw_xoff = 0;
 draw_yoff = 0;
 
 
+if (Trigger_state==0) Trigger_draw_yoff = Trigger_OFFSET1;
+else                  Trigger_draw_yoff = 0;
+
+
 switch(sub_state)
 {
     case sub_state_IDLE:{
@@ -19,8 +23,8 @@ switch(sub_state)
     case sub_state_TELL:{
     if!(TELL_timer&$3)
     {
-        if (attack_x_duration) draw_xoff = sign_(TELL_timer&$8);
-        if (attack_y_duration) draw_yoff = sign_(TELL_timer&$8);
+        if (attack_x_direction!=0) draw_xoff = sign_(TELL_timer&$8);
+        if (attack_y_direction!=0) draw_yoff = sign_(TELL_timer&$8);
     }
     break;}//case sub_state_TELL
     

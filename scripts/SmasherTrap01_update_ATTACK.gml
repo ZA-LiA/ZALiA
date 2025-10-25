@@ -43,7 +43,9 @@ if (attack_x_direction!=0)
                     if (collide_solid_grid(_x+attack_x_direction, yt+(_j<<3)))
                     {
                         _collided_solid = true;
-                        set_xy(id, _x+(ww_*-attack_x_direction), y);
+                        _x += ww_ * -attack_x_direction;
+                        _x  = (_x>>3)<<3;
+                        set_xy(id, _x,y);
                         _i=_count; break;//_j
                     }
                 }
@@ -112,7 +114,9 @@ if (attack_y_direction!=0)
                     if (collide_solid_grid(xl+(_j<<3), _y+attack_y_direction))
                     {
                         _collided_solid = true;
-                        set_xy(id, x, _y+(hh_*-attack_y_direction));
+                        _y += hh_ * -attack_y_direction;
+                        _y  = (_y>>3)<<3;
+                        set_xy(id, x,_y);
                         _i=_count; break;//_j
                     }
                 }

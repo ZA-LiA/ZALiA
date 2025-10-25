@@ -357,6 +357,12 @@ global.SCSv2_LIVE = false;
 
 
 
+// Temporary variable while switching FileSelect to a persistent object
+global.FileSelect_PERSISTENT = true;
+
+
+
+
 // For UI like FileSelect, ContinueSave, ..
 // 1: Mostly works like OG where select button is pressed to move the cursor
 // 2: d-pad up and down can also move the cursor
@@ -688,7 +694,7 @@ view_lock       = 0; // 0728. bits $F. 1 right, 2 left, 4 bottom, 8 top
 view_lock_rm    = 0; // The view lock for the current rm specified in the rm's data.
 view_lock_boss  = 0; // What dir of the view a boss is locking.
 
-VIEW_Y_TILE_OFF = ((viewH()^$7)+1) & $7; // 0: viewH is 224, 2: viewH is 270
+VIEW_Y_TILE_OFF = ((viewH()^$7)+1) &$7; // 0: viewH is 224, 2: viewH is 270
 
 VIEW_PAD_YT     = $01<<3; // pad 1 row = 8
 VIEW_PAD_YB_OFF = 0;

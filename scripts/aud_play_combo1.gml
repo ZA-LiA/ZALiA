@@ -4,6 +4,7 @@
 with(Audio)
 {
     switch(argument0){
+    case $00:{aud_play_sound(get_audio_theme_track(STR_Stab)); aud_play_sound(get_audio_theme_track(dk_StrikeEnemy)); break;} // 
     case $01:{aud_play_sound(get_audio_theme_track(dk_BridgeCrumble)); aud_play_sound(get_audio_theme_track(dk_TypeChar)); break;} // 
     case $02:{aud_play_sound(get_audio_theme_track(dk_BridgeCrumble)); aud_play_sound(get_audio_theme_track(dk_CursorSpellMenu)); break;} // ****
     case $03:{aud_play_sound(get_audio_theme_track(dk_BridgeCrumble)); aud_play_sound(get_audio_theme_track(dk_ElevatorMove)); break;} // 
@@ -26,6 +27,9 @@ with(Audio)
     //case $11:{aud_play_sound(snd_ZeldaII_FDS_EncounterEnter,$FF,false,.6); aud_play_sound(snd_Z1_Secret); break;}
     //case $12:{aud_play_sound(snd_ZeldaII_FDS_Flute,$FF,false,.6); aud_play_sound(snd_Flute_Item_1a); break;}
     case $13:{aud_play_sound(get_audio_theme_track(dk_BridgeCrumble)); aud_play_sound(get_audio_theme_track(dk_Boomerang)); break;} // 
+    case $14:{aud_play_sound(snd_Z1_Step_1a); aud_play_sound(get_audio_theme_track(STR_Stab)); break;} // 
+    case $15:{aud_play_sound(snd_Z1_Step_1a); aud_play_sound(get_audio_theme_track(dk_StrikeEnemy)); break;} // 
+    case $16:{aud_play_sound(get_audio_theme_track(dk_BridgeCrumble)); aud_play_sound(get_audio_theme_track(dk_Boomerang)); aud_play_sound(get_audio_theme_track(STR_Stab)); break;} // 
     }
 }
 /*

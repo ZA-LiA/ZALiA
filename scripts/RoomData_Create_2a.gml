@@ -32,7 +32,7 @@ if (false) // new data update method
         
         //  ----------------------------  000  ----------------------------
         global.dm_scene_wh[?'Title_000'+STR_Width ] = $0200;
-        global.dm_scene_wh[?'Title_000'+STR_Height] = $0200;
+        global.dm_scene_wh[?'Title_000'+STR_Height] = $0100;
         
         
         // -------------------------------------------------------------
@@ -55,7 +55,7 @@ if (false) // new data update method
 
 //  ----------------------------  000  ----------------------------
 global.dm_scene_wh[?'Title_000'+STR_Width ] = $0200;
-global.dm_scene_wh[?'Title_000'+STR_Height] = $0200;
+global.dm_scene_wh[?'Title_000'+STR_Height] = $0100;
 
 
 
@@ -2631,14 +2631,24 @@ global.dm_scene_wh[?'MazIs_159'+STR_Width ] = $0200;
 global.dm_scene_wh[?'MazIs_159'+STR_Height] = $0300;
 
 //  ----------------------------  160  ----------------------------
+global.dm_scene_wh[?'MazIs_160'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_160'+STR_Height] = $0100;
 
 //  ----------------------------  161  ----------------------------
+global.dm_scene_wh[?'MazIs_161'+STR_Width ] = $0200;
+global.dm_scene_wh[?'MazIs_161'+STR_Height] = $0100;
 
 //  ----------------------------  162  ----------------------------
+global.dm_scene_wh[?'MazIs_162'+STR_Width ] = $0300;
+global.dm_scene_wh[?'MazIs_162'+STR_Height] = $0100;
 
 //  ----------------------------  163  ----------------------------
+global.dm_scene_wh[?'MazIs_163'+STR_Width ] = $0200;
+global.dm_scene_wh[?'MazIs_163'+STR_Height] = $0200;
 
 //  ----------------------------  164  ----------------------------
+global.dm_scene_wh[?'MazIs_164'+STR_Width ] = $0400;
+global.dm_scene_wh[?'MazIs_164'+STR_Height] = $0200;
 
 //  ----------------------------  165  ----------------------------
 

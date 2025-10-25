@@ -2186,10 +2186,27 @@ _dm[?'MazIs_159'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01';
 _dm[?'MazIs_159'+STR_Layer+'03'+STR_Name] = 'BG0401, BREAK__02, HIDDEN01_01';
 _dm[?'MazIs_159'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  160  ----------------------------
+_dm[?'MazIs_160'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
+_dm[?'MazIs_160'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  161  ----------------------------
+_dm[?'MazIs_161'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'MazIs_161'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01_01';
+_dm[?'MazIs_161'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  162  ----------------------------
+_dm[?'MazIs_162'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'MazIs_162'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01_01';
+_dm[?'MazIs_162'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  163  ----------------------------
+_dm[?'MazIs_163'+STR_Layer+'01'+STR_Name] = 'BG0201, GROUND01_01';
+_dm[?'MazIs_163'+STR_Layer+'02'+STR_Name] = 'BG0303, GRASS01_01';
+_dm[?'MazIs_163'+STR_Layer+'03'+STR_Name] = 'BG0404, FGWALL01_01';
+_dm[?'MazIs_163'+STR_Layer+'04'+STR_Name] = 'BG0501';
+_dm[?'MazIs_163'+STR_Layer+'05'+STR_Name] = 'BG0602, PILLAR01_01';
+_dm[?'MazIs_163'+STR_Layer+'06'+STR_Name] = 'BG0702, BGWALL01_01';
+_dm[?'MazIs_163'+STR_Layer+'07'+STR_Name] = 'BG0804, GRASS02_01';
 //  ----------------------------  164  ----------------------------
+_dm[?'MazIs_164'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'MazIs_164'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  165  ----------------------------
 //  ----------------------------  166  ----------------------------
 //  ----------------------------  167  ----------------------------
@@ -2399,47 +2416,47 @@ _dm[?'PalcA_000'+STR_Layer+'04'+STR_Name] = 'BG0301, STRUCTURE_FGWALL01_01, PILL
 _dm[?'PalcA_000'+STR_Layer+'05'+STR_Name] = 'BG0402';
 _dm[?'PalcA_000'+STR_Layer+'06'+STR_Name] = 'BG0703, GRASS01_01';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcA_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
-_dm[?'PalcA_001'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_001'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, STATUE01_01';
+_dm[?'PalcA_001'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  002  ----------------------------
-_dm[?'PalcA_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
-_dm[?'PalcA_002'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_002'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
+_dm[?'PalcA_002'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  003  ----------------------------
 //  ----------------------------  004  ----------------------------
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcA_005'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcA_005'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
 _dm[?'PalcA_005'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__04, HIDDEN_01';
-_dm[?'PalcA_005'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
-_dm[?'PalcA_005'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_005'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01_01';
+_dm[?'PalcA_005'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcA_006'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
-_dm[?'PalcA_006'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_006'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'PalcA_006'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcA_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
-_dm[?'PalcA_007'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_007'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'PalcA_007'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  008  ----------------------------
 //  ----------------------------  009  ----------------------------
 _dm[?'PalcA_009'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
-_dm[?'PalcA_009'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_009'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
 _dm[?'PalcA_009'+STR_Layer+'03'+STR_Name] = 'BG0401, BREAK__02, HIDDEN_01';
-_dm[?'PalcA_009'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_009'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  010  ----------------------------
-_dm[?'PalcA_010'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE01';
+_dm[?'PalcA_010'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, STATUE01_01';
 _dm[?'PalcA_010'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
-_dm[?'PalcA_010'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_010'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  011  ----------------------------
-_dm[?'PalcA_011'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcA_011'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, STATUE01_01';
 _dm[?'PalcA_011'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
-_dm[?'PalcA_011'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_011'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcA_012'+STR_Layer+'01'+STR_Name] = 'FG0202, CURTAIN01';
-_dm[?'PalcA_012'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
-_dm[?'PalcA_012'+STR_Layer+'03'+STR_Name] = 'BG0302';
-_dm[?'PalcA_012'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_012'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
+_dm[?'PalcA_012'+STR_Layer+'02'+STR_Name] = 'BG0302, CURTAIN01_01';
+_dm[?'PalcA_012'+STR_Layer+'03'+STR_Name] = 'BG0402';
+_dm[?'PalcA_012'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  013  ----------------------------
-_dm[?'PalcA_013'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcA_013'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
 _dm[?'PalcA_013'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
-_dm[?'PalcA_013'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_013'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  014  ----------------------------
 //  ----------------------------  015  ----------------------------
 //  ----------------------------  016  ----------------------------
@@ -2468,13 +2485,13 @@ _dm[?'PalcA_013'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  039  ----------------------------
 //  ----------------------------  040  ----------------------------
 //  ----------------------------  041  ----------------------------
-_dm[?'PalcA_041'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcA_041'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
 _dm[?'PalcA_041'+STR_Layer+'02'+STR_Name] = 'BG0302';
-_dm[?'PalcA_041'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_041'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  042  ----------------------------
-_dm[?'PalcA_042'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
-_dm[?'PalcA_042'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
-_dm[?'PalcA_042'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_042'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'PalcA_042'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01_01';
+_dm[?'PalcA_042'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  043  ----------------------------
 //  ----------------------------  044  ----------------------------
 //  ----------------------------  045  ----------------------------
@@ -2655,10 +2672,10 @@ _dm[?'PalcA_042'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  220  ----------------------------
 //  ----------------------------  221  ----------------------------
 //  ----------------------------  222  ----------------------------
-_dm[?'PalcA_222'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcA_222'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
 _dm[?'PalcA_222'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
-_dm[?'PalcA_222'+STR_Layer+'03'+STR_Name] = 'BG0501, PILLAR01';
-_dm[?'PalcA_222'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_222'+STR_Layer+'03'+STR_Name] = 'BG0501, PILLAR01_01';
+_dm[?'PalcA_222'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  223  ----------------------------
 //  ----------------------------  224  ----------------------------
 //  ----------------------------  225  ----------------------------
@@ -2666,9 +2683,9 @@ _dm[?'PalcA_222'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
 //  ----------------------------  227  ----------------------------
 //  ----------------------------  228  ----------------------------
 //  ----------------------------  229  ----------------------------
-_dm[?'PalcA_229'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
-_dm[?'PalcA_229'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
-_dm[?'PalcA_229'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcA_229'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
+_dm[?'PalcA_229'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01_01';
+_dm[?'PalcA_229'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  230  ----------------------------
 //  ----------------------------  231  ----------------------------
 //  ----------------------------  232  ----------------------------
@@ -2733,59 +2750,59 @@ _dm[?'PalcB_000'+STR_Layer+'08'+STR_Name] = 'BG0503, PERMUT_03, GRASS01_02';
 _dm[?'PalcB_000'+STR_Layer+'09'+STR_Name] = 'BG0603, STRUCTURE_BGWALL01_02';
 _dm[?'PalcB_000'+STR_Layer+'0A'+STR_Name] = 'BG0704, PERMUT_02, TREE01_01';
 //  ----------------------------  001  ----------------------------
-_dm[?'PalcB_001'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
-_dm[?'PalcB_001'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_001'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, STATUE01_01';
+_dm[?'PalcB_001'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  002  ----------------------------
-_dm[?'PalcB_002'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
-_dm[?'PalcB_002'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_002'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'PalcB_002'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  003  ----------------------------
 _dm[?'PalcB_003'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_04';
-_dm[?'PalcB_003'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
+_dm[?'PalcB_003'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
 _dm[?'PalcB_003'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
-_dm[?'PalcB_003'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_003'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  004  ----------------------------
-_dm[?'PalcB_004'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
-_dm[?'PalcB_004'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01';
-_dm[?'PalcB_004'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_004'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'PalcB_004'+STR_Layer+'02'+STR_Name] = 'BG0603, WINDOW01_01';
+_dm[?'PalcB_004'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  005  ----------------------------
-_dm[?'PalcB_005'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
-_dm[?'PalcB_005'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_005'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'PalcB_005'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  006  ----------------------------
-_dm[?'PalcB_006'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
+_dm[?'PalcB_006'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
 _dm[?'PalcB_006'+STR_Layer+'02'+STR_Name] = 'BG0302';
-_dm[?'PalcB_006'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_006'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  007  ----------------------------
-_dm[?'PalcB_007'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
-_dm[?'PalcB_007'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_007'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'PalcB_007'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  008  ----------------------------
-_dm[?'PalcB_008'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcB_008'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
 _dm[?'PalcB_008'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
-_dm[?'PalcB_008'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_008'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  009  ----------------------------
-_dm[?'PalcB_009'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
-_dm[?'PalcB_009'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_009'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
+_dm[?'PalcB_009'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  010  ----------------------------
-_dm[?'PalcB_010'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE02';
+_dm[?'PalcB_010'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
 _dm[?'PalcB_010'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
-_dm[?'PalcB_010'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_010'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  011  ----------------------------
-_dm[?'PalcB_011'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01';
-_dm[?'PalcB_011'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_011'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
+_dm[?'PalcB_011'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  012  ----------------------------
-_dm[?'PalcB_012'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';
-_dm[?'PalcB_012'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_012'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01, STATUE01_01';
+_dm[?'PalcB_012'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  013  ----------------------------
-_dm[?'PalcB_013'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, STATUE02';
+_dm[?'PalcB_013'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01, STATUE01_01';
 _dm[?'PalcB_013'+STR_Layer+'02'+STR_Name] = 'BG0301, BREAK__01, HIDDEN_01';
-_dm[?'PalcB_013'+STR_Layer+'03'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_013'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  014  ----------------------------
-_dm[?'PalcB_014'+STR_Layer+'01'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
-_dm[?'PalcB_014'+STR_Layer+'02'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_014'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
+_dm[?'PalcB_014'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  015  ----------------------------
 _dm[?'PalcB_015'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_02 SPEED_02';
-_dm[?'PalcB_015'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01';
+_dm[?'PalcB_015'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01';
 _dm[?'PalcB_015'+STR_Layer+'03'+STR_Name] = 'BG0301, BREAK__02, HIDDEN_01';
-_dm[?'PalcB_015'+STR_Layer+'04'+STR_Name] = 'BG0701, STRUCTURE_BGWALL01_01';
+_dm[?'PalcB_015'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  016  ----------------------------
 _dm[?'PalcB_016'+STR_Layer+'01'+STR_Name] = 'FG0302, CURTAIN01';
 _dm[?'PalcB_016'+STR_Layer+'02'+STR_Name] = 'BG0201, STRUCTURE_FGWALL01_01, PILLAR01, STATUE01';

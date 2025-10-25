@@ -16,13 +16,22 @@ switch(sub_state)
     // ------------------------------------------------------------------------------------
     // -----------------------------------------------------------------------------
     case sub_state_IDLE:{
-    if (trigger_x>=0 
-    &&  trigger_y>=0 
-    && !global.pc.ogr  // if pc on ground
-    &&  pointInRect(global.pc.cp1X,global.pc.cp1Y, trigger_x-$10,trigger_y-$8,$20,$10) )
+    if (Trigger_state==0 
+    &&  Trigger_xl>=0 
+    &&  Trigger_yt>=0 
+    && !global.pc.ogr ) // if pc on ground
     {
-        sub_state = sub_state_DELAY;
-        break;//case sub_state_IDLE
+        //var _W = $8;
+        //if (rectInRect(global.pc.cp1X-(_W>>1),global.pc.csBtm1Y-TriggerHB_h,_W,TriggerHB_h, TriggerHB_xl,TriggerHB_yt,TriggerHB_w,TriggerHB_h))
+        if (rectInRect(global.pc.csBtm1X,global.pc.csBtm1Y-TriggerHB_h,global.pc.csBtm2X-global.pc.csBtm1X,TriggerHB_h, TriggerHB_xl,TriggerHB_yt,TriggerHB_w,TriggerHB_h))
+        //pointInRect(global.pc.cp1X,global.pc.cp1Y, TriggerHB_xl,TriggerHB_yt,TriggerHB_w,TriggerHB_h)
+        {
+            Trigger_state = 1;
+            if (Trigger_type==2) aud_play_combo1($13);
+            //if (Trigger_type==2) aud_play_sound(get_audio_theme_track(STR_Stab));
+            sub_state = sub_state_DELAY;
+            break;//case sub_state_IDLE
+        }
     }
     break;}//case sub_state_IDLE
     

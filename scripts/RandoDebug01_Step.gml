@@ -11,7 +11,8 @@ if(!instance_exists(FileSelect))
 
 if (cooldown_timer) cooldown_timer--;
 
-if (1&&DEV)
+if (false 
+&& DEV )
 {
     if(!cooldown_timer 
     &&  FileSelect.state==FileSelect.State_RANDO 

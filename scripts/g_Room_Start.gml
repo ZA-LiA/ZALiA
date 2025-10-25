@@ -25,6 +25,9 @@ var _exit, _exit_num, _exit_name,_exit_name1, _exit_sides;
 var _spawn_datakey,_spawn_datakey1,_spawn_datakey2;
 
 
+if (room==rmB_FileSelect && !instance_exists(FileSelect)) instance_create(0,0, FileSelect); // testing creating FileSelect here instead of placing object in rmB_FileSelect asset
+
+
 //g.game_end_state = 1; // Testing wake Zelda cutscene
 
 
@@ -408,8 +411,11 @@ if (_ROOM_A
 if (_ROOM_A 
 ||  _ROOM_B1 ) // Title-Screen
 {
-    room_width  = val(dm_tile_file[?"width"], PAGE_CLMS) <<3;
-    room_height = val(dm_tile_file[?"height"],PAGE_ROWS) <<3;
+    room_width  = val(dm_tile_file[?"width"], PAGE_CLMS);
+    room_height = val(dm_tile_file[?"height"],PAGE_ROWS);
+    
+    room_width  = room_width <<3;
+    room_height = room_height<<3;
     
     room_width  = (room_width >>8)<<8;
     room_height = (room_height>>8)<<8;

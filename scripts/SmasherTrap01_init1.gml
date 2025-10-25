@@ -23,14 +23,30 @@ sub_state = sub_state_IDLE;
 Smasher_SPRITE1 = spr_Block06;
 use_wall_graphics = false;
 Wall_surf = -1;
-//Wall_dg_tsrc = 0;
+Wall_dg_tsrc = undefined;
 //if (ver==2) Wall_dg_tsrc = ds_grid_create(0,0);
 
 FGWALL_depth = 0;
 
 
-trigger_x = -1;
-trigger_y = -1;
+Trigger_state   = 0; // 0: Not triggered, 1: Triggered
+Trigger_type    = 1;
+Trigger_OFFSET1 = -2;
+Trigger_draw_yoff = 0;
+Trigger_w       = -1;
+Trigger_h       = -1;
+Trigger_xl      = -1;
+Trigger_yt      = -1;
+TriggerHB_w     = $20;
+TriggerHB_h     = $10;
+TriggerHB_xl    = 0;
+TriggerHB_yt    = 0;
+Trigger_surf    = -1;
+Trigger_dg_tsrc = undefined;
+Trigger_depth   = 0;
+Trigger_dg_depth_pi_idx = -1;
+//Trigger_palidx = 0;
+//STR_Trigger+STR_Type+"02", STR_Trigger+STR_Position+_data1, STR_Trigger+STR_Size+_data2, STR_Trigger+STR_Depth+_data3
 
 
 DELAY_timer = 0;
@@ -69,5 +85,4 @@ attack_y_ACCEL_TIME   = ROOM_SPEED_BASE * 1.0; // the amount of time it takes to
 
 
 
-xchangeprev=0; // debug
-xchangeprevdiff=0; // debug
+

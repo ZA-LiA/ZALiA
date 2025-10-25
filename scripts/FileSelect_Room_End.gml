@@ -1,16 +1,14 @@
 /// FileSelect_Room_End()
 
+
+if (persistent) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 show_debug_message("");
 show_debug_message("FileSelect_Room_End()");
 show_debug_message("");
 
 
-//ar_FILE_NAMES               = 0;
-//ar_FILE_NAMES_PREFERENCES   = 0;
-//stats           = 0;
-//ar_spr_statIcon = 0;
-//ar_save_names   = 0;
-//sprites_fairy   = 0;
 
 
 if (surface_exists(MAIN_surf))
