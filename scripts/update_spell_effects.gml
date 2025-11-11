@@ -94,7 +94,7 @@ if (g.spells_active &   SPL_SPEL)
     
     var _i, _idx, _num, _obj,_ver, _objver, _difficulty;
     var _datakey;
-    var _DIFFICULTY = val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Difficulty],1);
+    var _DIFFICULTY = val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Difficulty],1);
     
     
     if (g.rm_name==val(g.dm_rm[?dk_MagicalKeyHouse+dk_SceneName]) 
@@ -145,7 +145,7 @@ if (g.spells_active &   SPL_SPEL)
             
             
             if (_obj!=ReFaA 
-            &&  val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_ENIGMA]) )
+            &&  val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_ENIGMA]) )
             {
                 //_difficulty = RandoEnemy_difficulty_MAX;
                 _difficulty = 0;

@@ -62,12 +62,15 @@ switch(sub_state)
             x_move = 0;
             y_move = 0;
             
-            var _clm,_row;
-            for(_i=0; _i<Spike_count; _i++)
+            if (ds_grid_width(g.dg_RmTile_Spike))
             {
-                _clm = (xl>>3) + (_i*(Attack_y_direction!=0));
-                _row = (yt>>3) + (_i*(Attack_x_direction!=0));
-                g.dg_RmTile_Spike[#_clm,_row] = 0;
+                var _clm,_row;
+                for(_i=0; _i<Spike_count; _i++)
+                {
+                    _clm = (xl>>3) + (_i*(Attack_y_direction!=0));
+                    _row = (yt>>3) + (_i*(Attack_x_direction!=0));
+                    g.dg_RmTile_Spike[#_clm,_row] = 0;
+                }
             }
             
             Cooldown_timer = Cooldown_duration;

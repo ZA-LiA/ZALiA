@@ -24,25 +24,33 @@ if(!state
     g.view_lock |=  g.view_lock_rm;
     g.view_lock_boss = 0;
     
-    g.pc_lock = 0;
+    //g.pc_lock = 0;
     
-    global.ViewCatchUp_move_x = 0;
-    if (global.pc.x!=viewXC())
-    {
-        if!(g.view_lock&$1) global.ViewCatchUp_state |= $1;
-        if!(g.view_lock&$2) global.ViewCatchUp_state |= $2;
-    }
     
-    global.ViewCatchUp_move_y = 0;
-    if (global.pc.y!=viewYC())
+    ViewCatchUp_init();
+    switch(global.ViewCatchUp_VER)
     {
-        if!(g.view_lock&$4) global.ViewCatchUp_state |= $4;
-        if!(g.view_lock&$8) global.ViewCatchUp_state |= $8;
-    }
+        default:{
+        g.pc_lock = 0;
+        break;}//default
+        
+        case 1:{
+        if(!global.ViewCatchUp_state) g.pc_lock = 0;
+        break;}//case 1
+        
+        case 2:{
+        if(!global.ViewCatchUp_state) g.pc_lock = 0;
+        break;}//case 2
+    }//switch(global.ViewCatchUp_VER)
+    
     
     Audio.can_play_mus_rm_body = true;
     state = 0;
-    if (g.mod_destroy_go_on_death && !state) GO_destroy_1a();
+    if (g.mod_destroy_go_on_death 
+    && !state )
+    {
+        GO_destroy_1a();
+    }
 }
 
 

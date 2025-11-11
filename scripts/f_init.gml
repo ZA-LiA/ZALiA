@@ -77,6 +77,10 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++)
 
 
 
+// The save file currently being played
+global.dm_save_file = ds_map_create();
+
+// All the save files' data
 global.dm_save_file_data = ds_map_create();
 for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
 {
@@ -92,6 +96,9 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++) // Each save file
     
     //global.dm_save_file_data[?STR_Save+STR_File+hex_str(_i+1)+"_Encoded"] = _file_data;
 }
+
+
+global.dm_save_file_settings = ds_map_create();
 
 
 
@@ -234,7 +241,9 @@ dm_quests       = ds_map_create();
 dm_challenges   = ds_map_create();
 
 
-dm_rando        = ds_map_create(); // rando data for the current loaded save file
+dm_rando_full   = ds_map_create(); // all rando related data for the current loaded save file
+dm_rando        = ds_map_create(); // the core rando data for the current loaded save file
+dm_rando_dungeon_tileset = ds_map_create(); // Soley for the rando dungeon tileset data because there's a lot of data for dungeon tileset rando
 
 
 

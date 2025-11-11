@@ -47,13 +47,6 @@ Register_cursor = 0;
 Eliminate_cursor = 0;
 
 
-// -------------------------------------------------
-covered = true;
-cue_cover_start  = -1;
-cue_cover_stop   = CUE_COVER_STOP_0A;
-cue_change_state = CUE_CHANGE_STATE_0A;
-
-
 
 
 // -------------------------------------------------
@@ -159,9 +152,16 @@ RandoOTHER_REQUIRE_cursor    = RandoOTHER_REQUIRE_cursor_CRYSTALS;
 
 FileSelect_init_rando_settings();
 
-for(_i=0; _i<SAVE_FILE_MAX; _i++) FileSelect_refresh_save_file_rando_info(_i+1);
+//for(_i=0; _i<SAVE_FILE_MAX; _i++) FileSelect_refresh_save_file_rando_info(_i+1);
 
 
+
+
+// -------------------------------------------------
+covered = true;
+cue_cover_start  = -1;
+cue_cover_stop   = CUE_COVER_STOP_0A;
+cue_change_state = CUE_CHANGE_STATE_0A;
 
 
 // -------------------------------------------------
@@ -170,10 +170,14 @@ g.game_end_state = 0;
 g.counter1 = 0;
 
 timer = $FF;
-save_num_selected = 0;
-CharTable_cursor_char = 0;
+if (room==rmB_FileSelect) timer1 = cue_cover_stop; // only when going to rmB_FileSelect
+else                      timer1 = 0;
+
 cursor_timer1 = 0;
 cursor_dir = 0;
+CharTable_cursor_char = 0;
+
+save_num_selected = 0;
 
 
 

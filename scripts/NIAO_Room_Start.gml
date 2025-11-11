@@ -15,10 +15,8 @@ for(_i=ds_list_size(g.dl_niao)-1; _i>=0; _i--)
 {
     if(!is_undefined(    g.dl_niao[|_i]) 
     &&  instance_exists( g.dl_niao[|_i]) )
-    //&&                   g.dl_niao[|_i]+1 )
     {   instance_destroy(g.dl_niao[|_i]);  }
                          g.dl_niao[|_i] = noone;
-                         //g.dl_niao[|_i] = 0;
     //
     
     _dk   = g.rm_name+STR_NIAO+string(_i);

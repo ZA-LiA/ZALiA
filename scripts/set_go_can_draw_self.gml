@@ -27,16 +27,8 @@ for(_i=0; _i<MAX_GOB1; _i++)
     {
         with(g.go_mgr.dl_gob1[|_i])
         {
-            if(!can_draw_self_exception)
-            {
-                if (argument0 
-                || !state )
-                //|| !is_ancestor_(object_index,Snaraa,Ganon) ) // Allow certain GO to continue drawing
-                {
-                    if (state) can_draw_self = argument0;
-                    else       can_draw_self = false;
-                }
-            }
+            if(!state)                        can_draw_self = false;
+            else if(!can_draw_self_exception) can_draw_self = argument0;
         }
     }
 }
@@ -51,11 +43,8 @@ for(_i=0; _i<MAX_GOC1; _i++)
     {
         with(g.go_mgr.dl_goc1[|_i])
         {
-            if(!can_draw_self_exception)
-            {
-                if (state) can_draw_self = argument0;
-                else       can_draw_self = false;
-            }
+            if(!state)                        can_draw_self = false;
+            else if(!can_draw_self_exception) can_draw_self = argument0;
         }
     }
 }
@@ -70,11 +59,8 @@ for(_i=0; _i<MAX_GOC2; _i++)
     {
         with(g.go_mgr.dl_goc2[|_i])
         {
-            if(!can_draw_self_exception)
-            {
-                if (state) can_draw_self = argument0;
-                else       can_draw_self = false;
-            }
+            if(!state)                        can_draw_self = false;
+            else if(!can_draw_self_exception) can_draw_self = argument0;
         }
     }
 }
@@ -90,6 +76,9 @@ for(_i=ds_list_size(g.go_mgr.dl_gob2)-1; _i>=0; _i--)
     {
         with(g.go_mgr.dl_gob2[|_i])
         {
+            if(!state)                        can_draw_self = false;
+            else if(!can_draw_self_exception) can_draw_self = argument0;
+            /*
             if(!can_draw_self_exception)
             {
                 if (argument0 
@@ -100,6 +89,7 @@ for(_i=ds_list_size(g.go_mgr.dl_gob2)-1; _i>=0; _i--)
                     else       can_draw_self = false;
                 }
             }
+            */
         }
     }
 }

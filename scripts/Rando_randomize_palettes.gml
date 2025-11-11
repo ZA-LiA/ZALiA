@@ -146,6 +146,7 @@ for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
 
 // Non-Dungeon Scenes ------------------------------------------------
 //var _debug1=true;
+var _dl_protected_pi = ds_list_create();
 var          _AREA_COUNT = ds_list_size(g.dl_AREA_NAME);
 for(_i=0; _i<_AREA_COUNT; _i++) // Each area
 {
@@ -189,7 +190,40 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
         _datakey1  = _file_name;
         _datakey1 += STR_Layer;
         _layer_data_num = $01;
+        ds_list_clear(_dl_protected_pi);
         ds_list_clear(_dl_pi);
+        
+        while (true)
+        {
+            _layer_name = global.dm_tile_layer_data[?_datakey1+hex_str(_layer_data_num++)+STR_Name];
+            if (is_undefined(_layer_name))
+            {
+                break;//while (true)
+            }
+            
+            if (string_pos("LIQUID",  _layer_name) 
+            ||  string_pos("BURNABLE",_layer_name) )
+            {
+                if (string_pos("BG",_layer_name) 
+                ||  string_pos("FG",_layer_name) )
+                {
+                    if (string_pos("BG",_layer_name)) _pos = string_pos("BG",_layer_name);
+                    else                              _pos = string_pos("FG",_layer_name);
+                    
+                    _val = string_copy(_layer_name, _pos+4, 2);
+                    _val = str_hex(_val);
+                    switch(_val){
+                    case $01:{ds_list_add(_dl_protected_pi,global.PI_BGR1); break;}
+                    case $02:{ds_list_add(_dl_protected_pi,global.PI_BGR2); break;}
+                    case $03:{ds_list_add(_dl_protected_pi,global.PI_BGR3); break;}
+                    case $04:{ds_list_add(_dl_protected_pi,global.PI_BGR4); break;}
+                    case $05:{ds_list_add(_dl_protected_pi,global.PI_BGR5); break;}
+                    }
+                }
+            }
+        }
+        
+        
         while (true)
         {
             _layer_name = global.dm_tile_layer_data[?_datakey1+hex_str(_layer_data_num++)+STR_Name];
@@ -214,7 +248,8 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
                 case $05:{_pi=global.PI_BGR5; break;}
                 }
                 
-                if (ds_list_find_index(_dl_pi,_pi)==-1)
+                if (ds_list_find_index(_dl_pi,_pi)==-1 
+                &&  ds_list_find_index(_dl_protected_pi,_pi)==-1 )
                 {
                     ds_list_add(_dl_pi,_pi);
                     if (ds_list_size(_dl_pi)>=val(global.dm_pi[?"BGR"+STR_Count]))
@@ -246,6 +281,8 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
         }
     }
 }
+
+ds_list_destroy(_dl_protected_pi); _dl_protected_pi=undefined;
 
 
 

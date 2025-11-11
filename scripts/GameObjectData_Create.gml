@@ -1071,7 +1071,7 @@ data_go_prop2(o_name+"01", PIe, HBa, CSa,HPMax, $01,   0,    0,    0, SWDe,    0
 // BlockB  --------------------------------------------------------
 object=BlckB; o_name=object_get_name(object);
 data_go_prop1(    object, "BlockB", spr_Block_02a);
-data_go_scr(  o_name,   GameObjectB_init, BlockB_init2, BlockB_update, BlockB_udp, 0);
+data_go_scr(  o_name,   GameObjectB_init, BlockB_init2, BlockB_update, BlockB_udp, BlockB_draw, BlockB_end);
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIh, $66, CSh,   0,  $01,   0,    0,    0, SWDc,    0,    0,    0,    0);
 
@@ -2650,6 +2650,7 @@ data_go_scr(  o_name,   GameObjectB_init, Moa_init2, Moa_update, Moa_udp, Moa_dr
 //                         pal,  hb,  cs,  hp,  atk,  xp,  rsp,  drp,  swd,  prj,  THN,  SPL,  DRN,  BRIGHT
 data_go_prop2(o_name+"01", PIb, HBa, CSa, $06,  $03, $0A, RSPc, DRPb, SWDa, PRJc, THNb, SPLa, DRNd);
 data_go_prop2(o_name+"02", PIc, HBa, CSa, $11,  $04, $10, RSPc, DRPb, SWDa, PRJc, THNb, SPLa, DRNd);
+data_go_prop2(o_name+"03", PIc, HBa, CSa, $01,  $01, $00, RSPd,    0,    0,    0,    0,    0,    0); // Ghost-like for halloween scene
 
 data_REFLECT_vuln(o_name+"01", object_get_name(Axe)+"01", object_get_name(Fireball1)+"01", object_get_name(Fireball1)+"02", object_get_name(Mace1)+"01", object_get_name(Mace2)+"01", object_get_name(SwordBeam)+"01");
 data_REFLECT_vuln(o_name+"02", object_get_name(Axe)+"01", object_get_name(Fireball1)+"01", object_get_name(Fireball1)+"02", object_get_name(Mace1)+"01", object_get_name(Mace2)+"01", object_get_name(SwordBeam)+"01");

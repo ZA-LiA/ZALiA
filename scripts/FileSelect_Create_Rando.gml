@@ -1269,7 +1269,7 @@ _X += $00<<3;
 _Y  = RandoOptions_Y;
 //_Y += $02<<3;
 
-RandoSEED_FONT_SPRITE=spr_Font1;
+RandoSEED_FONT_SPRITE = global.dl_game_font[|global.game_font_idx];
 //_font_sprite = spr_Font2;
 _char_size = sprite_get_width(RandoSEED_FONT_SPRITE);
 _dist1 = _char_size<<1;

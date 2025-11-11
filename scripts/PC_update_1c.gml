@@ -80,15 +80,18 @@ if(!iframes_timer
     {
         var _SPIKE_CLMS = ds_grid_width( g.dg_RmTile_Spike);
         var _SPIKE_ROWS = ds_grid_height(g.dg_RmTile_Spike);
-        var _HB_CLMS = ((csTop2X   -csTop1X)>>3) + 1;
-        var _HB_ROWS =(((csBtm1Y-1)-csTop1Y)>>3) + 1;
+        var _HB_CLMS = ((csTop2X-csTop1X)>>3) + 2;
+        var _HB_ROWS = ((csBtm1Y-csTop1Y)>>3) + 2;
+        //var _HB_CLMS = ((csTop2X   -csTop1X)>>3) + 1;
+        //var _HB_ROWS =(((csBtm1Y-1)-csTop1Y)>>3) + 1;
         var _hb_clm,_hb_row;
         for(_i=0; _i<_HB_CLMS; _i++)
         {
             for(_j=0; _j<_HB_ROWS; _j++)
             {
-                _hb_clm = (csTop1X+(_i<<3)) >>3;
-                _hb_row = (csTop1Y+(_j<<3)) >>3;
+                _hb_clm = (min(csTop2X-1, csTop1X+(_i<<3))) >>3;
+                //_hb_clm = (min(csTop2X, csTop1X+(_i<<3))) >>3;
+                _hb_row = (min(csBtm1Y,   csTop1Y+(_j<<3))) >>3;
                 if (is_in_grid(_hb_clm,_hb_row, _SPIKE_CLMS,_SPIKE_ROWS))
                 {
                     if (g.dg_RmTile_Spike[#_hb_clm,_hb_row]&$FF==TID_SPIKE1 
@@ -107,25 +110,6 @@ if(!iframes_timer
                 }
             }
         }
-        /*
-        if (rectInRect(csTop1X,csTop1Y,csTop2X-csTop1X,(csBtm1Y-1)-csTop1Y, 0,0,_SPIKE_CLMS<<3,_SPIKE_ROWS<<3))
-        {
-            var _VAL = ds_grid_get_max(g.dg_RmTile_Spike,max(csTop1X,0)>>3,max(csTop1Y,0)>>3,min(csBtm2X>>3,_SPIKE_CLMS-1),min((csBtm2Y-1)>>3,_SPIKE_ROWS-1)) &$FF;
-            if (_VAL==TID_SPIKE1 
-            ||  _VAL==TID_SPIKE2 )
-            {
-                var _damage = $10;
-                if (g.DevTools_state 
-                &&  g.dev_invState&$3 )
-                {
-                    _damage = 0; // g.dev_invState. 2: skip all, 1 skip dmg, 0 regular
-                }
-                
-                PC_take_damage(noone,_damage); // Spike Damage
-                exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            }
-        }
-        */
     }
 }
 

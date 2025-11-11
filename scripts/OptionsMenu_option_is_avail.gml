@@ -66,11 +66,11 @@ switch(argument0)
     switch(argument1)
     {
         default:                    {return false; break;}
-        case Rando_MARK_ACQUIRED:   {return val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) || val(f.dm_rando[?STR_Randomize+STR_PBAG+STR_Locations]) || val(f.dm_rando[?STR_Randomize+STR_Key +STR_Locations]); break;}
-        case Rando_HINTS:           {return val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]); break;}
-        case Rando_MAPS_SHOW_KEYS:  {return val(f.dm_rando[?STR_Randomize+STR_Key+STR_Locations]); break;}
-        case Rando_ENEMY_RANDO:     {return val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]) || val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawner]) || val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_ENIGMA]); break;}
-        //case Rando_RANDO_ENEMY:     {return val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Method]); break;}
+        case Rando_MARK_ACQUIRED:   {return val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) || val(global.dm_save_file_settings[?STR_Randomize+STR_PBAG+STR_Locations]) || val(global.dm_save_file_settings[?STR_Randomize+STR_Key +STR_Locations]); break;}
+        case Rando_HINTS:           {return val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]); break;}
+        case Rando_MAPS_SHOW_KEYS:  {return val(global.dm_save_file_settings[?STR_Randomize+STR_Key+STR_Locations]); break;}
+        case Rando_ENEMY_RANDO:     {return val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Method]) || val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Spawner]) || val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_ENIGMA]); break;}
+        //case Rando_RANDO_ENEMY:     {return val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Method]); break;}
         case Rando_DUNGEON_TILESETS:{return true; break;}
         case Rando_OW_BIOMES:       {return ds_map_size(global.OVERWORLD.dm_Rando_TSRC)>0; break;}
         case Rando_SCENES:          {return true; break;}
@@ -89,6 +89,7 @@ switch(argument0)
         default:                       {return false; break;}
         case Other_FLASHING:           {return true;  break;}
         case Other_DIALOGUE_SPEED:     {return true;  break;}
+        case Other_GAME_FONT:          {return true;  break;}
         case Other_HIDDEN_OW_EXITS:    {return true;  break;}
         case Other_HUD:                {return true;  break;}
         case Other_TORCH_LIGHTING:     {return true;  break;}

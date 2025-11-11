@@ -2,8 +2,8 @@
 
 
 // AD94: JSR BEF6
-if (ver==1    // Barba fireball normal
-||  ver==3 )  // Barba fireball bounce off walls
+if (ver==1   // Barba fireball normal
+||  ver==3 ) // Barba fireball bounce off walls
 {
     // Only Barba fireball makes sound.
     aud_play_fire(true);

@@ -345,7 +345,7 @@ g.dm_spawn[?_SPAWN_DATAKEY+STR_Strong+STR_Encounter] = false;
 
 
 
-var _data_num=1;
+var _data_num = 1;
 for(_i=_arg; _i<argument_count; _i++)
 {
     _val = argument[_i];

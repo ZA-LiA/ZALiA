@@ -1,7 +1,7 @@
 /// FileSelect_Draw()
 
 
-FileSelect_build_surfaces();
+if (room_is_type("B")) FileSelect_build_surfaces();
 
 
 if (room!=rmB_FileSelect) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

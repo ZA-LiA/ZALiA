@@ -1,6 +1,9 @@
 /// FileSelect_Step()
 
 
+if (room_is_type("B")) FileSelect_udp2();
+
+
 if (room!=rmB_FileSelect) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -33,6 +36,32 @@ InputBack_pressed    = input_b_pressed || keyboard_check_pressed(vk_backspace);
 //InputBack_pressed    = input_b_pressed || keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace);
 
 
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------
+if (timer1>0) // only when going to rmB_FileSelect to make up for processing delay
+{
+    timer1 -= 1*global.delta_multiplier;
+    if (timer1<=0)
+    {
+        timer1 = 0;
+        if (covered)
+        {
+            covered = false;
+            cue_cover_stop = -1;
+            
+            if (state==State_NULL 
+            &&  state_pending==State_MAIN )
+            {   // Force early state change
+                //show_debug_message("FileSelect_Step(). "+"timer1 early state change. "+"cue_change_state=$"+hex_str(cue_change_state)+" g.counter1=$"+hex_str(g.counter1));
+                cue_change_state = g.counter1;
+            }
+        }
+    }
+}
 
 
 
@@ -113,12 +142,39 @@ if (save_num_selected
     
     g.game_end_state = 0;
     
-    var _Rando_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]);
-    //var _Rando_ACTIVE = get_saved_value(save_num_selected, STR_Rando+STR_Active, false);
-    //var _Rando_ACTIVE = val(f.dm_rando[?STR_Rando+STR_Active]);
     
-    var                _SEED = RUN_RANDOMIZATION_SEED;
-    if (_Rando_ACTIVE) _SEED = FileSelect_get_file_seed(save_num_selected,f.quest_num,_SEED);
+    // TODO: I'm not sure exactly what qualifies using the seed from the rando setup 
+    // since all the rando actions have already been determined upon file creation.
+    // Definitely if the player is racing someone.
+    if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_PBAG+STR_Locations]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Skill+STR_Locations]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Spell+STR_Locations]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Spell+STR_Cost]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Method]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Spawner]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_ENIGMA]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_HP]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Damage]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Dungeon+STR_Room]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Dungeon+STR_Locations]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Dungeon+STR_Boss]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Town+STR_Locations]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Level+STR_Cost]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_XP]) )
+    {
+        var _USE_RANDO_SEED = true;
+    }
+    else
+    {
+        var _USE_RANDO_SEED = false;
+    }
+    //var _USE_RANDO_SEED = val(f.dm_rando[?STR_Rando+STR_Active]);
+    //var _USE_RANDO_SEED = get_saved_value(save_num_selected, STR_Rando+STR_Active, false);
+    //var _USE_RANDO_SEED = val(f.dm_rando[?STR_Rando+STR_Active]);
+    
+    var                  _SEED = RUN_RANDOMIZATION_SEED;
+    if (_USE_RANDO_SEED) _SEED = FileSelect_get_file_seed(save_num_selected,f.quest_num,_SEED);
     
     
     
@@ -126,11 +182,11 @@ if (save_num_selected
     if(!val(f.dm_quests[?_datakey]))
     {   // Everytime a save file is loaded, this will be done 
         // until the user saves their progress.
-        if (_Rando_ACTIVE) random_set_seed(_SEED);
-        else               randomize();
+        if (_USE_RANDO_SEED) random_set_seed(_SEED);
+        else                 randomize();
         
-        if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-        ||  val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]) )
+        if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
+        ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Spell+STR_Locations]) )
         {
             _count = global.Rando_SpellSequence_SPELL_COUNT;
         }
@@ -198,6 +254,7 @@ if (covered
 {
     covered = false;
     cue_cover_stop = -1;
+    timer1 = 0;
 }
 
 

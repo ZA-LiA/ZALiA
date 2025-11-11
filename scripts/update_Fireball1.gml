@@ -3,7 +3,7 @@
 
 // 9627
 // Only Acheman & Aruroda Fireball makes sound.
-if (ver == 2)
+if (ver==2)
 {
     aud_play_fire(true);
     // Sound._00ED |= $40;

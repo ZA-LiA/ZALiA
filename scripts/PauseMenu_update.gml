@@ -27,7 +27,7 @@ switch(g.menu_state)
     LifeDolls_count         = get_life_doll_count();
     ContainerPiece_count_hp = cont_piece_cnt_hp();
     ContainerPiece_count_mp = cont_piece_cnt_mp();
-    
+    //if (keyboard_check_pressed(vk_f7)) show_debug_message("PauseMenu_update(). "+"LifeDolls_count="+string(LifeDolls_count));
     
     if (f.quest_num==1)
     {

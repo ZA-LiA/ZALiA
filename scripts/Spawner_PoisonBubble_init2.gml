@@ -23,7 +23,7 @@ else SpawnDir_OPTIONS = 0;
 */
 
 SpawnDir_OPTIONS = $4;
-if (val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawner]))
+if (val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Spawner]))
 {
     SpawnDir_OPTIONS = choose($4,$8,$C);
 }

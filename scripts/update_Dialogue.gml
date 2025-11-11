@@ -63,11 +63,24 @@ switch(g.menu_state)
     
     if (_SAVING_GAME)
     {
+        if (DEV)
+        {
+            var _START_TIME = current_time;
+            repeat(1) show_debug_message("");
+            show_debug_message("update_Dialogue(). Save START");
+        }
+        
         if (g.mod_ContinueFrom &(g.mod_ContinueFrom_TWN1|g.mod_ContinueFrom_TWN2)) f.cont_run_town_num = g.town_num;
         
         file_save(      f.file_num, false);
         set_saved_value(f.file_num, STR_Save+STR_Town+STR_Num, f.cont_run_town_num);
         if (g.mod_RetainXPWithSaveNPC) set_saved_value(f.file_num, STR_XP, clamp(f.xp+f.xpPending-f.xpDrain, 0,XP_MAX));
+        
+        if (DEV)
+        {
+            show_debug_message("update_Dialogue(). Save END. "+string(current_time-_START_TIME));
+            repeat(1) show_debug_message("");
+        }
     }
     
     
@@ -184,7 +197,7 @@ switch(g.menu_state)
     
     if (global.RandoHints_enabled)
     {
-        if (val(f.dm_rando[?STR_Zelda+STR_Hint]) 
+        if (val(global.dm_save_file_settings[?STR_Zelda+STR_Hint]) 
         &&  ((_TYPE==TYPE_ZLDA2 && dialogue_ver=="01") || g.dialogue_source.dialogue_datakey==STR_Zelda+STR_Hint) )
         {
             _dialogue_is_special = true;
@@ -193,8 +206,8 @@ switch(g.menu_state)
         }
         else
         {
-            if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-            &&  val(f.dm_rando[?STR_Item+STR_Location+STR_Hint]) )
+            if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
+            &&  val(global.dm_save_file_settings[?STR_Item+STR_Location+STR_Hint]) )
             {
                 _val = f.dm_rando[?STR_Rando+STR_Hint+g.dialogue_source.dialogue_datakey];
                 if(!is_undefined(_val))
@@ -684,7 +697,7 @@ switch(g.menu_state)
             }
         }
     }
-    else if (val(dm_dialogue[?g.dialogue_source.dialogue_datakey+'A'+STR_Font],spr_Font1)==spr_Font_Hyrulian 
+    else if (val(dm_dialogue[?g.dialogue_source.dialogue_datakey+'A'+STR_Font],global.dl_game_font[|global.game_font_idx])==spr_Font_Hyrulian 
          && !g.dialogue_source.HylianText_read 
          &&  f.items&ITM_BOOK )
     {

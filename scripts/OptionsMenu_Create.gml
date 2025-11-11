@@ -35,7 +35,7 @@ DURATION2 = $2; // input delay 3
 can_play_boss_music_at_open_RandomCustom = false;
 
 
-FONT1 = spr_Font1;
+FONT1 = global.dl_game_font[|global.game_font_idx];
 FONT2 = spr_Font2_1;
 FONT3 = spr_Font2_1;
 
@@ -768,6 +768,13 @@ dm_options[?_dk2+STR_Font]                         = FONT2;
 dm_options[?_dk2+STR_Option+STR_Text]              = "DIALOGUE SPEED";
 dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "1 IS THE ORIGINAL GAME'S DIALOGUE SPEED";
 //dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "1 IS THE ORIGINAL GAME SPEED";
+//                                                                          //
+_j=0; _k=0;
+Other_GAME_FONT = ++_i;
+_dk2 = _dk0+hex_str(_i);
+dm_options[?_dk2+STR_Font]                         = FONT2;
+dm_options[?_dk2+STR_Option+STR_Text]              = "GAME FONT";
+dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "FONT 0 IS THE GAME'S NORMAL FONT";
 //                                                                          //
 _j=0; _k=0;
 Other_HIDDEN_OW_EXITS = ++_i;

@@ -155,18 +155,24 @@ if (_exists) _exists =                ds_exists(      dm_quests, ds_type_map);
 if (_exists)                          ds_map_destroy( dm_quests);
 if (_exists)                                          dm_quests = undefined;
 
+    _exists = variable_instance_exists(id, "dm_rando_full");
+if (_exists) _exists =      !is_undefined(  dm_rando_full);
+if (_exists) _exists =       ds_exists(     dm_rando_full, ds_type_map);
+if (_exists)                 ds_map_destroy(dm_rando_full);
+if (_exists)                                dm_rando_full = undefined;
+
     _exists = variable_instance_exists(id, "dm_rando");
 if (_exists) _exists =      !is_undefined(  dm_rando);
 if (_exists) _exists =       ds_exists(     dm_rando, ds_type_map);
 if (_exists)                 ds_map_destroy(dm_rando);
 if (_exists)                                dm_rando = undefined;
-/*
-             _exists = variable_instance_exists(id,  "dm_rando_data");
-if (_exists) _exists =               !is_undefined(   dm_rando_data);
-if (_exists) _exists =                ds_exists(      dm_rando_data, ds_type_map);
-if (_exists)                          ds_map_destroy( dm_rando_data);
-if (_exists)                                          dm_rando_data = undefined;
-*/
+
+             _exists = variable_instance_exists(id,  "dm_rando_dungeon_tileset");
+if (_exists) _exists =               !is_undefined(   dm_rando_dungeon_tileset);
+if (_exists) _exists =                ds_exists(      dm_rando_dungeon_tileset, ds_type_map);
+if (_exists)                          ds_map_destroy( dm_rando_dungeon_tileset);
+if (_exists)                                          dm_rando_dungeon_tileset = undefined;
+
 
     _exists = variable_instance_exists(id, "dm_jars_DEFAULT");
 if (_exists) _exists =      !is_undefined(  dm_jars_DEFAULT);
@@ -182,9 +188,19 @@ if (_exists)                 ds_map_destroy(dm_target_game);
 if (_exists)                                dm_target_game = undefined;
 */
 
+if (ds_exists( global.dm_save_file,ds_type_map)){
+ds_map_destroy(global.dm_save_file);
+               global.dm_save_file=undefined;
+}
+
 if (ds_exists( global.dm_save_file_data,ds_type_map)){
 ds_map_destroy(global.dm_save_file_data);
                global.dm_save_file_data=undefined;
+}
+
+if (ds_exists( global.dm_save_file_settings,ds_type_map)){
+ds_map_destroy(global.dm_save_file_settings);
+               global.dm_save_file_settings=undefined;
 }
 
 

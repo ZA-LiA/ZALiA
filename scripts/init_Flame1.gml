@@ -4,9 +4,10 @@
 
 
 GO_sprite_init(spr_Flame1);
-DRAW_YOFF = 0;
 
-GO_init_palidx(global.PI_MOB_ORG);
+HostileFire_init_1(global.PI_MOB_ORG);
+
+DRAW_YOFF = 0;
 
 
 vspd_adj = 1; // 

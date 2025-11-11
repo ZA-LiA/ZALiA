@@ -1,17 +1,27 @@
 /// obj_start_Create()
 
-
 if (DEV)
 {
-    var _START_TIME = current_time;
     repeat(1) show_debug_message("");
     show_debug_message("obj_start_Create() START");
     repeat(1) show_debug_message("");
 }
 
 
+// --------------------------------------------------------------------
+var _START_TIME = current_time;
 
 
+room_speed = ROOM_SPEED_BASE;
+
+
+// delta variables updated in `g_Step`
+global.delta_target     = 1/room_speed;
+global.delta_actual     = 0;
+global.delta_multiplier = 0;
+
+
+// --------------------------------------------------------------------
 global.DB0 = false; // DB: DeBug. 
 //global.Split_00 = false;
 //global.Split_01 = false;
@@ -21,50 +31,6 @@ global.DB0 = false; // DB: DeBug.
 //global.dark_lonk_defeat_lose_control = false;
 
 
-// --------------------------------------------------------------------
-room_speed = ROOM_SPEED_BASE;
-
-
-
-
-// --------------------------------------------------------------------
-var _file, _file_data;
-var _version = -1;
-var _dk_APP_VERSION = "app_version";
-//var _build_date = -1;
-var _date = -1;
-var _dk_SESSION_DATE = "session_date";
-var _FILE_NAME0 = "AppData01.txt"; // use %localappdata% directory so data in the file can be updated during runtime
-var _dm = -1;
-if (file_exists(_FILE_NAME0))
-{
-    _file      = file_text_open_read(working_directory+_FILE_NAME0);
-    _file_data = file_text_read_string(_file);
-                 file_text_close(      _file);
-        _dm = json_decode(_file_data);
-    if (_dm!=-1)
-    {
-        _version = val(_dm[?_dk_APP_VERSION], _version);
-        _date    = val(_dm[?_dk_SESSION_DATE], _date);
-    }
-}
-
-global.LAST_APP_SESSION_APP_VER = _version;
-global.LAST_APP_SESSION_DATE = _date;
-
-if (_dm==-1) _dm = ds_map_create();
-_dm[?_dk_APP_VERSION] = GM_version;
-_dm[?_dk_SESSION_DATE] = date_current_datetime();
-_file_data = json_encode(_dm);
-_file = file_text_open_write(working_directory+_FILE_NAME0);
-        file_text_write_string(_file, _file_data);
-        file_text_close(       _file);
-ds_map_destroy(_dm); _dm=undefined;
-
-
-
-
-// --------------------------------------------------------------------
 global.App_frame_count = -1;
 global.App_frame_count_can_draw = false;
 
@@ -81,6 +47,56 @@ global.use_pal_swap = true;
     global.randomized = false;
 if (global.randomized) randomize(); // Give game seed a random value. Turn off for debugging.
 else                   random_set_seed(RUN_RANDOMIZATION_SEED);
+
+
+DURATION1 = $07;
+counter = 0;
+
+
+COLOR1 = $747474; // same as p.C_GRY3
+//background_colour = COLOR1;
+//background_showcolour = true;
+
+
+
+
+// --------------------------------------------------------------------
+var _file, _file_data;
+var _version = -1;
+var _dk_APP_VERSION = "app_version";
+
+//var _build_date = -1;
+var _date = -1;
+var _dk_SESSION_DATE = "session_date";
+
+var _FILE_NAME0 = "AppData01.txt"; // use %localappdata% directory so data in the file can be updated during runtime
+var _dm = -1;
+if (file_exists(_FILE_NAME0))
+{
+    _file      = file_text_open_read(working_directory+_FILE_NAME0);
+    _file_data = file_text_read_string(_file);
+                 file_text_close(      _file);
+        _dm = json_decode(_file_data);
+    if (_dm!=-1)
+    {
+        _version = val(_dm[?_dk_APP_VERSION], _version);
+        _date    = val(_dm[?_dk_SESSION_DATE], _date);
+    }
+}
+
+
+global.LAST_APP_SESSION_APP_VER = _version;
+global.LAST_APP_SESSION_DATE = _date;
+
+
+if (_dm==-1) _dm = ds_map_create();
+_dm[?_dk_APP_VERSION] = GM_version;
+_dm[?_dk_SESSION_DATE] = date_current_datetime();
+_file_data = json_encode(_dm);
+_file = file_text_open_write(working_directory+_FILE_NAME0);
+        file_text_write_string(_file, _file_data);
+        file_text_close(       _file);
+ds_map_destroy(_dm); _dm=undefined;
 
 
 
@@ -115,15 +131,18 @@ load_game_pref();
 window_set_scale(g.WindowScale_scale);
 
 
-if (global.FileSelect_PERSISTENT)
-{
-    instance_create(0,0,FileSelect);
-    FileSelect.persistent = true;
-}
+//if (global.FileSelect_PERSISTENT)
+instance_create(0,0,FileSelect);
 
 
 instance_create(0,0,Dev_RmWarper);
 instance_create(0,0,Dev_StabToCheat);
+
+
+
+
+// --------------------------------------------------------------------
+g.surf.draw_clear_color = COLOR1; // p.C_GRY3. Grey 3. Mid grey. 3rd brightest grey. 2nd darkest grey.
 
 
 
@@ -275,9 +294,13 @@ sdm("DEPTH_SURFACE "+string_repeat(" ",DEPTH_SURFACE>=0)+string(DEPTH_SURFACE)+"
 
 
 
+var _DURATION = current_time - _START_TIME;
+
+//counter += _DURATION / (1000/room_speed);
+//show_debug_message("obj_start_Create(). "+"counter="+string_format(counter,4,8));
+
 if (DEV)
 {
-    var _DURATION = current_time - _START_TIME;
     repeat(1) show_debug_message("");
     show_debug_message("obj_start_Create() END. "+string(_DURATION));
     repeat(1) show_debug_message("");

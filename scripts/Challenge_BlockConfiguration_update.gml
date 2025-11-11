@@ -20,7 +20,7 @@ switch(sub_state)
             
             _val1 = !!dg_config[#_j,_i];
             _val2 = g.dg_RmTile_Break[#_clm,_row] &$FF;
-            if (_val1 != isVal(_val2, TID_BREAK1,TID_BREAK3))
+            if (_val1!=isVal(_val2,TID_BREAK1,TID_BREAK3))
             {
                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
@@ -126,21 +126,25 @@ switch(sub_state)
         
         // --------------------------------------------------------------------------------
         case 2:{
-        var _DEPTH = DEPTH_BG2;
-        var _X = 0;
-        var _Y = 0;
         with(BlckB)
         {
-            _X = xl-8;
-            _Y = yt+8;
+            if (Chain_hang)
+            {
+                Chain_connected = false;
+            }
+            else
+            {
+                var _DEPTH = DEPTH_BG2;
+                var _X = xl-8;
+                var _Y = yt+8;
+                // Remove tiles under prize so it falls to the floor.
+                tile_change_1a(_DEPTH, _X+($00<<3),_Y+($00<<3), 0,0, 0);
+                tile_change_1a(_DEPTH, _X+($03<<3),_Y+($00<<3), 0,0, 0);
+                tile_change_1a(_DEPTH, _X+($01<<3),_Y+($01<<3), 0,0, 0);
+                tile_change_1a(_DEPTH, _X+($02<<3),_Y+($01<<3), 0,0, 0);
+            }
             break;//with(BlckB)
         }
-        
-        // Remove tiles under prize so it falls to the floor.
-        tile_change_1a(_DEPTH, _X+($00<<3),_Y+($00<<3), 0,0, 0);
-        tile_change_1a(_DEPTH, _X+($03<<3),_Y+($00<<3), 0,0, 0);
-        tile_change_1a(_DEPTH, _X+($01<<3),_Y+($01<<3), 0,0, 0);
-        tile_change_1a(_DEPTH, _X+($02<<3),_Y+($01<<3), 0,0, 0);
         
         aud_play_sound(get_audio_theme_track(dk_BlockBreak));
         aud_play_sound(get_audio_theme_track(dk_BridgeCrumble));

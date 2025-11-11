@@ -1121,10 +1121,11 @@ row3=$34; y3=row3<<3; // EXM0 pc yt
 row4=$02; y4=row4<<3; // EXR0 pc yt
 row5=$03; y5=row5<<3;
 row6=$36; y6=row6<<3; // bottom most trap yc
-data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $15<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $2B<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $37<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+row7=row3+$01; y7=row7<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($0B<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($33<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $1D<<3,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $22<<3,y7,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 clms3=$20; _w=clms3<<3; // Smasher w
 //clms3=$04; _w=clms3<<3; // Smasher w
 rows3=$04; _h=rows3<<3; // Smasher h
@@ -1463,12 +1464,7 @@ _data3=STR_Attack+STR_Direction+"08";
 _val1=$60;
 _data4=STR_Cooldown+STR_Duration+hex_str(_val1);
 _data5=STR_Attack+STR_Duration+hex_str(_val1);
-data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"02");
-data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
-data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"02");
-data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
-data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"02");
-data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  ((_clm3)+_clms3*_i++)<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+repeat(6) data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  (_clm3+(_clms3*_i++))<<3,y5,  _data1, _data2, _data3, _data4, _data5, "_SubState"+hex_str(1+(_i&$1)));
 data_spawn(rm+STR_PRXM,Moa_B,$1,  (clm1-$01)<<3,(row0+$0B)<<3); // FieryMoa  1
 //data_spawn(rm+STR_PRXM,Bot_A,$1,  x3,y5); // Bot  1 
 
@@ -1614,20 +1610,28 @@ data_scene_rando(rm);
 //   --------------------------  A6  --------------------------- 
 //    Extra scene rando scene. Halloween spooky house outside scene
 rm_num  = $A6;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'166');
+set_rm_data(area+hex_str(rm_num), STR_Overworld+dk_MazeIsland, STR_Tile+area_MI+'166');
 
 
 row3=row0+$16; y3=row3<<3;
 row4=row0+$15; y4=row4<<3;
+row5=row0+$19; y5=row5<<3;
 _i=0;
 data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,Cloud_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,StarSky_1_init);
 data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,Moon1_init);
-data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,Jackolantern1_init, -1,  $15<<3,$39<<3);
-data_spawn(rm+STR_PRIO,TorchA,$3,  ($0B<<3)+4,y4,  STR_Lit); // 
-data_spawn(rm+STR_PRIO,TorchA,$3,  ($15<<3)+4,y4,  STR_Lit); // 
-//data_spawn(rm+STR_PRXM,Moa_A,$1,  $04<<3,(row0+$06)<<3); // Moa  1 
-//data_spawn(rm+STR_PRXM,Moa_A,$1,  $3A<<3,(row0+$08)<<3); // Moa  1 
+//data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,Jackolantern1_init, -1,  $0F<<3,y5, DEPTH_BG1-1);
+data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,Jackolantern1_init, -1,  $1B<<3,y5, DEPTH_BG1-1);
+data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,Jackolantern1_init, -1,  $2B<<3,y5, DEPTH_BG1-1);
+data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,Jackolantern1_init, -1,  $1D<<3,(row0+$06)<<3, DEPTH_BG1-1);
+_data  = hex_str(($0C<<3)+4,4)+hex_str(((row0+$17)<<3)+0,4);
+_data += hex_str(($2A<<3)+4,4)+hex_str(((row0+$12)<<3)+4,4);
+data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,AdditionalBGGraphics_init,  global.PI_BGR1,  spr_Skull_2a_WRB,0,DEPTH_BG3-1,_data);
+_data  = hex_str(($25<<3)+0,4)+hex_str(((row0+$15)<<3)+0,4);
+data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,AdditionalBGGraphics_init,  global.PI_MOB_ORG,  spr_Item_Child,0,DEPTH_BG3-1,_data);
+//data_spawn(rm+STR_PRIO,TorchA,$3,  ($0B<<3)+4,y4,  STR_Lit); // 
+data_spawn(rm+STR_PRIO,TorchA,$3,  $16<<3,y4,  STR_Lit); // 
+data_spawn(rm+STR_PRXM,Moa_A,$3,  clm1<<3,(row0+$09)<<3); // Moa  3 
 //data_spawn(rm+STR_PRXM,Ache01,$1,  $31<<3,(row0+$05)<<3); // Ache  1 
 //data_spawn(rm+STR_PRXM,Bot_A,$1,  $30<<3,(row3+$02)<<3); // Bot  1
 
@@ -1635,8 +1639,8 @@ data_spawn(rm+STR_PRIO,TorchA,$3,  ($15<<3)+4,y4,  STR_Lit); //
 clm3=$10;
 clms3=$05; clm4=clms3-$01; clm5=clms0-clms3-$01;
 data_exit(EXM0,etB0,1,  clm3,row3,  $02,ROWS2,  clm3+$01,row3,  hex_str(rm_num-1)+EXM0_); // MID 0, 
-data_exit(EXL0,etA0,1,  clm4,ROW0,  CLMS2,ROWS6,  clm4+$04,row3,  rm_num_+EXL0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm5,ROW0,  CLMS2,ROWS6,  clm5-$04,row3,  rm_num_+EXR0_); // RGT 0, 
+data_exit(EXL0,etA0,1,  clm4,ROW0,  CLMS2,ROWS6,  clm4+$04,row3,  hex_str(rm_num+1)+EXL0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm5,ROW0,  CLMS2,ROWS6,  clm5-$04,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
 data_path_conditions(exit_name_m0, exit_name_r0);
@@ -1649,6 +1653,233 @@ data_path_conditions(exit_name_l0, exit_name_m0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
 //data_scene_rando(rm);
+
+
+
+
+
+
+
+
+//   --------------------------  A7  --------------------------- 
+//    Extra scene rando scene. Burnable puzzle with waterfalls that can put out fire unless they're turned off by a switch
+rm_num  = $A7;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'167', STR_Dark+'00');
+
+
+row3=row0+$14; y3=row3<<3;
+row4=row0+$08; y4=row4<<3;
+row5=row3+$01; y5=row5<<3;
+row6=row0+$00; y6=row6<<3;
+clm3=$32; x3=clm3<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0F<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $2A<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,SwchB,$1,  $2A<<3,(row0+$0F)<<3,  dk_PI+hex_str(global.PI_BGR2)); // 
+data_spawn_2a(STR_Challenge,Challenge_SwitchB,$4,  0,0,  global.PI_BGR3);
+
+
+row7=ROW0; row8=row3-((row3-(row4+$04))>>1);
+rows7=row8-row7; rows8=(rows0-row8)+PAGE_ROWS;
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXM0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,row7,  CLMS2,rows7,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+data_exit(EXR1,etA0,1,  clm2,row8,  CLMS2,rows8,  clmA,row3,  rm_num_+EXL0_); // RGT 1, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_r1);
+
+data_path_conditions(exit_name_r1, exit_name_l0);
+
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"+"+STR_FIRE);
+data_path_conditions(exit_name_l0, exit_name_r1);
+
+data_scene_rando(rm);
+
+
+
+
+
+
+
+
+//   --------------------------  A8  --------------------------- 
+//    Extra scene rando scene. Hallway spike challenge with ceileing spikes
+rm_num  = $A8;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'168', STR_Dark+'00');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row0+$14; y4=row4<<3;
+row5=row4+$01; y5=row5<<3;
+row6=row4+$04; y6=row6<<3;
+row7=row4+$02; y7=row7<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($0D<<3)+4,y5); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($13<<3)+4,y5); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($6B<<3)+4,y5); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($71<<3)+4,y5); // v1: Light w/ CANDLE or FIRE
+_clms3=$08;
+_data1=STR_Depth+string(val(g.dm_TILE_DEPTH[?"BG03"]));
+_data2="_Spike"+STR_Count+hex_str(_clms3);
+_data3=STR_Attack+STR_Direction+"08"; 
+_data4=STR_Cooldown+STR_Duration+hex_str($60);
+_data5=STR_Attack+STR_Duration+hex_str($60);
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $18<<3,y6,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $24<<3,y6,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $30<<3,y6,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $48<<3,y6,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $54<<3,y6,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $60<<3,y6,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $14<<3,y7); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $3A<<3,y7); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $44<<3,y7); // Aneru  1
+data_spawn(rm+STR_PRXM,Aneru01,$1,  $6A<<3,y7); // Aneru  1
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
+
+
+//   --------------------------  A9  --------------------------- 
+//    Extra scene rando scene. Liquid pit with platforms across that have internittent spikes
+rm_num  = $A9;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'169', STR_Dark+'00');
+
+
+row3=row0+$10; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+row5=row0+$0E; y5=row5<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($27<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($3F<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($57<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($75<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,SpPoA,$1,  0,0); // BubbleSpawner  1 
+//data_spawn(rm+STR_PRXM,Ra__A,$1,  $38<<3,y5); // Ra  1
+//data_spawn(rm+STR_PRXM,Ra__A,$1,  $46<<3,y5); // Ra  1
+_clms3=$04;
+_data1=STR_Depth+string(val(g.dm_TILE_DEPTH[?"BG03"]));
+_data2="_Spike"+STR_Count+hex_str(_clms3);
+_data3=STR_Attack+STR_Direction+"08"; 
+_data4=STR_Cooldown+STR_Duration+hex_str($60);
+_data5=STR_Attack+STR_Duration+hex_str($60);
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $1A<<3,y3,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $32<<3,y3,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $4A<<3,y3,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+data_spawn(rm+STR_PRIO,SpikeTrapD,$1,  $62<<3,y3,  _data1, _data2, _data3, _data4, _data5, "_SubState"+"01");
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
+
+
+//   --------------------------  AA  --------------------------- 
+//    Extra scene rando scene. Need 2 switches pressed by Cling Bubbles
+rm_num  = $AA;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'170', STR_Dark+'00');
+
+
+row3=row0+$14; y3=row3<<3;
+row4=row3+$01; y4=row4<<3;
+row5=row0+$0D; y5=row5<<3;
+row6=row0+$02; y6=(row6<<3)-4;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $0B<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRXM,BubbA,$20,  $18<<3,y6,  STR_Direction+hex_str($2)); // v$20: Bubble-cling
+data_spawn(rm+STR_PRXM,BubbA,$20,  $26<<3,y6,  STR_Direction+hex_str($1)); // v$20: Bubble-cling
+data_spawn(rm+STR_PRIO,SwchB,$1,  $06<<3,y5,  dk_PI+hex_str(global.PI_BGR2), "_Other_Objects_Can_Press"); // Can be pressed by enemy
+data_spawn(rm+STR_PRIO,SwchB,$1,  $38<<3,y5,  dk_PI+hex_str(global.PI_BGR2), "_Other_Objects_Can_Press"); // Can be pressed by enemy
+data_spawn_2a(STR_Challenge,Challenge_SwitchB,$1,  $28<<3,(row0+$12)<<3); // xy is locked door xy. Challenge will spawn locked door
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE+"+"+STR_STABDOWN);
+
+data_scene_rando(rm);
+
+
+
+
+
+
+
+
+//   --------------------------  AB  --------------------------- 
+//    Extra scene rando scene. A long bridge of only 1 tile deep break blocks with a lava pit under it. Breaking any blocks is dangerous
+rm_num  = $AB;
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'171');
+
+
+row3=row0+$0C; y3=row3<<3;
+row4=row3+$02; y4=row4<<3;
+row5=row3+$01; y5=row5<<3;
+row6=row3-$02; y6=row6<<3; // For Ra
+//row6=row0+$02; y6=row6<<3; // For Tektites
+row7=row0+$06; y7=(row7<<3)+4;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($07<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($77<<3)+4,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+//Atta, Bago, Bot, Bubble, Moa, Myu, Octorok, Ra,
+//data_spawn(rm+STR_PRXM,TektA,$1,  ($27)<<3,y6); // Tektite  1 
+//data_spawn(rm+STR_PRXM,TektA,$1,  ($3F)<<3,y6); // Tektite  1 
+//data_spawn(rm+STR_PRXM,TektA,$1,  ($57)<<3,y6); // Tektite  1 
+//data_spawn(rm+STR_PRXM,TektA,$1,  (clm1-$01)<<3,(row0+$02)<<3); // Tektite  1 
+data_spawn(rm+STR_PRXM,BubbA,$22,  $27<<3,y7,  STR_Direction+hex_str($2)); // v$20: Bubble-cling
+data_spawn(rm+STR_PRXM,BubbA,$22,  $37<<3,y7,  STR_Direction+hex_str($2)); // v$20: Bubble-cling
+data_spawn(rm+STR_PRXM,BubbA,$22,  $47<<3,y7,  STR_Direction+hex_str($2)); // v$20: Bubble-cling
+data_spawn(rm+STR_PRXM,BubbA,$22,  $57<<3,y7,  STR_Direction+hex_str($2)); // v$20: Bubble-cling
+/*
+data_spawn(rm+STR_PRXM,BubbA,$22,  $27<<3,y7,  STR_Direction+hex_str($2), "_TowardsPC"+hex_str($3)); // v$20: Bubble-cling
+data_spawn(rm+STR_PRXM,BubbA,$22,  $37<<3,y7,  STR_Direction+hex_str($2), "_TowardsPC"+hex_str($3)); // v$20: Bubble-cling
+data_spawn(rm+STR_PRXM,BubbA,$22,  $47<<3,y7,  STR_Direction+hex_str($2), "_TowardsPC"+hex_str($3)); // v$20: Bubble-cling
+data_spawn(rm+STR_PRXM,BubbA,$22,  $57<<3,y7,  STR_Direction+hex_str($2), "_TowardsPC"+hex_str($3)); // v$20: Bubble-cling
+*/
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $27<<3,y6); // Ra  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $37<<3,y6); // Ra  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $47<<3,y6); // Ra  1
+data_spawn(rm+STR_PRXM,Ra__A,$1,  $57<<3,y6); // Ra  1
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $1F<<3,y4); // Bot  1 
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $2F<<3,y4); // Bot  1 
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $3F<<3,y4); // Bot  1 
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $4F<<3,y4); // Bot  1 
+data_spawn(rm+STR_PRXM,Bot_A,$1,  $5F<<3,y4); // Bot  1 
+//data_spawn(rm+STR_PRXM,Moa_A,$3,  clm1<<3,(row0+$09)<<3); // Moa  3 
+
+
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  rm_num_+EXR0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
 
 
 

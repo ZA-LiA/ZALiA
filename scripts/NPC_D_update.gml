@@ -38,7 +38,7 @@ switch(sub_state)
             dialogue_ver = "F";
             Product1_cost = Product1_COST3;
         }
-        else if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
+        else if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
         {
             dialogue_ver = "D";
             Product1_cost = Product1_COST;

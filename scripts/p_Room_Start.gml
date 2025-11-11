@@ -172,10 +172,8 @@ switch(g.room_type)
             pal_rm_file = get_palette_via_file_data(_val, _dk, g.file_data_quest_num); // Get rm palette data from file
         }
     }
-    else
-    {
-        _dm_pal_data_datakey = room_get_name(room);
-    }
+    //else if (isVal(room,rmB_Start,rmB_Start_Wide)) _dm_pal_data_datakey = room_get_name(rmB_FileSelect);
+    else _dm_pal_data_datakey = room_get_name(room);
     break;}
     
     

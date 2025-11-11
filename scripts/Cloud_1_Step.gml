@@ -9,7 +9,7 @@ if (hspd==0)  exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 for(var _i=0; _i<CLOUD_COUNT; _i++)
 {
     if(0){ // Trying for smoother movement. Slower cloud movement looks choppy.
-             dg_cloud[#_i,3] -= 1*g.delta_multiplier; // 3:timer
+             dg_cloud[#_i,3] -= 1*global.delta_multiplier; // 3:timer
         if ( dg_cloud[#_i,3] >= 0) continue; // 3:timer
         else dg_cloud[#_i,3]  = dg_cloud[#_i,2] + dg_cloud[#_i,3]; // 2:timer reset
     }else{

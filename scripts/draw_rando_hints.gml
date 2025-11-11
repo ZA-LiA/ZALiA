@@ -76,7 +76,7 @@ for(_i=0;_i<_ROWS;_i++)
 _xl  = _XL0 + ((_CLMS<<3)>>1);
 _xl -= (string_length(_HEADER_TEXT)<<3)>>1;
 _yt  = _YT1;
-draw_text_(_xl,_yt, _HEADER_TEXT, spr_Font1, global.PI_GUI1);
+draw_text_(_xl,_yt, _HEADER_TEXT, global.dl_game_font[|global.game_font_idx], global.PI_GUI1);
 
 
 

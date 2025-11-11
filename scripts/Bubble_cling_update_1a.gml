@@ -17,25 +17,28 @@ var _I3 = ds_grid_height(dg_cling)-2; // 2nd to last grid y
 dg_cling[#0,1] = dg_cling[#0,0]; // set cling side prev frame
 
 
-var _MOVE_DIR = byte_bit_dir(hspd,vspd);
+var _MOVE_DIR = byte_bit_dir(hspd,vspd); // $0,$1,$2,$4,$8
 //if (_MOVE_DIR==8 && !(g.counter1&$F)) sdm("dg_cling[#0,0] $"+hex_str(dg_cling[#0,0]));
 
 
 
 
-var _IDX = bitNum(_MOVE_DIR)-1;
+var _IDX = bitNum(_MOVE_DIR)-1; // 0,1,2,3
 
 
 if (dg_cling[#_I2+_IDX,0]) // mid _MOVE_DIR point is colliding
 {
-    var         _idx3  = 0;     // RGT, LFT
-    if (_IDX<2) _idx3  = 2;     // BTM, TOP
-                _idx3 += _I2;   // _I2: mid points
+    var         _idx3  = 0;   // RGT, LFT
+    if (_IDX<2) _idx3  = 2;   // BTM, TOP
+                _idx3 += _I2; // _I2: mid points
     //
     var _NEW_DIR = -sign_(dg_cling[#_idx3,0]);
     if(!dg_cling[#_idx3,  0]   // if RGT,BTM  NOT colliding
     && !dg_cling[#_idx3+1,0] ) // if LFT,TOP  NOT colliding
-    {   _NEW_DIR =  sign_(irandom(1));  }
+    {
+        _NEW_DIR =  sign_(irandom(1));
+        //show_debug_message("Bubble_cling_update_1a(). "+"_NEW_DIR="+string(_NEW_DIR)+" _MOVE_DIR=$"+hex_str(_MOVE_DIR)+", _idx3=$"+hex_str(_idx3)+" _IDX=$"+hex_str(_IDX)+" _I2=$"+hex_str(_I2));
+    }
     
     
     
@@ -44,13 +47,13 @@ if (dg_cling[#_I2+_IDX,0]) // mid _MOVE_DIR point is colliding
         _idx3 = 1 + sign(_MOVE_DIR&$C); // 1: x, 2: y
         
         var                 _OFF = -(dg_cling[#_I2+_IDX,_idx3]&$7);
-        if (_MOVE_DIR&$A)   _OFF = 7 + _OFF;
+        if (_MOVE_DIR&$A)   _OFF = $7 + _OFF;
         
-        var               _X_OFF =     _OFF;
-        var               _Y_OFF =     _OFF;
+        var               _X_OFF =      _OFF;
+        var               _Y_OFF =      _OFF;
         
-        if (_MOVE_DIR&$C) _X_OFF = abs(_OFF) * _NEW_DIR;
-        else              _Y_OFF = abs(_OFF) * _NEW_DIR;
+        if (_MOVE_DIR&$C) _X_OFF =  abs(_OFF) * _NEW_DIR;
+        else              _Y_OFF =  abs(_OFF) * _NEW_DIR;
     }
     else
     {
@@ -61,7 +64,7 @@ if (dg_cling[#_I2+_IDX,0]) // mid _MOVE_DIR point is colliding
         break;}
         
         case 2:{
-        var _X_OFF = 7-(dg_cling[#_I2+_IDX,1]&$7);
+        var _X_OFF = $7 - (dg_cling[#_I2+_IDX,1]&$7);
         var _Y_OFF = abs(_X_OFF) * _NEW_DIR;
         break;}
         
@@ -71,7 +74,7 @@ if (dg_cling[#_I2+_IDX,0]) // mid _MOVE_DIR point is colliding
         break;}
         
         case 8:{
-        var _Y_OFF = 7-(dg_cling[#_I2+_IDX,2]&$7);
+        var _Y_OFF = $7 - (dg_cling[#_I2+_IDX,2]&$7);
         var _X_OFF = abs(_Y_OFF) * _NEW_DIR;
         break;}
         }
@@ -109,7 +112,7 @@ else if (dg_cling[#0,0]) // cling side. Side that's anchored to the wall.
         var _X_OFF = -((dg_cling[#_IDX1,1]&$7) + 1);
         var _Y_OFF = abs(_X_OFF) * _NEW_DIR;
         
-        // var _x     =  dg_cling[#_IDX1,1] + -x_change;
+        //var _x     =  dg_cling[#_IDX1,1] + -x_change;
         var _x     =  dg_cling[#_IDX1,1] + _X_OFF;
         var _y     =  dg_cling[#_IDX1,2] + (4*_NEW_DIR);
         break;}
@@ -119,7 +122,7 @@ else if (dg_cling[#0,0]) // cling side. Side that's anchored to the wall.
         var _X_OFF = (7-(dg_cling[#_IDX1,1]&$7)) + 1;
         var _Y_OFF = abs(_X_OFF) * _NEW_DIR;
         
-        // var _x     =  dg_cling[#_IDX1,1] + -x_change;
+        //var _x     =  dg_cling[#_IDX1,1] + -x_change;
         var _x     =  dg_cling[#_IDX1,1] + _X_OFF;
         var _y     =  dg_cling[#_IDX1,2] + (4*_NEW_DIR);
         break;}
@@ -130,7 +133,7 @@ else if (dg_cling[#0,0]) // cling side. Side that's anchored to the wall.
         var _X_OFF = abs(_Y_OFF) * _NEW_DIR;
         
         var _x     =  dg_cling[#_IDX1,1] + (4*_NEW_DIR);
-        // var _y     =  dg_cling[#_IDX1,2] + -y_change;
+        //var _y     =  dg_cling[#_IDX1,2] + -y_change;
         var _y     =  dg_cling[#_IDX1,2] + _Y_OFF;
         break;}
         
@@ -140,7 +143,7 @@ else if (dg_cling[#0,0]) // cling side. Side that's anchored to the wall.
         var _X_OFF = abs(_Y_OFF) * _NEW_DIR;
         
         var _x     =  dg_cling[#_IDX1,1] + (4*_NEW_DIR);
-        // var _y     =  dg_cling[#_IDX1,2] + -y_change;
+        //var _y     =  dg_cling[#_IDX1,2] + -y_change;
         var _y     =  dg_cling[#_IDX1,2] + _Y_OFF;
         break;}
         }

@@ -394,6 +394,19 @@ global.PI_CLOUD_1   = global.PI_BGR4;
 //_count1 = val(global.dm_pi[?"PC"+STR_Count]) + val(global.dm_pi[?"SPELL_PC"+STR_Count]);
 //global.PI_PC_SWORD  = global.PI_MOB_PUR + 2 + (_count1<<1) + 1; // (PI_MOB_PUR + 2 + (PC_PAL_COUNT<<1) + 1)
 
+global.FIRE_PI_SYSTEM_VER = 1; // 1: Normal/Non-modded
+//global.FIRE_PI_SYSTEM_VER = 7; // 7: PI_MOB_RED with no blinking
+switch(global.FIRE_PI_SYSTEM_VER){
+default:{global.PI_FIRE_HOSTILE1=global.PI_MOB_ORG; break;}
+case  2:{global.PI_FIRE_HOSTILE1=global.PI_MOB_ORG; break;}
+case  3:{global.PI_FIRE_HOSTILE1=global.PI_MOB_ORG; break;}
+case  4:{global.PI_FIRE_HOSTILE1=global.PI_MOB_RED; break;}
+case  5:{global.PI_FIRE_HOSTILE1=global.PI_MOB_RED; break;}
+case  6:{global.PI_FIRE_HOSTILE1=global.PI_MOB_RED; break;}
+case  7:{global.PI_FIRE_HOSTILE1=global.PI_MOB_RED; break;}
+}
+
+
 
 
 
@@ -1410,6 +1423,9 @@ dm_pal_data[?_dk] += PAL_MOB_ORG1 + PAL_MOB_RED2 + _PAL5 + _PAL2; // mob
 dm_pal_data[?_dk]  = PAL_SET2;
 dm_pal_data[?_dk] +=_PAL6 + _PAL1 + _PAL1 + _PAL2  // bgr
 dm_pal_data[?_dk] +=_PAL3 + _PAL7 + _PAL8 + _PAL2; // mob
+
+dm_pal_data[?room_get_name(rmB_Start)]      = val(dm_pal_data[?room_get_name(rmB_FileSelect)]);
+dm_pal_data[?room_get_name(rmB_Start_Wide)] = val(dm_pal_data[?room_get_name(rmB_Start)]);
 
 OW_PAL  = PAL_SET2;
 OW_PAL += build_pal(C_CYN1,C_BLU3,C_BLK1,C_BLK1,-2,-2,-2,-2); // BGR1

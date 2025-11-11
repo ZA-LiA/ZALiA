@@ -15,10 +15,10 @@ if (collisionProjCS(0,0))
         var _ver = 1;
         
         var _DATAKEY=STR_Randomize+STR_Enemy;
-        var _IS_RANDO = val(f.dm_rando[?_DATAKEY+STR_Spawner]);
+        var _IS_RANDO = val(global.dm_save_file_settings[?_DATAKEY+STR_Spawner]);
         if (_IS_RANDO)
         {
-            var _DIFFICULTY = val(f.dm_rando[?_DATAKEY+STR_Difficulty],1);
+            var _DIFFICULTY = val(global.dm_save_file_settings[?_DATAKEY+STR_Difficulty],1);
             var _difficulty = 0;
             
             if(!_difficulty 

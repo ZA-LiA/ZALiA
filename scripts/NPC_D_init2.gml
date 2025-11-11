@@ -24,7 +24,7 @@ switch(ver)
     Product1_OBJ  = val(g.dm_ITEM[?hex_str(ITM_MAP2)+STR_Object],ItmK9); // MAP2
     Product1_COST = MAP2_PRICE;
     
-    if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
+    if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
     {
         Product1_COST = val(f.dm_rando[?STR_Map+"2"+STR_Cost], Product1_COST);
     }
@@ -34,7 +34,7 @@ switch(ver)
     Product1_OBJ  = val(g.dm_ITEM[?hex_str(ITM_MAP1)+STR_Object],ItmK8); // MAP1
     Product1_COST = MAP1_PRICE;
     
-    if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
+    if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
     {
         Product1_COST = val(f.dm_rando[?STR_Map+"1"+STR_Cost], Product1_COST);
     }

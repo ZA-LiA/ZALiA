@@ -126,7 +126,15 @@ if (argument[0]<0
 
 
 
-
+/*
+    var _is_active  = ItemLocations_WILL_RANDOMIZE!=0;
+        _is_active |= SpellLocations_WILL_RANDOMIZE!=0;
+        _is_active |= DungeonLocations_WILL_RANDOMIZE!=0;
+        _is_active |= EnemyChars_WILL_RANDOMIZE!=0;
+        _is_active |= LevelCosts_WILL_RANDOMIZE!=0;
+        _is_active |= XP_WILL_RANDOMIZE!=0;
+        _is_active |= SpellLocations_WILL_RANDOMIZE!=0;
+*/
 
 /*
 if (argument[0]<0 

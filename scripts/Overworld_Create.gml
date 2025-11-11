@@ -139,7 +139,7 @@ ROOM_H = DRAW_H;   // what room_height get set to in Overworld_Room_Start()
 
 
 Pause_ALLOW_BUFFERING = true;
-Pause_FONT   = spr_Font1;
+Pause_FONT   = global.dl_game_font[|global.game_font_idx];
 Pause_TEXT   = "PAUSED!";
 Pause_TEXT_W = sprite_get_width(Pause_FONT) * string_length(Pause_TEXT);
 Pause_xl = 0;
@@ -917,7 +917,7 @@ _i++;
 
 
 WarpText_can_draw = false;
-WarpText_FONT     = spr_Font1;
+WarpText_FONT     = global.dl_game_font[|global.game_font_idx];
 WarpText_FONT_W   = sprite_get_width( WarpText_FONT);
 WarpText_FONT_H   = sprite_get_height(WarpText_FONT);
 WarpText_text     = Warp_dg_DESTINATIONS[#Warp_destination_num-1,2];

@@ -44,12 +44,12 @@ if (is_dormant)
                 vspd = (-spdBase) &$FF;
                 vspd_grav = 0;
                 
-                react_sword    = REACT_SWORD;
-                react_proj     = REACT_PROJ;
-                react_thunder  = REACT_THUNDER;
-                react_spell    = REACT_SPELL;
-                xp_drain       = XP_DRAIN;
-                cs_off_idx     = CS_OFF_IDX;
+                react_sword   = REACT_SWORD;
+                react_proj    = REACT_PROJ;
+                react_thunder = REACT_THUNDER;
+                react_spell   = REACT_SPELL;
+                xp_drain      = XP_DRAIN;
+                cs_off_idx    = CS_OFF_IDX;
                 //setCSOffsets();
             }
             
@@ -93,7 +93,7 @@ GO_update_cs();
 
 
 // ---------------------------------------------------------------
-if (ver & VER_BIT_CLNG)
+if (ver&VER_BIT_CLNG)
 {
     Bubble_cling_update_1a();
     // exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -115,7 +115,7 @@ if (cs&CS_BD1)
 
 
 
-if (ver & VER_BIT_CLNG)
+if (ver&VER_BIT_CLNG)
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -127,35 +127,35 @@ if (ver & VER_BIT_CLNG)
 
 // ---------------------------------------------------------------
 // A09F Bubble $15 & GiantBubble
-if (ver & VER_BIT_GIAN 
-&&  hp < g.dl_HP[|$1B] ) // $17, ver 3: GiantBubble
-//&&  hp < $C0 ) // $17, ver 3: GiantBubble
+if (ver&VER_BIT_GIAN 
+&&  hp<g.dl_HP[|$1B] ) // $17, ver 3: GiantBubble
+//&&  hp<$C0 ) // $17, ver 3: GiantBubble
 {
     state = 0; // this should happen 1st
     
     
     var _x,_y, _DIR_H,_DIR_V, _SPEED, _VER;
-    _DIR_H  = byte_dir(hspd);
-    _DIR_V  = byte_dir(vspd);
-    _SPEED  = SPEED2;
-    _VER    = (ver & VER_BIT_STAB) | VER_BIT_FAST;
+    _DIR_H = byte_dir(hspd);
+    _DIR_V = byte_dir(vspd);
+    _SPEED = SPEED2;
+    _VER   = (ver&VER_BIT_STAB) | VER_BIT_FAST;
     
     
     _x = x - $10;
     _y = y - $10;
     with(GameObject_create(_x,_y, BubbA,_VER)) // Bubble fast
     {
-        hspd = byte( _SPEED * _DIR_H);
-        vspd = byte( _SPEED * _DIR_V);
+        hspd = byte( _SPEED*_DIR_H);
+        vspd = byte( _SPEED*_DIR_V);
     }
     
     
     _x = x;
-    _y = y + (vspd >= $80);
+    _y = y + (vspd>=$80);
     with(GameObject_create(_x,_y, BubbA,_VER)) // Bubble fast
     {
-        hspd = byte( _SPEED * _DIR_H);
-        vspd = byte((_SPEED * _DIR_V) ^ $FF);
+        hspd = byte( _SPEED*_DIR_H);
+        vspd = byte((_SPEED*_DIR_V) ^ $FF);
     }
 }
 
@@ -165,8 +165,8 @@ if (ver & VER_BIT_GIAN
 
 
 // ---------------------------------------------------------------
-if (ver & VER_BIT_STAB 
-&&  cs  & (CS_SW1|CS_PR1) )
+if (ver&VER_BIT_STAB 
+&&  cs&(CS_SW1|CS_PR1) )
 {
     if(!stab_changed_dir)
     {
@@ -174,7 +174,7 @@ if (ver & VER_BIT_STAB
         
         if (isVal(global.pc.behavior, global.pc.behavior_STAB_UP,global.pc.behavior_STAB_DOWN))
         {
-            if (global.pc.behavior == global.pc.behavior_STAB_UP)
+            if (  global.pc.behavior==global.pc.behavior_STAB_UP)
             {    vspd = -abs8b(vspd) &$FF;  }
             else vspd =  abs8b(vspd) &$FF;
             
@@ -186,7 +186,7 @@ if (ver & VER_BIT_STAB
             {    hspd =  abs8b(hspd) &$FF;  }
             else hspd = -abs8b(hspd) &$FF;
             
-            hspd_dir  = byte_dir(hspd);
+            hspd_dir   = byte_dir(hspd);
             facing_dir = hspd_dir;
             
             updateX();
@@ -206,15 +206,15 @@ else    stab_changed_dir = 0;
 // Giant Bubble: bounce when 4 pixels of sprite is off screen
 //   Reg Bubble: bounce when 8 pixels of sprite is off screen
 
-var                     _OCS = ocs &  $4; // at least half w is out of ocs area
-if (ver & VER_BIT_GIAN) _OCS = ocs & $1F; // any           w is out of ocs area
+var                   _OCS = ocs&$04; // at least half w is out of ocs area
+if (ver&VER_BIT_GIAN) _OCS = ocs&$1F; // any           w is out of ocs area
 
 if (_OCS 
 ||  cs&$3 )
 {   // 9A07
-    hspd        = byte_negate(hspd);
-    hspd_dir    = byte_dir(   hspd);
-    facing_dir   = hspd_dir;
+    hspd       = byte_negate(hspd);
+    hspd_dir   = byte_dir(   hspd);
+    facing_dir = hspd_dir;
     updateX();
 }
 
@@ -222,8 +222,8 @@ if (_OCS
 if(!ocsV1(id)  // if NO height w/in ocs area
 ||  cs&$C )
 {
-    vspd        = byte_negate(vspd);
-    // vspd_dir    = byte_dir(vspd);
+    vspd     = byte_negate(vspd);
+    //vspd_dir = byte_dir(vspd);
     updateY();
 }
 

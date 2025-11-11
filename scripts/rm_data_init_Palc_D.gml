@@ -61,7 +61,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$17,  0); // LFT 0, 
 g.dm_rm[?get_dk_dungeon_entrance(_DUNGEON_NUM)] = exit_name_l0;
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
 data_path_conditions(exit_name_l0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_l0);
 
@@ -80,12 +79,12 @@ rm_num  = $01;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'001', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($75<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,DoomA,$1,  $0E<<3,y3); // Doomknocker  1
-data_spawn(rm+STR_PRXM,DoomA,$1,  $40<<3,(row0+$0B)<<3); // Doomknocker  1
+data_spawn(rm+STR_PRXM,DoomA,$1,  $40<<3,(row0+$0A)<<3); // Doomknocker  1
 
 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '02'+EXL0_); // RGT 0, 
@@ -95,11 +94,10 @@ _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $24<<3,y3,  STR_Treasure+STR
 _dk_spawn_item1 = data_spawn(rm+STR_PRIO,ItmF0,$4,  $4A<<3,y3); // PBag v4: 200
 
 
-//data_path_conditions(exit_name_r0, exit_name_r0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_GLOVE);
 data_path_conditions(exit_name_r0, _dk_spawn_item1, STR_GLOVE);
 
-data_scene_rando(rm);
+//data_scene_rando(rm);
 
 
 
@@ -114,31 +112,30 @@ rm_num  = $02;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'002', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $26<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $2B<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($52<<3)+4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,LoDoA,$1,  $59<<3,(row0+$15)<<3); // LockedDoor
+data_spawn(rm+STR_PRIO,LoDoA,$1,  $59<<3,(row0+$14)<<3); // LockedDoor
 data_spawn(rm+STR_PRXM,DoomA,$1,  $1C<<3,y3); // Doomknocker  1
 data_spawn(rm+STR_PRXM,IrKnA,$2,  $5A<<3,y3); // IronKnuckle  2
 data_spawn(rm+STR_PRXM,WosuA,$1,  $24<<3,y3); // Wosu  1
 data_spawn(rm+STR_PRXM,WosuA,$1,  $2C<<3,y3); // Wosu  1
-data_spawn(rm+STR_PRXM,BubbA,$2,  $60<<3,(row0+$0B)<<3); // Bubble  2
+data_spawn(rm+STR_PRXM,BubbA,$2,  $60<<3,(row0+$0A)<<3); // Bubble  2
 
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '06'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_,  clm3,row_e5);                                          // Elevator DW $40, 
+data_Elev(EXD0_,  clm3,row0+$13);                                          // Elevator DW $40, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '01'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '03'+EXL0_); // RGT 0, 
 
 
-_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $7A<<3,(row0+$0F)<<3,  STR_Treasure+STR_Map+"02"); // Key 
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $7A<<3,(row0+$0E)<<3,  STR_Treasure+STR_Map+"02"); // Key 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm, STR_GLOVE+STR_JUMP+STR_STABUP);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_GLOVE+"+"+STR_JUMP+"+"+STR_STABUP);
@@ -166,7 +163,7 @@ rm_num  = $03;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'003', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $03<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $7C<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
@@ -174,19 +171,18 @@ data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+4,y4,  STR_Lit); // v1: Light w/ CAN
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($52<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($25<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,LoDoA,$1,  $22<<3,(row3-$02)<<3); // LockedDoor
-data_spawn(rm+STR_PRIO,SpStA,$1,  $04<<3,(row0+$11)<<3); // SpawnByStab  1
+data_spawn(rm+STR_PRIO,SpStA,$1,  $04<<3,(row0+$10)<<3); // SpawnByStab  1
 data_spawn(rm+STR_PRXM,WizaA,$1,  $3E<<3,y3); // Wizard  1
 data_spawn(rm+STR_PRXM,WizaA,$1,  $6A<<3,y3); // Wizard  1
 
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '00'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$14);                                          // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '02'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '04'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_r0, exit_name_u0);
 
@@ -211,13 +207,13 @@ rm_num  = $04;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'004', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($6C<<3)+4,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-row4=row0+$0B; y4=row4<<3;
-row5=row0+$09; y5=row5<<3;
-row6=row0+$19; y6=row6<<3;
+row4=row0+$0A; y4=row4<<3;
+row5=row0+$08; y5=row5<<3;
+row6=row0+$18; y6=row6<<3;
 _val1=hex_str($4); // 
 data_spawn(rm+STR_PRIO,SpTrA,$1,  $14<<3,y6,  STR_Direction+_val1); // SpikeTrapA $1
 data_spawn(rm+STR_PRIO,SpTrA,$1,  $30<<3,y5,  STR_Direction+_val1); // SpikeTrapA $1
@@ -229,21 +225,20 @@ data_spawn(rm+STR_PRXM,StalA,$2,  $4C<<3,y4); // Stalfos  2
 
 clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '08'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_,  clm3,row_e5);                                          // Elevator DW $40, 
+data_Elev(EXD0_,  clm3,row0+$13);                                          // Elevator DW $40, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '03'+EXR0_); // LFT 0, 
 
 
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$2,  $3E<<3,y6); // PBag v2: 100 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm, STR_STABDOWN);
 data_path_conditions(exit_name_l0, exit_name_d0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
 data_path_conditions(exit_name_d0, exit_name_l0);
 data_path_conditions(exit_name_d0, _dk_spawn_item0);
 
-//data_scene_rando(rm);
+data_scene_rando(rm);
 
 
 
@@ -274,7 +269,6 @@ data_Elev(EXD0_,  clm3,row0+$15);                                        // Elev
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '06'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_r0);
 
@@ -293,14 +287,14 @@ rm_num  = $06;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'003', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $03<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $7C<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($52<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($25<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,LoDoA,$1,  $22<<3,(row0+$15)<<3); // LockedDoor
+data_spawn(rm+STR_PRIO,LoDoA,$1,  $22<<3,(row0+$14)<<3); // LockedDoor
 data_spawn(rm+STR_PRIO,SpWoA,$1,  $1E<<3,y3); // WosuSpawner  1
 data_spawn(rm+STR_PRXM,WizaA,$1,  $26<<3,y3); // Wizard  1
 data_spawn(rm+STR_PRXM,WizaA,$1,  $64<<3,y3); // Wizard  1
@@ -308,12 +302,11 @@ data_spawn(rm+STR_PRXM,WizaA,$1,  $64<<3,y3); // Wizard  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '02'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row0+$15);                                          // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$14);                                          // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '05'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '07'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_r0, exit_name_u0);
 
@@ -353,8 +346,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$12,  '06'+'10');   
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $7A<<3,(row0+$0E)<<3,  STR_Treasure+STR_Map+"02"); // Key
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
-//data_path_conditions(exit_name_l0, exit_name_l0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
 data_scene_rando(rm);
@@ -386,7 +377,6 @@ data_Elev(EXD0_+EXU0_,  clm3,row0+$0F);                                  // Elev
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '09'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_r0, exit_name_u0);
 
@@ -411,8 +401,8 @@ rm_num  = $09;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'017', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$07; y3=row3<<3;
-row4=row0+$17; y4=row4<<3;
+row3=row0+$06; y3=row3<<3;
+row4=row0+$16; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $08<<3,(row3+$01)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $77<<3,(row4+$01)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,DoomA,$1,  $68<<3,y4); // Doomknocker  1
@@ -425,10 +415,9 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '08'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '0A'+EXL0_); // RGT 0, 
 
 
-_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $0E<<3,(row0+$19)<<3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP,  $0E<<3,(row0+$17)<<3,  STR_Treasure+STR_Map+"02"); // MAGIC PIECE
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00"+STR_Pit+"4",rm);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_JUMP+"+"+STR_FAIRY);
 
@@ -468,8 +457,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '09'+EXR0_); // LF
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $3D0,y4,  STR_Treasure+STR_Map+"02"); // Key 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
-//data_path_conditions(exit_name_l0, exit_name_l0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
 data_scene_rando(rm);
@@ -487,14 +474,14 @@ rm_num  = $0B;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'009', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($0C<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"01"); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($12<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"01"); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $79<<3,y4,  STR_Qualified+STR_Quest+STR_Nums+"01"); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($3E<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"02"); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($4E<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"02"); // v1: Light w/ CANDLE or FIRE
-row4=row0+$0B; y4=row4<<3;
+row4=row0+$0A; y4=row4<<3;
 data_spawn(rm+STR_PRIO,LoDoA,$1,  $16<<3,(row3-$02)<<3); // LockedDoor
 data_spawn(rm+STR_PRXM,BubbA,$2,  $1C<<3,y4,  STR_Direction+hex_str($2|$4)); // Bubble  2
 data_spawn(rm+STR_PRXM,BubbA,$2,  $6C<<3,y4,  STR_Direction+hex_str($2|$4)); // Bubble  2
@@ -504,14 +491,13 @@ data_spawn(rm+STR_PRXM,StalA,$2,  $4E<<3,y4); // Stalfos  2
 
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '05'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row0+$15, "03");                                    // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$14, "03");                                    // Elevator UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0C'+EXL0_); // RGT 0, 
 
 
-_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$5,  $5A<<3,(row0+$09)<<3); // PBag v5: 250
+_dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$5,  $5A<<3,(row0+$08)<<3); // PBag v5: 250
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm, STR_JUMP);
 data_path_conditions(exit_name_r0, exit_name_u0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_JUMP);
 
@@ -533,14 +519,14 @@ rm_num  = $0C;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'010', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($0E<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"01"); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($2F<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($4F<<3)+4,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($70<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"01"); // v1: Light w/ CANDLE or FIRE
-row4=row0+$19; y4=row4<<3;
-row5=row0+$0B; y5=row5<<3;
+row4=row0+$18; y4=row4<<3;
+row5=row0+$0A; y5=row5<<3;
 data_spawn(rm+STR_PRXM,IrKnA,$2,  $1C<<3,y3); // IronKnuckle  2
 data_spawn(rm+STR_PRXM,IrKnA,$2,  $54<<3,y3); // IronKnuckle  2
 // MOD. Adding infinite respawn enemies for magic jars for Carock fight.
@@ -556,7 +542,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0B'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '15'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -669,7 +654,6 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = $35;
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_BLANK;
 
 
-//data_rando_scene01("_00"+"_00"+"_00"+"_01"+"_01",rm);
 data_path_conditions(exit_name_d0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_d0);
 
@@ -689,7 +673,7 @@ rm_num  = $0F;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'013', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($45<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($63<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
@@ -708,7 +692,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '10'+EXL0_); // RG
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$4,  $04<<3,y3); // PBag v4: 200
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_01"+STR_Pit+"C",rm);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_JUMP+"|"+STR_FAIRY);
 
@@ -731,13 +714,13 @@ rm_num  = $10;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'014', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $09<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $16<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $49<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $56<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-row4=row0+$0B; y4=row4<<3;
+row4=row0+$0A; y4=row4<<3;
 data_spawn(rm+STR_PRIO,LoDoA,$1,  $59<<3,(row3-$02)<<3); // LockedDoor
 data_spawn(rm+STR_PRXM,IrKnA,$3,  $4C<<3,y3); // IronKnuckle  3
 data_spawn(rm+STR_PRXM,StalA,$2,  $28<<3,y4); // Stalfos  2
@@ -750,8 +733,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0F'+EXR0_); // LF
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmA3,$1,  $6C<<3,y3); // BOOTS 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
-//data_path_conditions(exit_name_l0, exit_name_l0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
 data_scene_rando(rm);
@@ -769,7 +750,7 @@ rm_num  = $11;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'001', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($09<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"01"); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($75<<3)+4,y4,  STR_Qualified+STR_Quest+STR_Nums+"01"); // v1: Light w/ CANDLE or FIRE
@@ -783,8 +764,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '12'+EXL0_); // RG
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $24<<3,y3,  STR_Treasure+STR_Map+"02"); // Key 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm, STR_GLOVE);
-//data_path_conditions(exit_name_r0, exit_name_r0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_GLOVE);
 
 data_scene_rando(rm);
@@ -802,14 +781,14 @@ rm_num  = $12;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PD+'003', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $03<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  $7C<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($4C<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($52<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  ($25<<3)+4,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,LoDoA,$1,  $57<<3,(row0+$15)<<3); // LockedDoor
+data_spawn(rm+STR_PRIO,LoDoA,$1,  $57<<3,(row0+$14)<<3); // LockedDoor
 data_spawn(rm+STR_PRXM,WizaA,$1,  $22<<3,y3); // Wizard  1
 data_spawn(rm+STR_PRXM,WizaA,$1,  $66<<3,y3); // Wizard  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $2C<<3,y3); // Bot  1
@@ -819,12 +798,11 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $6A<<3,y3); // Bot  1
 
 clm3=$50; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '0E'+EXD0_); // UP  0, Elevator up  
-data_Elev(EXU0_,  clm3,row0+$15, "03");                                    // Elevator UP $80, 
+data_Elev(EXU0_,  clm3,row0+$14, "03");                                    // Elevator UP $80, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '11'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '13'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_r0, exit_name_u0);
 
@@ -865,7 +843,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '12'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '14'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_01"+STR_Pit+"8",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -903,8 +880,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$12,  '13'+EXR0_); /
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $7A<<3,(row0+$0E)<<3,  STR_Treasure+STR_Map+"02"); // Key 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
-//data_path_conditions(exit_name_l0, exit_name_l0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
 data_scene_rando(rm);
@@ -951,7 +926,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,$36,  '0C'+EXR0_); // LFT
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,$08,  '0D'+EXL0_); // RGT 0, 
 
 
-////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
 

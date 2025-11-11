@@ -10,9 +10,9 @@ if (scheduler_resolution_get()!=1)
 
 
 // Added this to help decrease large room loading times.
-delta_target     = 1/room_speed;
-delta_actual     = delta_time/1000000;
-delta_multiplier = delta_actual/delta_target;
+global.delta_target     = 1/room_speed;
+global.delta_actual     = delta_time/1000000;
+global.delta_multiplier = global.delta_actual/global.delta_target;
 //sdm('delta_time: '+string(delta_time)+', delta_target: '+string(delta_target)+', delta_actual: '+string(delta_actual)+', delta_multiplier: '+string(delta_multiplier));
 
 
@@ -125,6 +125,7 @@ if(!update_change_room()) // if not changing rm
     d_l0__oo__0l_b();
     
     
+    /*
     if (global.ViewCatchUp_state)
     {
         update_view_1();
@@ -166,6 +167,42 @@ if(!update_change_room()) // if not changing rm
         {
             g_Step_A2();
         }
+    }
+    */
+    // --------------------------------------------------------------------
+    // C14E
+    var _GUI_CONDITION =  gui_state==gui_state_NONE 
+                      ||  gui_state==gui_state_DIALOGUE1 
+                      ||  gui_state==gui_state_DIALOGUE2 
+                      ||  gui_state==gui_state_DIALOGUE3;
+    //
+    if (_GUI_CONDITION  // g.gui_state is 0 or dialogue
+    && !global.OVERWORLD.flute_timer )
+    {   // C169  - Timers
+        update_game_timers();
+        // C185  - Random numbers
+        update_og_rand();
+    }
+    
+    
+    // --------------------------------------------------------------------
+    if (    EnterRoom_SpawnGO_timer)
+    {
+            EnterRoom_SpawnGO_timer--;
+        if(!EnterRoom_SpawnGO_timer)
+        {
+            go_spawn_enter_room();
+        }
+    }
+    
+    
+    // --------------------------------------------------------------------
+    // Main update
+    if (room_type=="A" 
+    && !EnterRoom_SpawnGO_timer 
+    &&  _GUI_CONDITION ) // g.gui_state is 0 or dialogue
+    {
+        g_Step_A2();
     }
 }
 

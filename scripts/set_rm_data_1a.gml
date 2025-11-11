@@ -26,8 +26,8 @@ ds_list_add(dl_used_tiled_files,_FILE_NAME0);
     rm_w = val(global.dm_scene_wh[?_FILE_NAME0+STR_Width]);
     rm_h = val(global.dm_scene_wh[?_FILE_NAME0+STR_Height]);
 if(!rm_w 
-|| !rm_h )
-//||  global.SceneRando_ItemPositioning_METHOD==2 )
+|| !rm_h 
+||  global.SceneRando_ItemPositioning_METHOD==2 )
 {
     var _data;
     

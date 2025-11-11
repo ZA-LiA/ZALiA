@@ -33,17 +33,25 @@ if (input_start_pressed)
 {
     if (Eliminate_cursor<SAVE_FILE_MAX) // SAVE FILE: Eliminate file
     {
-        // Erase rando data file
+        var _file;
         var _FILE_NUM = Eliminate_cursor+1;
+        
+        // Erase rando data files
         f.dl_save_names[|_FILE_NUM-1] = SAVE_NAME_NULL;
         file_save(_FILE_NUM,true);
         FileSelect_clear_save_file_rando_info(_FILE_NUM); // clear data in `SaveFileRandoInfo_dm` for this file
         
         var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
-        var _FILE = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
-                    file_text_write_string(_FILE," ");
-                    file_text_close(_FILE);
+        _file = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
+                file_text_write_string(_file," ");
+                file_text_close(_file);
         //
+        var _RANDO_SPOILER_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+"_Spoiler"+".txt";
+        _file = file_text_open_write(working_directory+_RANDO_SPOILER_FILE_NAME);
+                file_text_write_string(_file," ");
+                file_text_close(_file);
+        //
+        
         randomize();
         FileSelect_change_rando_seed(_FILE_NUM,random_get_seed());
         

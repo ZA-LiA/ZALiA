@@ -1,7 +1,7 @@
 /// Moa_udp()
 
 
-can_draw_self=true;
+can_draw_self = true;
 
 // EFF2
 if (g.counter1&$10) yScale =  1;
@@ -24,7 +24,7 @@ else
 var           _val  = hspd;
 if (hspd&$80) _val ^= $FF;
               _val  = _val>>2;
-
+//
 if (_val<6)
 {
                 sprRXOff = -1;
@@ -34,7 +34,11 @@ if (_val<6)
 else            sprRXOff =  0;
 
 // F1D7
-//if (ocs&$C==$C) canDrawSelf=false;
+//if (ocs&$C==$C) can_draw_self = false;
+
+
+
+if (ver==3) can_draw_self = g.counter0&$1;
 
 
 

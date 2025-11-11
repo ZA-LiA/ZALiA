@@ -64,7 +64,7 @@ data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '04'+EXU0_); /
 data_Elev(EXD0_, clm3,row_e5, "04");                                           // Elevator DW $40, 
 _exit=data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$17,  0); // LFT 0, to Overworld  
 g.dm_rm[?get_dk_dungeon_entrance(_DUNGEON_NUM)] = _exit;
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$01,  'FD'+EXL0_); // RGT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$01,  '0E'+EXL0_); // RGT 0, 
 
 
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP,  ($61<<3)+2,(row0+$03)<<3,  STR_Treasure+STR_Map+"01"); // HEART PIECE
@@ -93,18 +93,21 @@ rm_num  = $01;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PA+'001', STR_ow_axis+hex_str(ow_axis));
 
 
-y3=(row0+$0B)<<3;  y4=(row0+$17)<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $4C<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $68<<3,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+row3=row0+$0B; y3=row3<<3;
+row4=row0+$17; y4=row4<<3;
+row5=row3+$01; y5=row5<<3;
+row6=row4+$01; y6=row6<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  $34<<3,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $4C<<3,y6,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $68<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  $78<<3,y5,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRXM,WosuA,$1,  $44<<3,y4); // Wosu  1
 data_spawn(rm+STR_PRXM,WosuA,$1,  $6E<<3,y3); // Wosu  1
 
 
 clm3=$10; // elevator center clm
 clm4=clm3-$04;  clm5=clm3-$01;
-data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  'FF'+EXD0_); // UP  0, Elevator up  
+data_exit(EXU0,etC0,1,  clm4,row_e0,  CLMS4,ROWS5,  clm5,row_e1,  '10'+EXD0_); // UP  0, Elevator up  
 data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '07'+EXU0_); // DWN 0, Elevator down 
 data_Elev(EXD0_+EXU0_,  clm3,row0+$14);                                  // Elevator DW $40, UP $80, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0B,  '02'+EXL0_); // RGT 0, 
@@ -113,7 +116,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0B,  '02'+EXL0_); /
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $7A<<3,y3,  STR_Treasure+STR_Map+"01"); // Key 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_r0, exit_name_u0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0);
@@ -160,8 +162,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '01'+EXR0_); // LF
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $78<<3,(row0+$16)<<3,  STR_Treasure+STR_Map+"01"); // Key
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
-//data_path_conditions(exit_name_l0, exit_name_l0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
 data_scene_rando(rm);
@@ -194,7 +194,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '04'+EXL0_); // RG
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $06<<3,y3,  STR_Treasure+STR_Map+"01"); // Key
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_GLOVE);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0);
 
@@ -235,7 +234,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '03'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '05'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_r0, exit_name_u0);
 
@@ -269,7 +267,7 @@ data_spawn(rm+STR_PRIO,LoDoA,$1,  $25<<3,(row0+$15)<<3); // LockedDoor
 //data_spawn(rm+STR_PRIO,LoDoA,$1,  $22<<3,(row0+$15)<<3); // 
 
 
-data_exit(EXU0,etA4,0,  $04,row_e0,  $78,ROWS5,  $2F,row_e4,  'FD'+EXD0_); // UP  0, Pit up 
+data_exit(EXU0,etA4,0,  $04,row_e0,  $78,ROWS5,  $2F,row_e4,  '0E'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '04'+EXR0_); // LFT 0,  
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '06'+EXL0_); // RGT 0,  
 
@@ -282,7 +280,6 @@ g.dm_rm[?MAP_DATAKEY1+rm+STR_Page+"01"+STR_ScaleY] = -1;
 //set_rm_data_2(rm, area_PA+'064');
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_01"+STR_Pit+"8",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -328,7 +325,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '05'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '07'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_r0, exit_name_d0);
 
@@ -375,7 +371,6 @@ data_Elev(EXD0_+EXU0_,  clm3,row0+$14);                                  // Elev
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '06'+EXR0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_01",rm);
 data_path_conditions(exit_name_l0, exit_name_d0);
 data_path_conditions(exit_name_l0, exit_name_u0);
 
@@ -419,8 +414,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4-$04,  '09'+EXL0_); /
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmA0,$1,  $12<<3,y4); // CANDLE. iID 0 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_00",rm);
-//data_path_conditions(exit_name_r0, exit_name_r0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0);
 
 data_scene_rando(rm);
@@ -458,7 +451,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0A'+EXL0_); // RG
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$1,  $30<<3,(row0+$0C)<<3); // PBag 50 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0);
 
@@ -502,7 +494,6 @@ data_Elev(EXU0_, clm3,row0+$15);                                             // 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$17,  '09'+EXR0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
 data_path_conditions(exit_name_l0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_l0);
 
@@ -536,7 +527,6 @@ data_Elev(EXU0_, clm3,row0+$15);                                             // 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0B,  '0C'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_r0);
 
@@ -570,7 +560,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0B'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0D'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -621,14 +610,112 @@ data_scene_rando(rm);
 
 //   --------------------------  0E  --------------------------- 
 //    
+rm_num  = $0E;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Color+COLOR2_, STR_Tile+area_PA+'014', STR_ow_axis+hex_str(ow_axis));
+
+
+data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
+data_spawn(rm+STR_PRIO,SpTrB,$2,  $19<<3,$10<<3,  STR_Speed+hex_str(3),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
+data_spawn(rm+STR_PRIO,SpTrB,$2,  $23<<3,$0C<<3,  STR_Speed+hex_str(2),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
+data_spawn(rm+STR_PRIO,SpTrB,$2,  $38<<3,$0C<<3,  dk_PI+hex_str(global.PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
+data_spawn(rm+STR_PRIO,SpTrB,$2,  $48<<3,$08<<3,  STR_Speed+hex_str(1),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
+data_spawn(rm+STR_PRIO,SpTrB,$2,  $56<<3,$08<<3,  STR_Speed+hex_str(2),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
+data_spawn(rm+STR_PRIO,SpTrB,$2,  $67<<3,$04<<3,  STR_Speed+hex_str(2),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
+
+
+clm4 = -PAGE_CLMS;
+data_exit(EXD0,etA1,1,  clm4,row_e2,  clms1,ROWS5,  clm1,row2+2,  '05'+EXU0_); // DWN 0, Pit down 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$13,  '00'+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$02,  '0F'+EXL0_); // RGT 0, 
+
+
+g.dm_rm[?MAP_DATAKEY1+rm+STR_Page+"00"+STR_TSRC] = $41;
+g.dm_rm[?MAP_DATAKEY1+rm+STR_Page+"01"+STR_TSRC] = $50;
+g.dm_rm[?MAP_DATAKEY1+rm+STR_Page+"02"+STR_TSRC] = $51;
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_d0);
+
+data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_d0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  0F  --------------------------- 
 //    
+rm_num  = $0F;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Color+COLOR2_, STR_Tile+area_PA+'015', STR_ow_axis+hex_str(ow_axis));
+
+
+row3 =  row0+$1A; // ground lvl first 2 pages of rm
+y3   = (row0+$11)<<3;
+_pi  = global.PI_MOB_PUR;
+data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init); // 
+data_spawn(rm+STR_PRXM,GlzmA,$1,  $12<<3,(row3-$E)<<3,  dk_PI+hex_str(global.PI_MOB_RED)); // Gellzam
+data_spawn(rm+STR_PRXM,GeldA,$1,  $21<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $24<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $5D<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRIO,SpRoA,$1,  0,0); // RockSpawner  1 
+
+
+clms3=$04; // bc of RockSpawner
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3+clms3,row0+$16,  '0E'+EXR0_); // LFT 0, 
+data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA-clms3,row0+$13,  '10'+EXL0_); // RGT 0, 
+
+
+data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_l0, exit_name_r0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  10  --------------------------- 
 //    
+rm_num  = $10;
+set_rm_data(area+hex_str(rm_num), mus0, STR_Color+COLOR2_, STR_Tile+area_PA+'016', STR_ow_axis+hex_str(ow_axis));
+
+
+_pi = global.PI_MOB_PUR;
+y3  = (row0+$11)<<3;
+y4  = (row0+$14)<<3;
+data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init); // 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $1F<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $37<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $44<<3,y4,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GeldA,$1,  $56<<3,y4,  dk_PI+hex_str(_pi)); // Geldarm  1 
+data_spawn(rm+STR_PRXM,GlzmA,$1,  $31<<3,y3,  dk_PI+hex_str(global.PI_MOB_RED)); // Gellzam
+
+
+clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: Elevator center clm
+data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '01'+EXU0_); // DWN 0, Elevator down 
+data_Elev(EXD0_,  clm3,row0+$15, "02");                                        // Elevator DW $40, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$13,  '0F'+EXR0_); // LFT 0, 
+
+
+data_path_conditions(exit_name_l0, exit_name_d0);
+data_path_conditions(exit_name_d0, exit_name_l0);
+
+data_scene_rando(rm);
+
+
+
+
+
+
 
 
 //   --------------------------  11  --------------------------- 
@@ -1596,7 +1683,6 @@ data_exit(EXR0,etA0,1,  clm3,-$20,  CLMS2,rows1,  clm3-5,row0+$13,  '03'+EXL0_);
 data_spawn(rm+STR_PRIO,Kakusu005,$1,  $0F<<3,$06<<3,  STR_Treasure+STR_Map+"01"); // $F,$6: Head of left-most pillar
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_00"+STR_Pit+"4",rm);
 data_path_conditions(exit_name_r0, exit_name_d0);
 
 data_scene_rando(rm);
@@ -1610,109 +1696,14 @@ data_scene_rando(rm);
 
 //   --------------------------  FD  --------------------------- 
 //   
-rm_num  = $FD;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Color+COLOR2_, STR_Tile+area_PA+'253', STR_ow_axis+hex_str(ow_axis));
-
-
-data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init); // 
-data_spawn(rm+STR_PRIO,SpTrB,$2,  $19<<3,$10<<3,  STR_Speed+hex_str(3),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
-data_spawn(rm+STR_PRIO,SpTrB,$2,  $23<<3,$0C<<3,  STR_Speed+hex_str(2),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
-data_spawn(rm+STR_PRIO,SpTrB,$2,  $38<<3,$0C<<3,  dk_PI+hex_str(global.PI_MOB_RED),STR_Speed+hex_str(4),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
-data_spawn(rm+STR_PRIO,SpTrB,$2,  $48<<3,$08<<3,  STR_Speed+hex_str(1),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
-data_spawn(rm+STR_PRIO,SpTrB,$2,  $56<<3,$08<<3,  STR_Speed+hex_str(2),STR_Direction+string(-1)); // SpikeTrapB v2: Short, Auto horizontal
-data_spawn(rm+STR_PRIO,SpTrB,$2,  $67<<3,$04<<3,  STR_Speed+hex_str(2),STR_Direction+string(1)); // SpikeTrapB v2: Short, Auto horizontal
-
-
-clm4 = -PAGE_CLMS;
-data_exit(EXD0,etA1,1,  clm4,row_e2,  clms1,ROWS5,  clm1,row2+2,  '05'+EXU0_); // DWN 0, Pit down 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$13,  '00'+EXR0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row0+$02,  'FE'+EXL0_); // RGT 0, 
-
-
-g.dm_rm[?MAP_DATAKEY1+rm+STR_Page+"00"+STR_TSRC] = $41;
-g.dm_rm[?MAP_DATAKEY1+rm+STR_Page+"01"+STR_TSRC] = $50;
-g.dm_rm[?MAP_DATAKEY1+rm+STR_Page+"02"+STR_TSRC] = $51;
-
-
-//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00"+STR_Pit+"4",rm);
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_r0, exit_name_d0);
-
-data_path_conditions(exit_name_l0, exit_name_r0);
-data_path_conditions(exit_name_l0, exit_name_d0);
-
-data_scene_rando(rm);
-
-
-
-
-
-
 
 
 //   --------------------------  FE  --------------------------- 
 //   
-rm_num  = $FE;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Color+COLOR2_, STR_Tile+area_PA+'254', STR_ow_axis+hex_str(ow_axis));
-
-
-row3 =  row0+$1A; // ground lvl first 2 pages of rm
-y3   = (row0+$11)<<3;
-_pi  = global.PI_MOB_PUR;
-data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init); // 
-data_spawn(rm+STR_PRXM,GlzmA,$1,  $12<<3,(row3-$E)<<3,  dk_PI+hex_str(global.PI_MOB_RED)); // Gellzam
-data_spawn(rm+STR_PRXM,GeldA,$1,  $21<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $24<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $5D<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRIO,SpRoA,$1,  0,0); // RockSpawner  1 
-
-
-clms3=$04; // bc of RockSpawner
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3+clms3,row0+$16,  'FD'+EXR0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA-clms3,row0+$13,  'FF'+EXL0_); // RGT 0, 
-
-
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_l0, exit_name_r0);
-
-data_scene_rando(rm);
-
-
-
-
-
-
 
 
 //   --------------------------  FF  --------------------------- 
 //   
-rm_num  = $FF;
-set_rm_data(area+hex_str(rm_num), mus0, STR_Color+COLOR2_, STR_Tile+area_PA+'255', STR_ow_axis+hex_str(ow_axis));
-
-
-_pi = global.PI_MOB_PUR;
-y3  = (row0+$11)<<3;
-y4  = (row0+$14)<<3;
-data_NIAO_1a(rm+STR_NIAO+'0',  $0000,  1,Cloud_1_init); // 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $1F<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $37<<3,y3,  dk_PI+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $44<<3,y4,  dk_PI+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GeldA,$1,  $56<<3,y4,  dk_PI+hex_str(_pi)); // Geldarm  1 
-data_spawn(rm+STR_PRXM,GlzmA,$1,  $31<<3,y3,  dk_PI+hex_str(global.PI_MOB_RED)); // Gellzam
-
-
-clm3=$70; clm4=clm3-$04; clm5=clm3-$01; // clm3: Elevator center clm
-data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '01'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_,  clm3,row0+$15, "02");                                        // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row0+$13,  'FE'+EXR0_); // LFT 0, 
-
-
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
-data_path_conditions(exit_name_l0, exit_name_d0);
-data_path_conditions(exit_name_d0, exit_name_l0);
-
-data_scene_rando(rm);
 
 
 

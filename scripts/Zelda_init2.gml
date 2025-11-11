@@ -54,7 +54,7 @@ NPC_catch_item(); // catch the BOTTLE item
 
 if (f.quest_num==1 
 &&  global.RandoHints_enabled 
-&&  val(f.dm_rando[?STR_Zelda+STR_Hint]) )
+&&  val(global.dm_save_file_settings[?STR_Zelda+STR_Hint]) )
 {
     with(GameObject_create(x-8,y-4, NPC_0,$1))
     {

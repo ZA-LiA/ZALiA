@@ -373,6 +373,199 @@ ds_list_clear(_dl_rc_off);
 
 // ---------------------------------------------------------------------------------------
 // Regenerating Crumble Bridge ------------------------------------
+var _CRUMBLE_FLOOR_REGEN_VER = 2;
+_anim_key  = STR_Anim+hex_str(TID_BREAK4); // crumble bridge
+_frame_key = _anim_key+STR_frame;
+// _cues = "07" + "17" + "20" + "27" + "30";
+_cues   = "";
+_depth  = -1; // -1: use depth of placed tile
+_ts     = ts_Man_made_1a_WRB;
+_solid  = TID_SOLID1;
+_unique = $00;
+_hide   = hex_str(TID_HIDE_1&$F);
+_hide   = _hide + _hide + _hide + _hide; // = '01' + '01' + '01' + '01';
+
+                           ds_list_add( _dl_rc_off, $0000,  $0001,  $0100,  $0101);
+             _tile_count = ds_list_size(_dl_rc_off);
+for(_i=0; _i<_tile_count; _i++) _dl_depth [|_i]=_depth;
+for(_i=0; _i<_tile_count; _i++) _dl_ts    [|_i]=_ts;
+for(_i=0; _i<_tile_count; _i++) _dl_solid [|_i]=_solid;
+for(_i=0; _i<_tile_count; _i++) _dl_unique[|_i]=_unique;
+
+
+
+_cue = 1;
+
+
+
+// Frame 1  (Reset).  Unbroken.
+// ----------------------------------------------
+for(_i=0; _i<_tile_count; _i++) _dl_unique[|_i] = TID_BREAK4;
+_tsrc = TSRC_BREAK4_A;
+for(_i=0; _i<_tile_count; _i++)
+{
+    _dm_data[?hex_str(_i)+STR_Depth]     = _dl_depth [|_i];
+    _dm_data[?hex_str(_i)+STR_rc_offset] = _dl_rc_off[|_i];
+    _dm_data[?hex_str(_i)+STR_Tileset]   = _dl_ts    [|_i];
+    _dm_data[?hex_str(_i)+STR_Solid]     = _dl_solid [|_i];
+    _dm_data[?hex_str(_i)+STR_unique]    = _dl_unique[|_i];
+    _dm_data[?hex_str(_i)+STR_HIDDEN]    = str_hex(string_copy(_hide, (_i<<1)+1, 2));
+    _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
+}
+_cues += hex_str(_cue);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+ds_map_clear(_dm_data);
+
+_cue += 1;
+
+
+
+// Frame 2  Unbroken.
+// ----------------------------------------------
+for(_i=0; _i<_tile_count; _i++) _dl_unique[|_i]=0;
+_tsrc = TSRC_BREAK4_A;
+for(_i=0; _i<_tile_count; _i++)
+{
+    _dm_data[?hex_str(_i)+STR_Depth]     = _dl_depth [|_i];
+    _dm_data[?hex_str(_i)+STR_rc_offset] = _dl_rc_off[|_i];
+    _dm_data[?hex_str(_i)+STR_Tileset]   = _dl_ts    [|_i];
+    _dm_data[?hex_str(_i)+STR_Solid]     = _dl_solid [|_i];
+    _dm_data[?hex_str(_i)+STR_unique]    = _dl_unique[|_i];
+    _dm_data[?hex_str(_i)+STR_HIDDEN]    = str_hex(string_copy(_hide, (_i<<1)+1, 2));
+    _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
+}
+_cues += hex_str(_cue);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+ds_map_clear(_dm_data);
+
+_cue += 6;
+
+
+
+// Frame 3  Cracked
+// ----------------------------------------------
+_tsrc = TSRC_BREAK4_B;
+for(_i=0; _i<_tile_count; _i++)
+{
+    _dm_data[?hex_str(_i)+STR_Depth]     = _dl_depth [|_i];
+    _dm_data[?hex_str(_i)+STR_rc_offset] = _dl_rc_off[|_i];
+    _dm_data[?hex_str(_i)+STR_Tileset]   = _dl_ts    [|_i];
+    _dm_data[?hex_str(_i)+STR_Solid]     = _dl_solid [|_i];
+    _dm_data[?hex_str(_i)+STR_unique]    = _dl_unique[|_i];
+    _dm_data[?hex_str(_i)+STR_HIDDEN]    = str_hex(string_copy(_hide, (_i<<1)+1, 2));
+    _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
+}
+_cues += hex_str(_cue);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+ds_map_clear(_dm_data);
+
+_cue += $10;
+
+
+
+// Frame 4  Dust
+// ----------------------------------------------
+switch(_CRUMBLE_FLOOR_REGEN_VER){
+default:{_tsrc=TSRC_BREAK1_C; break;} // Dust
+case  2:{_tsrc=TSRC_BREAK4_C; break;} // Shrinking object
+}//switch(_CRUMBLE_FLOOR_REGEN_VER)
+for(_i=0; _i<_tile_count; _i++)
+{
+    _dm_data[?hex_str(_i)+STR_Depth]     = _dl_depth [|_i];
+    _dm_data[?hex_str(_i)+STR_rc_offset] = _dl_rc_off[|_i];
+    _dm_data[?hex_str(_i)+STR_Tileset]   = _dl_ts    [|_i];
+    _dm_data[?hex_str(_i)+STR_Solid]     = _dl_solid [|_i];
+    _dm_data[?hex_str(_i)+STR_unique]    = _dl_unique[|_i];
+    _dm_data[?hex_str(_i)+STR_HIDDEN]    = str_hex(string_copy(_hide, (_i<<1)+1, 2));
+    _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
+}
+_cues += hex_str(_cue);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+ds_map_clear(_dm_data);
+
+_cue += 9;
+
+
+
+// Frame 5. Dust.  Only change solid
+// ----------------------------------------------
+for(_i=0; _i<_tile_count; _i++) _dl_solid[|_i]=0;
+_tsrc = _tsrc;
+for(_i=0; _i<_tile_count; _i++)
+{
+    _dm_data[?hex_str(_i)+STR_Depth]     = _dl_depth [|_i];
+    _dm_data[?hex_str(_i)+STR_rc_offset] = _dl_rc_off[|_i];
+    _dm_data[?hex_str(_i)+STR_Tileset]   = _dl_ts    [|_i];
+    _dm_data[?hex_str(_i)+STR_Solid]     = _dl_solid [|_i];
+    _dm_data[?hex_str(_i)+STR_unique]    = _dl_unique[|_i];
+    _dm_data[?hex_str(_i)+STR_HIDDEN]    = str_hex(string_copy(_hide, (_i<<1)+1, 2));
+    _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
+}
+_cues += hex_str(_cue);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+ds_map_clear(_dm_data);
+
+_cue += 7;
+
+
+
+// Frame 6
+// ----------------------------------------------
+switch(_CRUMBLE_FLOOR_REGEN_VER)
+{
+    default:{
+    for(_i=0; _i<_tile_count; _i++) _dl_ts[|_i]=0; // 0 means remove room tile
+    _hide = '00' + '00' + '00' + '00'; // 0 means remove any hide properties
+    _tsrc = _TSRC_EMPTY1_A;
+    break;}
+    
+    case  2:{
+    _tsrc = TSRC_BREAK4_D; // Small object
+    break;}
+}//switch(_CRUMBLE_FLOOR_REGEN_VER)
+for(_i=0; _i<_tile_count; _i++)
+{
+    _dm_data[?hex_str(_i)+STR_Depth]     = _dl_depth [|_i];
+    _dm_data[?hex_str(_i)+STR_rc_offset] = _dl_rc_off[|_i];
+    _dm_data[?hex_str(_i)+STR_Tileset]   = _dl_ts    [|_i];
+    _dm_data[?hex_str(_i)+STR_Solid]     = _dl_solid [|_i];
+    _dm_data[?hex_str(_i)+STR_unique]    = _dl_unique[|_i];
+    _dm_data[?hex_str(_i)+STR_HIDDEN]    = str_hex(string_copy(_hide, (_i<<1)+1, 2));
+    _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
+}
+_cues += hex_str(_cue);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+ds_map_clear(_dm_data);
+
+_cue += $40; // Regen delay. About 2 seconds
+
+
+
+// Frame 7  (End)
+// ----------------------------------------------
+_tsrc = _tsrc;
+for(_i=0; _i<_tile_count; _i++)
+{
+    _dm_data[?hex_str(_i)+STR_Depth]     = _dl_depth [|_i];
+    _dm_data[?hex_str(_i)+STR_rc_offset] = _dl_rc_off[|_i];
+    _dm_data[?hex_str(_i)+STR_Tileset]   = _dl_ts    [|_i];
+    _dm_data[?hex_str(_i)+STR_Solid]     = _dl_solid [|_i];
+    _dm_data[?hex_str(_i)+STR_unique]    = _dl_unique[|_i];
+    _dm_data[?hex_str(_i)+STR_HIDDEN]    = str_hex(string_copy(_hide, (_i<<1)+1, 2));
+    _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
+}
+_cues += hex_str(_cue);
+dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
+ds_map_clear(_dm_data);
+
+
+
+
+dm_tile[?_anim_key+STR_Sequence]      = _cues; // cue string
+dm_tile[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
+ds_list_clear(_dl_rc_off);
+
+/*
 _anim_key  = STR_Anim+hex_str(TID_BREAK4);
 _frame_key = _anim_key+STR_frame;
 // _cues = "07" + "17" + "20" + "27" + "30";
@@ -446,6 +639,7 @@ for(_i=0; _i<_tile_count; _i++)
     _dm_data[?hex_str(_i)+STR_TSRC]      = str_hex(string_copy(_tsrc, (_i<<1)+1, 2));
 }
 _cues += hex_str(_cue);
+show_debug_message("tile_data_init(). "+"_cues="+_cues);
 dm_tile[?_frame_key+hex_str(string_length(_cues)>>1)] = json_encode(_dm_data);
 ds_map_clear(_dm_data);
 
@@ -454,9 +648,7 @@ ds_map_clear(_dm_data);
 dm_tile[?_anim_key+STR_Sequence]      = _cues; // cue string
 dm_tile[?_anim_key+STR_Anim+STR_Loop] = $FF;   // loop type
 ds_list_clear(_dl_rc_off);
-
-
-
+*/
 
 
 

@@ -1,6 +1,16 @@
 /// file_save(file num, will eliminate)
 
 
+/*
+if (DEV)
+{
+    var _START_TIME = current_time;
+    repeat(1) show_debug_message("");
+    show_debug_message("file_save() START");
+}
+*/
+
+
 var                            _arg=0;
 var _FILE_NUM       = argument[_arg++];
 var _WILL_ELIMINATE = argument[_arg++];
@@ -48,6 +58,7 @@ if(!_WILL_ELIMINATE)
     {
         ds_map_copy(_dm_save_data, _dm);
         ds_map_destroy(_dm); _dm=undefined;
+        //show_debug_message("file_save(). "+"_dm_save_data size="+string(ds_map_size(_dm_save_data)));
     }
 }
 
@@ -90,13 +101,17 @@ _dm_save_data[?f.SDNAME_linkDolls]              = json_encode(f.dm_1up_doll);
 _dm_save_data[?f.SDNAME_quests]                 = json_encode(f.dm_quests);
 _dm_save_data[?f.SDNAME_exploredRooms]          = json_encode(f.dm_explored);
 
+/*
+show_debug_message("file_save(). "+"f.dm_kakusu size="+string(ds_map_size(f.dm_kakusu)));
+show_debug_message("file_save(). "+"f.dm_keys size="+string(ds_map_size(f.dm_keys)));
+show_debug_message("file_save(). "+"f.dm_openedLocks size="+string(ds_map_size(f.dm_openedLocks)));
+show_debug_message("file_save(). "+"f.dm_PBags size="+string(ds_map_size(f.dm_PBags)));
+show_debug_message("file_save(). "+"f.dm_1up_doll size="+string(ds_map_size(f.dm_1up_doll)));
+show_debug_message("file_save(). "+"f.dm_quests size="+string(ds_map_size(f.dm_quests)));
+show_debug_message("file_save(). "+"f.dm_explored size="+string(ds_map_size(f.dm_explored)));
 
-if (val(_dm_save_data[?STR_Randomize+STR_Item+STR_Locations]) 
-//if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-&&  ds_map_size(g.dm_RandoHintsRecorder) )
-{
-    _dm_save_data[?STR_Found+STR_Hint] = json_encode(g.dm_RandoHintsRecorder);
-}
+show_debug_message("file_save(). "+"_dm_save_data size="+string(ds_map_size(_dm_save_data)));
+*/
 
 
 
@@ -113,6 +128,7 @@ if (file_exists(_FILE_NAME))
             file_text_close(_file);
     //
     global.dm_save_file_data[?STR_Save+STR_File+hex_str(_FILE_NUM)+STR_Encoded] = _SAVE_DATA;
+    ds_map_copy(global.dm_save_file, _dm_save_data);
     
     show_debug_message("");
     show_debug_message("Save File  '"+_FILE_NAME+"', Save Name  '"+_SAVE_NAME+"',   saved!");
@@ -122,10 +138,38 @@ if (file_exists(_FILE_NAME))
 
 
 
-if (val(_dm_save_data[?STR_Randomize+STR_Item+STR_Locations]))
+
+
+
+
+if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
 {
-    var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
-    if (file_exists(_RANDO_DATA_FILE_NAME))
+    if (ds_map_size(g.dm_RandoHintsRecorder))
+    {
+        var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
+        if (file_exists(_RANDO_DATA_FILE_NAME))
+        {
+            _file =      file_text_open_read(working_directory+_RANDO_DATA_FILE_NAME);
+            _file_data = file_text_read_string(_file);
+                         file_text_close(_file);
+            var _dm_rando_full = json_decode(_file_data);
+            if (_dm_rando_full!=-1)
+            {
+                ds_map_copy(f.dm_rando_full, _dm_rando_full);
+                
+                f.dm_rando_full[?STR_Found+STR_Hint] = json_encode(g.dm_RandoHintsRecorder);
+                _file = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
+                        file_text_write_string(_file, json_encode(f.dm_rando_full));
+                        file_text_close(_file);
+                //
+                ds_map_destroy(_dm_rando_full); _dm_rando_full=undefined;
+            }
+        }
+    }
+    
+    
+    var _RANDO_SPOILER_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+"_Spoiler"+".txt";
+    if (file_exists(_RANDO_SPOILER_FILE_NAME))
     {
         var _line, _pos1,_pos2, _item_id;
         var _POS_KEY1 = "#(";
@@ -133,7 +177,7 @@ if (val(_dm_save_data[?STR_Randomize+STR_Item+STR_Locations]))
         var _STR_ACQUIRED = "*ACQUIRED*";
         var _dl_text_lines = ds_list_create();
         
-        _file = file_text_open_read(working_directory+_RANDO_DATA_FILE_NAME);
+        _file = file_text_open_read(working_directory+_RANDO_SPOILER_FILE_NAME);
         while(!file_text_eof(_file))
         {
             _line = file_text_readln(_file);
@@ -153,11 +197,10 @@ if (val(_dm_save_data[?STR_Randomize+STR_Item+STR_Locations]))
         file_text_close(_file);
         
         
-        _file = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
+        _file = file_text_open_write(working_directory+_RANDO_SPOILER_FILE_NAME);
         var          _LINE_COUNT = ds_list_size(_dl_text_lines);
         for(_i=0; _i<_LINE_COUNT; _i++) file_text_write_string(_file,_dl_text_lines[|_i]);
         file_text_close(_file);
-        
         
         ds_list_destroy(_dl_text_lines); _dl_text_lines=undefined;
     }
@@ -167,6 +210,18 @@ if (val(_dm_save_data[?STR_Randomize+STR_Item+STR_Locations]))
 
 
 ds_map_destroy(_dm_save_data); _dm_save_data=undefined;
+
+
+
+
+
+/*
+if (DEV)
+{
+    show_debug_message("file_save() END. "+string(current_time-_START_TIME));
+    repeat(1) show_debug_message("");
+}
+*/
 
 
 

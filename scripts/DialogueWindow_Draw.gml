@@ -130,7 +130,7 @@ if (writ_char_pos  // if any characters written yet
 &&  _SECTIONS>1 )  // if at least 2 window sections drawn
 {
     var _Z2 = g.dialogue_source && g.dialogue_source.object_index==Zelda && g.dialogue_source.ver==2;
-    var _FONT  = val(dm_dialogue[?g.dialogue_source.dialogue_datakey+dialogue_ver+STR_Font], spr_Font1);
+    var _FONT  = val(dm_dialogue[?g.dialogue_source.dialogue_datakey+dialogue_ver+STR_Font], global.dl_game_font[|global.game_font_idx]);
     var _LINES = min(writ_line_idx+1, _SECTIONS-1); // _SECTIONS-1: Top & Btm border
     
     var _x1 = drawX + text_x_off;

@@ -22,10 +22,10 @@ if(!file_exists(_FILE_NAME))
 }
 
 
-var _FILE      = file_text_open_read(working_directory+_FILE_NAME);
-var _FILE_DATA = file_text_read_string(_FILE);
-                 file_text_close(      _FILE);
-var _dm_file_data = json_decode(_FILE_DATA);
+var _file      = file_text_open_read(working_directory+_FILE_NAME);
+var _file_data = file_text_read_string(_file);
+                 file_text_close(      _file);
+var _dm_file_data = json_decode(_file_data);
 
 if (_dm_file_data==-1) // `json_decode` returns -1 if it fails
 {
@@ -38,6 +38,11 @@ if (_dm_file_data==-1) // `json_decode` returns -1 if it fails
 
 
 
+
+
+
+
+ds_map_clear(g.dm_room_history);
 
 
 
@@ -90,6 +95,7 @@ f.xp                    =       val(_dm_file_data[?STR_XP]);
 
 ds_map_clear(f.dm_1up_doll);
              f.dm_1up_doll    = json_decode(_1up_dolls);
+//if (f.dm_1up_doll!=-1) db_LifeDoll_data_1a();
 //show_debug_message("file_load(). ds_map_size(f.dm_1up_doll)="+string(ds_map_size(f.dm_1up_doll)));
 //
 ds_map_clear(f.dm_kakusu);
@@ -112,8 +118,19 @@ ds_map_clear(f.dm_quests);
 //
 
 
-ds_map_clear(g.dm_room_history);
-ds_map_clear(g.dm_RandoHintsRecorder);
+ds_map_copy(global.dm_save_file, _dm_file_data);
+
+ds_map_clear(global.dm_save_file_settings);
+var _dm_save_file_settings_ENCODED = global.dm_save_file[?STR_Save+STR_File+STR_Settings];
+if(!is_undefined(_dm_save_file_settings_ENCODED))
+{
+    var _dm_save_file_settings = json_decode(_dm_save_file_settings_ENCODED);
+    if (_dm_save_file_settings!=-1)
+    {
+        ds_map_copy(global.dm_save_file_settings, _dm_save_file_settings);
+        ds_map_destroy(_dm_save_file_settings); _dm_save_file_settings=undefined;
+    }
+}
 
 
 
@@ -124,15 +141,61 @@ ds_map_clear(g.dm_RandoHintsRecorder);
 
 // ===================================================================
 // RANDO -----------------------------------------------------------
-ds_map_clear(f.dm_rando);
 var _QUEST_KEY = STR_Quest+hex_str(f.quest_num);
+//var _RANDO_ACTIVE = val(_dm_file_data[?STR_Rando+STR_Active]);
+//var _RANDO_ACTIVE = val(_dm_file_data[?_QUEST_KEY+STR_Rando+STR_Active]);
 
-var              _rando_data = _dm_file_data[?_QUEST_KEY+STR_Rando+STR_Data];
-if(!is_undefined(_rando_data))
+ds_map_clear(f.dm_rando_full);
+ds_map_clear(f.dm_rando);
+ds_map_clear(f.dm_rando_dungeon_tileset);
+
+
+
+
+var _DUNGEON_TILESET_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+dk_RandoDungeonTilesetData+".txt";
+if (file_exists(_DUNGEON_TILESET_FILE_NAME))
 {
-    var _dm_rando = json_decode(_rando_data);
-    ds_map_copy(f.dm_rando,_dm_rando);
-    ds_map_destroy(_dm_rando); _dm_rando=undefined;
+    _file =      file_text_open_read(working_directory+_DUNGEON_TILESET_FILE_NAME);
+    _file_data = file_text_read_string(_file);
+                 file_text_close(_file);
+    var _dm_rando_dungeon_tileset = json_decode(_file_data);
+    if (_dm_rando_dungeon_tileset!=-1)
+    {
+        ds_map_copy(f.dm_rando_dungeon_tileset, _dm_rando_dungeon_tileset);
+        ds_map_destroy(_dm_rando_dungeon_tileset); _dm_rando_dungeon_tileset=undefined;
+    }
+}
+
+
+_val = f.dm_rando_dungeon_tileset[?STR_Randomized+"_Tiles"+"01"];
+if(!is_undefined(_val)) ds_map_read(global.dm_randomized_tiles01, _val);
+
+
+
+
+var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
+if (file_exists(_RANDO_DATA_FILE_NAME))
+{
+    _file =      file_text_open_read(working_directory+_RANDO_DATA_FILE_NAME);
+    _file_data = file_text_read_string(_file);
+                 file_text_close(_file);
+    var _dm_rando_full = json_decode(_file_data);
+    if (_dm_rando_full!=-1)
+    {
+        ds_map_copy(f.dm_rando_full,_dm_rando_full);
+        ds_map_destroy(_dm_rando_full); _dm_rando_full=undefined;
+        
+        var              _dm_rando_ENCODED = f.dm_rando_full[?_QUEST_KEY+STR_Rando+STR_Data];
+        if(!is_undefined(_dm_rando_ENCODED))
+        {
+            var _dm_rando = json_decode(_dm_rando_ENCODED);
+            if (_dm_rando!=-1)
+            {
+                ds_map_copy(f.dm_rando,_dm_rando);
+                ds_map_destroy(_dm_rando); _dm_rando=undefined;
+            }
+        }
+    }
 }
 
 
@@ -140,8 +203,17 @@ if(!is_undefined(_rando_data))
 
 // Hints ---------------------------------------------------------
 ds_map_clear(g.dm_RandoHintsRecorder);
-var _FOUND_HINTS = _dm_file_data[?STR_Found+STR_Hint];
-if(!is_undefined(_FOUND_HINTS)) g.dm_RandoHintsRecorder = json_decode(_FOUND_HINTS);
+var _dm_hints_ENCODED = f.dm_rando_full[?STR_Found+STR_Hint];
+//var _dm_hints_ENCODED = f.dm_rando[?STR_Found+STR_Hint];
+if(!is_undefined(_dm_hints_ENCODED))
+{
+    var _dm_hints = json_decode(_dm_hints_ENCODED);
+    if (_dm_hints!=-1)
+    {
+        ds_map_copy(g.dm_RandoHintsRecorder,_dm_hints);
+        ds_map_destroy(_dm_hints); _dm_hints=undefined;
+    }
+}
 
 
 
@@ -157,203 +229,182 @@ if(!is_undefined(_val))
 
 
 
-// Dungeon Tileset Rando
-_val = f.dm_rando[?STR_Randomized+"_Tiles"+"01"];
-if(!is_undefined(_val))
+var _obj, _str;
+var _item_id, _item_datakey,_item_datakey1, _item_datakey_base, _spawn_datakey,_spawn_datakey1;
+var _town_name;
+
+
+//f.dm_rando[?STR_Rando+STR_Active] = true;
+
+
+
+
+// Enemy HP ----------------------------------------------
+_datakey=STR_Enemy+STR_HP;
+if (val(global.dm_save_file_settings[?STR_Randomize+_datakey]))
 {
-    ds_map_read(global.dm_randomized_tiles01, _val);
-}
-//dm_save_data[?STR_Randomized+"_Tiles"+"01"] = ds_map_write(_dm_randomized_tiles);
-
-
-
-
-if (val(_dm_file_data[?STR_Rando+STR_Active]))
-//if (val(_dm_file_data[?_QUEST_KEY+STR_Rando+STR_Active]))
-{
-    var _DEBUG_RANDO = true;
-    
-    var              _rando_data = _dm_file_data[?_QUEST_KEY+STR_Rando+STR_Data];
-    if(!is_undefined(_rando_data))
+    for(_i=ds_list_size(g.dl_HP)-1; _i>=0; _i--)
     {
-        var _obj, _str;
-        var _item_id, _item_datakey,_item_datakey1, _item_datakey_base, _spawn_datakey,_spawn_datakey1;
-        var _town_name;
-        
-        
-        f.dm_rando[?STR_Rando+STR_Active] = true;
-        
-        
-        
-        
-        // Enemy HP ----------------------------------------------
-        _datakey=STR_Enemy+STR_HP;
-        if (val(f.dm_rando[?STR_Randomize+_datakey]))
+        g.dl_HP[|_i] = val(f.dm_rando[?_datakey+hex_str(_i)]);
+    }
+}
+
+
+
+
+// Enemy Damage -------------------------------------------
+_datakey=STR_Enemy+STR_Damage;
+if (val(global.dm_save_file_settings[?STR_Randomize+_datakey]))
+{
+    var _EnemyDamage_level_COUNT=ds_grid_height(g.dg_enemy_damage);
+    for(_i=ds_grid_width(g.dg_enemy_damage)-1; _i>=0; _i--) // LIFE Level
+    {
+        for(_j=_EnemyDamage_level_COUNT-1; _j>=0; _j--) // Enemy Damage Level
         {
-            for(_i=ds_list_size(g.dl_HP)-1; _i>=0; _i--)
-            {
-                g.dl_HP[|_i] = val(f.dm_rando[?_datakey+hex_str(_i)]);
-            }
+            g.dg_enemy_damage[#_i,_j] = val(f.dm_rando[?_datakey+hex_str(_i)+hex_str(_j)], g.dg_enemy_damage[#_i,_j]);
         }
-        
-        
-        
-        
-        // Enemy Damage -------------------------------------------
-        _datakey=STR_Enemy+STR_Damage;
-        if (val(f.dm_rando[?STR_Randomize+_datakey]))
+    }
+}
+
+
+
+
+// Level Costs ----------------------------------------------
+_datakey=STR_Level+STR_Cost;
+if (val(global.dm_save_file_settings[?STR_Randomize+_datakey]))
+{
+    _count1 = ds_grid_width( f.dg_xp_next);
+    _count2 = ds_grid_height(f.dg_xp_next);
+    for(_i=0; _i<_count1; _i++)
+    {
+        for(_j=0; _j<_count2; _j++)
         {
-            var _EnemyDamage_level_COUNT=ds_grid_height(g.dg_enemy_damage);
-            for(_i=ds_grid_width(g.dg_enemy_damage)-1; _i>=0; _i--) // LIFE Level
-            {
-                for(_j=_EnemyDamage_level_COUNT-1; _j>=0; _j--) // Enemy Damage Level
-                {
-                    g.dg_enemy_damage[#_i,_j] = val(f.dm_rando[?_datakey+hex_str(_i)+hex_str(_j)], g.dg_enemy_damage[#_i,_j]);
-                }
-            }
+            _datakey1 = _datakey+hex_str(_i)+hex_str(_j);
+            f.dg_xp_next[#_i,_j] = val(f.dm_rando[?_datakey1], f.dg_xp_next[#_i,_j]);
         }
-        
-        
-        
-        
-        // Level Costs ----------------------------------------------
-        _datakey=STR_Level+STR_Cost;
-        if (val(f.dm_rando[?STR_Randomize+_datakey]))
+    }
+}
+
+
+
+
+// XP ----------------------------------------------
+_datakey=STR_XP;
+if (val(global.dm_save_file_settings[?STR_Randomize+_datakey]))
+{
+    for(_i=ds_list_size(g.dl_XP)-1; _i>=0; _i--)
+    {
+        g.dl_XP[|_i] = val(f.dm_rando[?_datakey+hex_str(_i)]);
+    }
+}
+
+
+
+
+// Spell Costs -------------------------------------------------
+_datakey=STR_Spell+STR_Cost;
+if (val(global.dm_save_file_settings[?STR_Randomize+_datakey]))
+{
+    _count1 = ds_grid_width( g.dg_spell_cost);
+    _count2 = ds_grid_height(g.dg_spell_cost);
+    for(_i=0; _i<_count1; _i++)
+    {
+        _spell = sign(_i)<<max(_i-1,0); // spell bit
+        for(_j=0; _j<_count2; _j++)
         {
-            _count1 = ds_grid_width( f.dg_xp_next);
-            _count2 = ds_grid_height(f.dg_xp_next);
-            for(_i=0; _i<_count1; _i++)
+                _val = val(f.dm_rando[?_datakey+hex_str(_i)+hex_str(_j)]);
+            if (_val)
             {
-                for(_j=0; _j<_count2; _j++)
-                {
-                    _datakey1 = _datakey+hex_str(_i)+hex_str(_j);
-                    f.dg_xp_next[#_i,_j] = val(f.dm_rando[?_datakey1], f.dg_xp_next[#_i,_j]);
-                }
-            }
-        }
-        
-        
-        
-        
-        // XP ----------------------------------------------
-        _datakey=STR_XP;
-        if (val(f.dm_rando[?STR_Randomize+_datakey]))
-        {
-            for(_i=ds_list_size(g.dl_XP)-1; _i>=0; _i--)
-            {
-                g.dl_XP[|_i] = val(f.dm_rando[?_datakey+hex_str(_i)]);
-            }
-        }
-        
-        
-        
-        
-        // Spell Costs -------------------------------------------------
-        _datakey=STR_Spell+STR_Cost;
-        if (val(f.dm_rando[?STR_Randomize+_datakey]))
-        {
-            _count1 = ds_grid_width( g.dg_spell_cost);
-            _count2 = ds_grid_height(g.dg_spell_cost);
-            for(_i=0; _i<_count1; _i++)
-            {
-                _spell = sign(_i)<<max(_i-1,0); // spell bit
-                for(_j=0; _j<_count2; _j++)
-                {
-                        _val = val(f.dm_rando[?_datakey+hex_str(_i)+hex_str(_j)]);
-                    if (_val)
-                    {
-                        _val1 = val(g.dm_Spell[?hex_str(_spell)+STR_Rando+STR_Cost+STR_Max], _val);
-                        _val  = min(_val,_val1);
-                        g.dg_spell_cost[#_i,_j] = _val;
-                    }
-                }
-            }
-        }
-        
-        
-        
-        
-        // Spell Locations ------------------------------------------------
-        if (val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]))
-        {                                                              _i=0;
-            while(!is_undefined(g.dm_town[?STR_Town+STR_Name+hex_str(++_i)]))
-            {
-                _town_name =    g.dm_town[?STR_Town+STR_Name+hex_str(  _i)];
-                _spawn_datakey = g.dm_spawn[?"_Wise"+"_Man"+STR_Spawn+STR_Datakey+_town_name];
-                if(!is_undefined(_spawn_datakey))
-                {
-                    _spell_name = val(f.dm_rando[?_town_name+STR_Spell], "undefined");
-                    _val = val(g.dm_Spell[?STR_Bit+_spell_name]);
-                    if (_val)
-                    {
-                        g.dm_spawn[?STR_Spell+STR_Bit+_spawn_datakey] = _val;
-                        _str = string_repeat(" ", string_length(STR_Old_Kasuto)-string_length(_town_name));
-                        //sdm(_town_name+_str+_spell_name+",      "+_spawn_datakey);
-                    }
-                }
-            }
-        }
-        
-        
-        
-        
-        // Items ----------------------------------------------------
-        if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
-        {
-            var           _COUNT = val(f.dm_rando[?STR_Total+STR_Location+STR_Count]);
-            for(_i=1; _i<=_COUNT; _i++)
-            {   // change spawn data to match what was randomized on file creation
-                _datakey1 = STR_Location+hex_str(_i);
-                
-                _spawn_datakey = f.dm_rando[?_datakey1+STR_Spawn+STR_Datakey];
-                _item_id       = f.dm_rando[?_datakey1+STR_Item+STR_ID+STR_Randomized];
-                if(!is_undefined(_spawn_datakey) 
-                && !is_undefined(_item_id) )
-                {
-                    g.dm_spawn[?_spawn_datakey+STR_Item+STR_ID+STR_Randomized] = _item_id;
-                    g.dm_spawn[?_item_id+STR_Spawn+STR_Datakey+STR_Randomized] = _spawn_datakey;
-                }
-                //sdm("ITEM: "+string(val(_item_id))+".  "+"location_num: $"+hex_str(_i)+", _spawn_datakey '"+string(val(_spawn_datakey))+"'");
-            }
-        }
-        
-        
-        
-        
-        if (val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations]) 
-        ||  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-        ||  val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Cost]) )
-        {
-            _count1 = ds_grid_width( g.dg_spell_cost);
-            _count2 = ds_grid_height(g.dg_spell_cost);
-            for(_i=0; _i<_count1; _i++) // each spell
-            {
-                _spell = sign(_i)<<max(_i-1,0); // spell bit
-                for(_j=0; _j<_count2; _j++) // each magic level
-                {
-                    _val  = g.dg_spell_cost[#_i,_j];
-                    _val1 = val(g.dm_Spell[?hex_str(_spell)+STR_Rando+STR_Cost+STR_Max], _val);
-                    g.dg_spell_cost[#_i,_j] = min(_val,_val1);
-                }
+                _val1 = val(g.dm_Spell[?hex_str(_spell)+STR_Rando+STR_Cost+STR_Max], _val);
+                _val  = min(_val,_val1);
+                g.dg_spell_cost[#_i,_j] = _val;
             }
         }
     }
-    
-    
-    
-    
-    /*if (_DEBUG_RANDO){var _debug_data = _dm_file_data[?_QUEST_KEY+STR_Rando+STR_Debug+STR_Data];
-        if(!is_undefined( _debug_data))
-        {   var        _dm_debug_data = json_decode(_debug_data);
-            _count=val(_dm_debug_data[?STR_Data+'01'+STR_Count]);
-            for(_i=1; _i<=_count; _i++){
-                _val = _dm_debug_data[?STR_Data+'01'+hex_str(_i)];
-                if (is_undefined(_val)) sdm(string(_val));
-            }
-            ds_map_destroy(_dm_debug_data); _dm_debug_data=undefined;
-        }
-    }*/
 }
+
+
+
+
+// Spell Locations ------------------------------------------------
+if (val(global.dm_save_file_settings[?STR_Randomize+STR_Spell+STR_Locations]))
+{                                                              _i=0;
+    while(!is_undefined(g.dm_town[?STR_Town+STR_Name+hex_str(++_i)]))
+    {
+        _town_name =    g.dm_town[?STR_Town+STR_Name+hex_str(  _i)];
+        _spawn_datakey = g.dm_spawn[?"_Wise"+"_Man"+STR_Spawn+STR_Datakey+_town_name];
+        if(!is_undefined(_spawn_datakey))
+        {
+            _spell_name = val(f.dm_rando[?_town_name+STR_Spell], "undefined");
+            _val = val(g.dm_Spell[?STR_Bit+_spell_name]);
+            if (_val)
+            {
+                g.dm_spawn[?STR_Spell+STR_Bit+_spawn_datakey] = _val;
+                _str = string_repeat(" ", string_length(STR_Old_Kasuto)-string_length(_town_name));
+                //sdm(_town_name+_str+_spell_name+",      "+_spawn_datakey);
+            }
+        }
+    }
+}
+
+
+
+
+// Items ----------------------------------------------------
+if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
+{
+    var           _COUNT = val(f.dm_rando[?STR_Total+STR_Location+STR_Count]);
+    for(_i=1; _i<=_COUNT; _i++)
+    {   // change spawn data to match what was randomized on file creation
+        _datakey1 = STR_Location+hex_str(_i);
+        
+        _spawn_datakey = f.dm_rando[?_datakey1+STR_Spawn+STR_Datakey];
+        _item_id       = f.dm_rando[?_datakey1+STR_Item+STR_ID+STR_Randomized];
+        if(!is_undefined(_spawn_datakey) 
+        && !is_undefined(_item_id) )
+        {
+            g.dm_spawn[?_spawn_datakey+STR_Item+STR_ID+STR_Randomized] = _item_id;
+            g.dm_spawn[?_item_id+STR_Spawn+STR_Datakey+STR_Randomized] = _spawn_datakey;
+        }
+        //sdm("ITEM: "+string(val(_item_id))+".  "+"location_num: $"+hex_str(_i)+", _spawn_datakey '"+string(val(_spawn_datakey))+"'");
+    }
+}
+
+
+
+
+if (val(global.dm_save_file_settings[?STR_Randomize+STR_Spell+STR_Locations]) 
+||  val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
+||  val(global.dm_save_file_settings[?STR_Randomize+STR_Spell+STR_Cost]) )
+{
+    _count1 = ds_grid_width( g.dg_spell_cost);
+    _count2 = ds_grid_height(g.dg_spell_cost);
+    for(_i=0; _i<_count1; _i++) // each spell
+    {
+        _spell = sign(_i)<<max(_i-1,0); // spell bit
+        for(_j=0; _j<_count2; _j++) // each magic level
+        {
+            _val  = g.dg_spell_cost[#_i,_j];
+            _val1 = val(g.dm_Spell[?hex_str(_spell)+STR_Rando+STR_Cost+STR_Max], _val);
+            g.dg_spell_cost[#_i,_j] = min(_val,_val1);
+        }
+    }
+}
+
+
+
+
+/*if (_DEBUG_RANDO){var _debug_data = _dm_file_data[?_QUEST_KEY+STR_Rando+STR_Debug+STR_Data];
+    if(!is_undefined( _debug_data))
+    {   var        _dm_debug_data = json_decode(_debug_data);
+        _count=val(_dm_debug_data[?STR_Data+'01'+STR_Count]);
+        for(_i=1; _i<=_count; _i++){
+            _val = _dm_debug_data[?STR_Data+'01'+hex_str(_i)];
+            if (is_undefined(_val)) sdm(string(_val));
+        }
+        ds_map_destroy(_dm_debug_data); _dm_debug_data=undefined;
+    }
+}*/
 
 
 
@@ -366,7 +417,7 @@ var _dk_dialogue;
 _dk2 = STR_Spell+STR_Sequence;
 _dk1 = _dk2+STR_Dialogue+STR_Datakey;
 _count = val(f.dm_quests[?_dk2+STR_Dialogue+STR_Count]);
-var _WILL_CHANGE_FOR_RANDO = val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) && global.Rando_SpellSequence_SPELL_COUNT<_count;
+var _WILL_CHANGE_FOR_RANDO = val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) && global.Rando_SpellSequence_SPELL_COUNT<_count;
 /*
 sdm("_FILE_NUM "+string(_FILE_NUM)+", _FILE_NAME "+_FILE_NAME+", "+STR_Dialogue+STR_Count+" "+string(_count)+", "+"string_pos(STR_Dialogue+STR_Hylian,_quests)!=0: "+string(string_pos(STR_Dialogue+STR_Hylian,_quests)!=0));
 //sdm("g.DIALOGUE_WINDOW.dm_dialogue[?_dk1+'01']: "+val(g.DIALOGUE_WINDOW.dm_dialogue[?_dk1+'01'],"undefined")+", "+"g.DIALOGUE_WINDOW.dm_dialogue[?_dk1+'02']: "+val(g.DIALOGUE_WINDOW.dm_dialogue[?_dk1+'02'],"undefined")+", "+"g.DIALOGUE_WINDOW.dm_dialogue[?_dk1+'03']: "+val(g.DIALOGUE_WINDOW.dm_dialogue[?_dk1+'03'],"undefined"));

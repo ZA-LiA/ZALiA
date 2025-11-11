@@ -140,7 +140,7 @@ WindowBackground_yt = 0;
 
 MenuNav_can_draw = false;
 //                                                  //
-MenuNav_FONT   = spr_Font1;
+MenuNav_FONT   = global.dl_game_font[|global.game_font_idx];
 MenuNav_FONT_W = sprite_get_width( MenuNav_FONT);
 MenuNav_FONT_H = sprite_get_height(MenuNav_FONT);
 //                                                  //
@@ -168,7 +168,7 @@ MenuNavR_text_yt = 0;
 
 
 AreaName_can_draw = false;
-AreaName_FONT   = spr_Font1;
+AreaName_FONT   = global.dl_game_font[|global.game_font_idx];
 AreaName_FONT_W = sprite_get_width( AreaName_FONT);
 AreaName_FONT_H = sprite_get_height(AreaName_FONT);
 AreaName_text   = undefined;

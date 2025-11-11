@@ -2,6 +2,7 @@
 
 
 var _i;
+var _depth = DEPTH_BG3-1;
 
 
 can_draw_self = true;
@@ -39,6 +40,9 @@ if(!is_undefined(dk_spawn))
     {   y =      val(g.dm_rm[?dk_spawn+STR_Data+"02"]);  }
     
     set_xy(id,x,y);
+    
+    if(!is_undefined(g.dm_rm[?dk_spawn+STR_Data+"03"]))
+    {   _depth = val(g.dm_rm[?dk_spawn+STR_Data+"03"]);  }
 }
 
 
@@ -53,7 +57,7 @@ case 1:{GO_sprite_init(_SPR); break;}
 
 //ANIM_SPEED = $08;
 
-GO_depth_init(DEPTH_BG3-1);
+GO_depth_init(_depth);
 GO_init_palidx(global.PI_MOB_ORG);
 
 

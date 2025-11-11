@@ -36,11 +36,15 @@ for(_i=0; _i<_COUNT0; _i++)
     }
     
     
-    if (_yt1+_font_h >= MenuWindow_yb)
+    if (_yt1+_font_h>=MenuWindow_yb)
     {
         break;//_i
     }
     
+    
+    _font = FONT2;
+    _font_w = sprite_get_width( _font);
+    _font_h = sprite_get_height(_font);
     
     _text = val(dm_options[?_DK0+hex_str(_i)+STR_Option+STR_Text]);
     _xl = TextArea1_xl;
@@ -89,6 +93,16 @@ for(_i=0; _i<_COUNT0; _i++)
         if (_i==Other_cursor) _pi = PI_MENU1;
         else                  _pi = PI_MENU2;
         break;}//case Other_DIALOGUE_SPEED
+        
+        // --------------------------------------------------------------------
+        case Other_GAME_FONT:{
+        _text = "FONT " + string(global.game_font_idx) + " EXAMPLE TEXT";
+        _font = global.dl_game_font[|global.game_font_idx];
+        _font_w = sprite_get_width( _font);
+        //_font_h = sprite_get_height(_font);
+        if (_i==Other_cursor) _pi = PI_MENU1;
+        else                  _pi = PI_MENU2;
+        break;}//case Other_GAME_FONT
         
         // --------------------------------------------------------------------
         case Other_HIDDEN_OW_EXITS:{
@@ -181,7 +195,7 @@ for(_i=0; _i<_COUNT0; _i++)
     if (_text!=0)
     {
         _xl  = TextArea2_xr;
-        _xl -= string_length(_text)*_font_w;
+        _xl -= string_length(_text) * _font_w;
         _yt = _yt1;
         draw_text_(_xl,_yt, _text, _font, _pi);
     }
@@ -208,7 +222,7 @@ for(_i=0; _i<_COUNT0; _i++)
 
 // OPTION INFO -----------------------------------------------------------
 _yt1 = Info_yt;
-if (_yt1+Info_FONT_H < MenuWindow_yb)
+if (_yt1+Info_FONT_H<MenuWindow_yb)
 {
     _dk = _DK0+hex_str(Other_cursor)+STR_Description;
     _count = val(dm_options[?_dk+STR_Count]);
@@ -219,7 +233,7 @@ if (_yt1+Info_FONT_H < MenuWindow_yb)
         pal_swap_set(global.palette_image, PI_MENU1);
         for(_i=0; _i<_count; _i++)
         {
-            if (_yt1+Info_FONT_H >= MenuWindow_yb)
+            if (_yt1+Info_FONT_H>=MenuWindow_yb)
             {
                 break;//_i
             }

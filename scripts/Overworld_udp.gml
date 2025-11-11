@@ -384,9 +384,9 @@ if (_C1  // _C1:  g.room_type=="C" && !exit_grid_xy
 &&  g.can_mark_acquired_item_locations 
 &&  g.counter1&$40 )
 {
-    if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
-    ||  val(f.dm_rando[?STR_Randomize+STR_PBAG+STR_Locations]) 
-    ||  val(f.dm_rando[?STR_Randomize+STR_Key +STR_Locations]) )
+    if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_PBAG+STR_Locations]) 
+    ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Key +STR_Locations]) )
     {
         _count = val(f.dm_rando[?STR_Total+STR_Location+STR_Count]);
         for(_i=1; _i<=_count; _i++)

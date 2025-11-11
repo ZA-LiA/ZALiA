@@ -22,6 +22,7 @@ _dm_save_data[?STR_PC+STR_Sprite+STR_Set]               = val(global.pc.dm_skins
 _dm_save_data[?STR_Background+STR_Flashing]             = p.BackgroundFlash_setting;
 _dm_save_data[?STR_Screen+STR_Shake]                    = g.ScreenShake_user_pref;
 _dm_save_data[?STR_Dialogue+STR_Speed]                  = g.mod_DLG_SPEED;
+_dm_save_data[?STR_Game+STR_Font]                       = global.game_font_idx;
 _dm_save_data[?STR_Indicate+STR_Spell+STR_Active]       = g.mod_IndicateSpellActive;
 _dm_save_data[?STR_Torch+STR_Lighting]                  = g.torch_lighting_method;
 _dm_save_data[?STR_HUD+STR_Type]                        = global.HUD_state;

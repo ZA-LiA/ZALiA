@@ -97,6 +97,21 @@ switch(Other_cursor)
     break;}//case Other_DIALOGUE_SPEED
     
     // -------------------------------------------------
+    case Other_GAME_FONT:{
+    //if (timer) break;
+    
+    if (_InputConfirm_pressed2)
+    {
+        global.game_font_idx += global.game_font_COUNT;
+        global.game_font_idx += -sign_(Input.Left_pressed);
+        global.game_font_idx  = global.game_font_idx mod global.game_font_COUNT;
+        save_game_pref();
+        aud_play_sound(CURSOR_SOUND1);
+        timer = DURATION0;
+    }
+    break;}//case Other_GAME_FONT
+    
+    // -------------------------------------------------
     case Other_HIDDEN_OW_EXITS:{
     if (timer) break;
     

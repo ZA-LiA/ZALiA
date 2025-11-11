@@ -84,10 +84,10 @@ Blocks2_COUNT   = Blocks2_CLMS * Blocks2_ROWS;
 Blocks2_TILE_COUNT = Blocks2_COUNT * BlockTile_COUNT;
 
 
-
+//TSRC_BREAK1_C
 Block_Crumble_TS    = ts_Man_made_1a_WRB;
-Block_Crumble_TSRC1 = $9C;
-Block_Crumble_TSRC2 = Block_Crumble_TSRC1+1;
+Block_Crumble_TSRC1 = $4F;
+Block_Crumble_TSRC2 = Block_Crumble_TSRC1+$10;
 dg_Block_Crumble_TSRC = ds_grid_create(BlockTile_CLMS,BlockTile_ROWS);
 dg_Block_Crumble_TSRC[#0,0] = Block_Crumble_TSRC1;
 dg_Block_Crumble_TSRC[#0,1] = Block_Crumble_TSRC1;

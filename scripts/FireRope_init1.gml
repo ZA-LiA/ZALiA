@@ -6,10 +6,7 @@ GameObjectB_init();
 
 SPR_A = spr_Fireball2;
 
-
-GO_init_palidx(global.PI_MOB_ORG); // orange
-//GO_pal_idx_init(PI_MOB_RED); // red
-//GO_pal_idx_init(PI_MOB_BLU); // blue
+HostileFire_init_1(global.PI_MOB_ORG);
 
 
 FIREBALL_COUNT = 6;

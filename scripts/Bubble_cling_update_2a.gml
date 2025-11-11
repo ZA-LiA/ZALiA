@@ -4,7 +4,7 @@
 
 
 var _i, _x, _y, _a1, _ib;
-var _COUNT1=ds_grid_width(dg_cling);
+var _COUNT1 = ds_grid_width(dg_cling);
 
 dg_cling[#0,4] = 0;
 
@@ -37,7 +37,18 @@ for(_i=1; _i<_COUNT1; _i++)
     dg_cling[#_i,2] = _y;
     
     
-        dg_cling[#_i,0] = collide_solid_grid(_x,_y) & TID_SOLID1; // colliding state
+        dg_cling[#_i,0] = collide_solid_grid(_x,_y)&TID_SOLID1; // colliding state
+    if(!dg_cling[#_i,0])
+    {
+        if (_x>=0 
+        &&  _y>=0 
+        &&  _x<g.rm_w 
+        &&  _y<g.rm_h 
+        &&  global.dg_chain[#_x>>3,_y>>3] )
+        {
+            dg_cling[#_i,0] = TID_SOLID1;
+        }
+    }
     // Check if out of rm bounds
     if(!dg_cling[#_i,0] 
     && !pointInRect(_x,_y, cam_xl_min(),cam_yt_min(),cam_x_range(),cam_y_range()) )

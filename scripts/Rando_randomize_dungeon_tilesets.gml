@@ -77,7 +77,7 @@ ds_list_shuffle(dl_list2);
 for(_i=ds_list_size(dl_list1)-1; _i>=0; _i--)
 {
     _datakey = STR_Rando+STR_Tileset+background_get_name(dl_list1[|_i]);
-    dm_save_data[?_datakey] = dl_list2[|_i];
+    dm_save_data_dungeon_tileset[?_datakey] = dl_list2[|_i];
 }
 
 
@@ -128,7 +128,7 @@ if (DEV  // TESTING
                 }
             }
             
-            dm_save_data[?STR_Randomized+"_Tiles"+"01"] = ds_map_write(_dm_randomized_tiles);
+            dm_save_data_dungeon_tileset[?STR_Randomized+"_Tiles"+"01"] = ds_map_write(_dm_randomized_tiles);
             
             ds_list_destroy(_dl_tiles2); _dl_tiles2=undefined;
             ds_map_destroy(_dm_randomized_tiles); _dm_randomized_tiles=undefined;
@@ -356,7 +356,7 @@ if (global.WallStyle01Tiles_MAIN
                                         else if (ds_list_find_index(_dl_FILL,         _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $10;
                                         
                                         if(!_wall_type_data_was_set) _wall_type_data_was_set = _dg_wall_type[#_clm,_row]!=0;
-                                        if (_wall_type_data_was_set) dm_save_data[?_wall_styles_datakey1+_file_name1+_layer_name] = true;
+                                        if (_wall_type_data_was_set) dm_save_data_dungeon_tileset[?_wall_styles_datakey1+_file_name1+_layer_name] = true;
                                     }
                                 }
                             }
@@ -470,7 +470,7 @@ if (global.WallStyle01Tiles_MAIN
                 }//_j
                 
                 
-                dm_save_data[?_wall_styles_datakey1+_file_name1] = ds_grid_write(_dg_new_tsrc);
+                dm_save_data_dungeon_tileset[?_wall_styles_datakey1+_file_name1] = ds_grid_write(_dg_new_tsrc);
             }
         }//_i
     }
@@ -612,7 +612,7 @@ if (global.WallStyle01Tiles_MAIN
                                         else if (ds_list_find_index(_dl_FILL,         _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $10;
                                         
                                         if(!_wall_type_data_was_set) _wall_type_data_was_set = _dg_wall_type[#_clm,_row]!=0;
-                                        if (_wall_type_data_was_set) dm_save_data[?_wall_styles_datakey1+_file_name1+_layer_name] = true;
+                                        if (_wall_type_data_was_set) dm_save_data_dungeon_tileset[?_wall_styles_datakey1+_file_name1+_layer_name] = true;
                                     }
                                 }//_k
                             }
@@ -796,7 +796,7 @@ if (global.WallStyle01Tiles_MAIN
                 }//_j
                 
                 
-                dm_save_data[?_wall_styles_datakey1+_file_name1] = ds_grid_write(_dg_new_tsrc);
+                dm_save_data_dungeon_tileset[?_wall_styles_datakey1+_file_name1] = ds_grid_write(_dg_new_tsrc);
             }
         }//_i
     }

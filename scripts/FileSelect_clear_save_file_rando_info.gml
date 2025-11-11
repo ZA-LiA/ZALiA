@@ -5,7 +5,7 @@ var _FILE_NUM = argument[0];
 
 
 var _DATAKEY1 = STR_Save+STR_File+hex_str(_FILE_NUM);
-var _datakey  = _DATAKEY1+STR_Rando+STR_Data;
+var _datakey  = _DATAKEY1+STR_Rando+STR_Settings;
 if(!is_undefined( SaveFileRandoInfo_dm[?_datakey]))
 {   ds_map_delete(SaveFileRandoInfo_dm, _datakey);  }
 

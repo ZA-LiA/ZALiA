@@ -143,7 +143,7 @@ if (f.items&(ITM_MAP1|ITM_MAP2))
         
         if (_item_type==STR_KEY)
         {
-            if(!val(f.dm_rando[?STR_Randomize+STR_Key+STR_Locations]) 
+            if(!val(global.dm_save_file_settings[?STR_Randomize+STR_Key+STR_Locations]) 
             || !g.RandoKeys_MAP_items_show_keys )
             {
                 continue;//_i
@@ -156,11 +156,11 @@ if (f.items&(ITM_MAP1|ITM_MAP2))
         {
             _datakey = _item_id+STR_Spawn+STR_Datakey;
             switch(_item_type){
-            case STR_HEART: {if (val(f.dm_rando[?STR_Randomize+STR_Item  +STR_Locations])){_datakey+=STR_Randomized;} break;}
-            case STR_MAGIC: {if (val(f.dm_rando[?STR_Randomize+STR_Item  +STR_Locations])){_datakey+=STR_Randomized;} break;}
-            case STR_1UP:   {if (val(f.dm_rando[?STR_Randomize+STR_Item  +STR_Locations])){_datakey+=STR_Randomized;} break;}
-            case STR_Kakusu:{if (val(f.dm_rando[?STR_Randomize+STR_Kakusu+STR_Locations])){_datakey+=STR_Randomized;} break;}
-            case STR_KEY:   {if (val(f.dm_rando[?STR_Randomize+STR_Key   +STR_Locations])){_datakey+=STR_Randomized;} break;}
+            case STR_HEART: {if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item  +STR_Locations])){_datakey+=STR_Randomized;} break;}
+            case STR_MAGIC: {if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item  +STR_Locations])){_datakey+=STR_Randomized;} break;}
+            case STR_1UP:   {if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item  +STR_Locations])){_datakey+=STR_Randomized;} break;}
+            case STR_Kakusu:{if (val(global.dm_save_file_settings[?STR_Randomize+STR_Kakusu+STR_Locations])){_datakey+=STR_Randomized;} break;}
+            case STR_KEY:   {if (val(global.dm_save_file_settings[?STR_Randomize+STR_Key   +STR_Locations])){_datakey+=STR_Randomized;} break;}
             }
             _spawn_datakey =     g.dm_spawn[?_datakey];
             _qual_quests   = val(g.dm_spawn[?_item_id+STR_Qualified+STR_Quest+STR_Nums], hex_str(f.quest_num));
@@ -216,7 +216,7 @@ if (f.items&(ITM_MAP1|ITM_MAP2))
 
 
 
-if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
+if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
 {
     var _dm1=ds_map_create();
     var _c1=false;
@@ -234,8 +234,8 @@ if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]))
             _item_type = string(val(g.dm_spawn[?_item_id+STR_Item+STR_Type]));
             switch(_item_type){
             default:      {_c1=true; break;}
-            case STR_PBAG:{_c1=val(f.dm_rando[?STR_Randomize+STR_PBAG+STR_Locations]); break;}
-            case STR_KEY: {_c1=val(f.dm_rando[?STR_Randomize+STR_Key +STR_Locations]); break;}
+            case STR_PBAG:{_c1=val(global.dm_save_file_settings[?STR_Randomize+STR_PBAG+STR_Locations]); break;}
+            case STR_KEY: {_c1=val(global.dm_save_file_settings[?STR_Randomize+STR_Key +STR_Locations]); break;}
             }
             
             if (_c1)

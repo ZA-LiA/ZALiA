@@ -166,7 +166,7 @@ if (_BAGU
 }
 else if (_SIGN)
 {
-    if (val(f.dm_rando[?STR_Randomize+STR_Town+STR_Locations]) 
+    if (val(global.dm_save_file_settings[?STR_Randomize+STR_Town+STR_Locations]) 
     &&  g.town_num 
     && !is_undefined(g.town_name) 
     &&  val(f.dm_rando[?STR_Town+STR_Rando+g.town_name+"A"],g.town_name)!=g.town_name 
@@ -468,7 +468,7 @@ if(!is_undefined(                                dialogue_datakey)
 
 
 if (global.RandoHints_enabled 
-&&  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) )
+&&  val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) )
 {
     if (is_ancestor(object_index,Zelda))
     {

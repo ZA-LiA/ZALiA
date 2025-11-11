@@ -9,7 +9,8 @@ var _LEN = string_length(_TEXT);
 if(!_LEN) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-var                                      _TEXT_SPRITE = spr_Font1;
+//var                                      _TEXT_SPRITE = spr_Font5;
+var                                      _TEXT_SPRITE = global.dl_game_font[|global.game_font_idx];
 if (argument_count>_i && argument[_i++]) _TEXT_SPRITE = argument[_i-1];
 
 // Pass -1 to not pal swap (pal swap may have been set outide of draw_text_()

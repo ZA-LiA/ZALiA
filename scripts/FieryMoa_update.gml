@@ -36,7 +36,7 @@ switch(counter&$3)
     hspd           = ($20 * -sign_(global.pc.hspd_dir)) &$FF;
     set_hspd_dir();
     hspd_dir_reset = hspd_dir;
-    facing_dir      = hspd_dir;
+    facing_dir     = hspd_dir;
     
     
     var                 _X  = viewXR()-ww_;
@@ -51,7 +51,7 @@ switch(counter&$3)
     
     // Duration until turn around.
     if (global.pc.hspd) timer = $10; // $10: 0.267s
-    else           timer = $50; // $50: 1.333s
+    else                timer = $50; // $50: 1.333s
     
     // Because these durations are based off the og view width, 
     // with wideview it'll take longer for Moa to 
@@ -76,7 +76,7 @@ switch(counter&$3)
     sdm(""); */
     
     
-    timer  += _extra;
+    timer += _extra;
     counter = (counter+1)&$FF;
     break;}
     
@@ -90,7 +90,7 @@ switch(counter&$3)
     case 1:{ // B96D.  Moving towards PC
     if (timer) break;
     
-    timer   = $40; // $40: 1.067s
+    timer = $40; // $40: 1.067s
     counter = (counter+1)&$FF;
     break;}
     
@@ -139,7 +139,7 @@ switch(counter&$3)
     if(!wINw(xl,ww, viewXL(),viewXR()))
     //if (ocs) // OG
     {
-        timer   = $BF; // $BF(191): 3.183s
+        timer = $BF; // $BF(191): 3.183s
         counter = (counter+1)&$FF;
     }
     break;}

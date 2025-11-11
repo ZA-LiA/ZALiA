@@ -27,7 +27,7 @@ else
 {
     if (object_index==ItmD0   // Key
     && !is_undefined(ITEM_ID) 
-    &&  val(f.dm_rando[?STR_Randomize+STR_Key+STR_Locations]) )
+    &&  val(global.dm_save_file_settings[?STR_Randomize+STR_Key+STR_Locations]) )
     {   // Example: _KEY0402. This would take just the 4 _KEY0(4)02, which is the dungeon num
         var _TEXT = string_copy(ITEM_ID, string_length(ITEM_ID)-2, 1);
         var _XL  = drawX - ((string_length(_TEXT)<<3)>>1);

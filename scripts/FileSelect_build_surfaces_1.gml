@@ -185,6 +185,11 @@ for(_i=0; _i<_rows; _i++)
 pal_swap_reset();
 surface_reset_target();
 
+switch(argument[0]){
+case STR_Register: {{if (surface_exists(REGISTER_surf)) show_debug_message("FileSelect_build_surfaces(). "+"`REGISTER_surf` created!");} break;}
+case STR_Eliminate:{{if (surface_exists(ELIMINATE_surf)) show_debug_message("FileSelect_build_surfaces(). "+"`ELIMINATE_surf` created!");} break;}
+}
+
 
 
 

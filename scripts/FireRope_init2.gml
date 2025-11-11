@@ -1,6 +1,9 @@
 /// FireRope_init2()
 
 
+HostileFire_init_1(global.PI_MOB_ORG);
+
+
 DRAW_YOFF = 0;
 
 facing_dir = 1;

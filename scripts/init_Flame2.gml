@@ -1,10 +1,14 @@
 /// init_Flame2()
 
+// ver 1: Rebonack wall statue, Ganon2, Ganon3, Atta, Fokkeru, Kakusu005, Kakusu008, 
+// ver 2: Barba's Attack3, 
+
 
 SPR_BALL = spr_Fireball2;
 SPR_FLAM = spr_Flame1;
 GO_sprite_init(SPR_BALL);
-GO_init_palidx(global.PI_MOB_RED);
+
+HostileFire_init_1(global.PI_MOB_RED);
 
 
 despawn_offscreen_hor = false;

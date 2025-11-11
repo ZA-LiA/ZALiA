@@ -6,6 +6,7 @@ var _i, _clm,_row, _val, _dir;
 var _datakey1;
 var _count, _counter, _cue,_cues,_CUE_END, _anim_frame,_anim_dir;
 
+
 var          _COUNT=ds_grid_width(g.dg_tile_anim);
 for(_i=0; _i<_COUNT; _i++)
 //for(_i=0; _i<g.T_ANIM_MAX; _i++) // 1st $10 rows reserved for crumble bridge & breakable blocks

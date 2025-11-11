@@ -358,7 +358,13 @@ global.SCSv2_LIVE = false;
 
 
 // Temporary variable while switching FileSelect to a persistent object
-global.FileSelect_PERSISTENT = true;
+//global.FileSelect_PERSISTENT = true;
+
+
+
+
+// Need to separate rando save data from save files because file saving takes too long now
+//global.SeparateSaveFileRandoData = true;
 
 
 
@@ -720,6 +726,8 @@ view_dir_y = 1;
 use_smooth_cam_x = 0;
 use_smooth_cam_y = 1;
 
+
+global.ViewCatchUp_VER = 2;
 // 0: off, $1: horizontal, $2: vertical, $3: horizontal and vertical
 //global.ViewCatchUp_STATE   = $0;
 //ViewCatchUp_STATE   = $3;
@@ -729,6 +737,20 @@ global.ViewCatchUp_SPEED_Y = 6.00;
 global.ViewCatchUp_move_x  = 0;
 global.ViewCatchUp_move_y  = 0;
 global.ViewCatchUp_DIST1   = PC_W * 2;
+
+global.ViewCatchUp_duration_MIN = $10;
+global.ViewCatchUp_duration_MAX = $30;
+global.ViewCatchUp_DIST2        = $3;  // Move rate per frame
+global.ViewCatchUp_x_duration   = 0;
+global.ViewCatchUp_y_duration   = 0;
+global.ViewCatchUp_x_time       = 0;   // number of frames since start
+global.ViewCatchUp_y_time       = 0;   // number of frames since start
+global.ViewCatchUp_x_start      = 0;
+global.ViewCatchUp_y_start      = 0;
+global.ViewCatchUp_x_end        = 0;
+global.ViewCatchUp_y_end        = 0;
+global.ViewCatchUp_x_distance   = 0;
+global.ViewCatchUp_y_distance   = 0;
 /*
 global.ViewCatchUp_SPEED_X = .25;
 global.ViewCatchUp_speed_x = global.ViewCatchUp_SPEED_X;
@@ -758,11 +780,6 @@ global.application_surface_draw_enable_state = !global.RetroShaders_enabled;
 init_mod_control_props();
 
 global.gamePaused = false;
-
-//delta_time
-delta_target     = 1/room_speed;
-delta_actual     = 0;
-delta_multiplier = 0;
 // ------------------------------------------------
 
 
@@ -889,6 +906,14 @@ CHAR_TIMES     = "*"; // times/multiplication char
 
 global.SWAP_LINK_NAME_WITH_SAVE_NAME = false;
 global.USE_PLAYER_NAME_INDICATOR = "@@@";
+
+
+// Normal and alternate fonts for the game
+// 0: Normal font, 
+global.dl_game_font = ds_list_create();
+ds_list_add(global.dl_game_font, spr_Font1,spr_Font4,spr_Font5,spr_Font6);
+global.game_font_COUNT = ds_list_size(global.dl_game_font);
+global.game_font_idx = max(0, ds_list_find_index(global.dl_game_font,spr_Font1));
 
 
 
@@ -1611,6 +1636,8 @@ dg_RmTile_TempSolid     = ds_grid_create(0,0); // 8x8 room grid. Values represen
 
 dg_RmTile_Spike         = ds_grid_create(0,0); // 8x8 room grid. Values represent break blocks, break bridge
 dg_RmTile_Spike_def     = ds_grid_create(0,0); // 8x8 room grid. Values represent break blocks, break bridge
+
+global.dg_chain = ds_grid_create(0,0); // 8x8 room grid. Values represent tiles with chains
 
 dl_ceiling_bottom_rc = ds_list_create();
 
@@ -3107,6 +3134,40 @@ cutscene_house_built    = 0;
 
 // MKH: Magical Key House
 // TSRC: TileSet Row Column
+var _TS_IDX1 = hex_str(max(0,ds_list_find_index(dl_tileset,ts_Man_made_1a_WRB)));
+var _TS_IDX2 = hex_str(max(0,ds_list_find_index(dl_tileset,ts_SolidColors01_8x8)));
+var _TSRC1A = _TS_IDX1+"BE"; // Stone structure tile 1
+var _TSRC1B = _TS_IDX1+"BF"; // Stone structure tile 2
+var _TSRC1  = _TSRC1A + _TSRC1B;
+var _TSRC2  = _TS_IDX1+"DC"+_TS_IDX1+"DD"; // Door awning
+var _TSRC3  = _TSRC1 + _TSRC1 + _TS_IDX2+"F3"+_TS_IDX2+"F3" + _TSRC1 + _TSRC1;
+
+MKH_TSRC_DATA = 
+ "0000" + "0000" + _TSRC1  + _TSRC1 + _TSRC1  + "0000" + "0000"    // row $01
++"0000" + _TSRC1 + _TSRC1A + _TSRC2 + _TSRC1B + _TSRC1 + "0000"    // row $02
+//
+                           + _TSRC3                                // row $03
+                           + _TSRC3                                // row $04
+                           + _TSRC3                                // row $05
+                           + _TSRC3                                // row $06
+                           + _TSRC3                                // row $07
+                           + _TSRC3                                // row $08
+                           + _TSRC3                                // row $09
+// 
+                           + _TSRC3                                // row $0A
+                           + _TSRC3                                // row $0B
+                           + _TSRC3                                // row $0C
+                           + _TSRC3                                // row $0D
+                           + _TSRC3                                // row $0E
+                           + _TSRC3                                // row $0F
+                           + _TSRC3;                               // row $10
+//
+
+MKH_CLMS = string_length(_TSRC3)>>2;
+MKH_ROWS = string_length(MKH_TSRC_DATA) div string_length(_TSRC3);
+//MKH_RM_NAME   = undefined; // Gets set in rm_data_init_Town_A()
+//MKH_EXIT_NAME = undefined; // Gets set in rm_data_init_Town_A()
+/*
 var _TSRC1A = "BE"; // Stone structure tile 1
 var _TSRC1B = "BF"; // Stone structure tile 2
 var _TSRC1  = _TSRC1A + _TSRC1B;
@@ -3133,6 +3194,12 @@ MKH_TSRC_DATA =
                            + _TSRC3                                // row $0F
                            + _TSRC3;                               // row $10
 //
+
+MKH_CLMS = string_length(_TSRC3)>>1;
+MKH_ROWS = string_length(MKH_TSRC_DATA) div string_length(_TSRC3);
+//MKH_RM_NAME   = undefined; // Gets set in rm_data_init_Town_A()
+//MKH_EXIT_NAME = undefined; // Gets set in rm_data_init_Town_A()
+*/
 /* MKH -------------------
 0000 BEBF BEBF BEBF 0000 
 00BE BFBE DCDD BFBE BF00 
@@ -3151,11 +3218,6 @@ BEBF BEBF 0404 BEBF BEBF
 BEBF BEBF 0404 BEBF BEBF 
 BEBF BEBF 0404 BEBF BEBF
 */
-
-MKH_CLMS = string_length(_TSRC3)>>1;
-MKH_ROWS = string_length(MKH_TSRC_DATA) div string_length(_TSRC3);
-//MKH_RM_NAME   = undefined; // Gets set in rm_data_init_Town_A()
-//MKH_EXIT_NAME = undefined; // Gets set in rm_data_init_Town_A()
 
 
 

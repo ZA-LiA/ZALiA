@@ -307,7 +307,7 @@ switch(ITEM_TYPE)
     &&  is_string(     ITEM_ID) )
     {
         f.dm_1up_doll[?ITEM_ID+STR_Acquired] = true;
-        sdm("f.dm_1up_doll[?'"+ITEM_ID+"'+STR_Acquired] = true;");
+        //show_debug_message("Item_update_1(). "+"f.dm_1up_doll[?'"+ITEM_ID+"'+STR_Acquired] = true;");
     }
     
     aud_play_sound(get_audio_theme_track(_MUSIC_THEME2), -1,false,-1, _MUSIC_THEME2);

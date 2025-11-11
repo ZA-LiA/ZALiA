@@ -1,6 +1,8 @@
 /// set_life_doll_data_to_default()
 
 
+ds_map_copy(f.dm_1up_doll, f.dm_1up_doll_DEFAULT);
+/*
 var _i, _item_id;
 
 
@@ -10,6 +12,7 @@ for(_i=val(f.dm_1up_doll[?STR_Count]); _i>=1; _i--)
     _item_id = f.dm_1up_doll[?hex_str(_i)+STR_Item+STR_ID];
     if(!is_undefined(_item_id)) f.dm_1up_doll[?_item_id+STR_Acquired] = false;
 }
+*/
 
 
 

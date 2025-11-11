@@ -3,9 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1197" name="datafiles">
-    <datafiles number="1197" name="rm_tile_data">
-      <datafiles number="1197" name="Title">
+  <datafiles number="1205" name="datafiles">
+    <datafiles number="1205" name="rm_tile_data">
+      <datafiles number="1205" name="Title">
         <datafile>
           <name>Title_000.json</name>
           <exists>-1</exists>
@@ -24,7 +24,7 @@
           <filename>Title_000.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="WestA">
+      <datafiles number="1205" name="WestA">
         <datafile>
           <name>WestA_000.json</name>
           <exists>-1</exists>
@@ -1420,7 +1420,7 @@
           <filename>WestA_254.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="EastA">
+      <datafiles number="1205" name="EastA">
         <datafile>
           <name>EastA_000.json</name>
           <exists>-1</exists>
@@ -3445,7 +3445,7 @@
           <filename>EastA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="DthMt">
+      <datafiles number="1205" name="DthMt">
         <datafile>
           <name>DthMt_000.json</name>
           <exists>-1</exists>
@@ -3957,7 +3957,7 @@
           <filename>DthMt_041.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="MazIs">
+      <datafiles number="1205" name="MazIs">
         <datafile>
           <name>MazIs_000.json</name>
           <exists>-1</exists>
@@ -5846,6 +5846,91 @@
           <filename>MazIs_166.json</filename>
         </datafile>
         <datafile>
+          <name>MazIs_167.json</name>
+          <exists>-1</exists>
+          <size>89686</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_167.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_168.json</name>
+          <exists>-1</exists>
+          <size>72998</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_168.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_169.json</name>
+          <exists>-1</exists>
+          <size>62438</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_169.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_170.json</name>
+          <exists>-1</exists>
+          <size>32141</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_170.json</filename>
+        </datafile>
+        <datafile>
+          <name>MazIs_171.json</name>
+          <exists>-1</exists>
+          <size>71406</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>MazIs_171.json</filename>
+        </datafile>
+        <datafile>
           <name>MazIs_216.json</name>
           <exists>-1</exists>
           <size>68673</size>
@@ -6169,7 +6254,7 @@
           <filename>MazIs_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="TownA">
+      <datafiles number="1205" name="TownA">
         <datafile>
           <name>TownA_000.json</name>
           <exists>-1</exists>
@@ -7276,7 +7361,7 @@
           <filename>TownA_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="TownB">
+      <datafiles number="1205" name="TownB">
         <datafile>
           <name>TownB_000.json</name>
           <exists>-1</exists>
@@ -7448,7 +7533,7 @@
           <filename>TownB_098.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcA">
+      <datafiles number="1205" name="PalcA">
         <datafile>
           <name>PalcA_000.json</name>
           <exists>-1</exists>
@@ -7637,6 +7722,57 @@
           <filename>PalcA_013.json</filename>
         </datafile>
         <datafile>
+          <name>PalcA_014.json</name>
+          <exists>-1</exists>
+          <size>55341</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>PalcA_014.json</filename>
+        </datafile>
+        <datafile>
+          <name>PalcA_015.json</name>
+          <exists>-1</exists>
+          <size>91926</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>PalcA_015.json</filename>
+        </datafile>
+        <datafile>
+          <name>PalcA_016.json</name>
+          <exists>-1</exists>
+          <size>94669</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>PalcA_016.json</filename>
+        </datafile>
+        <datafile>
           <name>PalcA_041.json</name>
           <exists>-1</exists>
           <size>60014</size>
@@ -7704,59 +7840,8 @@
           </ConfigOptions>
           <filename>PalcA_229.json</filename>
         </datafile>
-        <datafile>
-          <name>PalcA_253.json</name>
-          <exists>-1</exists>
-          <size>65319</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>PalcA_253.json</filename>
-        </datafile>
-        <datafile>
-          <name>PalcA_254.json</name>
-          <exists>-1</exists>
-          <size>53477</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>PalcA_254.json</filename>
-        </datafile>
-        <datafile>
-          <name>PalcA_255.json</name>
-          <exists>-1</exists>
-          <size>171394</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>PalcA_255.json</filename>
-        </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcB">
+      <datafiles number="1205" name="PalcB">
         <datafile>
           <name>PalcB_000.json</name>
           <exists>-1</exists>
@@ -8115,7 +8200,7 @@
           <filename>PalcB_026.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcC">
+      <datafiles number="1205" name="PalcC">
         <datafile>
           <name>PalcC_000.json</name>
           <exists>-1</exists>
@@ -8406,7 +8491,7 @@
           <filename>PalcC_020.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcD">
+      <datafiles number="1205" name="PalcD">
         <datafile>
           <name>PalcD_000.json</name>
           <exists>-1</exists>
@@ -8714,7 +8799,7 @@
           <filename>PalcD_026.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcE">
+      <datafiles number="1205" name="PalcE">
         <datafile>
           <name>PalcE_001.json</name>
           <exists>-1</exists>
@@ -9141,7 +9226,7 @@
           <filename>PalcE_040.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcF">
+      <datafiles number="1205" name="PalcF">
         <datafile>
           <name>PalcF_000.json</name>
           <exists>-1</exists>
@@ -9653,7 +9738,7 @@
           <filename>PalcF_035.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcG">
+      <datafiles number="1205" name="PalcG">
         <datafile>
           <name>PalcG_000.json</name>
           <exists>-1</exists>
@@ -10709,7 +10794,7 @@
           <filename>PalcG_070.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcH">
+      <datafiles number="1205" name="PalcH">
         <datafile>
           <name>PalcH_000.json</name>
           <exists>-1</exists>
@@ -10898,7 +10983,7 @@
           <filename>PalcH_255.json</filename>
         </datafile>
       </datafiles>
-      <datafiles number="1197" name="PalcZ">
+      <datafiles number="1205" name="PalcZ">
         <datafile>
           <name>PalcZ_000.json</name>
           <exists>-1</exists>
@@ -11292,7 +11377,7 @@
         <filename>SceneWallData01.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="1197" name="ow_tile_data">
+    <datafiles number="1205" name="ow_tile_data">
       <datafile>
         <name>OvrwA_00.json</name>
         <exists>-1</exists>
@@ -11345,7 +11430,7 @@
         <filename>OverworldData01.txt</filename>
       </datafile>
     </datafiles>
-    <datafiles number="1197" name="other">
+    <datafiles number="1205" name="other">
       <datafile>
         <name>RandoPalettes01.json</name>
         <exists>-1</exists>
@@ -12754,6 +12839,9 @@
         <sprite>sprites\spr_Font2_1</sprite>
         <sprite>sprites\spr_Font3</sprite>
         <sprite>sprites\spr_Font3_1</sprite>
+        <sprite>sprites\spr_Font4</sprite>
+        <sprite>sprites\spr_Font5</sprite>
+        <sprite>sprites\spr_Font6</sprite>
         <sprite>sprites\spr_text_slash_forward</sprite>
         <sprite>sprites\spr_copyright_char</sprite>
         <sprite>sprites\spr_Text_WrongChar</sprite>
@@ -12957,6 +13045,7 @@
       <scripts name="event">
         <script>scripts\g_Create.gml</script>
         <script>scripts\g_Room_Start.gml</script>
+        <script>scripts\g_Room_Start_1.gml</script>
         <script>scripts\g_Room_End.gml</script>
         <script>scripts\g_Game_End.gml</script>
         <script>scripts\g_Step.gml</script>
@@ -13082,6 +13171,7 @@
       <script>scripts\update_game_window_1a.gml</script>
       <script>scripts\update_view_1.gml</script>
       <script>scripts\update_view_1a.gml</script>
+      <script>scripts\ViewCatchUp_init.gml</script>
       <script>scripts\rm_set_cam_1a.gml</script>
       <script>scripts\room_set_view_.gml</script>
       <script>scripts\set_camera_xy.gml</script>
@@ -13304,6 +13394,8 @@
         <script>scripts\GameObjectB_step2.gml</script>
         <script>scripts\GOB_udp_1.gml</script>
         <script>scripts\GameObjectB_Draw.gml</script>
+        <script>scripts\GameObjectB_draw_1.gml</script>
+        <script>scripts\GameObjectB_draw_2.gml</script>
         <script>scripts\GOB_draw_rising_xp.gml</script>
         <script>scripts\GOB_draw_death_explosions.gml</script>
         <script>scripts\GOB_despawn.gml</script>
@@ -14121,9 +14213,11 @@
             <script>scripts\FallingBlock_init2.gml</script>
             <script>scripts\FallingBlock_update.gml</script>
             <script>scripts\FallingBlock_udp.gml</script>
+            <script>scripts\BlockB_end.gml</script>
             <script>scripts\BlockB_init2.gml</script>
             <script>scripts\BlockB_update.gml</script>
             <script>scripts\BlockB_udp.gml</script>
+            <script>scripts\BlockB_draw.gml</script>
             <scripts name="block_spawner">
               <script>scripts\Spawner_FallingBlock_init2.gml</script>
               <script>scripts\Spawner_FallingBlock_update.gml</script>
@@ -14228,6 +14322,8 @@
           <script>scripts\GOC_draw_goc_id.gml</script>
           <script>scripts\addToProjectileList.gml</script>
           <script>scripts\avail_uidx_goc.gml</script>
+          <script>scripts\HostileFire_init_1.gml</script>
+          <script>scripts\HostileFire_udp_1.gml</script>
           <script>scripts\despawn_all_goc.gml</script>
           <script>scripts\Proj_solid_clip_adj_1a.gml</script>
           <script>scripts\Proj_solid_clip_adj_2a.gml</script>
@@ -15069,6 +15165,7 @@
         <script>scripts\FileSelect_clear_save_file_rando_info.gml</script>
         <script>scripts\FileSelect_refresh_save_file_rando_info.gml</script>
         <script>scripts\FileSelect_udp.gml</script>
+        <script>scripts\FileSelect_udp2.gml</script>
         <script>scripts\FileSelect_Draw.gml</script>
         <script>scripts\FileSelect_Draw_Rando.gml</script>
         <script>scripts\FileSelect_Draw_RandoState_OTHER.gml</script>
@@ -15892,7 +15989,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1045">
+  <constants number="1053">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -16037,7 +16134,8 @@
     <constant name="STR_HIDDEN">"HIDDEN"</constant>
     <constant name="STR_CURRENT">"CURRENT"</constant>
     <constant name="STR_BURNABLE">"BURNABLE"</constant>
-    <constant name="STR_SPIKE_">"SPIKE_"</constant>
+    <constant name="STR_SPIKE">"SPIKE"</constant>
+    <constant name="STR_CHAIN">"CHAIN"</constant>
     <constant name="STR_VISIBLE">"VISIBLE"</constant>
     <constant name="STR_OneWay">"_OneWay_"</constant>
     <constant name="STR_Solid">"_Solid"</constant>
@@ -16677,6 +16775,8 @@
     <constant name="TID_CLOUDS1">$C0</constant>
     <constant name="TID_SPIKE1">$D0</constant>
     <constant name="TID_SPIKE2">(TID_SPIKE1 + 1)</constant>
+    <constant name="TID_CHAIN1">$E0</constant>
+    <constant name="TID_CHAIN2">(TID_CHAIN1 + 1)</constant>
     <constant name="TID_CURRENT1">$F0</constant>
     <constant name="TID_CURRENT2">(TID_CURRENT1 + 1)</constant>
     <constant name="TID_BURNABLE1">$F8</constant>
@@ -16793,12 +16893,15 @@
     <constant name="OGR_OTHR">2</constant>
     <constant name="TSRC_BREAK1_A">('90' + '91' + '92' + '93')</constant>
     <constant name="TSRC_BREAK1_B">('94' + '95' + '96' + '97')</constant>
-    <constant name="TSRC_BREAK1_C">('9C' + '9C' + '9D' + '9D')</constant>
-    <constant name="TSRC_BREAK2_A">('98' + '98' + '99' + '99')</constant>
-    <constant name="TSRC_BREAK2_B">('9A' + '9A' + '9B' + '9B')</constant>
+    <constant name="TSRC_BREAK1_C">('4F' + '4F' + '5F' + '5F')</constant>
+    <constant name="TSRC_BREAK2_A">('49' + '4A' + '59' + '5A')</constant>
+    <constant name="TSRC_BREAK2_B">('4B' + '4B' + '5B' + '5B')</constant>
     <constant name="TSRC_BREAK3_A">('82' + '83' + '92' + '93')</constant>
     <constant name="TSRC_BREAK3_B">('86' + '87' + '96' + '97')</constant>
-    <constant name="TSRC_BREAK4_A">('A8' + 'A8' + 'A9' + 'A9')</constant>
+    <constant name="TSRC_BREAK4_A">('4C' + '4D' + '5C' + '5D')</constant>
+    <constant name="TSRC_BREAK4_B">('4E' + '4E' + '5E' + '5E')</constant>
+    <constant name="TSRC_BREAK4_C">('2E' + '2E' + '3E' + '3E')</constant>
+    <constant name="TSRC_BREAK4_D">('2F' + '2F' + '3F' + '3F')</constant>
     <constant name="PI_PERMUTATIONS">6</constant>
     <constant name="SAVE_NAME_CHAR_LIMIT">8</constant>
     <constant name="SAVE_FILE_MAX">3</constant>
@@ -16935,6 +17038,8 @@
     <constant name="dk_WallStyle">"_WallStyle"</constant>
     <constant name="dk_ExitType">"_ExitType"</constant>
     <constant name="dk_AgroDistance">"_AgroDistance"</constant>
+    <constant name="dk_CanUseStartWithSelections">"_CanUseStartWithSelections"</constant>
+    <constant name="dk_RandoDungeonTilesetData">"_RandoDungeonTilesetData"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
     <constant name="UserPrefFileName">"UserPreferences.txt"</constant>

@@ -780,6 +780,7 @@ for(_i=0; _i<_layer_count; _i++) // each layer
                 &&  _tsrc&$80 )
                 {
                     _tsrc = -1;
+                    //if (string_pos(STR_Exit,_layer_name) && string_pos(STR_Rando,_info)) show_debug_message("Overworld_init_data_1(). "+"_layer_name="+_layer_name+" ts name="+_name);
                 }
             }
             
@@ -892,6 +893,8 @@ for(_i=0; _i<_layer_count; _i++) // each layer
             _tsrc0 = (_list_idx_of_ts<<8) | _tsrc;
             if(_C1&&!_list_idx_of_ts) _tsrc0 = (TILESET1_TS_IDX<<8) | _tsrc;
             dg_tsrc_def[#_ow_clm,_ow_row] = _tsrc0;
+            //if (string_pos(STR_Exit,_layer_name) && string_pos(STR_Rando,_info)) show_debug_message("Overworld_init_data_1(). "+" tsrc=$"+hex_str(_tsrc)+" tsrc0=$"+hex_str(_tsrc0)+" _list_idx_of_ts=$"+hex_str(_list_idx_of_ts)+" _owrc=$"+hex_str(_owrc));
+            //if (_layer_name==STR_Boulder && string_pos(STR_Rauru+STR_Boulder,_info)) show_debug_message("Overworld_init_data_1(). "+STR_Rauru+STR_Boulder+" tsrc=$"+hex_str(_tsrc)+" tsrc0=$"+hex_str(_tsrc0)+" _list_idx_of_ts=$"+hex_str(_list_idx_of_ts));
         }
         
         

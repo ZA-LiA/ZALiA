@@ -22,7 +22,7 @@ FILE2_NAME1 = "rm_tile_data/"+FILE2_NAME0;
 
 
 
-var _REINITIALIZING = true; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED. BUT UPDATE OVERWORLD DATA FIRST IF IT NEEDS TO BE UPDATED ***
+var _REINITIALIZING = false; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED. BUT UPDATE OVERWORLD DATA FIRST IF IT NEEDS TO BE UPDATED ***
 if(!_REINITIALIZING)
 {
     if (file_exists(FILE2_NAME1))
@@ -1572,7 +1572,7 @@ ds_list_destroy(_dl_id_key);       _dl_id_key      =undefined;
 
 
 // --------------------------------------------------------------------------------------------
-
+ds_map_copy(f.dm_1up_doll_DEFAULT, f.dm_1up_doll);
 
 
 
@@ -1755,8 +1755,6 @@ with(g.PAUSE_MENU)
 //dev_rmdata_cleanup_data_check();
 //dev_automateRoomData1();
 
-
-//dev_find_scenes_using_certain_tiles();
 //debug_list_rms_using_permut_ts();
 //db_LifeDoll_data_1a();
 
@@ -1909,6 +1907,8 @@ repeat(8) sdm("");
 
 
 
+
+//dev_find_scenes_using_certain_tiles();
 
 //if (DEV) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 //if (global.REINITIALIZE_DATA1) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()

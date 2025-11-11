@@ -10,7 +10,7 @@ var _char_w = 8;
 var _char_h = 8;
 var _state = false;
 
-var _FONT_SPRITE1 = spr_Font1;
+var _FONT_SPRITE1 = global.dl_game_font[|global.game_font_idx];
 var _FONT_SPRITE2 = spr_Font2;
 var _FONT_SPRITE3 = spr_Font3_1;
 

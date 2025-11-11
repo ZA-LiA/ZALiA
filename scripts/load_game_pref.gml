@@ -88,6 +88,9 @@ if(!is_undefined(_val)) g.ScreenShake_user_pref = _val;
 _val = _dm_FILE_DATA[?STR_Dialogue+STR_Speed];
 if(!is_undefined(_val)) g.mod_DLG_SPEED = _val;
 
+_val = _dm_FILE_DATA[?STR_Game+STR_Font];
+if(!is_undefined(_val)) global.game_font_idx = _val;
+
 _val = _dm_FILE_DATA[?STR_Indicate+STR_Spell+STR_Active];
 if(!is_undefined(_val)) g.mod_IndicateSpellActive = _val;
 

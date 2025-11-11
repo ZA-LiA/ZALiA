@@ -363,6 +363,8 @@ if (_exists) _exists = ds_exists(        dl_ceiling_bottom_rc,ds_type_list);
 if (_exists)           ds_list_destroy(  dl_ceiling_bottom_rc);
 if (_exists)                             dl_ceiling_bottom_rc=undefined;
 
+if (ds_exists(global.dl_game_font,ds_type_list)){ds_list_destroy(global.dl_game_font); global.dl_game_font=undefined;}
+
 
 
 
@@ -558,6 +560,8 @@ if (_exists)                             dg_spell_cost_DEFAULT=undefined;
 
 if (ds_exists(global.dg_solid,ds_type_grid)){ds_map_destroy(global.dg_solid); global.dg_solid=undefined;}
 if (ds_exists(global.dg_solid_def,ds_type_grid)){ds_map_destroy(global.dg_solid_def); global.dg_solid_def=undefined;}
+
+if (ds_exists(global.dg_chain,ds_type_grid)){ds_map_destroy(global.dg_chain); global.dg_chain=undefined;}
 /*
     _exists=variable_instance_exists(id,"dg_RmTile_solid");
 if (_exists) _exists = !is_undefined(    dg_RmTile_solid);

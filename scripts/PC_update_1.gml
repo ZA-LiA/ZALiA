@@ -61,7 +61,6 @@ if (state==state_SPAWN) // 0: ST_SPWN. first frame of spawnning when entering a 
 // =========================  DROWN  ===============================
 if (state==state_DROWN) // OG state 2. Drowning
 {
-    var _EASE_RESCUE_MOVEMENT = true;
     var _x = x;
     var _y = y+1;
     
@@ -69,8 +68,8 @@ if (state==state_DROWN) // OG state 2. Drowning
     PC_set_behavior(behavior_DAMAGE);
     
     // 918E
-    if (yt >= DrownLiquid_y+($2<<3) 
-    ||  yt >= viewYB()-($3<<3) )
+    if (yt>=DrownLiquid_y+($2<<3) 
+    ||  yt>=viewYB()-($3<<3) )
     {
         if (f.items&ITM_FRY1 
         &&  f.hp )
@@ -96,9 +95,9 @@ if (state==state_DROWN) // OG state 2. Drowning
             {
                 if (instance_exists(RescueDropOff_solid_inst))
                 {
-                    _x  = RescueDropOff_solid_inst.xl + (((RescueDropOff_rc>>0)&$FF)<<3);
-                    _x  = clamp(_x, RescueDropOff_solid_inst.xl+8, RescueDropOff_solid_inst.xr-8);
-                    _y  = RescueDropOff_solid_inst.yt - hh_;
+                    _x = RescueDropOff_solid_inst.xl + (((RescueDropOff_rc>>0)&$FF)<<3);
+                    _x = clamp(_x, RescueDropOff_solid_inst.xl+8, RescueDropOff_solid_inst.xr-8);
+                    _y = RescueDropOff_solid_inst.yt - hh_;
                     //_y -= 4; // 2025/09/27. Don't remember the reason for this line, but on a narrow moving platform, like in MazIs_8E, the platform will move away before PC lands on it.
                     
                     //RescueDropOff_x = _x;
@@ -108,25 +107,15 @@ if (state==state_DROWN) // OG state 2. Drowning
                     vspd = 0;
                     iframes_timer = _INV_DUR;
                     
-                    if (_EASE_RESCUE_MOVEMENT)
-                    {
-                        Rescue_x_start   = _X_PREV;
-                        Rescue_y_start   = _Y_PREV;
-                        Rescue_x_end     = _x;
-                        Rescue_y_end     = _y;
-                        Rescue_x_time    = 0;
-                        Rescue_y_time    = 0;
-                        set_xy(id, Rescue_x_start,Rescue_y_start);
-                        state = state_RESCUE;
-                        exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    }
-                    else
-                    {
-                        PC_set_behavior(behavior_IDLE);
-                        set_xy(id, _x,_y);
-                        set_view_xy_on_pc();
-                        state = state_NORMAL;
-                    }
+                    Rescue_x_start = _X_PREV;
+                    Rescue_y_start = _Y_PREV;
+                    Rescue_x_end   = _x;
+                    Rescue_y_end   = _y;
+                    Rescue_x_time  = 0;
+                    Rescue_y_time  = 0;
+                    set_xy(id, Rescue_x_start,Rescue_y_start);
+                    state = state_RESCUE;
+                    exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
             }
             else if (RescueDropOff_rc+1)
@@ -160,23 +149,14 @@ if (state==state_DROWN) // OG state 2. Drowning
                 vspd = 0;
                 iframes_timer = _INV_DUR;
                 
-                if (_EASE_RESCUE_MOVEMENT)
-                {
-                    Rescue_x_start   = _X_PREV;
-                    Rescue_y_start   = _Y_PREV;
-                    Rescue_x_end     = x;
-                    Rescue_y_end     = y;
-                    Rescue_x_time    = 0;
-                    Rescue_y_time    = 0;
-                    set_xy(id, Rescue_x_start,Rescue_y_start);
-                    state = state_RESCUE;
-                }
-                else
-                {
-                    PC_set_behavior(behavior_IDLE);
-                    set_view_xy_on_pc();
-                    state = state_NORMAL;
-                }
+                Rescue_x_start = _X_PREV;
+                Rescue_y_start = _Y_PREV;
+                Rescue_x_end   = x;
+                Rescue_y_end   = y;
+                Rescue_x_time  = 0;
+                Rescue_y_time  = 0;
+                set_xy(id, Rescue_x_start,Rescue_y_start);
+                state = state_RESCUE;
                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
             else
@@ -200,27 +180,17 @@ if (state==state_DROWN) // OG state 2. Drowning
                 vspd = 0;
                 iframes_timer = _INV_DUR;
                 
-                if (_EASE_RESCUE_MOVEMENT)
-                {
-                    Rescue_x_start   = _X_PREV;
-                    Rescue_y_start   = _Y_PREV;
-                    Rescue_x_end     = _x;
-                    Rescue_y_end     = _y;
-                    //Rescue_duration  = point_distance(Rescue_x_start,Rescue_y_start, Rescue_x_end,Rescue_y_end) / Rescue_DIST2;
-                    //Rescue_duration *= ROOM_SPEED_BASE;
-                    //Rescue_duration  = floor(Rescue_duration);
-                    Rescue_x_time    = 0;
-                    Rescue_y_time    = 0;
-                    set_xy(id, Rescue_x_start,Rescue_y_start);
-                    state = state_RESCUE;
-                }
-                else
-                {
-                    PC_set_behavior(behavior_IDLE);
-                    set_xy(id, _x,_y);
-                    set_view_xy_on_pc();
-                    state = state_NORMAL;
-                }
+                Rescue_x_start = _X_PREV;
+                Rescue_y_start = _Y_PREV;
+                Rescue_x_end   = _x;
+                Rescue_y_end   = _y;
+                //Rescue_duration  = point_distance(Rescue_x_start,Rescue_y_start, Rescue_x_end,Rescue_y_end) / Rescue_DIST2;
+                //Rescue_duration *= ROOM_SPEED_BASE;
+                //Rescue_duration  = floor(Rescue_duration);
+                Rescue_x_time  = 0;
+                Rescue_y_time  = 0;
+                set_xy(id, Rescue_x_start,Rescue_y_start);
+                state = state_RESCUE;
                 exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
@@ -304,7 +274,7 @@ if (state==state_RESCUE)
     }
     else
     {
-        show_debug_message("PC_update_1()."+" Rescue_x_duration=$"+hex_str(Rescue_x_duration)+" Rescue_y_duration=$"+hex_str(Rescue_y_duration)+", Rescue_x_dist="+string(Rescue_x_dist)+", Rescue_y_dist="+string(Rescue_y_dist));
+        //show_debug_message("PC_update_1()."+" Rescue_x_duration=$"+hex_str(Rescue_x_duration)+" Rescue_y_duration=$"+hex_str(Rescue_y_duration)+", Rescue_x_dist="+string(Rescue_x_dist)+", Rescue_y_dist="+string(Rescue_y_dist));
         set_xy(id, Rescue_x_end,Rescue_y_end);
         x_change += x - _X_PREV;
         y_change += y - _Y_PREV;

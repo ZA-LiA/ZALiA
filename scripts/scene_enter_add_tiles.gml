@@ -193,45 +193,42 @@ if(!is_undefined(_dl_ts_data))
 
 
 // --------------------------------------------------------------
-ds_grid_resize(global.dg_solid,       _TMX_W,_TMX_H); // unit8
-ds_grid_clear (global.dg_solid,       0);
-ds_grid_resize(global.dg_solid_def,   _TMX_W,_TMX_H); // unit8
-ds_grid_clear (global.dg_solid_def,   0);
+ds_grid_resize(global.dg_solid, _TMX_W,_TMX_H); // unit8
+ds_grid_clear (global.dg_solid, 0);
+ds_grid_copy(  global.dg_solid_def,global.dg_solid);
 global.dg_solid_w = ds_grid_width( global.dg_solid);
 global.dg_solid_h = ds_grid_height(global.dg_solid);
 
-ds_grid_resize(g.dg_RmTile_Break,       _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Break,       0);
-ds_grid_resize(g.dg_RmTile_Break_def,   _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Break_def,   0);
-
-ds_grid_resize(g.dg_RmTile_Liquid,      _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Liquid,      0);
-ds_grid_resize(g.dg_RmTile_Liquid_def,  _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Liquid_def,  0);
-
-ds_grid_resize(g.dg_RmTile_Current,     _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Current,     0);
-ds_grid_resize(g.dg_RmTile_Current_def, _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Current_def, 0);
-
 // dg_RmTile_TempSolid used by Challenge_IntermittentPlatformSequence (megaman blocks) and to tell Rescue fairy not to use temporary solid tiles
-ds_grid_resize(g.dg_RmTile_TempSolid,   _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_TempSolid,   0);
+ds_grid_resize(g.dg_RmTile_TempSolid, _TMX_W,_TMX_H); // unit8
+ds_grid_clear (g.dg_RmTile_TempSolid, 0);
 
-ds_grid_resize(g.dg_RmTile_Spike,       _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Spike,       0);
-ds_grid_resize(g.dg_RmTile_Spike_def,   _TMX_W,_TMX_H); // unit8
-ds_grid_clear (g.dg_RmTile_Spike_def,   0);
+ds_grid_resize(g.dg_RmTile_Break,     _TMX_W,_TMX_H); // unit8
+ds_grid_clear (g.dg_RmTile_Break,     0);
+ds_grid_copy(  g.dg_RmTile_Break_def,g.dg_RmTile_Break);
+
+ds_grid_resize(g.dg_RmTile_Liquid,    _TMX_W,_TMX_H); // unit8
+ds_grid_clear (g.dg_RmTile_Liquid,    0);
+ds_grid_copy(  g.dg_RmTile_Liquid_def,g.dg_RmTile_Liquid);
+
+ds_grid_resize(g.dg_RmTile_Current,   _TMX_W,_TMX_H); // unit8
+ds_grid_clear (g.dg_RmTile_Current,   0);
+ds_grid_copy(  g.dg_RmTile_Current_def,g.dg_RmTile_Current);
+
+ds_grid_resize(g.dg_RmTile_Spike,     _TMX_W,_TMX_H); // unit8
+ds_grid_clear (g.dg_RmTile_Spike,     0);
+ds_grid_copy(  g.dg_RmTile_Spike_def,g.dg_RmTile_Spike);
+
+ds_grid_resize(global.dg_chain,       _TMX_W,_TMX_H); // unit8
+ds_grid_clear (global.dg_chain,       0);
 
 ds_list_clear(g.dl_ceiling_bottom_rc);
 
 with(g.burnable_mgr)
 {
-    ds_grid_resize(dg_RmTile_Burnable,     _TMX_W,_TMX_H); // unit8
-    ds_grid_clear (dg_RmTile_Burnable,     0);
-    ds_grid_resize(dg_RmTile_Burnable_def, _TMX_W,_TMX_H); // unit8
-    ds_grid_clear (dg_RmTile_Burnable_def, 0);
+    ds_grid_resize(dg_RmTile_Burnable, _TMX_W,_TMX_H); // unit8
+    ds_grid_clear (dg_RmTile_Burnable, 0);
+    ds_grid_copy(  dg_RmTile_Burnable_def,dg_RmTile_Burnable);
     ds_grid_resize(dg_Burnable,0,ds_grid_height(dg_Burnable));
     ds_grid_clear (dg_Burnable,0);
 }
@@ -240,7 +237,7 @@ with(g.burnable_mgr)
 var _WallStyle01_dg = ds_grid_create(0,0);
 if (global.WallStyle01Tiles_MAIN)
 {
-    _data = f.dm_rando[?dk_WallStyle+"01"+_TILE_FILE_NAME];
+    _data = f.dm_rando_dungeon_tileset[?dk_WallStyle+"01"+_TILE_FILE_NAME];
     if(!is_undefined(_data))
     {
         ds_grid_resize(_WallStyle01_dg, _TMX_W,_TMX_H);
@@ -251,7 +248,7 @@ if (global.WallStyle01Tiles_MAIN)
 var _WallStyle02_dg = ds_grid_create(0,0);
 if (global.WallStyle02Tiles_MAIN)
 {
-    _data = f.dm_rando[?dk_WallStyle+"02"+_TILE_FILE_NAME];
+    _data = f.dm_rando_dungeon_tileset[?dk_WallStyle+"02"+_TILE_FILE_NAME];
     if(!is_undefined(_data))
     {
         ds_grid_resize(_WallStyle02_dg, _TMX_W,_TMX_H);
@@ -688,7 +685,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             
             if (global.RandoDungeonTilesets_enabled)
             {
-                _ts = val(f.dm_rando[?STR_Rando+STR_Tileset+background_get_name(_ts)], _ts);
+                _ts = val(f.dm_rando_dungeon_tileset[?STR_Rando+STR_Tileset+background_get_name(_ts)], _ts);
             }
             //_ts = ts_DungeonAlt05; // testing
         }
@@ -891,14 +888,17 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         
         
         
+        
+        
+        
             _val = 0;
-            _pos = string_pos(STR_SPIKE_,_layer_name);
+            _pos = string_pos(STR_SPIKE,_layer_name);
         if (_pos)
         {
-                   _type = string_copy(_layer_name, _pos+string_length(STR_SPIKE_)+1, 2);
+                   _type = string_copy(_layer_name, _pos+string_length(STR_SPIKE), 2);
             switch(_type){
-            case "01":{_val=TID_SPIKE1; break;} // 
-            case "02":{_val=TID_SPIKE2; break;} // 
+            case "01":{_val=TID_SPIKE1; break;}
+            case "02":{_val=TID_SPIKE2; break;}
             }
             
             if (_val)
@@ -915,11 +915,44 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 _row1 = _row;
                 dg_RmTile_Spike    [#_clm1,_row1] = (_depth_idx<<8) | _val;
                 dg_RmTile_Spike_def[#_clm1,_row1] = dg_RmTile_Spike[#_clm1,_row1];
-                
+                //if (g.rm_name==Area_PalcE+"14") show_debug_message("scene_enter_add_tiles(). "+"SPIKE: "+"_clm1=$"+hex_str(_clm1)+" _row1=$"+hex_str(_row1)+" dg_RmTile_Spike[#_clm1,_row1]=$"+hex_str(dg_RmTile_Spike[#_clm1,_row1]));
                 if (g.dev_use_tile_markers)
                 {
                     tile_add(g.ts_TILE_MARKER, ((_val>>0)&$F)<<3,((_val>>4)&$F)<<3, 8,8, _clm1<<3,_row1<<3, DEPTH_UNIQUE);
                 }
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+            _val = 0;
+            _pos = string_pos(STR_CHAIN,_layer_name);
+        if (_pos)
+        {
+                   _type = string_copy(_layer_name, _pos+string_length(STR_CHAIN), 2);
+            switch(_type){
+            case "01":{_val=TID_CHAIN1; break;} // 
+            case "02":{_val=TID_CHAIN2; break;} // 
+            }
+            
+            if (_val)
+            {
+                if(!ds_grid_width( global.dg_chain))
+                {
+                    ds_grid_resize(global.dg_chain, _TMX_W,_TMX_H); // unit8
+                    ds_grid_clear (global.dg_chain, 0);
+                }
+                
+                _clm1 = _clm;
+                _row1 = _row;
+                global.dg_chain[#_clm1,_row1] = (_depth_idx<<8) | _val;
+                
+                //if (g.dev_use_tile_markers) tile_add(g.ts_TILE_MARKER, ((_val>>0)&$F)<<3,((_val>>4)&$F)<<3, 8,8, _clm1<<3,_row1<<3, DEPTH_UNIQUE);
             }
         }
         

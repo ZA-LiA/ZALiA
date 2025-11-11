@@ -131,8 +131,9 @@ with(g.QUIT_APP_MENU)
                     global.pc.state = global.pc.state_DEAD;
                     global.pc.can_draw_self = false;
                     
-                    if(!get_saved_value(f.file_num, STR_Rando+STR_Active, false) 
-                    ||  get_saved_value(f.file_num, STR_Rando+"_UP_A"+STR_XP+"_Penalty", true) )
+                    if (get_saved_value(f.file_num, STR_Rando+"_UP_A"+STR_XP+"_Penalty", true))
+                    //if(!get_saved_value(f.file_num, STR_Rando+STR_Active, false) 
+                    //||  get_saved_value(f.file_num, STR_Rando+"_UP_A"+STR_XP+"_Penalty", true) )
                     {
                         f.xp = round(f.xp*g.mod_Gameover_XP_PENALTY);
                         f.xp = clamp(f.xp, 0,XP_MAX);

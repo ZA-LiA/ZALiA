@@ -22,7 +22,7 @@ ATK_DIST = $30;
 // Therefor, BossBot's hp must be greater than PC's max possible damage.
 // BossBot's vanilla hp: g.dl_HP[|$1C]=$38
 // PC's max damage: dl_ATTACK_DAMAGE[|$09]=$1C; // attack level 9
-if (val(f.dm_rando[?STR_Randomize+STR_Enemy+STR_HP]))
+if (val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_HP]))
 {
     var _MAX_PC_DAMAGE = global.pc.dl_ATTACK_DAMAGE[|ds_list_size(global.pc.dl_ATTACK_DAMAGE)-1];
     if (g.dl_HP[|HP_IDX]<=_MAX_PC_DAMAGE)

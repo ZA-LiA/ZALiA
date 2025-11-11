@@ -2,7 +2,8 @@
 
 
 GO_sprite_init(spr_Fireball2);
-GO_init_palidx(global.PI_MOB_RED);
+
+HostileFire_init_1(global.PI_MOB_RED);
 
 //brightness = 1;
 
@@ -21,7 +22,7 @@ switch(ver)
     
     
     // -----------------------------------
-    case 3:{
+    case 3:{ // Gooma
     timer = $FF; // Life duration
     break;}
 }

@@ -10,6 +10,7 @@ yScale = 1;
 
 draw_yoff = 0;
 
+
 if (Launch_timer 
 ||  has_landed )
 {
@@ -18,8 +19,8 @@ if (Launch_timer
     var _TIMING = $2;
     
     // 9CD6
-    if (counter < FADE_CUE   // FADE_CUE == $20
-    &&  g.counter1 & _TIMING ) // Fade effect
+    if (counter<FADE_CUE     // FADE_CUE == $20
+    &&  g.counter1&_TIMING ) // Fade effect
     {
         // 9CE3
         can_draw_self = false;
@@ -27,13 +28,10 @@ if (Launch_timer
     else
     {
         // 9CEB
-        if (g.counter1 & _TIMING)
-        {    xScale =  1;  }
-        else xScale = -1;
-        
         // MOD. Issue fix. 
         // Issue: During fade, sprite shows same xscale bc it doesnt draw during the opposite xscale.
         if (counter<FADE_CUE) xScale = sign_(g.counter1&(_TIMING<<1));
+        else                  xScale = sign_(g.counter1& _TIMING);
     }
     
     draw_yoff = -DRAW_YOFF;
@@ -59,11 +57,14 @@ else
 
 
 
+HostileFire_udp_1();
+/*
 if (ver==2 
 &&  will_slide )
 {
     if!(g.counter1&$3) palidx = p.dg_PI_SEQ[#0,(g.counter1>>2)&$3];
 }
+*/
 
 
 

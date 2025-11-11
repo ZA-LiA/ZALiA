@@ -272,12 +272,24 @@ if(!dest_dist
     {
         if (f.items&ITM_FLUT)
         {
+            var _warp_qualified = false;
             //if (f.items&ITM_MEL1 
             if (g.Rando_FLUTE_WARPING 
             &&  Input.Magic_held 
-            &&  val(f.dm_rando[?STR_Rando+STR_Active]) 
-            && (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) || val(f.dm_rando[?STR_Randomize+STR_Spell+STR_Locations])) 
+            //&&  val(f.dm_rando[?STR_Rando+STR_Active]) 
             &&  val(f.dm_quests[?STR_Warp+STR_Qualified]) ) // if any warp locations have been opened
+            {
+                if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
+                ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Spell+STR_Locations]) 
+                ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Dungeon+STR_Locations]) 
+                ||  val(global.dm_save_file_settings[?STR_Randomize+STR_Town+STR_Locations]) )
+                {
+                    _warp_qualified = true;
+                }
+            }
+            
+            
+            if (_warp_qualified)
             {
                 if(!exit_owrc)
                 {

@@ -53,7 +53,6 @@ switch(state)
     }
     
     
-    
     state_DROP_step(id);
     
     if (timer)
@@ -82,6 +81,8 @@ switch(state)
                     g.view_lock |=  g.view_lock_rm;
                     g.view_lock_boss = 0;
                     Audio.can_play_mus_rm_body = true;
+                    
+                    if (is_ancestor(object_index,Thunderbird01)) ViewCatchUp_init();
                 }
             }
             else
@@ -119,7 +120,7 @@ switch(state)
                 vspd = 0;
                 
                 var _y = yb-1;
-                if (global.dg_solid[#x>>3,_y>>3]&$FF == TID_SOLID1)
+                if (global.dg_solid[#x>>3,_y>>3]&$FF==TID_SOLID1)
                 {
                     _y = ((_y>>3)-1)<<3;
                     _y = get_ground_y(x,yb, -1, _y);

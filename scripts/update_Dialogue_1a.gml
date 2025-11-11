@@ -27,7 +27,7 @@ switch(g.dialogue_source.object_index)
     if (f.items&ITM_BOOK 
     &&  g.dialogue_source.HylianText_read )
     {
-            _FONT = val(dm_dialogue[?g.dialogue_source.dialogue_datakey+'A'+STR_Font], spr_Font1);
+            _FONT = val(dm_dialogue[?g.dialogue_source.dialogue_datakey+'A'+STR_Font], global.dl_game_font[|global.game_font_idx]);
         if (_FONT==spr_Font_Hyrulian) dialogue_ver = 'B'; // Translated text
     }
     break;}//case NPC_0
@@ -286,7 +286,7 @@ switch(g.dialogue_source.object_index)
     case NPC_D:{ // Shop Owner
     dialogue_ver = g.dialogue_source.dialogue_ver;
     
-    if (val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) 
+    if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
     &&  dialogue_ver=="C" )
     {
         dialogue_ver ="G"; // G: "I HAVE NOTHING LEFT TO OFFER YOU."
@@ -324,9 +324,9 @@ switch(g.dialogue_source.object_index)
     // ---------------------------------------------------------------------
     // ---------------------------------------------------------------------
     case NPC_C:{ // Spell Sequence
-    var _FONT = val(dm_dialogue[?g.dialogue_source.dialogue_datakey+'A'+STR_Font], spr_Font1);
+    var _FONT = val(dm_dialogue[?g.dialogue_source.dialogue_datakey+'A'+STR_Font], global.dl_game_font[|global.game_font_idx]);
     if ((f.items&ITM_BOOK && g.dialogue_source.HylianText_read) 
-    ||  _FONT==spr_Font1 )
+    ||  _FONT==global.dl_game_font[|global.game_font_idx] )
     {    dialogue_ver='B';  } // Translated text
     else dialogue_ver='A';    // Hylian text
     break;}//case NPC_C

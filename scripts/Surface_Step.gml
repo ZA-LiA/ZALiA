@@ -140,7 +140,7 @@ if (g.room_type=="A"
     
     if (_KEYS_REQUESTED 
     && !_HINT_REQUESTED 
-    &&  val(f.dm_rando[?STR_Randomize+STR_Key+STR_Locations]) )
+    &&  val(global.dm_save_file_settings[?STR_Randomize+STR_Key+STR_Locations]) )
     {
         can_draw_keys  = true;
     }
@@ -149,7 +149,7 @@ if (g.room_type=="A"
     if (_HINT_REQUESTED 
     && !_KEYS_REQUESTED 
     &&  global.RandoHints_enabled 
-    &&  val(f.dm_rando[?STR_Randomize+STR_Item+STR_Locations]) )
+    &&  val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) )
     {
         can_draw_hints = true;
     }

@@ -83,7 +83,7 @@ if (FallScene_timer) FallScene_timer--;
 
 // ------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------
-    ChangeRoom_timer -= 1*delta_multiplier;
+    ChangeRoom_timer -= 1*global.delta_multiplier;
 //
 if (ChangeRoom_timer<=0)
 {
@@ -95,7 +95,7 @@ if (ChangeRoom_timer<=0)
         if (qual_fall_scene())
         {   // Trigger Falling Scene -----------------------------------------
             ChangeRoom_timer = FallScene_DURATION1; // $6D(109)
-            FallScene_timer  = ChangeRoom_timer+1;
+            FallScene_timer  = floor(ChangeRoom_timer)+1;
             //sdm("`update_change_room()`. fall scene triggered. FallScene_timer="+string(FallScene_timer)+", get_fall_scene_type()=$"+hex_str(get_fall_scene_type()));
             
             var _dk0,_dk1, _pi;
