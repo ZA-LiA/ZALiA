@@ -857,8 +857,6 @@ global.dm_scene_wh[?'DthMt_027'+STR_Width ] = $0400;
 global.dm_scene_wh[?'DthMt_027'+STR_Height] = $0100;
 
 //  ----------------------------  028  ----------------------------
-global.dm_scene_wh[?'DthMt_028'+STR_Width ] = $0200;
-global.dm_scene_wh[?'DthMt_028'+STR_Height] = $0100;
 
 //  ----------------------------  029  ----------------------------
 global.dm_scene_wh[?'DthMt_029'+STR_Width ] = $0300;

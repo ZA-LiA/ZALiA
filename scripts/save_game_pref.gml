@@ -31,7 +31,7 @@ _dm_save_data[?STR_Cucco+STR_Spell+"02"+STR_Preference] = g.CuccoSpell2_Option;
 _dm_save_data[?STR_Overworld+STR_Mark+STR_Hidden+STR_Exit] = g.HiddenExitIndicator_enabled;
 _dm_save_data[?STR_Halloween+"01"]                      = global.Halloween1_enabled;
 
-_dm_save_data[?STR_Overworld+STR_Mark+STR_Acquired]     = g.can_mark_acquired_item_locations;
+_dm_save_data[?STR_Overworld+STR_Mark+STR_Acquired]     = global.MarkItemLocations_state;
 _dm_save_data[?STR_Rando+STR_Palette]                   = g.RandoPalette_state;
 _dm_save_data[?STR_Rando+STR_Enemy]                     = g.Rando_enemy;
 _dm_save_data[?STR_Rando+STR_Overworld+STR_TSRC]        = global.can_rando_ow_tsrc;

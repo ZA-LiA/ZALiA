@@ -8,7 +8,7 @@ var _obj,_obj1,_obj2, _ver, _obj_name, _objver, _obj_prefix;
 var _item_id, _item_type;
 var _scene_name, _qual;
 var _RM_SPAWN_COUNT_PRIO = ds_grid_width(g.dg_spawn_prio);
-var _SceneRando_scene = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
+var _SCENE_USED = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
 
 
 
@@ -74,7 +74,7 @@ for(_i=0; _i<_RM_SPAWN_COUNT_PRIO; _i++)
             }
         }
         
-        //if (_SceneRando_scene!=g.rm_name) sdm("SceneRando Item-E. _SceneRando_scene '"+_SceneRando_scene+"', g.rm_name '"+g.rm_name+"', _dk_spawn '"+_dk_spawn+"', _obj_name '"+_obj_name+"', _item_id '"+_item_id+"', _item_type '"+_item_type+"'");
+        //if (_SCENE_USED!=g.rm_name) sdm("SceneRando Item-E. _SCENE_USED '"+_SCENE_USED+"', g.rm_name '"+g.rm_name+"', _dk_spawn '"+_dk_spawn+"', _obj_name '"+_obj_name+"', _item_id '"+_item_id+"', _item_type '"+_item_type+"'");
     }
 }
 
@@ -117,7 +117,7 @@ for(_i=0; _i<_RM_SPAWN_COUNT_PRIO; _i++)
     //_str += ", g.encounter_type: $"+hex_str(g.encounter_type)+", g.ENC_STRG: "+string(g.ENC_STRG);
     //sdm(""); sdm(_str); }
     
-    if (rm_get_encounter_types(g.rm_name) 
+    if (rm_get_encounter_types(_SCENE_USED) 
     &&  sign(g.encounter_type&g.ENC_STRG) != sign(val(g.dm_spawn[?_dk_spawn+STR_Strong+STR_Encounter])) )
     {
         continue;//_i
@@ -168,7 +168,7 @@ _obj_name = object_get_name(_obj);
 _count = val(g.dm_spawn[?_obj_name+STR_Count]);
 for(_i=1; _i<=_count; _i++)
 {
-    _datakey1 = _obj_name+hex_str(_i);
+    _datakey1 = _obj_name + hex_str(_i);
     _dk_spawn = g.dm_spawn[?_datakey1+STR_Spawn+STR_Datakey];
     if(!is_undefined(_dk_spawn))
     {
@@ -177,23 +177,23 @@ for(_i=1; _i<=_count; _i++)
             continue;//_i
         }
         
-        _qual=false;
+        _qual = false;
         _scene_name = val(g.dm_spawn[?_datakey1+STR_Rm+STR_Name]);
         _val = f.dm_quests[?_dk_spawn+STR_Rm];
-        if (g.rm_name==_scene_name)
+        if (_SCENE_USED==_scene_name)
         {
             if (is_undefined(_val) 
-            ||  g.rm_name == _val )
+            ||  _SCENE_USED==_val )
             {
-                _qual=true;
+                _qual = true;
             }
         }
         else
         {
             if(!is_undefined(_val) 
-            &&  g.rm_name == _val )
+            &&  _SCENE_USED==_val )
             {
-                _qual=true;
+                _qual = true;
             }
         }
         
@@ -237,7 +237,7 @@ for(_i=1; _i<=_count; _i++)
 // FAIRY ENCOUNTER -------------------------------------------------------
 if (g.encounter_type&g.ENC_FARY)
 {
-    _xl = g.rm_w_-4;
+    _xl = g.rm_w_ - 4;
     _yt = g.rm_row0<<3;
     _yt = get_ground_y(g.rm_w_,_yt, 1, (g.rm_row0+$12)<<3);
     
@@ -260,8 +260,8 @@ if (g.encounter_type&g.ENC_FARY)
 
 
 //  ------------  Platforms  ---------------------------
-                                           _count=1;
-_dk_spawn = g.rm_name+STR_Platform+hex_str(_count++);
+                                             _count=1;
+_dk_spawn = _SCENE_USED+STR_Platform+hex_str(_count++);
 while(!is_undefined(g.dm_spawn[?_dk_spawn+STR_obj_idx]))
 {
     _obj = g.dm_spawn[?_dk_spawn+STR_obj_idx];
@@ -274,7 +274,7 @@ while(!is_undefined(g.dm_spawn[?_dk_spawn+STR_obj_idx]))
         // ------------------------------------------
     }
     
-    _dk_spawn = g.rm_name+STR_Platform+hex_str(_count++);
+    _dk_spawn = _SCENE_USED+STR_Platform+hex_str(_count++);
 }
 
 
@@ -302,10 +302,10 @@ while(!is_undefined(_obj2))
     _dk_spawn = _dk_spawn2;
     _obj = _obj2;
     if (global.SceneRando_enabled 
-    &&  _SceneRando_scene!=g.rm_name )
+    &&  _SCENE_USED!=g.rm_name )
     {   // Currently, this assumes each scene only has 1 Challenge object which is the same challenge requirements
         _count1=1;
-        _dk_spawn1 = _SceneRando_scene+STR_Challenge+hex_str(_count1++);
+        _dk_spawn1 = _SCENE_USED+STR_Challenge+hex_str(_count1++);
         _obj1      = g.dm_spawn[?_dk_spawn1+STR_obj_idx];
         while(!is_undefined(_obj1))
         {

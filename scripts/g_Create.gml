@@ -431,7 +431,12 @@ DisplayOWPosOnMap_VER = 0; // 0: ow map will show pcrc as last uncovered(outside
 
 
 // For rando, will draw a check on ow tile if item there has been acquired.
-can_mark_acquired_item_locations = 0;
+global.MarkItemLocations_VER = 2;
+global.MarkItemLocations_state = 0;
+switch(global.MarkItemLocations_VER){
+default:{global.MarkItemLocations_state_COUNT=2; break;}
+case  2:{global.MarkItemLocations_state_COUNT=3; break;}
+}
 
 HiddenExitIndicator_enabled = false;
 
@@ -911,7 +916,7 @@ global.USE_PLAYER_NAME_INDICATOR = "@@@";
 // Normal and alternate fonts for the game
 // 0: Normal font, 
 global.dl_game_font = ds_list_create();
-ds_list_add(global.dl_game_font, spr_Font1,spr_Font4,spr_Font5,spr_Font6);
+ds_list_add(global.dl_game_font, spr_Font1,spr_Font4,spr_Font5,spr_Font6,spr_Font7,spr_Font8);
 global.game_font_COUNT = ds_list_size(global.dl_game_font);
 global.game_font_idx = max(0, ds_list_find_index(global.dl_game_font,spr_Font1));
 

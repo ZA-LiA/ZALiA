@@ -28,13 +28,13 @@ switch(argument[0])
 {
     case STR_Register:{
     var _DrawArea_XL = REGISTER_surf_DrawArea_XL;
-    var _DrawArea_XC = viewXC();
+    var _DrawArea_XC = REGISTER_surf_DrawArea_XC;
     var _DrawArea_YT = REGISTER_surf_DrawArea_YT;
     break;}
     
     case STR_Eliminate:{
     var _DrawArea_XL = ELIMINATE_surf_DrawArea_XL;
-    var _DrawArea_XC = viewXC();
+    var _DrawArea_XC = ELIMINATE_surf_DrawArea_XC;
     var _DrawArea_YT = ELIMINATE_surf_DrawArea_YT;
     break;}
 }

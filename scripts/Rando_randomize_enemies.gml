@@ -62,7 +62,7 @@ if (EnemyChars_WILL_RANDOMIZE)
             &&  is_string(   _scene_name) )
             {
                 if (        string_copy(_scene_name,1,AreaID_LEN)!=Area_MazIs 
-                ||  str_hex(string_copy(_scene_name,AreaID_LEN+2,2))<$80 )
+                ||  str_hex(string_copy(_scene_name,AreaID_LEN+2,2))<$40 )
                 {
                         _difficulty = val(g.dm_RandoEnemy[?_objver1+STR_Difficulty],1);
                     if (_difficulty<=Enemy_DIFFICULTY)

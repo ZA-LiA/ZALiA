@@ -21,13 +21,12 @@ switch(sub_state)
     global.pc.depth_def = PC_DEPTH;
     
     set_xy(global.pc, x,yt-global.pc.hh_);
-    g.pc_lock   = PC_LOCK_ALL;
-    g.cutscene  = 1;
+    g.pc_lock  = PC_LOCK_ALL;
+    g.cutscene = 1;
     
     if (global.pc.state!=global.pc.state_NORMAL) break;
-    timer       = $40;
-    sub_state   = SUB_STATE_OPEN1;
-    
+    timer = $40;
+    sub_state = SUB_STATE_OPEN1;
     break;}
     
     
@@ -69,10 +68,9 @@ switch(sub_state)
     }
     else
     {
-        timer       = 0;
-        sub_state   = SUB_STATE_OPEN2;
+        timer = 0;
+        sub_state = SUB_STATE_OPEN2;
     }
-    
     break;}
     
     
@@ -95,9 +93,8 @@ switch(sub_state)
     {   f.dm_quests[?dk_spawn+STR_Open] = opened;  }
     
     
-    timer       = 0;
-    sub_state   = SUB_STATE_WALK;
-    
+    timer = 0;
+    sub_state = SUB_STATE_WALK;
     break;}
     
     
@@ -125,11 +122,9 @@ switch(sub_state)
         g.pc_lock   = 0;
         g.cutscene  = 0;
         
-        timer       = 0;
-        sub_state   = SUB_STATE_DONE;
+        timer = 0;
+        sub_state = SUB_STATE_DONE;
     }
-    
-    
     break;}
     
     
@@ -141,9 +136,6 @@ switch(sub_state)
     // ----------------------------------------------------------------------
     case SUB_STATE_DONE:{
     if (timer) break;
-    
-    
-    
     break;}
 }
 
@@ -154,8 +146,6 @@ switch(sub_state)
 
 // ----------------------------------------------------------------------
 Cutscene_MoaiOpenMouth_1_udp();
-
-//
 
 
 

@@ -131,7 +131,7 @@ _val = _dm_FILE_DATA[?STR_Map+STR_Show+STR_Key];
 if(!is_undefined(_val)) g.RandoKeys_MAP_items_show_keys = _val;
 
 _val = _dm_FILE_DATA[?STR_Overworld+STR_Mark+STR_Acquired];
-if(!is_undefined(_val)) g.can_mark_acquired_item_locations = _val;
+if(!is_undefined(_val)) global.MarkItemLocations_state = _val;
 
 _val = _dm_FILE_DATA[?STR_Overworld+STR_Mark+STR_Hidden+STR_Exit];
 if(!is_undefined(_val)) g.HiddenExitIndicator_enabled = _val;

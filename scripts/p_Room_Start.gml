@@ -16,6 +16,10 @@ var _ci,_ci1,_ci2;
 var _dungeon_num;
 
 
+var _scene_used = g.rm_name;
+if (global.SceneRando_enabled) _scene_used = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], _scene_used);
+
+
 
 
 global.FallScene_dm[?STR_Counter] = 1;
@@ -69,10 +73,9 @@ if (g.room_type=="A"
 
 if (global.SceneRando_enabled)
 {
-    var _SceneRando_scene = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
-    if (_SceneRando_scene!=g.rm_name)
+    if (_scene_used!=g.rm_name)
     {
-        _color = val(g.dm_rm[?_SceneRando_scene+dk_BackgroundColor], global.BackgroundColor_scene);
+        _color = val(g.dm_rm[?_scene_used+dk_BackgroundColor], global.BackgroundColor_scene);
         if (_color==C_BLK1) global.BackgroundColor_scene = C_BLK1;
     }
 }
@@ -128,13 +131,14 @@ switch(g.room_type)
     }
     else
     {
-        _dk = g.rm_name+dk_FileName+STR_Quest+hex_str(g.file_data_quest_num);
+        _dk = _scene_used+dk_FileName+STR_Quest+hex_str(g.file_data_quest_num);
         _dk = g.dm_rm[?_dk];
         if(!is_undefined(_dk))
         {
             pal_rm_file = dm_scene_palette[?_dk+dk_BGR];
             //sdm(""); sdm("pal_rm_file: "+pal_rm_file); sdm("");
-            _pal = f.dm_rando[?g.rm_name+STR_Palette];
+            /*
+            _pal = f.dm_rando[?_scene_used+STR_Palette];
             if(!is_undefined(pal_rm_file) 
             && !is_undefined(_pal) )
             {
@@ -145,6 +149,7 @@ switch(g.room_type)
                 pal_rm_file = _pal;
                 //sdm(""); sdm("pal_rm_file: "+pal_rm_file); sdm("");
             }
+            */
         }
         
         if (is_undefined(pal_rm_file))
@@ -205,7 +210,7 @@ if (is_undefined(pal_rm_def))
         pal_rm_def += string_copy(pal_rm_file, 1, _count1); // BGR
         
         // MOB
-        _val1 = dm_scene_palette[?g.rm_name+dk_MOB];
+        _val1 = dm_scene_palette[?_scene_used+dk_MOB];
              if(!is_undefined(_val1))     pal_rm_def += _val1;
         else if (g.area_name==Area_TownA) pal_rm_def += PAL_NPC_SET1;
         else if (g.area_name==Area_TownB) pal_rm_def += PAL_NPC_SET2;
@@ -219,64 +224,6 @@ if (is_undefined(pal_rm_def))
     {
         pal_rm_def  = val(dm_pal_data[?_dm_pal_data_datakey], pal_rm_DEFAULT);
         pal_rm_def += pal_rm_dark;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-// Temporary fix to avoid updating all Tiled files:
-// Because ZALiA is widescreen, there are a lot more pixels on the screen compared to OG.
-// This makes the screen much brighter when a background is using brighter color. 
-// The following code changes the color a dungeon's background wall to 
-// the darkest tone of the color it's using.
-if (g.room_type=="A" 
-&&  g.dungeon_num 
-&&  g.dungeon_num<8 )
-{
-    _count = ds_list_size(g.dl_TILE_DEPTH_NAMES);
-    for(_i=0; _i<_count; _i++)
-    {
-        _dk = g.dl_TILE_DEPTH_NAMES[|_i]; // "BG01, BG02, ..."
-        //if(!string_pos("BG",_dk)) break;//_i
-        _depth      = g.dm_TILE_DEPTH[?_dk];
-        _layer_name = g.dm_tile_file[? _dk+STR_Depth+STR_Layer+STR_Name];
-        if(!is_undefined(_depth) 
-        && !is_undefined(_layer_name) 
-        &&  string_pos("STRUCTURE_BGWALL01_01",_layer_name) ) // use "STRUCTURE_BGWALL01_02" in the layer name if you don't want this run
-        {
-            _idx = ds_list_find_index(g.dl_TILE_DEPTHS,_depth);
-            if (_idx!=-1)
-            {
-                _pi = global.PI_BGR4;
-                dg_depth_pi[#_idx,0] = _pi; // pi default
-                dg_depth_pi[#_idx,1] = _pi; // pi current
-                dg_depth_pi[#_idx,2] = 0;   // permut default. 00-05
-                dg_depth_pi[#_idx,3] = 0;   // permut current. 00-05
-                
-                
-                _dungeon_num = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
-                switch(_dungeon_num){
-                default:{_color=C_GRY4; break;}
-                case  1:{_color=C_GRY4; break;}
-                case  2:{_color=C_CYN4; break;}
-                case  3:{_color=C_ORG4; break;}
-                case  4:{_color=C_PUR4; break;}
-                case  5:{_color=C_GRB4; break;}
-                case  6:{_color=C_ORG4; break;}
-                case  7:{_color=C_ORG4; break;}
-                }//switch(_dungeon_num)
-                
-                _color = color_str(_color);
-                pal_rm_def = strReplaceAt(pal_rm_def, get_pal_col_pos(_pi,"B"), string_length(_color), _color);
-            }
-        }
     }
 }
 
@@ -342,14 +289,8 @@ if(!is_undefined(pal_rm_def)
 // ------------------------------------------------------------------------------------------
 // Make sure pal_rm_def has the correct number of chars.
 var _LEN1 = string_length(pal_rm_def);
-if (_LEN1<global.PAL_CHAR_PER_SCENE)
-{
-    pal_rm_def += string_repeat("0", global.PAL_CHAR_PER_SCENE-_LEN1);
-}
-else
-{
-    pal_rm_def  = string_copy(pal_rm_def, 1,global.PAL_CHAR_PER_SCENE);
-}
+if (_LEN1<global.PAL_CHAR_PER_SCENE) pal_rm_def += string_repeat("0", global.PAL_CHAR_PER_SCENE-_LEN1);
+else                                 pal_rm_def  = string_copy(pal_rm_def, 1,global.PAL_CHAR_PER_SCENE);
 
 
 
@@ -452,6 +393,16 @@ if (global.Halloween1_enabled
 
 
 
+with(g.burnable_mgr)
+{
+    // Guarantee Burnable always has same color
+    if (scene_has_burnable) other.pal_rm_def = strReplaceAt(other.pal_rm_def, get_pal_pos(Burnable_pi), string_length(Burnable_PAL),Burnable_PAL);
+}
+
+
+
+
+
 
 
 
@@ -506,6 +457,34 @@ for(_i=val(global.FallScene_dm[?STR_Type+STR_Count])-1; _i>=0; _i--)
 
 global.spell_unaffordable_pi = add_pi_permut(global.PI_GUI1, "BWRGKYMC", "spell unaffordable");
 global.spell_futile_pi       = add_pi_permut(global.PI_GUI1, "RBWGMKYC", "spell futile");
+
+
+
+
+
+
+
+
+if (true)
+{
+    // If colors "YMKC" are the base colors, have them use their "WRBG" counterpart
+    _count1 = val(global.dm_pi[?"BGR"+STR_Count]);
+    for(_i=0; _i<_count1; _i++)
+    {
+        _pi = val(global.dm_pi[?"BGR"+string(_i+1)+STR_Palette+STR_Index]);
+        for(_j=4; _j<global.COLORS_PER_PALETTE; _j++)
+        {
+            _color = get_pal_color(pal_rm_def, _pi, string_char_at(global.PAL_BASE_COLOR_ORDER,_j+1));
+            if (_color==dl_BASE_COLORS[|_j])
+            {
+                _pos  = get_pal_pos(_pi);
+                _pos += global.PAL_CHAR_PER_COLOR * _j;
+                _color = get_pal_color(pal_rm_def, _pi, string_char_at(global.PAL_BASE_COLOR_ORDER,(_j-4)+1));
+                pal_rm_def = strReplaceAt(pal_rm_def, _pos, global.PAL_CHAR_PER_COLOR, color_str(_color));
+            }
+        }
+    }
+}
 
 
 

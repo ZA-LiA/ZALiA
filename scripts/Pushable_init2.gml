@@ -26,6 +26,13 @@ if(!is_undefined(              dk_spawn))
 }
 GO_init_palidx(_pi);
 
+// Guarantee Pushable always has same color
+var _PAL = build_pal($FCD4C4, $646464, p.C_BLK1, p.C_BLK1, -2,-2,-2,-2);
+var _LEN = string_length(_PAL);
+change_pal(strReplaceAt(p.pal_rm_new, get_pal_pos(palidx+1)-_LEN, _LEN,_PAL));
+
+
+
 
 spawn_xl = (spawn_xl>>3)<<3;
 set_xlyt(id, spawn_xl,spawn_yt);
@@ -53,14 +60,13 @@ if(!is_undefined(dk_spawn))
 }
 
 
-Y_DESPAWN = cam_yb_max()+($3<<3);
+Y_DESPAWN = cam_yb_max() + ($3<<3);
 
 
 switch(ver)
 {
     // --------------------------------------------------
     case 1:{
-    
     break;}//case 1
     
     
@@ -122,7 +128,7 @@ if (isVal(sprite_index, spr_Statue_4a,spr_Statue_4b,spr_Statue_5a,spr_Statue_5b,
 // 1: 5a, 
 
 
-solid_type  = TID_SOLID1;
+solid_type = TID_SOLID1;
 add_to_solid_inst_list(id);
 
 vspd_grav = 4;

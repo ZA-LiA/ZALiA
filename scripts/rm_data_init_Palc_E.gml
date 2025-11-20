@@ -658,8 +658,8 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0D'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0F'+EXL0_); // RGT 0, 
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_GLOVE+"|"+STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE+"|"+STR_JUMP);
 
 data_scene_rando(rm);
 
@@ -897,6 +897,7 @@ data_path_conditions(exit_name_u0, exit_name_d0);
 data_path_conditions(exit_name_u0, _dk_spawn_item0, STR_JUMP);
 data_path_conditions(exit_name_u0, _dk_spawn_item1, STR_GLOVE+"+"+STR_JUMP+"+"+STR_STABDOWN+"+"+STR_STABUP);
 
+// Scenes with multiple items that have conditions will be omitted from scene rando for now
 //data_scene_rando(rm);
 
 

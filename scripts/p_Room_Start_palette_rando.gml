@@ -6,6 +6,9 @@ var _dk, _pos;
 var _pi, _pal, _color;
 var _depth, _layer_name;
 
+var _scene_used = g.rm_name;
+if (global.SceneRando_enabled) _scene_used = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], _scene_used);
+
 
 if (room!=rmB_Title 
 &&  room!=rmB_FileSelect 
@@ -17,7 +20,7 @@ if (room!=rmB_Title
         ||  g.RandoPalette_state==2 ) // state 1 only uses rando palettes for pc and dungeons
         {
             // `f.dm_rando[?STR_Palette+STR_Rando+g.rm_name]`: The palettes for PI_BGR1-PI_BGR4
-            _pal = f.dm_rando[?STR_Palette+STR_Rando+g.rm_name];
+            _pal = f.dm_rando[?STR_Palette+STR_Rando+_scene_used];
             if(!is_undefined(_pal))
             {
                 pal_rm_def = strReplaceAt(pal_rm_def, get_pal_pos(global.PI_BGR1), string_length(_pal), _pal);

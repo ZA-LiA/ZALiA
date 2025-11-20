@@ -170,7 +170,9 @@ MAIN_surf_XC    = _VIEW_XC;
 MAIN_surf_YC    = _VIEW_YC;
 MAIN_surf_XL    = MAIN_surf_XC - (MAIN_surf_W>>1);
 MAIN_surf_YT    = MAIN_surf_YC - (MAIN_surf_H>>1);
-MAIN_surf_DrawArea_XL = (MAIN_surf_XL + (MAIN_surf_W>>1)) - ((MAIN_surf_CLMS<<3)>>1);
+MAIN_surf_DrawArea_W  = MAIN_surf_CLMS<<3;
+MAIN_surf_DrawArea_XL = (MAIN_surf_XL + (MAIN_surf_W>>1)) - (MAIN_surf_DrawArea_W>>1);
+MAIN_surf_DrawArea_XC = MAIN_surf_DrawArea_XL + (MAIN_surf_DrawArea_W>>1);
 MAIN_surf_DrawArea_YT = yt;
 
 
@@ -184,8 +186,9 @@ REGISTER_surf_XC = _VIEW_XC;
 REGISTER_surf_YC = _VIEW_YC;
 REGISTER_surf_XL = REGISTER_surf_XC - (REGISTER_surf_W>>1);
 REGISTER_surf_YT = REGISTER_surf_YC - (REGISTER_surf_H>>1);
-_dist = max(Area1_W, REGISTER_surf_CLMS<<3);
-REGISTER_surf_DrawArea_XL = (REGISTER_surf_XL + (REGISTER_surf_W>>1)) - (_dist>>1);
+REGISTER_surf_DrawArea_W  = max(Area1_W, REGISTER_surf_CLMS<<3);
+REGISTER_surf_DrawArea_XL = (REGISTER_surf_XL + (REGISTER_surf_W>>1)) - (REGISTER_surf_DrawArea_W>>1);
+REGISTER_surf_DrawArea_XC = REGISTER_surf_DrawArea_XL + (REGISTER_surf_DrawArea_W>>1);
 REGISTER_surf_DrawArea_YT = yt;
 
 REGISTER_new_save_file_name = 0;
@@ -212,8 +215,9 @@ ELIMINATE_surf_XC = _VIEW_XC;
 ELIMINATE_surf_YC = _VIEW_YC;
 ELIMINATE_surf_XL = ELIMINATE_surf_XC - (ELIMINATE_surf_W>>1);
 ELIMINATE_surf_YT = ELIMINATE_surf_YC - (ELIMINATE_surf_H>>1);
-_dist = max(Area1_W, ELIMINATE_surf_CLMS<<3);
-ELIMINATE_surf_DrawArea_XL = (ELIMINATE_surf_XL + (ELIMINATE_surf_W>>1)) - (_dist>>1);
+ELIMINATE_surf_DrawArea_W  = max(Area1_W, ELIMINATE_surf_CLMS<<3);
+ELIMINATE_surf_DrawArea_XL = (ELIMINATE_surf_XL + (ELIMINATE_surf_W>>1)) - (ELIMINATE_surf_DrawArea_W>>1);
+ELIMINATE_surf_DrawArea_XC = ELIMINATE_surf_DrawArea_XL + (ELIMINATE_surf_DrawArea_W>>1);
 ELIMINATE_surf_DrawArea_YT = yt;
 
 

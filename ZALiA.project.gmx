@@ -3821,23 +3821,6 @@
           <filename>DthMt_027.json</filename>
         </datafile>
         <datafile>
-          <name>DthMt_028.json</name>
-          <exists>-1</exists>
-          <size>23137</size>
-          <exportAction>2</exportAction>
-          <exportDir></exportDir>
-          <overwrite>0</overwrite>
-          <freeData>-1</freeData>
-          <removeEnd>0</removeEnd>
-          <store>0</store>
-          <ConfigOptions>
-            <Config name="Default">
-              <CopyToMask>9223372036854775807</CopyToMask>
-            </Config>
-          </ConfigOptions>
-          <filename>DthMt_028.json</filename>
-        </datafile>
-        <datafile>
           <name>DthMt_029.json</name>
           <exists>-1</exists>
           <size>39222</size>
@@ -12842,6 +12825,8 @@
         <sprite>sprites\spr_Font4</sprite>
         <sprite>sprites\spr_Font5</sprite>
         <sprite>sprites\spr_Font6</sprite>
+        <sprite>sprites\spr_Font7</sprite>
+        <sprite>sprites\spr_Font8</sprite>
         <sprite>sprites\spr_text_slash_forward</sprite>
         <sprite>sprites\spr_copyright_char</sprite>
         <sprite>sprites\spr_Text_WrongChar</sprite>
@@ -12892,6 +12877,7 @@
         <sprite>sprites\spr_arrow_6_lft</sprite>
         <sprite>sprites\spr_arrow_6_dwn</sprite>
         <sprite>sprites\spr_arrow_6_up</sprite>
+        <sprite>sprites\spr_CheckMark2_0</sprite>
         <sprite>sprites\spr_CheckMark2_1</sprite>
         <sprite>sprites\spr_CheckMark2_2</sprite>
         <sprite>sprites\spr_CheckMark2_3</sprite>
@@ -13046,6 +13032,7 @@
         <script>scripts\g_Create.gml</script>
         <script>scripts\g_Room_Start.gml</script>
         <script>scripts\g_Room_Start_1.gml</script>
+        <script>scripts\g_Room_Start_2.gml</script>
         <script>scripts\g_Room_End.gml</script>
         <script>scripts\g_Game_End.gml</script>
         <script>scripts\g_Step.gml</script>
@@ -13147,7 +13134,6 @@
         <script>scripts\data_dungeon_2.gml</script>
         <script>scripts\data_dungeon_2a.gml</script>
         <script>scripts\data_scene_rando.gml</script>
-        <script>scripts\data_rando_scene01.gml</script>
         <script>scripts\data_path_conditions.gml</script>
       </scripts>
     </scripts>
@@ -15989,7 +15975,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1053">
+  <constants number="1056">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -16902,6 +16888,8 @@
     <constant name="TSRC_BREAK4_B">('4E' + '4E' + '5E' + '5E')</constant>
     <constant name="TSRC_BREAK4_C">('2E' + '2E' + '3E' + '3E')</constant>
     <constant name="TSRC_BREAK4_D">('2F' + '2F' + '3F' + '3F')</constant>
+    <constant name="TSRC_BREAK5_A">('8A' + '8B' + '9A' + '9B')</constant>
+    <constant name="TSRC_BREAK5_B">('8E' + '8F' + '9E' + '9F')</constant>
     <constant name="PI_PERMUTATIONS">6</constant>
     <constant name="SAVE_NAME_CHAR_LIMIT">8</constant>
     <constant name="SAVE_FILE_MAX">3</constant>
@@ -17040,6 +17028,7 @@
     <constant name="dk_AgroDistance">"_AgroDistance"</constant>
     <constant name="dk_CanUseStartWithSelections">"_CanUseStartWithSelections"</constant>
     <constant name="dk_RandoDungeonTilesetData">"_RandoDungeonTilesetData"</constant>
+    <constant name="dk_ForceQuitPenalty">"_ForceQuitPenalty"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
     <constant name="UserPrefFileName">"UserPreferences.txt"</constant>

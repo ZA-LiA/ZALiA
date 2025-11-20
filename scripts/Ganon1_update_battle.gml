@@ -621,7 +621,7 @@ if (_damage_floor
             {
                 case 2:{
                 _TS    = ts_Man_made_7a_WRB; // cracked tile
-                _TSRC  = "8E8F9E9F"; // $8E, $8F, $9E, $9F
+                _TSRC  = TSRC_BREAK5_B; // $8E, $8F, $9E, $9F
                 _SOLID = TID_SOLID1;
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
                 break;}
@@ -631,7 +631,7 @@ if (_damage_floor
                 //if (_i<_COUNT-1) Ground_y = _ROW<<3;
                 //Ground_y += $10;
                 _TS    = ts_Man_made_1a_WRB; // crumbling tile
-                _TSRC  = "9C9D9C9D"; // $9C, $9D, $9C, $9D
+                _TSRC  = TSRC_BREAK1_C; // "4F5F4F5F";
                 _SOLID = 0;
                 timer2 = 9;
                 aud_play_sound(get_audio_theme_track(dk_BlockBreak));
@@ -660,7 +660,7 @@ if (_damage_floor
             }
         }
         
-        break; // for _i
+        break;//for _i
     }
 }
 

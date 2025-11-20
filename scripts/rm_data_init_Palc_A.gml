@@ -194,12 +194,14 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '04'+EXL0_); // RG
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmD0,$1,  $06<<3,y3,  STR_Treasure+STR_Map+"01"); // Key
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_r0, _dk_spawn_item0);
+// The condiditons for getting the item depend on what item it is so this room is not suitable for scene rando
+//data_path_conditions(exit_name_r0, exit_name_l0);
+//data_path_conditions(exit_name_r0, _dk_spawn_item0);
 
-data_path_conditions(exit_name_l0, exit_name_r0);
-data_path_conditions(exit_name_l0, _dk_spawn_item0);
+//data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
+// The condiditons for getting the item depend on what item it is so this room is not suitable for scene rando
 //data_scene_rando(rm);
 
 

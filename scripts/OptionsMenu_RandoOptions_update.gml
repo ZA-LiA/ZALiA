@@ -67,7 +67,10 @@ switch(Rando_cursor)
     
     if (_InputConfirm_pressed2)
     {
-        g.can_mark_acquired_item_locations = !g.can_mark_acquired_item_locations;
+        var _DIR = sign_(_InputConfirm_pressed || Input.Right_pressed);
+        global.MarkItemLocations_state += global.MarkItemLocations_state_COUNT;
+        global.MarkItemLocations_state += _DIR;
+        global.MarkItemLocations_state  = global.MarkItemLocations_state mod global.MarkItemLocations_state_COUNT;
         save_game_pref();
         aud_play_sound(_SOUND2);
         timer = DURATION1;

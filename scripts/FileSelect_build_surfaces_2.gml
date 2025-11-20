@@ -1,7 +1,7 @@
 /// FileSelect_build_surfaces_2()
 
 
-if(!string_length(p.pal_rm_curr)  // otherwise some text will be wrong color until the surface is redrawn due to something like toggling fullscreen
+if(!string_length(p.pal_rm_curr)  // otherwise some text will be wrong color unless the surface is somehow redrawn 
 || !val(SaveFileRandoInfo_dm[?"_Need"+STR_Surface]) )
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -19,25 +19,27 @@ var _file_num, _data;
 var _seed = 0;
 
 var _DIST1 = sprite_get_width(FONT_SPRITE1);
-var _DIST2 = _DIST1+$1;
+var _DIST2 = _DIST1 + 1;
 var _DIST3 = $4; // y padding
-var _DIST4 = _DIST2+_DIST3;
+var _DIST4 = _DIST2 + _DIST3;
 
 var _Area_PAD = 2;
 var _Area_W   = $10<<3;
-var _Area_XR  = viewW()-8;
-var _Area_YT  = viewYT()+8;
+var _Area_XR  = viewW() - 8;
+var _Area_YT  = 8;
+//var _Area_YT  = viewYT() + 8;
 
-var _Area1_XL = viewXL();
-var _Area1_XC = _Area1_XL+(_Area_W>>1);
-var _Area1_XR = _Area1_XL+_Area_W;
+var _Area1_XL = 0;
+var _Area1_XC = _Area1_XL + (_Area_W>>1);
+var _Area1_XR = _Area1_XL + _Area_W;
 
-var _Area2_XR = viewXR();
-var _Area2_XL = _Area2_XR-_Area_W;
-var _Area2_XC = _Area2_XL+(_Area_W>>1);
+var _Area2_XR = viewW();
+var _Area2_XL = _Area2_XR - _Area_W;
+var _Area2_XC = _Area2_XL + (_Area_W>>1);
 
-var _XL1      = _Area1_XL+_Area_PAD;
-var _XL2      = _Area2_XL+_Area_PAD;
+var _XL1      = _Area1_XL + _Area_PAD;
+var _XL2      = _Area2_XL + _Area_PAD;
+
 
 //var _add_row = 0;
 var _FONT_SPRITE2 = spr_Font3_1;
@@ -789,15 +791,15 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++)
                     //_y -= PC_H_;
                     
                     _x += PC_W_;
-                    if (val(_dm_rando_settings[?STR_File+STR_Start+STR_Skill+STR_STABDOWN])) _pi = global.PI_PC1;
-                    else                                                                     _pi = global.PI_GUI2;
+                    if (val(_dm_rando_settings[?STR_File+STR_Start+STR_STABDOWN])) _pi = global.PI_PC1;
+                    else                                                           _pi = global.PI_GUI2;
                     draw_pc_skin(_x,_y, 1,1, global.pc.behavior_STAB_DOWN, false, -1,-1, _pi);
                     
                     _x += PC_W;
                     _x += $6;
                     //_x += $10;
-                    if (val(_dm_rando_settings[?STR_File+STR_Start+STR_Skill+STR_STABUP])) _pi = global.PI_PC1;
-                    else                                                                   _pi = global.PI_GUI2;
+                    if (val(_dm_rando_settings[?STR_File+STR_Start+STR_STABUP])) _pi = global.PI_PC1;
+                    else                                                         _pi = global.PI_GUI2;
                     draw_pc_skin(_x,_y, 1,1, global.pc.behavior_STAB_UP, false, -1,-1, _pi);
                     
                     pal_swap_reset();

@@ -24,10 +24,13 @@ with(Audio)
                 _sound = dm[?_THEME+STR_Track+hex_str(_i)+STR_Body];
                 if(!is_undefined(_sound))
                 {
-                    if(!val(dm[?STR_Rando+STR_Value+"01"+audio_get_name(_sound)]) 
-                    || !irandom($3) )
+                    if(!val(dm[?audio_get_name(_sound)+STR_Rando+STR_Value+"02"]))
                     {
-                        ds_list_add(_dl_SOUNDS,_sound);
+                        if(!val(dm[?audio_get_name(_sound)+STR_Rando+STR_Value+"01"]) 
+                        || !irandom($3) )
+                        {
+                            ds_list_add(_dl_SOUNDS,_sound);
+                        }
                     }
                 }
             }

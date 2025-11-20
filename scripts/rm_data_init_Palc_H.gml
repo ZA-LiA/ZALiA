@@ -86,7 +86,6 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_D0;
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_B1;
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -185,7 +184,6 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_C0+$02; // $4A
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_BLANK;
 
 
-//data_rando_scene01("_00"+"_00"+"_00"+"_01"+"_01",rm);
 data_path_conditions(exit_name_d0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_d0);
 
@@ -235,7 +233,6 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_C0+$02; // $4A
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_BLANK;
 
 
-//data_rando_scene01("_00"+"_00"+"_00"+"_01"+"_01",rm);
 data_path_conditions(exit_name_d0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_d0);
 
@@ -367,7 +364,6 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_B1;
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_B0;
 
 
-////data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_m0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_m0);
 
@@ -488,7 +484,6 @@ g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_D0;
 g.dm_rm[?_datakey+hex_str(_a++)+STR_TSRC] = MAP_TSRC_B1;
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 

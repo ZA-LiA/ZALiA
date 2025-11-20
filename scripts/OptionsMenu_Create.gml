@@ -487,7 +487,8 @@ DevTools_dg[#_i,1] = _font;
 //                                                                          //
 */
              _i=DevTools.PC_DASH;
-DevTools_dg[#_i,0] = "FASTER PC HSPD";
+DevTools_dg[#_i,0] = "FASTER MOVEMENT SPEED";
+//DevTools_dg[#_i,0] = "FASTER PC HSPD";
 DevTools_dg[#_i,1] = _font;
 //                                                                          //
 /*
@@ -622,15 +623,31 @@ _dk0 = "Rando";
 _j=0; _k=0;
 Rando_MARK_ACQUIRED = ++_i;
 _dk2 = _dk0+hex_str(_i);
-dm_options[?_dk2+STR_Font]                         = FONT2;
-dm_options[?_dk2+STR_Option+STR_Text]              = "MARK ACQUIRED ITEMS";
-dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "NO";
-dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "YES";
-dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "AN ACQUIRED ITEM'S OVERWORLD LOCATION WILL DISPLAY A CHECKMARK";
-//dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "AFTER ACQUIRING AN ITEM, ITS OVERWORLD TILE WILL DISPLAY A CHECKMARK";
-//dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "OVERWORLD TILES THAT CONTAINED AN ACQUIRED ITEM WILL DISPLAY A CHECK MARK";
-dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "HIGHLY RECOMMENDED FOR ITEM RANDO";
-//dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "THIS IS EXTREMELY HELPFUL IN ITEM RANDO";
+switch(global.MarkItemLocations_VER)
+{
+    default:{
+    dm_options[?_dk2+STR_Font]                         = FONT2;
+    dm_options[?_dk2+STR_Option+STR_Text]              = "MARK ACQUIRED ITEMS";
+    dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "NO";
+    dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "YES";
+    dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "AN ACQUIRED ITEM'S OVERWORLD LOCATION WILL DISPLAY A CHECKMARK";
+    //dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "AFTER ACQUIRING AN ITEM, ITS OVERWORLD TILE WILL DISPLAY A CHECKMARK";
+    //dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "OVERWORLD TILES THAT CONTAINED AN ACQUIRED ITEM WILL DISPLAY A CHECK MARK";
+    dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "HIGHLY RECOMMENDED FOR ITEM RANDO";
+    //dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "THIS IS EXTREMELY HELPFUL IN ITEM RANDO";
+    break;}//default
+    
+    case  2:{
+    dm_options[?_dk2+STR_Font]                         = FONT2;
+    dm_options[?_dk2+STR_Option+STR_Text]              = "MARK ITEM LOCATIONS";
+    dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "0"; // OFF
+    dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "1"; // Mark acquired items only 
+    dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "2"; // Mark item locations and acquired info
+    dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "0: OFF";
+    dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "1: MARK ACQUIRED ITEM LOCATIONS";
+    dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "2: MARK ITEM LOCATIONS AND ACQUIRED INFO";
+    break;}//case  2
+}//switch(global.MarkItemLocations_VER)
 //                                                                          //
 _j=0; _k=0;
 Rando_HINTS = ++_i;

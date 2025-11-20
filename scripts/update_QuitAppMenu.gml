@@ -94,6 +94,8 @@ with(g.QUIT_APP_MENU)
         case sub_state_OPEN1:{ // ---------------------------------------------------------------------------------------------
         if (timer){timer--; break;}
         
+        var _val;
+        
         QuitAppMenu_udp();
         
         var _CONFIRM = Input.Pause_pressed;
@@ -131,7 +133,11 @@ with(g.QUIT_APP_MENU)
                     global.pc.state = global.pc.state_DEAD;
                     global.pc.can_draw_self = false;
                     
-                    if (get_saved_value(f.file_num, STR_Rando+"_UP_A"+STR_XP+"_Penalty", true))
+                    
+                    _val = global.dm_save_file_settings[?dk_ForceQuitPenalty];
+                    if (is_undefined(_val)  // If there was no choice made in the rando setup
+                    ||  _val )              // The choice that was made in the rando setup. 1: Normal penalty, 0: No penalty
+                    //if (get_saved_value(f.file_num, STR_Rando+"_UP_A"+STR_XP+"_Penalty", true))
                     //if(!get_saved_value(f.file_num, STR_Rando+STR_Active, false) 
                     //||  get_saved_value(f.file_num, STR_Rando+"_UP_A"+STR_XP+"_Penalty", true) )
                     {

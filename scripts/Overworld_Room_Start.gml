@@ -268,9 +268,8 @@ if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
                                  if (string_pos(STR_PBAG,_item_id)) _dm1[?_owrc_] |= $0100;
                             else if (string_pos(STR_KEY, _item_id)) _dm1[?_owrc_] |= $0010;
                             else                                    _dm1[?_owrc_] |= $0001;
-                            if (bitCount(val(_dm1[?_owrc_]))>1) dm_rando_locations[?_owrc_+STR_Varied]=true;
-                            
-                            if (0){
+                            if (bitCount(val(_dm1[?_owrc_]))>1) dm_rando_locations[?_owrc_+STR_Varied] = true;
+                            /*
                             _str  = "item: "+string(val(_item_id));
                             _str += string_repeat(" ",$A-string_length(string(val(_item_id))));
                             _str += ", "+"spawn_dk: "+string(val(_spawn_datakey));
@@ -279,7 +278,7 @@ if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
                             _str += ", "+"count1 $"+hex_str(_count1)+" count2 $"+hex_str(_count2);
                             sdm(_str);
                             if!(_i&$3) sdm("");
-                            }
+                            */
                         }
                     }
                 }

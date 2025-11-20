@@ -2036,8 +2036,35 @@ _val=asset_get_index("mus_Wyng1_Title01");         if (_val!=-1){dm[?audio_get_n
 
 
 
-    _dk = STR_Rando+STR_Value+"01"; // Limit chance of rando selecting sound
-//dm[?_dk+audio_get_name(mus_)]   = true;
+_dk1 = STR_Rando+STR_Value+"01"; // Limit chance of rando selecting sound
+_dk2 = STR_Rando+STR_Value+"02"; // Exclude track from rando audio set (can be turned on in rando custom rando custom)
+_val=asset_get_index("mus_SteelCrescent4_Overworld_Body");    if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Overworld_Intro");   if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_DeathMountain");     if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_MazeIsland");        if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Dragmire");          if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Town_Body");         if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Town_Intro");        if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_House");             if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Body");      if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Dungeon_Intro");     if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_GreatPalace_Body");  if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_GreatPalace_Intro"); if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_DragmireTower");     if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Boss");              if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Thunderbird");       if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_ShadowBoss");        if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Ganon01");           if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Ganon03");           if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Title_Body");        if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Title_Intro");       if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_FileSelect");        if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_TravelTunnels");     if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_MiniGame");          if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Battle");            if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_WakeZelda");         if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+_val=asset_get_index("mus_SteelCrescent4_Credits");           if (_val!=-1){dm[?audio_get_name(_val)+_dk2]=true;}
+
 
 
 

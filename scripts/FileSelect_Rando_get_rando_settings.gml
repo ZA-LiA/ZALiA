@@ -89,7 +89,8 @@ _dm_SETTINGS[?STR_File+STR_Start+STR_STABUP]   = dg_RandoOTHER_SKILLS[#RandoOTHE
 _dm_SETTINGS[?STR_Kakusu+STR_Required+STR_Count]  = dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,  2];
 _dm_SETTINGS[?STR_Crystal+STR_Required+STR_Count] = dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,2];
 
-_dm_SETTINGS[?STR_Rando+"_UP_A"+STR_XP+"_Penalty"] = dg_RandoOTHER_Options[#RandoOTHER_MAIN_WARP_PENALTY,2];
+_dm_SETTINGS[?dk_ForceQuitPenalty] = dg_RandoOTHER_Options[#RandoOTHER_MAIN_WARP_PENALTY,2];
+//_dm_SETTINGS[?STR_Rando+"_UP_A"+STR_XP+"_Penalty"] = dg_RandoOTHER_Options[#RandoOTHER_MAIN_WARP_PENALTY,2];
 
 
 

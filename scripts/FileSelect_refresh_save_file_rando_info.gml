@@ -70,4 +70,4 @@ SaveFileRandoInfo_dm[?_DATAKEY0+STR_Seed+STR_Quest+"02"] = FileSelect_get_file_s
 
 
 
-
+//if (val(_dm_rando_settings[?STR_File+STR_Start+STR_Skill+STR_STABDOWN])) _pi = global.PI_PC1;

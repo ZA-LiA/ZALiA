@@ -21,8 +21,11 @@ if (ds_list_find_index(_dl_areas,Area_Title)==-1) ds_list_insert(_dl_areas, 0, A
 var _RULE = 0;
 
 
-var _TS_NAME = "ts_Man_made_1a_WRB";
-ds_list_add(_dl_tsrc,$98,$99,$9A,$9B,$9C,$9D,$9E,$A8,$A9);
+var _TS_NAME = "ts_DungeonAlt06";
+ds_list_add(_dl_tsrc,$EB,$FB);
+
+//var _TS_NAME = "ts_Man_made_1a_WRB";
+//ds_list_add(_dl_tsrc,$98,$99,$9A,$9B,$9C,$9D,$9E,$A8,$A9);
 
 /*
 // Looking for anything using ts_Natural_2a_WRB
@@ -304,12 +307,12 @@ for(_i=0; _i<_COUNT1; _i++) // Each area
                 break;//_k
             }
             
-            if (string_pos("BG",_layer_name) 
-            ||  string_pos("FG",_layer_name) )
+            if (string_pos("BG0",_layer_name) 
+            ||  string_pos("FG0",_layer_name) )
             {
-                if (string_pos("BG",_layer_name))
-                {    _layer = string_copy(_layer_name, string_pos("BG",_layer_name), 4);  }
-                else _layer = string_copy(_layer_name, string_pos("FG",_layer_name), 4);
+                if (string_pos("BG0",_layer_name))
+                {    _layer = string_copy(_layer_name, string_pos("BG0",_layer_name), 4);  }
+                else _layer = string_copy(_layer_name, string_pos("FG0",_layer_name), 4);
                 
                 _dl_tile = _dm_layer_data[?"data"];
                 _tile_count = ds_list_size(_dl_tile);

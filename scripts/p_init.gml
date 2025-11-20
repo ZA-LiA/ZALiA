@@ -3,7 +3,7 @@
 show_debug_message("p_init()");
 
 
-var _i,_j,_k,_m, _a,_b,_c, _idx,_idx1,_idx2, _num, _count,_count1,_count2;
+var _i,_j,_k,_m, _a,_b,_c, _idx,_idx1,_idx2, _num, _count,_count0,_count1,_count2;
 var _val,_val1,_val2,_val3,_val4;
 var _type,_type_, _current_type_;
 var _clm,_row, _clm0,_row0, _clms,_rows;
@@ -337,46 +337,48 @@ if (global.PAL_SYS_VER<4)
 
 
 _datakey = "BGR";
-global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
-global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
-global.PI_BGR1 = val(global.dm_pi[?_datakey+"1"+_datakey1], -1);
+_count0 = 0;
+global.dm_pi[?_datakey+STR_Count] = ++_count0;
+global.dm_pi[?_datakey+string(_count0)+_datakey1] = ++_palette_index;
+global.PI_BGR1 = val(global.dm_pi[?_datakey+string(_count0)+_datakey1], -1);
 
-global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
-global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
-global.PI_BGR2 = val(global.dm_pi[?_datakey+"2"+_datakey1], -1);
+global.dm_pi[?_datakey+STR_Count] = ++_count0;
+global.dm_pi[?_datakey+string(_count0)+_datakey1] = ++_palette_index;
+global.PI_BGR2 = val(global.dm_pi[?_datakey+string(_count0)+_datakey1], -1);
 
-global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
-global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
-global.PI_BGR3 = val(global.dm_pi[?_datakey+"3"+_datakey1], -1);
+global.dm_pi[?_datakey+STR_Count] = ++_count0;
+global.dm_pi[?_datakey+string(_count0)+_datakey1] = ++_palette_index;
+global.PI_BGR3 = val(global.dm_pi[?_datakey+string(_count0)+_datakey1], -1);
 
-global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
-global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
-global.PI_BGR4 = val(global.dm_pi[?_datakey+"4"+_datakey1], -1);
+global.dm_pi[?_datakey+STR_Count] = ++_count0;
+global.dm_pi[?_datakey+string(_count0)+_datakey1] = ++_palette_index;
+global.PI_BGR4 = val(global.dm_pi[?_datakey+string(_count0)+_datakey1], -1);
 
 //global.dm_pi[?_datakey+STR_Count] = val(global.dm_pi[?_datakey+STR_Count])+1;
 //global.dm_pi[?_datakey+      string(val(global.dm_pi[?_datakey+STR_Count]))+_datakey1] = ++_palette_index;
-global.PI_BGR5 = val(global.dm_pi[?_datakey+"5"+_datakey1], -1);
+global.PI_BGR5 = val(global.dm_pi[?_datakey+string(_count0+1)+_datakey1], -1);
 
 
 
 
-global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+_count0 = 0;
+global.dm_pi[?"MOB"+STR_Count] = ++_count0;
 global.dm_pi[?"MOB_ORG"+_datakey1] = ++_palette_index;
 global.PI_MOB_ORG = val(global.dm_pi[?"MOB_ORG"+_datakey1], -1);
 
-global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+global.dm_pi[?"MOB"+STR_Count] = ++_count0;
 global.dm_pi[?"MOB_RED"+_datakey1] = ++_palette_index;
 global.PI_MOB_RED = val(global.dm_pi[?"MOB_RED"+_datakey1], -1);
 
-global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+global.dm_pi[?"MOB"+STR_Count] = ++_count0;
 global.dm_pi[?"MOB_BLU"+_datakey1] = ++_palette_index;
 global.PI_MOB_BLU = val(global.dm_pi[?"MOB_BLU"+_datakey1], -1);
 
-global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+global.dm_pi[?"MOB"+STR_Count] = ++_count0;
 global.dm_pi[?"MOB_PUR"+_datakey1] = ++_palette_index;
 global.PI_MOB_PUR = val(global.dm_pi[?"MOB_PUR"+_datakey1], -1);
 
-//global.dm_pi[?"MOB"+STR_Count] = val(global.dm_pi[?"MOB"+STR_Count])+1;
+//global.dm_pi[?"MOB"+STR_Count] = ++_count0;
 //global.dm_pi[?"MOB_A"+_datakey1] = ++_palette_index;
 global.PI_MOB_A = val(global.dm_pi[?"MOB_A"+_datakey1], -1);
 

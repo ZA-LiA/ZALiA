@@ -39,7 +39,8 @@ var _ts,_ts1,_ts2, _ts_id, _ts_x,_ts_y, _tsrc,_tsrc1,_tsrc2;
 var _tile_w,_tile_h, _tile_id, _tile_num_of_ts, _tile_data, _tile_count, _layer_name, _hide_val;
 var _str,_char, _name, _pos, _ts_name, _data;
 var _dk, _encoded;
-var _rm_has_burnables=false;
+var _rm_has_burnables = false;
+var _Burnable_pi = g.burnable_mgr.Burnable_PI;
 
 var _STR_PERMUT = "PERMUT_";
 var _STR_IDX    = "_idx";
@@ -356,12 +357,12 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
     _layer_name    = string(_layer_name);
     
     // ------------------------------------------------------------------
-    if (string_pos("BG",_layer_name) 
-    ||  string_pos("FG",_layer_name) )
+    if (string_pos("BG0",_layer_name) 
+    ||  string_pos("FG0",_layer_name) )
     {
-        if (        string_pos("BG",_layer_name))
-        {    _pos = string_pos("BG",_layer_name);  }
-        else _pos = string_pos("FG",_layer_name);
+        if (        string_pos("BG0",_layer_name))
+        {    _pos = string_pos("BG0",_layer_name);  }
+        else _pos = string_pos("FG0",_layer_name);
         
         _name  = string_copy(_layer_name,_pos,4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
         _depth = val(g.dm_TILE_DEPTH[?_name],DEPTH_FG7);
@@ -436,6 +437,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++)
             _name = g.dl_TILE_DEPTH_NAMES[|_idx]; // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
             g.dm_tile_file[?_name+STR_Depth+STR_Layer+STR_Name] = _layer_name;
             g.dm_tile_file[?_layer_name+STR_Depth] = _depth;
+            g.dm_tile_file[?_layer_name+STR_pal_idx] = _pi;
+            g.dm_tile_file[?_layer_name+STR_pal_idx+STR_Permutation] = _permut;
             _graphic_layer_count++;
         }
     }
@@ -552,8 +555,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
     //sdm("_layer_name: "+_layer_name);
     
     
-    if(!string_pos("BG",    _layer_name) 
-    && !string_pos("FG",    _layer_name) 
+    if(!string_pos("BG0",   _layer_name) 
+    && !string_pos("FG0",   _layer_name) 
     && !string_pos("SOLIDS",_layer_name) )
     {
         continue;//_i.  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -565,8 +568,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
     }
     else
     {
-        if (string_pos("BG",_layer_name)) _name = string_copy(_layer_name,string_pos("BG",_layer_name),4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
-        else                              _name = string_copy(_layer_name,string_pos("FG",_layer_name),4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
+        if (string_pos("BG0",_layer_name)) _name = string_copy(_layer_name,string_pos("BG0",_layer_name),4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
+        else                               _name = string_copy(_layer_name,string_pos("FG0",_layer_name),4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
         _depth = val(g.dm_TILE_DEPTH[?_name],DEPTH_FG7);
     }
     
@@ -972,7 +975,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             if (_type=="01" 
             ||  _type=="02" )
             {
-                _rm_has_burnables=true;
+                _rm_has_burnables = true;
+                _Burnable_pi = val(g.dm_tile_file[?_layer_name+STR_pal_idx], _Burnable_pi);
                 
                 with(g.burnable_mgr)
                 {
@@ -1225,6 +1229,9 @@ if (_rm_has_burnables)
 {
     with(g.burnable_mgr)
     {
+        scene_has_burnable = _rm_has_burnables;
+        Burnable_pi = _Burnable_pi;
+        
         _clms = ds_grid_width( dg_RmTile_Burnable);
         _rows = ds_grid_height(dg_RmTile_Burnable);
         for(_i=(_clms*_rows)-1; _i>=0; _i--)

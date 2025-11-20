@@ -14,34 +14,35 @@ GO_sprite_init(g.Ganon1_SPRITE1);
 GO_init_palidx(PALIDX1);
 set_xy(id, x, g.rm_h-hh_);
 
-facing_dir   = 1;
-xScale      = facing_dir;
-GROUND_Y    = get_ground_y(x,yt,1, (g.rm_row0+$1A)<<3);
-Ground_y    = GROUND_Y;
+facing_dir = 1;
+xScale     = facing_dir;
+
+GROUND_Y = get_ground_y(x,yt,1, (g.rm_row0+$1A)<<3);
+Ground_y = GROUND_Y;
 
 
-Bottle_x                = x;
-Bottle_y                = yt-$0C;
-Bottle_yt               = Bottle_y-$08;
-Bottle_yb               = Bottle_y+$08;
-Bottle_y_MIN            = Bottle_y-$14;
+Bottle_x       = x;
+Bottle_y       = yt-$0C;
+Bottle_yt      = Bottle_y-$08;
+Bottle_yb      = Bottle_y+$08;
+Bottle_y_MIN   = Bottle_y-$14;
 
-Blood_can_draw          = false;
-Blood_COLOR             = p.C_ORG4;
-Blood_x                 = x;
-Blood_yt                = 0;
-Blood_yb                = 0;
-Blood_yb_MAX            = yt+$04;
-Blood_h                 = 2;
+Blood_can_draw = false;
+Blood_COLOR    = p.C_ORG4;
+Blood_x        = x;
+Blood_yt       = 0;
+Blood_yb       = 0;
+Blood_yb_MAX   = yt+$04;
+Blood_h        = 2;
 
 
 
-Door_xl                 = arena_xl-$10;
-Door_yt                 =(GROUND_Y>>3)-$06;
-Door_yt                 = find_row_solid(TID_SOLID1, (Door_xl>>3)+1, (GROUND_Y>>3)-1, -1, $FF,Door_yt);
-Door_yt                 =(Door_yt+1)<<3;
-DoorBlocks_COUNT        =(GROUND_Y-Door_yt)>>4; // 
-DoorBlocks_count        = 0; // number placed so far
+Door_xl          = arena_xl-$10;
+Door_yt          =(GROUND_Y>>3)-$06;
+Door_yt          = find_row_solid(TID_SOLID1, (Door_xl>>3)+1, (GROUND_Y>>3)-1, -1, $FF,Door_yt);
+Door_yt          =(Door_yt+1)<<3;
+DoorBlocks_COUNT =(GROUND_Y-Door_yt)>>4; // 
+DoorBlocks_count = 0; // number placed so far
 
 
 

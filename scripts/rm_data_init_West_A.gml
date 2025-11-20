@@ -14,7 +14,8 @@ var _pages = 0;
 var _data  = 0;
 var _tsrc;
 var _dk_spawn_item0, _dk_spawn_item1, _dk_spawn_item2, _dk_spawn_item3, _dk_spawn_item4;
-
+//, STR_CANDLE+"|"+STR_FIRE
+//"("+STR_CANDLE+"|"+STR_FIRE+")"+"+"+
 
 
 
@@ -326,8 +327,14 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
 
-data_scene_rando(rm);
+//, STR_CANDLE+"|"+STR_FIRE
+//"("+STR_CANDLE+"|"+STR_FIRE+")"+"+"+
+
+// Commenting this out for now because lightning ability isn't a condition in the rando logic for this scene
+//data_scene_rando(rm);
 
 
 
@@ -360,6 +367,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 data_path_conditions(exit_name_r0, exit_name_l0, STR_GLOVE);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE);
+//data_path_conditions(exit_name_r0, exit_name_l0, "("+STR_CANDLE+"|"+STR_FIRE+")"+"+"+STR_GLOVE);
+//data_path_conditions(exit_name_l0, exit_name_r0, "("+STR_CANDLE+"|"+STR_FIRE+")"+"+"+STR_GLOVE);
 
 data_scene_rando(rm);
 
@@ -393,6 +402,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '0A'+EXL0_); // RG
 
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -426,6 +437,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '0B'+EXL0_); // RG
 
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -456,8 +469,10 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0A'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to Overworld 
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0, );
 data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, "("+STR_CANDLE+"|"+STR_FIRE+")"+"+"+STR_JUMP);
 
 data_scene_rando(rm);
 
@@ -492,6 +507,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to O
 
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -524,6 +541,7 @@ _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$7,  ((clm0-$0A)<<3)+2,row3<<3); 
 
 //data_path_conditions(exit_name_r0, exit_name_r0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0);
+//data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -558,6 +576,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '0F'+EXL0_); // RG
 
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -589,6 +609,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '5A'+EXL0_); // RG
 
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"|"+STR_FAIRY);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, "("+STR_CANDLE+"|"+STR_FIRE+")"+"+"+"("+STR_JUMP+"|"+STR_FAIRY+")");
 
 data_scene_rando(rm);
 
@@ -621,6 +643,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '11'+EXL0_); // RG
 
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -650,6 +674,7 @@ _dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_HP,CONT_PIECE_OBJ_VER_HP
 
 //data_path_conditions(exit_name_l0, exit_name_l0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
+//data_path_conditions(exit_name_l0, _dk_spawn_item0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -688,6 +713,10 @@ data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 data_path_conditions(exit_name_u0, exit_name_r0);
 data_path_conditions(exit_name_u0, exit_name_l0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_u0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_u0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -721,6 +750,8 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '2A'+EXL0_); // RG
 
 data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP+"+"+STR_FAIRY);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"+"+STR_FAIRY);
+//data_path_conditions(exit_name_r0, exit_name_l0, "("+STR_CANDLE+"|"+STR_FIRE+")"+"+"+"("+STR_JUMP+"+"+STR_FAIRY+")");
+//data_path_conditions(exit_name_l0, exit_name_r0, "("+STR_CANDLE+"|"+STR_FIRE+")"+"+"+"("+STR_JUMP+"+"+STR_FAIRY+")");
 
 data_scene_rando(rm);
 
@@ -995,7 +1026,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_m0, exit_name_r0);
 data_path_conditions(exit_name_m0, exit_name_l0);
 data_path_conditions(exit_name_r0, exit_name_l0);
@@ -1033,7 +1063,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_m0, exit_name_r0);
 data_path_conditions(exit_name_m0, exit_name_l0);
 data_path_conditions(exit_name_r0, exit_name_l0);
@@ -1239,7 +1268,10 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$0C,  0); // RGT 0, 
 
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
 
+// Omitting this from scene rando because of Challenge object
 //data_scene_rando(rm);
 
 
@@ -1552,6 +1584,7 @@ data_path_conditions(exit_name_l0, exit_name_r0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 data_path_conditions(exit_name_l0, _dk_spawn_item1, STR_JUMP);
 
+// Scenes with multiple items that have conditions will be omitted from scene rando for now
 //data_scene_rando(rm);
 
 
@@ -1581,9 +1614,10 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '13'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE+"|"+STR_FIRE);
+//data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -1693,6 +1727,7 @@ _dk_spawn_item0 = data_spawn(rm+STR_PRIO,CONT_PIECE_OBJ_MP,CONT_PIECE_OBJ_VER_MP
 
 //data_path_conditions(exit_name_l0, exit_name_l0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
+//data_path_conditions(exit_name_l0, _dk_spawn_item0, STR_CANDLE+"|"+STR_FIRE);
 
 data_scene_rando(rm);
 
@@ -1897,7 +1932,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '31'+EXM0_); // LF
 data_spawn(rm+STR_PRIO,Kakusu006,$1,  $30<<3,(row0+$14)<<3,  STR_Treasure+STR_Map+"01"); // Hiding in IronKnuckle statue. Invisible & Still until damaged.
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
 //data_path_conditions(exit_name_l0, exit_name_l0);
 
 data_scene_rando(rm);
@@ -2162,6 +2196,7 @@ data_path_conditions(exit_name_r0, _dk_spawn_item0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 data_path_conditions(exit_name_l0, _dk_spawn_item0);
 
+// Omitting this scene from scene rando due to object `Challenge_Secret01`
 //data_scene_rando(rm);
 
 
@@ -2343,7 +2378,6 @@ data_Elev(EXU0_, clm3,row0+$12);                                               /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '48'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_r0);
 
@@ -2370,11 +2404,10 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $32<<3,y3); // Bot  1
 
 clm3=$20; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '3D'+EXU0_); // DWN 0, Elevator down 
-data_Elev(EXD0_,  clm3,row0+$13);                                        // Elevator DW $40, 
+data_Elev(EXD0_, clm3,row0+$13);                                               // Elevator DW $40, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_r0);
 
@@ -2447,14 +2480,14 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '5C'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0,  to Overworld
 
 
-//data_path_conditions(exit_name_m0, exit_name_r0);
-//data_path_conditions(exit_name_m0, exit_name_l0);
+data_path_conditions(exit_name_m0, exit_name_r0);
+data_path_conditions(exit_name_m0, exit_name_l0);
 
-//data_path_conditions(exit_name_r0, exit_name_m0);
-//data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_m0);
+data_path_conditions(exit_name_r0, exit_name_l0);
 
-//data_path_conditions(exit_name_l0, exit_name_m0);
-//data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_l0, exit_name_m0);
+data_path_conditions(exit_name_l0, exit_name_r0);
 
 //data_scene_rando(rm);
 
@@ -2546,7 +2579,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3+$02,row3,  0); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA-$02,row3,  0); // RGT 0, to Overworld 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -3251,7 +3283,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  0); // RGT 0, to Overworld
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -3295,7 +3326,7 @@ data_scene_rando(rm);
 //   --------------------------  5B  ---------------------------  
 //    Rando Only - Getting from Rauru to Midoro Field
 rm_num  = $5B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR2_, STR_Tile+area_WA+'097', STR_ow_axis+'01');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_WA+'097', STR_ow_axis+'01');
 
 
 switch(global.Rando_RauruPass_VER)
@@ -3338,7 +3369,9 @@ switch(global.Rando_RauruPass_VER)
     
     case 3:{ // Rauru Pass
     row3=row0+$14; y3=row3<<3;
-    data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
+    _i=0;
+    data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 1,Cloud_1_init);
+    data_NIAO_1a(rm+STR_NIAO+string(_i++), $0000, 3,StarSky_1_init);
     data_spawn(rm+STR_PRIO,PushA,$2,  $1F<<3,(row0+$0C)<<3,  dk_PI+hex_str(global.PI_BGR3)); // Pushable
     
     
@@ -4287,6 +4320,7 @@ data_path_conditions(exit_name_r1, exit_name_r0, STR_JUMP);
 data_path_conditions(exit_name_r1, _dk_spawn_item0);
 data_path_conditions(exit_name_r1, _dk_spawn_item1, STR_JUMP);
 
+// Scenes with multiple items that have conditions will be omitted from scene rando for now
 //data_scene_rando(rm);
 
 
@@ -4315,7 +4349,6 @@ data_spawn(rm+STR_PRXM,Octorok01,$1,  $20<<3,y3); // Octorok 1
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  'F3'+EXR0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_00",rm);
 //data_path_conditions(exit_name_l0, exit_name_l0);
 
 data_scene_rando(rm);
@@ -4463,6 +4496,7 @@ data_path_conditions(exit_name_l0, exit_name_r0, STR_FAIRY+"|"+STR_STABDOWN);
 data_path_conditions(exit_name_l0, _dk_spawn_item0, STR_FAIRY+"|"+STR_STABDOWN);
 data_path_conditions(exit_name_l0, _dk_spawn_item1, STR_FAIRY+"|"+STR_STABDOWN);
 
+// Scenes with multiple items that have conditions will be omitted from scene rando for now
 //data_scene_rando(rm);
 
 

@@ -5,20 +5,20 @@ var _i, _a, _val, _count;
 
 
 if (x){ // x>0 if using new tile data file, Kakusu positions have moved
-var _CLMS1  = $0A;
-var _CLMS2  = $17;
-var _CLM1   = $32;
+var _CLMS1 = $0A;
+var _CLMS2 = $17;
+var _CLM1  = $32;
 }else{
-var _CLMS1  = $0A;
-var _CLMS2  = $1D;
-var _CLM1   = $2F;
+var _CLMS1 = $0A;
+var _CLMS2 = $1D;
+var _CLM1  = $2F;
 }
-var _CLM2   = _CLM1+_CLMS1;
-var _CLM3   = _CLM2+_CLMS2;
-var _CLM4   = _CLM3+_CLMS1;
+var _CLM2  = _CLM1 + _CLMS1;
+var _CLM3  = _CLM2 + _CLMS2;
+var _CLM4  = _CLM3 + _CLMS1;
 var _row;
-var _ROW0   = g.rm_rows-PAGE_ROWS;
-var _ROWS1  = $07;
+var _ROW0  = g.rm_rows - PAGE_ROWS;
+var _ROWS1 = $07;
 
 
 
@@ -28,10 +28,8 @@ scr_step = Cutscene_MoaiOpenMouth_1_update;
 
 
 var _MAX_KAKUSU = val(g.dm_spawn[?STR_Kakusu+STR_Count], 12);
-
-DEFEATED_GOAL = _MAX_KAKUSU;
-DEFEATED_GOAL = get_saved_value(f.file_num, STR_Kakusu+STR_Required+STR_Count, DEFEATED_GOAL);
-
+//DEFEATED_GOAL = get_saved_value(f.file_num, STR_Kakusu+STR_Required+STR_Count, _MAX_KAKUSU);
+DEFEATED_GOAL = val(global.dm_save_file_settings[?STR_Kakusu+STR_Required+STR_Count], _MAX_KAKUSU);
 
 
 
@@ -43,7 +41,7 @@ TurnedIn_DATAKEY = "_Turned_In"+STR_Count;
 
 // TODO: Determine which sprite each specific Kakusu uses
 dg_TurnedIn = ds_grid_create(_MAX_KAKUSU, 5);
-_row  = _ROW0+$18;
+_row = _ROW0 + $18;
 //                                                  //
 dg_TurnedIn[#$00,1] = irandom(2); // sprite type 0,1,2
 dg_TurnedIn[#$00,3] = _CLM1<<3;
@@ -98,7 +96,7 @@ dg_TurnedIn[#$0B,3] = _CLM4<<3;
 dg_TurnedIn[#$0B,4] = _row <<3;
 //                                                  //
 //                                                  //
-_count=ds_grid_width(dg_TurnedIn);
+_count = ds_grid_width(dg_TurnedIn);
 for(_i=0; _i<_count; _i++)
 {
     dg_TurnedIn[#_i,1] = val(f.dm_kakusu[?hex_str(_i+1)+STR_Sprite+STR_Type], dg_TurnedIn[#_i,1]);
@@ -142,10 +140,10 @@ if (TurnedIn_count>=DEFEATED_GOAL)
 {
     with(Exit)
     {
-        if (exitNum&$FF == g.EXIT_DIR_MID)
+        if (exitNum&$FF==g.EXIT_DIR_MID)
         {
             open = 1;
-            break;
+            break;//with(Exit)
         }
     }
     
@@ -164,7 +162,7 @@ for(_i=0; _i<TurnedIn_count; _i++)
 
 if (TurnedIn_count>=DEFEATED_COUNT)
 {
-    timer     = 0;
+    timer = 0;
     sub_state = SUB_STATE_DONE;
 }
 

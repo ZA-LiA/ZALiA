@@ -655,8 +655,8 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
 
 data_scene_rando(rm);
 
@@ -1432,8 +1432,8 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE); // CANDLE condition because spikes are hidden in dark
+data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE); // CANDLE condition because spikes are hidden in dark
 
 data_scene_rando(rm);
 
@@ -1473,8 +1473,8 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE); // CANDLE condition because spikes are hidden in dark
+data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE); // CANDLE condition because spikes are hidden in dark
 
 data_scene_rando(rm);
 
@@ -1739,8 +1739,8 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_CANDLE); // CANDLE condition because spikes are hidden in dark
+data_path_conditions(exit_name_l0, exit_name_r0, STR_CANDLE); // CANDLE condition because spikes are hidden in dark
 
 data_scene_rando(rm);
 

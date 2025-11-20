@@ -33,7 +33,7 @@ if (room==rmB_FileSelect && !instance_exists(FileSelect)) instance_create(0,0, F
 
 for(_i=ds_grid_width(dg_YxY_)-1; _i>=0; _i--)
 {
-    dg_YxY_[#_i,$0]=choose(spr_Font1,spr_Font1,spr_Font_Hyrulian,spr_Font_Hyrulian,spr_Font2,spr_Font2_1,spr_Font3,spr_Font3_1,spr_Font4,spr_Font5,spr_Font6);
+    dg_YxY_[#_i,$0]=choose(spr_Font1,spr_Font1,spr_Font_Hyrulian,spr_Font_Hyrulian,spr_Font2,spr_Font2_1,spr_Font3,spr_Font3_1,spr_Font4,spr_Font5,spr_Font6,spr_Font7,spr_Font8);
     dg_YxY_[#_i,$1]=sign_(irandom($1F)); // xscale
     dg_YxY_[#_i,$2]=sign_(irandom($1F)); // yscale
 }
@@ -461,7 +461,7 @@ if (_ROOM_A
     _datakey = _scene_used+dk_FileName+STR_Quest+hex_str(file_data_quest_num);
     //_datakey = scene_data_scene_name+STR_file_name+STR_Quest+hex_str(file_data_quest_num);
     var _FILE_NAME = val(f.dm_rando[?_datakey], val(dm_rm[?_datakey]));
-    db_rm_data_Room_Start(_FILE_NAME);
+    db_rm_data_Room_Start(_FILE_NAME, _scene_used);
 }
 
 
@@ -1069,9 +1069,7 @@ if (_ROOM_A)
 
 
 
-
-
-
+// ------------------------------------------------------------------------------
 if (_ROOM_A)
 {
     _x = global.pc.x;
@@ -1090,180 +1088,18 @@ if (_ROOM_A)
 
 
 
+// ------------------------------------------------------------------------------
+// RM BRIGHTNESS  ----------------------------------------------------
+if (_ROOM_A) g_Room_Start_2(_SCENE_IS_RANDOMIZED, _scene_used);
+
+
+
 
 
 
 
 
 // ------------------------------------------------------------------------------
-// RM BRIGHTNESS  ----------------------------------------------------
-if (_ROOM_A)
-{
-    set_rm_brightness(0);
-    
-    if (mod_RM_BRIGHTNESS_SYS)
-    {
-        if (mod_RM_BRIGHTNESS_SYS==2 
-        &&  f.items&ITM_CAND )
-        {   set_rm_brightness(rm_brightness+1);  }
-        
-        
-        _val = dm_rm[?rm_name+dk_DarkRoom];
-        if (is_undefined(_val) 
-        ||  _val==-1 )
-        {
-            set_rm_brightness(RM_BRIGHTNESS_MAX);
-        }
-        
-        
-        if (rm_brightness<RM_BRIGHTNESS_MAX)
-        {
-            var _used_scene_has_torches = false;
-            
-            for(_i=_PRIO_COUNT-1; _i>=0; _i--)
-            {
-                _spawn_datakey    = dg_spawn_prio[#_i,$0];
-                _obj              = dg_spawn_prio[#_i,$1];
-                _obj_name         = dg_spawn_prio[#_i,$2];
-                _ver              = dg_spawn_prio[#_i,$3];
-                _spawn_permission = dg_spawn_prio[#_i,$E];
-                //if (is_ancestor(_obj,Torch)) show_debug_message(_spawn_datakey+", _spawn_permission "+string(_spawn_permission)+":"+string(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]));
-                if (is_undefined(_spawn_datakey) 
-                || !_spawn_permission )
-                {
-                    continue;//_i
-                }
-                
-                // ------------------------------------------------
-                _val = dm_spawn[?_spawn_datakey+STR_Qualified+STR_Quest+STR_Nums];
-                if (is_undefined(_val)  // This inst is qualified for any quest if there's no data ???
-                || !is_string(   _val)  // Should this be:  (!is_string(_val) && _val==f.quest_num) ??
-                ||  string_pos(hex_str(f.quest_num),_val) )
-                {
-                    _objver1 = _obj_name+hex_str(_ver);
-                    _val1 = val(dm_go_prop[?_objver1    +STR_Brightness]); // brightness specific to this object
-                    _val2 =     dm_spawn[?_spawn_datakey+STR_Brightness];  // brightness specific to this spawn location
-                    _val  = val(_val2,_val1); // if _val2 is undefined, use _val1
-                    if (_val)
-                    {
-                        if(!_used_scene_has_torches 
-                        &&  is_ancestor(_obj,Torch) )
-                        {
-                            _used_scene_has_torches = true;
-                        }
-                        
-                        if(!is_ancestor(_obj,Torch) 
-                        ||  val(dm_spawn[?_spawn_datakey+STR_Lit]) ) // Torch spawn locations must specify if they're already lit
-                        {
-                            set_rm_brightness(rm_brightness+_val);
-                            // TODO: More things need to be checked first? This instance may 
-                            // not spawn due to various reasons like respawn limits.
-                            
-                            if (rm_brightness>=RM_BRIGHTNESS_MAX)
-                            {
-                                break;//_i
-                            }
-                        }
-                    }
-                }
-            }//for(_i=_PRIO_COUNT-1; _i>=0; _i--)
-            
-            
-            if (_SCENE_IS_RANDOMIZED 
-            &&  rm_brightness<RM_BRIGHTNESS_MAX 
-            && !_used_scene_has_torches )
-            {
-                // Check if the vanilla scene has torches and use them
-                var _extra_torches_count = 0;
-                
-                var    _PRIO_COUNT0 = val(dm_spawn[?get_spawn_datakey(rm_name,STR_PRIO,-1)]);
-                for(_i=_PRIO_COUNT0-1; _i>=0; _i--)
-                {
-                    _spawn_datakey = get_spawn_datakey(rm_name,STR_PRIO,_i);
-                    _obj =     dm_spawn[?_spawn_datakey+STR_obj_idx];
-                    _ver =     dm_spawn[?_spawn_datakey+STR_Version];
-                    _val = val(dm_spawn[?_spawn_datakey+STR_Qualified+STR_Quest+STR_Nums], "0102");
-                    _spawn_permission = val(dm_spawn[?_spawn_datakey+STR_Spawn_Permission]);
-                    if(!is_undefined(_obj) 
-                    && !is_undefined(_ver) 
-                    &&  is_ancestor(_obj,Torch) 
-                    &&  string_pos(hex_str(f.quest_num),hex_str(_val)) 
-                    &&  _spawn_permission )
-                    {
-                        _extra_torches_count++;
-                        
-                        _obj_name = object_get_name(_obj);
-                        _objver1  = _obj_name+hex_str(_ver);
-                        _val1 = val(dm_go_prop[?_objver1+STR_Brightness]); // brightness specific to this object
-                        _val2 = dm_spawn[?_spawn_datakey+STR_Brightness];  // brightness specific to this spawn location
-                        _val  = val(_val2,_val1); // if _val2 is undefined, use _val1
-                        
-                        // if the randomized scene doesn't have torches but the vanilla scene does, spawn some torches
-                        _idx = ds_grid_width(dg_spawn_prio);
-                        ds_grid_resize(dg_spawn_prio, _idx+1, ds_grid_height(dg_spawn_prio));
-                        dg_spawn_prio[#_idx,$0] = _spawn_datakey;
-                        dg_spawn_prio[#_idx,$1] = _obj;
-                        dg_spawn_prio[#_idx,$2] = _obj_name;
-                        dg_spawn_prio[#_idx,$3] = _ver;
-                        
-                        dg_spawn_prio[#_idx,$8] = val(dm_go_prop[?_obj_name+STR_Width],  $10);
-                        dg_spawn_prio[#_idx,$9] = val(dm_go_prop[?_obj_name+STR_Height], $10);
-                        dg_spawn_prio[#_idx,$A] = dg_spawn_prio[#_idx,$8]>>1;
-                        dg_spawn_prio[#_idx,$B] = dg_spawn_prio[#_idx,$9]>>1;
-                        
-                        dg_spawn_prio[#_idx,$C] = val(dm_go_prop[?_objver1+STR_Respawn]);
-                        dg_spawn_prio[#_idx,$D] = val(f.dm_quests[?get_defeated_dk()+_spawn_datakey]);
-                        dg_spawn_prio[#_idx,$E] = _spawn_permission;
-                        
-                        // Trying to set it close to where global.pc spawns
-                        _exit_name = _scene_used+strR(f.reen,RmName_LEN+1);
-                        _xl = val(dm_rm[?_exit_name+STR_Spawn_x]) <<3;
-                        _yt = val(dm_rm[?_exit_name+STR_Spawn_y]) <<3;
-                        switch(exit_enter.side){
-                        case $0:{_xl-=$0C*_extra_torches_count; _yt+=$08; break;}
-                        case $1:{_xl-=$1C*_extra_torches_count; _yt+=$08; break;}
-                        case $2:{_xl+=$1C*_extra_torches_count; _yt+=$08; break;}
-                        case $4:{_xl+=$04;                      _yt-=$20*_extra_torches_count; break;}
-                        case $8:{_xl+=$04;                      _yt+=$20*_extra_torches_count; break;}
-                        }
-                        
-                        dg_spawn_prio[#_idx,$4] = _xl;
-                        dg_spawn_prio[#_idx,$5] = _xl+dg_spawn_prio[#_idx,$8];
-                        dg_spawn_prio[#_idx,$6] = _yt;
-                        dg_spawn_prio[#_idx,$7] = _yt+dg_spawn_prio[#_idx,$9];
-                        
-                        if (val(dm_spawn[?_spawn_datakey+STR_Lit])) // if the torch is lit upon spawn
-                        {
-                            set_rm_brightness(rm_brightness+_val);
-                            
-                            if (rm_brightness>=RM_BRIGHTNESS_MAX)
-                            {
-                                break;//_i
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    else
-    {   // OG ---------------------
-        if (dungeon_num 
-        ||  f.items&ITM_CAND )
-        {
-            set_rm_brightness(RM_BRIGHTNESS_MAX); // fully lit
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
 if (_ROOM_A 
 ||  _ROOM_B1 ) // w/out this here, view coords will be wrong when going from end credits to title screen.
 {
@@ -1318,10 +1154,7 @@ if (_ROOM_A
 
 
 
-if (_ROOM_A)
-{
-    scene_enter_add_tiles();
-}
+if (_ROOM_A) scene_enter_add_tiles();
 
 
 

@@ -1,7 +1,7 @@
 /// data_scene_rando(scene name)
 
 
-var _i,_j;
+var _i,_j, _val;
 
 var                        _arg=0;
 var _SCENE_NAME = argument[_arg++];
@@ -27,20 +27,22 @@ if (val(g.dm_rm[?_SCENE_NAME+STR_Enc_Type])
 }
 
 
+var _spawn_count, _spawn_type, _spawn_idx, _spawn_dk, _obj;
+
 for(_i=0; _i<2; _i++)
 {
-    if(!_i) var _SPAWN_TYPE = STR_PRIO;
-    else    var _SPAWN_TYPE = STR_PRXM;
+    if(!_i) _spawn_type = STR_PRIO;
+    else    _spawn_type = STR_PRXM;
     
-    var _SPAWN_COUNT = val(g.dm_spawn[?get_spawn_datakey(_SCENE_NAME,_SPAWN_TYPE,-1)]);
+    _spawn_count = val(g.dm_spawn[?get_spawn_datakey(_SCENE_NAME,_spawn_type,-1)]);
     
-    for(var _spawn_idx=0; _spawn_idx<_SPAWN_COUNT; _spawn_idx++)
+    for(_spawn_idx=0; _spawn_idx<_spawn_count; _spawn_idx++)
     {
-        var _SPAWN_DK = get_spawn_datakey(_SCENE_NAME,_SPAWN_TYPE,_spawn_idx);
-        var _OBJ = g.dm_spawn[?_SPAWN_DK+STR_obj_idx];
-        if(!is_undefined(_OBJ))
+        _spawn_dk = get_spawn_datakey(_SCENE_NAME,_spawn_type,_spawn_idx);
+        _obj = g.dm_spawn[?_spawn_dk+STR_obj_idx];
+        if(!is_undefined(_obj))
         {
-            var _ITEM_TYPE = g.dm_ITEM[?object_get_name(_OBJ)+STR_Item+STR_Type];
+            var _ITEM_TYPE = g.dm_ITEM[?object_get_name(_obj)+STR_Item+STR_Type];
             if(!is_undefined(_ITEM_TYPE))
             {
                 switch(_ITEM_TYPE)
@@ -73,25 +75,25 @@ for(_i=0; _i<2; _i++)
             }
             else
             {
-                if (is_ancestor(_OBJ,LoDoA))
+                if (is_ancestor(_obj,LoDoA))
                 {
                     if (_CAN_HAVE_LOCKED_DOOR) continue;//_spawn_idx
                     else exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
                 
-                if (is_ancestor(_OBJ,PushA))
+                if (is_ancestor(_obj,PushA))
                 {
                     if (_CAN_HAVE_PUSHABLE) continue;//_spawn_idx
                     else exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
                 
-                if (is_ancestor(_OBJ,Kakusu))
+                if (is_ancestor(_obj,Kakusu))
                 {
                     if (_CAN_HAVE_KAKUSU) continue;//_spawn_idx
                     else exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
                 
-                if (is_ancestor(_OBJ,Boss))
+                if (is_ancestor(_obj,Boss))
                 {
                     if (_CAN_HAVE_BOSS) continue;//_spawn_idx
                     else exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -195,6 +197,42 @@ if (_PATH_COUNT)
 
 
 
+
+
+var _brightness = g.RM_BRIGHTNESS_MAX;
+
+_val = g.dm_rm[?g.rm_name+dk_DarkRoom];
+if(!is_undefined(_val) 
+&&  _val!=-1 )
+{
+    _brightness = 0;
+    
+    _spawn_type = STR_PRIO;
+    _spawn_count = val(g.dm_spawn[?get_spawn_datakey(_SCENE_NAME,_spawn_type,-1)]);
+    for(_spawn_idx=0; _spawn_idx<_spawn_count; _spawn_idx++)
+    {
+        _spawn_dk = get_spawn_datakey(_SCENE_NAME,_spawn_type,_spawn_idx);
+        _obj = g.dm_spawn[?_spawn_dk+STR_obj_idx];
+        if(!is_undefined(_obj) 
+        &&  is_ancestor( _obj,Torch) 
+        &&  val(g.dm_spawn[?_spawn_dk+STR_Lit]) )
+        {
+            _brightness = g.RM_BRIGHTNESS_MAX;
+            break;//_spawn_idx
+        }
+    }
+}
+
+var _BRIGHTNESS_ID = STR_Brightness+hex_str(_brightness);
+
+
+
+
+
+
+
+
+//var _GROUP_ID = _BRIGHTNESS_ID + "---" + _group_id_exits + "---" + _group_id_paths;
 var _GROUP_ID = _group_id_exits + "---" + _group_id_paths;
 global.dm_scene_rando[?_SCENE_NAME+STR_Group+STR_ID] = _GROUP_ID;
 
@@ -205,11 +243,13 @@ global.dm_scene_rando[?STR_Scene+hex_str(_SCENE_NUM)+STR_Scene+STR_Name] = _SCEN
 
 
 
+
 var _dl_group_ids = ds_list_create();
 
 _datakey0 = STR_Group+STR_ID+STR_List;
 _data = global.dm_scene_rando[?_datakey0];
 if(!is_undefined(_data)) ds_list_read(_dl_group_ids, _data);
+
 if (ds_list_find_index(_dl_group_ids,_GROUP_ID)==-1) ds_list_add(_dl_group_ids, _GROUP_ID);
 global.dm_scene_rando[?_datakey0] = ds_list_write(_dl_group_ids);
 

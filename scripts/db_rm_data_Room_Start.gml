@@ -1,4 +1,4 @@
-/// db_rm_data_Room_Start(file name)
+/// db_rm_data_Room_Start(file name, scene of file name)
 
 
 //if(!g.can_use_dev_tools1) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -6,7 +6,10 @@
 //if(!DEV) exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-var _FILE_NAME = argument0;
+var                        _arg=0;
+var _FILE_NAME  = argument[_arg++];
+var _SCENE_NAME = argument[_arg++];
+
 //sdm("---------------------------------------");
 var  _str  = " ";
      _str += "f.quest_num "+string(f.quest_num)+", ";
@@ -14,7 +17,7 @@ var  _str  = " ";
      _str += "f.reen:  " + f.reen + ", ";
      _str += "file_name: "
 if (is_string(_FILE_NAME))
-{    _str +=  _FILE_NAME;  }
+{    _str +=  _FILE_NAME+"("+_SCENE_NAME+")";  }
 else _str  = "WARNING!!!!!  "+_str+" No file name for '"+g.rm_name+dk_FileName+"'";
 
      _str += ", room_width $"  + hex_str(room_width);
@@ -23,7 +26,7 @@ else _str  = "WARNING!!!!!  "+_str+" No file name for '"+g.rm_name+dk_FileName+"
      _str += ", g.town_num "   +string(g.town_num);
      _str += ", g.dungeon_num "+string(g.dungeon_num);
 //
-sdm(_str); sdm("");
+show_debug_message(_str); show_debug_message("");
 
 
 

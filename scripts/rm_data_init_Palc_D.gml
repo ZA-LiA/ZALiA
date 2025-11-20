@@ -97,6 +97,7 @@ _dk_spawn_item1 = data_spawn(rm+STR_PRIO,ItmF0,$4,  $4A<<3,y3); // PBag v4: 200
 data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_GLOVE);
 data_path_conditions(exit_name_r0, _dk_spawn_item1, STR_GLOVE);
 
+// Scenes with multiple items that have conditions will be omitted from scene rando for now
 //data_scene_rando(rm);
 
 

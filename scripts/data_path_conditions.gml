@@ -9,7 +9,7 @@ var _DESTINATION = argument[_arg++]; // this could be an exit name, or an item s
 
 var _SCENE_NAME = string_copy(_ORIGIN_EXIT, 1, RmName_LEN);
 
-var _path_name_origin  = STR_Exit+string_copy(_ORIGIN_EXIT, string_length(_ORIGIN_EXIT)-1, 2);
+var _path_name_origin = STR_Exit+string_copy(_ORIGIN_EXIT, string_length(_ORIGIN_EXIT)-1, 2);
 
 var _path_name_destin = _DESTINATION;
 if (string_pos("PRIO",_DESTINATION) 

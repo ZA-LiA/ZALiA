@@ -50,8 +50,8 @@ DUR_ARROW_BLINK = 6;
 
 // Store the current rm palette when the menu opens.
 rm_pal_on_open = p.pal_rm_DEFAULT;
-PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED2 + p.PAL_MENU_BLU2;
-PAL_MOBS_LEN = string_length(PAL_MOBS);
+PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED2;
+//PAL_MOBS = p.PAL_MOB_ORG1 + p.PAL_MOB_RED2 + p.PAL_MENU_BLU2;
 
 
 

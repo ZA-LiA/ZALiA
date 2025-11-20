@@ -15,12 +15,12 @@ switch(sub_state)
     var _W = 8;
     if (wINw(global.pc.x,1, x-(_W>>1),_W))
     {
-        g.pc_lock   = PC_LOCK_ALL;
-        g.cutscene  = 1;
-        timer     = DUR1;
+        g.pc_lock = PC_LOCK_ALL;
+        g.cutscene = 1;
+        
+        timer = DUR1;
         sub_state = SUB_STATE_ACTV1;
     }
-    
     break;}
     
     
@@ -46,9 +46,8 @@ switch(sub_state)
     
     
     if (TurnedIn_count<DEFEATED_COUNT)
-    //if (DEFEATED_COUNT-TurnedIn_count)
     {
-        _count=ds_grid_width(dg_TurnedIn);
+        _count = ds_grid_width(dg_TurnedIn);
         for(_i=0; _i<_count; _i++)
         {
             if(!dg_TurnedIn[#_i,0])
@@ -70,16 +69,15 @@ switch(sub_state)
             for(_i=ds_grid_width(dg_TurnedIn)-1; _i>=0; _i--) dg_TurnedIn[#_i,2] = 0; // timer.  just in case
             
             aud_play_sound(get_audio_theme_track(STR_Secret));
-            timer     = 0;
+            timer = 0;
             sub_state = SUB_STATE_OPEN1;
         }
         else
         {
-            timer     = 0;
+            timer = 0;
             sub_state = SUB_STATE_DONE;
         }
     }
-    
     break;}
     
     
@@ -102,10 +100,9 @@ switch(sub_state)
     }
     else
     {
-        timer     = 0;
+        timer = 0;
         sub_state = SUB_STATE_OPEN2;
     }
-    
     break;}
     
     
@@ -120,7 +117,7 @@ switch(sub_state)
     
     with(Exit)
     {
-        if (exitNum&$FF == g.EXIT_DIR_MID)
+        if (exitNum&$FF==g.EXIT_DIR_MID)
         {
             open = 1;
             break;
@@ -128,9 +125,8 @@ switch(sub_state)
     }
     
     
-    timer     = 0;
+    timer = 0;
     sub_state = SUB_STATE_DONE;
-    
     break;}
     
     
@@ -143,8 +139,8 @@ switch(sub_state)
     if (timer) break;
     
     
-    g.pc_lock   = 0;
-    g.cutscene  = 0;
+    g.pc_lock = 0;
+    g.cutscene = 0;
     
     break;}
 }

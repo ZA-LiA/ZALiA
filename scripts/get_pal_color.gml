@@ -2,13 +2,13 @@
 
 
 var _PALETTE    = argument[0];
-var _pi         = argument[1];
+var _PI         = argument[1];
 var _COLOR_CHAR = string(argument[2]);
 
 var _pos  = string_pos(_COLOR_CHAR, global.PAL_BASE_COLOR_ORDER);
     _pos  = max(0,_pos-1);
     _pos *= global.PAL_CHAR_PER_COLOR;
-    _pos  = get_pal_pos(_pi) + _pos;
+    _pos  = get_pal_pos(_PI) + _pos;
 //
 var    _color = string_copy(_PALETTE, _pos, global.PAL_CHAR_PER_COLOR);
        _color = str_hex(_color);

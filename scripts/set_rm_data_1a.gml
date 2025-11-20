@@ -27,7 +27,7 @@ ds_list_add(dl_used_tiled_files,_FILE_NAME0);
     rm_h = val(global.dm_scene_wh[?_FILE_NAME0+STR_Height]);
 if(!rm_w 
 || !rm_h 
-||  global.SceneRando_ItemPositioning_METHOD==2 )
+||  (global.SceneRando_ItemPositioning_METHOD==2 && !QUICK_REINITIALIZE) )
 {
     var _data;
     
@@ -168,7 +168,7 @@ if(!rm_w
             {
                 if (_wall_ts_idx!=-1)
                 {
-                    if(!ds_grid_width(_dg_wall_part_data))
+                    if(!ds_grid_width( _dg_wall_part_data))
                     {
                         ds_grid_resize(_dg_wall_part_data, _scene_clms,_scene_rows);
                         ds_grid_clear( _dg_wall_part_data,0);

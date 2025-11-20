@@ -381,7 +381,7 @@ if (_C1  // _C1:  g.room_type=="C" && !exit_grid_xy
 ItemAcquiredIndicator_can_draw = false;
 
 if (_C1  // _C1:  g.room_type=="C" && !exit_grid_xy
-&&  g.can_mark_acquired_item_locations 
+&&  global.MarkItemLocations_state 
 &&  g.counter1&$40 )
 {
     if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
@@ -393,48 +393,68 @@ if (_C1  // _C1:  g.room_type=="C" && !exit_grid_xy
         {
             _datakey1 = STR_Location+hex_str(_i);
             _owrc = val(dm_rando_locations[?_datakey1+STR_OWRC], -1);
-            if (_owrc!=-1 
-            &&  val(dm_rando_locations[?_datakey1+STR_Acquired]) )
+            if (_owrc!=-1)
             {
-                _item_id = f.dm_rando[?_datakey1+STR_Item+STR_ID+STR_Randomized];
-                if(!is_undefined(_item_id))
+                if (global.MarkItemLocations_state==2 
+                ||  val(dm_rando_locations[?_datakey1+STR_Acquired]) )
                 {
-                    _x  = ow_pc_xy(0);
-                    _x += (byte(_owrc>>0)<<SHIFT) - pc_ow_x;
-                    _x += draw_move_offset_x;
-                    _x += 8;
-                    dm_rando_locations[?_datakey1+"_X"] = _x;
-                    
-                    _y  = ow_pc_xy(1);
-                    _y += (byte(_owrc>>8)<<SHIFT) - pc_ow_y;
-                    _y += draw_move_offset_y;
-                    _y += 8;
-                    dm_rando_locations[?_datakey1+"_Y"] = _y;
-                    
-                    if (rectInView((_x>>SHIFT)<<SHIFT,(_y>>SHIFT)<<SHIFT, T_SIZE,T_SIZE))
+                    _item_id = f.dm_rando[?_datakey1+STR_Item+STR_ID+STR_Randomized];
+                    if(!is_undefined(_item_id))
                     {
-                        ItemAcquiredIndicator_can_draw = true;
-                        dm_rando_locations[?_datakey1+dk_can_draw] = true;
+                        _x  = ow_pc_xy(0);
+                        _x += (byte(_owrc>>0)<<SHIFT) - pc_ow_x;
+                        _x += draw_move_offset_x;
+                        _x += 8;
+                        dm_rando_locations[?_datakey1+"_X"] = _x;
                         
-                        _owrc_ = hex_str(_owrc);
+                        _y  = ow_pc_xy(1);
+                        _y += (byte(_owrc>>8)<<SHIFT) - pc_ow_y;
+                        _y += draw_move_offset_y;
+                        _y += 8;
+                        dm_rando_locations[?_datakey1+"_Y"] = _y;
                         
-                             if (val(dm_rando_locations[?_owrc_+STR_Varied])) _spr = spr_CheckMark2_4; // grey
-                        else if (string_pos(STR_PBAG,_item_id))               _spr = spr_CheckMark2_3; // full blue
-                        else if (string_pos(STR_KEY, _item_id))               _spr = spr_CheckMark2_2; // full yellow
-                        else                                                  _spr = spr_CheckMark2_1; // full green
-                        dm_rando_locations[?_datakey1+STR_Sprite] = _spr;
-                        
-                        _count1 = val(dm_rando_locations[?_owrc_+STR_Item+STR_Count]);
-                        _count2 = val(dm_rando_locations[?_owrc_+STR_Acquired+STR_Count]);
-                        if (_count1>1 
-                        &&  _count2 )
+                        if (rectInView((_x>>SHIFT)<<SHIFT,(_y>>SHIFT)<<SHIFT, T_SIZE,T_SIZE))
                         {
-                            _text = string(_count2)+"/"+string(_count1);
-                            _x -= (string_length(_text)*ItemAcquiredIndicator_FONT_W)>>1;
-                            _y += 5;
-                            dm_rando_locations[?_datakey1+STR_Text]       = _text;
-                            dm_rando_locations[?_datakey1+STR_Text+"_XL"] = _x;
-                            dm_rando_locations[?_datakey1+STR_Text+"_YT"] = _y;
+                            ItemAcquiredIndicator_can_draw = true;
+                            dm_rando_locations[?_datakey1+dk_can_draw] = true;
+                            
+                            _owrc_ = hex_str(_owrc);
+                            _count1 = val(dm_rando_locations[?_owrc_+STR_Item+STR_Count]);
+                            _count2 = val(dm_rando_locations[?_owrc_+STR_Acquired+STR_Count]);
+                            
+                            if (val(dm_rando_locations[?_owrc_+STR_Varied]))
+                            {
+                                if (_count2<_count1) _spr = spr_CheckMark2_0; // white
+                                else                 _spr = spr_CheckMark2_4; // magenta
+                            }
+                            else if (string_pos(STR_PBAG,_item_id))
+                            {
+                                if (_count2<_count1) _spr = spr_CheckMark2_0; // white
+                                else                 _spr = spr_CheckMark2_3; // blue
+                            }
+                            else if (string_pos(STR_KEY, _item_id))
+                            {
+                                if (_count2<_count1) _spr = spr_CheckMark2_0; // white
+                                else                 _spr = spr_CheckMark2_2; // yellow
+                            }
+                            else
+                            {
+                                if (_count2<_count1) _spr = spr_CheckMark2_0; // white
+                                else                 _spr = spr_CheckMark2_1; // green
+                            }
+                            
+                            dm_rando_locations[?_datakey1+STR_Sprite] = _spr;
+                            
+                            if (global.MarkItemLocations_state==2 
+                            ||  (_count1>1 && _count2) )
+                            {
+                                _text = string(_count2)+"/"+string(_count1);
+                                _x -= (string_length(_text)*ItemAcquiredIndicator_FONT_W)>>1;
+                                _y += 5;
+                                dm_rando_locations[?_datakey1+STR_Text]       = _text;
+                                dm_rando_locations[?_datakey1+STR_Text+"_XL"] = _x;
+                                dm_rando_locations[?_datakey1+STR_Text+"_YT"] = _y;
+                            }
                         }
                     }
                 }

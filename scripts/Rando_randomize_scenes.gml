@@ -36,6 +36,7 @@ for(_i=0; _i<_GROUP_COUNT; _i++)
                 _scene_name1 = _dl_group_scenes1[|_j];
                 _scene_name2 = _dl_group_scenes2[|_j];
                 dm_save_data[?dk_SceneRando+STR_Scene+STR_Randomized+_scene_name1] = _scene_name2;
+                //if (isVal(_scene_name2,Area_MazIs+"8E",Area_MazIs+"8F",Area_MazIs+"9F")) show_debug_message("Rando_randomize_scenes(). "+_scene_name2+" is in "+_scene_name1);
             }
         }
     }

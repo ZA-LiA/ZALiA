@@ -1,7 +1,8 @@
 /// Ganon2_init1()
 
 
-var _i, _a;
+var _i;
+var _layer_name;
 
 
 Ganon_init_1();
@@ -25,35 +26,35 @@ MusicBattle_INTRO = 0; // Sounds more urgent w/out the intro
 //MusicBattle_INTRO = get_audio_theme_track_intro(MusicBattle_BODY);
 
 
-                            _a=1;
-sub_state_RM_ENTER        = _a++;
-sub_state_DIALOGUE1       = _a++;
-sub_state_INTRO1          = _a++;
-sub_state_INTRO2          = _a++;
-sub_state_INTRO3          = _a++;
-sub_state_BATTLE          = _a++;
-sub_state_POST_BATTLE1    = _a++;
-sub_state_POST_BATTLE2    = _a++;
-sub_state_POST_BATTLE3    = _a++;
-sub_state_EXPLODE_BODY    = _a++;
-sub_state_NextForm_FALL   = _a++;
-sub_state_NextForm_LEAVE1 = _a++;
-sub_state_NextForm_LEAVE2 = _a++;
-sub_state_NextForm_LEAVE  = _a++;
-sub_state_DIALOGUE2       = _a++;
-sub_state_DONE            = _a++;
+                            _i=1;
+sub_state_RM_ENTER        = _i++;
+sub_state_DIALOGUE1       = _i++;
+sub_state_INTRO1          = _i++;
+sub_state_INTRO2          = _i++;
+sub_state_INTRO3          = _i++;
+sub_state_BATTLE          = _i++;
+sub_state_POST_BATTLE1    = _i++;
+sub_state_POST_BATTLE2    = _i++;
+sub_state_POST_BATTLE3    = _i++;
+sub_state_EXPLODE_BODY    = _i++;
+sub_state_NextForm_FALL   = _i++;
+sub_state_NextForm_LEAVE1 = _i++;
+sub_state_NextForm_LEAVE2 = _i++;
+sub_state_NextForm_LEAVE  = _i++;
+sub_state_DIALOGUE2       = _i++;
+sub_state_DONE            = _i++;
 sub_state                 = sub_state_RM_ENTER;
 
-                            _a=1;
-BattleState_IDLE          = _a++;
-BattleState_FADE_IN       = _a++;
-BattleState_FADE_OUT      = _a++;
+                            _i=1;
+BattleState_IDLE          = _i++;
+BattleState_FADE_IN       = _i++;
+BattleState_FADE_OUT      = _i++;
 //                                          //
-BattleState_Attack1_SHOOT = _a++;
+BattleState_Attack1_SHOOT = _i++;
 //                                          //
-BattleState_Attack2_SHOOT = _a++;
+BattleState_Attack2_SHOOT = _i++;
 //                                          //
-BattleState_DECIDE_ATTACK = _a++;
+BattleState_DECIDE_ATTACK = _i++;
 BattleState               = BattleState_IDLE;
 //                                          //
 
@@ -107,30 +108,30 @@ Form3_can_draw      = false;
 
 
 dg_Positions = ds_grid_create($4,$05);
-              _a=0;
-dg_Positions[#_a,$00]= $0;                    // x offset current
-dg_Positions[#_a,$01]= -(($05<<3)+$4);        // y offset current
-dg_Positions[#_a,$02]= 1;     // state. 
-dg_Positions[#_a,$03]= 0;     // timer
-              _a++;               //
-dg_Positions[#_a,$00]= -(sprite_get_width( SPRITE1)>>1) + $4;              // x offset attack
-dg_Positions[#_a,$01]= -(sprite_get_height(SPRITE1)>>1) + (($03<<3)+$8);   // y offset attack
-//dg_Positions[#_a,$01]= -(sprite_get_height(SPRITE1)>>1) + (($03<<3)+$4);   // y offset attack
-dg_Positions[#_a,$02]= 1;     // state. 
-dg_Positions[#_a,$03]= 0;     // timer
-dg_Positions[#_a,$04]= SpikeBall1;
-              _a++;              //
-dg_Positions[#_a,$00]= dg_Positions[#$1,$00];                 // x offset attack
-dg_Positions[#_a,$01]= dg_Positions[#_a-1,$01] + ($09<<3);    // y offset attack
-dg_Positions[#_a,$02]= 1;     // state. 
-dg_Positions[#_a,$03]= 0;     // timer
-dg_Positions[#_a,$04]= Flame2;
-              _a++;              //
-dg_Positions[#_a,$00]= dg_Positions[#$1,$00];             // x offset attack
-dg_Positions[#_a,$01]= dg_Positions[#_a-1,$01] + ($06<<3);// y offset attack
-dg_Positions[#_a,$02]= 1;     // state. 
-dg_Positions[#_a,$03]= 0;     // timer
-dg_Positions[#_a,$04]= Rock1;
+              _i=0;
+dg_Positions[#_i,$00]= $0;                    // x offset current
+dg_Positions[#_i,$01]= -(($05<<3)+$4);        // y offset current
+dg_Positions[#_i,$02]= 1;     // state. 
+dg_Positions[#_i,$03]= 0;     // timer
+              _i++;               //
+dg_Positions[#_i,$00]= -(sprite_get_width( SPRITE1)>>1) + $4;              // x offset attack
+dg_Positions[#_i,$01]= -(sprite_get_height(SPRITE1)>>1) + (($03<<3)+$8);   // y offset attack
+//dg_Positions[#_i,$01]= -(sprite_get_height(SPRITE1)>>1) + (($03<<3)+$4);   // y offset attack
+dg_Positions[#_i,$02]= 1;     // state. 
+dg_Positions[#_i,$03]= 0;     // timer
+dg_Positions[#_i,$04]= SpikeBall1;
+              _i++;              //
+dg_Positions[#_i,$00]= dg_Positions[#$1,$00];                 // x offset attack
+dg_Positions[#_i,$01]= dg_Positions[#_i-1,$01] + ($09<<3);    // y offset attack
+dg_Positions[#_i,$02]= 1;     // state. 
+dg_Positions[#_i,$03]= 0;     // timer
+dg_Positions[#_i,$04]= Flame2;
+              _i++;              //
+dg_Positions[#_i,$00]= dg_Positions[#$1,$00];             // x offset attack
+dg_Positions[#_i,$01]= dg_Positions[#_i-1,$01] + ($06<<3);// y offset attack
+dg_Positions[#_i,$02]= 1;     // state. 
+dg_Positions[#_i,$03]= 0;     // timer
+dg_Positions[#_i,$04]= Rock1;
 
 
 Crystal_state        = 1; // 0: dead, 1: normal
@@ -171,8 +172,20 @@ EXPLOSION_CUE7  = EXPLOSION_CUE6+$18; // $48
 
 
 
-DEPTH_WALL  = DEPTH_BG2; // solid wall bgr
-DEPTH_BREAK = DEPTH_BG5; // break blocks
+var _depth_wall  = DEPTH_BG2; // solid wall bgr
+var _depth_break = DEPTH_BG3; // break blocks
+for(_i=ds_list_size(g.dl_TILE_DEPTH_NAMES)-1; _i>=0; _i--)
+{
+    _layer_name = g.dm_tile_file[?g.dl_TILE_DEPTH_NAMES[|_i]+STR_Depth+STR_Layer+STR_Name];
+    if(!is_undefined(_layer_name))
+    {
+             if (string_pos("FGWALL",_layer_name)) _depth_wall  = val(g.dm_tile_file[?_layer_name+STR_Depth], _depth_wall);
+        else if (string_pos("BREAK", _layer_name)) _depth_break = val(g.dm_tile_file[?_layer_name+STR_Depth], _depth_break);
+    }
+}
+DEPTH_WALL  = _depth_wall;  // solid wall bgr
+DEPTH_BREAK = _depth_break; // break blocks
+
 
 
 

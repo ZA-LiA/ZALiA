@@ -395,15 +395,15 @@ if(!is_undefined(g.dm_tile_file)
             _dm_layer_data = dl_tile_layer_data[|_i];
             _layer_name = _dm_layer_data[?"name"];
             _layer_name = string(_layer_name);
-            if (string_pos("BG",_layer_name) 
-            ||  string_pos("FG",_layer_name) )
+            if (string_pos("BG0",_layer_name) 
+            ||  string_pos("FG0",_layer_name) )
             {
                 _terrain_idx = ds_grid_width(dg_terrain);
                 ds_grid_resize(dg_terrain,_terrain_idx+1,dg_terrain_H);
                 
-                if (        string_pos("BG",_layer_name))
-                {    _pos = string_pos("BG",_layer_name);  }
-                else _pos = string_pos("FG",_layer_name);
+                if (        string_pos("BG0",_layer_name))
+                {    _pos = string_pos("BG0",_layer_name);  }
+                else _pos = string_pos("FG0",_layer_name);
                 _name  = string_copy(_layer_name,_pos,4); // depth name:  "BG01", "BG02", .. "BG08",   "FG01", "FG02", .. "FG08"
                 //_depth = val(g.dm_TILE_DEPTH[?_name],dg_terrain[#_terrain_idx,2]);
                 //_idx   = ds_list_find_index(g.dl_TILE_DEPTHS, _depth);

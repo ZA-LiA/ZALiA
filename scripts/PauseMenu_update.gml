@@ -128,7 +128,7 @@ switch(g.menu_state)
     if(!state) state  = state_SPELL;
     
     rm_pal_on_open = p.pal_rm_curr;
-    change_pal(strReplaceAt(rm_pal_on_open, p.PAL_POS_MOB1, PAL_MOBS_LEN, PAL_MOBS));
+    change_pal(strReplaceAt(rm_pal_on_open, p.PAL_POS_MOB1, string_length(PAL_MOBS), PAL_MOBS));
     
     PauseMenu_udp();
     
@@ -222,6 +222,8 @@ switch(g.menu_state)
         g.menu_built_count--;
     if (g.menu_built_count<0)
     {
+        change_pal(rm_pal_on_open);
+        
         timer0 = 0;
         g.menu_state++; // menu_built_count below 0
     }
@@ -240,7 +242,7 @@ switch(g.menu_state)
     case 8:{ // ---------------------------------------------------------------------------------------------
     if (timer0) break;
     
-    change_pal(rm_pal_on_open);
+    //change_pal(rm_pal_on_open);
     
     // A338
     timer0 = 0;

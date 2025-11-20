@@ -55,7 +55,7 @@ for(_i=0; _i<_COUNT0; _i++)
     switch(_i)
     {
         case Rando_MARK_ACQUIRED:{
-        _option_state = g.can_mark_acquired_item_locations;
+        _option_state = global.MarkItemLocations_state;
         _text = val(dm_options[?_dk+hex_str(_option_state)+STR_Text], STR_undefined);
         break;}
         

@@ -20,8 +20,8 @@ var _i,_j,_k, _val,_val1,_val2, _count;
 var _layer_name, _layer_data_num;
 var _file_name,_file_name1,_file_name2;
 var _scene_name;
-var _pi, _palette,_palette1,_palette2, _color;
-var _pos;
+var _pi, _palette,_palette1,_palette2,_palette3, _color,_color1, _hue,_sat,_lum;
+var _pos,_pos1,_pos2,_pos3;
 var _dl_pi = ds_list_create();
 
 
@@ -81,10 +81,35 @@ var           _dl_DUNGEON_AREAS_COUNT = ds_list_size(_dl_DUNGEON_AREAS);
 for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
 {
     // The main color scheme palette of the dungeon
+    _pos1  = global.PI_BGR1;
+    _pos1 -= global.PI_BGR1;
+    _pos1 *= global.PAL_CHAR_PER_PAL;
+    _pos1++;
     _palette1 = get_random_palette2(_dl_base_hues[|_i]);
     
     // Dungeon secondary palette (the palette curtains,crystal-holder,etc.. use)
+    _pos2  = global.PI_BGR2;
+    _pos2 -= global.PI_BGR1;
+    _pos2 *= global.PAL_CHAR_PER_PAL;
+    _pos2++;
     _palette2 = get_random_palette2(_dl_base_hues[|(_i+1) mod ds_list_size(_dl_base_hues)]);
+    
+    // BGR4 shade color for BGWALL layers
+    _pos  = max(0, string_pos("B",global.PAL_BASE_COLOR_ORDER)-1);
+    _pos *= global.PAL_CHAR_PER_COLOR;
+    _pos++;
+    _color = string_copy(_palette1, _pos, global.PAL_CHAR_PER_COLOR);
+    _color = str_hex(_color);
+    _hue = colour_get_hue(_color);
+    _sat = colour_get_saturation(_color);
+    _lum = colour_get_value(_color);
+    _lum = clamp(_lum, $04,$40);
+    _color1 = make_colour_hsv(_hue,_sat,_lum);
+    _pos3  = global.PI_BGR4;
+    _pos3 -= global.PI_BGR1;
+    _pos3 *= global.PAL_CHAR_PER_PAL;
+    _pos3 += _pos - 1;
+    _pos3++;
     
     
     for(_j=0; _j<$100; _j++) // Each dungeon scene
@@ -123,17 +148,14 @@ for(_i=1; _i<=_dl_DUNGEON_AREAS_COUNT; _i++) // each dungeon
         
         //if (_j<8) sdm("_scene_name "+_scene_name);
         // BGR1
-        _pos  = global.PI_BGR1;
-        _pos -= global.PI_BGR1;
-        _pos *= global.PAL_CHAR_PER_PAL;
-        _pos++;
-        _palette = strReplaceAt(_palette, _pos, string_length(_palette1), _palette1);
+        _palette = strReplaceAt(_palette, _pos1, string_length(_palette1), _palette1);
+        
         // BGR2
-        _pos  = global.PI_BGR2;
-        _pos -= global.PI_BGR1;
-        _pos *= global.PAL_CHAR_PER_PAL;
-        _pos++;
-        _palette = strReplaceAt(_palette, _pos, string_length(_palette2), _palette2);
+        _palette = strReplaceAt(_palette, _pos2, string_length(_palette2), _palette2);
+        
+        // BGR4 shade color for BGWALL layers
+        _palette = strReplaceAt(_palette, _pos3, global.PAL_CHAR_PER_COLOR, color_str(_color1));
+        
         
         dm_save_data[?STR_Palette+STR_Rando+_scene_name] = _palette;
         //sdm("_scene_name "+_scene_name+", _palette "+_palette);
@@ -187,12 +209,11 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
         }
         
         
-        _datakey1  = _file_name;
-        _datakey1 += STR_Layer;
+        //_dm[?'WestA_024'+STR_Layer+'02'+STR_Name] = 'FG0203, LIQUID_02 DIR_02 SPEED_08';
+        _datakey1 = _file_name+STR_Layer;
+        
         _layer_data_num = $01;
         ds_list_clear(_dl_protected_pi);
-        ds_list_clear(_dl_pi);
-        
         while (true)
         {
             _layer_name = global.dm_tile_layer_data[?_datakey1+hex_str(_layer_data_num++)+STR_Name];
@@ -204,11 +225,11 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
             if (string_pos("LIQUID",  _layer_name) 
             ||  string_pos("BURNABLE",_layer_name) )
             {
-                if (string_pos("BG",_layer_name) 
-                ||  string_pos("FG",_layer_name) )
+                if (string_pos("BG0",_layer_name) 
+                ||  string_pos("FG0",_layer_name) )
                 {
-                    if (string_pos("BG",_layer_name)) _pos = string_pos("BG",_layer_name);
-                    else                              _pos = string_pos("FG",_layer_name);
+                    if (string_pos("BG0",_layer_name)) _pos = string_pos("BG0",_layer_name);
+                    else                               _pos = string_pos("FG0",_layer_name);
                     
                     _val = string_copy(_layer_name, _pos+4, 2);
                     _val = str_hex(_val);
@@ -224,6 +245,8 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
         }
         
         
+        _layer_data_num = $01;
+        ds_list_clear(_dl_pi);
         while (true)
         {
             _layer_name = global.dm_tile_layer_data[?_datakey1+hex_str(_layer_data_num++)+STR_Name];
@@ -232,11 +255,11 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
                 break;//while (true)
             }
             
-            if (string_pos("BG",_layer_name) 
-            ||  string_pos("FG",_layer_name) )
+            if (string_pos("BG0",_layer_name) 
+            ||  string_pos("FG0",_layer_name) )
             {
-                if (string_pos("BG",_layer_name)) _pos = string_pos("BG",_layer_name);
-                else                              _pos = string_pos("FG",_layer_name);
+                if (string_pos("BG0",_layer_name)) _pos = string_pos("BG0",_layer_name);
+                else                               _pos = string_pos("FG0",_layer_name);
                 
                 _val = string_copy(_layer_name, _pos+4, 2);
                 _val = str_hex(_val);
@@ -276,7 +299,8 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
                 _pos++;
                 _palette1 = get_random_palette2(-1);
                 dm_save_data[?STR_Palette+STR_Rando+_scene_name] = strReplaceAt(_palette, _pos, string_length(_palette1), _palette1);
-                //if (_debug1){_debug1=false; sdm(_scene_name+": "+_palette);}
+                //if (isVal(_scene_name,Area_WestA+"03",Area_WestA+"18")) show_debug_message("Rando_randomize_palettes(). "+_scene_name+": "+string(_dl_pi[|_k])+"/"+string(_dl_pi[|_k]-global.PI_BGR1)+", "+_palette1+", "+_palette+" --- "+dm_save_data[?STR_Palette+STR_Rando+_scene_name]);
+                //if (_debug1){_debug1=false; sdm(_scene_name+": "+_palette1);}
             }
         }
     }

@@ -22,8 +22,10 @@ FILE2_NAME1 = "rm_tile_data/"+FILE2_NAME0;
 
 
 
+QUICK_REINITIALIZE = false;
 var _REINITIALIZING = false; // *** SET true WHEN ANY OF THIS DATA HAS CHANGED. BUT UPDATE OVERWORLD DATA FIRST IF IT NEEDS TO BE UPDATED ***
-if(!_REINITIALIZING)
+if(!_REINITIALIZING 
+&& !QUICK_REINITIALIZE )
 {
     if (file_exists(FILE2_NAME1))
     {
@@ -352,6 +354,7 @@ COLOR4_ = color_str(p.C_PUR3); // Purple.    Cemetary sky
 COLOR5_ = color_str(p.C_BLU4); // Dark blue. Old Kasuto sky
 COLOR6_ = color_str(p.C_MGN3);
 COLOR7_ = color_str(p.C_BLU3);
+COLOR8_ = color_str(p.C_VLT4); // $8C1824; $01 Violet.      Darkest
 //                              //
 /*
 COLOR0  = $2D;       // '2D' Dark Grey
@@ -1899,6 +1902,25 @@ for(_i=1; _i<=_count; _i++)
     if (_val==g.OWRC_NO_EXIT_DATA) sdm(_str);
 }
 repeat(8) sdm("");
+*/
+
+
+
+
+/*
+for(_i=0; _i<ds_list_size(g.dl_AREA_NAME); _i++) // each area
+{
+    for(_j=0; _j<$100; _j++) // each scene of area _i
+    {
+        _scene_name = g.dl_AREA_NAME[|_i]+hex_str(_j);
+        if(!is_undefined(g.dm_rm[?_scene_name+STR_Rm+STR_Num+STR_Game]) 
+        && !val(global.dm_scene_rando[?_scene_name+"_Safe"+STR_Item+STR_Position+STR_Count]) )
+        {
+            _val = string(val(g.dm_rm[?_scene_name+dk_FileName+STR_Quest+"01"]));
+            show_debug_message(_scene_name+" - "+_val);
+        }
+    }
+}
 */
 
 

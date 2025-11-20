@@ -67,12 +67,12 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
                     _layer_name    = _dm_layer_data[?"name"];
                     _layer_name    = string(_layer_name);
                     
-                    if (string_pos("BG",_layer_name) 
-                    ||  string_pos("FG",_layer_name) )
+                    if (string_pos("BG0",_layer_name) 
+                    ||  string_pos("FG0",_layer_name) )
                     {
-                        if (string_pos("BG",_layer_name))
-                        {    _layer = string_copy(_layer_name, string_pos("BG",_layer_name), 4);  }
-                        else _layer = string_copy(_layer_name, string_pos("FG",_layer_name), 4);
+                        if (string_pos("BG0",_layer_name))
+                        {    _layer = string_copy(_layer_name, string_pos("BG0",_layer_name), 4);  }
+                        else _layer = string_copy(_layer_name, string_pos("FG0",_layer_name), 4);
                         
                         _count1++;
                         _output  = "_dm[?"+_datakey1;
