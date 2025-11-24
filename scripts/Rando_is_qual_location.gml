@@ -2331,7 +2331,7 @@ switch(_LOCATION_ID) // location id = rm name + rm item num
         {
             if (Rando_is_attainable(STR_GLOVE)      // block wall in false floor room
             &&  Rando_is_attainable(STR_JUMP)       // floor gap in false floor room
-            &&  Rando_is_attainable(STR_STABDOWN) ) // To kill Rebo in CROSS room
+            &&  Rando_is_attainable(STR_STABDOWN) ) // To kill Rebonack in CROSS room
             {
                 return true;
             }

@@ -8,7 +8,8 @@ var _obj,_obj1,_obj2, _ver, _obj_name, _objver, _obj_prefix;
 var _item_id, _item_type;
 var _scene_name, _qual;
 var _RM_SPAWN_COUNT_PRIO = ds_grid_width(g.dg_spawn_prio);
-var _SCENE_USED = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
+if (global.SceneRando_enabled) var _SCENE_USED = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], g.rm_name);
+else                           var _SCENE_USED = g.rm_name;
 
 
 

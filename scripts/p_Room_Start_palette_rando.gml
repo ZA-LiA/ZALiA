@@ -6,7 +6,7 @@ var _dk, _pos;
 var _pi, _pal, _color;
 var _depth, _layer_name;
 
-var _scene_used = g.rm_name;
+var                            _scene_used = g.rm_name;
 if (global.SceneRando_enabled) _scene_used = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], _scene_used);
 
 

@@ -92,6 +92,7 @@ switch(argument0)
         case Other_GAME_FONT:          {return true;  break;}
         case Other_HIDDEN_OW_EXITS:    {return true;  break;}
         case Other_HUD:                {return true;  break;}
+        case Other_QUEST_TIMER:        {return true;  break;}
         case Other_TORCH_LIGHTING:     {return true;  break;}
         //case Other_RENDER_DELAY:       {return global.RenderFrameDelay_state!=-1; break;}
         case Other_BLACK_BGR:          {return true;  break;}

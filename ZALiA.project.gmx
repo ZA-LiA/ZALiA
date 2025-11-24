@@ -12827,6 +12827,8 @@
         <sprite>sprites\spr_Font6</sprite>
         <sprite>sprites\spr_Font7</sprite>
         <sprite>sprites\spr_Font8</sprite>
+        <sprite>sprites\spr_Font9</sprite>
+        <sprite>sprites\spr_Font10</sprite>
         <sprite>sprites\spr_text_slash_forward</sprite>
         <sprite>sprites\spr_copyright_char</sprite>
         <sprite>sprites\spr_Text_WrongChar</sprite>
@@ -13032,6 +13034,10 @@
         <script>scripts\g_Create.gml</script>
         <script>scripts\g_Room_Start.gml</script>
         <script>scripts\g_Room_Start_1.gml</script>
+        <script>scripts\g_Room_Start_1a.gml</script>
+        <script>scripts\g_Room_Start_1b.gml</script>
+        <script>scripts\g_Room_Start_1c.gml</script>
+        <script>scripts\g_Room_Start_1d.gml</script>
         <script>scripts\g_Room_Start_2.gml</script>
         <script>scripts\g_Room_End.gml</script>
         <script>scripts\g_Game_End.gml</script>
@@ -14955,6 +14961,7 @@
       <script>scripts\file_load.gml</script>
       <script>scripts\save_game_pref.gml</script>
       <script>scripts\load_game_pref.gml</script>
+      <script>scripts\update_QuestTimer.gml</script>
       <script>scripts\update_stat_restore.gml</script>
       <script>scripts\update_xp.gml</script>
       <script>scripts\get_continue_reen.gml</script>
@@ -15635,11 +15642,6 @@
             <object>objects\Kakusu013</object>
             <object>objects\Kakusu014</object>
           </objects>
-          <objects name="various">
-            <object>objects\SmasherTrapManager</object>
-            <object>objects\SmasherTrap</object>
-            <object>objects\SmasherTrap01</object>
-          </objects>
         </objects>
         <objects name="gob2">
           <object>objects\GOB2</object>
@@ -15788,6 +15790,11 @@
           </objects>
           <objects name="eyenocc">
             <object>objects\Eyenocc</object>
+          </objects>
+          <objects name="various">
+            <object>objects\SmasherTrapManager</object>
+            <object>objects\SmasherTrap</object>
+            <object>objects\SmasherTrap01</object>
           </objects>
         </objects>
       </objects>
@@ -15975,7 +15982,7 @@
       <room>rooms\rmA_Action_Wide</room>
     </rooms>
   </rooms>
-  <constants number="1056">
+  <constants number="1058">
     <constant name="DEV">true</constant>
     <constant name="RUN_RANDOMIZATION_SEED">$00000000</constant>
     <constant name="PAGE_W">($01&lt;&lt;8)</constant>
@@ -16379,6 +16386,7 @@
     <constant name="STR_Sword">"_Sword"</constant>
     <constant name="STR_Vulnerability">"_Vulnerability"</constant>
     <constant name="STR_Vulnerable">"_Vulnerable"</constant>
+    <constant name="STR_Immune">"_Immune"</constant>
     <constant name="STR_Forest">"_Forest"</constant>
     <constant name="STR_Church">"_Church"</constant>
     <constant name="STR_Halloween">"_Halloween"</constant>
@@ -17029,6 +17037,7 @@
     <constant name="dk_CanUseStartWithSelections">"_CanUseStartWithSelections"</constant>
     <constant name="dk_RandoDungeonTilesetData">"_RandoDungeonTilesetData"</constant>
     <constant name="dk_ForceQuitPenalty">"_ForceQuitPenalty"</constant>
+    <constant name="dk_EnemyRandoOmit">"_EnemyRandoOmit"</constant>
     <constant name="MAP1_PRICE">2000</constant>
     <constant name="MAP2_PRICE">5000</constant>
     <constant name="UserPrefFileName">"UserPreferences.txt"</constant>

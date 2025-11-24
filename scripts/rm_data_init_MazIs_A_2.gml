@@ -37,7 +37,7 @@ var _MapAreaName_MAZE_ISLAND = "MAZE ISLAND";
 //   --------------------------  80  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $80;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'128');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'128', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -80,7 +80,7 @@ data_scene_rando(rm);
 //   --------------------------  81  --------------------------- 
 //    Dungeon Scene. Horizontal moving platform with lava below
 rm_num  = $81;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'129');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'129', dk_EnemyRandoOmit);
 
 
 row3=row0+$08; y3=row3<<3;
@@ -118,7 +118,7 @@ data_scene_rando(rm);
 //   --------------------------  82  --------------------------- 
 //    Dungeon Scene. Full lava floor with minimal platforms across supported by pillars
 rm_num  = $82;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'130');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'130', dk_EnemyRandoOmit);
 
 
 row3=row0+$0A; y3=row3<<3;
@@ -170,7 +170,7 @@ data_scene_rando(rm);
 //   --------------------------  83  --------------------------- 
 //    Dungeon Scene. Tall vertical scene. Zigzag through with several elevators.
 rm_num  = $83;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'131', STR_Dark+'00', STR_View+'02');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'131', STR_Dark+'00', STR_View+'02', dk_EnemyRandoOmit);
 
 
 clm6=$19; x6=clm6<<3;
@@ -239,7 +239,7 @@ data_scene_rando(rm);
 //   --------------------------  84  --------------------------- 
 //    Extra scene rando scene. Cave. 'Lost Dungeon' entrance
 rm_num  = $84;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'132', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'132', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 x3=$57<<3; y3=((row0+$18)<<3)+3;
@@ -289,7 +289,7 @@ data_scene_rando(rm);
 //   --------------------------  85  --------------------------- 
 //    Extra scene rando scene. Cave. Dead end ruins at far right
 rm_num  = $85;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'133', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'133', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3; // PC spawn row Left exit
@@ -313,7 +313,7 @@ data_scene_rando(rm);
 //   --------------------------  86  --------------------------- 
 //    Extra scene rando scene. Scene at bottom of 'Lost Dungeon' elevator entrance
 rm_num  = $86;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'134', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'134', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -349,7 +349,7 @@ data_scene_rando(rm);
 //   --------------------------  87  --------------------------- 
 //    Extra scene rando scene. Dungeon room, both exits are doors
 rm_num  = $87;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'135', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'135', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -388,7 +388,7 @@ data_scene_rando(rm);
 //   --------------------------  88  --------------------------- 
 //    Extra scene rando scene. Dungeon room, tall room with 2 left exit and non-exit elevator
 rm_num  = $88;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'136', STR_Dark+'00', STR_View+'02');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'136', STR_Dark+'00', STR_View+'02', dk_EnemyRandoOmit);
 
 
 row3=$0A; y3=row3<<3; // PC spawn row Left0 exit
@@ -434,7 +434,7 @@ data_scene_rando(rm);
 //   --------------------------  89  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance forest scene
 rm_num  = $89;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'137');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'137', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -467,7 +467,7 @@ data_scene_rando(rm);
 //   --------------------------  8A  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with big lava pit and two horizontal moving platforms with spikes in between both
 rm_num  = $8A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'138');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'138', dk_EnemyRandoOmit);
 
 
 row3=row0+$0C; y3=row3<<3;
@@ -489,8 +489,8 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXM0_); // RGT 0, 
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_l0, exit_name_r0);
+data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP+"|"+STR_FAIRY);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"|"+STR_FAIRY);
 
 data_scene_rando(rm);
 
@@ -504,7 +504,7 @@ data_scene_rando(rm);
 //   --------------------------  8B  --------------------------- 
 //    Extra scene rando scene. Tiny dungeon room, both exits are doors
 rm_num  = $8B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'139', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'139', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -533,7 +533,7 @@ data_scene_rando(rm);
 //   --------------------------  8C  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with 2 separated hallways, both with L and R exits
 rm_num  = $8C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'140', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'140', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$06; y3=row3<<3;
@@ -586,7 +586,7 @@ data_scene_rando(rm);
 //   --------------------------  8D  --------------------------- 
 //    Extra scene rando scene. Dungeon room, short room with 2 left exit and non-exit elevator
 rm_num  = $8D;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'141', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'141', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$06; y3=row3<<3; // PC spawn row Left0 exit
@@ -633,7 +633,7 @@ data_scene_rando(rm);
 //   --------------------------  8E  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with big lava pit and two horizontal moving platforms with spike covered pillars in between both
 rm_num  = $8E;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'142');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'142', dk_EnemyRandoOmit);
 
 
 row3=row0+$0C; y3=row3<<3;
@@ -670,7 +670,7 @@ data_scene_rando(rm);
 //   --------------------------  8F  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with Eyenocc puzzle to get to right exit
 rm_num  = $8F;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'143');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'143', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -718,7 +718,7 @@ data_scene_rando(rm);
 //   --------------------------  90  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with timed burnable to make it to right exit
 rm_num  = $90;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'144', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'144', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -751,7 +751,7 @@ data_scene_rando(rm);
 //   --------------------------  91  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with steep stairs from left to right exit and pitfalls
 rm_num  = $91;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'145', STR_View+'02');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'145', STR_View+'02', dk_EnemyRandoOmit);
 
 
 row3=$34; y3=row3<<3;
@@ -784,7 +784,7 @@ data_scene_rando(rm);
 //   --------------------------  92  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with steep stairs from left to right exit and pitfalls 2
 rm_num  = $92;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'146', STR_View+'02');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'146', STR_View+'02', dk_EnemyRandoOmit);
 
 
 row3=$34; y3=row3<<3;
@@ -818,7 +818,7 @@ data_scene_rando(rm);
 //   --------------------------  93  --------------------------- 
 //    Extra scene rando scene. Dungeon scene outside, even flooring held up by multiple pillars from the bottom of screen
 rm_num  = $93;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'147');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'147', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -851,7 +851,7 @@ data_scene_rando(rm);
 //   --------------------------  94  --------------------------- 
 //    Extra scene rando scene. Dungeon scene lava floor with ascending and decending platforms with small crumble tile platform in middle
 rm_num  = $94;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'148');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'148', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -881,7 +881,7 @@ data_scene_rando(rm);
 //   --------------------------  95  --------------------------- 
 //    Extra scene rando scene. Dungeon scene long low ceiling hallway with Balshot01 turrets at the end
 rm_num  = $95;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'149', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'149', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -914,7 +914,7 @@ data_scene_rando(rm);
 //   --------------------------  96  --------------------------- 
 //    Extra scene rando scene. Dungeon scene long low ceiling hallway with Balshot01 turrets at the end 2
 rm_num  = $96;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'150', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'150', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -947,7 +947,7 @@ data_scene_rando(rm);
 //   --------------------------  97  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with Balshot01 turret protected by solid wall
 rm_num  = $97;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'151', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'151', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -984,7 +984,7 @@ data_scene_rando(rm);
 //   --------------------------  98  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with many high thin solid walls that need JUMP with crumble tiles in between them, and lava under the crumble tiles
 rm_num  = $98;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'152');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'152', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1014,7 +1014,7 @@ data_scene_rando(rm);
 //   --------------------------  99  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with very wide lava pit with Bloobys inbetween that needs JUMP
 rm_num  = $99;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'153');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'153', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1045,7 +1045,7 @@ data_scene_rando(rm);
 //   --------------------------  9A  --------------------------- 
 //    Extra scene rando scene. Vertical dungeon scene with many SmasherTraps lining each side trying to crush pc between them
 rm_num  = $9A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'154', STR_View+'02');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'154', STR_View+'02', dk_EnemyRandoOmit);
 
 
 row3=$34; y3=row3<<3; // EXM0 pc yt
@@ -1114,7 +1114,7 @@ data_scene_rando(rm);
 //   --------------------------  9B  --------------------------- 
 //    Extra scene rando scene. Vertical dungeon scene with many SmasherTraps lining each side trying to crush pc between them. SmasherTraps are walls
 rm_num  = $9B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'155', STR_View+'02', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'155', STR_View+'02', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=$34; y3=row3<<3; // EXM0 pc yt
@@ -1190,7 +1190,7 @@ data_scene_rando(rm);
 //   --------------------------  9C  --------------------------- 
 //    Extra scene rando scene. Burnable puzzle with waterfalls that can put out fire unless they're turned off by a switch
 rm_num  = $9C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'156', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'156', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -1233,7 +1233,7 @@ data_scene_rando(rm);
 //   --------------------------  9D  --------------------------- 
 //    Extra scene rando scene. Dungeon scene with right+left exits, and high up right+left exits accessable only from adjacent rooms
 rm_num  = $9D;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'157', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'157', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -1300,7 +1300,7 @@ data_scene_rando(rm);
 //   --------------------------  9E  --------------------------- 
 //    Extra scene rando scene. Outside scene with beach on left, walkable water on bottom, high dungeon wall on right requiring Eyenocc
 rm_num  = $9E;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'158');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'158', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -1346,7 +1346,7 @@ data_scene_rando(rm);
 //   --------------------------  9F  --------------------------- 
 //    Extra scene rando scene. Tall dungeon with lava pit and 2 vertical moving platforms
 rm_num  = $9F;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'159', STR_View+'02');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'159', STR_View+'02', dk_EnemyRandoOmit);
 
 
 row3=$0C; y3=row3<<3;
@@ -1380,7 +1380,7 @@ data_scene_rando(rm);
 //   --------------------------  A0  --------------------------- 
 //    Extra scene rando scene. Need to lure enemy to switch to open locked door
 rm_num  = $A0;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'160', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'160', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -1415,7 +1415,7 @@ data_scene_rando(rm);
 //   --------------------------  A1  --------------------------- 
 //    Extra scene rando scene. Dungeon with spikes that come out of floor
 rm_num  = $A1;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'161', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'161', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -1447,11 +1447,11 @@ data_scene_rando(rm);
 //   --------------------------  A2  --------------------------- 
 //    Extra scene rando scene. Dungeon with several groups of spikes that alternate attacking
 rm_num  = $A2;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'162', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'162', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
-row4=row3+$00; y4=row4<<3;
+row4=row3+$01; y4=row4<<3;
 row5=row0+$18; y5=row5<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $07<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $10<<3,y4); // v1: Light w/ CANDLE or FIRE
@@ -1488,7 +1488,7 @@ data_scene_rando(rm);
 //   --------------------------  A3  --------------------------- 
 //    Extra scene rando scene. Outside, tall ledge to right exit, bgr dungeon wall ruins
 rm_num  = $A3;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'163');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'163', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -1518,7 +1518,7 @@ data_scene_rando(rm);
 //   --------------------------  A4  --------------------------- 
 //    Extra scene rando scene. Dungeon hallway with ceiling SmasherTrap over item
 rm_num  = $A4;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'164', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'164', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -1569,7 +1569,7 @@ data_scene_rando(rm);
 //   --------------------------  A5  --------------------------- 
 //    Extra scene rando scene. Forest with many bushes and broken trees in background
 rm_num  = $A5;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'165');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'165', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -1610,7 +1610,7 @@ data_scene_rando(rm);
 //   --------------------------  A6  --------------------------- 
 //    Extra scene rando scene. Halloween spooky house outside scene
 rm_num  = $A6;
-set_rm_data(area+hex_str(rm_num), STR_Overworld+dk_MazeIsland, STR_Tile+area_MI+'166');
+set_rm_data(area+hex_str(rm_num), STR_Overworld+dk_MazeIsland, STR_Tile+area_MI+'166', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -1664,7 +1664,7 @@ data_path_conditions(exit_name_l0, exit_name_r0);
 //   --------------------------  A7  --------------------------- 
 //    Extra scene rando scene. Burnable puzzle with waterfalls that can put out fire unless they're turned off by a switch
 rm_num  = $A7;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'167', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'167', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -1705,7 +1705,7 @@ data_scene_rando(rm);
 //   --------------------------  A8  --------------------------- 
 //    Extra scene rando scene. Hallway spike challenge with ceileing spikes
 rm_num  = $A8;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'168', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'168', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1754,7 +1754,7 @@ data_scene_rando(rm);
 //   --------------------------  A9  --------------------------- 
 //    Extra scene rando scene. Liquid pit with platforms across that have internittent spikes
 rm_num  = $A9;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'169', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'169', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1799,7 +1799,7 @@ data_scene_rando(rm);
 //   --------------------------  AA  --------------------------- 
 //    Extra scene rando scene. Need 2 switches pressed by Cling Bubbles
 rm_num  = $AA;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'170', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'170', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -1834,7 +1834,7 @@ data_scene_rando(rm);
 //   --------------------------  AB  --------------------------- 
 //    Extra scene rando scene. A long bridge of only 1 tile deep break blocks with a lava pit under it. Breaking any blocks is dangerous
 rm_num  = $AB;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'171');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'171', dk_EnemyRandoOmit);
 
 
 row3=row0+$0C; y3=row3<<3;

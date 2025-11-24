@@ -369,6 +369,17 @@ global.SCSv2_LIVE = false;
 
 
 
+global.QuestTimer_state = 0;
+global.QuestTimer_show = false;
+global.QuestTimer_can_draw = false;
+global.QuestTimer_time = 0;
+global.QuestTimer_text = "00:00:00.00";
+global.QuestTimer_xl = 0;
+global.QuestTimer_yt = 0;
+
+
+
+
 // For UI like FileSelect, ContinueSave, ..
 // 1: Mostly works like OG where select button is pressed to move the cursor
 // 2: d-pad up and down can also move the cursor
@@ -594,7 +605,7 @@ RandoPalette_state = 0;
 RandoPalette_STATE_COUNT = 3;
 
 // for options menu toggle
-Rando_enemy = true;
+global.EnemyRando_enabled = true;
 
 Rando_DarkroomDiff_COUNT = 3;
 Rando_DarkroomDiff_MIN   = 0;
@@ -916,7 +927,7 @@ global.USE_PLAYER_NAME_INDICATOR = "@@@";
 // Normal and alternate fonts for the game
 // 0: Normal font, 
 global.dl_game_font = ds_list_create();
-ds_list_add(global.dl_game_font, spr_Font1,spr_Font4,spr_Font5,spr_Font6,spr_Font7,spr_Font8);
+ds_list_add(global.dl_game_font, spr_Font1,spr_Font4,spr_Font5,spr_Font6,spr_Font7,spr_Font8,spr_Font9,spr_Font10);
 global.game_font_COUNT = ds_list_size(global.dl_game_font);
 global.game_font_idx = max(0, ds_list_find_index(global.dl_game_font,spr_Font1));
 
@@ -2124,6 +2135,12 @@ switch(1)
     global.SPR_ICON_LIF = spr_icon_shield_1a;
     break;}
 }
+
+
+
+
+if(!VIEW_PAD_YB_OFF) global.HUD_YOFF1 = (8 - (abs(VIEW_Y_TILE_OFF)+1)) - 1;
+else                 global.HUD_YOFF1 =  7;
 
 
 

@@ -781,6 +781,9 @@ switch(g.cutscene_part)
         Audio.mus_rm_body = 0; // This line is enough to prevent 'Wake Zelda' music from restarting, but it only works if done right here for some reason..
         //audio_group_stop_all(audiogroup_mus);
         
+        
+        global.QuestTimer_state = 0;
+        
         spawn_data_set_default();
         if (Input.Pause_pressed)
         {
@@ -798,10 +801,8 @@ switch(g.cutscene_part)
             var _LIFE_LEVEL   = f.level_lif;
             
             
-            
             f.game_completed_count++;
             init_new_save_file(_FILE_NUM, _QUEST_NUM);
-            
             
             
             f.Cucco_skills         = _Cucco_SKILLS;

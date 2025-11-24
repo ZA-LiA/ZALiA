@@ -257,7 +257,7 @@ if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
                             dm_rando_locations[?_datakey+STR_OWRC] = _owrc;
                             dm_rando_locations[?_datakey+STR_Acquired] = _acquired;
                             
-                            _count1 = val(dm_rando_locations[?_owrc_+STR_Item+STR_Count])+1;
+                            _count1 = val(dm_rando_locations[?_owrc_+STR_Item+STR_Count]) + 1;
                             dm_rando_locations[?_owrc_+STR_Item+STR_Count] = _count1;
                             
                             _count2 = val(dm_rando_locations[?_owrc_+STR_Acquired+STR_Count]) + _acquired;

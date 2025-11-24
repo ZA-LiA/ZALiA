@@ -52,6 +52,7 @@ XP_CHAR_COUNT =  4;
 
 
 
+/*
 var _YOFF  = 0;
 if(!g.VIEW_PAD_YB_OFF)
 {
@@ -62,6 +63,9 @@ if(!g.VIEW_PAD_YB_OFF)
 Y_LINE1  =           ($01<<3) + _YOFF; // 
 Y_LINE2  = Y_LINE1 + ($01<<3); // 
 Y_LINE1 -= 1; // Add some space between lines
+*/
+Y_LINE1 = global.HUD_YOFF1;
+Y_LINE2 = Y_LINE1 + ($01<<3) + 1; // 
 //                                  // 
 //                                  // 
 X_PAD2 = $01<<3;

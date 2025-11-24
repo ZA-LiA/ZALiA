@@ -147,7 +147,7 @@ for(_i=0; _i<_EXIT_DIR_COUNT; _i++) // each exit dir: $00 mid, $10 right, $20 le
 
 
 
-var _conditions, _path_name, _item_path_name;
+var _path_condition_id, _path_name, _item_path_name;
 var _group_id_paths = "_Paths:";
 var _dl_conditions = ds_list_create();
 _first = true;
@@ -158,8 +158,8 @@ if (_PATH_COUNT)
 {
     for(_i=1; _i<=_PATH_COUNT; _i++) // each path of the scene
     {
-        _conditions = g.dm_rm[?_SCENE_NAME+STR_Path+hex_str(_i)+STR_Conditions+STR_ID];
-        if(!is_undefined(_conditions))
+        _path_condition_id = g.dm_rm[?_SCENE_NAME+STR_Path+hex_str(_i)+STR_Conditions+STR_ID];
+        if(!is_undefined(_path_condition_id))
         {
             _path_name = string(val(g.dm_rm[?_datakey0+STR_Path+hex_str(_i)+STR_Path+STR_Name]));
             if (global.SceneRando_ItemPositioning_METHOD==2  // 2: Scenes with items that have no conditions to reach them can be rando'd with scenes with no items. A safe position will be given to the item on room start.
@@ -185,7 +185,7 @@ if (_PATH_COUNT)
             }
             
             if(!_first) _group_id_paths += "-";
-            _group_id_paths += _conditions;
+            _group_id_paths += _path_condition_id;
             _first = false;
         }
     }//_i
@@ -271,42 +271,6 @@ if(!is_undefined(_data)) ds_list_read(_dl_group_scenes, _data);
 ds_list_add(_dl_group_scenes, _SCENE_NAME);
 global.dm_scene_rando[?_datakey0] = ds_list_write(_dl_group_scenes);
 ds_list_destroy(_dl_group_scenes); _dl_group_scenes=undefined;
-
-
-
-
-
-
-
-
-/*
-_datakey0 = _SCENE_NAME+STR_Path+STR_Conditions;
-for(_i=1; _i<=_PATH_COUNT; _i++) // each path of the scene
-{
-    _conditions = g.dm_rm[?_SCENE_NAME+STR_Path+hex_str(_i)+STR_Conditions+STR_ID];
-    if(!is_undefined(_conditions))
-    {
-        _path_name = string(val(g.dm_rm[?_datakey0+STR_Path+hex_str(_i)+STR_Path+STR_Name]));
-        if (string_pos(STR_Item,_path_name)) // This `_i` is a path to an item
-        {
-            _datakey1 = string_copy(_path_name, string_pos(STR_Item,_path_name), string_length(STR_Item)+2);
-            _datakey1 = _SCENE_NAME+_datakey1+STR_Conditions+STR_List;
-            _data = g.dm_rm[?_datakey1];
-            if(!is_undefined(_data))
-            {
-                ds_list_read(_dl_conditions,_data);
-                if (ds_list_size(_dl_conditions)==1 
-                &&  _dl_conditions[|0]!=STR_None )
-                //&&  _dl_conditions[|0]==STR_JUMP )
-                {
-                    show_debug_message(string(val(g.dm_rm[?_SCENE_NAME+dk_FileName+STR_Quest+"01"]))+" - "+_SCENE_NAME+". "+_conditions);
-                    continue;//_i. All paths to this item either have no conditions or all the same conditions
-                }
-            }
-        }
-    }
-}//_i
-*/
 
 
 

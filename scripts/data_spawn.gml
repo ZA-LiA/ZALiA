@@ -292,6 +292,7 @@ if (_IS_ITEM)
     g.dm_spawn[?_datakey+STR_Item+STR_Type]   = _ITEM_TYPE;
     g.dm_spawn[?_datakey+STR_Item+STR_ID]     = _ITEM_ID;
     //sdm(_RM_NAME+"("+string(val(g.dm_rm[?_RM_NAME+dk_FileName+STR_Quest+"01"]))+")  Item. "+_SPAWN_DATAKEY+", _ITEM_TYPE '"+_ITEM_TYPE+"'"+string_repeat(" ",8-string_length(_ITEM_TYPE))+", _ITEM_ID '"+_ITEM_ID+"'");
+    //if (string_pos("PalcB",_SPAWN_DATAKEY)) show_debug_message("data_spawn(). "+"'"+_ITEM_ID+"' ("+_SPAWN_DATAKEY+") owrc=$"+hex_str(val(g.dm_rm[?_RM_NAME+STR_OWRC]),4));
 }
 else if (is_ancestor(_OBJECT,Kakusu))
 {

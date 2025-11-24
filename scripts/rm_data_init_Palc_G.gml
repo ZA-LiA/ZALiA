@@ -121,7 +121,7 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $3E<<3,y3); // Bot  1
 clm3=$10; clm4=clm3-$04; clm5=clm3-$01; // clm3: elevator center clm
 data_exit(EXD0,etC0,1,  clm4,row_e2,  CLMS4,ROWS5,  clm5,row_e3,  '06'+EXU0_); // DWN 0, Elevator down 
 data_Elev(EXD0_, clm3,row0+$13);                                               // Elevator DW $40, 
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$11,  '5A'+EXR0_); // LFT 0, 
+data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  '5A'+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '02'+EXL0_); // RGT 0, 
 
 
@@ -2117,7 +2117,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  '31'+'10'); // LFT
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  '33'+'20'); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -2487,10 +2486,10 @@ rm_num  = $3D;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PG+'041', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
-row5=row0+$0E; y5=row5<<3;
-row6=row0+$19; y6=row6<<3;
+row5=row0+$0D; y5=row5<<3;
+row6=row3+$02; y6=row6<<3;
 clm6=$0F; x6=(clm6<<3)+4; _dist=$10<<3; _a=0;
 data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  x6+(_dist*_a++),y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
@@ -2516,7 +2515,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '0D'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '3E'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0, STR_GLOVE);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE);
 

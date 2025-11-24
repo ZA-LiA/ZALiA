@@ -826,6 +826,15 @@ dm_options[?_dk2+STR_Description+hex_str(_k++)]    = string(val(dm_options[?_dk2
 //dm_options[?_dk2+STR_Description+hex_str(_k++)]    = string(val(dm_options[?_dk2+STR_State+"02"+STR_Text]))+": HUD INCLUDES EXTRA INFORMATION THAN WHAT THE ORIGINAL GAME DOES";
 //                                                                          //
 _j=0; _k=0;
+Other_QUEST_TIMER = ++_i;
+_dk2 = _dk0+hex_str(_i);
+dm_options[?_dk2+STR_Font]                         = FONT2;
+dm_options[?_dk2+STR_Option+STR_Text]              = "QUEST TIMER";
+dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "HIDE";
+dm_options[?_dk2+STR_State+hex_str(_j++)+STR_Text] = "SHOW";
+dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "THE TIME PASSED SINCE STARTING THIS QUEST";
+//                                                                          //
+_j=0; _k=0;
 Other_TORCH_LIGHTING = ++_i;
 _dk2 = _dk0+hex_str(_i);
 dm_options[?_dk2+STR_Font]                         = FONT2;

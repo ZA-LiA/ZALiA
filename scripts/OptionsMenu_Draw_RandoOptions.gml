@@ -70,7 +70,7 @@ for(_i=0; _i<_COUNT0; _i++)
         break;}
         
         case Rando_ENEMY_RANDO:{
-        _option_state = g.Rando_enemy;
+        _option_state = global.EnemyRando_enabled;
         _text = val(dm_options[?_dk+hex_str(_option_state)+STR_Text], STR_undefined);
         break;}
         

@@ -222,7 +222,6 @@ while (_arg<argument_count)
     }
     
     
-    
     _datakey = STR_Color;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
@@ -235,7 +234,6 @@ while (_arg<argument_count)
     }
     
     
-    
     _datakey = STR_View;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
@@ -246,7 +244,6 @@ while (_arg<argument_count)
         g.dm_rm[?_RM_NAME+STR_View+STR_Data] = _val1;
         continue;//while (_arg<argument_count)
     }
-    
     
     
     // $0: horizontal.      PC faces right, map show pc facing right. PC faces left, map show pc facing left
@@ -265,7 +262,6 @@ while (_arg<argument_count)
     }
     
     
-    
     _datakey = STR_show_ow_pos;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
@@ -276,7 +272,6 @@ while (_arg<argument_count)
         g.dm_rm[?_RM_NAME+STR_show_ow_pos] = _val1; // When in a cave system, will menu map show where pc is in ow, or the location of the last entered cave tile?
         continue;//while (_arg<argument_count)
     }
-    
     
     
     _datakey = STR_OWRC;
@@ -292,7 +287,6 @@ while (_arg<argument_count)
     }
     
     
-    
     _datakey = STR_Dark;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
@@ -303,7 +297,6 @@ while (_arg<argument_count)
         g.dm_rm[?_RM_NAME+dk_DarkRoom] = _val1; // the x-index of p.dg_pal_rm_dark so the game knows what dark palette to use
         continue;//while (_arg<argument_count)
     }
-    
     
     
     _datakey = STR_Encounter;
@@ -318,7 +311,6 @@ while (_arg<argument_count)
     }
     
     
-    
     _datakey = MapAreaName_DATAKEY;
     if (is_string(          _val) 
     &&  string_pos(_datakey,_val) )
@@ -330,7 +322,6 @@ while (_arg<argument_count)
     }
     
     
-    
     // This is so the area/overworld music continues for certain audio sets.
     //_datakey = STR_Audio+STR_Exception+"01";
     _datakey = dk_SceneMusicThemeException+"01";
@@ -339,6 +330,16 @@ while (_arg<argument_count)
     {
         dm_audio[?_datakey+_RM_NAME] = true;
         with(Audio) dm[?_datakey+_RM_NAME] = true;
+        continue;//while (_arg<argument_count)
+    }
+    
+    
+    // Omit this scene from Enemy Rando
+    _datakey = dk_EnemyRandoOmit;
+    if (is_string(          _val) 
+    &&  string_pos(_datakey,_val) )
+    {
+        g.dm_rm[?_RM_NAME+_datakey] = true;
         continue;//while (_arg<argument_count)
     }
 }

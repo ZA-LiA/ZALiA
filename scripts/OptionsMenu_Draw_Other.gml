@@ -120,6 +120,13 @@ for(_i=0; _i<_COUNT0; _i++)
         break;}
         
         // --------------------------------------------------------------------
+        case Other_QUEST_TIMER:{
+        _text = val(dm_options[?_dk+hex_str(global.QuestTimer_show)     +STR_Text],_STR_UNDEFINED);
+        if (_i==Other_cursor) _pi = PI_MENU1;
+        else                  _pi = PI_MENU2;
+        break;}
+        
+        // --------------------------------------------------------------------
         case Other_TORCH_LIGHTING:{
         _text = val(dm_options[?_dk+hex_str(g.torch_lighting_method)    +STR_Text],_STR_UNDEFINED);
         if (_i==Other_cursor) _pi = PI_MENU1;

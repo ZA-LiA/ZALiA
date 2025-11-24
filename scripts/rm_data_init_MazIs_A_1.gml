@@ -38,7 +38,7 @@ var _MapAreaName_MAZE_ISLAND = "MAZE ISLAND";
 //   --------------------------  40  --------------------------- 
 //    Extra scene rando scene. Field, moai statue with doorway mouth, 2 sections wide room
 rm_num  = $40;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'064');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'064', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -56,7 +56,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  rm_num_+EXL0_); //
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_m0, exit_name_r0);
 data_path_conditions(exit_name_m0, exit_name_l0);
 
@@ -78,7 +77,7 @@ data_scene_rando(rm);
 //   --------------------------  41  --------------------------- 
 //    Extra scene rando scene. Field, moai statue with doorway mouth, 4 sections wide room
 rm_num  = $41;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'065');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'065', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -95,7 +94,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_m0, exit_name_r0);
 data_path_conditions(exit_name_m0, exit_name_l0);
 
@@ -117,7 +115,7 @@ data_scene_rando(rm);
 //   --------------------------  42  --------------------------- 
 //    Extra scene rando scene. Field and water, moai statue with doorway mouth, 2 sections wide room
 rm_num  = $42;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'066');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'066', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -136,7 +134,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row4,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_m0, exit_name_r0);
 data_path_conditions(exit_name_m0, exit_name_l0);
 
@@ -158,7 +155,7 @@ data_scene_rando(rm);
 //   --------------------------  43  --------------------------- 
 //    Extra scene rando scene. Field, Ruins with doorway, 2 sections wide room
 rm_num  = $43;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'067');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'067', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -175,7 +172,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_01"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_m0, exit_name_r0);
 data_path_conditions(exit_name_m0, exit_name_l0);
 
@@ -197,7 +193,7 @@ data_scene_rando(rm);
 //   --------------------------  44  --------------------------- 
 //    Extra scene rando scene. Dungeon, flat floor, 9 pillars, curtains
 rm_num  = $44;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'068');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'068', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -224,7 +220,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXD0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -240,7 +235,7 @@ data_scene_rando(rm);
 //   --------------------------  45  --------------------------- 
 //    Extra scene rando scene. Dungeon, very small corner room with down elevator and right exit
 rm_num  = $45;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'069');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'069', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -254,7 +249,6 @@ data_Elev(EXD0_, clm3,row0+$13);                                          // Ele
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_01"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_r0);
 
@@ -270,7 +264,7 @@ data_scene_rando(rm);
 //   --------------------------  46  --------------------------- 
 //    Extra scene rando scene. Dungeon, very small corner room with down elevator and left exit
 rm_num  = $46;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'070');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'070', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -284,7 +278,6 @@ data_Elev(EXD0_, clm3,row0+$13);                                          // Ele
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
 data_path_conditions(exit_name_l0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_l0);
 
@@ -300,7 +293,7 @@ data_scene_rando(rm);
 //   --------------------------  47  --------------------------- 
 //    Extra scene rando scene. Dungeon, very small corner room with up elevator and right exit
 rm_num  = $47;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'071');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'071', dk_EnemyRandoOmit);
 
 
 row3=row0+$0A; y3=row3<<3;
@@ -314,7 +307,6 @@ data_Elev(EXU0_, clm3,row0+$08);                                          // Ele
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_r0);
 
@@ -330,7 +322,7 @@ data_scene_rando(rm);
 //   --------------------------  48  --------------------------- 
 //    Extra scene rando scene. Dungeon, very small corner room with up elevator and left exit
 rm_num  = $48;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'072');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'072', dk_EnemyRandoOmit);
 
 
 row3=row0+$0A; y3=row3<<3;
@@ -344,7 +336,6 @@ data_Elev(EXU0_, clm3,row0+$08);                                          // Ele
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
 data_path_conditions(exit_name_l0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_l0);
 
@@ -360,7 +351,7 @@ data_scene_rando(rm);
 //   --------------------------  49  --------------------------- 
 //    Extra scene rando scene. 
 rm_num  = $49;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'073');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'073', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -376,7 +367,6 @@ data_Elev(EXU0_, clm3,row0+$12);                                          // Ele
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num-1)+EXU0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_00"+"_00"+"_01",rm);
 data_path_conditions(exit_name_r0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_r0);
 
@@ -392,7 +382,7 @@ data_scene_rando(rm);
 //   --------------------------  4A  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance, in the style of the triforce barrier ruins
 rm_num  = $4A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR2_, STR_Tile+area_MI+'074');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR2_, STR_Tile+area_MI+'074', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -411,7 +401,6 @@ data_Elev(EXD0_, clm3,row0+$14);                                          // Ele
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXU0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
 data_path_conditions(exit_name_l0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_l0);
 
@@ -427,7 +416,7 @@ data_scene_rando(rm);
 //   --------------------------  4B  --------------------------- 
 //    Extra scene rando scene. Cave, Water, has a "walk across short gaps" section
 rm_num  = $4B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'075');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'075', dk_EnemyRandoOmit);
 
 
 row3=row0+$08; y3=row3<<3;
@@ -445,7 +434,6 @@ data_Elev(EXU0_, clm3,row0+$10);                                          // Ele
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+EXD0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01",rm);
 data_path_conditions(exit_name_l0, exit_name_u0);
 data_path_conditions(exit_name_u0, exit_name_l0);
 
@@ -461,7 +449,7 @@ data_scene_rando(rm);
 //   --------------------------  4C  --------------------------- 
 //    Extra scene rando scene. Cave, Left Exit, Elev Down Exit, 4 section-wide room
 rm_num  = $4C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'076');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'076', dk_EnemyRandoOmit);
 
 
 row3=row0+$0A; y3=row3<<3;
@@ -485,7 +473,6 @@ data_Elev(EXD0_, clm3,row0+$13);                                          // Ele
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+EXU0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
 data_path_conditions(exit_name_l0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_l0);
 
@@ -501,7 +488,7 @@ data_scene_rando(rm);
 //   --------------------------  4D  --------------------------- 
 //    Extra scene rando scene. Dungeon, Water, Long Drop from Pit Up. The scene used for the evil wizard video
 rm_num  = $4D;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'077');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'077', dk_EnemyRandoOmit);
 
 
 row3=row0+$19; y3=row3<<3;
@@ -516,7 +503,6 @@ data_exit(EXU0,etA0,0,  $20,row_e0,  $10,ROWS5,  $27,row_e4,  hex_str(rm_num-1)+
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+EXL0_); // LFT 0, 
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_00"+"_01"+STR_Pit+"8",rm);
 //data_path_conditions(exit_name_l0, exit_name_l0);
 data_path_conditions(exit_name_u0, exit_name_l0);
 
@@ -532,7 +518,7 @@ data_scene_rando(rm);
 //   --------------------------  4E  --------------------------- 
 //    Extra scene rando scene. Beach, Water, Basic beach scene
 rm_num  = $4E;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'078');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'078', dk_EnemyRandoOmit);
 
 
 row3=row0+$18; y3=row3<<3;
@@ -551,7 +537,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -567,7 +552,7 @@ data_scene_rando(rm);
 //   --------------------------  4F  --------------------------- 
 //    Extra scene rando scene. Bridge, Water, All bridge, 4 section-wide room
 rm_num  = $4F;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'079');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'079', dk_EnemyRandoOmit);
 
 
 row3=row0+$09; y3=row3<<3;
@@ -589,7 +574,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -605,7 +589,7 @@ data_scene_rando(rm);
 //   --------------------------  50  --------------------------- 
 //    Extra scene rando scene. Cave, Basic cave, 2 section-wide room
 rm_num  = $50;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'080');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'080', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -619,7 +603,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -635,7 +618,7 @@ data_scene_rando(rm);
 //   --------------------------  51  --------------------------- 
 //    Extra scene rando scene. Cave, Water, Old underground VOD tunnels scene
 rm_num  = $51;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'081');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'081', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -652,7 +635,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -668,7 +650,7 @@ data_scene_rando(rm);
 //   --------------------------  52  --------------------------- 
 //    Extra scene rando scene. Cave, Water, Old underground VOD tunnels scene
 rm_num  = $52;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'082');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'082', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -685,7 +667,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -701,7 +682,7 @@ data_scene_rando(rm);
 //   --------------------------  53  --------------------------- 
 //    Extra scene rando scene. Cave, Water, Old underground VOD tunnels scene
 rm_num  = $53;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'083');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'083', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -722,7 +703,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -738,7 +718,7 @@ data_scene_rando(rm);
 //   --------------------------  54  --------------------------- 
 //    Extra scene rando scene. Dungeon, Water, Similar to P5's skulls on top of pillars scene
 rm_num  = $54;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'084');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'084', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -784,7 +764,7 @@ data_scene_rando(rm);
 //   --------------------------  55  --------------------------- 
 //    Extra scene rando scene. Dungeon, Option to take high or low path
 rm_num  = $55;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'085');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'085', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -821,18 +801,19 @@ data_scene_rando(rm);
 //   --------------------------  56  --------------------------- 
 //    Extra scene rando scene. Dungeon, Stairs, 2 section-wide room
 rm_num  = $56;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'086');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'086', dk_EnemyRandoOmit);
 
 
-row3=row0+$17; y3=row3<<3;
-row4=row0-$01; y4=row4<<3;
-data_spawn(rm+STR_PRIO,TorchA,$1,  ($0D<<3)+4,row3<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-//data_spawn(rm+STR_PRIO,TorchA,$1,  $36<<3,y4,  STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,Octorok01,$1,  $15<<3,(row0+$15)<<3); // Octorok  1 
-data_spawn(rm+STR_PRXM,Octorok01,$1,  $19<<3,(row0+$11)<<3); // Octorok  1 
-data_spawn(rm+STR_PRXM,Octorok01,$1,  $1D<<3,(row0+$0D)<<3); // Octorok  1 
-data_spawn(rm+STR_PRXM,Octorok01,$1,  $21<<3,(row0+$09)<<3); // Octorok  1 
-data_spawn(rm+STR_PRXM,Octorok01,$1,  $25<<3,(row0+$05)<<3); // Octorok  1 
+row3=row0+$16; y3=row3<<3;
+row4=row0-$02; y4=row4<<3;
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($15<<3)+4,(row0+$13)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($1D<<3)+4,(row0+$0B)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRIO,TorchA,$1,  ($25<<3)+4,(row0+$03)<<3,  STR_Lit); // v1: Light w/ CANDLE or FIRE
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $15<<3,(row0+$14)<<3); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $19<<3,(row0+$10)<<3); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $1D<<3,(row0+$0C)<<3); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $21<<3,(row0+$08)<<3); // Octorok  1 
+data_spawn(rm+STR_PRXM,Octorok01,$1,  $25<<3,(row0+$04)<<3); // Octorok  1 
 
 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
@@ -854,7 +835,7 @@ data_scene_rando(rm);
 //   --------------------------  57  --------------------------- 
 //    Extra scene rando scene. Dungeon, Stairs on both ends
 rm_num  = $57;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'087');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'087', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -874,7 +855,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -890,7 +870,7 @@ data_scene_rando(rm);
 //   --------------------------  58  --------------------------- 
 //    Extra scene rando scene. Dungeon, Pillars, Flat ground except for 4 1x2 block solids
 rm_num  = $58;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'088');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'088', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -914,7 +894,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -930,7 +909,7 @@ data_scene_rando(rm);
 //   --------------------------  59  --------------------------- 
 //    Extra scene rando scene. Dungeon, Water, Flat ground with several pitfalls
 rm_num  = $59;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'089');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'089', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -950,7 +929,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -966,7 +944,7 @@ data_scene_rando(rm);
 //   --------------------------  5A  --------------------------- 
 //    Extra scene rando scene. Field, Rocky ground, Flat ground, Some bgr bushes
 rm_num  = $5A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'090');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'090', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -981,7 +959,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -997,7 +974,7 @@ data_scene_rando(rm);
 //   --------------------------  5B  --------------------------- 
 //    Extra scene rando scene. Mtn Pass
 rm_num  = $5B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'091');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'091', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -1015,7 +992,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -1031,7 +1007,7 @@ data_scene_rando(rm);
 //   --------------------------  5C  --------------------------- 
 //    Extra scene rando scene. Mtn Pass
 rm_num  = $5C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'092');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'092', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -1051,7 +1027,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -1067,7 +1042,7 @@ data_scene_rando(rm);
 //   --------------------------  5D  --------------------------- 
 //    Extra scene rando scene. River Cave
 rm_num  = $5D;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'093');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'093', dk_EnemyRandoOmit);
 
 
 row3=row0+$18; y3=row3<<3;
@@ -1086,7 +1061,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -1102,7 +1076,7 @@ data_scene_rando(rm);
 //   --------------------------  5E  --------------------------- 
 //    Extra scene rando scene. Rock, Water
 rm_num  = $5E;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'094');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'094', dk_EnemyRandoOmit);
 
 
 row3=row0+$11; y3=row3<<3;
@@ -1122,7 +1096,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -1138,7 +1111,7 @@ data_scene_rando(rm);
 //   --------------------------  5F  --------------------------- 
 //    Extra scene rando scene. Rock, Water, River side
 rm_num  = $5F;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'095');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'095', dk_EnemyRandoOmit);
 
 
 row3=row0+$13; y3=row3<<3;
@@ -1154,7 +1127,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row4,  hex_str(rm_num+1)+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -1170,7 +1142,7 @@ data_scene_rando(rm);
 //   --------------------------  60  --------------------------- 
 //    Extra scene rando scene. Field, Ruins
 rm_num  = $60;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'096');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'096', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -1204,7 +1176,7 @@ data_scene_rando(rm);
 //   --------------------------  61  --------------------------- 
 //    Extra scene rando scene. Rock, Ruins like ones at triforce barrier
 rm_num  = $61;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'097');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'097', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -1235,7 +1207,7 @@ data_scene_rando(rm);
 //   --------------------------  62  --------------------------- 
 //    Extra scene rando scene. Field, Water, Ruins
 rm_num  = $62;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'098');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'098', dk_EnemyRandoOmit);
 
 
 row3=row0+$19; y3=row3<<3;
@@ -1266,7 +1238,7 @@ data_scene_rando(rm);
 //   --------------------------  63  --------------------------- 
 //    Extra scene rando scene. Rock, Water
 rm_num  = $63;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'099');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'099', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1297,7 +1269,7 @@ data_scene_rando(rm);
 //   --------------------------  64  --------------------------- 
 //    Extra scene rando scene. Rock, Water
 rm_num  = $64;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'100');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'100', dk_EnemyRandoOmit);
 
 
 row3=row0+$08; y3=row3<<3;
@@ -1327,7 +1299,7 @@ data_scene_rando(rm);
 //   --------------------------  65  --------------------------- 
 //    Extra scene rando scene. Rock, Water
 rm_num  = $65;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'101');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'101', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1357,7 +1329,7 @@ data_scene_rando(rm);
 //   --------------------------  66  --------------------------- 
 //    Extra scene rando scene. Rock, Water
 rm_num  = $66;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'102');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'102', dk_EnemyRandoOmit);
 
 
 row3=row0+$04; y3=row3<<3;
@@ -1385,7 +1357,7 @@ data_scene_rando(rm);
 //   --------------------------  67  --------------------------- 
 //    Extra scene rando scene. 
 rm_num  = $67;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'103');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'103', dk_EnemyRandoOmit);
 
 
 row3=row0-$04; y3=row3<<3;
@@ -1417,7 +1389,7 @@ data_scene_rando(rm);
 //   --------------------------  68  --------------------------- 
 //    Extra scene rando scene. 
 rm_num  = $68;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'104');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'104', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -1448,7 +1420,7 @@ data_scene_rando(rm);
 //   --------------------------  69  --------------------------- 
 //    Extra scene rando scene. Dungeon, Water, Water pitfalls, Collapsable floors, Need jump to get across
 rm_num  = $69;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'105');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'105', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1479,7 +1451,7 @@ data_scene_rando(rm);
 //   --------------------------  6A  --------------------------- 
 //    Extra scene rando scene. Dungeon, Water, Need cucco to crouch under low submerged wall
 rm_num  = $6A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'106');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'106', dk_EnemyRandoOmit);
 
 
 row3=row0+$18; y3=row3<<3;
@@ -1513,7 +1485,7 @@ data_scene_rando(rm);
 //   --------------------------  6B  --------------------------- 
 //    Extra scene rando scene. Cave, Water, Need cucco to duck under low submerged wall
 rm_num  = $6B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'107');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'107', dk_EnemyRandoOmit);
 
 
 row3=row0+$18; y3=row3<<3;
@@ -1542,7 +1514,7 @@ data_scene_rando(rm);
 //   --------------------------  6C  --------------------------- 
 //    Extra scene rando scene. Cave, Water, Need JUMP + cucco to get across pitfall
 rm_num  = $6C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'108');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'108', dk_EnemyRandoOmit);
 
 
 row3=row0+$0C; y3=row3<<3;
@@ -1570,7 +1542,7 @@ data_scene_rando(rm);
 //   --------------------------  6D  --------------------------- 
 //    Extra scene rando scene. Previous used scene with hole on west side of Death Mtn
 rm_num  = $6D;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'109');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'109', dk_EnemyRandoOmit);
 
 
 row3=row0+$16; y3=row3<<3;
@@ -1603,7 +1575,7 @@ data_scene_rando(rm);
 //   --------------------------  6E  --------------------------- 
 //    Extra scene rando scene. Dungeon, Up+Down Elevator, 4-Way Exits
 rm_num  = $6E;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'110');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'110', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1659,7 +1631,7 @@ data_scene_rando(rm);
 //   --------------------------  6F  --------------------------- 
 //    Extra scene rando scene. Dungeon, Down Elev on left, Up Elev on right
 rm_num  = $6F;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'111');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'111', dk_EnemyRandoOmit);
 
 
 row3=row0+$10; y3=row3<<3;
@@ -1693,7 +1665,7 @@ data_scene_rando(rm);
 //   --------------------------  70  --------------------------- 
 //    Extra scene rando scene. Small, left exit only cave
 rm_num  = $70;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'112', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'112', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$0C; y3=row3<<3;
@@ -1717,7 +1689,7 @@ data_scene_rando(rm);
 //   --------------------------  71  --------------------------- 
 //    Extra scene rando scene. Small, left exit only cave. Secret cucco maze behind FG wall to small cove
 rm_num  = $71;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'113', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'113', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$0C; y3=row3<<3;
@@ -1741,7 +1713,7 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num+1)+
 //   --------------------------  72  --------------------------- 
 //    Extra scene rando scene. Small cave with relatively long hallway with low ceiling
 rm_num  = $72;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'114', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'114', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$14; y3=row3<<3;
@@ -1767,7 +1739,7 @@ data_scene_rando(rm);
 //   --------------------------  73  --------------------------- 
 //    Extra scene rando scene. Cave with high and low hallways and a wall in the middle of the low one
 rm_num  = $73;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'115', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'115', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$0E; y3=row3<<3;
@@ -1807,7 +1779,7 @@ data_path_conditions(exit_name_l0, exit_name_r0);
 //   --------------------------  74  --------------------------- 
 //    Extra scene rando scene. Short outside dungeon room with 3 pits along its floor
 rm_num  = $74;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'116');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'116', dk_EnemyRandoOmit);
 
 
 row3=row0+$0E; y3=row3<<3;
@@ -1843,7 +1815,7 @@ data_scene_rando(rm);
 //   --------------------------  75  --------------------------- 
 //    Extra scene rando scene. Short outside dungeon room acending from left to right with 3 liquid pits along its floor
 rm_num  = $75;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'117');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'117', dk_EnemyRandoOmit);
 
 
 row3=row0+$0C; y3=row3<<3;
@@ -1875,7 +1847,7 @@ data_scene_rando(rm);
 //   --------------------------  76  --------------------------- 
 //    Extra scene rando scene. Dungeon hallway with low ceiling, ceiling spikes, and Drop Spawners
 rm_num  = $76;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'118', STR_Dark+'00');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'118', STR_Dark+'00', dk_EnemyRandoOmit);
 
 
 row3=row0+$12; y3=row3<<3;
@@ -1909,7 +1881,7 @@ data_scene_rando(rm);
 //   --------------------------  77  --------------------------- 
 //    Extra scene rando scene. Dungeon hallway with low ceiling and ceiling spikes and delicate jumping
 rm_num  = $77;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'119');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'119', dk_EnemyRandoOmit);
 
 
 row3=row0+$0C; y3=row3<<3;
@@ -1945,7 +1917,7 @@ data_scene_rando(rm);
 //   --------------------------  78  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $78;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'120');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'120', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -1990,7 +1962,7 @@ data_scene_rando(rm);
 //   --------------------------  79  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $79;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'121');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'121', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -2030,7 +2002,7 @@ data_scene_rando(rm);
 //   --------------------------  7A  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $7A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'122');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'122', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -2066,7 +2038,7 @@ data_scene_rando(rm);
 //   --------------------------  7B  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $7B;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'123');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'123', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -2108,7 +2080,7 @@ data_scene_rando(rm);
 //   --------------------------  7C  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $7C;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'124');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'124', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -2161,7 +2133,7 @@ data_scene_rando(rm);
 //   --------------------------  7D  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $7D;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'125');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'125', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -2204,7 +2176,7 @@ data_scene_rando(rm);
 //   --------------------------  7E  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $7E;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'126');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'126', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;
@@ -2249,7 +2221,7 @@ data_scene_rando(rm);
 //   --------------------------  7F  --------------------------- 
 //    Extra scene rando scene. Dungeon entrance.
 rm_num  = $7F;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'127');
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_MI+'127', dk_EnemyRandoOmit);
 
 
 row3=row0+$17; y3=row3<<3;

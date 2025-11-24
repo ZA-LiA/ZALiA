@@ -57,6 +57,11 @@ SUB_STATE_RSET_1A   = _a++; // ReSET. Draw solid black for x frames before going
 
 
 
+g.game_end_state = 1;
+
+
+
+
 CURTAIN_CLMS = viewW()>>3;
 
 // CURTAIN_CLM: The first clm of the curtains that animates.
@@ -368,7 +373,7 @@ dg_CREDITS[#_idx,5] = _text; // 5: staff text
 //                                                  // 
 //                                                  // 
 CREDITS_COUNT1 = ds_grid_width(dg_CREDITS);
-sdm("_idx $"+hex_str(_idx)+", ds_grid_width(dg_CREDITS): $"+hex_str(ds_grid_width(dg_CREDITS)));
+//show_debug_message("_idx $"+hex_str(_idx)+", ds_grid_width(dg_CREDITS): $"+hex_str(ds_grid_width(dg_CREDITS)));
 
 
 triforce_can_draw = 0;

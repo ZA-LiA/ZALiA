@@ -100,6 +100,9 @@ if(!is_undefined(_val)) g.torch_lighting_method = _val;
 _val = _dm_FILE_DATA[?STR_HUD+STR_Type];
 if(!is_undefined(_val)) global.HUD_state = _val;
 
+_val = _dm_FILE_DATA[?STR_Quest+STR_Timer+"_Show"];
+if(!is_undefined(_val)) global.QuestTimer_show = _val;
+
 _val = _dm_FILE_DATA[?STR_Frenzy+STR_Stab];
 if(!is_undefined(_val)) g.mod_StabFrenzy = _val;
 
@@ -110,7 +113,7 @@ _val = _dm_FILE_DATA[?STR_Rando+STR_Palette];
 if(!is_undefined(_val)) g.RandoPalette_state = _val;
 
 _val = _dm_FILE_DATA[?STR_Rando+STR_Enemy];
-if(!is_undefined(_val)) g.Rando_enemy = _val;
+if(!is_undefined(_val)) global.EnemyRando_enabled = _val;
 
 _val = _dm_FILE_DATA[?STR_Rando+STR_Overworld+STR_TSRC];
 if(!is_undefined(_val)) global.can_rando_ow_tsrc = _val;

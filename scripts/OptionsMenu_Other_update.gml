@@ -140,6 +140,19 @@ switch(Other_cursor)
     break;}
     
     // -------------------------------------------------
+    case Other_QUEST_TIMER:{
+    //if (timer) break;
+    
+    if (_InputConfirm_pressed2)
+    {
+        global.QuestTimer_show = !global.QuestTimer_show;
+        save_game_pref();
+        aud_play_sound(_SOUND2);
+        timer = DURATION1;
+    }
+    break;}
+    
+    // -------------------------------------------------
     case Other_TORCH_LIGHTING:{
     if (timer) break;
     

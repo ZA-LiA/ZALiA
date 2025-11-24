@@ -12,7 +12,7 @@ FallScene_update();
 
 with(Cutscene)
 {
-    if ( !is_undefined(scr_step))
+    if(!is_undefined(  scr_step))
     {   script_execute(scr_step);  }
 }
 

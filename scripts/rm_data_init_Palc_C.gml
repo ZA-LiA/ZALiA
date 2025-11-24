@@ -62,7 +62,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$17,  0); // LFT 0, 
 g.dm_rm[?get_dk_dungeon_entrance(_DUNGEON_NUM)] = exit_name_l0;
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
 data_path_conditions(exit_name_l0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_l0);
 
@@ -168,7 +167,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '02'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '04'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_GLOVE);
 data_path_conditions(exit_name_r0, exit_name_l0, STR_GLOVE);
 data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE);
 
@@ -254,10 +252,12 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '04'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '06'+EXL0_); // RGT 0, 
 
 
-data_path_conditions(exit_name_r0, exit_name_l0);
+data_path_conditions(exit_name_r0, exit_name_l0); // JUMP isn't needed to cross the gap.
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP+"|"+STR_FAIRY);
 data_path_conditions(exit_name_r0, exit_name_d0);
 
-data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE+"|"+STR_JUMP);
+//data_path_conditions(exit_name_l0, exit_name_r0, "("+STR_GLOVE+"+"+STR_FAIRY+")"+"|"+STR_JUMP); // IF JUMP was needed to cross the gap
+data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE+"|"+STR_JUMP); // JUMP isn't needed to cross the gap. JUMP here is to get up the blocks if you don't have GLOVE
 data_path_conditions(exit_name_l0, exit_name_d0, STR_GLOVE+"|"+STR_JUMP);
 
 data_path_conditions(exit_name_d0, exit_name_r0, STR_JUMP);
@@ -746,7 +746,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,$06,  '12'+EXR0_); // LFT
 data_spawn(rm+STR_PRIO,Kakusu003,$1,  (clm1-1)<<3,row4<<3,  STR_Distance+hex_str($30<<3),STR_Treasure+STR_Map+"01"); // v5. Downthrust from high enough to kill.
 
 
-//data_rando_scene01("_00"+"_00"+"_01"+"_01"+"_00",rm);
 data_path_conditions(exit_name_l0, exit_name_d0);
 data_path_conditions(exit_name_d0, exit_name_l0);
 

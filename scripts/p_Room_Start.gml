@@ -16,7 +16,7 @@ var _ci,_ci1,_ci2;
 var _dungeon_num;
 
 
-var _scene_used = g.rm_name;
+var                            _scene_used = g.rm_name;
 if (global.SceneRando_enabled) _scene_used = val(f.dm_rando[?dk_SceneRando+STR_Scene+STR_Randomized+g.rm_name], _scene_used);
 
 

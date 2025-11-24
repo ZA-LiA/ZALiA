@@ -45,6 +45,36 @@ if (_WILL_ELIMINATE
     show_debug_message("");
     show_debug_message(_FILE_NAME+" cleared!");
     show_debug_message("");
+    
+    
+    var _DUNGEON_TILESET_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+dk_RandoDungeonTilesetData+".txt";
+    _data = "";
+    _file = file_text_open_write(working_directory+_DUNGEON_TILESET_FILE_NAME);
+            file_text_write_string(_file,_data);
+            file_text_close(_file);
+    show_debug_message("");
+    show_debug_message(_DUNGEON_TILESET_FILE_NAME+" cleared!");
+    show_debug_message("");
+    
+    
+    var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
+    _data = "";
+    _file = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
+            file_text_write_string(_file,_data);
+            file_text_close(_file);
+    show_debug_message("");
+    show_debug_message(_RANDO_DATA_FILE_NAME+" cleared!");
+    show_debug_message("");
+    
+    
+    var _RANDO_SPOILER_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+"_Spoiler"+".txt";
+    _data = "";
+    _file = file_text_open_write(working_directory+_RANDO_SPOILER_FILE_NAME);
+            file_text_write_string(_file,_data);
+            file_text_close(_file);
+    show_debug_message("");
+    show_debug_message(_RANDO_SPOILER_FILE_NAME+" cleared!");
+    show_debug_message("");
 }
 
 
@@ -70,6 +100,7 @@ if(!_WILL_ELIMINATE)
 
 
 _dm_save_data[?"_DateTimeOfSave"] = date_current_datetime();
+_dm_save_data[?STR_Quest+hex_str(f.quest_num)+STR_Duration] = global.QuestTimer_time;
 
 _dm_save_data[?f.SDNAME_saveCreated]            = _SAVE_IS_CREATED_STATE;
 _dm_save_data[?f.SDNAME_save_name]              = _SAVE_NAME;

@@ -2837,7 +2837,7 @@ data_path_conditions(exit_name_l0, _dk_spawn_item0);
 //   --------------------------  4A  ---------------------------  
 //    West Saria River(South Branch), Saria entrance
 rm_num  = $4A;
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_WA+'062', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_SARIA_RIVER);
+set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_WA+'062', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_SARIA_RIVER, dk_EnemyRandoOmit);
 
 
 row3=row0+$18; y3=row3<<3;
@@ -2857,26 +2857,11 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '4C'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  area_TA+'44'+EXL0_); // RGT 0, To Saria
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
-data_scene_rando(rm);
-/*
-set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_WA+'094', STR_ow_axis+'00', MapAreaName_DATAKEY+_MapAreaName_SARIA_RIVER);
-
-
-row3=row0+$16; y3=row3<<3;
-row4=row3+$01; y4=row4<<3;
-data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1,Cloud_1_init);
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $0E<<3,y4); // Bot  1 
-data_spawn(rm+STR_PRXM,Bot_A,$1,  $19<<3,y3); // Bot  1 
-data_spawn(rm+STR_PRXM,Bot_A,$2,  $28<<3,y3); // Bot  2 
-
-
-data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$18,  '4B'+EXR0_); // LFT 0, 
-data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$13,  area_TA+'44'+EXL0_); // RGT 0, To Saria
-*/
+// Omitting from scene rando so player can farm magic here to burn Burnables in scene to the right
+//data_scene_rando(rm);
 
 
 
@@ -2888,12 +2873,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$13,  area_TA+'44'+E
 //   --------------------------  4B  ---------------------------  
 //    
 rm_num  = $4B;
-
-
-
-
-
-
 
 
 //   --------------------------  4C  ---------------------------  
@@ -2914,7 +2893,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,$30,  '4D'+EXR0_); // LFT
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row3,  '4A'+EXL0_); // RGT 0, 
 
 
-////data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm, STR_JUMP);
 data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
 data_path_conditions(exit_name_l0, exit_name_r0);
 

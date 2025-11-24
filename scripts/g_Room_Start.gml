@@ -33,7 +33,7 @@ if (room==rmB_FileSelect && !instance_exists(FileSelect)) instance_create(0,0, F
 
 for(_i=ds_grid_width(dg_YxY_)-1; _i>=0; _i--)
 {
-    dg_YxY_[#_i,$0]=choose(spr_Font1,spr_Font1,spr_Font_Hyrulian,spr_Font_Hyrulian,spr_Font2,spr_Font2_1,spr_Font3,spr_Font3_1,spr_Font4,spr_Font5,spr_Font6,spr_Font7,spr_Font8);
+    dg_YxY_[#_i,$0]=choose(spr_Font1,spr_Font1,spr_Font_Hyrulian,spr_Font_Hyrulian,spr_Font2,spr_Font2_1,spr_Font3,spr_Font3_1,spr_Font4,spr_Font5,spr_Font6,spr_Font7,spr_Font8,spr_Font9,spr_Font10);
     dg_YxY_[#_i,$1]=sign_(irandom($1F)); // xscale
     dg_YxY_[#_i,$2]=sign_(irandom($1F)); // yscale
 }
@@ -42,6 +42,11 @@ for(_i=ds_grid_width(dg_YxY_)-1; _i>=0; _i--)
 room_speed = ROOM_SPEED_BASE;
 global.Room_frame_count = 0;
 global.OverworldSoftlock_timer = 0;
+if (room==rmB_Title 
+||  room==rmB_FileSelect ) 
+{
+    global.QuestTimer_state = 0;
+}
 
 global.ViewCatchUp_state      = 0;
 global.ViewCatchUp_move_x     = 0;
@@ -822,7 +827,7 @@ if (_ROOM_A)
 {
     if (encounter_type)
     {
-        if (encounter_type&g.ENC_FARY 
+        if (encounter_type&ENC_FARY 
         ||  is_safe_encounter_rm() )
         {
             in_safe_encounter = true;

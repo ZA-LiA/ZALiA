@@ -348,11 +348,15 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '07'+EXL0_); // RG
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$5,  $2E<<3,y3); // PBag v5: 250
 
 
-data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
+data_path_conditions(exit_name_r0, exit_name_l0); // JUMP isn't needed to cross the gap.
+//data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP+"|"+STR_FAIRY);
 data_path_conditions(exit_name_r0, exit_name_d0);
-data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_GLOVE+"+"+STR_JUMP);
+data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_GLOVE); // JUMP isn't needed to cross the gap.
+//data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_GLOVE+"+"+"("+STR_JUMP+"|"+STR_FAIRY+")");
+//data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_GLOVE+"+"+STR_JUMP);
 
-data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+//data_path_conditions(exit_name_l0, exit_name_r0, "("+STR_GLOVE+"+"+STR_FAIRY+")"+"|"+STR_JUMP); // IF JUMP was needed to cross the gap
+data_path_conditions(exit_name_l0, exit_name_r0, STR_GLOVE+"|"+STR_JUMP); // JUMP isn't needed to cross the gap. JUMP here is to get up the blocks if you don't have GLOVE
 data_path_conditions(exit_name_l0, exit_name_d0, STR_GLOVE+"|"+STR_JUMP);
 data_path_conditions(exit_name_l0, _dk_spawn_item0, STR_GLOVE);
 

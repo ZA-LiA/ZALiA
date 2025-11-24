@@ -219,7 +219,7 @@ if(!rm_brightness)
     ||  rm_name==Area_PalcA+"0A" )// Parapa Palace Path to CANDLE
     {
         if (_SCENE_IS_RANDOMIZED 
-        ||  (Rando_enemy && val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Method])) )
+        ||  (global.EnemyRando_enabled && val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Method])) )
         {
                          _spawn_count = ds_grid_width(dg_spawn_prio);
             for(_i=0; _i<_spawn_count; _i++)

@@ -36,7 +36,7 @@ if (g.area_name==Area_PalcG
 
 
 // Despawn inst because Myu is too short to see in water
-if (g.Rando_enemy 
+if (global.EnemyRando_enabled 
 &&  val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Method]) 
 && !is_undefined(dk_spawn) 
 && !is_undefined(g.dm_spawn[?dk_spawn+STR_obj_idx]) 

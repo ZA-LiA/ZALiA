@@ -117,7 +117,7 @@ if (_QUAL_STATE     // if right state
                 goToRoom        = string_copy(goToExitName,1,RmName_LEN);
             }
             
-            sdm("area_idx $"+hex_str(area_idx)+", dl_area[|area_idx] "+dl_area[|area_idx]+", rm_id $"+hex_str(rm_id)+", ExitID $"+hex_str(ExitID));
+            show_debug_message("area_idx $"+hex_str(area_idx)+", dl_area[|area_idx] "+dl_area[|area_idx]+", rm_id $"+hex_str(rm_id)+", ExitID $"+hex_str(ExitID));
             
             aud_play_sound(SND_OPTION_CONFIRM);
             aud_play_sound(SND_OPTION_SELECT1);
@@ -226,7 +226,7 @@ if (_QUAL_STATE     // if right state
             
             rm_id    = val(g.dm_rm[?_area   +STR_Rm+hex_str(_num)+STR_ID], rm_id);
             _rm_name = _area + hex_str(rm_id);
-            // sdm("_diff "+string(_diff)+", _RM_ID $"+hex_str(_RM_ID)+", rm_id $"+hex_str(rm_id)+", area rm count $"+hex_str(_count)+", _num $"+hex_str(_num));
+            //show_debug_message("_diff "+string(_diff)+", _RM_ID $"+hex_str(_RM_ID)+", rm_id $"+hex_str(rm_id)+", area rm count $"+hex_str(_count)+", _num $"+hex_str(_num));
             
             Dev_RmWarper_update_1a(_rm_name); // populates dl_Rm_ExitIDs
             if (ds_list_size(dl_Rm_ExitIDs))
@@ -387,16 +387,16 @@ switch(state)
 if (keyboard_check_pressed(vk_space)){
     var _str, _mapkey, _area;
     var _idx, _val, _count, _rm_count, _exit_count;
-    sdm("");
+    show_debug_message("");
     
     _mapkey = STR_Rm+STR_Count;
     _rm_count = val(g.dm_rm[?_mapkey]);
     _str  = "Game  rm count:  $"+hex_str(_rm_count);
     _str += "("+string(_rm_count)+")";
-    sdm(_str);
+    show_debug_message(_str);
     
     for(_i=0; _i<AREA_COUNT; _i++){
-        sdm("");
+        show_debug_message("");
         _str  = "";
         _area = dl_area[|_i];
         
@@ -412,19 +412,19 @@ if (keyboard_check_pressed(vk_space)){
         _str += "("+string(_exit_count)+")";
         _str += ",  ";
         
-        sdm(_str);
+        show_debug_message(_str);
         
         for(_j=1; _j<=_rm_count; _j++){
             _str  = "   ";
             _mapkey = _area + STR_Rm + hex_str(_j) + STR_ID;
             _val = val(g.dm_rm[?_mapkey], -1);
             _str += "Rm $"+hex_str(_j)+" id:  $"+hex_str(_val);
-            sdm(_str);
+            show_debug_message(_str);
         }
-        sdm("");
+        show_debug_message("");
     }
-    // sdm("Game rm count:  $");
-    sdm("");
+    // show_debug_message("Game rm count:  $");
+    show_debug_message("");
 }
 */
 

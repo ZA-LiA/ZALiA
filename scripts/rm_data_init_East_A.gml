@@ -604,7 +604,7 @@ set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Dark+hex_str(dark_id), STR_Ti
 
 
 row3=row0+$18; y3=row3<<3;
-row4=row0+$16; y4=row4<<3;
+row4=row3-$02; y4=row4<<3;
 data_spawn(rm+STR_PRXM,Octorok01,$1,  $13<<3,y4); // Octorok  1
 
 
@@ -1508,9 +1508,8 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  0); // LFT 0, to O
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  '41'+EXL0_); // RGT 0, 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
-data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP);
+data_path_conditions(exit_name_l0, exit_name_r0, STR_JUMP+"|"+STR_FAIRY);
 
 data_scene_rando(rm);
 
@@ -2822,7 +2821,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row3,  '48'+EXR0_); // LF
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row4,  0); // RGT 0, to Overworld 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
@@ -2874,7 +2872,7 @@ data_scene_rando(rm);
 //     NECKLACE item
 rm_num  = $51;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'077', STR_ow_axis+'01', STR_show_ow_pos+'00');
-_val = p.PAL_MOB_SET2;
+_val = p.PAL_MOB_SET3; // So Carock's outline color is dark red instead of black
 dm_palette[?        rm+dk_MOB] = _val;
 p.dm_scene_palette[?rm+dk_MOB] = _val;
 
@@ -3370,7 +3368,6 @@ data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,rows4,  clmA,row0+$15,  '54'+EXL1_); /
 //data_exit(EXR1,etA0,1,  clm2,row4,  CLMS2,rows4,  clmA,row0+$15,  '5E'+EXL0_); // RGT 1, 
 
 
-////data_rando_scene01("_00"+"_02"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_r1);
 data_path_conditions(exit_name_r0, exit_name_l0);
 
@@ -3400,9 +3397,12 @@ rm_num  = $60;
 //   Nabooru quest cave system. 
 rm_num  = $61;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Tile+area_EA+'035', STR_Dark+"01", STR_ow_axis+hex_str(ow_axis), STR_show_ow_pos+'00');
-_val = p.PAL_NPC_SET1;
+/*
+_val = p.PAL_MOB_SET3; // Should it be this instead of `p.PAL_NPC_SET1`?
+//_val = p.PAL_NPC_SET1; // Not sure why this was here
 dm_palette[?        rm+dk_MOB] = _val;
 p.dm_scene_palette[?rm+dk_MOB] = _val;
+*/
 
 
 row3=row0+$18; y3=row3<<3;
@@ -3678,7 +3678,7 @@ data_scene_rando(rm);
 
 
 //   --------------------------  6B  ---------------------------  
-//    House in forest NW of bridge to MazeIs.     165,71 = $A5,$47 = $47A5
+//    House in forest NW of bridge to MazeIs. "ITS A SECRET TO EVERYBODY"    165,71 = $A5,$47 = $47A5
 rm_num  = $6B;
 set_rm_data(area+hex_str(rm_num), MUS_HOUSE1, STR_Tile+area_TA+'075', STR_ow_axis+hex_str(0));
 _val = p.PAL_MOB_SET4;
@@ -4077,7 +4077,6 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows5,  clmA,row0-$04,  '83'+EXL0_); /
 data_exit(EXR1,etA0,1,  clm2,row5,  CLMS2,ROWS1,  clmA,row0+$12,  '84'+EXL0_); // RGT 1, 
 
 
-////data_rando_scene01("_00"+"_02"+"_02"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_r1);
 data_path_conditions(exit_name_r0, exit_name_l0, STR_JUMP);
 data_path_conditions(exit_name_r0, exit_name_l1);
@@ -4156,7 +4155,6 @@ data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,row0+$10,  '82'+EXR1_); /
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,rows1,  clmA,row0+$14,  0); // RGT 0, to Overworld
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_00"+"_00",rm);
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 

@@ -254,7 +254,7 @@ switch(sub_state)
         Audio.can_play_mus_rm_body = false; // Prevent music until take key
         Audio.can_play_boss_music  = false;
         
-        stun_timer = timer2-(EXPLOSION_DUR3-$10); // body flash dur
+        stun_timer = timer2 - (EXPLOSION_DUR3-$10); // body flash dur
         
         timer = 0;
         sub_state = sub_state_POST_BATTLE1;
@@ -294,9 +294,9 @@ switch(sub_state)
         updateY();
         vspd = clamp(vspd, vspd_grav,$7F-vspd_grav);
         
-        var            _Y=g.rm_h+$40;
-        if (     yt >= _Y 
-        &&  global.pc.yt >= _Y )
+        var _Y = g.rm_h + $40;
+        if (_Y<yt 
+        &&  _Y<global.pc.yt )
         {
             with(Exit)
             {
@@ -345,7 +345,7 @@ switch(sub_state)
     if (timer) break;
     
     Explosion_timer = EXPLOSION_DUR2; // EXPLOSION_DUR2: EXPLOSION_DUR1($90)+$10
-    timer1   =(Explosion_timer-EXPLOSION_CUE2)+1; // $29. explode sound delay. EXPLOSION_CUE2=EXPLOSION_DUR1-$18
+    timer1 = (Explosion_timer-EXPLOSION_CUE2) + 1; // $29. explode sound delay. EXPLOSION_CUE2=EXPLOSION_DUR1-$18
     timer = 0;
     sub_state = sub_state_EXPLODE_BODY;
     break;}
@@ -483,11 +483,13 @@ switch(sub_state)
     with(global.pc)
     {
         set_xy(id, x, other.GROUND_Y-hh_);
-        hspd=0;
-        vspd=0;
+        hspd = 0;
+        vspd = 0;
         PC_set_behavior(behavior_IDLE);
     }
     g.pc_lock = PC_LOCK_ALL;
+    
+    global.QuestTimer_state = 2;
     
     aud_play_sound(Fanfare_MUSIC, -1,false,-1, Fanfare_THEME);
     //fanfare_failsafe_timer  = round(audio_sound_length(Fanfare_MUSIC)*ROOM_SPEED_BASE);
@@ -566,16 +568,17 @@ switch(sub_state)
     case sub_state_EXIT_RM:{
     if (timer) break;
     
-    g.game_end_state=0;
+    g.game_end_state = 0;
     with(Exit)
     {
         if (exitNum&$F0==g.EXIT_DIR_MID)
         {
-            g.exit_leave=id;
-            sdm("exit door");
+            g.exit_leave = id;
+            show_debug_message("exit door");
             
-            g.cutscene_part=0;
-            g.game_end_state=1;
+            g.cutscene_part = 0;
+            g.game_end_state = 1;
+            global.QuestTimer_state = 0;
             break; // with(Exit)
         }
     }
@@ -615,8 +618,8 @@ switch(sub_state)
 if (SkullClingState==SkullClingState_CLING 
 &&  sub_state<=sub_state_BATTLE )
 {
-    Skull_x=x;
-    Skull_y=y;
+    Skull_x = x;
+    Skull_y = y;
 }
 
 

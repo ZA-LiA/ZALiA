@@ -2760,9 +2760,6 @@ g.dm_rm[?'_WestA_5A'+STR_OWRC] = _owrc;
 _owrc = $7F5A;
 g.dm_rm[?'_WestA_60'+STR_OWRC] = _owrc;
 
-_owrc = $6733;
-g.dm_rm[?'_PalcB_16'+STR_OWRC] = _owrc;
-
 _owrc = $7518;
 g.dm_rm[?'_WestA_54'+STR_OWRC] = _owrc;
 

@@ -1,15 +1,17 @@
 /// Cutscene_GameEnd_1B_draw()
 
 
+var _i, _x,_y;
+
+
 var _ADJ1 = (-($03<<3)) + $04;
 if (triforce_can_draw)
 {
-    var _x  = viewXC() - ($02<<3);
+    _x  = viewXC() - ($02<<3);
     var _Y  = GROUND_Y - ($0E<<3);
         _Y += _ADJ1;
-    var _y;
-    
-    for(var _i=0; _i<3; _i++)
+    //
+    for(_i=0; _i<3; _i++)
     {
                    _x +=  8;
         if (_i==1) _y  = _Y - $10;
@@ -36,7 +38,6 @@ if (THE_END_can_draw)
 
 if (dg_CREDITS[#0,0]) // credits idx
 {
-    var _i, _x,_y;
     var _text;
     var _LAST = dg_CREDITS[#0,0]==CREDITS_COUNT1-1;
     var _ADJ  = -(($04<<3)+$08);
@@ -96,6 +97,23 @@ if (dg_CREDITS[#0,0]) // credits idx
     }
 }
 
+
+
+
+if (triforce_can_draw)
+{
+    var _TEXT1 = "-CLEAR QUEST TIME-";
+    _x  = viewXC();
+    _x -= (sprite_get_width(global.dl_game_font[|global.game_font_idx]) * string_length(_TEXT1)) >>1;
+    _y  = GROUND_Y - ($6<<3);
+    draw_text_(_x,_y, _TEXT1);
+    
+    _x  = viewXC();
+    _x -= (sprite_get_width( global.dl_game_font[|global.game_font_idx]) * string_length(global.QuestTimer_text)) >>1;
+    _y +=  sprite_get_height(global.dl_game_font[|global.game_font_idx]);
+    _y += $4;
+    draw_text_(_x,_y, global.QuestTimer_text,0, CREDITS_STAF_PI);
+}
 
 
 

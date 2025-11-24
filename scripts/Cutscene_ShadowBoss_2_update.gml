@@ -49,7 +49,7 @@ switch(sub_state)
     // Audio will be 1 frame late. Normally played in boss update.
     aud_play_sound(get_audio_theme_track(STR_Cast+STR_Spell))
     audio_stop_sound(Audio.mus_rm_inst);
-    Audio.can_play_boss_music=false;
+    Audio.can_play_boss_music = false;
     
     var                     _DURATION = $30 - 1;
     p.Flash_Pal_timer     = _DURATION;
@@ -97,6 +97,7 @@ switch(sub_state)
         }
         
         
+        global.QuestTimer_state = 2;
         g.cutscene_timer = $80;
         g.cutscene_part++;
         sub_state = sub_state_WALK_PC;
@@ -268,7 +269,7 @@ switch(sub_state)
     }
     
     // MOD -------------------------------
-    g.pc_lock         = PC_LOCK_ALL;
+    g.pc_lock = PC_LOCK_ALL;
     triforce_can_draw = 1;
     PC_set_behavior(global.pc.behavior_HOLD_ITEM4);
     if (pc_is_cucco()) global.pc.HoldItem_timer = $FF;
@@ -297,6 +298,7 @@ switch(sub_state)
             
             g.cutscene_part  = 0;
             g.game_end_state = 1;
+            global.QuestTimer_state = 0;
             other.sub_state = other.sub_state_DONE;
             break;//with(Exit)
         }

@@ -52,7 +52,12 @@ ds_map_clear(g.dm_room_history);
 //                                                                              // 
 //f.ar_SAVE_NAMES[_FILE_NUM-1] =  val(_dm_file_data[?f.SDNAME_save_name], SAVE_NAME_NULL);
 //f.save_name             =       val(_dm_file_data[?f.SDNAME_save_name], SAVE_NAME_NULL);
+
 f.quest_num             = clamp(val(_dm_file_data[?f.SDNAME_questNum]), 1,2);
+
+global.QuestTimer_time  = val(_dm_file_data[?STR_Quest+hex_str(f.quest_num)+STR_Duration]);
+global.QuestTimer_state = 1;
+
 f.game_completed_count  =       val(_dm_file_data[?STR_Game+STR_Complete+STR_Count]);
 f.death_count           =       val(_dm_file_data[?f.SDNAME_deathCount]);
 //                                                                              // 

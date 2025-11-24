@@ -109,7 +109,7 @@ switch(Rando_cursor)
     
     if (_InputConfirm_pressed2)
     {
-        g.Rando_enemy = !g.Rando_enemy;
+        global.EnemyRando_enabled = !global.EnemyRando_enabled;
         save_game_pref();
         aud_play_sound(_SOUND2);
         timer = DURATION1;

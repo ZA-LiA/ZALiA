@@ -26,6 +26,7 @@ _dm_save_data[?STR_Game+STR_Font]                       = global.game_font_idx;
 _dm_save_data[?STR_Indicate+STR_Spell+STR_Active]       = g.mod_IndicateSpellActive;
 _dm_save_data[?STR_Torch+STR_Lighting]                  = g.torch_lighting_method;
 _dm_save_data[?STR_HUD+STR_Type]                        = global.HUD_state;
+_dm_save_data[?STR_Quest+STR_Timer+"_Show"]             = global.QuestTimer_show;
 _dm_save_data[?STR_Frenzy+STR_Stab]                     = g.mod_StabFrenzy;
 _dm_save_data[?STR_Cucco+STR_Spell+"02"+STR_Preference] = g.CuccoSpell2_Option;
 _dm_save_data[?STR_Overworld+STR_Mark+STR_Hidden+STR_Exit] = g.HiddenExitIndicator_enabled;
@@ -33,7 +34,7 @@ _dm_save_data[?STR_Halloween+"01"]                      = global.Halloween1_enab
 
 _dm_save_data[?STR_Overworld+STR_Mark+STR_Acquired]     = global.MarkItemLocations_state;
 _dm_save_data[?STR_Rando+STR_Palette]                   = g.RandoPalette_state;
-_dm_save_data[?STR_Rando+STR_Enemy]                     = g.Rando_enemy;
+_dm_save_data[?STR_Rando+STR_Enemy]                     = global.EnemyRando_enabled;
 _dm_save_data[?STR_Rando+STR_Overworld+STR_TSRC]        = global.can_rando_ow_tsrc;
 _dm_save_data[?STR_Rando+STR_Scene]                     = global.SceneRando_enabled;
 _dm_save_data[?STR_Rando+STR_Hint]                      = global.RandoHints_enabled;

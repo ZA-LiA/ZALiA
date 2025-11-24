@@ -79,7 +79,6 @@ g.dm_rm[?get_dk_dungeon_entrance(_DUNGEON_NUM)] = exit_name_r0;
 _dk_spawn_item0 = data_spawn(rm+STR_PRIO,ItmF0,$2,  $2C<<3,(row0+$0C)<<3); // PBag v2: 100 
 
 
-//data_rando_scene01("_00"+"_01"+"_01"+"_01"+"_00",rm, STR_GLOVE+STR_JUMP);
 data_path_conditions(exit_name_r0, exit_name_l0, STR_GLOVE);
 data_path_conditions(exit_name_r0, exit_name_d0);
 data_path_conditions(exit_name_r0, _dk_spawn_item0, STR_JUMP);
@@ -809,7 +808,7 @@ rm_num  = $14;
 set_rm_data(area+hex_str(rm_num), mus0, _DARK_DATA, STR_Tile+area_PB+'016', STR_ow_axis+hex_str(ow_axis));
 
 
-row3=row0+$15; y3=row3<<3;
+row3=row0+$14; y3=row3<<3;
 row4=row3+$01; y4=row4<<3;
 data_spawn(rm+STR_PRIO,TorchA,$1,  $0F<<3,y4); // v1: Light w/ CANDLE or FIRE
 data_spawn(rm+STR_PRIO,TorchA,$1,  $50<<3,y4); // v1: Light w/ CANDLE or FIRE

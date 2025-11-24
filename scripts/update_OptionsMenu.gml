@@ -1,6 +1,12 @@
 /// update_OptionsMenu()
 
 
+if (g.room_type!="A")
+{
+    return false;
+}
+
+
 with(global.OPTIONS_MENU)
 {
     if (PCSpriteWalk_timer)

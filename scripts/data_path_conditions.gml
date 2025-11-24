@@ -20,7 +20,7 @@ if (string_pos("PRIO",_DESTINATION)
 }
 else
 {   // _DESTINATION is an exit
-    _path_name_destin  = STR_Exit+string_copy(_DESTINATION, string_length(_DESTINATION)-1, 2);
+    _path_name_destin = STR_Exit+string_copy(_DESTINATION, string_length(_DESTINATION)-1, 2);
 }
 
 
@@ -55,7 +55,6 @@ if (string_pos(STR_Exit,_path_name_destin)) g.dm_rm[?_ORIGIN_EXIT+STR_Exit+STR_P
 
 
 var _path_condition_id = STR_Path+":"+_PATH_NAME+"(";
-
 var _conditions = "";
 var _condition_num = 0;
 for(var _i=_arg; _i<argument_count; _i++)
@@ -65,7 +64,6 @@ for(var _i=_arg; _i<argument_count; _i++)
     g.dm_rm[?_DATAKEY1+STR_Condition+hex_str(_condition_num)] = argument[_i];
     _conditions += argument[_i];
 }
-
 _path_condition_id += _conditions+")";
 
 
@@ -91,6 +89,12 @@ if (string_pos(STR_Item,_path_name_destin))
 //if(!is_undefined(g.dm_rm[?_SCENE_NAME+STR_Path+_PATH_NAME+STR_Conditions+STR_ID])) show_debug_message("data_path_conditions().  Scene '"+_SCENE_NAME+"', Path '"+_PATH_NAME+"' already exists");
 g.dm_rm[?_SCENE_NAME+STR_Path+_PATH_NAME        +STR_Conditions+STR_ID] = _path_condition_id;
 g.dm_rm[?_SCENE_NAME+STR_Path+hex_str(_PATH_NUM)+STR_Conditions+STR_ID] = _path_condition_id;
+
+if (string_pos(STR_Item,_path_name_destin))
+{   // `_DESTINATION` is the item's spawn datakey
+    _datakey = _DESTINATION+STR_Path+STR_Conditions+STR_ID;
+    g.dm_spawn[?_datakey] = val(g.dm_spawn[?_datakey],"") + "-" + _path_condition_id;
+}
 
 
 

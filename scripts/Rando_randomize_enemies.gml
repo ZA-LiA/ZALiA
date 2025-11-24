@@ -9,7 +9,7 @@ var _difficulty, _scene_name;
 
 if (EnemyChars_WILL_RANDOMIZE)
 {
-    g.Rando_enemy = true;
+    global.EnemyRando_enabled = true;
     save_game_pref();
     
     
@@ -59,7 +59,9 @@ if (EnemyChars_WILL_RANDOMIZE)
             if(!is_undefined(_objver1) 
             &&  is_string(   _objver1) 
             && !is_undefined(_scene_name) 
-            &&  is_string(   _scene_name) )
+            &&  is_string(   _scene_name) 
+            &&  is_undefined(g.dm_rm[?_scene_name+dk_EnemyRandoOmit]) 
+            &&  is_undefined(g.dm_spawn[?_spawn_datakey1+dk_EnemyRandoOmit]) )
             {
                 if (        string_copy(_scene_name,1,AreaID_LEN)!=Area_MazIs 
                 ||  str_hex(string_copy(_scene_name,AreaID_LEN+2,2))<$40 )
