@@ -8,12 +8,12 @@ var _datakey;
 Anim_yoff = (g.counter1>>1)&$7;
 
 
-if (!global.pc.is_dead 
+if(!global.pc.is_dead 
 && !(global.pc.ocs&$4)   // $4: pc center x is on screen
 &&  state==state_NORMAL 
 &&  GO_can_collide_this_frame(update_idx) )
 {
-    if (dg_barrier[#0,0] < BARRIER_COUNT) // 0: raised count
+    if (dg_barrier[#0,0]<BARRIER_COUNT) // 0: raised count
     {   // A269: JSR E4D9
         for(_i=0; _i<BARRIER_COUNT; _i++)
         {
@@ -63,8 +63,8 @@ if (!global.pc.is_dead
 
 
 
-if (sub_state==SUB_STATE_IDLE 
-|| (sub_state==SUB_STATE_RAISING && !(counter&$3)) )
+if ( sub_state==SUB_STATE_IDLE 
+||  (sub_state==SUB_STATE_RAISING && !(counter&$3)) )
 {
     for(_i=1; _i<dg_barrier_W; _i++) dg_barrier[#_i,3]=true; // barrier can draw
 }
@@ -96,7 +96,7 @@ switch(sub_state)
     
     var _DIST  = abs((xl+(BARRIER_AREA_W>>1)) - global.pc.x);
         _DIST -=          BARRIER_AREA_W>>1;
-    if (_DIST >= $30 
+    if (_DIST>=$30 
     ||  global.pc.y< yt 
     ||  global.pc.y>=yt+BARRIER_H )
     {
@@ -105,8 +105,15 @@ switch(sub_state)
     
         dg_barrier[#0,0]  = 0; // 0: raised count
     for(_i=1; _i<dg_barrier_W; _i++)
-    {   dg_barrier[#0,0] += dg_barrier[#_i,0]==3;  } // 3: raise complete
-    if (dg_barrier[#0,0] >= bitCount(f.crystals)) break;
+    {
+        dg_barrier[#0,0] += dg_barrier[#_i,0]==3; // 3: raise complete
+    }
+    
+    if (dg_barrier[#0,0]>=bitCount(f.crystals) 
+    &&  val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count], global.RandoDungeonRequirement_MAX) )
+    {
+        break;
+    }
     
     
     // A249
@@ -117,10 +124,11 @@ switch(sub_state)
     g.pc_lock = PC_LOCK_ALL; // Lock all
     
     
-    timer     = $C; // Delay SUB_STATE_RAISING
+    timer = $C; // Delay SUB_STATE_RAISING
     sub_state = SUB_STATE_RAISING; // 
     break;}
-    
+    //global.RandoDungeonRequirement_ADJUST_IN_GAME
+    //val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count], global.RandoDungeonRequirement_MAX)
     
     
     
@@ -171,7 +179,7 @@ switch(sub_state)
             {
                 counter = 0;
                 //dg_barrier[#0,0]++;
-                dg_barrier[#0,1]    = 0; // 0:Will trigger next barrier raise
+                dg_barrier[#0,1] = 0; // 0:Will trigger next barrier raise
                 dg_barrier[#_num,0] = barrier_state_COMPLETE; // 3: Raise Complete
                 break;
             }
@@ -212,8 +220,6 @@ switch(sub_state)
         }
         
     }
-    
-    
     break;} // case SUB_STATE_RAISING:{
     
     
@@ -270,14 +276,19 @@ can_draw_self = true;
 
 if (sub_state==SUB_STATE_RAISING)
 {
-            dg_barrier[#0,0]  = 0;
+    dg_barrier[#0,0] = 0;
+    
     for(_i=1; _i<dg_barrier_W; _i++)
     {
-            dg_barrier[#0,0] += sign(dg_barrier[#_i,0]); // as long as it has started raising
+        dg_barrier[#0,0] += sign(dg_barrier[#_i,0]); // as long as it has started raising
+        
         if (dg_barrier[#_i,0]==barrier_state_COMPLETE) // if it has finished raising
         {
-                         _datakey  = g.rm_name+STR_Barrier+hex_str(_i)+STR_State;
-            f.dm_quests[?_datakey] = dg_barrier[#_i,0];
+            if(!global.RandoDungeonRequirement_ADJUST_IN_GAME 
+            ||  f.crystals&($1<<(_i-1)) )
+            {
+                f.dm_quests[?g.rm_name+STR_Barrier+hex_str(_i)+STR_State] = dg_barrier[#_i,0];
+            }
         }
     }
 }

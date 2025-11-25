@@ -169,20 +169,38 @@ switch(Rando_cursor)
     }
     break;}
     
-    /*
     // -------------------------------------------------
-    case RandoOptions_MARK_HIDDEN_EXIT:{
-    if (timer) break;
+    case Rando_DUNGEONS_REQUIREMENT:{
+    //if (timer) break;
     
     if (_InputConfirm_pressed2)
     {
-        g.hidden_item_exits_help = !g.hidden_item_exits_help;
-        save_game_pref();
+        _val  = val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count], global.RandoDungeonRequirement_MAX);
+        _val += sign_(_InputConfirm_pressed || Input.Right_pressed);
+             if (_val<global.RandoDungeonRequirement_MIN) _val = global.RandoDungeonRequirement_MAX;
+        else if (_val>global.RandoDungeonRequirement_MAX) _val = global.RandoDungeonRequirement_MIN;
+        global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count] = _val;
+        /*
+        var _FILE_NAME = f.dl_file_names[|f.file_num-1];
+        var _file = file_text_open_read(working_directory+_FILE_NAME);
+        var _DATA = file_text_read_string(_file);
+                    file_text_close(_file);
+        var _dm = json_decode(_DATA);
+        if (_dm!=-1)
+        {
+            _dm[?STR_Save+STR_File+STR_Settings] = json_encode(global.dm_save_file_settings);
+            _file = file_text_open_write(working_directory+_FILE_NAME);
+                    file_text_write_string(_file, json_encode(_dm));
+                    file_text_close(_file);
+            ds_map_destroy(_dm); _dm=undefined;
+        }
+        */
+        set_saved_value(f.file_num, STR_Save+STR_File+STR_Settings, json_encode(global.dm_save_file_settings));
+        //save_game_pref();
         aud_play_sound(_SOUND2);
         timer = DURATION1;
     }
     break;}
-    */
     
     // -------------------------------------------------
     case Rando_BACK:{

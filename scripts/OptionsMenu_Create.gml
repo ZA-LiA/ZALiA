@@ -742,6 +742,15 @@ dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "2: ALL SCENES USE THEIR RA
 //dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "2: ALL SCENE COLORS ARE RANDOMIZED";
 //                                                                          //
 _j=0; _k=0;
+Rando_DUNGEONS_REQUIREMENT = ++_i;
+_dk2 = _dk0+hex_str(_i);
+dm_options[?_dk2+STR_Font]                         = FONT2;
+dm_options[?_dk2+STR_Option+STR_Text]              = "DUNGEONS REQUIREMENT";
+//dm_options[?_dk2+STR_State]                        = global.RandoDungeonRequirement_MAX;
+//dm_options[?_dk2+STR_State]                        = val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count], global.RandoDungeonRequirement_MAX);
+dm_options[?_dk2+STR_Description+hex_str(_k++)]    = "HOW MANY DUNGEONS MUST BE COMPLETED TO GET INTO THE FINAL DUNGEON";
+//                                                                          //
+_j=0; _k=0;
 Rando_BACK = ++_i;
 _dk2 = _dk0+hex_str(_i);
 dm_options[?_dk2+STR_Font]                         = FONT2;

@@ -21,7 +21,7 @@ for(_i=1; _i<dg_barrier_W; _i++)
 
 if(!dg_barrier[#0,1] 
 &&  dg_barrier[#0,0]>=bitCount(f.crystals) 
-&&  dg_barrier[#0,0]>=PLACED_CRYSTALS_REQUIREMENT_COUNT )
+&&  dg_barrier[#0,0]>=val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count], global.RandoDungeonRequirement_MAX) )
 {
     for(_i=1; _i<dg_barrier_W; _i++)
     {

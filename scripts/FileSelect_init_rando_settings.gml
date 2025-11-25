@@ -117,7 +117,7 @@ dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABDOWN,2] = 0;
 dg_RandoOTHER_SKILLS[#RandoOTHER_SKILLS_cursor_STABUP,  2] = 0;
 
 
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,2] = f.CRYSTAL_MAX;
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,2] = global.DungeonCrystals_COUNT;
 dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_KAKUSU,  2] = val(g.dm_spawn[?STR_Kakusu+STR_Count]);
 //                                                          //
 //                                                          //

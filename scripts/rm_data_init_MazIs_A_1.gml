@@ -41,7 +41,7 @@ rm_num  = $40;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'064', dk_EnemyRandoOmit);
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3-$02; y4=row4<<3;
 row5=row3+$02; y5=row5<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init);
@@ -80,12 +80,12 @@ rm_num  = $41;
 set_rm_data(area+hex_str(rm_num), MUS_THEWILD, STR_Color+COLOR3_, STR_Tile+area_MI+'065', dk_EnemyRandoOmit);
 
 
-row3=row0+$17; y3=row3<<3;
+row3=row0+$16; y3=row3<<3;
 row4=row3-$02; y4=row4<<3;
 data_NIAO_1a(rm+STR_NIAO+'0', $0000, 1, Cloud_1_init);
-data_spawn(rm+STR_PRIO,SpMoA,$1,  0,0,  STR_Strong+STR_Encounter); // MobySpawner  1 
-data_spawn(rm+STR_PRXM,MoblA,$2,  $1B<<3,y3); // Moblin  2 
-data_spawn(rm+STR_PRXM,MoblA,$2,  $67<<3,y3); // Moblin  2 
+//data_spawn(rm+STR_PRIO,SpMoA,$1,  0,0,  STR_Strong+STR_Encounter); // MobySpawner  1 
+data_spawn(rm+STR_PRXM,MoblA,$2,  $14<<3,y3); // Moblin  2 
+data_spawn(rm+STR_PRXM,MoblA,$2,  $2C<<3,y3); // Moblin  2 
 
 
 clm3=$3F;

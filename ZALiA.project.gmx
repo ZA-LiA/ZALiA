@@ -12093,6 +12093,7 @@
       <sprite>sprites\spr_PCSkin_SteelCrescent_PleasingLinkColors01</sprite>
       <sprite>sprites\spr_PCSkin_wolf0s_Basil01</sprite>
       <sprite>sprites\spr_PCSkin_JarachiKid_VaseLady01</sprite>
+      <sprite>sprites\spr_PCSkin_MisterMike_Chrom01</sprite>
     </sprites>
     <sprites name="rising_xp_text">
       <sprite>sprites\spr_Rising_XP_text_0</sprite>

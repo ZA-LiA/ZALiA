@@ -911,12 +911,15 @@ switch(g.cutscene_part)
                 }
                 
                 
+                /*
                 var _KAKUSU_MAX = val(g.dm_spawn[?STR_Kakusu+STR_Count]);
                 _val = val(global.dm_save_file_settings[?STR_Kakusu+STR_Required+STR_Count]);
                 if (_KAKUSU_MAX-_val) set_saved_value(_FILE_NUM, STR_Kakusu+STR_Required+STR_Count, _val);
                 
-                _val = val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count]);
-                if (f.CRYSTAL_MAX-_val) set_saved_value(_FILE_NUM, STR_Crystal+STR_Required+STR_Count, _val);
+                set_saved_value(_FILE_NUM, STR_Save+STR_File+STR_Settings, json_encode(global.dm_save_file_settings));
+                //_val = val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count]);
+                //if (global.DungeonCrystals_COUNT-_val) set_saved_value(_FILE_NUM, STR_Crystal+STR_Required+STR_Count, _val);
+                */
             }
             
             

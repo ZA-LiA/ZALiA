@@ -9,7 +9,7 @@ switch(sub_state)
     case 0:{
     if (wINw(xl,BodyHB_w,viewXL(),viewW()))
     {   // A238
-        var _REMAINING = f.CRYSTAL_MAX - bitCount(f.crystals);
+        var _REMAINING = global.DungeonCrystals_COUNT - bitCount(f.crystals);
         if(!_REMAINING)
         {
             var _DIST = abs((xl+(BodyHB_w>>1)) - global.pc.x);

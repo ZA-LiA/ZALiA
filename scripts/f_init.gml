@@ -256,8 +256,7 @@ quests = ""; // The dm_quests map encoded
 
 
 
-CRYSTAL_MAX = 6;
-crystals    = 0; // A bit based value representing WHICH crystals have been placed
+crystals = 0; // A bit based value representing WHICH crystals have been placed
 
 
 LIVES_MAX   = 99;

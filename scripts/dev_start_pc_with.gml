@@ -84,7 +84,7 @@ switch(0)
     
     
     
-    for(_i=0; _i<f.CRYSTAL_MAX; _i++) f.crystals |= ($01<<_i); // ALL crystals
+    for(_i=0; _i<global.DungeonCrystals_COUNT; _i++) f.crystals |= ($01<<_i); // ALL crystals
     
     f.level_atk = 5; // 
     f.level_mag = 9; // 
@@ -320,7 +320,7 @@ switch(0)
     
     
     
-    for(_i=0; _i<f.CRYSTAL_MAX; _i++) f.crystals |= ($01<<_i); // ALL crystals
+    for(_i=0; _i<global.DungeonCrystals_COUNT; _i++) f.crystals |= ($01<<_i); // ALL crystals
     
     f.level_atk = 5; // 
     f.level_mag = 9; // 

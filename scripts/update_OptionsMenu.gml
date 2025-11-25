@@ -56,6 +56,9 @@ with(global.OPTIONS_MENU)
             {
                 OpenClose_Key_pressed = false;
                 
+                //dm_options[?"Rando"+hex_str(Rando_DUNGEONS_REQUIREMENT)+STR_State] = val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count], global.RandoDungeonRequirement_MAX);
+                //dm_options[?"Rando"+hex_str(Rando_DUNGEONS_REQUIREMENT)+STR_State] = get_saved_value(f.file_num, STR_Crystal+STR_Required+STR_Count, global.RandoDungeonRequirement_MAX);
+                
                 anim_frame       = 0;
                 MainOption       = 0;
                 draw_rows_count  = 0;

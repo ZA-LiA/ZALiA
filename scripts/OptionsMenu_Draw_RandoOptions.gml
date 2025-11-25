@@ -95,6 +95,10 @@ for(_i=0; _i<_COUNT0; _i++)
         else if (_i==Rando_cursor) _pi = PI_MENU1;
         else                       _pi = PI_MENU2;
         break;}
+        
+        case Rando_DUNGEONS_REQUIREMENT:{
+        _text = string(val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count], global.RandoDungeonRequirement_MAX));
+        break;}
     }//switch(_i)
     
     if (_option_state!=-1)

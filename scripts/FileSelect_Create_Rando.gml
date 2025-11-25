@@ -1219,7 +1219,7 @@ dg_RandoOTHER_REQUIRE = ds_grid_create(0,RandoGrid_H);
 ds_grid_resize(dg_RandoOTHER_REQUIRE, ds_grid_width(dg_RandoOTHER_REQUIRE)+1, ds_grid_height(dg_RandoOTHER_REQUIRE));
 dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,0] = _x+4; // 0: x
 dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,1] = _Y+(RandoOTHER_REQUIRE_cursor_CRYSTALS*_dist1); // 1: y
-dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,2] = f.CRYSTAL_MAX;  // 2: state
+dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,2] = global.DungeonCrystals_COUNT;  // 2: state
 dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,3] = "";  // 3: text
 dg_RandoOTHER_REQUIRE[#RandoOTHER_REQUIRE_cursor_CRYSTALS,4] = "THE NUMBER OF CRYSTALS REQUIRED TO ENTER GREAT PALACE.";
 //                                                          //

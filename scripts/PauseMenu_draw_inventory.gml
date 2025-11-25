@@ -40,7 +40,7 @@ if (Feather_can_draw)
 if (Crystals_can_draw)
 {
     pal_swap_set(global.palette_image, PI_MENU1);
-    for(_i=0; _i<f.CRYSTAL_MAX; _i++)
+    for(_i=0; _i<global.DungeonCrystals_COUNT; _i++)
     {
         if (f.crystals&($1<<_i)) _sprite = SPR_CRYSTAL2; // Crystal     placed
         else                     _sprite = SPR_CRYSTAL1; // Crystal NOT placed

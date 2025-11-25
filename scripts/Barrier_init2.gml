@@ -80,7 +80,7 @@ if (g.mod_BARRIER_LOOK==1)
     barrier_state_RAISING  = _i++;
     barrier_state_COMPLETE = _i++;
     
-    BARRIER_COUNT = f.CRYSTAL_MAX;
+    BARRIER_COUNT = global.DungeonCrystals_COUNT;
     dg_barrier_W  = BARRIER_COUNT;
     dg_barrier_W++; // ++: To reserve index 0 for general info
     dg_barrier = ds_grid_create(dg_barrier_W, 6);
@@ -99,20 +99,24 @@ if (g.mod_BARRIER_LOOK==1)
     
     
     
-        PLACED_CRYSTALS_REQUIREMENT_COUNT = get_saved_value(f.file_num, STR_Crystal+STR_Required+STR_Count, f.CRYSTAL_MAX);
-        //PLACED_CRYSTALS_REQUIREMENT_COUNT = 4; // *** TESTING ***
-        //sdm("dg_barrier[#0,0]: "+string(dg_barrier[#0,0])+", f.crystals $"+hex_str(f.crystals)+", bitCount(f.crystals): "+string(bitCount(f.crystals)));
-    if (PLACED_CRYSTALS_REQUIREMENT_COUNT<f.CRYSTAL_MAX          // if dont have to place all the crystals
-    &&  PLACED_CRYSTALS_REQUIREMENT_COUNT<=bitCount(f.crystals)  // if have placed enough crystals
-    &&  dg_barrier[#0,0]                                         // if any barriers have been raised yet
-    &&  dg_barrier[#0,0]>=bitCount(f.crystals) )                 // all that can be raised, have been raised
+    if(!global.RandoDungeonRequirement_ADJUST_IN_GAME)
     {
-        dg_barrier[#0,0] = 0;
-        for(_i=1; _i<dg_barrier_W; _i++)
+        var _CRYSTALS_REQUIREMENT_COUNT = val(global.dm_save_file_settings[?STR_Crystal+STR_Required+STR_Count], global.RandoDungeonRequirement_MAX);
+        //_CRYSTALS_REQUIREMENT_COUNT = get_saved_value(f.file_num, STR_Crystal+STR_Required+STR_Count, global.RandoDungeonRequirement_MAX);
+        //_CRYSTALS_REQUIREMENT_COUNT = 4; // *** TESTING ***
+        //sdm("dg_barrier[#0,0]: "+string(dg_barrier[#0,0])+", f.crystals $"+hex_str(f.crystals)+", bitCount(f.crystals): "+string(bitCount(f.crystals)));
+        if (_CRYSTALS_REQUIREMENT_COUNT<global.RandoDungeonRequirement_MAX  // if dont have to place all the crystals
+        &&  _CRYSTALS_REQUIREMENT_COUNT<=bitCount(f.crystals)               // if have placed enough crystals
+        &&  dg_barrier[#0,0]                                                // if any barriers have been raised yet
+        &&  dg_barrier[#0,0]>=bitCount(f.crystals) )                        // all that can be raised, have been raised
         {
-            dg_barrier[# 0,0]++;
-            dg_barrier[#_i,0] = barrier_state_COMPLETE;
-            f.dm_quests[?g.rm_name+STR_Barrier+hex_str(_i)+STR_State] = barrier_state_COMPLETE;
+            dg_barrier[#0,0] = 0;
+            for(_i=1; _i<dg_barrier_W; _i++)
+            {
+                dg_barrier[# 0,0]++;
+                dg_barrier[#_i,0] = barrier_state_COMPLETE;
+                f.dm_quests[?g.rm_name+STR_Barrier+hex_str(_i)+STR_State] = barrier_state_COMPLETE;
+            }
         }
     }
     

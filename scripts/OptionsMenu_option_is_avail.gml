@@ -75,6 +75,7 @@ switch(argument0)
         case Rando_OW_BIOMES:       {return ds_map_size(global.OVERWORLD.dm_Rando_TSRC)>0; break;}
         case Rando_SCENES:          {return true; break;}
         case Rando_PALETTE:         {return true; break;}
+        case Rando_DUNGEONS_REQUIREMENT:{return global.RandoDungeonRequirement_ADJUST_IN_GAME; break;}
         case Rando_BACK:            {return true; break;}
     }//switch(argument1)
     break;}//case Menu_RANDO_OPTIONS

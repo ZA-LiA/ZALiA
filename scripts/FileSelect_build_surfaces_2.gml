@@ -526,7 +526,7 @@ for(_i=0; _i<SAVE_FILE_MAX; _i++)
                     draw_text_(_x,_y, "*", -1,PI_MENU1);
                     
                     _x += $8;
-                    _val = val(_dm_rando_settings[?STR_Crystal+STR_Required+STR_Count], f.CRYSTAL_MAX);
+                    _val = val(_dm_rando_settings[?STR_Crystal+STR_Required+STR_Count], global.DungeonCrystals_COUNT);
                     _text = string(_val);
                     draw_text_(_x,_y, _text, global.dl_game_font[|global.game_font_idx],PI_MENU1);
                     

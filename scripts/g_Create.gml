@@ -475,6 +475,11 @@ global.HUD_state_COUNT = _i;
 
 
 
+global.DungeonCrystals_COUNT = 6;
+
+
+
+
 
 TargetGame_case = 0; // 0: off
 //TargetGame_case = 1; // 1: different every time
@@ -507,6 +512,10 @@ global.RandoHints_enabled = false;
 
 global.WallStyle01Tiles_MAIN = true;
 global.WallStyle02Tiles_MAIN = true;
+
+global.RandoDungeonRequirement_ADJUST_IN_GAME = true;
+global.RandoDungeonRequirement_MIN = 0;
+global.RandoDungeonRequirement_MAX = global.DungeonCrystals_COUNT;
 
 
 //dm_PC_sprite_sets = ds_map_create();
