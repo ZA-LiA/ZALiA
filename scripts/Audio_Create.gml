@@ -12,14 +12,17 @@ var _i,_j, _idx, _val,_val1,_val2, _count,_count1, _num, _vol;
 var _snd1,_snd2, _mus1,_mus2, _theme;
 var _dk,_dk1,_dk2, _prefix;
 var _town_name;
-var _VOL_NIKO  = .60; // Niko Tengoku
-var _VOL_CHIM  = .55; // Isabelle Chiming
-var _VOL_STCR  = .40; // Steel Crescent
-var _VOL_STCR2 = .40; // Steel Crescent - ALT
-var _VOL_STCR3 = .60; // Steel Crescent - NES PLUS
-var _VOL_STCR4 = .30; // Steel Crescent - Scug
-var _VOL_STCR5 = .40; // Steel Crescent - Synth
-var _VOL_WYNG1 = .55; // Wyng
+var _VOL_NIKO  = .58; // Niko Tengoku
+var _VOL_CHIM  = .58; // Isabelle Chiming
+var _VOL_STCR  = .39; // Steel Crescent
+var _VOL_STCR2 = .34; // Steel Crescent - ALT
+//var _VOL_STCR2 = .40; // Steel Crescent - ALT
+var _VOL_STCR3 = .56; // Steel Crescent - NES PLUS
+var _VOL_STCR4 = .24; // Steel Crescent - Scug
+//var _VOL_STCR4 = .30; // Steel Crescent - Scug
+var _VOL_STCR5 = .36; // Steel Crescent - Synth
+var _VOL_WYNG1 = .42; // Wyng
+//var _VOL_WYNG1 = .55; // Wyng
 var _VOL_WYNG2 = min(_VOL_WYNG1+.15, 1); // Wyng
 
 
@@ -873,13 +876,14 @@ add_sound_data(mus_House_1a,                         1, _theme,STR_Default);
 _val=asset_get_index("mus_ZeldaII_FDS_Town"); if (_val!=-1){add_sound_data(_val,                 1, _theme,_set_ZELDA2_FDS,    max(0,asset_get_index("mus_ZeldaII_FDS_Town_Intro")));}
 _val=asset_get_index("mus_NikoTengoku_House"); if (_val!=-1){add_sound_data(_val,        _VOL_NIKO, _theme,dk_Nikos8BitStereo);}
 _val=asset_get_index("mus_IsabelleChiming_OldKasuto"); if (_val!=-1){add_sound_data(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_OldKasuto_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_OldKasuto"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent_OldKasuto2"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
 _val=asset_get_index("mus_SteelCrescent2_OldKasuto"); if (_val!=-1){add_sound_data(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
 _val=asset_get_index("mus_SteelCrescent3_OldKasuto"); if (_val!=-1){add_sound_data(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
 _val=asset_get_index("mus_SteelCrescent4_House"); if (_val!=-1){add_sound_data(_val,    _VOL_STCR4, _theme,dk_SteelCrescent4);}
 _val=asset_get_index("mus_SteelCrescent5_House"); if (_val!=-1){add_sound_data(_val,    _VOL_STCR5, _theme,dk_SteelCrescent5);}
 _val=asset_get_index("mus_Wyng1_OldKasuto_Body"); if (_val!=-1){add_sound_data(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
 add_sound_data(mus_Castlevania2_Town_Body,           1, _theme,dk_Castlevania2,    mus_Castlevania2_Town_Intro);
+_val=asset_get_index("mus_SteelCrescent_OldKasuto"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR, _theme,STR_Other);} // Old SteelCrescent1 Old Kasuto track.(Leaving it because I really like it)
 //                                                                                                                  //
 _town_name = STR_Bulblin;
 _theme = _town_name;
@@ -1013,13 +1017,14 @@ add_sound_data(mus_Great_Palace_Body_1a,             1, _theme,STR_Default,     
 _val=asset_get_index("mus_NikoTengoku_Dungeon2_Body"); if (_val!=-1){add_sound_data(_val,_VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Dungeon2_Intro")));}
 add_sound_data(mus_Z1_Dungeon2,                      1, _theme,_set_ZELDA1);
 _val=asset_get_index("mus_IsabelleChiming_Dungeon7"); if (_val!=-1){add_sound_data(_val, _VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Dungeon7_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_GreatPalace2_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_GreatPalace2_Intro")));}
 _val=asset_get_index("mus_SteelCrescent2_GreatPalace_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent3_GreatPalace_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR3, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent3_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent4_GreatPalace_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR4, _theme,dk_SteelCrescent4, max(0,asset_get_index("mus_SteelCrescent4_GreatPalace_Intro")));}
 _val=asset_get_index("mus_SteelCrescent5_GreatPalace_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR5, _theme,dk_SteelCrescent5, max(0,asset_get_index("mus_SteelCrescent5_GreatPalace_Intro")));}
 add_sound_data(mus_Castlevania2_Dungeon_Body,           1, _theme,dk_Castlevania2,   mus_Castlevania2_Dungeon_Intro);
 _val=asset_get_index("mus_Wyng1_GreatPalace01"); if (_val!=-1){add_sound_data(_val,          _VOL_WYNG1, _theme,dk_Wyng);}
+_val=asset_get_index("mus_SteelCrescent_GreatPalace_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR, _theme,STR_Other, max(0,asset_get_index("mus_SteelCrescent_GreatPalace_Intro")));} // Old StellCrescent1 GreatPalace track.(Leaving it because I really like it)
 //                                                                                                                  //
 // Dragmire Tower                                                                                                   //
 _theme=STR_Dungeon+hex_str(++_a);
@@ -1165,13 +1170,14 @@ _theme=dk_FileSelect;
 dm[?_theme+STR_Description] = "FILE SELECT";
 _val=asset_get_index("mus_Broomietunes_FileSelect01"); if (_val!=-1){add_sound_data(_val,1, _theme,STR_Default);}
 _val=asset_get_index("mus_IsabelleChiming_FileSelect"); if (_val!=-1){add_sound_data(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_FileSelect_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_FileSelect"); if (_val!=-1){add_sound_data(_val,max(_VOL_STCR,.8), _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent_FileSelect2"); if (_val!=-1){add_sound_data(_val,max(_VOL_STCR,.8), _theme,dk_SteelCrescent);}
 _val=asset_get_index("mus_SteelCrescent2_FileSelect"); if (_val!=-1){add_sound_data(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
 _val=asset_get_index("mus_SteelCrescent3_FileSelect"); if (_val!=-1){add_sound_data(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
 _val=asset_get_index("mus_SteelCrescent4_FileSelect"); if (_val!=-1){add_sound_data(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
 _val=asset_get_index("mus_SteelCrescent5_FileSelect"); if (_val!=-1){add_sound_data(_val,_VOL_STCR5, _theme,dk_SteelCrescent5);}
 _val=asset_get_index("mus_Wyng1_FileSelect_Body"); if (_val!=-1){add_sound_data(_val,  _VOL_WYNG1, _theme,dk_Wyng);}
 _val=asset_get_index("mus_Castlevania2_GameStart"); if (_val!=-1){add_sound_data(_val,            1, _theme,dk_Castlevania2);}
+_val=asset_get_index("mus_SteelCrescent_FileSelect"); if (_val!=-1){add_sound_data(_val,max(_VOL_STCR,.8), _theme,STR_Other);} // Old SteelCrescent1 FileSelect track.(Leaving it because I really like it)
 //                                                                                                                  //
 _theme=dk_ContinueSave;
 dm[?_theme+STR_Description] = "CONTINUE/SAVE";

@@ -57,8 +57,8 @@ for(_i=0; _i<_count0; _i++)
         &&  _ENEMY_RANDO_METHOD )
         {
             switch(_ENEMY_RANDO_METHOD){
-            default:{_objver2 = f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawn+_spawn_datakey1+STR_OBJVER+STR_Randomized]; break;}
-            case  2:{_objver2 = f.dm_rando[?STR_Randomize+STR_Enemy+STR_Type +_objver1       +STR_OBJVER+STR_Randomized]; break;}
+            default:{_objver2 = f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawn+_spawn_datakey1+STR_OBJVER+STR_Randomized]; break;} // 1: Spawns: Enemy spawn locations shuffled
+            case  2:{_objver2 = f.dm_rando[?STR_Randomize+STR_Enemy+STR_Type +_objver1       +STR_OBJVER+STR_Randomized]; break;} // 2: Types: Enemy objects shuffled
             }
             
             if(!is_undefined(_objver2))

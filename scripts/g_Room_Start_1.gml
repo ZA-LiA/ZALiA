@@ -1,6 +1,6 @@
 /// g_Room_Start_1(scene is randomized, scene used)
 
-///*
+
 var                                 _arg=0;
 var _SCENE_IS_RANDOMIZED = argument[_arg++];
 var _SCENE_USED          = argument[_arg++];
@@ -39,121 +39,6 @@ else
     
     _dg_encoded = g_Room_Start_1c(ds_grid_write(dg_spawn_prxm),STR_PRXM, rm_name,_SCENE_USED);
     ds_grid_read(dg_spawn_prxm, _dg_encoded);
-    /*
-    var _dl_avail_spawn_dk = ds_list_create();
-    
-    var _ENEMY_RANDO_METHOD     = val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Method]);
-    //var _ENEMY_RANDO_DIFFICULTY = val(global.dm_save_file_settings[?STR_Randomize+STR_Enemy+STR_Difficulty],1);
-    
-    
-    // Add any qualifying priority spawns from the rando'd scene to the spawn list
-    _dg_encoded = ds_grid_write(dg_spawn_prio);
-    _count0 = val(dm_spawn[?get_spawn_datakey(_SCENE_USED,STR_PRIO,-1)]);
-    for(_i=0; _i<_count0; _i++)
-    {
-        _spawn_datakey = get_spawn_datakey(_SCENE_USED,STR_PRIO,_i);
-        _obj = val(dm_spawn[?_spawn_datakey+STR_obj_idx]);
-        if (g_Room_Start_1b(_obj)) _dg_encoded = g_Room_Start_1a(_dg_encoded, _spawn_datakey, _SCENE_IS_RANDOMIZED);
-    }
-    ds_grid_read(dg_spawn_prio, _dg_encoded);
-    
-    
-    // Add any qualifying proximity spawns from the rando'd scene to the spawn list
-    _dg_encoded = ds_grid_write(dg_spawn_prxm);
-    _count0 = val(dm_spawn[?get_spawn_datakey(_SCENE_USED,STR_PRXM,-1)]);
-    for(_i=0; _i<_count0; _i++)
-    {
-        _spawn_datakey = get_spawn_datakey(_SCENE_USED,STR_PRXM,_i);
-        _obj = val(dm_spawn[?_spawn_datakey+STR_obj_idx]);
-        if (g_Room_Start_1b(_obj)) _dg_encoded = g_Room_Start_1a(_dg_encoded, _spawn_datakey, _SCENE_IS_RANDOMIZED);
-        else if (is_ancestor_(_obj,Enemy,Spawner,FiRoA,SpikeTrap)) ds_list_add(_dl_avail_spawn_dk,_spawn_datakey);
-    }
-    ds_grid_read(dg_spawn_prxm, _dg_encoded);
-    
-    
-    
-    
-    // Add enemy spawns from the vanilla scene to the spawn list
-    _count0 = val(dm_spawn[?get_spawn_datakey(rm_name,STR_PRXM,-1)]);
-    _count0 = min(_count0,ds_list_size(_dl_avail_spawn_dk));
-    for(_i=0; _i<_count0; _i++)
-    {
-        _spawn_datakey1 = get_spawn_datakey(rm_name,STR_PRXM,_i);
-        _spawn_datakey2 = _dl_avail_spawn_dk[|_i];
-        _obj = val(dm_spawn[?_spawn_datakey1+STR_obj_idx]);
-        if (_obj 
-        &&  is_ancestor_(_obj,Enemy,Spawner,FiRoA,SpikeTrap) )
-        {
-            _obj_name = object_get_name(_obj);
-            _ver      = val(dm_spawn[?_spawn_datakey1+STR_Version]);
-            _objver1  = _obj_name+hex_str(_ver); // _objver example: "Snaraa"+"01" = obj name + ver
-            
-            if (global.EnemyRando_enabled 
-            &&  _ENEMY_RANDO_METHOD )
-            {
-                switch(_ENEMY_RANDO_METHOD){
-                default:{_objver2 = f.dm_rando[?STR_Randomize+STR_Enemy+STR_Spawn+_spawn_datakey1+STR_OBJVER+STR_Randomized]; break;}
-                case  2:{_objver2 = f.dm_rando[?STR_Randomize+STR_Enemy+STR_Type +_objver1       +STR_OBJVER+STR_Randomized]; break;}
-                }
-                
-                if(!is_undefined(_objver2))
-                {
-                    _len  = string_length(_objver2);
-                    _val1 = string_copy(  _objver2,1,_len-2); // obj name
-                    _val2 = g.dm_go_prop[?_val1+STR_Object+STR_Idx]; // obj
-                    if(!is_undefined(_val2))
-                    {
-                        _obj = _val2;
-                        _ver = str_hex(string_copy(_objver2,_len-1,2));
-                        _obj_name = object_get_name(_obj);
-                        _objver1  = _obj_name+hex_str(_ver);
-                    }
-                }
-            }
-            
-            _w        = val(dm_go_prop[?_obj_name+STR_Width], $10);
-            _h        = val(dm_go_prop[?_obj_name+STR_Height],$10);
-            _spawn_xl = val(dm_spawn[?_spawn_datakey2+"_x"]); // spawn x
-            _spawn_yt = val(dm_spawn[?_spawn_datakey2+"_y"]); // spawn y
-            
-            // respawn_type: Value representing if and when GO can respawn.
-            // 0: never, 1: off screen, 2: refresh area, 3: refresh rm, 4: 30 seconds (on or off screen)
-                _respawn_type      = val(dm_go_prop[?_objver1+STR_Respawn]);
-                _spawn_permission1 = val(dm_spawn[?_spawn_datakey1+STR_Spawn_Permission]);
-            if (_respawn_type==3 
-            &&  _spawn_permission1!=-1 ) // -1 never spawn again
-            {
-                dm_spawn[?_spawn_datakey1+STR_Spawn_Permission] = 1;
-            }
-            _spawn_permission = val(dm_spawn[?_spawn_datakey1+STR_Spawn_Permission]);
-            
-            _idx1 = ds_grid_width(dg_spawn_prxm);
-            ds_grid_resize(dg_spawn_prxm, _idx1+1, ds_grid_height(dg_spawn_prxm));
-                                 _idx=0;
-            dg_spawn_prxm[#_idx1,_idx++] = _spawn_datakey1;  // 
-            dg_spawn_prxm[#_idx1,_idx++] = _obj;             // 
-            dg_spawn_prxm[#_idx1,_idx++] = _obj_name;        // 
-            dg_spawn_prxm[#_idx1,_idx++] = _ver;             // 
-            //                                          //
-            dg_spawn_prxm[#_idx1,_idx++] = _spawn_xl;        // 
-            dg_spawn_prxm[#_idx1,_idx++] = _spawn_xl + (_w>>1);        // 
-            dg_spawn_prxm[#_idx1,_idx++] = _spawn_yt;        // 
-            dg_spawn_prxm[#_idx1,_idx++] = _spawn_yt + (_h>>1);        // 
-            //                                          //
-            dg_spawn_prxm[#_idx1,_idx++] = _w;               // 
-            dg_spawn_prxm[#_idx1,_idx++] = (_w>>1);              // 
-            dg_spawn_prxm[#_idx1,_idx++] = _h;               // 
-            dg_spawn_prxm[#_idx1,_idx++] = (_h>>1);              // 
-            //                                          //
-            dg_spawn_prxm[#_idx1,_idx++] = _respawn_type;    // 
-            dg_spawn_prxm[#_idx1,_idx++] = val(f.dm_quests[?get_defeated_dk()+_spawn_datakey1]);  // 
-            dg_spawn_prxm[#_idx1,_idx++] = _spawn_permission;// 
-        }
-    }
-    
-    
-    ds_list_destroy(_dl_avail_spawn_dk); _dl_avail_spawn_dk=undefined;
-    */
     
     
     
@@ -362,7 +247,6 @@ else
         }//_i
     }
 }
-//*/
 
 
 

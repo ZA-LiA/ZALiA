@@ -8,6 +8,9 @@ If you're just looking for the game to play, it can be downloaded [here](https:/
 # License
 Please read our [license](LICENSE) before distributing, modifying, contributing to, or otherwise interacting with this project.
 
+# Version Differences
+Information on ZALiA version differences: https://github.com/ZA-LiA/ZALiA_Version_Differences
+
 
 # Contributing
 Please read our [Contribution Guidelines](CONTRIBUTING.md) before opening any issues or creating pull requests.

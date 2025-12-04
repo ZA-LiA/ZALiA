@@ -11833,6 +11833,7 @@
       <sound>sound\mus_SteelCrescent_Fanfare01</sound>
       <sound>sound\mus_SteelCrescent_FastTravelTunnels</sound>
       <sound>sound\mus_SteelCrescent_FileSelect</sound>
+      <sound>sound\mus_SteelCrescent_FileSelect2</sound>
       <sound>sound\mus_SteelCrescent_GameClear_PirateVer</sound>
       <sound>sound\mus_SteelCrescent_Ganon_FinalPhase</sound>
       <sound>sound\mus_SteelCrescent_Ganon01</sound>
@@ -11841,14 +11842,16 @@
       <sound>sound\mus_SteelCrescent_GetSpell</sound>
       <sound>sound\mus_SteelCrescent_GreatPalace_Body</sound>
       <sound>sound\mus_SteelCrescent_GreatPalace_Intro</sound>
+      <sound>sound\mus_SteelCrescent_GreatPalace2_Body</sound>
+      <sound>sound\mus_SteelCrescent_GreatPalace2_Intro</sound>
       <sound>sound\mus_SteelCrescent_House</sound>
       <sound>sound\mus_SteelCrescent_LevelUp</sound>
       <sound>sound\mus_SteelCrescent_Makarrha</sound>
-      <sound>sound\mus_SteelCrescent_Makarrha_Intro</sound>
       <sound>sound\mus_SteelCrescent_MazeIsland</sound>
       <sound>sound\mus_SteelCrescent_MiniGame_Body</sound>
       <sound>sound\mus_SteelCrescent_MiniGame_Intro</sound>
       <sound>sound\mus_SteelCrescent_OldKasuto</sound>
+      <sound>sound\mus_SteelCrescent_OldKasuto2</sound>
       <sound>sound\mus_SteelCrescent_Overworld_Body</sound>
       <sound>sound\mus_SteelCrescent_Overworld_Intro</sound>
       <sound>sound\mus_SteelCrescent_PalaceClear</sound>
