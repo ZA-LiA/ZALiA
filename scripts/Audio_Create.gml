@@ -703,7 +703,8 @@ _val=asset_get_index("mus_ZeldaII_FDS_Overworld"); if (_val!=-1){add_sound_data(
 _val=asset_get_index("mus_NikoTengoku_Overworld_Body"); if (_val!=-1){add_sound_data(_val,       _VOL_NIKO, _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Overworld_Intro")));}
 add_sound_data(mus_Z1_Overworld_Body,                        1, _theme,_set_ZELDA1,        mus_Z1_Overworld_Intro);
 _val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl"); if (_val!=-1){add_sound_data(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_MazeIsland"); if (_val!=-1){add_sound_data(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
+_val=asset_get_index("mus_SteelCrescent_Overworld_Body"); if (_val!=-1){add_sound_data(_val, _VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Overworld_Intro")));}
+//_val=asset_get_index("mus_SteelCrescent_MazeIsland"); if (_val!=-1){add_sound_data(_val,_VOL_STCR, _theme,dk_SteelCrescent);}
 _val=asset_get_index("mus_SteelCrescent2_MazeIsland"); if (_val!=-1){add_sound_data(_val,_VOL_STCR2, _theme,dk_SteelCrescent2);}
 _val=asset_get_index("mus_SteelCrescent3_MazeIsland"); if (_val!=-1){add_sound_data(_val,_VOL_STCR3, _theme,dk_SteelCrescent3);}
 _val=asset_get_index("mus_SteelCrescent4_MazeIsland"); if (_val!=-1){add_sound_data(_val,_VOL_STCR4, _theme,dk_SteelCrescent4);}
@@ -1222,7 +1223,8 @@ _theme=dk_Minigame+"01";
 dm[?_theme+STR_Description] = "MINIGAME";
 add_sound_data(mus_Minigame1,                            1, _theme,STR_Default,        mus_Minigame1_Intro);
 _val=asset_get_index("mus_IsabelleChiming_Minigame_Body"); if (_val!=-1){add_sound_data(_val,_VOL_CHIM, _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Minigame_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_MiniGame_Body"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_MiniGame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_MiniGame_Body"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR, _theme,dk_SteelCrescent);}
+//_val=asset_get_index("mus_SteelCrescent_MiniGame_Body"); if (_val!=-1){add_sound_data(_val,  _VOL_STCR, _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_MiniGame_Intro")));}
 _val=asset_get_index("mus_SteelCrescent2_Minigame_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR2, _theme,dk_SteelCrescent2, max(0,asset_get_index("mus_SteelCrescent2_Minigame_Intro")));}
 _val=asset_get_index("mus_SteelCrescent2_Minigame_Body"); if (_val!=-1){add_sound_data(_val,_VOL_STCR2, _theme,dk_SteelCrescent3, max(0,asset_get_index("mus_SteelCrescent2_Minigame_Intro")));}
 _val=asset_get_index("mus_SteelCrescent4_MiniGame"); if (_val!=-1){add_sound_data(_val,     _VOL_STCR4, _theme,dk_SteelCrescent4);}
@@ -1831,7 +1833,8 @@ _val=asset_get_index("mus_SteelCrescent2_TravelTunnels");    if (_val!=-1){ds_li
 _val=asset_get_index("mus_SteelCrescent4_TravelTunnels");    if (_val!=-1){ds_list_add(_dl2,_val);}
 _val=asset_get_index("mus_SteelCrescent5_TravelTunnels");    if (_val!=-1){ds_list_add(_dl2,_val);}
 
-_val=asset_get_index("mus_SteelCrescent_MiniGame_Body");     if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_MiniGame_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_MiniGame_Body");     if (_val!=-1){ds_list_add(_dl2,_val);}
+//_val=asset_get_index("mus_SteelCrescent_MiniGame_Body");     if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent_MiniGame_Intro")));}
 _val=asset_get_index("mus_SteelCrescent2_Minigame_Body");    if (_val!=-1){ds_list_add(_dl2,_val, max(0,asset_get_index("mus_SteelCrescent2_Minigame_Intro")));}
 _val=asset_get_index("mus_SteelCrescent4_MiniGame");         if (_val!=-1){ds_list_add(_dl2,_val);}
 _val=asset_get_index("mus_SteelCrescent5_MiniGame");         if (_val!=-1){ds_list_add(_dl2,_val);}

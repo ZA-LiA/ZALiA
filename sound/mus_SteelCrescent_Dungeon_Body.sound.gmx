@@ -15,7 +15,7 @@
     <sampleRate>44100</sampleRate>
   </sampleRates>
   <types>
-    <type>0</type>
+    <type>1</type>
   </types>
   <bitDepths>
     <bitDepth>16</bitDepth>
