@@ -12076,15 +12076,19 @@
       <sprite>sprites\spr_PCSkin_HoverBat_DarkLink01</sprite>
       <sprite>sprites\spr_PCSkin_HoverBat_Nyus01</sprite>
       <sprite>sprites\spr_PCSkin_HoverBat_Scribbles01</sprite>
-      <sprite>sprites\spr_PCSkin_HoverBat_Stalfos01</sprite>
       <sprite>sprites\spr_PCSkin_Irenepunmaster_Shadow01</sprite>
+      <sprite>sprites\spr_PCSkin_JarachiKid_VaseLady01</sprite>
       <sprite>sprites\spr_PCSkin_Kowalth_Erdrick01</sprite>
       <sprite>sprites\spr_PCSkin_Kowalth_Orpheus01</sprite>
       <sprite>sprites\spr_PCSkin_Link580_Marth01</sprite>
       <sprite>sprites\spr_PCSkin_LoriAndRed3445_Cornelius01</sprite>
       <sprite>sprites\spr_PCSkin_mattforce2_Meat01</sprite>
       <sprite>sprites\spr_PCSkin_mattforce2_Wario01</sprite>
+      <sprite>sprites\spr_PCSkin_MisterMike_Chrom01</sprite>
       <sprite>sprites\spr_PCSkin_MisterMike_Ganondorf01</sprite>
+      <sprite>sprites\spr_PCSkin_MisterMike_Parutamu01</sprite>
+      <sprite>sprites\spr_PCSkin_MisterMike_Stalfos01</sprite>
+      <sprite>sprites\spr_PCSkin_MisterMike_Zelda1Link01</sprite>
       <sprite>sprites\spr_PCSkin_MisterMikeAndSteelCrescent_Bokoblin01</sprite>
       <sprite>sprites\spr_PCSkin_NightmareJames_ShadowLink01</sprite>
       <sprite>sprites\spr_PCSkin_OkImpala_AmidaLink01</sprite>
@@ -12094,8 +12098,6 @@
       <sprite>sprites\spr_PCSkin_SnowyAndMattforce2_SuccubusHunter01</sprite>
       <sprite>sprites\spr_PCSkin_SteelCrescent_PleasingLinkColors01</sprite>
       <sprite>sprites\spr_PCSkin_wolf0s_Basil01</sprite>
-      <sprite>sprites\spr_PCSkin_JarachiKid_VaseLady01</sprite>
-      <sprite>sprites\spr_PCSkin_MisterMike_Chrom01</sprite>
     </sprites>
     <sprites name="rising_xp_text">
       <sprite>sprites\spr_Rising_XP_text_0</sprite>
@@ -12951,6 +12953,7 @@
         <background>background\ts_DungeonAlt05</background>
         <background>background\ts_DungeonAlt06</background>
         <background>background\ts_DungeonAlt07</background>
+        <background>background\ts_DungeonAlt08</background>
       </backgrounds>
       <backgrounds name="other">
         <background>background\ts_Menu01</background>

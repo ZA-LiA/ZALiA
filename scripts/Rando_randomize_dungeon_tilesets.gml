@@ -33,6 +33,7 @@ ds_list_add(  dl_list2,ts_DungeonAlt04);
 ds_list_add(  dl_list2,ts_DungeonAlt05);
 ds_list_add(  dl_list2,ts_DungeonAlt06);
 ds_list_add(  dl_list2,ts_DungeonAlt07);
+ds_list_add(  dl_list2,ts_DungeonAlt08);
 
 ds_list_add(  dl_list2,ts_Cave01);
 

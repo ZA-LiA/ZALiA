@@ -57,6 +57,7 @@ if (_WILL_ELIMINATE
     show_debug_message("");
     
     
+    ds_map_clear(g.dm_RandoHintsRecorder);
     var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
     _data = "";
     _file = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
@@ -173,7 +174,8 @@ if (file_exists(_FILE_NAME))
 
 
 
-if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
+if(!_WILL_ELIMINATE 
+&&  val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) )
 {
     if (ds_map_size(g.dm_RandoHintsRecorder))
     {

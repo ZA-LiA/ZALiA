@@ -41,6 +41,7 @@ if (input_start_pressed)
         file_save(_FILE_NUM,true);
         FileSelect_clear_save_file_rando_info(_FILE_NUM); // clear data in `SaveFileRandoInfo_dm` for this file
         
+        /*
         var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
         _file = file_text_open_write(working_directory+_RANDO_DATA_FILE_NAME);
                 file_text_write_string(_file," ");
@@ -51,6 +52,7 @@ if (input_start_pressed)
                 file_text_write_string(_file," ");
                 file_text_close(_file);
         //
+        */
         
         randomize();
         FileSelect_change_rando_seed(_FILE_NUM,random_get_seed());

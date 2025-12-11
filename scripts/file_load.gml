@@ -209,7 +209,6 @@ if (file_exists(_RANDO_DATA_FILE_NAME))
 // Hints ---------------------------------------------------------
 ds_map_clear(g.dm_RandoHintsRecorder);
 var _dm_hints_ENCODED = f.dm_rando_full[?STR_Found+STR_Hint];
-//var _dm_hints_ENCODED = f.dm_rando[?STR_Found+STR_Hint];
 if(!is_undefined(_dm_hints_ENCODED))
 {
     var _dm_hints = json_decode(_dm_hints_ENCODED);

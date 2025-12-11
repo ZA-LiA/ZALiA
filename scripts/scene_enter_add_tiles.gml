@@ -773,6 +773,7 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
             ||  _ts==ts_DungeonAlt05 
             ||  _ts==ts_DungeonAlt06 
             ||  _ts==ts_DungeonAlt07 
+            ||  _ts==ts_DungeonAlt08 
             ||  _ts==ts_Cave01 )
             {
                 if (_tsrc==_TSRC_A1+$00 
@@ -846,7 +847,8 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
                 ||  _ts==ts_DungeonAlt04 
                 ||  _ts==ts_DungeonAlt05 
                 ||  _ts==ts_DungeonAlt06 
-                ||  _ts==ts_DungeonAlt07 )
+                ||  _ts==ts_DungeonAlt07 
+                ||  _ts==ts_DungeonAlt08 )
                 {
                     if (_tsrc==$E0   // uncovered
                     ||  _tsrc==$E1   // uncovered

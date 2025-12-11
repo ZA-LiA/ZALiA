@@ -4233,7 +4233,8 @@ data_spawn(rm+STR_PRXM,Bot_A,$1,  $0C<<3,(row0+$0F)<<3); // Bot  1
 data_spawn(rm+STR_PRXM,Bot_A,$1,  $20<<3,(row0+$17)<<3); // Bot  1 
 
 
-clm3=$08; clms3=clms0-clm3; clm4=clm3+$02;
+clm3=$08; clms3=clms0-clm3; clm4=clm3+$00;
+//clm3=$08; clms3=clms0-clm3; clm4=clm3+$02;
 data_exit(EXU0,etA0,0,  clm3,-$0F,  clms3,ROWS5,  clm4,$02,  'F5'+EXD0_); // UP  0, Pit up 
 //data_exit(EXU0,etA0,0,  clm3,-$0F,  $04,ROWS5,  clm4,$02,  'F5'+EXD0_); // UP  0, Pit up 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,rows1,  CLM3,$29,  'F7'+EXR0_); // LFT 0, 
