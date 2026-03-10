@@ -88,7 +88,7 @@ data_spawn(rm+STR_PRXM,MoblA,$2,  $14<<3,y3); // Moblin  2
 data_spawn(rm+STR_PRXM,MoblA,$2,  $2C<<3,y3); // Moblin  2 
 
 
-clm3=$3F;
+clm3=clm1-$01;
 data_exit(EXM0,etB0,1,  clm3,row4,  $03,ROWS2,  clm3-1,row4,  rm_num_+EXM0_); // MID 0, 
 data_exit(EXL0,etA0,1,  CLM2,ROW0,  CLMS2,ROWS6,  CLM3,row3,  hex_str(rm_num-1)+EXR0_); // LFT 0, 
 data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+EXL0_); // RGT 0, 

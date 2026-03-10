@@ -86,8 +86,7 @@ if (CONTROL_ALLKEY==2
 Rando_sweep_combo(2);
 
 if(!Rando_is_qual_location(STR_Mido))
-{   // This is about maximizing the number of reachable locations asap to 
-    // spread progression items better for more interesting seeds.
+{
     if (DEBUG){
     repeat(2){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = "";}
     debug_str="++++++++  STEP $"+hex_str(++_rando_step)+": Placing the fewest items that adds the most progression  ++++++++"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
@@ -95,7 +94,7 @@ if(!Rando_is_qual_location(STR_Mido))
     }
     //if (DEBUG){debug_str="+++++  STEP $"+hex_str(++_rando_step)+": Start by placing one of the items that adds the most progression."; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;}
     
-    Rando_randomize_items_1a();
+    Rando_randomize_items_1a(); // This script is about maximizing the number of reachable locations asap to spread progression items better for more interesting seeds.
     
     if (DEBUG){
     debug_str  =      "Remaining Locations"+" COUNT $"+hex_str(ds_list_size(dl_locations_remaining));

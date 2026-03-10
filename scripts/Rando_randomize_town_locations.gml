@@ -22,8 +22,8 @@ var _Z3 = false;
 
 
 if (DEBUG){
-repeat(3){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
-debug_str="--- TOWN LOCATION RANDO ---"; sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
+repeat(3){show_debug_message(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
+debug_str="--- TOWN LOCATION RANDO ---"; show_debug_message(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]=debug_str;
 }
 
 random_set_seed(Rando_SEED);
@@ -44,15 +44,15 @@ ds_list_copy(dl_list2,dl_list1);
 ds_list_shuffle(dl_list2);
 
 if(_Z3){
-sdm("g.OWRC_TOWN_RAUR1 $"+hex_str(g.OWRC_TOWN_RAUR1));
-sdm("g.OWRC_TOWN_RUTO1 $"+hex_str(g.OWRC_TOWN_RUTO1));
-sdm("g.OWRC_TOWN_SARI1 $"+hex_str(g.OWRC_TOWN_SARI1));
-sdm("g.OWRC_TOWN_MIDO1 $"+hex_str(g.OWRC_TOWN_MIDO1));
-sdm("g.OWRC_TOWN_NABO1 $"+hex_str(g.OWRC_TOWN_NABO1));
-sdm("g.OWRC_TOWN_DARU1 $"+hex_str(g.OWRC_TOWN_DARU1));
-sdm("g.OWRC_TOWN_NEWK1 $"+hex_str(g.OWRC_TOWN_NEWK1));
-sdm("g.OWRC_TOWN_OLDK1 $"+hex_str(g.OWRC_TOWN_OLDK1));
-sdm("g.OWRC_TOWN_BULB1 $"+hex_str(g.OWRC_TOWN_BULB1));
+show_debug_message("g.OWRC_TOWN_RAUR1 $"+hex_str(g.OWRC_TOWN_RAUR1));
+show_debug_message("g.OWRC_TOWN_RUTO1 $"+hex_str(g.OWRC_TOWN_RUTO1));
+show_debug_message("g.OWRC_TOWN_SARI1 $"+hex_str(g.OWRC_TOWN_SARI1));
+show_debug_message("g.OWRC_TOWN_MIDO1 $"+hex_str(g.OWRC_TOWN_MIDO1));
+show_debug_message("g.OWRC_TOWN_NABO1 $"+hex_str(g.OWRC_TOWN_NABO1));
+show_debug_message("g.OWRC_TOWN_DARU1 $"+hex_str(g.OWRC_TOWN_DARU1));
+show_debug_message("g.OWRC_TOWN_NEWK1 $"+hex_str(g.OWRC_TOWN_NEWK1));
+show_debug_message("g.OWRC_TOWN_OLDK1 $"+hex_str(g.OWRC_TOWN_OLDK1));
+show_debug_message("g.OWRC_TOWN_BULB1 $"+hex_str(g.OWRC_TOWN_BULB1));
 }
 
 
@@ -91,7 +91,7 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         case STR_Old_Kasuto:{_owrc2=g.OWRC_TOWN_OLDK1; break;}
         case STR_Bulblin:   {_owrc2=g.OWRC_TOWN_BULB1; break;}
         }
-        if(_Z3)sdm(_town_name1+" _owrc1 $"+hex_str(_owrc1)+",  "+_town_name2+" _owrc2 $"+hex_str(_owrc2));
+        if(_Z3)show_debug_message(_town_name1+" _owrc1 $"+hex_str(_owrc1)+",  "+_town_name2+" _owrc2 $"+hex_str(_owrc2));
         
         
         _map_area_name1 = val(g.dm_town[?_town_name1+MapAreaName_DATAKEY], MapAreaName_DEF);
@@ -106,30 +106,30 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         
                                                _datakey = _town_name1+_datakey1+"A";
                          _exit_name = g.dm_rm[?_datakey]; // "A": exit-enter fast-travel-tunnel
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1a =   _exit_name;
-        if(_Z2)sdm(_datakey1+" _exit_name1a: "+string(val(_exit_name)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name1a: "+string(val(_exit_name)));
         
                                                _datakey = _town_name1+_datakey1+"B";
                          _exit_name = g.dm_rm[?_datakey]; // "B": exit-leave fast-travel-tunnel
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1b =   _exit_name;
-        if(_Z2)sdm(_datakey1+" _exit_name1b: "+string(val(_exit_name)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name1b: "+string(val(_exit_name)));
         
         
         
                                                _datakey = _town_name2+_datakey1+"A";
                          _exit_name = g.dm_rm[?_datakey]; // "A": exit-enter fast-travel-tunnel
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2a =   _exit_name;
-        if(_Z2)sdm(_datakey1+" _exit_name2a: "+string(val(_exit_name)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name2a: "+string(val(_exit_name)));
         
                                                _datakey = _town_name2+_datakey1+"B";
                          _exit_name = g.dm_rm[?_datakey]; // "B": exit-leave fast-travel-tunnel
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2b =   _exit_name;
-        if(_Z2)sdm(_datakey1+" _exit_name2b: "+string(val(_exit_name)));
-        //sdm("");
+        if(_Z2)show_debug_message(_datakey1+" _exit_name2b: "+string(val(_exit_name)));
+        //show_debug_message("");
         
         
         
@@ -163,56 +163,56 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         
                                                _datakey = _town_name1+_datakey1+"A";
                          _exit_name = g.dm_rm[?_datakey]; // front door - enter house. linked to ("B")
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1a =   _exit_name;
-        if(_z2)sdm(_datakey1+" _exit_name1a: "+string(val(_exit_name)));
+        if(_z2)show_debug_message(_datakey1+" _exit_name1a: "+string(val(_exit_name)));
         
                                                _datakey = _town_name1+_datakey1+"B";
                          _exit_name = g.dm_rm[?_datakey]; // front door - leave house. linked to ("A")
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1b =   _exit_name;
-        if(_z2)sdm(_datakey1+" _exit_name1b: "+string(val(_exit_name)));
+        if(_z2)show_debug_message(_datakey1+" _exit_name1b: "+string(val(_exit_name)));
         
         
                                                _datakey = _town_name1+_datakey1+"C";
                          _exit_name = g.dm_rm[?_datakey]; //  back door - leave house. linked to ("D")
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1c"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1c"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1c =   _exit_name;
-        if(_z2)sdm(_datakey1+" _exit_name1c: "+string(val(_exit_name)));
+        if(_z2)show_debug_message(_datakey1+" _exit_name1c: "+string(val(_exit_name)));
         
                                                _datakey = _town_name1+_datakey1+"D";
                          _exit_name = g.dm_rm[?_datakey]; //  back door - enter house. linked to ("C")
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1d"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1d"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1d =   _exit_name;
-        if(_z2)sdm(_datakey1+" _exit_name1d: "+string(val(_exit_name)));
+        if(_z2)show_debug_message(_datakey1+" _exit_name1d: "+string(val(_exit_name)));
         
         
         
                                                _datakey = _town_name2+_datakey1+"A";
                          _exit_name = g.dm_rm[?_datakey]; // front door - enter house. linked to ("B")
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2a =   _exit_name;
-        if(_z2)sdm(_datakey1+" _exit_name2a: "+string(val(_exit_name)));
+        if(_z2)show_debug_message(_datakey1+" _exit_name2a: "+string(val(_exit_name)));
         
                                                _datakey = _town_name2+_datakey1+"B";
                          _exit_name = g.dm_rm[?_datakey]; // front door - leave house. linked to ("A")
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2b =   _exit_name;
-        if(_z2)sdm(_datakey1+" _exit_name2b: "+string(val(_exit_name)));
+        if(_z2)show_debug_message(_datakey1+" _exit_name2b: "+string(val(_exit_name)));
         
         
                                                _datakey = _town_name2+_datakey1+"C";
                          _exit_name = g.dm_rm[?_datakey]; //  back door - leave house. linked to ("D")
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2c"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2c"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2c =   _exit_name;
-        if(_z2)sdm(_datakey1+" _exit_name2c: "+string(val(_exit_name)));
+        if(_z2)show_debug_message(_datakey1+" _exit_name2c: "+string(val(_exit_name)));
         
                                                _datakey = _town_name2+_datakey1+"D";
                          _exit_name = g.dm_rm[?_datakey]; //  back door - enter house. linked to ("C")
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2d"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2d"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2d =   _exit_name;
-        if(_z2)sdm(_datakey1+" _exit_name2d: "+string(val(_exit_name)));
-        //sdm("");
+        if(_z2)show_debug_message(_datakey1+" _exit_name2d: "+string(val(_exit_name)));
+        //show_debug_message("");
         
         
         
@@ -263,7 +263,7 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
                     {
                         dm_save_data[?_datakey3] = _file_name;
                     }
-                    //sdm("_file_name: "+_file_name+", _file_name2: "+_file_name2);
+                    //show_debug_message("_file_name: "+_file_name+", _file_name2: "+_file_name2);
                 }
             }
             
@@ -303,23 +303,23 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         
                                                _datakey = _town_name1+_datakey1+"_Right";
                          _exit_name = g.dm_rm[?_datakey];
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1a =   _exit_name;
         
                                                _datakey = string(val(_exit_name1a))+STR_goto_reen;
                          _exit_name = g.dm_rm[?_datakey];
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1b =   _exit_name;
         
         
                                                _datakey = _town_name1+_datakey1+"_Left";
                          _exit_name = g.dm_rm[?_datakey];
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1c"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1c"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1c =   _exit_name;
         
                                                _datakey = string(val(_exit_name1c))+STR_goto_reen;
                          _exit_name = g.dm_rm[?_datakey];
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1d"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name1d"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name1d =   _exit_name;
         
         
@@ -327,25 +327,25 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         
                                                _datakey = _town_name2+_datakey1+"_Right";
                          _exit_name = g.dm_rm[?_datakey];
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2a"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2a =   _exit_name;
         
                                                _datakey = string(val(_exit_name2a))+STR_goto_reen;
                          _exit_name = g.dm_rm[?_datakey];
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2b"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2b =   _exit_name;
         
         
                                                _datakey = _town_name2+_datakey1+"_Left";
                          _exit_name = g.dm_rm[?_datakey];
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2c"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2c"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2c =   _exit_name;
         
                                                _datakey = string(val(_exit_name2c))+STR_goto_reen;
                          _exit_name = g.dm_rm[?_datakey];
-        if (is_undefined(_exit_name)&&_Z1){sdm("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2d"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
+        if (is_undefined(_exit_name)&&_Z1){show_debug_message("!!! WARNING !!!  "+_STR1+_datakey1+". "+"_exit_name2d"+" - g.dm_rm[?"+_datakey+"] is undefined.");}
         _exit_name2d =   _exit_name;
-        //sdm("");
+        //show_debug_message("");
         
         
         _datakey2 = dk_FileName+STR_Quest+hex_str(QUEST_NUM);
@@ -365,14 +365,14 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         //case STR_Bulblin:   {if(!is_undefined(_exit_name2a)) dm_save_data[?string_copy(_exit_name2a,1,RmName_LEN)+_datakey2]="TownA_028"; break;}
         }
         
-        if(_Z2)sdm(_datakey1+" _exit_name1a: "+string(val(_exit_name1a)));
-        if(_Z2)sdm(_datakey1+" _exit_name1b: "+string(val(_exit_name1b)));
-        if(_Z2)sdm(_datakey1+" _exit_name1c: "+string(val(_exit_name1c)));
-        if(_Z2)sdm(_datakey1+" _exit_name1d: "+string(val(_exit_name1d)));
-        if(_Z2)sdm(_datakey1+" _exit_name2a: "+string(val(_exit_name2a)));
-        if(_Z2)sdm(_datakey1+" _exit_name2b: "+string(val(_exit_name2b)));
-        if(_Z2)sdm(_datakey1+" _exit_name2c: "+string(val(_exit_name2c)));
-        if(_Z2)sdm(_datakey1+" _exit_name2d: "+string(val(_exit_name2d)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name1a: "+string(val(_exit_name1a)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name1b: "+string(val(_exit_name1b)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name1c: "+string(val(_exit_name1c)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name1d: "+string(val(_exit_name1d)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name2a: "+string(val(_exit_name2a)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name2b: "+string(val(_exit_name2b)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name2c: "+string(val(_exit_name2c)));
+        if(_Z2)show_debug_message(_datakey1+" _exit_name2d: "+string(val(_exit_name2d)));
         
         
         
@@ -513,8 +513,8 @@ for(_i=0; _i<_dl_list1_COUNT; _i++)
         debug_str += _town_name1;
         debug_str += string_repeat(" ",string_length(STR_Old_Kasuto)-string_length(_town_name1));
         debug_str += " vanilla overworld location)";
-        sdm(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
-        repeat(1){sdm(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
+        show_debug_message(debug_str); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)] = debug_str;
+        repeat(1){show_debug_message(""); dm_debug_data[?STR_Data+'01'+hex_str(++debug_data_count)]="";}
     }
 }
 

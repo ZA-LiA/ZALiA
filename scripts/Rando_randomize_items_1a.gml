@@ -33,7 +33,12 @@ var _Town2_SPELL = val(dm_save_data[?_Town2_NAME+STR_Spell], STR_JUMP);
 _town_name = STR_Saria;
 var _Town3_NAME  = val(dm_save_data[?STR_Town+STR_Rando+_town_name+"B"],_town_name);
 var _Town3_SPELL = val(dm_save_data[?_Town3_NAME+STR_Spell], STR_HEAL);
+//if (val(dm_save_data[?STR_Town+STR_Rando+STR_Saria+"A"], STR_Saria)!=STR_Old_Kasuto 
 
+/*
+dm_save_data[?STR_Town+STR_Rando+_town_name2+"A"] = _town_name1; // "A": Get what the overworld town is for _town_name2
+dm_save_data[?STR_Town+STR_Rando+_town_name1+"B"] = _town_name2; // "B": Get what town inhabits the overworld town of _town_name1
+*/
 
 
 
@@ -160,57 +165,68 @@ if(!Rando_is_qual_location(STR_Mido)
     
     
     ds_list_clear(_dl_options);
-    ds_list_add(_dl_options,STR_HAMMER); // Mido Boulder Pass
-    ds_list_add(_dl_options,STR_NOTE);   // Saria Bridge by NOTE
     
-    // Fire-Vines Cave route already got a chance in the above code.
-    // I'm not sure if it should get another chance.
-    // Maybe it should only if _Town3_SPELL is FIRE..
-    if (_Town3_SPELL==STR_FIRE)
-    //_idx = ds_list_find_index(_dl_town_spell,STR_FIRE);
-    //if (_idx!=-1) // Fire-Vines Cave
-    {
-        _town_name = _Town3_NAME;
-        //_town_name = _dl_town_name[|_idx];
-        switch(_town_name){
-        case STR_Ruto:      {ds_list_add(_dl_options,STR_TROPHY); break;}
-        case STR_Saria:     {ds_list_add(_dl_options,STR_MIRROR); break;}
-        case STR_Mido:      {ds_list_add(_dl_options,STR_FLOWER); break;}
-        case STR_Darunia:   {ds_list_add(_dl_options,STR_CHILD);  break;}
-        case STR_Old_Kasuto:{ds_list_add(_dl_options,STR_CROSS);  break;}
-        }
+    // Mido Boulder Pass Route
+    ds_list_add(_dl_options,STR_HAMMER);
+    
+    if (_Town3_NAME==STR_Old_Kasuto 
+    &&  _Town3_SPELL==STR_FIRE )
+    {   /* In this scenario, because CROSS would be required to get through Old Kasuto to Saria Bridge, 
+           FIRE could be acquired before Saria Bridge making Saria Bridge Route unecessary. */
+        // Fire-Vines Cave Route
+        ds_list_add(_dl_options,STR_CROSS);
     }
-    
-    
-    ds_list_clear(_dl_1);
-    if(!Rando_are_attainable(STR_JUMP,STR_FAIRY)) // Saria Bridge
+    else
     {
-        for(_i=ds_list_size(_dl_town_name)-1; _i>=0; _i--)
+        // Fire-Vines Cave Route
+        /* Fire-Vines Cave Route already got a chance in the above code.
+           I'm not sure if it should get another chance.
+           Maybe it should only if _Town3_SPELL is FIRE.. */
+        if (_Town3_SPELL==STR_FIRE)
         {
-            _town_name  = _dl_town_name[|_i];
-            _town_spell = _dl_town_spell[|_i];
-            if (isVal(_town_spell,STR_JUMP,STR_FAIRY))
+            _town_name = _Town3_NAME;
+            switch(_town_name){
+            case STR_Ruto:      {ds_list_add(_dl_options,STR_TROPHY); break;}
+            case STR_Saria:     {ds_list_add(_dl_options,STR_MIRROR); break;}
+            case STR_Mido:      {ds_list_add(_dl_options,STR_FLOWER); break;}
+            case STR_Darunia:   {ds_list_add(_dl_options,STR_CHILD);  break;}
+            //case STR_Old_Kasuto:{ds_list_add(_dl_options,STR_CROSS);  break;}
+            }
+        }
+        
+        
+        // Saria Bridge Route
+        ds_list_add(_dl_options,STR_NOTE); // Saria Bridge by NOTE
+        
+        ds_list_clear(_dl_1);
+        if(!Rando_are_attainable(STR_JUMP,STR_FAIRY)) // Saria Bridge
+        {
+            for(_i=ds_list_size(_dl_town_name)-1; _i>=0; _i--)
             {
-                switch(_town_name){
-                case STR_Ruto:      {if(!Rando_is_attainable(STR_TROPHY)) ds_list_add(_dl_1,STR_TROPHY); break;}
-                case STR_Saria:     {if(!Rando_is_attainable(STR_MIRROR)) ds_list_add(_dl_1,STR_MIRROR); break;}
-                case STR_Mido:      {if(!Rando_is_attainable(STR_FLOWER)) ds_list_add(_dl_1,STR_FLOWER); break;}
-                case STR_Darunia:   {if(!Rando_is_attainable(STR_CHILD))  ds_list_add(_dl_1,STR_CHILD);  break;}
-                case STR_Old_Kasuto:{if(!Rando_is_attainable(STR_CROSS))  ds_list_add(_dl_1,STR_CROSS);  break;}
+                _town_name  = _dl_town_name[|_i];
+                _town_spell = _dl_town_spell[|_i];
+                if (isVal(_town_spell,STR_JUMP,STR_FAIRY))
+                {
+                    switch(_town_name){
+                    case STR_Ruto:      {if(!Rando_is_attainable(STR_TROPHY)) ds_list_add(_dl_1,STR_TROPHY); break;}
+                    case STR_Saria:     {if(!Rando_is_attainable(STR_MIRROR)) ds_list_add(_dl_1,STR_MIRROR); break;}
+                    case STR_Mido:      {if(!Rando_is_attainable(STR_FLOWER)) ds_list_add(_dl_1,STR_FLOWER); break;}
+                    case STR_Darunia:   {if(!Rando_is_attainable(STR_CHILD))  ds_list_add(_dl_1,STR_CHILD);  break;}
+                    case STR_Old_Kasuto:{if(!Rando_is_attainable(STR_CROSS))  ds_list_add(_dl_1,STR_CROSS);  break;}
+                    }
                 }
             }
         }
+        
+        if (ds_list_size(_dl_1)==2 
+        ||  Rando_are_attainable(STR_JUMP,STR_FAIRY) ) // Saria Bridge
+        {
+            ds_list_add(_dl_options,STR_JUMP+STR_FAIRY); // Route: Saria Bridge with STR_JUMP+STR_FAIRY
+        }
     }
     
-    if (ds_list_size(_dl_1)==2 
-    ||  Rando_are_attainable(STR_JUMP,STR_FAIRY) ) // Saria Bridge
-    {
-        ds_list_add(_dl_options,STR_JUMP+STR_FAIRY); // Route: Saria Bridge with STR_JUMP+STR_FAIRY
-    }
     
-    
-    
-    
+    // Chose a route
     if (ds_list_size(_dl_options))
     {
         ds_list_shuffle(_dl_options);
@@ -238,6 +254,13 @@ if(!Rando_is_qual_location(STR_Mido)
                 _item_id = STR_NOTE;
                 Rando_randomize_items_1a_1(_item_id);
             }
+            
+            if (_Town3_NAME==STR_Old_Kasuto 
+            && !Rando_is_attainable(STR_CROSS) )
+            {
+                _item_id = STR_CROSS;
+                Rando_randomize_items_1a_1(_item_id);
+            }
         }
         else
         {
@@ -246,6 +269,7 @@ if(!Rando_is_qual_location(STR_Mido)
     }
     // 1111111111111111111111111111111111111111111111111111111111111111111111111
 }
+
 
 
 
@@ -268,6 +292,12 @@ if (Rando_is_qual_location(STR_Mido))
         Rando_randomize_items_1a_1(_item_id);
     }
     // 2222222222222222222222222222222222222222222222222222222222222222222222222
+}
+else
+{
+    show_debug_message("");
+    show_debug_message("!!!! WARNING! Rando phase 1 failed to make a path to Mido Harbor. !!!!");
+    show_debug_message("");
 }
 
 

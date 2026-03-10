@@ -1403,7 +1403,7 @@ data_exit(EXR0,etA0,1,  clm2,ROW0,  CLMS2,ROWS6,  clmA,row3,  hex_str(rm_num+1)+
 data_path_conditions(exit_name_r0, exit_name_l0);
 data_path_conditions(exit_name_l0, exit_name_r0);
 
-data_scene_rando(rm);
+//data_scene_rando(rm);
 
 
 

@@ -84,6 +84,7 @@ for(_i=ds_list_size(dl_list1)-1; _i>=0; _i--)
 
 
 
+/* // 2025/08/11. Turning this off for now. Doesn't look good.
 if (DEV  // TESTING
 || !irandom($2) )
 {
@@ -150,6 +151,7 @@ if (DEV  // TESTING
         show_debug_message("");
     }
 }
+*/
 
 
 
@@ -227,6 +229,7 @@ if (global.WallStyle01Tiles_MAIN
     &&  irandom(ds_list_size(dl_list2))<ds_list_size(dl_list1) )
     {
         _area = _dl_areas[|irandom(ds_list_size(_dl_areas)-1)];
+        //_area = Area_PalcB; // testing
         ds_list_delete(_dl_areas,ds_list_find_index(_dl_areas,_area));
         //_area = choose(Area_PalcA,Area_PalcB,Area_PalcC,Area_PalcD,Area_PalcE,Area_PalcF,Area_PalcG);
         switch(_area){
@@ -356,8 +359,15 @@ if (global.WallStyle01Tiles_MAIN
                                         else if (ds_list_find_index(_dl_SIDE_RGT,     _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $1;
                                         else if (ds_list_find_index(_dl_FILL,         _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $10;
                                         
+                                        if (_dg_wall_type[#_clm,_row]!=0)
+                                        {
+                                            _wall_type_data_was_set = true;
+                                            dm_save_data_dungeon_tileset[?_wall_styles_datakey1+_file_name1+_layer_name] = true;
+                                        }
+                                        /*
                                         if(!_wall_type_data_was_set) _wall_type_data_was_set = _dg_wall_type[#_clm,_row]!=0;
                                         if (_wall_type_data_was_set) dm_save_data_dungeon_tileset[?_wall_styles_datakey1+_file_name1+_layer_name] = true;
+                                        */
                                     }
                                 }
                             }
@@ -612,8 +622,15 @@ if (global.WallStyle01Tiles_MAIN
                                         else if (ds_list_find_index(_dl_SIDE_RGT,     _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $1;
                                         else if (ds_list_find_index(_dl_FILL,         _tsrc)!=-1) _dg_wall_type[#_clm,_row] = $10;
                                         
+                                        if (_dg_wall_type[#_clm,_row]!=0)
+                                        {
+                                            _wall_type_data_was_set = true;
+                                            dm_save_data_dungeon_tileset[?_wall_styles_datakey1+_file_name1+_layer_name] = true;
+                                        }
+                                        /*
                                         if(!_wall_type_data_was_set) _wall_type_data_was_set = _dg_wall_type[#_clm,_row]!=0;
                                         if (_wall_type_data_was_set) dm_save_data_dungeon_tileset[?_wall_styles_datakey1+_file_name1+_layer_name] = true;
+                                        */
                                     }
                                 }//_k
                             }

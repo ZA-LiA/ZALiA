@@ -80,7 +80,7 @@ var _CAN_USE_RANDOMIZED_TILES = global.RandoDungeonTilesets_enabled
 && g.dungeon_num 
 && !is_undefined(_RANDOMIZED_TILES_DUNGEON_NAME) 
 && _RANDOMIZED_TILES_DUNGEON_NAME==g.dungeon_name;
-_CAN_USE_RANDOMIZED_TILES = false; // 2025/08/11. Turning this off for now. Doesn't look good.
+_CAN_USE_RANDOMIZED_TILES = false; // 2025/08/11. Turning this off for now. Doesn't look good. (It's also turned off in `Rando_randomize_dungeon_tilesets()`)
 //_CAN_USE_RANDOMIZED_TILES = g.dungeon_num!=0;//TESTING
 
 
@@ -649,7 +649,6 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         &&  ds_grid_width(_WallStyle01_dg) 
         &&  _WallStyle01_dg[#_clm,_row] 
         && !is_undefined(global.dm_scene_wall_data[?dk_WallStyle+"01"+_TILE_FILE_NAME+_layer_name]) )
-        //&& !is_undefined(g.dm_rm[?dk_WallStyle+"01"+_TILE_FILE_NAME+_layer_name]) )
         {
             _data = _WallStyle01_dg[#_clm,_row];
             _ts   = g.dl_tileset[|(_data>>8)&$FF];
@@ -662,7 +661,6 @@ for(_i=0; _i<_LAYER_COUNT; _i++) // each depth/layer
         &&  ds_grid_width(_WallStyle02_dg) 
         &&  _WallStyle02_dg[#_clm,_row] 
         && !is_undefined(global.dm_scene_wall_data[?dk_WallStyle+"02"+_TILE_FILE_NAME+_layer_name]) )
-        //&& !is_undefined(g.dm_rm[?dk_WallStyle+"02"+_TILE_FILE_NAME+_layer_name]) )
         {
             _data = _WallStyle02_dg[#_clm,_row];
             _ts   = g.dl_tileset[|(_data>>8)&$FF];

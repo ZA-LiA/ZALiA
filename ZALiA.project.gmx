@@ -12821,6 +12821,8 @@
         <sprite>sprites\spr_stat_meter_head_magic</sprite>
       </sprites>
       <sprites name="text">
+        <sprite>sprites\spr_Font4x4_01</sprite>
+        <sprite>sprites\spr_Font5x5_01</sprite>
         <sprite>sprites\spr_Font1</sprite>
         <sprite>sprites\spr_Font_Hyrulian</sprite>
         <sprite>sprites\spr_Font2</sprite>

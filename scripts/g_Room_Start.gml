@@ -33,7 +33,7 @@ if (room==rmB_FileSelect && !instance_exists(FileSelect)) instance_create(0,0, F
 
 for(_i=ds_grid_width(dg_YxY_)-1; _i>=0; _i--)
 {
-    dg_YxY_[#_i,$0]=choose(spr_Font1,spr_Font1,spr_Font_Hyrulian,spr_Font_Hyrulian,spr_Font2,spr_Font2_1,spr_Font3,spr_Font3_1,spr_Font4,spr_Font5,spr_Font6,spr_Font7,spr_Font8,spr_Font9,spr_Font10);
+    dg_YxY_[#_i,$0]=choose(spr_Font4x4_01,spr_Font5x5_01,spr_Font1,spr_Font1,spr_Font_Hyrulian,spr_Font_Hyrulian,spr_Font2,spr_Font2_1,spr_Font3,spr_Font3_1,spr_Font4,spr_Font5,spr_Font6,spr_Font7,spr_Font8,spr_Font9,spr_Font10);
     dg_YxY_[#_i,$1]=sign_(irandom($1F)); // xscale
     dg_YxY_[#_i,$2]=sign_(irandom($1F)); // yscale
 }
@@ -783,12 +783,16 @@ if (_ROOM_A
                 _owrc = dm[?STR_Rando+STR_Exit+hex_str(_i)+STR_OWRC];
                 if(!is_undefined(_owrc))
                 {
-                    /*
-                    _clm = (_owrc>>0)&$FF;
-                    _row = (_owrc>>8)&$FF;
-                    dg_tsrc[# _clm,_row] = (TILESET1_TS_IDX<<8)|TSRC_MOUN01;
-                    dg_solid[#_clm,_row] = $01;
-                    */
+                    if (_owrc!=val(dm[?dk_RauruPass+STR_OWRC]))
+                    //if (global.Rando_RauruPass_VER!=3 
+                    //||  _owrc!=val(dm[?dk_RauruPass+STR_OWRC]) )
+                    {
+                        _clm = (_owrc>>0)&$FF;
+                        _row = (_owrc>>8)&$FF;
+                        dg_tsrc[# _clm,_row] = (TILESET1_TS_IDX<<8)|TSRC_MOUN01;
+                        dg_solid[#_clm,_row] = $01;
+                    }
+                    
                     dm[?hex_str(_owrc)+STR_Open] = 0;
                 }
             }
