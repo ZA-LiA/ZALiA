@@ -204,26 +204,22 @@ switch(g.menu_state)
             _RandoHint_dialogue_dk = STR_Zelda+STR_Hint;
             dialogue = val(f.dm_rando[?_RandoHint_dialogue_dk+STR_Dialogue]);
         }
-        else
+        else if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]))
         {
-            if (val(global.dm_save_file_settings[?STR_Randomize+STR_Item+STR_Locations]) 
-            &&  val(global.dm_save_file_settings[?STR_Item+STR_Location+STR_Hint]) )
+            _val = f.dm_rando[?STR_Rando+STR_Hint+g.dialogue_source.dialogue_datakey];
+            if(!is_undefined(_val))
             {
-                _val = f.dm_rando[?STR_Rando+STR_Hint+g.dialogue_source.dialogue_datakey];
-                if(!is_undefined(_val))
-                {
-                    _dialogue_is_special = true;
-                    _RandoHint_dialogue_dk = g.dialogue_source.dialogue_datakey;
-                    dialogue = _val;
-                }
-                else if (val(dm_dialogue[?_DIALOGUE_DK+STR_Hint]))
-                {
-                    if (g.town_name==STR_Rauru 
-                    ||  g.town_name==STR_Saria 
-                    ||  g.town_name==STR_Darunia )
-                    {    dialogue = "SORRY,<NOTHING.";  }
-                    else dialogue = "SORRY.<I KNOW<NOTHING.";
-                }
+                _dialogue_is_special = true;
+                _RandoHint_dialogue_dk = g.dialogue_source.dialogue_datakey;
+                dialogue = _val;
+            }
+            else if (val(dm_dialogue[?_DIALOGUE_DK+STR_Hint]))
+            {
+                if (g.town_name==STR_Rauru 
+                ||  g.town_name==STR_Saria 
+                ||  g.town_name==STR_Darunia )
+                {    dialogue = "SORRY,<NOTHING.";  }
+                else dialogue = "SORRY.<I KNOW<NOTHING.";
             }
         }
     }
