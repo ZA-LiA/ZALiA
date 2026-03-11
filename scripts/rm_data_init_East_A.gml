@@ -5958,7 +5958,7 @@ set_rm_data(area+hex_str(rm_num), mus0, STR_Tile+area_EA+'161', STR_ow_axis+hex_
 
 //data_spawn(rm+STR_PRIO,TorchA,$1,  ($0B<<3)+4,(row0+$13)<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
 //data_spawn(rm+STR_PRIO,TorchA,$1,  ($50<<3)+4,(row0+$15)<<3,  dk_PI+hex_str(_pi),STR_Lit); // v1: Light w/ CANDLE or FIRE
-data_spawn(rm+STR_PRXM,Blooby,$1,  $4D<<3,(row0+$0F)<<3,  1,$00); // Blooby 1
+data_spawn(rm+STR_PRXM,Blooby,$1,  $50<<3,(row0+$0F)<<3,  1,$00); // Blooby 1
 data_spawn(rm+STR_PRXM,Bagin01,$1,  $2A<<3,(row0+$1A)<<3); // Bagin
 data_spawn(rm+STR_PRXM,DairA,$1,  $1E<<3,(row0+$0E)<<3); // Daira  1 
 

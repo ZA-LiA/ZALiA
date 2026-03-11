@@ -10,7 +10,9 @@ GO_depth_init(DEPTH_ITEM);
 GO_init_palidx(global.PI_MOB_ORG); // This is the CRYSTAL's palidx
 
 
-DUNGEON_NUM = g.dungeon_num;
+// If the boss is rando'd, this should refer to the actual dungeon num the player is in, not the dungeon num the boss is from
+DUNGEON_NUM = val(f.dm_rando[?g.rm_name+STR_Dungeon+STR_Num], g.dungeon_num);
+//DUNGEON_NUM = g.dungeon_num;
 /*
 _val = f.dm_rando[?STR_Boss+STR_Scene+STR_Name+g.rm_name+STR_Normal];
 if(!is_undefined(_val))
@@ -53,16 +55,16 @@ midtone_colorID_cur = midtone_colorID_DEF;
 
 
 
-//spawn_x  = ((xx>>8)<<8) + $80 - ww_;
+//spawn_x = ((xx>>8)<<8) + $80 - ww_;
 
 GROUND_Y = (((spawn_yt>>8)+1)<<8) - ($3<<3);
 GROUND_Y = get_ground_y(x,GROUND_Y, -1,GROUND_Y);
 
 
-spawn_yt  = GROUND_Y - ($48+$6);
+spawn_yt = GROUND_Y - ($48+$6);
 set_xlyt(id, spawn_xl,spawn_yt);
 
-// sdm("GROUND_Y $"+hex_str(GROUND_Y)+", spawn_yt $"+hex_str(spawn_yt));
+//sdm("GROUND_Y $"+hex_str(GROUND_Y)+", spawn_yt $"+hex_str(spawn_yt));
 
 
 if (crystal_is_placed(DUNGEON_NUM)) counter = 0; // Only udp will update

@@ -44,8 +44,8 @@ switch(counter) // 00AF[eIndex]
     // 9AF4: JSR E4D9
     GOB_body_collide_pc_body_1a();
     
-    if ((cs&CS_BD1)  // colliding w/ PC body
-    && !global.pc.ogr )   // PC confirmed to be on ground
+    if ((cs&CS_BD1)     // colliding w/ PC body
+    && !global.pc.ogr ) // PC confirmed to be on ground
     {   // 9B03
         g.pc_lock = PC_LOCK_ALL; // Lock all
         PC_set_behavior(global.pc.behavior_IDLE);
