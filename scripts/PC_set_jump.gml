@@ -3,7 +3,8 @@
 
 if(!Input.Jump_pressed 
 || !jump_tokens 
-||  g.pc_lock&PC_LOCK_VSPD )
+||  g.pc_lock&PC_LOCK_VSPD 
+||  g.pc_lock&PC_LOCK_JUMP )
 {
     exit; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

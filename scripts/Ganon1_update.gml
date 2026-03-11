@@ -126,6 +126,12 @@ switch(sub_state)
     if(!global.pc.ogr 
     && !p.Flash_Pal_timer )
     {
+        if (global.pc.cs_btm_inst==id 
+        &&  global.pc.y<yt )
+        {
+            walking_pc_to_target = true; // if pc on top of Ganon at summon, walk pc to the ground
+        }
+        
         PC_set_behavior(global.pc.behavior_IDLE);
         g.pc_lock = PC_LOCK_ALL;
         
@@ -196,6 +202,7 @@ switch(sub_state)
     
     
     
+    
     // ==================================================================
     // -----------------------------------------------------------
     case sub_state_SUMMON4:{ // FLIP BOTTLE UPSIDE DOWN
@@ -210,6 +217,7 @@ switch(sub_state)
     timer     = 0;
     sub_state = sub_state_POUR_BLOOD;
     break;}
+    
     
     
     
@@ -646,6 +654,104 @@ if (Collision_VER==2
 
 
 //GOB_body_collide_pc_sword();
+
+
+
+
+// If pc is on top of Ganon when SUMMON is called
+if (walking_pc_to_target)
+{
+    var _TARGET_X = $15<<3;
+    var _HSPD_MAX = $10;
+    if (global.pc.x>_TARGET_X-(_HSPD_MAX>>4))
+    {
+        // This is pretty jank but i dont care rn
+        g.pc_lock = PC_LOCK_HSPD | PC_LOCK_FLOT | PC_LOCK_JUMP | PC_LOCK_ATK1 | PC_LOCK_ATK2 | PC_LOCK_ATK3 | PC_LOCK_ATK4 | PC_LOCK_SPEL | PC_LOCK_MENU;
+        //g.pc_lock = PC_LOCK_A1;
+        //g.pc_lock = PC_LOCK_ALL & ~PC_LOCK_VSPD;
+        with(global.pc) PC_update_vertical();
+        g.pc_lock = PC_LOCK_ALL;
+        if (walk_pc_to_x(_TARGET_X, _HSPD_MAX))
+        {
+            walking_pc_to_target = false;
+            global.pc.hspd = 0;
+            global.pc.xScale = 1;
+            PC_set_behavior(global.pc.behavior_IDLE);
+            g.pc_lock = PC_LOCK_ALL;
+        }
+    }
+}
+//PC_LOCK_A1 = (PC_LOCK_JUMP | PC_LOCK_ATK1 | PC_LOCK_ATK2 | PC_LOCK_ATK3 | PC_LOCK_ATK4 | PC_LOCK_SPEL | PC_LOCK_MENU)
+//PC_LOCK_HSPD | PC_LOCK_FLOT
+/*
+    case sub_state_PC_WALK1:{ // CONFIRM PC ON GROUND
+    if (timer) break;
+    
+    if(!global.pc.ogr)
+    {
+        var _X = arena_xl+($7<<3);
+        g.pc_lock = PC_LOCK_ALL
+        global.pc.WalkTo_active   = true;
+        global.pc.WalkTo_x        = _X;
+        global.pc.WalkTo_hspd_max = $10;
+        
+        if (global.pc.x==_X)
+        //if (walk_pc_to_x(arena_xl+($7<<3), $10))
+        {
+            global.pc.WalkTo_active = false;
+            global.pc.hspd = 0;
+            timer     = 0;
+            sub_state = sub_state_SUMMON2;
+        }
+    }
+    break;}
+*/
+/*
+case sub_state_WALK_PC:{ // ShadowBoss-9B53 -------------------------------------------------
+if (g.cutscene_timer)
+{
+    if (global.pc.behavior!=global.pc.behavior_CROUCH) PC_set_behavior(global.pc.behavior_IDLE);
+    break;//case sub_state_WALK_PC
+}
+
+
+
+// ------------------------------------------------------
+if (f.quest_num>=2) var _TARGET_X = ARENA_X - ($02<<3);
+else                var _TARGET_X = ARENA_X;
+
+
+g.pc_lock = PC_LOCK_ALL
+global.pc.WalkTo_active   = true;
+global.pc.WalkTo_x        = _TARGET_X;
+global.pc.WalkTo_hspd_max = $10; // $10 max hspd. Should limit speed to 1 pixel per frame
+
+if (global.pc.x==_TARGET_X)
+{
+    global.pc.WalkTo_active = false;
+    
+    set_xy(global.pc, _TARGET_X, global.pc.y);
+    global.pc.hspd = 0;
+    
+    PC_set_behavior(global.pc.behavior_IDLE);
+    global.pc.xScale = 1;
+    
+    if (f.quest_num>=2) var _X = ARENA_X + (ARENA_X-global.pc.x);
+    else                var _X = global.pc.x + ($03<<3);
+    with(TK_OBJ) // TK: Triforce Keeper
+    {
+        set_xy(id, _X, GROUND_Y-hh_);
+        update_draw_xy();
+    }
+    
+    
+    g.cutscene_timer = $D4 + g.timer_b; // 2 + (6 * 21) + (4 * 21) = 212($D4)
+    
+    g.cutscene_part++;
+    sub_state = sub_state_REVEAL_TK;
+}
+break;}//case sub_state_WALK_PC
+*/
 
 
 

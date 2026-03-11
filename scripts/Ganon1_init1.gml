@@ -27,8 +27,10 @@ projectile_ver = projectile_VER;
 
 
 Background_COLOR01 = p.C_BLK1;
-//solid_type  = TID_SOLID1;
+solid_type = TID_SOLID1;
 
+
+walking_pc_to_target = false; // if pc on top of Ganon at summon, walk pc to the ground
 pc_is_inside = false;
 pc_x_min  = 0;
 pc_x_max  = 0;
