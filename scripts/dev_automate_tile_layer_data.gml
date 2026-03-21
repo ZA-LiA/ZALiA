@@ -15,6 +15,7 @@ var _STR2="----------------------------";
 
 
 repeat(2) sdm("");
+sdm("// ------- AUTOMATED CODE FOR TILE LAYER INIT DATA STARTS HERE -------");
 
 var          _AREA_COUNT = ds_list_size(g.dl_AREA_NAME);
 for(_i=0; _i<_AREA_COUNT; _i++) // Each area
@@ -101,6 +102,7 @@ for(_i=0; _i<_AREA_COUNT; _i++) // Each area
 }
 
 repeat(2) sdm("");
+sdm("// ------- AUTOMATED CODE FOR TILE LAYER INIT DATA ENDS HERE -------");
 
 
 //if (ds_exists(_file_data,ds_type_map)){ds_map_destroy(_file_data); _file_data=undefined;}

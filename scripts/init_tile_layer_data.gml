@@ -6,6 +6,7 @@ var _dm = ds_map_create();
 
 
 
+// ------- AUTOMATED CODE FOR TILE LAYER INIT DATA STARTS HERE -------
 // ***********************  _WestA_  ***********************
 //  ----------------------------  000  ----------------------------
 _dm[?'WestA_000'+STR_Layer+'01'+STR_Name] = 'BG0101';
@@ -1751,22 +1752,22 @@ _dm[?'MazIs_021'+STR_Layer+'03'+STR_Name] = 'BG0402';
 //  ----------------------------  062  ----------------------------
 //  ----------------------------  063  ----------------------------
 //  ----------------------------  064  ----------------------------
-_dm[?'MazIs_064'+STR_Layer+'01'+STR_Name] = 'FG0301';
-_dm[?'MazIs_064'+STR_Layer+'02'+STR_Name] = 'FG0203';
-_dm[?'MazIs_064'+STR_Layer+'03'+STR_Name] = 'BG0203';
+_dm[?'MazIs_064'+STR_Layer+'01'+STR_Name] = 'FG0301, GROUND01_01';
+_dm[?'MazIs_064'+STR_Layer+'02'+STR_Name] = 'FG0203, GRASS01_01';
+_dm[?'MazIs_064'+STR_Layer+'03'+STR_Name] = 'BG0203, GRASS02_01';
 _dm[?'MazIs_064'+STR_Layer+'04'+STR_Name] = 'BG0302';
 _dm[?'MazIs_064'+STR_Layer+'05'+STR_Name] = 'BG0402';
-_dm[?'MazIs_064'+STR_Layer+'06'+STR_Name] = 'BG0503';
+_dm[?'MazIs_064'+STR_Layer+'06'+STR_Name] = 'BG0503, BUSH01_01';
 _dm[?'MazIs_064'+STR_Layer+'07'+STR_Name] = 'BG0601';
-_dm[?'MazIs_064'+STR_Layer+'08'+STR_Name] = 'BG0703';
+_dm[?'MazIs_064'+STR_Layer+'08'+STR_Name] = 'BG0703, GRASS01_02';
 //  ----------------------------  065  ----------------------------
-_dm[?'MazIs_065'+STR_Layer+'01'+STR_Name] = 'FG0201';
-_dm[?'MazIs_065'+STR_Layer+'02'+STR_Name] = 'BG0102';
-_dm[?'MazIs_065'+STR_Layer+'03'+STR_Name] = 'BG0203';
-_dm[?'MazIs_065'+STR_Layer+'04'+STR_Name] = 'BG0302';
+_dm[?'MazIs_065'+STR_Layer+'01'+STR_Name] = 'FG0201, GROUND01_01';
+_dm[?'MazIs_065'+STR_Layer+'02'+STR_Name] = 'BG0202';
+_dm[?'MazIs_065'+STR_Layer+'03'+STR_Name] = 'BG0202';
+_dm[?'MazIs_065'+STR_Layer+'04'+STR_Name] = 'BG0303, GRASS01_01';
 _dm[?'MazIs_065'+STR_Layer+'05'+STR_Name] = 'BG0403';
 _dm[?'MazIs_065'+STR_Layer+'06'+STR_Name] = 'BG0501';
-_dm[?'MazIs_065'+STR_Layer+'07'+STR_Name] = 'BG0603';
+_dm[?'MazIs_065'+STR_Layer+'07'+STR_Name] = 'BG0603, GRASS02_01';
 //  ----------------------------  066  ----------------------------
 _dm[?'MazIs_066'+STR_Layer+'01'+STR_Name] = 'FG0403, LIQUID_02, DIR_02, SPEED_04';
 _dm[?'MazIs_066'+STR_Layer+'02'+STR_Name] = 'FG0301';
@@ -1858,7 +1859,7 @@ _dm[?'MazIs_085'+STR_Layer+'03'+STR_Name] = 'BG0603, WINDOW01';
 _dm[?'MazIs_085'+STR_Layer+'04'+STR_Name] = 'BG0701, BGWALL01_01';
 //  ----------------------------  086  ----------------------------
 _dm[?'MazIs_086'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
-_dm[?'MazIs_086'+STR_Layer+'02'+STR_Name] = 'BG0701, BGWALL01_01';
+_dm[?'MazIs_086'+STR_Layer+'02'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  087  ----------------------------
 _dm[?'MazIs_087'+STR_Layer+'01'+STR_Name] = 'BG0201, FGWALL01_01';
 _dm[?'MazIs_087'+STR_Layer+'02'+STR_Name] = 'BG0701, BGWALL01_01';
@@ -2232,7 +2233,7 @@ _dm[?'MazIs_168'+STR_Layer+'02'+STR_Name] = 'BG0404, SPIKE01_01, HIDDEN_01';
 _dm[?'MazIs_168'+STR_Layer+'03'+STR_Name] = 'BG0504, HIDDEN_01';
 _dm[?'MazIs_168'+STR_Layer+'04'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  169  ----------------------------
-_dm[?'MazIs_169'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_04';
+_dm[?'MazIs_169'+STR_Layer+'01'+STR_Name] = 'FG0203, LIQUID_01 DIR_01 SPEED_02';
 _dm[?'MazIs_169'+STR_Layer+'02'+STR_Name] = 'BG0201, FGWALL01_01, PILLAR01_01';
 _dm[?'MazIs_169'+STR_Layer+'03'+STR_Name] = 'BG0704, BGWALL01_01';
 //  ----------------------------  170  ----------------------------
@@ -6114,6 +6115,7 @@ _dm[?'TownB_098'+STR_Layer+'02'+STR_Name] = 'BG0701';
 //  ----------------------------  253  ----------------------------
 //  ----------------------------  254  ----------------------------
 //  ----------------------------  255  ----------------------------
+// ------- AUTOMATED CODE FOR TILE LAYER INIT DATA ENDS HERE -------
 
 
 

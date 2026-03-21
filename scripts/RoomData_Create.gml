@@ -1932,7 +1932,7 @@ for(_i=0; _i<ds_list_size(g.dl_AREA_NAME); _i++) // each area
 
 //dev_find_scenes_using_certain_tiles();
 
-//if (DEV) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
+//dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 //if (global.REINITIALIZE_DATA1) dev_automateRoomData2(); // automates scene width/height data for RoomData_Create_2a()
 
 

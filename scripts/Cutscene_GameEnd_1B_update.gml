@@ -840,6 +840,7 @@ switch(g.cutscene_part)
             
             
             // Delete Rando Hints
+            ds_map_clear(g.dm_RandoHintsRecorder);
             var _RANDO_DATA_FILE_NAME = f.dl_FILE_NAME_PREFIX[|_FILE_NUM-1]+STR_Rando+STR_Data+".txt";
             if (file_exists(_RANDO_DATA_FILE_NAME))
             {

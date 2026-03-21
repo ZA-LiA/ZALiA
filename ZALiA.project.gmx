@@ -13228,6 +13228,7 @@
       <script>scripts\tile_delete_all.gml</script>
       <script>scripts\break_block.gml</script>
       <script>scripts\get_scene_ts_data.gml</script>
+      <script>scripts\update_non_empty_tiles_data.gml</script>
     </scripts>
     <scripts name="graphics">
       <script>scripts\spr_x_at_x.gml</script>

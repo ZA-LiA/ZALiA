@@ -4,6 +4,8 @@ show_debug_message("Overworld_init_data_2()");
 
 
 
+
+// ------- AUTOMATED CODE FOR OVERWORLD INIT DATA STARTS HERE -------
 var _data;
 
 
@@ -2827,6 +2829,7 @@ if(!is_undefined(_data)) ds_grid_read(dg_AreaNames, _data);
 
 
 ds_map_destroy(dm_file_data); dm_file_data=undefined;
+// ------- AUTOMATED CODE FOR OVERWORLD INIT DATA ENDS HERE -------
 
 
 

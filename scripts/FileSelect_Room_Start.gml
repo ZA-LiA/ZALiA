@@ -96,6 +96,9 @@ FS_set_stats();
 
 
 // -------------------------------------------------
+ds_map_clear(g.dm_RandoHintsRecorder);
+
+
 _seed = 0;
 ds_map_clear(dm_RandoSeeds);
 for(_file_num=1; _file_num<=SAVE_FILE_MAX; _file_num++)

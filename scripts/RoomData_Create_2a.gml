@@ -64,6 +64,7 @@ global.dm_scene_wh[?'Title_000'+STR_Height] = $0100;
 
 
 
+// ------- AUTOMATED CODE FOR SCENE DIMENSIONS INIT DATA STARTS HERE -------
 // ***********************  _WestA_  ***********************
 // -------------------------------------------------------------
 
@@ -8673,6 +8674,7 @@ global.dm_scene_wh[?'TownB_098'+STR_Height] = $0200;
 //  ----------------------------  254  ----------------------------
 
 //  ----------------------------  255  ----------------------------
+// ------- AUTOMATED CODE FOR SCENE DIMENSIONS INIT DATA ENDS HERE -------
 
 
 

@@ -21,7 +21,8 @@ if(_C1)
 {
     var _SCR_NAME = "Overworld_init_data_2()";
     var _FILE_NAME1 = "ow_tile_data/OverworldData01.txt";
-    repeat($8)sdm("");
+    repeat($10)sdm("");
+    sdm("// ------- AUTOMATED CODE FOR OVERWORLD INIT DATA STARTS HERE -------");
     sdm("var _data;");
     repeat($2)sdm("");
     sdm("dm_file_data = -1;");
@@ -1942,6 +1943,7 @@ if(_C1)
 {
          //ds_map_destroy(dm_file_data); dm_file_data=undefined;
     sdm("ds_map_destroy(dm_file_data); dm_file_data=undefined;");
+    sdm("// ------- AUTOMATED CODE FOR OVERWORLD INIT DATA ENDS HERE -------");
 }
 
 
@@ -1951,7 +1953,7 @@ ds_list_destroy(_dl1); _dl1=undefined;
 ds_list_destroy(_dl2); _dl2=undefined;
 
 if(_C0)sdm("ds_list_destroy(_dl_AreaNames); _dl_AreaNames=undefined;");
-if(_C2) repeat(8)sdm("");
+if(_C2) repeat($10)sdm("");
 
 
 

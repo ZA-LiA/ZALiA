@@ -749,7 +749,8 @@ _val=asset_get_index("mus_ZeldaII_FDS_Overworld"); if (_val!=-1){add_sound_data(
 _val=asset_get_index("mus_NikoTengoku_Overworld_Body"); if (_val!=-1){add_sound_data(_val,       _VOL_NIKO,  _theme,dk_Nikos8BitStereo, max(0,asset_get_index("mus_NikoTengoku_Overworld_Intro")));}
 add_sound_data(mus_Z1_Overworld_Body,                        1,  _theme,_set_ZELDA1,        mus_Z1_Overworld_Intro);
 _val=asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl"); if (_val!=-1){add_sound_data(_val,_VOL_CHIM,  _theme,dk_IsabelleChiming, max(0,asset_get_index("mus_IsabelleChiming_Overworld_MazeIsl_Intro")));}
-_val=asset_get_index("mus_SteelCrescent_Makarrha"); if (_val!=-1){add_sound_data(_val,           _VOL_STCR,  _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Makarrha_Intro")));}
+_val=asset_get_index("mus_SteelCrescent_Makarrha"); if (_val!=-1){add_sound_data(_val,           _VOL_STCR,  _theme,dk_SteelCrescent);}
+//_val=asset_get_index("mus_SteelCrescent_Makarrha"); if (_val!=-1){add_sound_data(_val,           _VOL_STCR,  _theme,dk_SteelCrescent,   max(0,asset_get_index("mus_SteelCrescent_Makarrha_Intro")));}
 _val=asset_get_index("mus_SteelCrescent2_SwordIsland"); if (_val!=-1){add_sound_data(_val,       _VOL_STCR2, _theme,dk_SteelCrescent2);}
 _val=asset_get_index("mus_SteelCrescent3_MazeIsland"); if (_val!=-1){add_sound_data(_val,        _VOL_STCR3, _theme,dk_SteelCrescent3);}
 _val=asset_get_index("mus_SteelCrescent4_MazeIsland"); if (_val!=-1){add_sound_data(_val,        _VOL_STCR4, _theme,dk_SteelCrescent4);}

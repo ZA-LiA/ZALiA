@@ -16,6 +16,7 @@ var _STR1="***********************";
 var _STR2="----------------------------";
 
 repeat(1) sdm("");
+sdm("// ------- AUTOMATED CODE FOR SCENE DIMENSIONS INIT DATA STARTS HERE -------");
 
 var          _AREA_COUNT = ds_list_size(g.dl_AREA_NAME);
 for(_i=0; _i<_AREA_COUNT; _i++)
@@ -74,6 +75,9 @@ for(_i=0; _i<_AREA_COUNT; _i++)
     
     if (_i<_AREA_COUNT-1){repeat(8) sdm("");}
 }
+
+
+sdm("// ------- AUTOMATED CODE FOR SCENE DIMENSIONS INIT DATA ENDS HERE -------");
 
 
 var _exists=variable_instance_exists(id,"_dm_file");
