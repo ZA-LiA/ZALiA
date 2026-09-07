@@ -348,6 +348,7 @@ if (abs(_HORIZONTAL))
                     
                     var _DK    = val(dm_skins[?hex_str(_Skin_IDX)+STR_Datakey], STR_undefined);
                     Skin_image = val(dm_skins[?_DK+STR_Sprite], PCSkin_DEFAULT_SPRITE);
+					Skin_image_Cucco = val(dm_skins[?_DK+STR_Sprite], PCSkin_DEFAULT_SPRITE_CUCCO);
                     
                     var _palette = get_pc_skin_palette(_Skin_IDX);
                     change_pal(strReplaceAt(p.pal_rm_curr, get_pal_pos(global.PI_PC1), string_length(_palette), _palette));

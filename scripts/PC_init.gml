@@ -115,6 +115,7 @@ dm_skins[?STR_Row+STR_Sword +"02"] = $05;
 
 
 PCSkin_DEFAULT_SPRITE = spr_PCSkin_KazunobuShimizu_Link01;
+PCSkin_DEFAULT_SPRITE_CUCCO = spr_PCSkin_KazunobuShimizu_Link01_Cucco;
 PC_init_add_spritesheet(spr_PCSkin_KazunobuShimizu_Link01,               "Link",                "Kazunobu Shimizu");
 PC_init_add_spritesheet(spr_PCSkin_Broomietunes_GamelonZelda01,          "Gamelon Zelda",       "Broomietunes");
 PC_init_add_spritesheet(spr_PCSkin_Broomietunes_MikeJones01,             "Mike Jones",          "Broomietunes");
@@ -172,6 +173,7 @@ PC_init_add_spritesheet(spr_PCSkin_JarachiKid_Shantae01,                 "Shanta
 
 
 Skin_image = PCSkin_DEFAULT_SPRITE;
+Skin_image_cucco = PCSkin_DEFAULT_SPRITE_CUCCO;
 
 
 // Users can add their own PC spritesheets by putting the image file 
