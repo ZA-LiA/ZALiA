@@ -12056,6 +12056,7 @@
     </sprites>
     <sprites name="player_character">
       <sprite>sprites\spr_PCSkin_KazunobuShimizu_Link01</sprite>
+      <sprite>sprites\spr_PCSkin_KazunobuShimizu_Link01_Cucco</sprite>
       <sprite>sprites\spr_PCSkin_4IFalcon_Lonk01</sprite>
       <sprite>sprites\spr_PCSkin_Anarkhya_Stonuckle01</sprite>
       <sprite>sprites\spr_PCSkin_Artisano_DiddyKong01</sprite>
